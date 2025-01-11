@@ -1,0 +1,4390 @@
+---
+layout: default
+title: TechnicalReference_CANdesc_KWP_GM
+nav_order: 14
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>1 / 77 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>CANdesc </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>GM / Opel specifics </p>
+<p>Version 3.2.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Mishel  Shishmanyan;  Christoph  Rätz;  Oliver  Garnatz; </p>
+<p>Matthias  Heil;  Katrin  Thurow;  Vitalij  Krieger;  Patrick </p>
+<p>Rieder </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>2 / 77 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Mishel Shishmanyan </p>
+<p>2002-05-07 </p>
+<p>0.9.0 </p>
+<p>Creation </p>
+<p>Christoph Rätz </p>
+<p>2002-07-31 </p>
+<p>0.9.4 </p>
+<p>Reworked and released </p>
+<p>Mishel Shishmanyan </p>
+<p>2002-12-12 </p>
+<p>1.0.0 </p>
+<p>Added requirements for </p>
+<p>ProgrammingMode (Sid $A5) </p>
+<p>and DeviceControl(Sid $AE) </p>
+<p>Released </p>
+<p>Mishel Shishmanyan </p>
+<p>2003-04-09 </p>
+<p>1.1.0 </p>
+<p>Added default CANdelaStudio </p>
+<p>attribute settings for </p>
+<p>GM/OPEL ECUs </p>
+<p>Oliver Garnatz </p>
+<p>2003-12-19 </p>
+<p>2.0.0 </p>
+<p>Adapted to CANdesc 2.xx.xx </p>
+<p>New Word template used. </p>
+<p>Oliver Garnatz </p>
+<p>2004-05-14 </p>
+<p>2.1.0 </p>
+<p>Replaced AppDesc with </p>
+<p>ApplDesc </p>
+<p>Changed support level of </p>
+<p>‘Security access’ </p>
+<p>Oliver Garnatz, Mishel </p>
+<p>Shishmanyan </p>
+<p>2004-07-15 </p>
+<p>2.2.0 </p>
+<p>Added description of </p>
+<p>CANdesc OBD support </p>
+<p>Mishel Shishmanyan </p>
+<p>2006-05-02 </p>
+<p>2.3.0 </p>
+<p>Added: </p>
+<p>- </p>
+<p>Service </p>
+<p>DynamicallyDefineMe</p>
+<p>ssage ($2C) </p>
+<p>- </p>
+<p>Service </p>
+<p>DefinePIDByAddress </p>
+<p>($2D) </p>
+<p>- </p>
+<p>The PacketHandler </p>
+<p>(another type of </p>
+<p>service processor) </p>
+<p>Modified: </p>
+<p>- </p>
+<p>Cosmetics </p>
+<p>- </p>
+<p>All APIs described in </p>
+<p>detailed table form </p>
+<p>Removed: </p>
+<p>- </p>
+<p>None </p>
+<p>Jason Wolbers </p>
+<p>2006-08-03 </p>
+<p>2.4.0 </p>
+<p>Improved wording </p>
+<p>Mishel Shishmanyan </p>
+<p>2006-10-22 </p>
+<p>2.5.0 </p>
+<p>Added: </p>
+<p>- 5.1 “ECU Address </p>
+<p>configuration” </p>
+<p>Mishel Shishmanyan </p>
+<p>2006-11-03 </p>
+<p>2.6.0 </p>
+<p>Modified: </p>
+<p> - 6.1.2 “Multi address ECU </p>
+<p>(dynamic addressing)” </p>
+<p>Mishel Shishmanyan </p>
+<p>2007-12-14 </p>
+<p>2.7.0 </p>
+<p>Modified: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>3 / 77 </p>
+<p>- 7.3 “Service attributes” </p>
+<p>- 6.6 ”Service </p>
+<p>DisableNormalCommunicatio</p>
+<p>n ($28)” </p>
+<p> </p>
+<p>Removed: </p>
+<p> - 6.1.2 “Multi address ECU </p>
+<p>(dynamic addressing)” – only </p>
+<p>target addresses 0xFE and </p>
+<p>0xFD (for gateways only) are </p>
+<p>accepted by CANdesc. </p>
+<p>Mishel Shishmanyan </p>
+<p>2010-12-21 </p>
+<p>2.8.0 </p>
+<p>Modified: </p>
+<p>- 5.1 ECU Address </p>
+<p>configuration </p>
+<p>Added: </p>
+<p>- 6.5 Service SecurityAccess </p>
+<p>($27) </p>
+<p>Matthias Heil </p>
+<p>2011-04-20 </p>
+<p>3.0.0 </p>
+<p>Modified: </p>
+<p> - Update to new formatting </p>
+<p> - 6.11 Service </p>
+<p>ProgrammingMode ($A5) </p>
+<p>Added: </p>
+<p> - 4.3 Update from earlier </p>
+<p>versions </p>
+<p> - 7.4 State group for the </p>
+<p>Programming Sequence </p>
+<p>Katrin Thurow </p>
+<p>2011-12-16 </p>
+<p>3.1.0 </p>
+<p>Modified: </p>
+<p>- 5.6.3 High speed </p>
+<p>programming mode state </p>
+<p>Vitalij Krieger, Patrick Rieder </p>
+<p>2014-05-15 </p>
+<p>3.2.0 </p>
+<p>Added: </p>
+<p>- 5.5.1 Sending the </p>
+<p>unsolicited response from a </p>
+<p>different channel on a </p>
+<p>dynamic TP </p>
+<p>- 6.6.1 Activate a $28 post-</p>
+<p>handler for the application </p>
+<p> </p>
+<p>Modified: </p>
+<p>- 6.2 Service </p>
+<p>ReadFailureRecordData </p>
+<p>($12) </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>4 / 77 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>5 / 77 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Related documents ..................................................................................................... 10</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Overview ..................................................................................................................... 11</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>CANdesc support by diagnostic service .................................................................. 12</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Important application requirements .......................................................................... 16</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 16</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>DeviceControl ($AE) service requirement ........................................................ 17</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Update from earlier versions ............................................................................ 17</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>GM/Opel specific functionality ................................................................................... 18</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>ECU Address configuration .............................................................................. 18</p>
+<p> </p>
+<p>5.1.1</p>
+<p> </p>
+<p>Gateway ECUs ................................................................................ 18</p>
+<p> </p>
+<p>5.1.2</p>
+<p> </p>
+<p>Virtual network management ............................................................ 18</p>
+<p> </p>
+<p>5.1.3</p>
+<p> </p>
+<p>Diagnostic activity notification .......................................................... 18</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Request validation ........................................................................................... 19</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Timeout events ................................................................................................ 21</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Tester present timeout ...................................................................... 21</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Using the extended negative response ............................................................ 21</p>
+<p> </p>
+<p>5.4.1</p>
+<p> </p>
+<p>Sending an extended negative response during service processing  21</p>
+<p> </p>
+<p>5.4.2</p>
+<p> </p>
+<p>Sending an unsolicited extended negative response ........................ 22</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Sending an unsolicited single frame response ................................................. 23</p>
+<p> </p>
+<p>5.5.1</p>
+<p> </p>
+<p>Sending the unsolicited response from a different channel on a </p>
+<p>dynamic TP ...................................................................................... 24</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>GM/Opel CANdesc state machine access ....................................................... 24</p>
+<p> </p>
+<p>5.6.1</p>
+<p> </p>
+<p>Normal communication state ............................................................ 25</p>
+<p> </p>
+<p>5.6.2</p>
+<p> </p>
+<p>Programming mode state ................................................................. 25</p>
+<p> </p>
+<p>5.6.3</p>
+<p> </p>
+<p>High speed programming mode state .............................................. 26</p>
+<p> </p>
+<p>5.7</p>
+<p> </p>
+<p>The PacketHandler (another type of service processor) ................................... 26</p>
+<p> </p>
+<p>5.7.1</p>
+<p> </p>
+<p>PacketHandler API ........................................................................... 27</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>GM/Opel service implementations ............................................................................ 30</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Service InitiateDiagnosticOperation ($10) ........................................................ 30</p>
+<p> </p>
+<p>6.1.1</p>
+<p> </p>
+<p>Service DisableAllDTCs ($10 $02) ................................................... 30</p>
+<p> </p>
+<p>6.1.2</p>
+<p> </p>
+<p>Service EnableDTCsDuringDeviceControl ($10 $03) ....................... 30</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Service ReadFailureRecordData ($12) ............................................................ 31</p>
+<p> </p>
+<p>6.2.1</p>
+<p> </p>
+<p>Service ReadFailureRecordIdentifiers ($12 $01) .............................. 31</p>
+<p> </p>
+<p>6.2.2</p>
+<p> </p>
+<p>Service ReadFailureRecordParameters ($12 $02) ........................... 32</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>6 / 77 </p>
+<p>6.3</p>
+<p> </p>
+<p>Service ReturnToNormalMode ($20) ................................................................ 32</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>Service ReadDataByParameterIdentifier ($22) ................................................ 33</p>
+<p> </p>
+<p>6.4.1</p>
+<p> </p>
+<p>Reading a dynamically defined PID (Parameter Identifier) ............... 33</p>
+<p> </p>
+<p>6.5</p>
+<p> </p>
+<p>Service SecurityAccess ($27) .......................................................................... 33</p>
+<p> </p>
+<p>6.6</p>
+<p> </p>
+<p>Service DisableNormalCommunication ($28) ................................................... 34</p>
+<p> </p>
+<p>6.6.1</p>
+<p> </p>
+<p>Activate a $28 post-handler for the application ................................. 35</p>
+<p> </p>
+<p>6.7</p>
+<p> </p>
+<p>Service DynamicallyDefineMessage ($2C) ...................................................... 35</p>
+<p> </p>
+<p>6.8</p>
+<p> </p>
+<p>Operations on dynamically definable DPIDs .................................................... 36</p>
+<p> </p>
+<p>6.8.1</p>
+<p> </p>
+<p>Defining a dynamically definable DPID ............................................ 36</p>
+<p> </p>
+<p>6.8.2</p>
+<p> </p>
+<p>Reading a dynamically definable DPID ............................................ 37</p>
+<p> </p>
+<p>6.9</p>
+<p> </p>
+<p>Service DefinePIDByAddress ($2D) ................................................................. 40</p>
+<p> </p>
+<p>6.10</p>
+<p> </p>
+<p>Operations on dynamically definable PIDs ....................................................... 41</p>
+<p> </p>
+<p>6.10.1</p>
+<p> </p>
+<p>Defining a dynamically definable PID ............................................... 41</p>
+<p> </p>
+<p>6.10.2</p>
+<p> </p>
+<p>Reading a dynamically definable PID ............................................... 42</p>
+<p> </p>
+<p>6.11</p>
+<p> </p>
+<p>Service ProgrammingMode ($A5) .................................................................... 48</p>
+<p> </p>
+<p>6.11.1</p>
+<p> </p>
+<p>Allowing programming mode ($A5 $01/$02) .................................... 48</p>
+<p> </p>
+<p>6.11.2</p>
+<p> </p>
+<p>Entering programming mode ($A5 $03) ........................................... 49</p>
+<p> </p>
+<p>6.11.2.1</p>
+<p> </p>
+<p>FBL start on EnterProgrammingMode ($A5 $03) ........... 49</p>
+<p> </p>
+<p>6.11.2.2</p>
+<p> </p>
+<p>FBL start on RequestDownload ($34) ............................ 50</p>
+<p> </p>
+<p>6.11.2.3</p>
+<p> </p>
+<p>Concluding programming mode ..................................... 50</p>
+<p> </p>
+<p>6.11.3</p>
+<p> </p>
+<p>Considerations when upgrading ....................................................... 51</p>
+<p> </p>
+<p>6.12</p>
+<p> </p>
+<p>Service ReadDiagnosticInformation ($A9) ....................................................... 51</p>
+<p> </p>
+<p>6.12.1</p>
+<p> </p>
+<p>ReadStatusOfDTCByNumber ($A9 $80) .......................................... 52</p>
+<p> </p>
+<p>6.12.2</p>
+<p> </p>
+<p>ReadStatusOfDTCByStatusMask ($A9 $81) .................................... 55</p>
+<p> </p>
+<p>6.12.3</p>
+<p> </p>
+<p>SendOnChangeDTCCount ($A9 $82) .............................................. 60</p>
+<p> </p>
+<p>6.13</p>
+<p> </p>
+<p>Service ReadDataByPacketIdentifier ($AA) ..................................................... 64</p>
+<p> </p>
+<p>6.13.1</p>
+<p> </p>
+<p>Handling undefined use cases ......................................................... 65</p>
+<p> </p>
+<p>6.13.1.1</p>
+<p> </p>
+<p>Service $AA handling for undefined dynamically </p>
+<p>definable DPIDs ............................................................. 65</p>
+<p> </p>
+<p>6.13.1.2</p>
+<p> </p>
+<p>Service $AA handling for undefined referenced </p>
+<p>dynamically defined PIDs ............................................... 65</p>
+<p> </p>
+<p>6.13.1.3</p>
+<p> </p>
+<p>Service $AA handling for unaccessible referenced PIDs 65</p>
+<p> </p>
+<p>6.14</p>
+<p> </p>
+<p>Service DeviceControl ($AE) ........................................................................... 65</p>
+<p> </p>
+<p>6.15</p>
+<p> </p>
+<p>Service TesterPresent ($3E) ............................................................................ 66</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>CANdelaStudio default attribute settings ................................................................. 67</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Diagnostic class attributes ............................................................................... 67</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Diagnostic instance attributes .......................................................................... 68</p>
+<p> </p>
+<p>7.3</p>
+<p> </p>
+<p>Service attributes ............................................................................................. 69</p>
+<p> </p>
+<p>7.4</p>
+<p> </p>
+<p>State group for the Programming Sequence .................................................... 72</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>OBD support ............................................................................................................... 73</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>7 / 77 </p>
+<p>8.1</p>
+<p> </p>
+<p>CAN identifiers ................................................................................................. 73</p>
+<p> </p>
+<p>8.2</p>
+<p> </p>
+<p>Restrictions ...................................................................................................... 73</p>
+<p> </p>
+<p>8.3</p>
+<p> </p>
+<p>CANdelaStudio default attribute settings for OBD services .............................. 74</p>
+<p> </p>
+<p>8.3.1</p>
+<p> </p>
+<p>Diagnostic classes ........................................................................... 74</p>
+<p> </p>
+<p>8.4</p>
+<p> </p>
+<p>CANgen configuration ...................................................................................... 74</p>
+<p> </p>
+<p>8.4.1</p>
+<p> </p>
+<p>DBC attribute settings for the OBD request message ....................... 74</p>
+<p> </p>
+<p>8.4.2</p>
+<p> </p>
+<p>CANgen version &lt; 4.15.00 ............................................................... 74</p>
+<p> </p>
+<p>8.4.3</p>
+<p> </p>
+<p>CANgen version ≥ 4.15.00 ............................................................... 74</p>
+<p> </p>
+<p>8.4.4</p>
+<p> </p>
+<p>GENy configuration .......................................................................... 74</p>
+<p> </p>
+<p>8.5</p>
+<p> </p>
+<p>CANdesc configuration (without a Powertrain CANdela template) ................... 75</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Debug assertion codes .............................................................................................. 76</b></p>
+<p> </p>
+<p><b>10</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 77</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>8 / 77 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 1-1</p>
+<p> </p>
+<p>Manuals and References for CANdesc ..................................................... 10</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>Request message logical format ............................................................... 20</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>Example code for transmitting an unsolicited response ............................ 23</p>
+<p> </p>
+<p>Figure 5-3</p>
+<p> </p>
+<p>Asynchronous PacketHandler for current CANdesc versions .................... 28</p>
+<p> </p>
+<p>Figure 5-4</p>
+<p> </p>
+<p>Asynchronous PacketHandler with delayed processing of the first data </p>
+<p>packet ....................................................................................................... 29</p>
+<p> </p>
+<p>Figure 5-5</p>
+<p> </p>
+<p>Asynchronous PacketHandler with dummy response, due to an </p>
+<p>application error while obtaining response data ........................................ 29</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>Dynamically defined DPID service relations .............................................. 36</p>
+<p> </p>
+<p>Figure 6-2</p>
+<p> </p>
+<p>Dynamically definable DPID is not defined ............................................... 37</p>
+<p> </p>
+<p>Figure 6-3</p>
+<p> </p>
+<p>Single referenced PID cannot provide any data ........................................ 38</p>
+<p> </p>
+<p>Figure 6-4</p>
+<p> </p>
+<p>Reading the dynamically defined DPID succeeds ..................................... 39</p>
+<p> </p>
+<p>Figure 6-5</p>
+<p> </p>
+<p>Dynamically definable PID, referenced by the DPID, is not defined .......... 40</p>
+<p> </p>
+<p>Figure 6-6</p>
+<p> </p>
+<p>Dynamically defined PID service relations ................................................ 41</p>
+<p> </p>
+<p>Figure 6-7</p>
+<p> </p>
+<p>Definition of dynamically definable PID with valid parameter .................... 41</p>
+<p> </p>
+<p>Figure 6-8</p>
+<p> </p>
+<p>Defining of a dynamically definable PID failed due to security violation..... 42</p>
+<p> </p>
+<p>Figure 6-9</p>
+<p> </p>
+<p>The dynamically definable PID is not defined............................................ 43</p>
+<p> </p>
+<p>Figure 6-10</p>
+<p> </p>
+<p>Application error when reading the memory block .................................... 44</p>
+<p> </p>
+<p>Figure 6-11</p>
+<p> </p>
+<p>Reading of dynamically defined PID succeeds ......................................... 45</p>
+<p> </p>
+<p>Figure 6-12</p>
+<p> </p>
+<p>Programming mode flowchart ................................................................... 48</p>
+<p> </p>
+<p>Figure 6-13</p>
+<p> </p>
+<p>Request $A9 $80 where the requested fault type combination was found 52</p>
+<p> </p>
+<p>Figure 6-14</p>
+<p> </p>
+<p>Request $A9 $80 where the requested fault type combination was not </p>
+<p>found ........................................................................................................ 53</p>
+<p> </p>
+<p>Figure 6-15</p>
+<p> </p>
+<p>Request $A9 $81 where the application found two DTCs with the </p>
+<p>requested status mask .............................................................................. 56</p>
+<p> </p>
+<p>Figure 6-16</p>
+<p> </p>
+<p>Request $A9 $81 where the application cannot find any DTCs with the </p>
+<p>requested status mask .............................................................................. 57</p>
+<p> </p>
+<p>Figure 6-17</p>
+<p> </p>
+<p>Request $A9 $82 with activation of the background DTC count monitor ... 60</p>
+<p> </p>
+<p>Figure 6-18</p>
+<p> </p>
+<p>Request $A9 $82 with explicit deactivation of the background DTC count </p>
+<p>monitor. ..................................................................................................... 61</p>
+<p> </p>
+<p>Figure 6-19</p>
+<p> </p>
+<p>Request $A9 $82 with deactivation of the background DTC count </p>
+<p>monitor by timeout. ................................................................................... 62</p>
+<p> </p>
+<p>Figure 6-20</p>
+<p> </p>
+<p>PostHandler for “DeviceControl” ($AE) ..................................................... 66</p>
+<p> </p>
+<p>Figure 7-1</p>
+<p> </p>
+<p>CANdelaStudio views ............................................................................... 67</p>
+<p> </p>
+<p>Figure 7-2</p>
+<p> </p>
+<p>Diagnostic Class level attributes ............................................................... 68</p>
+<p> </p>
+<p>Figure 7-3</p>
+<p> </p>
+<p>Diagnostic Instance level attributes ........................................................... 69</p>
+<p> </p>
+<p>Figure 7-4</p>
+<p> </p>
+<p>Service related attributes .......................................................................... 70</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>DescInitPowerOn ...................................................................................... 16</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>DescInit .................................................................................................... 17</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>ApplDescOnDiagActive ............................................................................ 19</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>ApplDescOnDiagInactive .......................................................................... 19</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>DescSetExtNegResponse ........................................................................ 22</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>DescTransmitSingleFrame........................................................................ 24</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>DescGetCommState ................................................................................. 25</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>DescGetProgMode ................................................................................... 26</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>DescGetHiSpeedMode ............................................................................. 26</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>PacketHandler .......................................................................................... 27</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>DescDataPacketProcessingDone ............................................................. 28</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>9 / 77 </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>ApplDescOnDisableAllDtc ........................................................................ 30</p>
+<p> </p>
+<p>Table 6-2 </p>
+<p> </p>
+<p>ApplDescOnEnableDtcChangeDuringDevCntrl ......................................... 31</p>
+<p> </p>
+<p>Table 6-3 </p>
+<p> </p>
+<p>ApplDescOnReturnToNormalMode ........................................................... 32</p>
+<p> </p>
+<p>Table 6-4 </p>
+<p> </p>
+<p>ApplDescOnDisableNormalComm ............................................................ 34</p>
+<p> </p>
+<p>Table 6-5 </p>
+<p> </p>
+<p>ApplDescOnEnableNormalComm ............................................................. 35</p>
+<p> </p>
+<p>Table 6-6</p>
+<p> </p>
+<p>ApplDescPostDisableNormalCommunication ........................................... 35</p>
+<p> </p>
+<p>Table 6-7 </p>
+<p> </p>
+<p>ApplDescCheckDynPidMemoryArea ........................................................ 46</p>
+<p> </p>
+<p>Table 6-8 </p>
+<p> </p>
+<p>ApplDescReadDynPidMemContent .......................................................... 47</p>
+<p> </p>
+<p>Table 6-9 </p>
+<p> </p>
+<p>DescReadDynPidMemContentDone ......................................................... 47</p>
+<p> </p>
+<p>Table 6-10 </p>
+<p> </p>
+<p>ApplDescOnEnterProgMode ..................................................................... 49</p>
+<p> </p>
+<p>Table 6-11 </p>
+<p> </p>
+<p>ApplDescForceEcuReset .......................................................................... 50</p>
+<p> </p>
+<p>Table 6-12 </p>
+<p> </p>
+<p>Service $A9 parallel execution matrix ....................................................... 51</p>
+<p> </p>
+<p>Table 6-13 </p>
+<p> </p>
+<p>ApplDescGetDtcStatusByNumber ............................................................ 54</p>
+<p> </p>
+<p>Table 6-14 </p>
+<p> </p>
+<p>DescRdiDtcStatusByNumberFound .......................................................... 54</p>
+<p> </p>
+<p>Table 6-15 </p>
+<p> </p>
+<p>DescRdiDtcStatusByNumberNotFound .................................................... 55</p>
+<p> </p>
+<p>Table 6-16 </p>
+<p> </p>
+<p>ApplDescGetDtcStatusByMask ................................................................ 58</p>
+<p> </p>
+<p>Table 6-17 </p>
+<p> </p>
+<p>DescRdiDtcStatusByMaskFound .............................................................. 59</p>
+<p> </p>
+<p>Table 6-18 </p>
+<p> </p>
+<p>DescRdiDtcStatusByMaskNotFound ........................................................ 59</p>
+<p> </p>
+<p>Table 6-19 </p>
+<p> </p>
+<p>ApplDescEnableOnChangeDtcCount ....................................................... 63</p>
+<p> </p>
+<p>Table 6-20 </p>
+<p> </p>
+<p>ApplDescDisableOnChangeDtcCount ...................................................... 63</p>
+<p> </p>
+<p>Table 6-21 </p>
+<p> </p>
+<p>DescRdiOnDtcCountChanged .................................................................. 64</p>
+<p> </p>
+<p>Table 6-22 </p>
+<p> </p>
+<p>DescRdiDeactivateOnChangeDtcCount ................................................... 64</p>
+<p> </p>
+<p>Table 6-23 </p>
+<p> </p>
+<p>DescActivateS1Timer ............................................................................... 66</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Default ‘Diagnostic Class’ attribute settings .............................................. 68</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Default ‘Diagnostic instance’ attribute settings .......................................... 69</p>
+<p> </p>
+<p>Table 7-3 </p>
+<p> </p>
+<p>Default ‘Service’ attribute settings ............................................................. 71</p>
+<p> </p>
+<p>Table 7-4 </p>
+<p> </p>
+<p>Programming Sequence state group ........................................................ 72</p>
+<p> </p>
+<p>Table 8-1 </p>
+<p> </p>
+<p>Diagnostic class specific attributes ........................................................... 74</p>
+<p> </p>
+<p>Table 9-1 </p>
+<p> </p>
+<p>Debug assertion codes ............................................................................. 76</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>10 / 77 </p>
+<p><b>1 </b></p>
+<p><b>Related documents </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Technical Reference CANdesc  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>User Manual CANdesc </p>
+<p> </p>
+<p> </p>
+<p>Figure 1-1 </p>
+<p>Manuals and References for CANdesc </p>
+<p>All GM/Opel specific CANdesc topics are described within this technical reference. Topics </p>
+<p>which  are  common  to  all  OEMs  (e.g.  features,  concepts)  are  located  in  the  general </p>
+<p>technical reference document “TechnicalReference_CANdesc”.  </p>
+<p>For faster integration, please refer to the user manual document “UserManual_CANdesc”. </p>
+<p><b>User Manual</b></p>
+<p><b>Technical</b></p>
+<p><b>Reference</b></p>
+<p><b>General</b></p>
+<p><b>Technical</b></p>
+<p><b>Reference</b></p>
+<p><b>OEM</b></p>
+<p><b>You are here</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>11 / 77 </p>
+<p><b>2 </b></p>
+<p><b>Overview </b></p>
+<p>The  GM/Opel  version  of  CANdesc  uses  an  internal  implementation  to  handle  many </p>
+<p>diagnostic  tasks.  Many  of  these  tasks  are  realized  through  generated  code  (constants, </p>
+<p>state count, etc.) which gives more flexibility to the application in case of specification or </p>
+<p>variant changes. On the other hand, there are “built-in” diagnostic service implementations </p>
+<p>which </p>
+<p>can </p>
+<p>free </p>
+<p>the </p>
+<p>application </p>
+<p>from </p>
+<p>some </p>
+<p>very </p>
+<p>complex </p>
+<p>tasks </p>
+<p>(e.g. </p>
+<p>ReadDiagnosticInformation  (SID  $A9),  ReadDataByPacketIdentifier  (SID  $AA),  etc.)  and </p>
+<p>hide all of the underlying functionality under a simple signal interface for the application. In </p>
+<p>addition, CANdesc also handles certain GM/Opel specific management functionality (e.g. </p>
+<p>virtual networks) in order to fully comply with GM/Opel diagnostic specifications. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>12 / 77 </p>
+<p><b>3 </b></p>
+<p><b>CANdesc support by diagnostic service </b></p>
+<p>CANdesc  provides  three  possible  levels  of  support  independently  for  each  diagnostic </p>
+<p>service – complete, assisted, or basic. The level of support varies according to CANdesc </p>
+<p>capability </p>
+<p>and </p>
+<p>user </p>
+<p>selection </p>
+<p>in </p>
+<p>CANdelaStudio. </p>
+<p>All </p>
+<p>three </p>
+<p>levels </p>
+<p>of </p>
+<p>support  provide </p>
+<p>complete  communication  handling  (including  all  transport  protocol  processing  and  error </p>
+<p>handling), diagnostic session and timer management, and basic error checking.  </p>
+<p>Communication handling not only includes testing support of service, but also consistency </p>
+<p>of  service,  sub-function  and/or  identifier  combination.  A  validity  check  of  the  addressing </p>
+<p>method and data length is performed. Parallel requests are managed (SID $3E, $AA, and </p>
+<p>$A9)  when  allowed.  As  error  handling  is  a  significant  part  of  any  ECU  software,  all  low </p>
+<p>level </p>
+<p>errors </p>
+<p>are </p>
+<p>handled </p>
+<p>internally </p>
+<p>by </p>
+<p>CANdesc. </p>
+<p>Finally, </p>
+<p>CANdesc </p>
+<p>assists </p>
+<p>with </p>
+<p>the </p>
+<p>connection  to  GMLAN  (e.g.  supervision  and  management  of  the  VN  timer,  message </p>
+<p>transmission mode, bus speed switching, etc.). </p>
+<p><b>Complete </b></p>
+<p>Complete support means that CANdesc is capable of handling the diagnostic transaction </p>
+<p>without  requesting  support  from  the  ECU  application.  The  ECU  developer  need  not </p>
+<p>provide </p>
+<p>any </p>
+<p>code </p>
+<p>to </p>
+<p>help </p>
+<p>implement </p>
+<p>the </p>
+<p>diagnostic </p>
+<p>feature; </p>
+<p>CANdesc </p>
+<p>handles </p>
+<p>all </p>
+<p>processing.  In  the  case  where  diagnostic  messages  contain  real-time  data,  or “signals”, </p>
+<p>CANdesc can map that data to global variables in the ECU application and read/write the </p>
+<p>values  directly  to/from  RAM  without  calling  any  ECU  application  callbacks;  the  ECU </p>
+<p>developer does  not  have  to  concern  himself  with  the  protocol  level  implementation.  If  a </p>
+<p>service  modifies  a  diagnostic  state  group,  CANdesc  notifies  the  application  using  a </p>
+<p>callback function. </p>
+<p><b>Assisted </b></p>
+<p>Assisted support means that CANdesc is capable of fully parsing request messages and </p>
+<p>building response messages, but it does not contain the logic necessary to execute the </p>
+<p>request </p>
+<p>or </p>
+<p>determine </p>
+<p>data </p>
+<p>values. </p>
+<p>The </p>
+<p>ECU </p>
+<p>developer </p>
+<p>must </p>
+<p>provide </p>
+<p>callbacks </p>
+<p>for </p>
+<p>CANdesc to fill these logic gaps, which typically come in the form of calculating a signal </p>
+<p>value, controlling an I/O port, or perhaps executing an ECU-specific feature such as a self-</p>
+<p>test or EEPROM access routine. </p>
+<p><b>Basic </b></p>
+<p>Basic support means that CANdesc is only capable of identifying that the ECU application </p>
+<p>must process the request. The ECU application may have to provide logic to validate the </p>
+<p>request message and build the response byte-by-byte. This level of support is only used </p>
+<p>where code generation is not practical or supported. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>13 / 77 </p>
+<p><b>RequestCurrentDiagnosticData ($01) – Assisted </b></p>
+<p>The  application  must  implement  only  the  handling  of  this  service  (no  request  length </p>
+<p>validation).  </p>
+<p><b>RequestFreezeFrameData ($02) – Assisted </b></p>
+<p>The  application  must  implement  only  the  handling  of  this  service  (no  request  length </p>
+<p>validation). </p>
+<p><b>RequestEmissionRelatedDTC ($03) – Assisted </b></p>
+<p>The  application  must  implement  only  the  handling  of  this  service  (no  request  length </p>
+<p>validation). </p>
+<p><b>ClearDiagnosticInformation ($04) – Assisted </b></p>
+<p>The application must provide a function that clears fault memory.  </p>
+<p><b>RequestTestResultsForNonContinouslyMonitoredSystems ($06) – Assisted </b></p>
+<p>The  application  must  implement  only  the  handling  of  this  service  (no  request  length </p>
+<p>validation). </p>
+<p><b>RequestTestResultsForContinouslyMonitoredSystems ($07) – Assisted </b></p>
+<p>The  application  must  implement  only  the  handling  of  this  service  (no  request  length </p>
+<p>validation). </p>
+<p><b>RequestControlOfOnBoardSystemTestOrComponent ($08) – Assisted </b></p>
+<p>The  application  must  implement  only  the  handling  of  this  service  (no  request  length </p>
+<p>validation when the request data length is a constant value). </p>
+<p><b>RequestVehicleInformation ($09) – Assisted </b></p>
+<p>The  application  must  implement  only  the  handling  of  this  service  (no  request  length </p>
+<p>validation). </p>
+<p><b>InitiateDiagnosticOperation ($10) – Assisted </b></p>
+<p>The  application  must  provide  a  function  that  implements  the  logic  to  enable/disable  the </p>
+<p>settings of DTCs. </p>
+<p><b>ReadFailureRecordData ($12) – Basic </b></p>
+<p>The application must provide a function that implements the request parsing (validation) </p>
+<p>and the logic to report the failure record data. </p>
+<p><b>ReadDataByIdentifier ($1A) – Complete </b></p>
+<p>CANdesc </p>
+<p>completely </p>
+<p>implements </p>
+<p>this </p>
+<p>service </p>
+<p>for </p>
+<p>DIDs </p>
+<p>whose </p>
+<p>data  maps </p>
+<p>to </p>
+<p>global </p>
+<p>variables.  Assisted  support  is  provided  for  DIDs  whose  data  does  not  map  to  global </p>
+<p>variables. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>14 / 77 </p>
+<p><b>ReturnToNormalMode ($20) – Complete </b></p>
+<p>The application must provide an implementation for the event-based callbacks triggered by </p>
+<p>this service. </p>
+<p><b>ReadDataByParameterIdentifier ($22) – Complete </b></p>
+<p>CANdesc </p>
+<p>completely </p>
+<p>implements </p>
+<p>this </p>
+<p>service </p>
+<p>for </p>
+<p>PIDs </p>
+<p>whose </p>
+<p>data </p>
+<p>maps </p>
+<p>to </p>
+<p>global </p>
+<p>variables.  Assisted  support  is  provided  for  PIDs  whose  data  does  not  map  to  global </p>
+<p>variables. In any case, multiple PID handling (in a single request) is handled internally by </p>
+<p>CANdesc. </p>
+<p><b>ReadMemoryByAddress ($23) – Basic </b></p>
+<p>The application must provide a function to determine if the requested address is valid and </p>
+<p>a function to return the data stored at the requested address. </p>
+<p><b>SecurityAccess ($27) – Basic </b></p>
+<p>The application must provide functions, which implement the security access mechanism. </p>
+<p>By  utilizing  a  diagnostic  state  group,  CANdesc  can  track  the  current  security  level  and </p>
+<p>assist the application in determining if a request is allowed at the given time. </p>
+<p><b>DisableNormalCommunication ($28) – Complete </b></p>
+<p>CANdesc completely implements this service. </p>
+<p><b>DynamicallyDefineMessage ($2C) – Complete </b></p>
+<p>CANdesc completely implements this service. </p>
+<p><b>DefinePIDByAddress ($2D) – Complete </b></p>
+<p>CANdesc completely implements this service. </p>
+<p><b>RequestDownload ($34) – Basic </b></p>
+<p>The application must implement this service. </p>
+<p><b>TransferData ($36) – Basic </b></p>
+<p>The application must implement this service. </p>
+<p><b>WriteDataByIdentifier ($3B) – Complete </b></p>
+<p>CANdesc </p>
+<p>completely </p>
+<p>implements </p>
+<p>this </p>
+<p>service </p>
+<p>for </p>
+<p>DIDs </p>
+<p>whose </p>
+<p>data  maps </p>
+<p>to </p>
+<p>global </p>
+<p>variables.  Assisted  support  is  provided  for  DIDs  whose  data  does  not  map  to  global </p>
+<p>variables. </p>
+<p><b>TesterPresent ($3E) – Complete </b></p>
+<p>CANdesc completely implements this service. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>15 / 77 </p>
+<p><b>ReportProgrammedState ($A2) – Complete </b></p>
+<p>CANdesc  completely  implements  this  service  if  the  programmed  state  maps  to  a  global </p>
+<p>variable. Assisted support is provided if the programmed state does not map to a global </p>
+<p>variable. </p>
+<p><b>ProgrammingMode ($A5) – Assisted  </b></p>
+<p>The application must only provide functions that implement programming mode requests. </p>
+<p>CANdesc performs state checking internally. </p>
+<p><b>ReadDiagnosticInformation ($A9) – Assisted </b></p>
+<p>The application must provide functions that read fault memory and construct the response </p>
+<p>messages byte-by-byte. The application must provide functions to retrieve the number of </p>
+<p>fault  codes  and  to  step  through  the  list  of  fault  codes  matching  the  requested  mask. </p>
+<p>Moreover,  it  has  to  detect  a  change  in  the  number  of  DTCs.  CANdesc  handles  the </p>
+<p>scheduler internally. </p>
+<p><b>ReadDataByPacketIdentifier ($AA) – Complete </b></p>
+<p>CANdesc  completely  implements  this  service  for  DPIDs  whose  data  maps  to  global </p>
+<p>variables.  Assisted  support  is  provided  for  DPIDs  whose  data  does  not  map  to  global </p>
+<p>variables. The scheduler is handled internally by CANdesc. </p>
+<p><b>DeviceControl ($AE) – Assisted </b></p>
+<p>The </p>
+<p>application </p>
+<p>must </p>
+<p>provide </p>
+<p>device-specific </p>
+<p>functions </p>
+<p>that </p>
+<p>implement </p>
+<p>the </p>
+<p>control </p>
+<p>algorithms. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Diagnostic services other than those listed above are not supported by CANdesc in any </p>
+<p>way and must be implemented entirely by the ECU developer as a workaround. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>16 / 77 </p>
+<p><b>4 </b></p>
+<p><b>Important application requirements </b></p>
+<p><b>4.1 </b></p>
+<p><b>Initialization </b></p>
+<p>In  order  to  initialize  the  GM/Opel  CANdesc  component,  the  application  must  call  the </p>
+<p>following function: </p>
+<p><b>Prototype </b></p>
+<p>void <b>DescInitPowerOn </b>(DescInitParam initParameter) </p>
+<p><b>Parameter </b></p>
+<p>initParameter</p>
+<p> </p>
+<p>Initialization parameter </p>
+<p>(recommended: ‘kDescPowerOnInitParam’) </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Power-on initialization of the CANdesc component.  </p>
+<p>The application must call this function once after power-on, before all other CANdesc functions. </p>
+<p> </p>
+<p>The GM/Opel version of CANdesc has no special behavior for initialization; therefore, the initialization </p>
+<p>function can be called with any parameter value. Even so, it is recommended that the ECU developer use </p>
+<p>‘kDescPowerOnInitParam’ for the parameter value. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  DescInitPowerOn (initParameter) must be called after TpInitPowerOn() (please refer to the transport </p>
+<p>protocol documentation) or any reserved diagnostic connection will be lost. </p>
+<p></p>
+<p>  DescInitPowerOn (initParameter) calls DescInit() internally for further initializations </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level with global interrupts disabled  </p>
+<p>Table 4-1  </p>
+<p>DescInitPowerOn </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void </p>
+<p><b>DescInit</b></p>
+<p> (DescInitParam initParameter) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>17 / 77 </p>
+<p><b>Parameter </b></p>
+<p>initParameter</p>
+<p> </p>
+<p>Initialization parameter </p>
+<p>(recommended: ‘kDescPowerOnInitParam’) </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Re-initializes the CANdesc component. </p>
+<p>The application can call this function to re-initialize CANdesc (e.g. after wakeup). All internal states will be </p>
+<p>set to their default values. </p>
+<p> </p>
+<p>The GM/Opel version of CANdesc has no special behavior for initialization; therefore, the initialization </p>
+<p>function can be called with any parameter value. Even so, it is recommended that the ECU developer use </p>
+<p>‘kDescPowerOnInitParam’ for the parameter value. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  The application has already initialized CANdesc once by calling <b>DescInitPowerOn() </b></p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level with global interrupts disabled </p>
+<p>Table 4-2  </p>
+<p>DescInit </p>
+<p><b>4.2 </b></p>
+<p><b>DeviceControl ($AE) service requirement </b></p>
+<p>The GM/Opel diagnostic specification requires that device control activity shall be limited </p>
+<p>by tester present timeout.  </p>
+<p>Please refer to the section <i>Service DeviceControl ($AE) </i>for more details. </p>
+<p><b>4.3 </b></p>
+<p><b>Update from earlier versions </b></p>
+<p>The  behavior  of  the  CANdesc  embedded  module  has  not  changed  fundamentally  in </p>
+<p>CANdesc  version  6.x,  but  the  configuration  is  much  more  independent  from  the  CDD </p>
+<p>settings. Many options that were previously only configurable as attributes in the CDD file </p>
+<p>are now available for configuration in the GENy configuration tool. </p>
+<p>As part of this change, the naming scheme for service callbacks is now more independent </p>
+<p>from the CDD contents and more adherent to the GMW3110 specification. This will require </p>
+<p>modification of existing application code to fit the new naming scheme. </p>
+<p>In addition, the implementation of mode $A5 was changed to use the standard CANdesc </p>
+<p>state  management  feature.  You  can  now  easily  have  service  execution  depend  on  the </p>
+<p>reprogramming sequence, e.g. prevent a service from executing while programming mode </p>
+<p>is  active.  Please  also  refer  to  chapter <i> 6.11  -  Service  ProgrammingMode  ($A5) </i> for  more </p>
+<p>information. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>18 / 77 </p>
+<p><b>5 </b></p>
+<p><b>GM/Opel specific functionality  </b></p>
+<p><b>5.1 </b></p>
+<p><b>ECU Address configuration </b></p>
+<p>GM/Opel </p>
+<p>use </p>
+<p>extended </p>
+<p>addressing </p>
+<p>for </p>
+<p>the </p>
+<p>functional </p>
+<p>request </p>
+<p>message. </p>
+<p>By </p>
+<p>default, </p>
+<p>CANdesc  will  accept  any  request  with  target  address  0xFE.  There  are  some  other  use </p>
+<p>cases that are considered to be supported with the help of user configuration files (refer </p>
+<p>the “<i>TechnicalReference_CANdesc.pdf</i>” for configuration details). </p>
+<p><b>5.1.1 </b></p>
+<p><b>Gateway ECUs </b></p>
+<p>According to the GMW3110 v1.6, gateways shall be accessible also via the special target </p>
+<p>address  0xFD.  To  enable  the  reception  on  this  address,  please  insert  into  your  user </p>
+<p>configuration file for CANdesc the following definition: </p>
+<p>#define DESC_ENABLE_GW_ECU_ADDR</p>
+<p>  </p>
+<p><b>5.1.2 </b></p>
+<p><b>Virtual network management </b></p>
+<p>A </p>
+<p>GMLAN/IVLAN </p>
+<p>specific </p>
+<p>implementation </p>
+<p>is </p>
+<p>built </p>
+<p>into </p>
+<p>CANdesc, </p>
+<p>which </p>
+<p>completely </p>
+<p>integrates </p>
+<p>CANdesc </p>
+<p>into </p>
+<p>a  GM/Opel </p>
+<p>project. </p>
+<p>CANdesc  manages </p>
+<p>all </p>
+<p>aspects </p>
+<p>of </p>
+<p>the </p>
+<p>diagnostics VN, including activation of the VN in the GMLAN handler and then deactivation </p>
+<p>of the VN after diagnostic inactivity (e.g. missing tester) as described in GMW-3110.  </p>
+<p>When the first diagnostic request is received, CANdesc will activate the diagnostics VN to </p>
+<p>provide communication capability with the tester. The VN is then automatically deactivated </p>
+<p>under the following conditions: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>8 seconds after the diagnostic request “ReturnToNormalMode” ($20) is received </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>8 seconds after the tester present timeout </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>8 seconds after the last response is sent, or in the case of requests that do not send a </p>
+<p>response, 8 seconds after the request is completely processed </p>
+<p><b>5.1.3 </b></p>
+<p><b>Diagnostic activity notification </b></p>
+<p>CANdesc notifies the application via a callback function when a diagnostic session begins </p>
+<p>(the first diagnostic request) and when it ends (the deactivation conditions listed above). </p>
+<p>These callbacks are listed below. </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescOnDiagActive </b>(void) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>19 / 77 </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>When the first diagnostic request (after ECU power-on or wakeup) is received, regardless of the addressing </p>
+<p>method, CANdesc calls this function to notify the application that ECU diagnostics are now active (so that </p>
+<p>the application can begin diagnostic specific tasks, for instance). </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  None </p>
+<p>Call context </p>
+<p></p>
+<p>  Interrupt context, if the CAN-driver is configured to handle receive messages in interrupt mode  </p>
+<p></p>
+<p>  Background-loop level task context, if the CAN-driver is configured to handle receive messages in </p>
+<p>polling mode </p>
+<p>Table 5-1  </p>
+<p>ApplDescOnDiagActive </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescOnDiagInactive </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the conditions for deactivating the diagnostics VN are met (i.e. the diagnostics VN timer reaches </p>
+<p>zero), CANdesc calls this function to notify the application that ECU diagnostics are no longer active (so </p>
+<p>that the application can end diagnostic specific tasks to lower CPU utilization, for instance). </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  None </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of <b>DescTimerTask()</b>. </p>
+<p>Table 5-2  </p>
+<p>ApplDescOnDiagInactive </p>
+<p><b>5.2 </b></p>
+<p><b>Request validation </b></p>
+<p>The </p>
+<p>GM/Opel </p>
+<p>version </p>
+<p>of </p>
+<p>CANdesc </p>
+<p>is </p>
+<p>capable </p>
+<p>of </p>
+<p>performing </p>
+<p>the </p>
+<p>following </p>
+<p>request </p>
+<p>validations: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Is the designed diagnostic buffer big enough to hold the whole request? If the request is </p>
+<p>physically addressed, the GM/Opel CANdesc implementation will accept it even if the </p>
+<p>length is greater than the defined buffer and let the “request length validation” routine </p>
+<p>handle the situation. If the request is functionally addressed and the length is greater </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>20 / 77 </p>
+<p>than the defined buffer, it will be ignored (regardless of whether it would normally send a </p>
+<p>response).  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Is the requested SID supported? If the SID is not relevant for the ECU, CANdesc will </p>
+<p>automatically send a negative response with error code “ServiceNotSupported” ($11). </p>
+<p>Further processing will be aborted. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Is the request addressing method for the SID correct? Two cases are possible: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The requested SID normally provides a response (as defined in CANdelaStudio). In </p>
+<p>this case, CANdesc will send a negative response with error code </p>
+<p>“ConditionsNotCorrect” ($22). Further processing will be aborted. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The requested SID normally does not provide a response (as defined in </p>
+<p>CANdelaStudio). In this case, the request will be ignored. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Does the request meet the minimum required length (to be distinguishable from other </p>
+<p>instances)? Each request is formatted as shown in the figure below: </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-1 </p>
+<p>Request message logical format </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>In order to process the request further, the service instance must be found (which </p>
+<p>provides more detailed information about the request than the SID alone); therefore, </p>
+<p>the request must be at least n + 1 bytes in length, where n is service dependent. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>If the length is less than the minimum allowed (as defined in CANdelaStudio), </p>
+<p>CANdesc will send a negative response with error code </p>
+<p>“SubfunctionNotSupportedInvalidFormat” ($12). Further processing will be aborted. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Is the requested service instance supported by the ECU? If not, CANdesc will send a </p>
+<p>negative response with error code “SubfunctionNotSupportedInvalidFormat” ($12). </p>
+<p>Further processing will be aborted. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Is the total request length correct? Two cases are possible: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The request length is dynamic. In this case, no automated check can be performed, </p>
+<p>and the task will be left to the application. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The request length is fixed. In this case, CANdesc will check if the current request </p>
+<p>length matches the expected length (as defined in CANdelaStudio). If not, a </p>
+<p>negative response with error code “SubfunctionNotSupportedInvalidFormat” ($12) </p>
+<p>will be sent. Further processing will be aborted. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Does the requested service instance have a defined pre-handler function (please refer </p>
+<p>to the user manual CANdesc document “UserManual_CANdesc” for more details about </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>21 / 77 </p>
+<p>pre-handlers)? If so, it will be called. This allows the application to extend the built-in </p>
+<p>validation with additional custom checks. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>If the request passes all of the above validation checks, the main-handler is called </p>
+<p>(please refer to the user manual CANdesc for more details about main-handlers) for </p>
+<p>further processing. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>5.3 </b></p>
+<p><b>Timeout events </b></p>
+<p><b>5.3.1 </b></p>
+<p><b>Tester present timeout </b></p>
+<p>Once  the  tester  present  timer  has  been  activated,  the  tester  must  send  the  diagnostic </p>
+<p>service “Tester Present” ($3E) periodically in order to keep the timer running. </p>
+<p>In  case  of  a timeout, the diagnostic  state  will  be  initialized  exactly  the  same as <i> Service </i></p>
+<p><i>ReturnToNormalMode ($20)</i>.  </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>CANdesc will automatically send an unsolicited positive response for the </p>
+<p>“ReturnToNormalMode” ($20) diagnostic service (see section <i>5.5 Sending an </i></p>
+<p><i>unsolicited single frame response</i>). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>5.4 </b></p>
+<p><b>Using the extended negative response </b></p>
+<p>The  GM/Opel  version  of  CANdesc  supports  the  extended  negative  response  format  to </p>
+<p>specify service faults more precisely. This response has the following format: </p>
+<p><b>$7F $AE $E3 $xx $yy (DeviceControlLimitsExceeded) </b></p>
+<p>where  $xx  and  $yy  are  the  extended  failure  codes  (as  defined  in  an  ECU  specific </p>
+<p>diagnostic specification). </p>
+<p>There are two possible ways to send an extended negative response: </p>
+<p><b>5.4.1 </b></p>
+<p><b>Sending an extended negative response during service processing </b></p>
+<p>If  the application  is currently  processing  a  request  which  requires  an  extended  negative </p>
+<p>response, the  standard function <b> DescSetNegResponse(errorCode) </b> (please  refer to the </p>
+<p>general  technical  reference  document  “TechnicalReference_CANdesc”  for  more  details) </p>
+<p>cannot be used. Instead, the following function is defined: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>22 / 77 </p>
+<p><b>Prototype </b></p>
+<p>Single Context </p>
+<p>void <b>DescSetExtNegResponse </b>(DescNegResCode errorCode,  </p>
+<p>                            DescExtNegResCode  extErrorCode) </p>
+<p>Multi Context </p>
+<p>void <b>DescSetExtNegResponse </b>(vuint8 iContext,  </p>
+<p>                            DescNegResCode errorCode,  </p>
+<p>                            DescExtNegResCode  extErrorCode) </p>
+<p><b>Parameter </b></p>
+<p>iContext</p>
+<p> </p>
+<p>Reference to the corresponding request context </p>
+<p>errorCode </p>
+<p>One of the error code constants defined by CANdesc (located in the </p>
+<p>generated desc.h file) with the following naming convention: </p>
+<p><b>kDescNrc&lt;error name&gt;</b>. </p>
+<p>Normally, only error code 0xE3 is used. </p>
+<p>extErrorCode </p>
+<p>A two byte value which is ECU/use-case dependent </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>In the pre-handler or main-handler callback, the application can call this function to send an extended </p>
+<p>negative response. </p>
+<p>Normally, this extended negative response is only useful for service $AE, but the function may be used for </p>
+<p>any currently active service (prior to calling <b>DescProcessingDone()</b>). </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  The application must already have initialized CANdesc by calling <b>DescInitPowerOn() </b></p>
+<p></p>
+<p>  The define DESC_ENABLE_EXT_NEG_RES_CODE_HANDLING must exist in the generated code </p>
+<p></p>
+<p>  Once an error code has been set it cannot be overwritten or reset.  </p>
+<p></p>
+<p>  This function does not finish the processing of the request. The application must confirm that the </p>
+<p>request processing is completely finished by calling <b>DescProcessingDone()</b>. </p>
+<p>Call context </p>
+<p></p>
+<p>  Within a service pre-handler callback and within or after a service main-handler callback </p>
+<p>Table 5-3  </p>
+<p>DescSetExtNegResponse </p>
+<p><b>5.4.2 </b></p>
+<p><b>Sending an unsolicited extended negative response </b></p>
+<p>If the application is not currently processing a request but an extended negative response </p>
+<p>must be sent, the function above cannot be used. Instead, a generic API for transmitting </p>
+<p>an  unsolicited  response  can  be  used.  In  this  case,  the  application  must  compose  the </p>
+<p>response message on its own. The following is an example using the format description </p>
+<p>from the beginning of section 6.4: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>23 / 77 </p>
+<p> </p>
+<p>Figure 5-2 </p>
+<p>Example code for transmitting an unsolicited response </p>
+<p><b>5.5 </b></p>
+<p><b>Sending an unsolicited single frame response </b></p>
+<p>If  service  “DeviceControl”  ($AE)  has  been  activated  and  the  application  detects  that </p>
+<p>conditions </p>
+<p>have </p>
+<p>changed </p>
+<p>detrimentally </p>
+<p>(e.g. </p>
+<p>they </p>
+<p>are </p>
+<p>“out </p>
+<p>of </p>
+<p>limits”) </p>
+<p>since </p>
+<p>service </p>
+<p>activation, GM/Opel requires that an unsolicited extended negative response shall be sent </p>
+<p>by  the  ECU.  To  accomplish  this,  the  following  API  is  provided  which  allows  the  ECU </p>
+<p>developer to  send  any  single  frame  message  using  the  physically  addressed  diagnostic </p>
+<p>response  CAN  ID.  This API  is  not  just  a  simple  “re-transmitter”,  calling  the TP  with  the </p>
+<p>application </p>
+<p>data, </p>
+<p>but </p>
+<p>it </p>
+<p>also </p>
+<p>synchronizes </p>
+<p>the </p>
+<p>request </p>
+<p>with </p>
+<p>the </p>
+<p>current </p>
+<p>CANdesc </p>
+<p>reception/transmission state machine: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>If CANdesc is currently receiving a request, the unsolicited response will be delayed </p>
+<p>until the reception finishes (either with success or failure). </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>If CANdesc is currently transmitting a response, the unsolicited response will be delay </p>
+<p>until the transmission finishes (either with success or failure). </p>
+<p>See Table 5-4  DescTransmitSingleFrame for the API description. </p>
+<p><b>Prototype </b></p>
+<p>void <b>DescTransmitSingleFrame</b>(DescMsg resData, vuint8 resLen) </p>
+<p><b>Parameter </b></p>
+<p>resData </p>
+<p>Pointer to the application data </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>24 / 77 </p>
+<p>resLen</p>
+<p> </p>
+<p>The length of the data (in bytes) to be sent </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by CANdesc to send the unsolicited positive response on a tester present timeout or </p>
+<p>by the application to send an unsolicited extended negative response. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  The application must already have initialized CANdesc by calling <b>DescInitPowerOn(). </b></p>
+<p></p>
+<p>  The data pointed to by </p>
+<p>resData</p>
+<p> is not cached (copied to another buffer) by CANdesc, so the ECU </p>
+<p>developer should be careful not to use automatic variable references (non-static function local </p>
+<p>variables). </p>
+<p></p>
+<p>  The length of the data may not exceed the transport layer single frame length (seven bytes in the case </p>
+<p>of normal addressing and six bytes in the case of extended addressing). </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context </p>
+<p>Table 5-4  </p>
+<p>DescTransmitSingleFrame </p>
+<p><b>5.5.1 </b></p>
+<p><b>Sending the unsolicited response from a different channel on a dynamic TP </b></p>
+<p>In case of a static TP (Transport Protocol) CANdesc sends the unsolicited response on the </p>
+<p>logical CAN channel CANdesc is configured to run. However, in case of a dynamic TP with </p>
+<p>multiple channels configured it’s necessary to define the logical CAN channel on which the </p>
+<p>unsolicited  response  should  be  sent.  By  default,  CANdesc  will  send  the  unsolicited </p>
+<p>response on the lowest logical CAN channel. Still it’s possible that CANdesc doesn’t run </p>
+<p>on  the  lowest  logical  CAN  channel.  If  that  is  the  case,  it’s  necessary  to  configure  the </p>
+<p>channel on which the unsolicited response should be sent. You can configure the channel </p>
+<p>with a user configuration file in GENy with the following content: </p>
+<p> </p>
+<p>#define kDescOemSpontanResComChannel  &lt;channel&gt; </p>
+<p>Please replace &lt;channel&gt; with the number of the channel the unsolicited response should </p>
+<p>be sent on. The value must be in the range [0..(Number of logical channels – 1)].</p>
+<p> </p>
+<p><b>5.6 </b></p>
+<p><b>GM/Opel CANdesc state machine access </b></p>
+<p>The  states  relevant  to  the  programming  sequence  are  modeled  as  a  normal  CANdesc </p>
+<p>state group. This also enables all the usual state group related callbacks and functions for </p>
+<p>transition  notification,  access  to  the  current  state,  and  a  function  to  modify  the  current </p>
+<p>state. For naming convention and an API description, please refer to the general CANdesc </p>
+<p>technical reference. </p>
+<p>The  state  group  and  its  states’  names  have  been  fixed  to  provide  a  consistent  API </p>
+<p>independent from the configuration. Normally the names would depend on the settings in </p>
+<p>the CDD file. Please refer to <i>Table 7-4  Programming  Sequence  state  group </i> for  the  exact </p>
+<p>names. </p>
+<p>For compatibility reasons CANdesc still provides the API described in this chapter although </p>
+<p>they be replaced by the state machine API. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>25 / 77 </p>
+<p><b>5.6.1 </b></p>
+<p><b>Normal communication state </b></p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>vuint8 <b>DescGetCommState </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>kDescCommDisabled </p>
+<p>Normal message transmission is deactivated </p>
+<p>kDescCommEnabled </p>
+<p>Normal message transmission is activated </p>
+<p><b>Functional Description </b></p>
+<p>The application can call this function at any time to obtain the current transmission state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  The application must already have initialized CANdesc by calling <b>DescInitPowerOn()</b>. </p>
+<p></p>
+<p>  The same information can be retrieved using <b>DescGetStateProgrammingMode ()</b>. </p>
+<p></p>
+<p>  State information updates <b>after </b>any post-handler of mode $28. </p>
+<p>Call context </p>
+<p></p>
+<p>  Any </p>
+<p>Table 5-5  </p>
+<p>DescGetCommState </p>
+<p><b>5.6.2 </b></p>
+<p><b>Programming mode state </b></p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>vuint8 <b>DescGetProgMode </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>kDescProgModeIdle </p>
+<p>No enter programming mode request up to now </p>
+<p>kDescProgModeAccepted </p>
+<p>Enter programming mode accepted (but not active yet) </p>
+<p>kDescProgModeActive </p>
+<p>Enter programming mode sequence complete </p>
+<p><b>Functional Description </b></p>
+<p>The application can call this function at any time to read the “enter programming mode” sequence state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  The application must already have initialized CANdesc by calling <b>DescInitPowerOn()</b>. </p>
+<p></p>
+<p>  The same information can be retrieved using <b>DescGetStateProgrammingMode (). </b></p>
+<p></p>
+<p>  State information updates <b>after </b>any post-handler of mode $A5. </p>
+<p>Call context </p>
+<p></p>
+<p>  Any </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>26 / 77 </p>
+<p>Table 5-6  </p>
+<p>DescGetProgMode </p>
+<p><b>5.6.3 </b></p>
+<p><b>High speed programming mode state </b></p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>Single channel </p>
+<p>vuint8 <b>DescGetHiSpeedMode </b>(void) </p>
+<p>Multiple channel </p>
+<p>vuint8 <b>DescGetHiSpeedMode </b>(vuint8 commChannel) </p>
+<p><b>Parameter </b></p>
+<p>c</p>
+<p><b>ommChannel </b></p>
+<p>Communication channel on which CANdesc is running </p>
+<p><b>Return code </b></p>
+<p>kDescHiSpeedModeIdle </p>
+<p>No enter programming mode request up to now. </p>
+<p>kDescHiSpeedModeAccepted </p>
+<p>Enter high speed programming mode accepted (but not active yet) </p>
+<p>kDescHiSpeedModeActive </p>
+<p>Enter high speed programming mode sequence complete </p>
+<p><b>Functional Description </b></p>
+<p>This function can be called by the application at any time to see if the programming mode requires a switch </p>
+<p>to high speed mode.  </p>
+<p>If the define DESC_ENABLE_FLASHABLE_ECU exists in the generated code, then the application should </p>
+<p>call this function within the callback <i>ApplDescOnEnterProgMode </i>to decide whether to switch into high </p>
+<p>speed mode. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  The result is only valid for the channel on which CANdesc is running. </p>
+<p></p>
+<p>  The application has already initialized CANdesc once by calling <b>DescInitPowerOn(). </b></p>
+<p></p>
+<p>  The define DESC_ENABLE_REQ_HISPEED_PROG must exist in the generated code (if the ECU must </p>
+<p>support service $A5 $02). </p>
+<p></p>
+<p> </p>
+<p>Idle</p>
+<p> and </p>
+<p>Accepted</p>
+<p> can be retrieved using <b>DescGetStateProgrammingMode () </b></p>
+<p></p>
+<p> </p>
+<p>Active </p>
+<p>can be queried using IlNwmGetState() </p>
+<p></p>
+<p>  State information updates after any post-handler of mode $A5. </p>
+<p> </p>
+<p>Call context </p>
+<p></p>
+<p>  Any </p>
+<p>Table 5-7  </p>
+<p>DescGetHiSpeedMode </p>
+<p> </p>
+<p><b>5.7 </b></p>
+<p><b>The PacketHandler (another type of service processor) </b></p>
+<p>A main-handler is the typical callback function for request processing (please refer to the </p>
+<p>general  technical  reference  document  “TechnicalReference_CANdesc”  for  more  details). </p>
+<p>For  the  GM/Opel  version  of  CANdesc,  a  different  type  of  service  processor  for <i> Service </i></p>
+<p><i>ReadDataByPacketIdentifier ($AA) </i>is necessary – the PacketHandler. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>27 / 77 </p>
+<p>A PacketHandler is a very simple callback that has only one task – to query the application </p>
+<p>data and place it into the correct position of the response data buffer. The application may </p>
+<p>not use the negative response API with a PackedHandler. The API works asynchrounously, </p>
+<p>to allow moving time-consuming operations to different task contexts. </p>
+<p>. </p>
+<p><b>5.7.1 </b></p>
+<p><b>PacketHandler API </b></p>
+<p><b>Prototype </b></p>
+<p>void </p>
+<p><b>ApplDescReadPack</b></p>
+<p>&lt;Instance-Qualifier&gt; (DescMsg pMsg) </p>
+<p><b>Parameter </b></p>
+<p>pMsg </p>
+<p>A pointer to a buffer where the application must copy its data </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>CANdesc calls this function to query the application for the response data related to &lt;Instance-Qualifier&gt;. </p>
+<p>The application can provide the data within this function, or it can exit the function and provide it later on </p>
+<p>the task level. When the data is ready, the application must call <b>DescDataPacketProcessingDone()</b>. </p>
+<p>Once the application calls <b>DescDataPacketProcessingDone()</b>, the PacketHandler assembles the data to </p>
+<p>be sent with the response (the response length is predefined in CANdelaStudio by the DPID data structure </p>
+<p>definition). </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  The application may not call <b>DescProcessingDone()</b>. </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level context of DescStateTask(). </p>
+<p>Table 5-8  </p>
+<p>PacketHandler </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>DescDataPacketProcessingDone </b>(DescDataPacketProcessStatus status) </p>
+<p><b>Parameter </b></p>
+<p>status </p>
+<p>Valid values: </p>
+<p></p>
+<p> </p>
+<p>kDescDataPacketOk</p>
+<p> – if the application copied the data </p>
+<p>successfully </p>
+<p></p>
+<p> </p>
+<p>kDescDataPacketFailedSendDummy</p>
+<p> – if the application </p>
+<p>encountered an error while obtaining the requested data. CANdesc </p>
+<p>will transmit the UUDT response, but it will contain only the </p>
+<p>message padding pattern and no actual data. </p>
+<p></p>
+<p> </p>
+<p>kDescDataPacketFailedDoNotSend</p>
+<p> - if the application </p>
+<p>encountered an error while obtaining the requested data. No UUDT </p>
+<p>response will be sent. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>28 / 77 </p>
+<p><b>Functional Description </b></p>
+<p>The application must call this function when it has finished the <b>ApplDescReadPack&lt;Instance-Qualifier&gt; </b></p>
+<p><b>(DescMsg pMsg) </b>request. </p>
+<p>This function allows the ECU developer to have a very slow PacketHandler (e.g. read data from another </p>
+<p>CPU). </p>
+<p>The CANdesc scheduler can process only one DPID at a time, so once the data has been copied to the </p>
+<p>pMsg buffer the application should call this function immediately to avoid long scheduler delays (time jitter </p>
+<p>from the configured scheduler rates). </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  CANdesc must have previously called a PacketHandler callback <b>ApplDescReadPack&lt;Instance-</b></p>
+<p><b>Qualifier&gt; (DescMsg pMsg)</b>. </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level context of DescStateTask(). </p>
+<p>Table 5-9  </p>
+<p>DescDataPacketProcessingDone </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-3 </p>
+<p>Asynchronous PacketHandler for current CANdesc versions </p>
+<p> </p>
+<p><b>sd PacketHandler for CANdesc 4.xx</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[USDT] $AA $01 [DPID]</p>
+<p>ApplDescReadPack&lt;Instance-Qualifier&gt; (pMessage)</p>
+<p>[status == kDescDataPacketOk ]: DescDataPacketProcessingDone (status )</p>
+<p>[UUDT] [DPID] [pMsg]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>29 / 77 </p>
+<p> </p>
+<p>Figure 5-4 </p>
+<p>Asynchronous PacketHandler with delayed processing of the first data packet  </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-5 </p>
+<p>Asynchronous PacketHandler with dummy response, due to an application error while obtaining response data  </p>
+<p><b>sd PacketHandler for CANdesc 4.xx ($78)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[USDT] $AA $01 [DPID]</p>
+<p>ApplDescReadPack&lt;Instance-Qualifier&gt; (pMessage)</p>
+<p>[ResponsePending time = P2]: [USDT] $7F $AA $78</p>
+<p>[status == kDescDataPacketOk ]: DescDataPacketProcessingDone (status )</p>
+<p>[UUDT] [DPID] [pMsg]</p>
+<p><b>sd PacketHandler for CANdesc 4.xx (Dummy)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[USDT] $AA $01 [DPID]</p>
+<p>ApplDescReadPack&lt;Instance-Qualifier&gt; (pMessage)</p>
+<p>[status==kDescDataPacketFailedSendDummy]: DescDataPacketProcessingDone (status )</p>
+<p>[UUDT] [DPID] 00 00 00 00 00 00 00</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>30 / 77 </p>
+<p><b>6 </b></p>
+<p><b>GM/Opel service implementations </b></p>
+<p><b>6.1 </b></p>
+<p><b>Service InitiateDiagnosticOperation ($10) </b></p>
+<p>CANdesc implements a special handling of the following sub-functions of this service: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>“DisableAllDtcs” (sub-function $02) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>“EnableDtcsDuringDeviceControl” (sub-function $03) </p>
+<p>WakeUpLinks  (sub-function  $04)  can  be  implemented  using  standard  main-  and  post-</p>
+<p>handlers. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The actual implementation of these services is still left to the application, controlled by </p>
+<p>the callbacks mentioned below. CANdesc only manages the internal states and </p>
+<p>performs service validation. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>6.1.1 </b></p>
+<p><b>Service DisableAllDTCs ($10 $02) </b></p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescOnDisableAllDtc </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the service $10 $02 execution has completed with success, CANdesc calls this function to notify the </p>
+<p>application about the new state of the diagnostics module. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  In this callback the application must implement the actual disabling of DTCs. </p>
+<p></p>
+<p>  Also refer to <i>ApplDescOnReturnToNormalMode </i>in order to re-enable DTCs. </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask() </p>
+<p>Table 6-1  </p>
+<p>ApplDescOnDisableAllDtc </p>
+<p><b>6.1.2 </b></p>
+<p><b>Service EnableDTCsDuringDeviceControl ($10 $03) </b></p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescOnEnableDtcsChangeDuringDevCntrl </b>(void) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>31 / 77 </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the service $10 $03 execution has completed with success, CANdesc calls this function to notify the </p>
+<p>application about the new state of the diagnostics module. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  In this callback, the application must enable DTCs during device control. </p>
+<p></p>
+<p>  Also refer to <i>ApplDescOnReturnToNormalMode. </i></p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask(). </p>
+<p>Table 6-2  </p>
+<p>ApplDescOnEnableDtcChangeDuringDevCntrl </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>CANdesc activates the tester present timer for both service instances above. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>6.2 </b></p>
+<p><b>Service ReadFailureRecordData ($12) </b></p>
+<p>CANdesc generates only one function callback (main-handler) for all service $12 requests </p>
+<p>and  does  not  offer  any  special  support  for  this  service.  Therefore  all  dispatching  and </p>
+<p>validation  steps  (e.g.  dispatching  on  sub-function  level,  check  the  request  length  or </p>
+<p>validate  the  PID  parameter  if  applicable),  as  well  as  the  assembly  of  the  response </p>
+<p>message (including the sub-function byte) have to be performed by the application. </p>
+<p> </p>
+<p><b>6.2.1 </b></p>
+<p><b>Service ReadFailureRecordIdentifiers ($12 $01) </b></p>
+<p>Depending on the report type requested (PID or DPID) the application must place one of </p>
+<p>the following values into the first data byte of the response message: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>0x00 - for report by PID </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>0x01 - for report by DPID </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>32 / 77 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The ECU can support either reports by PID or DPID, but not both. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>6.2.2 </b></p>
+<p><b>Service ReadFailureRecordParameters ($12 $02) </b></p>
+<p>CANdesc does not automatically include the PID parameter in the response message for </p>
+<p>service $12 $02. The application must perform this task. </p>
+<p><b>6.3 </b></p>
+<p><b>Service ReturnToNormalMode ($20) </b></p>
+<p>CANdesc  completely  handles  this  service  and  performs  the  following  actions  after  a </p>
+<p>positive  response  has  been  sent  (or  after  finishing  service  execution  when  the  request </p>
+<p>does not require a response): </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The tester present timer will be deactivated. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>If communication was disabled, it will be re-enabled. CANdesc will notify the application </p>
+<p>via the callback function <i>ApplDescOnEnableNormalComm</i>. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The network management timer will be started by a new request (timeout: 8 seconds). </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>If the service <i>SendOnChangeDTCCount ($A9 $82) </i>was active, CANdesc will notify the </p>
+<p>application to deactivate it by calling the function <i>ApplDescDisableOnChangeDtcCount</i>. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The scheduling mechanism for the <i>Service ReadDataByPacketIdentifier ($AA) </i>will be </p>
+<p>deactivated, and the scheduler lists will be cleared. </p>
+<p>CANdesc also notifies the application of the return to normal mode event via the function </p>
+<p>call <i>ApplDescOnReturnToNormalMode</i>: </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescOnReturnToNormalMode </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>CANdesc calls this function on completion of service $20 processing (after the response has been sent, if </p>
+<p>applicable) or a tester present timeout. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  None </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask(). </p>
+<p>Table 6-3  </p>
+<p>ApplDescOnReturnToNormalMode </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>33 / 77 </p>
+<p><b>6.4 </b></p>
+<p><b>Service ReadDataByParameterIdentifier ($22) </b></p>
+<p>The  description  for  this  service  is  located  in  the  general  technical  reference  document </p>
+<p>“TechnicalReference_CANdesc”. Detailed below are only the deviations and behavior not </p>
+<p>defined in the general technical reference. </p>
+<p><b>6.4.1 </b></p>
+<p><b>Reading a dynamically defined PID (Parameter Identifier) </b></p>
+<p>Some PIDs are statically defined in CANdelaStudio (i.e. their data structure is predefined </p>
+<p>at compile time); however, others can only be defined at runtime using a special service </p>
+<p>request (see  </p>
+<p><i>Service  DefinePIDByAddress </i> ($2D).  These  dynamically  definable  PIDs  have  no  data </p>
+<p>definitions at power-on, so if the tester tries to read them the result is undefined (according </p>
+<p>to GMW-3110 version 1.6). In this situation, CANdesc sends a positive response with no </p>
+<p>actual data (only the response service ID ($62) and the PID number from the request).  </p>
+<p>Please refer to the sequence in <i>The dynamically definable PID is not defined. </i></p>
+<p><b>6.5 </b></p>
+<p><b>Service SecurityAccess ($27) </b></p>
+<p>In  general,  the  application  shall  implement  this  service  by  itself,  but  CANdesc  already </p>
+<p>handles some of the tasks regarding this implementation. In the following, you will learn </p>
+<p>about what already has been done for you by CANdesc and about the remained parts to </p>
+<p>be implemented by your application. </p>
+<p><b>CANdesc tasks: </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Service format verification. </p>
+<p>This step includes: request length and supported sub-service checks. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Sub-service execution preconditions specified in the CDD file. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>SecurityAccess state change </p>
+<p>according to the CDD file on positive response for “send-key” service(s). </p>
+<p><b>Application tasks: </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Additional preconditions checks (pre-handling). </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Seed-key sequence verification. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Timeout monitoring for next seed retry. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>MEC and vulnerability flag implementation (if applicable). </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Seed generation. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Key computation and verification upon requested key. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>In case of valid keys, starting of the TesterPresent timer in CANdesc (see API </p>
+<p>DescActivateS1Timer). The best place to do that would be the post-handler of a “send-</p>
+<p>key” service. Just verify if the service has been responded positively, and the response </p>
+<p>was sent successfully. For details about service post-handling, please refer the OEM </p>
+<p>independent CANdesc TechnicalReference file located in the delivered software </p>
+<p>package. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>34 / 77 </p>
+<p><b>6.6 </b></p>
+<p><b>Service DisableNormalCommunication ($28) </b></p>
+<p>The  GM/Opel version  of  CANdesc takes the  following  actions  prior sending  the  positive </p>
+<p>response: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Requests GMLAN/IVLAN to disable normal communication </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>If the disable normal communication request succeeds: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Sets the new communication status (<i>kDescCommDisabled</i>) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Activates the tester present timer </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Notifies the application via the function call <i>ApplDescOnDisableNormalComm</i>. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Positive response will be sent </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>If the disable normal communication request fails: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A negative response with NRC $22 (ConditionsNotCorrect) will be sent </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescOnDisableNormalComm </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>CANdesc calls this function once normal message transmission has been disabled by a service $28 </p>
+<p>request and the resulting positive response has been sent. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  None </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask(). </p>
+<p>Table 6-4  </p>
+<p>ApplDescOnDisableNormalComm </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescOnEnableNormalComm </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once normal message transmission has been restored, CANdesc calls this function to notify the </p>
+<p>application. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>35 / 77 </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  None </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask(). </p>
+<p>Table 6-5  </p>
+<p>ApplDescOnEnableNormalComm </p>
+<p><b>6.6.1 </b></p>
+<p><b>Activate a $28 post-handler for the application </b></p>
+<p>Since  version  6.17.00 </p>
+<p>of </p>
+<p>CANdesc  the </p>
+<p>post-handler  of </p>
+<p>service  $28  is  implemented </p>
+<p>internally.  If  required  or  for  compatibility  reasons,  an  application  post-handler  can  be </p>
+<p>activated  additionally. You  can  activate  this  post-handler  with  a  user configuration file  in </p>
+<p>GENy with the following content: </p>
+<p>#define DESC_ENABLE_SID_28_APPL_POST_HANDLER </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>Single Context </p>
+<p>void <b>ApplDescPostDisableNormalCommunication </b>( vuint8 status ) </p>
+<p>Multi Context </p>
+<p>void <b>ApplDescPostDisableNormalCommunication </b>( vuint8 iContext, vuint8 status ) </p>
+<p><b>Parameter </b></p>
+<p>iContext </p>
+<p>Current request handle (reserved for future use) </p>
+<p>status  </p>
+<p>For a detailed description please refer to the post-handler description in the </p>
+<p>document “TechnicalReference_CANdesc” </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>For a detailed description please refer to the post-handler description in the document </p>
+<p>“TechnicalReference_CANdesc” </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if activated via user configuration file </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask(). </p>
+<p>Table 6-6 </p>
+<p>ApplDescPostDisableNormalCommunication </p>
+<p><b>6.7 </b></p>
+<p><b>Service DynamicallyDefineMessage ($2C) </b></p>
+<p>The  GM  diagnostic  specification  (GMW-3110  version  1.6)  allows  some  DPIDs  to  be </p>
+<p>defined  at  runtime  by  the  tester,  rather  than  at  compile  time.  Using  this  technique,  the </p>
+<p>tester can map one or more PIDs (statically or dynamically defined) to a DPID and then </p>
+<p>read them back via <i>Service ReadDataByPacketIdentifier ($AA)</i>. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>36 / 77 </p>
+<p>CANdesc completely implements this service; no application implementation is required. </p>
+<p>The  diagram  below  depicts  the  relationship  between  statically  and  dynamically  defined </p>
+<p>DPIDs and PIDs and the services that can access them. </p>
+<p> </p>
+<p> </p>
+<p>Figure 6-1 </p>
+<p>Dynamically defined DPID service relations </p>
+<p><b>6.8 </b></p>
+<p><b>Operations on dynamically definable DPIDs </b></p>
+<p>Dynamically  definable  DPIDs  can  be  defined  and  read.  The  following  sections  illustrate </p>
+<p>these operations with sequence charts involving the tester, CANdesc, and application. </p>
+<p><b>6.8.1 </b></p>
+<p><b>Defining a dynamically definable DPID </b></p>
+<p>If the requested parameters are valid (both PIDs referenced and DPID to be defined are </p>
+<p>valid, request has the correct length, etc.), CANdesc overwrites the current DPID definition </p>
+<p>with the new list of PIDs. </p>
+<p> </p>
+<p>PID pool </p>
+<p>(static and </p>
+<p>dynamic) </p>
+<p>Static defined </p>
+<p>DPID pool </p>
+<p>Service ID $AA </p>
+<p>Service ID $22 </p>
+<p>Define </p>
+<p>Read </p>
+<p>Read </p>
+<p>Refer </p>
+<p>Find </p>
+<p> </p>
+<p>Service ID $2C </p>
+<p> </p>
+<p>Dynamically </p>
+<p>definable </p>
+<p>DPID pool </p>
+<p> </p>
+<p>Read </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>37 / 77 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If the tester request contains multiple instances of the same PID, the resulting DPID </p>
+<p>definition will contain multiple instances as well. CANdesc does not verify that all of the </p>
+<p>requested PIDs are unique.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>6.8.2 </b></p>
+<p><b>Reading a dynamically definable DPID </b></p>
+<p>When a read operation is performed on a dynamically definable DPID, four scenarios are </p>
+<p>possible: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The DPID is not defined </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The DPID is defined, but the data is not accessible at the moment </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The DPID is defined, and the data is accessible </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The DPID is defined, but one of the contained PIDs is dynamically definable and it has </p>
+<p>not been defined </p>
+<p> </p>
+<p>If  the  DPID  is  not  defined,  the  CANdesc  scheduler  will  send  UUDT  messages  with  no </p>
+<p>actual data content (only zeros): </p>
+<p> </p>
+<p>Figure 6-2 </p>
+<p>Dynamically definable DPID is not defined </p>
+<p>The next example assumes that the dynamically definable DPID has already been defined </p>
+<p>and references a single PID. In addition, the reading of this PID is not possible at the time </p>
+<p>of  data  access  (e.g.  the  data  is  corrupted),  and  therefore  the  application  would  like  to </p>
+<p><b>sd Read DynDPID (not defined)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[USDT] $AA [rate = fast] [DPID]</p>
+<p>[UUDT] $DPID $00 $00 $00 $00 $00 $00 $00</p>
+<p>[UUDT] $DPID $00 $00 $00 $00 $00 $00 $00</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>38 / 77 </p>
+<p>reject  the  PID  processing.  In  this  situation,  the  UUDT  response  message  would  once </p>
+<p>again contain no actual data (only zeros): </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>In the case where multiple PIDs are contained in the DPID, and some of them cannot </p>
+<p>be processed with success, these PIDs will be skipped in the UUDT response.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Figure 6-3 </p>
+<p>Single referenced PID cannot provide any data </p>
+<p><b>sd Read DynDPID (PID failed)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc[MAIN]</b></p>
+<p><b>Application</b></p>
+<p><b>CANdesc[DYN_DPID]</b></p>
+<p>[USDT] $AA [rate = fast] [DPID]</p>
+<p>DescProcessDynDPID(DPID)</p>
+<p>Send virtual request($22 [PID])</p>
+<p>ApplDescReadDataByIdentifier_PID</p>
+<p>DescSetNegResponse(kDescNrcConditionsNotCorrect)</p>
+<p>DescProcessingDone</p>
+<p>Send Response($7F $22 $22)</p>
+<p>[UUDT] $DPID $00 $00 $00 $00 $00 $00 $00</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>39 / 77 </p>
+<p>If the PID is accessible at the time of the request, the UUDT message will contain its data: </p>
+<p> </p>
+<p>Figure 6-4 </p>
+<p>Reading the dynamically defined DPID succeeds </p>
+<p><b>sd Read DynDPID (PID ok)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc[MAIN]</b></p>
+<p><b>Application</b></p>
+<p><b>CANdesc[DYN_DPID]</b></p>
+<p>[USDT] $AA [rate = fast] [DPID]</p>
+<p>DescProcessDynDPID(DPID)</p>
+<p>Send virtual request($22 [PID])</p>
+<p>ApplDescReadDataByIdentifier_PID</p>
+<p>Copy data</p>
+<p>DescProcessingDone</p>
+<p>Send Response($62 [PID] [Data])</p>
+<p>[UUDT] $DPID [Data]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>40 / 77 </p>
+<p>Since  dynamically  defined  DPIDs  can  also  contain  dynamically  definable  PIDs,  any </p>
+<p>dynamically  definable PIDs  within  the  requested  DPID must  be defined,  or the  resulting </p>
+<p>UUDT response will not contain any actual data (only zeros): </p>
+<p> </p>
+<p>Figure 6-5 </p>
+<p>Dynamically definable PID, referenced by the DPID, is not defined </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>When a read operation is performed on a DPID which contains a dynamically definable </p>
+<p>PID that is not defined but also other defined PIDs, the resulting UUDT response will </p>
+<p>not contain the data for this PID.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>6.9 </b></p>
+<p><b>Service DefinePIDByAddress ($2D) </b></p>
+<p>The GM diagnostic specification (GMW-3110 version 1.6) allows some PIDs to be defined </p>
+<p>at runtime by the tester, rather than at compile time. Using this technique, the tester can </p>
+<p>map </p>
+<p>a </p>
+<p>certain </p>
+<p>memory </p>
+<p>area </p>
+<p>to </p>
+<p>a </p>
+<p>PID </p>
+<p>and </p>
+<p>then </p>
+<p>read </p>
+<p>it </p>
+<p>back </p>
+<p>via </p>
+<p><i>Service </i></p>
+<p><i>ReadDataByParameterIdentifier </i></p>
+<p><i>($22) </i></p>
+<p>or </p>
+<p>pack </p>
+<p>the </p>
+<p>PID </p>
+<p>into </p>
+<p>a </p>
+<p>DPID </p>
+<p>(Service </p>
+<p>DynamicallyDefineMessage </p>
+<p>($2C)) </p>
+<p>for </p>
+<p>future </p>
+<p>read </p>
+<p>operations </p>
+<p>via </p>
+<p><i>Service </i></p>
+<p><i>ReadDataByPacketIdentifier ($AA)</i>. </p>
+<p>CANdesc  completely  implements  this  service.  The  application  must  only  implement  the </p>
+<p>memory area validation and access functionality.  </p>
+<p>The  diagram  below  depicts  the  relationship  between  statically  and  dynamically  defined </p>
+<p>PIDs and the services that can access them. </p>
+<p><b>sd Read DynDPID (DynPID not defined)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc[MAIN]</b></p>
+<p><b>Application</b></p>
+<p><b>CANdesc[DYN_DPID]</b></p>
+<p>[USDT] $AA [rate = fast] [DPID]</p>
+<p>DescProcessDynDPID(DPID)</p>
+<p>Send virtual request($22 [PID])</p>
+<p>Send Response($62 [PID])</p>
+<p>[UUDT] $DPID $00 $00 $00 $00 $00 $00 $00</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>41 / 77 </p>
+<p> </p>
+<p> </p>
+<p>Figure 6-6 </p>
+<p>Dynamically defined PID service relations </p>
+<p><b>6.10 </b></p>
+<p><b>Operations on dynamically definable PIDs </b></p>
+<p>Dynamically  definable  PIDs  can  be  defined  and  read.  The  following  sections  illustrate </p>
+<p>these operations with sequence charts involving the tester, CANdesc, and application. </p>
+<p><b>6.10.1 </b></p>
+<p><b>Defining a dynamically definable PID </b></p>
+<p>If the requested memory area parameters are valid and do not refer to a secured location, </p>
+<p>the following diagram applies: </p>
+<p> </p>
+<p>Figure 6-7 </p>
+<p>Definition of dynamically definable PID with valid parameter </p>
+<p>PID pool</p>
+<p>Dynamically</p>
+<p>definable PID </p>
+<p>pool</p>
+<p>Service ID $2D</p>
+<p>Service ID $22</p>
+<p>Define</p>
+<p>Read</p>
+<p>Read</p>
+<p><b>sd Definition of memory block (ok)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>$2D [PID] [memAddress] [memSize]</p>
+<p>ApplDescCheckDynPidMemoryArea(memAddress, memSize)</p>
+<p>memBlockOk</p>
+<p>Update definition of PID</p>
+<p>$6D [PID]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>42 / 77 </p>
+<p> </p>
+<p>If  the  application  detects  a  problem  with  the  requested  memory  area  (e.g.  bad  location </p>
+<p>reference, security protection, etc.), the sequence below will take place: </p>
+<p> </p>
+<p>Figure 6-8 </p>
+<p>Defining of a dynamically definable PID failed due to security violation </p>
+<p> </p>
+<p><b>6.10.2 </b></p>
+<p><b>Reading a dynamically definable PID </b></p>
+<p>When a read operation is performed on a dynamically definable PID, three scenarios are </p>
+<p>possible: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The PID is not defined </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The PID is defined, but the data is not accessible at the moment </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The PID is defined, and the data is accessible </p>
+<p> </p>
+<p>If the PID is not defined, CANdesc returns a positive response with no actual data bytes: </p>
+<p><b>sd Definition of memory block (failed)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>$2D [PID] [memAddress] [memSize]</p>
+<p>ApplDescCheckDynPidMemoryArea(memAddress, memSize)</p>
+<p>memBlockInvSecurity</p>
+<p>Convert UseCase-&gt;NRC</p>
+<p>$7F $2D [NRC = $31]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>43 / 77 </p>
+<p> </p>
+<p>Figure 6-9 </p>
+<p>The dynamically definable PID is not defined </p>
+<p><b>sd Read DynPID (not defined)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>$22 [PID]</p>
+<p>$62 [PID]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>44 / 77 </p>
+<p>If </p>
+<p>the </p>
+<p>application </p>
+<p>has </p>
+<p>already </p>
+<p>accepted </p>
+<p>the </p>
+<p>PID </p>
+<p>read </p>
+<p>request </p>
+<p>(in </p>
+<p><i>ApplDescCheckDynPidMemoryArea</i>) but it cannot complete the read operation, a negative </p>
+<p>response can still be sent back to the tester: </p>
+<p> </p>
+<p>Figure 6-10 </p>
+<p>Application error when reading the memory block </p>
+<p> </p>
+<p><b>sd Read DynPID (failed)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>$22 [PID]</p>
+<p>ApplDescReadDynPidMemContent(memAddress, memSize)</p>
+<p>[ResponsePending time = P2]: $7F $22 $78</p>
+<p>DescReadDynPidMemContentDone(memBlockInvCondition)</p>
+<p>$7F $22 $22</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>45 / 77 </p>
+<p>In  the  ideal  case,  the  application  writes  the  data  into  the  supplied  data  buffer  (see </p>
+<p><i>ApplDescCheckDynPidMemoryArea</i>) and acknowledges the end of writing with success: </p>
+<p> </p>
+<p>Figure 6-11 </p>
+<p>Reading of dynamically defined PID succeeds </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>Single Context </p>
+<p>DescDynPidMemAccessResult <b>ApplDescCheckDynPidMemoryArea </b>( </p>
+<p>const DescDynPidMemBlockInfo* const memArea) </p>
+<p>Multi Context </p>
+<p>DescDynPidMemAccessResult <b>ApplDescCheckDynPidMemoryArea </b>( </p>
+<p>vuint8 iContext, </p>
+<p>const DescDynPidMemBlockInfo* const memArea) </p>
+<p><b>Parameter </b></p>
+<p>iContext </p>
+<p>Current request handle (reserved for future use) </p>
+<p>memArea </p>
+<p> </p>
+<p>Address[] </p>
+<p>size </p>
+<p>A pointer to the memory area definition which must be validated by the </p>
+<p>application </p>
+<p>The requested start address (can be a 2, 3 or 4 byte array) </p>
+<p>The requested memory block size </p>
+<p><b>Return code </b></p>
+<p>memBlockOk </p>
+<p>The requested area is valid (no memory protection violation, range ok, etc.) </p>
+<p>memBlockInvAddress </p>
+<p>The requested memory address is invalid (wrong memory access) </p>
+<p>memBlockInvSize </p>
+<p>The requested memory size is invalid (e.g. out of range) </p>
+<p><b>sd Read DynPID (ok)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>$22 [PID]</p>
+<p>ApplDescReadDynPidMemContent(memAddress, memSize)</p>
+<p>[ResponsePending time = P2]: $7F $22 $78</p>
+<p>DescReadDynPidMemContentDone(memBlockOk)</p>
+<p>$62 [PID] [Data]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>46 / 77 </p>
+<p>memBlockInvSecurity </p>
+<p>The requested memory address and size are valid, but the area is protected </p>
+<p>by security </p>
+<p>memBlockInvCondition </p>
+<p>The access conditions are not correct </p>
+<p><b>Functional Description </b></p>
+<p>CANdesc calls this function when the tester requests a valid $2D service (according to the specification). </p>
+<p>The application must validate the memory area parameters. </p>
+<p>When the application exits the function, CANdesc generates the appropriate NRC based on the application </p>
+<p>return value. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports service $2D. </p>
+<p></p>
+<p>  This function runs synchronously, so the application should exit the function as quickly as possible. </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask(). </p>
+<p>Table 6-7  </p>
+<p>ApplDescCheckDynPidMemoryArea </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>Single Context </p>
+<p>void <b>ApplDescReadDynPidMemContent </b>(DescMsg pMsg, </p>
+<p>const DescDynPidMemBlockInfo* const memArea) </p>
+<p>Multi Context </p>
+<p>void <b>ApplDescReadDynPidMemContent </b>(vuint8 iContext, </p>
+<p>DescMsg pMsg, </p>
+<p>const DescDynPidMemBlockInfo* const memArea) </p>
+<p><b>Parameter </b></p>
+<p>iContext </p>
+<p>Current request handle (reserved for future use) </p>
+<p>pMsg </p>
+<p>A pointer to a buffer where the application must write the requested memory </p>
+<p>contents </p>
+<p>memArea </p>
+<p> </p>
+<p>Address[] </p>
+<p>size </p>
+<p>A pointer to the memory area definition which the application can use for data </p>
+<p>acquisition: </p>
+<p>The requested start address (can be a 2, 3 or 4 byte array) </p>
+<p>The requested memory block size </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once defined, a dynamically definable PID can be read by the tester using service $22. Dynamically </p>
+<p>defined PIDs have special main-handlers which are implemented internally by CANdesc. These main-</p>
+<p>handlers call this function to retrieve the data at the requested memory address.  </p>
+<p>CANdesc does not use a direct memory access implementation for this service since certain ranges may </p>
+<p>be located in slow (external) memory chips that require extended periods of time to access. As a result, this </p>
+<p>data acquisition function is designed to be asynchronous. </p>
+<p>Once the requested data bytes have been written into the buffer pointed to by pMsg, the application must </p>
+<p>call <i>DescReadDynPidMemContentDone </i>to acknowledge that the operation is complete. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>47 / 77 </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports service $2D. </p>
+<p></p>
+<p>  This function runs asynchronously, so once the application exits this function it can take as much time </p>
+<p>as necessary to complete the requested operation </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask(). </p>
+<p>Table 6-8  </p>
+<p>ApplDescReadDynPidMemContent </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>Single Context </p>
+<p>void <b>DescReadDynPidMemContentDone </b>(DescDynPidMemAccessResult result) </p>
+<p>Multi Context </p>
+<p>void <b>DescReadDynPidMemContentDone </b>(vuint8 iContext,  </p>
+<p>DescDynPidMemAccessResult result) </p>
+<p><b>Parameter </b></p>
+<p>iContext </p>
+<p>The request handle previously passed as a parameter to the application in the </p>
+<p>callback <i>ApplDescReadDynPidMemContent. </i></p>
+<p>result </p>
+<p>The result of the operation: </p>
+<p></p>
+<p> </p>
+<p>memBlockOk</p>
+<p>: The requested area is valid (no memory protection </p>
+<p>violation, range ok, etc.) </p>
+<p></p>
+<p> </p>
+<p>memBlockInvAddress</p>
+<p>: The requested memory address is not </p>
+<p>valid (bad memory access) </p>
+<p></p>
+<p> </p>
+<p>memBlockInvSize</p>
+<p>: The requested memory size is invalid (e.g. </p>
+<p>out of range) </p>
+<p></p>
+<p> </p>
+<p>memBlockInvSecurity</p>
+<p>: The requested memory address and </p>
+<p>size are valid, but the area is protected by security </p>
+<p></p>
+<p> </p>
+<p>memBlockInvCondition</p>
+<p>: The access conditions are not correct </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the data requested by <i>ApplDescReadDynPidMemContent </i>has been written into the buffer pointed to </p>
+<p>by pMsg, the application must call this function to acknowledge that the operation is complete. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports service $2D. </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask(). </p>
+<p>Table 6-9  </p>
+<p>DescReadDynPidMemContentDone </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>48 / 77 </p>
+<p> </p>
+<p><b>6.11 </b></p>
+<p><b>Service ProgrammingMode ($A5) </b></p>
+<p>This service is implemented completely using the CANdesc state management.  </p>
+<p>The programming sequence follows the state graph shown below: </p>
+<p> </p>
+<p>Figure 6-12 </p>
+<p>Programming mode flowchart </p>
+<p>To  further  restrict  service  execution  based  on  the  current  state  in  the  programming </p>
+<p>sequence, please refer to <i>7 - CANdelaStudio default attribute settings </i>regarding the setup </p>
+<p>of the corresponding state group in CANdela studio. </p>
+<p><b>6.11.1 </b></p>
+<p><b>Allowing programming mode ($A5 $01/$02) </b></p>
+<p>Prior to activating programming mode, the tester must ask the ECU for permission. The </p>
+<p>application may accept or deny this request using a standard prehandler for the respective </p>
+<p>level. CANdesc will activate these prehanders per default. </p>
+<p>Prehandler  names  can  be  changed  in  the  CDD  file  or  the  configuration  tool,  for  your </p>
+<p>reference the default names are: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>$A5 $01: ApplDescPreRequestProgrammingMode </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Compatibility note: This completely replaces the dedicated callback </p>
+<p>ApplDescMayEnterProgMode</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>stm PreProgramming Sequence</b></p>
+<p>ECUPowerOn</p>
+<p><b>Normal</b></p>
+<p>+ </p>
+<p>kDescStateProgrammingModeNormal</p>
+<p><b>Requested</b></p>
+<p>+ </p>
+<p>kDescStateProgrammingModeRequested</p>
+<p><b>Activ e</b></p>
+<p>+ </p>
+<p>kDescStateProgrammingModeActive</p>
+<p><b>CommHalted</b></p>
+<p>+ </p>
+<p>kDescStateProgrammingModeCommHalted</p>
+<p><b>Requested_HiSpeed</b></p>
+<p>+ </p>
+<p>kDescStateProgrammingModeRequested_HiSpeed</p>
+<p>Request $A5 $01 [ApplDescPreRequestProgrammingMode_HiSpeed]</p>
+<p>Request $A5 $02 [ApplDescPreRequestProgrammingMode]</p>
+<p>Request $A5 $03</p>
+<p>Request $A5 $03</p>
+<p>Request $A5 $02</p>
+<p>[ApplDescPreRequestProgrammingMode_HiSpeed]</p>
+<p>Request $A5 $01</p>
+<p>[ApplDescPreRequestProgrammingMode]</p>
+<p>Successfully processed SID $28</p>
+<p>DescInitPowerOn()</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>49 / 77 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>$A5 $02: ApplDescPreRequestProgrammingMode_HiSpeed </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Compatibility note: This completely replaces the dedicated callback </p>
+<p>ApplDescMayEnterHiSpeedProgMode</p>
+<p> </p>
+<p>Please also refer to the general CANdesc technical reference for further information about </p>
+<p>prehandler implementation. </p>
+<p><b>6.11.2 </b></p>
+<p><b>Entering programming mode ($A5 $03) </b></p>
+<p>Once the entire programming mode sequence is complete, the application usually makes </p>
+<p>the jump to the bootloader (FBL) in one of two ways. Both strategies are discussed in the </p>
+<p>following sections. </p>
+<p><b>6.11.2.1 </b></p>
+<p><b>FBL start on EnterProgrammingMode ($A5 $03) </b></p>
+<p>If the application jumps to the FBL on this service, the ECU developer must <b> enable </b>the </p>
+<p>“Flashable  ECU”  option  in  the  generation  tool.  CANdesc  will  notify  the  application  to </p>
+<p>perform the FBL jump by calling the function <i>ApplDescOnEnterProgMode</i>. The application </p>
+<p>can  use  the  function <i> DescGetHiSpeedMode </i> to  determine  if  a  high  speed  mode  switch </p>
+<p>must be performed manually. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>If the application jumps to the FBL on this service, it must manage the bus speed </p>
+<p>switching manually. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescOnEnterProgMode </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>CANdesc will call this function so the application can perform the FBL jump. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  To enable this notification, the ECU developer must <b>enable </b>the “Flashable ECU” option in the </p>
+<p>generation tool (the define DESC_ENABLE_FLASHABLE_ECU exists in the generated code). </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask(). </p>
+<p>Table 6-10  </p>
+<p>ApplDescOnEnterProgMode </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>50 / 77 </p>
+<p><b>6.11.2.2 </b></p>
+<p><b>FBL start on RequestDownload ($34) </b></p>
+<p>If the application jumps to the FBL on this service, the ECU developer must <b> disable </b>the </p>
+<p>option “Flashable ECU” in the generation tool. CANdesc will automatically handle the high </p>
+<p>speed switching (if necessary) to comply with the tester expectations. The application must </p>
+<p>only  implement  the  service  main-handler  and  perform  the  jump  to  the  FBL.  In  order  to </p>
+<p>verify </p>
+<p>that </p>
+<p>the  programming </p>
+<p>mode </p>
+<p>sequence </p>
+<p>was </p>
+<p>completed  successfully, </p>
+<p>the </p>
+<p>ECU </p>
+<p>developer can call the function <b>DescGetProgMode() </b>in the main-handler. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The ECU developer must <b>disable </b>the option “Flashable ECU” in the generation tool </p>
+<p>when no FBL is present in the ECU. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>6.11.2.3 </b></p>
+<p><b>Concluding programming mode </b></p>
+<p>Once the flashing activity has concluded  (through a service $20 tester request or tester </p>
+<p>present timeout), the GM/Opel diagnostic specification states that the ECU shall perform a </p>
+<p>software reset. Two scenarios are possible: </p>
+<p><b>&gt; </b> If the ECU was actually re-flashed, the FBL should perform the reset.  </p>
+<p><b>&gt; </b> If the ECU was not actually re-flashed (the tester was re-flashing another ECU or the </p>
+<p>ECU is not flashable), CANdesc notifies the application to perform an ECU reset via the </p>
+<p>function call <i>ApplDescForceEcuReset</i>. </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescForceEcuReset </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>CANdesc calls this function to notify the application that it shall perform an ECU reset. </p>
+<p>It is not required that the application perform the reset within this function call since it may need to prepare </p>
+<p>first (by saving RAM variables into EEPROM, for instance). </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  None </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context of DescStateTask(). </p>
+<p>Table 6-11  </p>
+<p>ApplDescForceEcuReset </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>51 / 77 </p>
+<p> </p>
+<p><b>6.11.3 </b></p>
+<p><b>Considerations when upgrading </b></p>
+<p>The callback functions used by CANdesc have changed in version 6.x. The following APIs </p>
+<p>are no longer used and need to be replaced by service prehandlers: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>ApplDescMayEnterProgMode </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>ApplDescMayEnterHiSpeedProgMode</p>
+<p> </p>
+<p><b>6.12 </b></p>
+<p><b>Service ReadDiagnosticInformation ($A9) </b></p>
+<p>This  service  supplies  the  tester  with  information  about  various  DTC  statuses  (e.g.  on </p>
+<p>change count of the DTCs, a list of all DTCs matching a given status mask, etc.). </p>
+<p>Since the DTC storage and management is application specific, the implementation of the </p>
+<p>diagnostic service “ReadDiagnosticInformation” (RDI) ($A9) generalizes this functionality, </p>
+<p>reducing the application task to a few callback implementations. </p>
+<p> </p>
+<p>The </p>
+<p>ECU </p>
+<p>developer </p>
+<p>should </p>
+<p>keep </p>
+<p>the </p>
+<p>following </p>
+<p>important </p>
+<p>properties </p>
+<p>in </p>
+<p>mind </p>
+<p>when </p>
+<p>designing the application: </p>
+<p>1. </p>
+<p>When an $A9 sub-function has been requested, CANdesc cannot process another </p>
+<p>request until after the first UUDT response message has been sent. </p>
+<p>2. </p>
+<p>While processing and sending the list of matching DTCs for an $A9 $81 request, </p>
+<p>CANdesc can process another request except $A9 $80. </p>
+<p>3. </p>
+<p>CANdesc can process the requests $A9 $80 and $A9 $81 in parallel with $A9 $82. </p>
+<p>4. </p>
+<p>Application callbacks are handled asynchronously. </p>
+<p> </p>
+<p>Here is a parallel service execution matrix: </p>
+<p><b>         Active </b></p>
+<p><b> </b></p>
+<p><b>Requested </b></p>
+<p><b>$A9 $80 </b></p>
+<p><b>$A9 $81 </b></p>
+<p><b>$A9 $82 </b></p>
+<p><b>Other requests </b></p>
+<p><b>(except scheduled </b></p>
+<p><b>$AA ) </b></p>
+<p><b>$A9 $80 </b></p>
+<p>Not possible </p>
+<p>Not possible </p>
+<p>Possible after </p>
+<p>the first UUDT is </p>
+<p>sent </p>
+<p>Not possible </p>
+<p><b>$A9 $81 </b></p>
+<p>Not possible </p>
+<p>Not possible </p>
+<p>Possible after </p>
+<p>the first UUDT is </p>
+<p>sent </p>
+<p>Not possible </p>
+<p><b>$A9 $82 </b></p>
+<p>Not possible </p>
+<p>Possible after </p>
+<p>the first UUDT is </p>
+<p>sent </p>
+<p>Possible after </p>
+<p>the first UUDT is </p>
+<p>sent </p>
+<p>Not possible </p>
+<p><b>Other requests </b></p>
+<p>Not possible </p>
+<p>Possible after </p>
+<p>the first UUDT is </p>
+<p>sent </p>
+<p>Possible after </p>
+<p>the first UUDT is </p>
+<p>sent </p>
+<p>Not possible </p>
+<p>Table 6-12   Service $A9 parallel execution matrix </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>52 / 77 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The RCR-RP responses in the sequence diagrams below are shown for better timing </p>
+<p>request-response relation understanding; however, if the application is fast enough </p>
+<p>there will be no RCR-RP response sent. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>6.12.1 </b></p>
+<p><b>ReadStatusOfDTCByNumber ($A9 $80) </b></p>
+<p>CANdesc processes this service as shown below. </p>
+<p> </p>
+<p>If  the  application  finds  the  requested  DTC  number  with  the  given  failure  type  byte,  the </p>
+<p>following sequence will be executed: </p>
+<p> </p>
+<p>Figure 6-13 </p>
+<p>Request $A9 $80 where the requested fault type combination was found </p>
+<p><b>sd ReadStatusOfDTCByNumber (good)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[USDT] $A9 $80 [DTC] [FailureTypeByte]</p>
+<p>ApplDescGetDtcStatusByNumber(DTC, FailureTypeByte)</p>
+<p>[ResponsePending time = P2]: [USDT] $7F $A9 $78</p>
+<p>[ResponsePending time = P3Max]: [USDT] $7F $A9 $78</p>
+<p>DescRdiDtcStatusByNumberFound(StatusByte)</p>
+<p>[UUDT] $80 [DTC][FailureTypeByte][StatusByte]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>53 / 77 </p>
+<p>If  the  requested  fault  type  combination  is  not  supported  by  the  ECU,  the  following </p>
+<p>sequence will be executed: </p>
+<p> </p>
+<p>Figure 6-14 </p>
+<p>Request $A9 $80 where the requested fault type combination was not found </p>
+<p> </p>
+<p><b>sd ReadStatusOfDTCByNumber (failed)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[USDT] $A9 $80 [DTC] [FailureTypeByte]</p>
+<p>ApplDescGetDtcStatusByNumber(DTC, FailureTypeByte)</p>
+<p>[ResponsePending time = P2]: [USDT] $7F $A9 $78</p>
+<p>[ResponsePending time = P3Max]: [USDT] $7F $A9 $78</p>
+<p>DescRdiDtcStatusByNumberNotFound</p>
+<p>[USDT] $7F $A9 $31</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>54 / 77 </p>
+<p>Here are the detailed descriptions of the APIs used in the above diagrams: </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescGetDtcStatusByNumber </b>(vuint16 dtcNum, vuint8 failureTypeByte) </p>
+<p><b>Parameter </b></p>
+<p>dtcNum </p>
+<p>The requested DTC number </p>
+<p>failureTypeByte </p>
+<p>The requested failure-type byte </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>CANdesc calls this function to query the application for the request combination of DTC number and </p>
+<p>failure-type byte. When the application finds this combination, it must acknowledge this by calling the </p>
+<p>function <i>DescRdiDtcStatusByNumberFound</i>. If the application cannot find a matching entry, it must </p>
+<p>acknowledge this by calling the function <i>DescRdiDtcStatusByNumberNotFound</i>. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports $A9 sub-function $80 </p>
+<p></p>
+<p>  The application can call <i>DescRdiDtcStatusByNumberFound </i>or <i>DescRdiDtcStatusByNumberNotFound </i></p>
+<p>within this function, or it can exit this function and call one of them later on the application task level. </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context (same as DescStateTask()). </p>
+<p>Table 6-13  </p>
+<p>ApplDescGetDtcStatusByNumber </p>
+<p><b>Prototype </b></p>
+<p>void <b>DescRdiDtcStatusByNumberFound </b>(vuint8 statusByte) </p>
+<p><b>Parameter </b></p>
+<p>statusByte </p>
+<p>The current status of the DTC which was passed as a parameter in the </p>
+<p>callback <i>ApplDescGetDtcStatusByNumber </i></p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The application can call this function to acknowledge the successful search result of the DTC number and </p>
+<p>failure-type byte combination which were passed as parameters in the callback </p>
+<p><i>ApplDescGetDtcStatusByNumber. </i></p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports $A9 sub-function $80 </p>
+<p></p>
+<p>  CANdesc must have previously called <i>ApplDescGetDtcStatusByNumber </i></p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context </p>
+<p>Table 6-14  </p>
+<p>DescRdiDtcStatusByNumberFound </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>55 / 77 </p>
+<p><b>Prototype </b></p>
+<p>void <b>DescRdiDtcStatusByNumberNotFound </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The application can call this function to acknowledge the unsuccessful search result of the DTC number </p>
+<p>and failure-type byte combination which were passed as parameters in the callback </p>
+<p><i>ApplDescGetDtcStatusByNumber </i></p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports $A9 sub-function $80 </p>
+<p></p>
+<p>  CANdesc must have previously called <i>ApplDescGetDtcStatusByNumber </i></p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context </p>
+<p>Table 6-15  </p>
+<p>DescRdiDtcStatusByNumberNotFound </p>
+<p><b>6.12.2 </b></p>
+<p><b>ReadStatusOfDTCByStatusMask ($A9 $81) </b></p>
+<p>This service transmits a list of DTCs and their properties back to the tester. CANdesc uses </p>
+<p>an iteration-based process to request each element of the list from the application. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The iterator parameter discussed below is only provided to help the application keep </p>
+<p>track of where it should begin/continue searching the list. The value of this parameter </p>
+<p>has no meaning to CANdesc. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>CANdesc processes this service as shown below. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>56 / 77 </p>
+<p>If  the  application  finds  DTCs  that  match  the  given  status  mask  byte,  the  following </p>
+<p>sequence will be executed: </p>
+<p> </p>
+<p>Figure 6-15 </p>
+<p>Request $A9 $81 where the application found two DTCs with the requested status mask </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Notes </b></p>
+<p>1. If the application cannot send the second and the following DTCs matching the </p>
+<p>requested mask within P2ecu time, CANdesc will not send further RCR-RP </p>
+<p>messages back to the tester. </p>
+<p>2. Although CANdesc can process another request after the first UUDT response has </p>
+<p>been sent, if that next request is either $A9 $80 or $A9 $81 the request will be </p>
+<p>rejected with negative response “ConditionsNotCorrect” ($22). </p>
+<p>3. CANdesc can process $A9 $80 or $A9 $81 requests again once the “End of DTC </p>
+<p>report” message has been sent.. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>If the application cannot find any DTCs matching the requested status mask, CANdesc will </p>
+<p>only send the final UUDT response as shown below: </p>
+<p><b>sd ReadStatusOfDTCByStatusMask (At Least one DTC found)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[USDT] $A9 $81 [DTC] [StatusMask]</p>
+<p>ApplDescGetDtcStatusByMask(iter = 0, StatusMask)</p>
+<p>[ResponsePending time = P2]:</p>
+<p>[USDT] $7F $A9 $78</p>
+<p>[ResponsePending time = P3Max]:</p>
+<p>[USDT] $7F $A9 $78</p>
+<p>DescRdiDtcStatusByMaskFound(iter = X, DTC0, FailureTypeByte0, StatusByte0)</p>
+<p>[UUDT] $81 [DTC0][FailureTypeByte0][StatusByte0]</p>
+<p>ApplDescGetDtcStatusByMask(iter = X, StatusMask)</p>
+<p>DescRdiDtcStatusByMaskFound(iter = Y, DTC1, FailureTypeByte1, StatusByte1)</p>
+<p>[UUDT] $81 [DTC1][FailureTypeByte1][StatusByte1]</p>
+<p>ApplDescGetDtcStatusByMask(iter =Y, StatusMask)</p>
+<p>DescRdiDtcStatusByMaskNotFound(StatusAvailabilityMask)</p>
+<p>[UUDT] $81 $00 $00 $00 [StatusAvailabilityMask]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>57 / 77 </p>
+<p> </p>
+<p>Figure 6-16 </p>
+<p>Request $A9 $81 where the application cannot find any DTCs with the requested status mask </p>
+<p> </p>
+<p><b>sd ReadStatusOfDTCByStatusMask (No DTC found)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[USDT] $A9 $81 [DTC] [StatusMask]</p>
+<p>ApplDescGetDtcStatusByMask(iter = 0, StatusMask)</p>
+<p>[ResponsePending time = P2]: [USDT] $7F $A9 $78</p>
+<p>[ResponsePending time = P3Max]: [USDT] $7F $A9 $78</p>
+<p>DescRdiDtcStatusByMaskNotFound(StatusAvailabilityMask)</p>
+<p>[UUDT] $81 $00 $00 $00 [StatusAvailabilityMask]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>58 / 77 </p>
+<p>Here are the detailed descriptions of the APIs used in the above diagrams: </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescGetDtcStatusByMask </b>(vuint16 iterPos, vuint8 statusMask) </p>
+<p><b>Parameter </b></p>
+<p>iterPos </p>
+<p>An iterator for the search start position (abstract) </p>
+<p>statusMask </p>
+<p>The status mask that the DTC shall match (OR-ed) </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>CANdesc calls this function to query the application for the first/next DTC number that has at least one bit </p>
+<p>in its status byte matching the parameter <i>statusMask</i>. When the application finds this combination, it must </p>
+<p>acknowledge this by calling the function <i>DescRdiDtcStatusByMaskFound</i>. If the application cannot find any </p>
+<p>(more) matching DTCs, it must acknowledge this by calling the function </p>
+<p><i>DescRdiDtcStatusByMaskNotFound</i>. </p>
+<p>The application can use the iterator parameter as a marker to continue the search from a certain position </p>
+<p>instead of implementing a counter or state machine. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports $A9 sub-function $81 </p>
+<p></p>
+<p>  The application can call <i>DescRdiDtcStatusByMaskFound </i>or <i>DescRdiDtcStatusByMaskNotFound </i>within </p>
+<p>this function, or it can exit this function and call one of them later on the application task level. </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context (same as DescStateTask()). </p>
+<p>Table 6-16  </p>
+<p>ApplDescGetDtcStatusByMask </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>DescRdiDtcStatusByMaskFound </b>(DescRdiDtcRecord *pDtcReport) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>59 / 77 </p>
+<p><b>Parameter </b></p>
+<p>vuint16 nextIterPos </p>
+<p>The position of the current matching DTC </p>
+<p>vuint16 dtcNum </p>
+<p>The DTC number which matches the given mask </p>
+<p>vuint8 failureTypeByte </p>
+<p>The failure type byte of the DTC </p>
+<p>vuint8 statusByte </p>
+<p>The actual status byte value of the DTC </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The application can call this function to acknowledge the successful search result of the statusMask which </p>
+<p>was passed as a parameter in the callback <i>ApplDescGetDtcStatusByMask</i>. </p>
+<p>The parameter pDtcReport is a pointer to a DTC property structure. Since CANdesc will immediately copy </p>
+<p>the contents of this structure, the ECU developer can use an automatic variable to save RAM. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports $A9 sub-function $81. </p>
+<p></p>
+<p>  CANdesc must have previously called <i>ApplDescGetDtcStatusByMask </i></p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task contex </p>
+<p>Table 6-17  </p>
+<p>DescRdiDtcStatusByMaskFound </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>DescRdiDtcStatusByMaskNotFound </b>(vuint8 dtcSam) </p>
+<p><b>Parameter </b></p>
+<p>dtcSam </p>
+<p>Represents the status availability mask of the fault memory manager (i.e. </p>
+<p>which bits of the status mask are relevant for the ECU). </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The application can call this function to acknowledge that there were no (more) DTCs found that match the </p>
+<p>statusMask which was passed as a parameter in the callback <i>ApplDescGetDtcStatusByMask </i></p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports $A9 sub-function $81. </p>
+<p></p>
+<p>  CANdesc has previously called <i>ApplDescGetDtcStatusByMask. </i></p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context </p>
+<p>Table 6-18  </p>
+<p>DescRdiDtcStatusByMaskNotFound </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>60 / 77 </p>
+<p><b>6.12.3 </b></p>
+<p><b>SendOnChangeDTCCount ($A9 $82) </b></p>
+<p>This  service  manages  the  background  application  monitor  which  detects  DTC  count </p>
+<p>changes.  In  an  effort  to  more  efficiently  manage  this  functionality,  CANdesc  notifies  the </p>
+<p>application via function callbacks to activate/deactivate the monitor.  </p>
+<p>CANdesc processes this service as shown below. </p>
+<p>If the tester sends a request for this service with a non-zero status mask, the DTC count </p>
+<p>monitor shall be activated: </p>
+<p> </p>
+<p>Figure 6-17 </p>
+<p>Request $A9 $82 with activation of the background DTC count monitor </p>
+<p> </p>
+<p><b>sd Send on change DTC count request  (Enable)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[StatusMask != 0]: [USDT] $A9 $82 [StatusMask]</p>
+<p>ApplDescEnableOnChangeDtcCount</p>
+<p>[ResponsePending time = P2]: [USDT] $7F $A9 $78</p>
+<p>[ResponsePending time = P3Max]: [USDT] $7F $A9 $78</p>
+<p>DescRdiOnDtcCountChanged(NewCount0)</p>
+<p>[UUDT] $82 [NewCount0]</p>
+<p>DescRdiOnDtcCountChanged(NewCount1)</p>
+<p>[UUDT] $82 [NewCount1]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>61 / 77 </p>
+<p>If the tester sends a request for this service with a status  mask of zero, the background </p>
+<p>monitoring shall be deactivated: </p>
+<p> </p>
+<p>Figure 6-18 </p>
+<p>Request $A9 $82 with explicit deactivation of the background DTC count monitor. </p>
+<p><b>sd Send on change DTC count request  (Disable)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[StatusMask == 0]: [USDT] $A9 $82 [StatusMask]</p>
+<p>ApplDescDisableOnChangeDtcCount</p>
+<p>[UUDT] $82 $00 $00</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>62 / 77 </p>
+<p>Since this service is monitored for tester present timeouts, when no more $3E requests </p>
+<p>are received the DTC count monitor shall be deactivated: </p>
+<p> </p>
+<p>Figure 6-19 </p>
+<p>Request $A9 $82 with deactivation of the background DTC count monitor by timeout. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>In  addition  to  tester  present  timeout,  CANdesc  will  react  in  the  same  way  on  the </p>
+<p>following events</p>
+<p>: </p>
+<p></p>
+<p> </p>
+<p>The tester sends a <i>Service ReturnToNormalMode ($20) </i>request </p>
+<p></p>
+<p> </p>
+<p>The application calls the function <i>DescRdiDeactivateOnChangeDtcCount</i>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>CANdesc can process this request in parallel to an $A9 $81 request after the first UUDT </p>
+<p>response has been sent. </p>
+<p><b>sd Send on change DTC count request  (Timeout)</b></p>
+<p><b>Tester</b></p>
+<p><b>CANdesc</b></p>
+<p><b>Application</b></p>
+<p>[StatusMask != 0]: [USDT] $A9 $82 [StatusMask]</p>
+<p>ApplDescEnableOnChangeDtcCount</p>
+<p>[ResponsePending time = P2]: [USDT] $7F $A9 $78</p>
+<p>[ResponsePending time = P3Max]: [USDT] $7F $A9 $78</p>
+<p>DescRdiOnDtcCountChanged(NewCount0)</p>
+<p>[UUDT] $82 [NewCount0]</p>
+<p>DescRdiOnDtcCountChanged(NewCount1)</p>
+<p>[UUDT] $82 [NewCount1]</p>
+<p>TesterPresent Timeout</p>
+<p>ApplDescDisableOnChangeDtcCount</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>63 / 77 </p>
+<p>Here are the detailed descriptions of the APIs used in the above diagrams: </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescEnableOnChangeDtcCount </b>(vuint8 statusMask) </p>
+<p><b>Parameter </b></p>
+<p>statusMask </p>
+<p>The status mask which the application shall apply as a filter for the DTC count </p>
+<p>monitor (i.e. which DTCs shall be monitored) </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>CANdesc calls this function to tell the application that it shall activate DTC count monitoring. From this point </p>
+<p>on, the application shall send the DTC count on change by calling the function </p>
+<p><i>DescRdiOnDtcCountChanged</i>. </p>
+<p>CANdesc does not store the requested statusMask; it must be stored by the application </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports $A9 sub-function $82. </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context (same as DescStateTask()). </p>
+<p>Table 6-19  </p>
+<p>ApplDescEnableOnChangeDtcCount </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplDescDisableOnChangeDtcCount </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>CANdesc calls this function to notify the application that it shall deactivate DTC count monitoring. From this </p>
+<p>point on, the application shall not send the DTC count on change </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports $A9 sub-function $82. </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context (same as DescStateTask()). </p>
+<p>Table 6-20  </p>
+<p>ApplDescDisableOnChangeDtcCount </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void </p>
+<p><b>DescRdiOnDtcCountChanged</b></p>
+<p> (vuint16 newCount) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>64 / 77 </p>
+<p><b>Parameter </b></p>
+<p>newCount </p>
+<p>The new count of DTCs that match the mask that was passed as a parameter </p>
+<p>by the function <i>ApplDescEnableOnChangeDtcCount</i>. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The application can call this function to notify CANdesc that the DTC count has changed. CANdesc will </p>
+<p>send a UUDT response back to the tester. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports $A9 sub-function $82. </p>
+<p></p>
+<p>  CANdesc must have previously called the function <i>ApplDescEnableOnChangeDtcCount. </i></p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context </p>
+<p>Table 6-21  </p>
+<p>DescRdiOnDtcCountChanged </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>DescRdiDeactivateOnChangeDtcCount </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The application can call this function to notify CANdesc that it has stopped DTC count monitoring. </p>
+<p>CANdesc will call the function <i>ApplDescDisableOnChangeDtcCount </i>to acknowledge this event. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  Only available if the ECU supports $A9 sub-function $82. </p>
+<p></p>
+<p>  CANdesc must have previously called the function <i>ApplDescEnableOnChangeDtcCount. </i></p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context. </p>
+<p>Table 6-22  </p>
+<p>DescRdiDeactivateOnChangeDtcCount </p>
+<p><b>6.13 </b></p>
+<p><b>Service ReadDataByPacketIdentifier ($AA) </b></p>
+<p>This  service  allows  the  tester  to  read  a  DPID  (data  packet  identifier)  either  once  or </p>
+<p>periodically  with  three  possible  speeds  (slow,  medium,  or  fast).  CANdesc  completely </p>
+<p>handles this service. Only the PacketHandlers may be implemented by the application as </p>
+<p>described in section 5.7 The PacketHandler (another type of service processor). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>65 / 77 </p>
+<p><b>6.13.1 </b></p>
+<p><b>Handling undefined use cases </b></p>
+<p>There are some use cases which are not covered or completely described in the GM/Opel </p>
+<p>diagnostic  specification.  The  following  sections  describe  these  cases  along  with  the </p>
+<p>resulting CANdesc behaviour.  </p>
+<p><b>6.13.1.1 </b></p>
+<p><b>Service $AA handling for undefined dynamically definable DPIDs </b></p>
+<p>According  to  GMW-3110  version  1.6,  if  the  tester  requests  an  undefined  dynamically </p>
+<p>definable DPID with service $AA the result is undefined. In this situation, CANdesc sends </p>
+<p>a UUDT response with no actual data (byte zero is the DPID number and the remaining </p>
+<p>bytes are padded). </p>
+<p><b>6.13.1.2 </b></p>
+<p><b>Service $AA handling for undefined referenced dynamically defined PIDs </b></p>
+<p>As mentioned in section <i>6.4.1 Reading a dynamically defined PID (Parameter Identifier), </i></p>
+<p>the undefined PID contained by the DPID will contain no data. In this situation, CANdesc </p>
+<p>sends  a  UUDT  response  with  no  actual  data  (byte  zero  is  the  DPID  number  and  the </p>
+<p>remaining bytes are padded). </p>
+<p><b>6.13.1.3 </b></p>
+<p><b>Service $AA handling for unaccessible referenced PIDs </b></p>
+<p>A  dynamically  defined  DPID references  one  or more PIDs. If any  of  those  PIDs  are  not </p>
+<p>accessible  to  the  application  for  any  reason  (e.g.  security  access,  current  ECU  state, </p>
+<p>memory access error, etc.) at the time the scheduler needs the data, CANdesc sends a </p>
+<p>UUDT  response  with  no  actual  data  (byte  zero  is  the  DPID  number  and  the  remaining </p>
+<p>bytes are padded). </p>
+<p><b>6.14 </b></p>
+<p><b>Service DeviceControl ($AE) </b></p>
+<p>The </p>
+<p>application </p>
+<p>must </p>
+<p>completely </p>
+<p>implement </p>
+<p>this </p>
+<p>service. </p>
+<p>In </p>
+<p>addition, </p>
+<p>the </p>
+<p>GM/Opel </p>
+<p>diagnostic </p>
+<p>specification </p>
+<p>requires </p>
+<p>that </p>
+<p>the </p>
+<p>tester </p>
+<p>present </p>
+<p>timeout </p>
+<p>monitoring </p>
+<p>shall </p>
+<p>be </p>
+<p>activated once a DeviceControl service has been executed. Since CANdesc manages the </p>
+<p>tester  present  timer,  the  application  must  call  the  function <i> DescActivateS1Timer </i> to  fulfill </p>
+<p>this requirement. The proper location for this is the PostHandler for every CPID (Control </p>
+<p>Packet Identifier) except 0x00 (reserved for “terminate device control”). To facilitate this, </p>
+<p>the ECU developer should select ‘User’ as the PostHandler attribute for these CPIDs in </p>
+<p>CANdela  Studio.  These  PostHandlers  must  then  evaluate  the  status  parameter  (see </p>
+<p>TechnicalReference_CANdesc) and if the result is ok (i.e. CANdesc has successfully sent </p>
+<p>the positive response) the application must call the function <i>DescActivateS1Timer</i>. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>To reduce ROM usage and improve run-time, the ECU developer can use the </p>
+<p>“PostHanlderOverrideName” attribute in CANdelaStudio to define a single PostHandler </p>
+<p>used by all CPIDs. </p>
+<p>Please refer to section <i>7.3 Service attributes </i>for more details. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Here is an example how the ECU developer could implement the PostHandler: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>66 / 77 </p>
+<p> </p>
+<p>Figure 6-20 PostHandler for “DeviceControl” ($AE) </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>DescActivateS1Timer </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The application can call this function to enable tester present timeout monitoring. This function is </p>
+<p>normally only used in the “DeviceControl” ($AE) service PostHandler. </p>
+<p> </p>
+<p>This function will not restart the tester present timer!  Only the tester can reset the timer, by sending the </p>
+<p>“TesterPresent” ($3E) service. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p>  None </p>
+<p>Call context </p>
+<p></p>
+<p>  Background-loop level task context (same as DescStateTask()). </p>
+<p>Table 6-23  </p>
+<p>DescActivateS1Timer </p>
+<p> </p>
+<p><b>6.15 </b></p>
+<p><b>Service TesterPresent ($3E) </b></p>
+<p>CANdesc  implements  this  service  by  reloading  the  tester present  timer  with  the  original </p>
+<p>timeout value. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>This service does not activate tester present timeout monitoring!  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>67 / 77 </p>
+<p><b>7 </b></p>
+<p><b>CANdelaStudio default attribute settings </b></p>
+<p>In order to use the features of CANdesc described in this document, the ECU developer </p>
+<p>must set the CANdelaStudio attributes appropriately for the corresponding services and/or </p>
+<p>their instances as described below. </p>
+<p>The ECU developer configures CANdelaStudio attributes on three levels: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p><b>Diagnostic Class </b>(like “Ecu identification”, “Security access”, etc.) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p><b>Diagnostic Instance </b>(like “(DID $90) Vehicle Identification Number”, </p>
+<p>“RequestProgrammingModeHighSpeed”, etc.) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p><b>Service </b>(like “Read” or “Write” on <b>Diagnostic Instance </b>“(DID $90) Vehicle Identification </p>
+<p>Number”). </p>
+<p>The picture below illustrates these three levels in CANdelaStudio: </p>
+<p><b> </b></p>
+<p>Figure 7-1 CANdelaStudio views </p>
+<p>Legend:  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>RED:  </p>
+<p> Diagnostic Class </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>BLUE:  </p>
+<p> Diagnostic Instance </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>YELLOW:    Service </p>
+<p><b>7.1 </b></p>
+<p><b>Diagnostic class attributes </b></p>
+<p>CANdesc is designed to handle certain events on a diagnostic class basis; therefore, the </p>
+<p>ECU  developer  must configure  the  attributes  on  the diagnostic  class  level. The  relevant </p>
+<p>services and their attribute configurations are listed below. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>68 / 77 </p>
+<p> </p>
+<p>Figure 7-2 Diagnostic Class level attributes </p>
+<p><b>Diagnostic Class name </b></p>
+<p><b>MainHandler </b></p>
+<p><b>Support (for </b></p>
+<p><b>all Protocol </b></p>
+<p><b>Service) </b></p>
+<p><b>PreHandler </b></p>
+<p><b>Support (for </b></p>
+<p><b>all Protocol </b></p>
+<p><b>Services) </b></p>
+<p><b>PacketHandler </b></p>
+<p><b>Support </b></p>
+<p><b>PostHandler </b></p>
+<p><b>Support (for </b></p>
+<p><b>all Protocol </b></p>
+<p><b>Services) </b></p>
+<p>Failure Record Data – </p>
+<p>Parameters </p>
+<p><b>USER </b></p>
+<p>None </p>
+<p>None </p>
+<p>None </p>
+<p>Dynamic Data Packets </p>
+<p>None </p>
+<p>None </p>
+<p><b>All </b></p>
+<p>None </p>
+<p>Data Packet </p>
+<p><b>OEM </b></p>
+<p>None </p>
+<p><b>All </b></p>
+<p><b>OEM </b></p>
+<p>Programming mode </p>
+<p><b>OEM </b></p>
+<p>None </p>
+<p>None </p>
+<p><b>OEM </b></p>
+<p>Table 7-1   Default ‘Diagnostic Class’ attribute settings </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Diagnostic instance attributes </b></p>
+<p>CANdesc is designed to handle certain events on a diagnostic instance basis; therefore, </p>
+<p>the  ECU  developer  must  configure  the  attributes  on  the  diagnostic  instance  level.  The </p>
+<p>relevant services and their attribute configurations are listed below. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>69 / 77 </p>
+<p> </p>
+<p>Figure 7-3 Diagnostic Instance level attributes </p>
+<p> </p>
+<p><b>Diagnostic Class name where Diagnostic </b></p>
+<p><b>Instances shall be configured </b></p>
+<p><b>PacketHandler Option </b></p>
+<p> </p>
+<p><b>Default </b></p>
+<p><b>Optional </b></p>
+<p>Data Packet </p>
+<p><b>USER </b></p>
+<p><b>Generated </b></p>
+<p>Table 7-2  </p>
+<p>Default ‘Diagnostic instance’ attribute settings </p>
+<p><b>7.3 </b></p>
+<p><b>Service attributes </b></p>
+<p>CANdesc is designed to handle certain events on a diagnostic service basis; therefore, the </p>
+<p>ECU developer must configure the attributes on the diagnostic service level. The relevant </p>
+<p>services and their attribute configurations are listed below. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>70 / 77 </p>
+<p> </p>
+<p>Figure 7-4 </p>
+<p>Service related attributes </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>71 / 77 </p>
+<p> </p>
+<p><b>Notes</b>: </p>
+<p>Table 7-3  </p>
+<p>Default ‘Service’ attribute settings </p>
+<p><b>&gt; </b> All cells defined as “None” can optionally be replaced only by “User” attributes when </p>
+<p>desired. </p>
+<p><b>&gt; </b> Some data access services (e.g. $22, $1A, $3B and $AA) use “Generated” </p>
+<p>MainHandler (for $AA PacketHandler) support. This eliminates the need for the </p>
+<p>application to correctly order the data in the response message (it must only return the </p>
+<p>data; CANdesc will assemble the response in the correct order) </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>1) </p>
+<p>It is not possible to implement the <b>MainHandler </b>for service <b>$28 </b>in your application </p>
+<p>since CANdesc (since version 5.05.04) uses this service callback. To evaluate the </p>
+<p>service execution conditions, you can use the <b>PreHandler </b>to perform those checks and </p>
+<p>to reject the service if needed. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Service (and </b></p>
+<p><b>sub-service) ID </b></p>
+<p><b>that shall be </b></p>
+<p><b>configured </b></p>
+<p><b>MainHandler </b></p>
+<p><b>Support (for </b></p>
+<p><b>Service) </b></p>
+<p><b>PreHandler </b></p>
+<p><b>Support  </b></p>
+<p><b>PreHandler </b></p>
+<p><b>OverrideName </b></p>
+<p><b>PostHandler </b></p>
+<p><b>Support </b></p>
+<p><b>PostHandler </b></p>
+<p><b>OverrideName </b></p>
+<p>$10 $02 </p>
+<p><b>Generated </b></p>
+<p><b>(User) </b></p>
+<p>None </p>
+<p> </p>
+<p><b>OEM </b></p>
+<p> </p>
+<p>$10 $03 </p>
+<p><b>Generated </b></p>
+<p><b>(User) </b></p>
+<p>None </p>
+<p> </p>
+<p><b>OEM </b></p>
+<p> </p>
+<p>$20 </p>
+<p><b>OEM </b></p>
+<p>None </p>
+<p><b> </b></p>
+<p><b>OEM </b></p>
+<p><b> </b></p>
+<p>$28 </p>
+<p><b>OEM </b></p>
+<p>1) </p>
+<p>None </p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p>$3E </p>
+<p><b>Generated </b></p>
+<p><b>(User)  </b></p>
+<p> </p>
+<p> </p>
+<p><b>OEM </b></p>
+<p> </p>
+<p>$A9 $80 </p>
+<p><b>OEM </b></p>
+<p><b>OEM </b></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p>$A9 $81 </p>
+<p><b>OEM </b></p>
+<p><b>OEM </b></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p>$A9 $82 </p>
+<p><b>OEM </b></p>
+<p>None </p>
+<p> </p>
+<p><b>OEM </b></p>
+<p> </p>
+<p>$AE $00 </p>
+<p>User </p>
+<p>None </p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p>$AE $01-$FF </p>
+<p>User </p>
+<p>None </p>
+<p> </p>
+<p><b>User </b></p>
+<p>One function for all </p>
+<p>sub-services (see </p>
+<p><i>Service </i></p>
+<p><i>DeviceControl </i></p>
+<p><i>($AE)</i>) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>72 / 77 </p>
+<p><b>7.4 </b></p>
+<p><b>State group for the Programming Sequence </b></p>
+<p>The  CANdesc  implementation  for  the  programming  mode  sequence  relies  on  a  state </p>
+<p>machine that can be defined as CANdela Studio state group.  </p>
+<p><b>State Group </b></p>
+<p><b>Qualifier </b></p>
+<p><b>State Qualifier </b></p>
+<p><b>Blocked </b></p>
+<p><b>Services  </b></p>
+<p><b>Transitions </b></p>
+<p>ProgrammingMode  Normal </p>
+<p>$A5 $xx </p>
+<p>$28 -&gt; CommHalted </p>
+<p>CommHalted </p>
+<p>$A5 $03 </p>
+<p>$A5 $01 -&gt; Requested </p>
+<p>$A5 $02 -&gt; Requested_HiSpeed </p>
+<p>$20 -&gt; Normal </p>
+<p>Requested </p>
+<p>None </p>
+<p>$A5 $02 -&gt; Requested_HiSpeed </p>
+<p>$A5 $03 -&gt; Active </p>
+<p>$20 -&gt; Normal </p>
+<p>Requested_HiSpeed</p>
+<p> </p>
+<p>None </p>
+<p>$A5 $01 -&gt; Requested </p>
+<p>$A5 $03 -&gt; Active </p>
+<p>$20 -&gt; Normal </p>
+<p>Active  </p>
+<p>$A5 $xx </p>
+<p>$20 -&gt; Normal </p>
+<p>Table 7-4  </p>
+<p>Programming Sequence state group </p>
+<p>CANdesc will generate these states and transitions even if they do not exist in the CDD </p>
+<p>file. Otherwise, CANdesc will reuse what is already present, and add/remove all missing </p>
+<p>states and/or transitions. </p>
+<p>This  means  you  cannot  change  the  programming  sequence  by  means  of  changing  the </p>
+<p>state configuration, but you <b>can </b>put the correct sequence in the CDD file (using the exact </p>
+<p>qualifiers from the table above). This opens up the possibility to block further services from </p>
+<p>executing in any of these states.  </p>
+<p>E.g.  if  you  want  to  block  all  $AE  services  from  executing  while  programming  mode  is </p>
+<p>‘Active’, you can model this in CANdela Studio, and CANdesc will do the rest for you. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Since the StateGroup ‘ProgrammingMode’ follows the usual state group </p>
+<p>implementation, all functionality regarding state groups is available for use. Especially </p>
+<p>the callback ApplDescOnTransitionProgrammingMode will notify your application of any </p>
+<p>state change. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>73 / 77 </p>
+<p><b>8 </b></p>
+<p><b>OBD support </b></p>
+<p>What is special about OBD support?  GM/Opel uses extended addressing for functionally </p>
+<p>addressed enhanced diagnostic services; however, functionally addressed OBD requests </p>
+<p>must use normal  addressing.  Due  to this,  CANdesc  uses  two  separate  reception  paths. </p>
+<p>Additionally,  the  message  definition  of  some  OBD  services  does  not  match  the  generic </p>
+<p>service  instance  generator  used  by  CANdesc  so  they  can  only  be  supported  on  the </p>
+<p>protocol service level.  </p>
+<p><b>8.1 </b></p>
+<p><b>CAN identifiers </b></p>
+<p><b>Enhanced diagnostic services </b></p>
+<p>GM specifies enhanced diagnostic service requirements in GMW-3110. </p>
+<p><b>CAN ID 0x101 - 11-bit extended addressing USDT </b></p>
+<p>This ID is only used for functionally addressed enhanced diagnostic requests. Functionally </p>
+<p>addressed OBD requests must use CAN ID 0x7DF. </p>
+<p><b>OBD services </b></p>
+<p>GM uses the OBD service requirements described in ISO15031-5. </p>
+<p><b>CAN ID 0x7DF - 11-bit normal addressing USDT </b></p>
+<p>This  ID  is  only  used  for  functionally  addressed  OBD  requests.  Functionally  addressed </p>
+<p>enhanced diagnostic requests must use CAN ID 0x101. </p>
+<p><b>CAN ID 0x7E0-0x7EF - 11-bit normal addressing USDT </b></p>
+<p>These  IDs  are  used  for  physically  addressed  OBD  requests  to  individual  ECUs  that </p>
+<p>support OBD services. ECUs using these IDs for OBD services may also elect to use the </p>
+<p>same IDs for physically addressed enhanced diagnostic services; however, ECUs that do </p>
+<p>not support OBD services may not use these IDs for enhanced diagnostic services. </p>
+<p><b>8.2 </b></p>
+<p><b>Restrictions </b></p>
+<p>SID $01, $02, $06, $08 and $09 must be handled at the diagnostic class level when the </p>
+<p>‘may be combined’ property is enabled in CANdelaStudio. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>74 / 77 </p>
+<p><b>8.3 </b></p>
+<p><b>CANdelaStudio default attribute settings for OBD services </b></p>
+<p><b>8.3.1 </b></p>
+<p><b>Diagnostic classes </b></p>
+<p>Powertrain diagnostic and freeze frame data (EOBD) – SID $01 / $02 </p>
+<p>Emission related trouble codes – SID $03 / $07 / $04 </p>
+<p>Test results for non-continuously monitored systems (EOBD) – SID $06 </p>
+<p>Control of on-board system, test, or component (EOBD) – SID $08 </p>
+<p>Vehicle information (EOBD) – SID $09 </p>
+<p> </p>
+<p><b>Service </b></p>
+<p><b>ID </b></p>
+<p><b>PreHandler </b></p>
+<p><b>Support </b></p>
+<p><b>MainHandler </b></p>
+<p><b>Support </b></p>
+<p><b>(On Protocol </b></p>
+<p><b>level) </b></p>
+<p><b>PostHandler </b></p>
+<p><b>Support </b></p>
+<p><b>PacketHandler </b></p>
+<p><b>Support </b></p>
+<p>$01 </p>
+<p>None </p>
+<p><b>User </b></p>
+<p>None </p>
+<p>None </p>
+<p>$02 </p>
+<p>None </p>
+<p><b>User </b></p>
+<p>None </p>
+<p>None </p>
+<p>$06 </p>
+<p>None </p>
+<p><b>User </b></p>
+<p>None </p>
+<p>None </p>
+<p>$08 </p>
+<p>None </p>
+<p><b>User </b></p>
+<p>None </p>
+<p>None </p>
+<p>$09  </p>
+<p>None </p>
+<p><b>User </b></p>
+<p>None </p>
+<p>None </p>
+<p>Table 8-1  </p>
+<p>Diagnostic class specific attributes </p>
+<p><b>8.4 </b></p>
+<p><b>CANgen configuration </b></p>
+<p><b>8.4.1 </b></p>
+<p><b>DBC attribute settings for the OBD request message  </b></p>
+<p>A  message  cannot  be  supported  by  both  the  Interaction  Layer  and  CANdesc.  For  this </p>
+<p>reason, diagnostic messages must have the attribute “GenMsgNoIalSupport” set to “yes” </p>
+<p>(or, depending on the DBC version, the attribute “GenMsgILSupport” set to “no”). The DBC </p>
+<p>author is responsible for setting this attribute. </p>
+<p><b>8.4.2 </b></p>
+<p><b>CANgen version &lt; 4.15.00 </b></p>
+<p>In older CANgen versions, no automatic configuration of OBD support is performed so the </p>
+<p>ECU developer must configure it manually: </p>
+<p>For  the  functional  OBD  request  message  (CAN  ID  0x7DF),  a  precopy  function  with  the </p>
+<p>name <b>DescOBDReqInd </b>must be configured (in CANgen on the “Receive Messages” tab). </p>
+<p><b>8.4.3 </b></p>
+<p><b>CANgen version ≥ 4.15.00 </b></p>
+<p>Since  CANgen  version  4.15.00,  the  DBC  author  can  set  the attribute  ‘DiagState’ for the </p>
+<p>functional  OBD  request  message  (CAN  ID  0x7DF)  to  ‘Yes’.  In  this  case,  CANgen  will </p>
+<p>automatically configure the precopy function. </p>
+<p><b>8.4.4 </b></p>
+<p><b>GENy configuration </b></p>
+<p>The DBC author can set the attribute ‘DiagState’ for the functional OBD request message </p>
+<p>(CAN ID 0x7DF) to ‘Yes’. Then, CANdesc configures the precopy function automatically. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>75 / 77 </p>
+<p><b>8.5 </b></p>
+<p><b>CANdesc configuration (without a Powertrain CANdela template) </b></p>
+<p>If the ECU developer is not using a Powertrain template (no OBD services are available in </p>
+<p>CANdelaStudio) but the ECU must still support OBD services, a workaround is necessary </p>
+<p>to  activate  the  OBD  reception  path  in  CANdesc.  This  workaround  requires  the  ECU </p>
+<p>developer  to  make  changes  to  the  file  “CANdelaGenAPI.ini”,  which  is  located  in  the </p>
+<p>CANgen executable folder. </p>
+<p>To override the look up result, modify: </p>
+<p>[GeneratorController] </p>
+<p>OverrideAnyObdServiceDetection = [0 - don't (default), 1 - </p>
+<p>activate OBD support] </p>
+<p>The OBD services themselves will be handled by the application using the ‘user-service’ </p>
+<p>feature, which shall be enabled by the same INI file: </p>
+<p>[Misc] </p>
+<p>UseGenericUserServiceHandler = [0 - don't (default), 1 - </p>
+<p>activated] </p>
+<p>Optionally, the following entry can be used for post-handler support: </p>
+<p>UseGenericUserServicePostHandler = [0 - don't (default), 1 - </p>
+<p>activated] </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>76 / 77 </p>
+<p><b>9 </b></p>
+<p><b> Debug assertion codes </b></p>
+<p>The GM/Opel specific implementation has optional debug code for certain situations where </p>
+<p>the  ECU  could  “hang”  or  incorrect  behavior  could  occur.  Depending  on  the  debug  level </p>
+<p>chosen in the generation tool, the following cases may be checked: </p>
+<p><b>Assertion name </b></p>
+<p><b>ID(HEX) </b></p>
+<p><b>Description </b></p>
+<p>kDescAssertInvalidA9Mode </p>
+<p>91 </p>
+<p>The  module  has  set  the  $A9  sub-</p>
+<p>service </p>
+<p>iterator </p>
+<p>incorrectly, </p>
+<p>which </p>
+<p>will cause wrong buffer assignment </p>
+<p>when  there  is  parallel  processing </p>
+<p>of sub-service $82 with one of the </p>
+<p>$80 and $81 sub-functions. </p>
+<p>kDescAssertUudtBufferAlreadyUnlocked </p>
+<p>A0 </p>
+<p>CANdesc </p>
+<p>received </p>
+<p>confirmation </p>
+<p>that </p>
+<p>a </p>
+<p>UUDT </p>
+<p>response </p>
+<p>was </p>
+<p>successfully </p>
+<p>transmitted </p>
+<p>on </p>
+<p>the </p>
+<p>bus, but the internal state machine </p>
+<p>indicates that no transmission was </p>
+<p>in progress. </p>
+<p>kDescAssertWrongUudtTransmitterHandle </p>
+<p>A1 </p>
+<p>CANdesc </p>
+<p>received </p>
+<p>confirmation </p>
+<p>that </p>
+<p>a </p>
+<p>UUDT </p>
+<p>response </p>
+<p>was </p>
+<p>successfully </p>
+<p>transmitted </p>
+<p>on </p>
+<p>the </p>
+<p>bus,  but  the  transmit  handle  does </p>
+<p>not  match  the  one  that  CANdesc </p>
+<p>actually tried to send. </p>
+<p>kDescAssertUudtBufferStillLocked </p>
+<p>A2 </p>
+<p>CANdesc </p>
+<p>attempted </p>
+<p>a </p>
+<p>second </p>
+<p>UUDT </p>
+<p>transmission </p>
+<p>before </p>
+<p>the </p>
+<p>previous </p>
+<p>one </p>
+<p>was </p>
+<p>actually </p>
+<p>transmitted on the bus. </p>
+<p>kDescAssertIllegalPostProgModeId </p>
+<p>A3 </p>
+<p>CANdesc  began  the  internal  post </p>
+<p>processing </p>
+<p>for </p>
+<p>a </p>
+<p>programming </p>
+<p>mode  request,  but  the  requested </p>
+<p>programming </p>
+<p>mode </p>
+<p>sub-function </p>
+<p>was invalid.  </p>
+<p>Table 9-1  </p>
+<p>Debug assertion codes </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference CANdesc </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.2.0 </p>
+<p>based on template version 5.1.0 </p>
+<p>77 / 77 </p>
+<p><b>10  Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b> News </p>
+<p><b>&gt; </b> Products </p>
+<p><b>&gt; </b> Demo software </p>
+<p><b>&gt; </b> Support </p>
+<p><b>&gt; </b> Training data </p>
+<p><b>&gt; </b> Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,3453 @@
+---
+layout: default
+title: UserManual_CanDriver
+nav_order: 5
+parent: CAN Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p>Vector Informatik GmbH, Ingersheimer Str. 24, 70499 Stuttgart </p>
+<p>Tel. 0711/80670-0, Fax 0711/80670-399, Email can@vector-informatik.de </p>
+<p>Internet http:\\www.vector-informatik.de </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Vector CAN Driver </b></p>
+<p>User Manual </p>
+<p>(Your First Steps) </p>
+<p> </p>
+<p> </p>
+<p>Version 2.4 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>2 / 56</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>CAN Driver</p>
+<p>CAN Controller</p>
+<p><b>Message Transmission </b></p>
+<p><b>- Reception</b></p>
+<p><b>CAN</b></p>
+<p>Transceiver</p>
+<p><b>Higher</b></p>
+<p><b>layer components</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors: </b></p>
+<p>Klaus Emmert </p>
+<p><b>Version: </b></p>
+<p>2.4 </p>
+<p><b>Status: </b></p>
+<p>released </p>
+<p>(in preparation/completed/inspected/released)</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>3 / 56</p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Klaus Emmert </p>
+<p>2001-05-11 </p>
+<p>0.1 </p>
+<p>First version of the User Manual </p>
+<p>Klaus Emmert </p>
+<p>2001-08-11 </p>
+<p>0.4 </p>
+<p>Technical and linguistic revision </p>
+<p>Klaus Emmert </p>
+<p>2001-09.21 </p>
+<p>0.6 </p>
+<p>Revision (pretransmit) </p>
+<p>Klaus Emmert </p>
+<p>2001-10-10 </p>
+<p>0.6a </p>
+<p>Error in description of a mes-</p>
+<p>sage, how to enter the manufac-</p>
+<p>turer type to the example data </p>
+<p>base. </p>
+<p>Klaus Emmert </p>
+<p>2001-12-14 </p>
+<p>1.0 </p>
+<p>Linguistic revision </p>
+<p>Klaus Emmert </p>
+<p>2002-09-25 </p>
+<p>1.4 </p>
+<p>Linguistic corrections and little </p>
+<p>adaptations </p>
+<p>Klaus Emmert </p>
+<p>2003-07-16 </p>
+<p>1.5 </p>
+<p>Warning added for example code </p>
+<p>usage </p>
+<p>Klaus Emmert </p>
+<p>2004-10-26 </p>
+<p>1.6 </p>
+<p>New Layout, example dbc file </p>
+<p>deleted and description modified, </p>
+<p>description for CANgen and the </p>
+<p>new Generation Tool GENy, new </p>
+<p>Symbols </p>
+<p>Klaus Emmert </p>
+<p>2006-05-30 </p>
+<p>1.7 </p>
+<p>Updated dialog for bus timing </p>
+<p>register setup </p>
+<p>Klaus Emmert </p>
+<p>2006-09-08 </p>
+<p>1.8 </p>
+<p>Page number of Index, headline </p>
+<p>numbering </p>
+<p>Klaus Emmert </p>
+<p>2007-02-20 </p>
+<p>1.9 </p>
+<p>Issues in Word Hyperlinks </p>
+<p>Klaus Emmert </p>
+<p>2007-07-26 </p>
+<p>2.0 </p>
+<p>Issues in steps introduction, </p>
+<p>some typos. </p>
+<p>Klaus Emmert </p>
+<p>2007-09-06 </p>
+<p>2.1 </p>
+<p>Typos and reference in TOC </p>
+<p>Klaus Emmert </p>
+<p>2007-10-29 </p>
+<p>2.2 </p>
+<p>Baudrate setting description </p>
+<p>Klaus Emmert </p>
+<p>2008-09-04 </p>
+<p>2.3 </p>
+<p>Include file for CAN Driver and  </p>
+<p>GENy </p>
+<p>Klaus Emmert </p>
+<p>2009-08-26 </p>
+<p>2.4 </p>
+<p>Fix: v_inc.h must not be changed </p>
+<p>manually.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>4 / 56</p>
+<p><b>Motivation For This Work </b></p>
+<p>The CAN Driver is the only component among the CANbedded Software Compo-</p>
+<p>nents that is directly connected with the CAN Controller hardware. It is the founda-</p>
+<p>tion for all other CANbedded Software Components. </p>
+<p>The first target for you is to get the CAN Driver running, to see receive and transmit </p>
+<p>messages on the bus.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>WARNING </b></p>
+<p><b>All  application  code  in  any  of  the  Vector  User  Manuals  is  for  training  pur-</b></p>
+<p><b>poses  only.  They  are  slightly  tested  and  designed  to  understand  the  basic </b></p>
+<p><b>idea of using a certain component or a set of components. </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>5 / 56</p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Welcome to the CAN Driver User Manual .......................................................8</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Beginners with the CAN Driver start here ? ........................................8</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>For Advanced Users ...........................................................................8</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Special topics......................................................................................8</p>
+<p> </p>
+<p>1.4</p>
+<p> </p>
+<p>Documents this one refers to…...........................................................8</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>About This Document .......................................................................................9</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>How This Documentation Is Set-Up ....................................................9</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Legend and Explanation of Symbols.................................................10</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>ECUs and Vector CANbedded Components – An Overall View..................11</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Network Data Base File (DBC) .........................................................11</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>CANbedded Software Components...............................................................12</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Generation Tool ................................................................................13</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>The Vector CAN Driver .....................................................................14</p>
+<p> </p>
+<p>4.2.1</p>
+<p> </p>
+<p>Tasks of The Vector CAN Driver.......................................................14</p>
+<p> </p>
+<p>4.2.2</p>
+<p> </p>
+<p>Vector CAN Driver Files ....................................................................14</p>
+<p> </p>
+<p>4.2.2.1</p>
+<p> </p>
+<p>Component Files...............................................................................14</p>
+<p> </p>
+<p>4.2.2.2</p>
+<p> </p>
+<p>Generated Files.................................................................................14</p>
+<p> </p>
+<p>4.2.2.3</p>
+<p> </p>
+<p>Configurable files ..............................................................................15</p>
+<p> </p>
+<p>4.2.3</p>
+<p> </p>
+<p>Include The CAN Driver Into Your Application .................................. 15</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Vector CAN Driver– A More Detailed View....................................................16</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Information Package on the CAN Bus .............................................. 16</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Storing Information Packages...........................................................17</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>The Registers of the CAN Controller.................................................18</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>The Data Structure Generated by the Generation Tool for </p>
+<p>Storing Message Data.......................................................................18</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>Memory the Application Reserved for Signals. ................................. 19</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>CAN Driver in 9 Steps .....................................................................................20</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>STEP 1  Unpack the Delivery............................................................21</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>STEP 2  Generation Tool and dbc File .............................................22</p>
+<p> </p>
+<p>6.2.1</p>
+<p> </p>
+<p>Using CANgen as Generation Tool...................................................22</p>
+<p> </p>
+<p>6.2.2</p>
+<p> </p>
+<p>Using GENy, the new Generation Tool .............................................30</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>STEP 3  Generate Files ....................................................................33</p>
+<p> </p>
+<p>6.3.1</p>
+<p> </p>
+<p>Using CANgen Generation Tool........................................................33</p>
+<p> </p>
+<p>6.3.2</p>
+<p> </p>
+<p>Using GENy ......................................................................................33</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>6 / 56</p>
+<p>6.4</p>
+<p> </p>
+<p>STEP 4  Add Files to your Application ..............................................35</p>
+<p> </p>
+<p>6.5</p>
+<p> </p>
+<p>STEP 5 Adaptations for your Application ..........................................36</p>
+<p> </p>
+<p>6.6</p>
+<p> </p>
+<p>STEP 6 Compile, Link and Download ............................................... 40</p>
+<p> </p>
+<p>6.7</p>
+<p> </p>
+<p>STEP 7 Receiving A Message..........................................................40</p>
+<p> </p>
+<p>6.8</p>
+<p> </p>
+<p>STEP 8 Sending a Message .............................................................43</p>
+<p> </p>
+<p>6.9</p>
+<p> </p>
+<p>STEP 9 Further Actions ....................................................................45</p>
+<p> </p>
+<p>6.9.1</p>
+<p> </p>
+<p>Strategies for Receiving a CAN Message.........................................45</p>
+<p> </p>
+<p>6.9.1.1</p>
+<p> </p>
+<p>Hardware Filter (HW Filter) ...............................................................45</p>
+<p> </p>
+<p>6.9.1.2</p>
+<p> </p>
+<p>ApplCanMsgReceived....................................................................... 46</p>
+<p> </p>
+<p>6.9.1.3</p>
+<p> </p>
+<p>Ranges .............................................................................................. 46</p>
+<p> </p>
+<p>6.9.1.4</p>
+<p> </p>
+<p>Search Algorithm...............................................................................46</p>
+<p> </p>
+<p>6.9.1.5</p>
+<p> </p>
+<p>Precopy ............................................................................................. 46</p>
+<p> </p>
+<p>6.9.1.6</p>
+<p> </p>
+<p>Indication Flag / Indication Function..................................................47</p>
+<p> </p>
+<p>6.9.2</p>
+<p> </p>
+<p>Strategies for Sending a CAN Message ...........................................48</p>
+<p> </p>
+<p>6.9.2.1</p>
+<p> </p>
+<p>Update RAM buffer ...........................................................................48</p>
+<p> </p>
+<p>6.9.2.2</p>
+<p> </p>
+<p>CanTransmit...................................................................................... 49</p>
+<p> </p>
+<p>6.9.2.3</p>
+<p> </p>
+<p>The Queue ........................................................................................49</p>
+<p> </p>
+<p>6.9.2.4</p>
+<p> </p>
+<p>Pretransmit Function.........................................................................49</p>
+<p> </p>
+<p>6.9.2.5</p>
+<p> </p>
+<p>Confirmation Function and Confirmation Flag................................... 49</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Further Information .........................................................................................51</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>An Exercise For Practice...................................................................51</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>The Solution To The Exercise...........................................................54</p>
+<p> </p>
+<p>7.2.1</p>
+<p> </p>
+<p>After the first reception and transmission of a new value:................. 54</p>
+<p> </p>
+<p>7.2.2</p>
+<p> </p>
+<p>After the reception of the same value as before: ..............................54</p>
+<p> </p>
+<p>7.2.3</p>
+<p> </p>
+<p>The solution, step by step .................................................................54</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Index ................................................................................................................. 56</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>7 / 56</p>
+<p><b>Illustrations </b></p>
+<p>Figure </p>
+<p> </p>
+<p>3-1</p>
+<p> </p>
+<p>A Modern Vehicle With Body CAN And PowerTrain Bus........................... 11</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-1</p>
+<p> </p>
+<p>CANbedded Software Components........................................................... 12</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-2</p>
+<p> </p>
+<p>Order For Including Files............................................................................ 15</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-1</p>
+<p> </p>
+<p>Message and Signal................................................................................... 16</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-2</p>
+<p> </p>
+<p>Rx Register, Data Structure and Notification ............................................. 17</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-3</p>
+<p> </p>
+<p>Tx Register, Data Structure and CanTransmit ........................................... 18</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-4</p>
+<p> </p>
+<p>Memory optimization by the Generation Tool ............................................ 19</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-1</p>
+<p> </p>
+<p>Add a dbc file ............................................................................................. 22</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-2</p>
+<p> </p>
+<p>Warning – do not bother............................................................................. 22</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-3</p>
+<p> </p>
+<p>Channel properties..................................................................................... 23</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-4</p>
+<p> </p>
+<p>Save Setting For The First Time ................................................................ 23</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-5</p>
+<p> </p>
+<p>Overview of Signals and Directories .......................................................... 24</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-6</p>
+<p> </p>
+<p>CAN Driver Dialog (for HC12).................................................................... 25</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-7</p>
+<p> </p>
+<p>Init Registers For The CAN Controller (for HC12)...................................... 26</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-8</p>
+<p> </p>
+<p>Acceptance Filters For The CAN Controller (for HC12) ............................. 27</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-9</p>
+<p> </p>
+<p>Bus Timing Register Settings..................................................................... 28</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-10</p>
+<p> </p>
+<p>TP Options ................................................................................................. 29</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-11</p>
+<p> </p>
+<p>Setup Dialog Window and Channel Setup Window to Create a New </p>
+<p>Configuration .............................................................................................. 30</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-12</p>
+<p> </p>
+<p>Component Selection................................................................................. 30</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-13</p>
+<p> </p>
+<p>The Register Block Address is a General Setting for the CPU .................. 31</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-14</p>
+<p> </p>
+<p>Register Block Offset, Acceptance Filters and Bus Timing are </p>
+<p>Channel-Specific Settings for the CPU ...................................................... 31</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-15</p>
+<p> </p>
+<p>Acceptance Filter Settings Window of GENy ............................................. 32</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-16</p>
+<p> </p>
+<p>Generation Process ................................................................................... 33</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-17</p>
+<p> </p>
+<p>Information About the Generated Files and the Generation Process ........ 33</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-18</p>
+<p> </p>
+<p>The Transceiver ......................................................................................... 37</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-19</p>
+<p> </p>
+<p>Simple Test Environment........................................................................... 40</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-20</p>
+<p> </p>
+<p>Check button for indication flag.................................................................. 41</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-21</p>
+<p> </p>
+<p>Calling Order Of Functions When A CAN Message Is Received............... 45</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-22</p>
+<p> </p>
+<p>States Before Transmitting A CAN Message............................................. 48</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-23</p>
+<p> </p>
+<p>Confirmation Interrupt After Transmission Of CAN Message .................... 50</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>8 / 56</p>
+<p><b>1 </b></p>
+<p><b>Welcome to the CAN Driver User Manual </b></p>
+<p><b>1.1 </b></p>
+<p><b>Beginners with the CAN Driver start here ?  </b></p>
+<p>You need some information about this document?  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Æ</p>
+<p> see Chapter 2</p>
+<p> </p>
+<p>Getting started    </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Æ</p>
+<p> see Chapter 3</p>
+<p> </p>
+<p>9 Steps for the CAN Driver   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Æ</p>
+<p> see Chapter 6</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.2 </b></p>
+<p><b>For Advanced Users  </b></p>
+<p>Start reading here. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Æ</p>
+<p> see Chapter 5</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.3 </b></p>
+<p><b>Special topics  </b></p>
+<p>Strategies for receiving a CAN message  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Æ</p>
+<p> see Chapter 6.9.1</p>
+<p> </p>
+<p>Strategies for sending a CAN message  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Æ</p>
+<p> see Chapter 6.9.2</p>
+<p> </p>
+<p>An exercise   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Æ</p>
+<p> see Chapter 7.1</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.4 </b></p>
+<p><b>Documents this one refers to… </b></p>
+<p>TechnicalReference_CANDriver.pdf </p>
+<p>TechnicalReference_CAN_xxx.pdf </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>9 / 56</p>
+<p><b>2 </b></p>
+<p><b>About This Document </b></p>
+<p>This  document  gives  you  an  understanding  of  the  CAN  Driver.  You  will  receive </p>
+<p>general information, a step-by-step tutorial on how to include and use the function-</p>
+<p>alities of the CAN Driver.  </p>
+<p>For more detailed information about the CAN Driver and its API refer to the Technical </p>
+<p>Reference </p>
+<p>(TechnicalReference_CANDriver.pdf) </p>
+<p>and </p>
+<p>the </p>
+<p>hardware </p>
+<p>specific </p>
+<p>refer-</p>
+<p>ences TechnicalReference_CAN_xxx.pdf (e.g. TechnicalReference_CAN_HC12.pdf). </p>
+<p><b>2.1 </b></p>
+<p><b>How This Documentation Is Set-Up </b></p>
+<p><b>Chapter </b></p>
+<p><b>Content </b></p>
+<p><b>Chapter 1 </b></p>
+<p>The welcome page is to navigate in the document. The main parts of the document </p>
+<p>can be accessed from here via hyperlinks. </p>
+<p><b>Chapter 2 </b></p>
+<p>It contains some formal information about this document, an explanation of legends </p>
+<p>and symbols. </p>
+<p><b>Chapter 3 </b></p>
+<p>An  introduction  to  the  files,  the  tools  and  information  necessary  to  understand  the </p>
+<p>descriptions in the following chapters. </p>
+<p><b>Chapter 4 </b></p>
+<p>Here you find some more insight in the CAN Driver about receiving and transmitting </p>
+<p>messages, the CAN controllers and the data structure. </p>
+<p><b>Chapter 5 </b></p>
+<p>A step-by-step guide to establish CAN communication on an ECU for the first time. </p>
+<p>Follow the 9 steps to get the answer to most of your questions and problems.. </p>
+<p><b>Chapter 6 </b></p>
+<p>Here you find a problem to solve to check your understanding of the CAN Driver and </p>
+<p>its functions. </p>
+<p><b>Chapter 7 </b></p>
+<p>In this last chapter there is a list of experiences with the CAN Driver. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>10 / 56</p>
+<p>These areas </p>
+<p>to the right of </p>
+<p>the text </p>
+<p>contain brief </p>
+<p>items of </p>
+<p>information </p>
+<p>that will </p>
+<p>facilitate your </p>
+<p>search for </p>
+<p>specific </p>
+<p>topics. </p>
+<p><b>2.2 </b></p>
+<p><b>Legend and Explanation of Symbols </b></p>
+<p>You find these symbols at the right side of the document. They indicate special ar-</p>
+<p>eas in the text. Here is a list of their meaning. </p>
+<p><b>Symbol </b></p>
+<p><b>Meaning </b></p>
+<p> </p>
+<p>The building bricks mark examples. </p>
+<p> </p>
+<p>You will find key words and information in short sentences in the margin. This will </p>
+<p>greatly simplify your search for topics. </p>
+<p> </p>
+<p>The footprints will lead you through the steps until you can use the described Vector </p>
+<p>CAN Driver. </p>
+<p> </p>
+<p>There is something you should take care about. </p>
+<p> </p>
+<p>Useful and additional information is displayed in areas with this symbol. </p>
+<p> </p>
+<p>This file you are allowed to edit on demand. </p>
+<p> </p>
+<p>This file you must not edit at all.  </p>
+<p> </p>
+<p>This indicates an area dealing with frequently asked questions (FAQ). </p>
+<p> </p>
+<p>Comments </p>
+<p>and </p>
+<p>explanati-</p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>11 / 56</p>
+<p>There is the same </p>
+<p>dbc file per bus </p>
+<p>system (high </p>
+<p>speed, low </p>
+<p>speed, etc) for all </p>
+<p>suppliers to </p>
+<p>guarantee a </p>
+<p>common basis for </p>
+<p>development</p>
+<p><i>. </i></p>
+<p><b>3 </b></p>
+<p><b>ECUs and Vector CANbedded Components – An Overall View </b></p>
+<p><b>3.1 </b></p>
+<p><b>Network Data Base File (DBC) </b></p>
+<p>Normally the different ECUs in a modern vehicle are developed by different suppli-</p>
+<p>ers (SUPPLIER X). All ECUs within the same bus system ( </p>
+<p>n</p>
+<p> or </p>
+<p>o</p>
+<p>) use the same </p>
+<p>data base (dbc file) to guarantee that the ECUs will work together later on in the </p>
+<p>vehicle. </p>
+<p><b>All_ECUs_midspeed</b></p>
+<p><b>.dbc</b></p>
+<p><b>All_ECUs_highspeed</b></p>
+<p><b>.dbc</b></p>
+<p><b>n</b></p>
+<p><b>o</b></p>
+<p><b>SUPPLIER 1</b></p>
+<p><b>SUPPLIER 6</b></p>
+<p><b>SUPPLIER 5</b></p>
+<p><b>SUPPLIER 2</b></p>
+<p><b>SUPPLIER 4</b></p>
+<p><b>SUPPLIER 3</b></p>
+<p><b>n Powertrain</b></p>
+<p><b>o BodyCAN</b></p>
+<p>Network Database</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>3-1 </p>
+<p>A Modern Vehicle With Body CAN And PowerTrain Bus </p>
+<p>The dbc file is designed by the vehicle manufacturer and distributed to all suppliers </p>
+<p>that develop an ECU. Thus every supplier uses the SAME dbc file for one vehicle </p>
+<p>platform and one bus system (powertrain, body CAN etc.) to guarantee a common </p>
+<p>basis for development. </p>
+<p>The dbc file contains e.g. information about every node in the network, the mes-</p>
+<p>sages/signals each node has to send or to receive. The distribution of the signals </p>
+<p>among the messages is stored in the DBC file, too. </p>
+<p>For example: every ECU has to know that a 1 in bit 7 in the 4</p>
+<p>th</p>
+<p> byte of the message </p>
+<p>0x305 means “Ignition Key” on/off.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>12 / 56</p>
+<p><b>4 </b></p>
+<p><b>CANbedded Software Components </b></p>
+<p>The vector CANbedded environment consists of a number of adaptive source code </p>
+<p>components that cover the basic communication and diagnostics requirements in </p>
+<p>automotive applications.  </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-1 </p>
+<p>CANbedded Software Components </p>
+<p><b>CAN Driver </b></p>
+<p>The CAN Driver handles the hardware specific CAN chip characters and provides a standardized </p>
+<p>application interface. </p>
+<p><b>Interaction Layer </b></p>
+<p>The  Interaction  Layer  (IL for  short)  is responsible  for  the  transmission  of  messages according  to </p>
+<p>specified rules, monitoring receive messages, timeout monitoring, etc. It provides a signal oriented </p>
+<p>application interface for the application. </p>
+<p><b>Transport Protocol </b></p>
+<p>The CAN protocol is restricted to 8 data bytes per message. But in some cases (e.g. diagnostics) </p>
+<p>you need to exchange much more than 8 data bytes. The segmentation of the data, the monitoring </p>
+<p>of the messages and the timeouts is done by the Transport Protocol (TP for short). </p>
+<p><b>Diagnostics </b></p>
+<p>Diagnostics Layer according to ISO14229 / ISO14230 (Keyword Protocol 2000). </p>
+<p><b>Network Management </b></p>
+<p>The Network Management (NM for short) is the component to control the bus, to synchronize the </p>
+<p>transition to bus sleep, error recovery after bus-off, etc. </p>
+<p><b>Communication Control Layer (CCL) </b></p>
+<p>The CCL provides an integration environment for the CANbedded Software Components, an ab-</p>
+<p>straction </p>
+<p>for </p>
+<p>different </p>
+<p>vehicle </p>
+<p>manufacturers, </p>
+<p>microcontrollers, </p>
+<p>CAN </p>
+<p>Controllers </p>
+<p>and </p>
+<p>compil-</p>
+<p>ers/linkers. It also provides a global debug mechanism. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>13 / 56</p>
+<p>Include the </p>
+<p>generated </p>
+<p>files in your </p>
+<p>system as </p>
+<p>shown.  </p>
+<p>You  must  not </p>
+<p>change </p>
+<p>the </p>
+<p>generated </p>
+<p>files </p>
+<p>by </p>
+<p>hand </p>
+<p>– </p>
+<p>the</p>
+<p> </p>
+<p>next </p>
+<p>generation </p>
+<p>process </p>
+<p>will </p>
+<p>delete </p>
+<p>these </p>
+<p>changes. </p>
+<p><b>Universal Measurement and Calibration Protocol (XCP) </b></p>
+<p>This is the Software Component for measurement and calibration on several bus systems. To men-</p>
+<p>tion some feature: read and write access to various memory locations or flash programming. </p>
+<p><b>Generation Tool </b></p>
+<p>This is a PC tool for configuring the above listed components. The Generation Tool is driven by a </p>
+<p>network database file, DBC file for short. </p>
+<p> </p>
+<p>The  CANbedded  Software  Components  are  configurable  and  can  be  adapted  to </p>
+<p>your specific needs via the Generation Tool. </p>
+<p>  </p>
+<p><b>4.1 </b></p>
+<p><b>Generation Tool </b></p>
+<p>The Generation Tool displays the complete set of ECUs in the network. In general </p>
+<p>you pick out the one you develop the software for. In special cases when you de-</p>
+<p>velop ECUs that are almost identical (e.g. door ECUs) you select more than one </p>
+<p>(so-called multiple ECUs).  </p>
+<p>For <b> your </b> ECU  there  are  special  requirements  concerning  the  hardware  and  the </p>
+<p>functionality.  I.e.  the  driver  must  be  suitable  for  your  hardware  and  the  standard </p>
+<p>components must be adaptable for your project-specific needs. The means to do </p>
+<p>this is the Generation Tool. </p>
+<p>The Generation Tool is a PC-Tool. It reads in the Network Data Base file (DBC) </p>
+<p>and offers you to select the node you are going to develop and has therefore all </p>
+<p>information about your ECU, the receive and transmit messages, the signals etc. </p>
+<p>The Generation Tool generates files that contain this information (DBC, hardware </p>
+<p>and specific settings) and so complete the components core files and have to be </p>
+<p>included in the compile and link process. </p>
+<p>Your Hardware Platform-</p>
+<p>and Compiler information </p>
+<p>Project specific  component settings</p>
+<p>Application </p>
+<p>Specific Data</p>
+<p> </p>
+<p>Right now there are two Generation Tools available, CANgen and the new Genera-</p>
+<p>tion Tool called GENy. Which tool you have to use depends on you delivery and the </p>
+<p>project.  </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>14 / 56</p>
+<p><b>4.2 </b></p>
+<p><b>The Vector CAN Driver </b></p>
+<p>A driver is a program to control a piece of hardware. In this case the Vector CAN </p>
+<p>Driver controls the CAN Controller and its registers. </p>
+<p><b>4.2.1 </b></p>
+<p><b>Tasks of The Vector CAN Driver  </b></p>
+<p>The CAN Driver basically handles the reception and transmission of information via </p>
+<p>the  CAN  Bus  and  recognizes  bus  failure  (bus  off).  The  CAN  Driver  provides  a </p>
+<p>standard application interface for the application. </p>
+<p>Your application only has to use a set of predefined functions to control the CAN </p>
+<p>Driver and will be notified via interrupt about incoming information (messages). To </p>
+<p>control the incoming and outgoing data and to be notified of important events you </p>
+<p>have to add some service- and call-back-functions to your application (see </p>
+<p> </p>
+<p>6.5). </p>
+<p>For more detailed information about the CAN Driver please refer to the Vector CAN </p>
+<p>Driver Technical Reference (TechnicalReference_CANDriver.pdf and TechnicalRe-</p>
+<p>ferfence_CAN_</p>
+<p>&lt;hardwareplatform&gt;</p>
+<p>.pdf, e.g. TechnicalReference_CAN_HC12.pdf). </p>
+<p> </p>
+<p><b>4.2.2 </b></p>
+<p><b>Vector CAN Driver Files </b></p>
+<p>The Vector CAN Driver consists of 3 sets of files, component files, generated files </p>
+<p>and configurable files </p>
+<p><b>4.2.2.1 </b></p>
+<p><b>Component Files </b></p>
+<p>Independent of the used Generation Tool </p>
+<p><b>can_drv.c - can_def.h - v_def.h </b></p>
+<p>You must not change these files at all.  </p>
+<p> </p>
+<p><b>4.2.2.2 </b></p>
+<p><b>Generated Files </b></p>
+<p>Independent of the used Generation Tool </p>
+<p><b>can_cfg.h - v_cfg.h </b></p>
+<p>Only for CANgen </p>
+<p><b>YourECU.c - YourECU.h </b></p>
+<p>Only for GENy </p>
+<p><b>can_par.c - can_par.h - drv_par.c - drv_par.h - v_par.h - v_par.c - v_inc.h</b></p>
+<p>  </p>
+<p> </p>
+<p>Do not change these files. You will lose the changes after the next generation proc-</p>
+<p>ess. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>15 / 56</p>
+<p> </p>
+<p><b>4.2.2.3 </b></p>
+<p><b>Configurable files </b></p>
+<p>Independent of the used Generation Tool </p>
+<p><b>can_inc.h  </b></p>
+<p>INC stands for include. Here you can add includes you need.. You have to include </p>
+<p>can_inc.h in every application C file where you need CAN functionality, followed by </p>
+<p>the include of YourECU.h. </p>
+<p>The Generation Tool CANgen generates the signal and message access macros </p>
+<p>as well as the indication or confirmation flags to the file <b>YourECU.h</b>. GENy gener-</p>
+<p>ates this to the file <b>can_par.h</b>. </p>
+<p> </p>
+<p><b>4.2.3 </b></p>
+<p><b>Include The CAN Driver Into Your Application </b></p>
+<p>Use the illustration in  Figure </p>
+<p> </p>
+<p>4-2 to include the files for the CAN Driver into your </p>
+<p>application correctly. Please keep to the including order to avoid errors while com-</p>
+<p>piling or linking. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-2 </p>
+<p>Order For Including Files </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>16 / 56</p>
+<p>You access  the </p>
+<p>signals   relevant </p>
+<p>for your ECU with </p>
+<p>the macros </p>
+<p>generated by the </p>
+<p>Generation Tool. </p>
+<p> </p>
+<p>The generated </p>
+<p>file sig_test.c </p>
+<p>contains a list of </p>
+<p>all access macros </p>
+<p>to the signals. </p>
+<p><b>5 </b></p>
+<p><b>Vector CAN Driver– A More Detailed View </b></p>
+<p><b>5.1 </b></p>
+<p><b>Information Package on the CAN Bus </b></p>
+<p>As  mentioned  before,  the  information  is  exchanged  between  ECUs  via  the  CAN </p>
+<p>bus. The maximum amount of data which can be exchanged is 8 data bytes and </p>
+<p>they are transmitted via a so-called <b>message</b>.  </p>
+<p>A message contains the ID (the “name” or number of the message), the DLC (data </p>
+<p>length code, i.e., the number of data bytes) and the data bytes . </p>
+<p>A message on the CAN Bus can contain from 0 to 8 data bytes. </p>
+<p>Every message is divided up into <b>signals</b>. A signal consists of 1 up to 64 bits. A </p>
+<p>signal cannot exceed the <b>message </b>boundary.  </p>
+<p>We do not consider signals here which are greater than 64 bits, as this involves the </p>
+<p>Transport Protocol. </p>
+<p> </p>
+<p><b>Message</b></p>
+<p>0x01 0x12</p>
+<p>ID DLC</p>
+<p><b>Signal</b></p>
+<p><b>e.g. Temperature, </b></p>
+<p><b>(hi, low)</b></p>
+<p>0x01 0x12</p>
+<p><b>A signal  can exceed</b></p>
+<p><b>byte boundaries</b></p>
+<p><b>(1 Bit to 8 Bytes)</b></p>
+<p><b>Message</b></p>
+<p>0x01 0x12</p>
+<p>ID DLC</p>
+<p><b>Signal</b></p>
+<p><b>e.g. Temperature, </b></p>
+<p><b>(hi, low)</b></p>
+<p>0x01 0x12</p>
+<p><b>A signal  can exceed</b></p>
+<p><b>byte boundaries</b></p>
+<p><b>(1 Bit to 8 Bytes)</b></p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-1 </p>
+<p>Message and Signal </p>
+<p>Signals are assigned to messages by the vehicle manufacturer database engineer. </p>
+<p>This assignment is stored in the database (dbc file). </p>
+<p>Normally you must not change the database (dbc file). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>17 / 56</p>
+<p><b>5.2 </b></p>
+<p><b>Storing Information Packages </b></p>
+<p>The more you understand about data handling in the CAN Driver the better you are </p>
+<p>able to design your application. You have to know where the data is stored at a </p>
+<p>specific point in time to be able to access this data correctly. </p>
+<p>Notification for </p>
+<p>Application</p>
+<p>CAN messages</p>
+<p>CAN messages</p>
+<p>Transceiver</p>
+<p>Temp</p>
+<p>Temp</p>
+<p>Ignition</p>
+<p>Ignition</p>
+<p>Door_State</p>
+<p>Door_State</p>
+<p>RAM buffer</p>
+<p>CAN Driver</p>
+<p>Copy to RAM buffer depending on ID. </p>
+<p>Keep data consistent!</p>
+<p>ID DLC</p>
+<p>Rx register</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-2 </p>
+<p>Rx Register, Data Structure and Notification </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>18 / 56</p>
+<p>Later on you will </p>
+<p>see, that this </p>
+<p>special access to </p>
+<p>the hardware is </p>
+<p>possible only in </p>
+<p>the functions </p>
+<p>ApplCanMsgRe-</p>
+<p>ceived and in the </p>
+<p>Precopy Func-</p>
+<p>tions for reception </p>
+<p>and in the Pre-</p>
+<p>transmit Function </p>
+<p>for transmission.</p>
+<p>Updated by Application</p>
+<p>CAN messages</p>
+<p>CAN messages</p>
+<p>Transceiver</p>
+<p>Temp</p>
+<p>Temp</p>
+<p>Ignition</p>
+<p>Ignition</p>
+<p>Door_State</p>
+<p>Door_State</p>
+<p>RAM buffer</p>
+<p>CAN Driver</p>
+<p>Copy data to Tx register. </p>
+<p>Keep data consistent!</p>
+<p>ID DLC</p>
+<p>Tx register</p>
+<p>CanTransmit (TxHandle)</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-3 </p>
+<p>Tx Register, Data Structure and CanTransmit </p>
+<p>There are 3 elements involved in storing information packages: </p>
+<p><b>5.2.1 </b></p>
+<p><b>The Registers of the CAN Controller </b></p>
+<p>Your CAN Controller has a receive register (Rx Register) and a transmit register </p>
+<p>(Tx Register). </p>
+<p>Data is always received in the Rx Register of the controller. The data is written to </p>
+<p>the Tx Register immediately before a transmission. </p>
+<p>You can access these two registers via the signal access macros containing the  </p>
+<p>_CAN_  in the name (see YourECU.h if you use CANgen and can_par.h if you use </p>
+<p>GENy). </p>
+<p>The <b>signal </b>access to the Tx Register is dependent on the hardware, not all drivers </p>
+<p>support this feature. </p>
+<p><b>5.2.2 </b></p>
+<p><b>The Data Structure Generated by the Generation Tool for Storing Mes-</b></p>
+<p><b>sage Data. </b></p>
+<p>The Generation Tool defines variables to allocate memory for the data of the re-</p>
+<p>ceive  messages  and  the  transmit  messages  (The  data  allocation  is  optional  and </p>
+<p>can be switched off). In the receive procedure, the data will be copied from the Rx </p>
+<p>Register to the message-specific memory area (RAM). In the transmit procedure, </p>
+<p>you have to enter the current values in the variables and the driver will copy the </p>
+<p>data to the Tx Register as shown in Figure </p>
+<p> </p>
+<p>5-2 and Figure </p>
+<p> </p>
+<p>5-3. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>19 / 56</p>
+<p>The Generation </p>
+<p>Tool minimizes </p>
+<p>the amount of </p>
+<p>memory reserved </p>
+<p>for a message. </p>
+<p>The decision, whether to copy the data to or from the registers (receive and transmit) </p>
+<p>with <b>your own </b>function or whether you let the driver do the copying action is up to </p>
+<p>you and is decided by the return value of specific functions (precopy function, pre-</p>
+<p>transmit function, see </p>
+<p> </p>
+<p>6.9). </p>
+<p>The  Generation  Tool  optimizes  the  memory  consumption.  The  highest  byte  con-</p>
+<p>taining  relevant  signals  determines  the  amount  of  bytes  to  be  reserved  for  this </p>
+<p>message. In the picture below, the red areas and lines in the bytes show where </p>
+<p>relevant signal information is stored within the message.  </p>
+<p> </p>
+<p><b>4 bytes</b></p>
+<p><b>8 bytes</b></p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-4 </p>
+<p>Memory optimization by the Generation Tool </p>
+<p> </p>
+<p>In the first message the 3</p>
+<p>rd</p>
+<p> byte contains the last signal (counting started with 0). </p>
+<p>Byte 4, 5, 6 and 7 have no relevant information for your ECU. In this case the Gen-</p>
+<p>eration Tool only reserves 4 (0-3) bytes for this message. </p>
+<p>The second message has information in the 7</p>
+<p>th</p>
+<p> byte, so the number of byte to be </p>
+<p>reserved is 8 (0-7). </p>
+<p><b>5.2.3 </b></p>
+<p><b>Memory the Application Reserved for Signals. </b></p>
+<p>Sometimes you only need one byte or even only one bit signal out of a message. </p>
+<p>To  save  RAM  memory  do  not  use  a  generated  data  structure.  Use  the  precopy </p>
+<p>function (see </p>
+<p> </p>
+<p>6.9.1.5) to copy the byte or the bit of the received message to the </p>
+<p>byte or the bit field you reserved in your application to hold this specific information. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>20 / 56</p>
+<p><b>6 </b></p>
+<p><b>CAN Driver in 9 Steps </b></p>
+<p><b>STEP 1 :  UNPACK THE DELIVERY</b>  </p>
+<p>Follow the install shield, unpack the delivery and install the generation tool. </p>
+<p> </p>
+<p><b>STEP 2:  </b></p>
+<p><b>GENERATION TOOL AND DBC FILE</b>  </p>
+<p>Configure the CAN Driver using the generation tool and an appropriate data base file </p>
+<p>(DBC).. </p>
+<p> </p>
+<p><b>STEP 3: </b></p>
+<p><b>GENERATE FILES  </b></p>
+<p>The generation tool generates all necessary files for the CAN Driver. </p>
+<p> </p>
+<p><b>STEP 4:  </b></p>
+<p><b>ADD FILES TO YOUR APPLICATION PROJECT </b></p>
+<p>To use the CAN Driver you have to add the CAN Driver files to your application project. </p>
+<p> </p>
+<p><b>STEP 5:  </b></p>
+<p><b>ADAPTATIONS FOR YOUR APPLICATION </b></p>
+<p>Also adapt your application files to be able to use the functionality of the CAN Driver</p>
+<p>. </p>
+<p> </p>
+<p><b>STEP 6:  </b></p>
+<p><b>COMPILE AND LINK </b></p>
+<p>Compile and Link your application project including the CAN Driver. </p>
+<p> </p>
+<p><b>STEP 7:  </b></p>
+<p><b>RECEPTION OF A CAN MESSAGE </b></p>
+<p>Test the receiving path of the CAN Driver by sending a message to your ECU. </p>
+<p> </p>
+<p><b>STEP 8:  </b></p>
+<p><b>TRANSMISSION OF A CAN MESSAGE </b></p>
+<p>Transmit your first CAN message using the CAN Driver service functions. </p>
+<p> </p>
+<p><b>STEP 9:  </b></p>
+<p><b>FURTHER ACTIONS AND SETTINGS </b></p>
+<p>Topics above the very easy beginning. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>21 / 56</p>
+<p>The Generation </p>
+<p>Tool generates </p>
+<p>files for  your </p>
+<p>application. It is </p>
+<p>the connection </p>
+<p>between your </p>
+<p>hardware and </p>
+<p>settings, the </p>
+<p>requirements of </p>
+<p>your vehicle </p>
+<p>manufacturer and </p>
+<p>the other ECUs, </p>
+<p>your ECU has to </p>
+<p>communicate </p>
+<p>with.</p>
+<p><b>6.1 </b></p>
+<p><b>STEP 1  Unpack the Delivery </b></p>
+<p>The delivery of CANbedded Software Components normally comprises a Genera-</p>
+<p>tion Tool and the source code of the software components.  </p>
+<p>You only have to start the  </p>
+<p><b>…_Setup.exe  </b></p>
+<p>and to follow the install shield wizard. </p>
+<p>We recommend creating a shortcut to the Generation Tool.  </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>22 / 56</p>
+<p>When </p>
+<p>you </p>
+<p>use </p>
+<p>the browse-button </p>
+<p>you </p>
+<p>will </p>
+<p>get </p>
+<p>an </p>
+<p>absolute </p>
+<p>path </p>
+<p>to </p>
+<p>the dbc file.  </p>
+<p>It is suggested   </p>
+<p>that you use </p>
+<p>relative paths in </p>
+<p>order to be able </p>
+<p>to move your </p>
+<p>project  more </p>
+<p>easily from one </p>
+<p>directory to </p>
+<p>another</p>
+<p><i>. </i></p>
+<p>This warning </p>
+<p>occurs only if you </p>
+<p>open the dbc.file </p>
+<p>for the first time </p>
+<p>because of the </p>
+<p>extension file has </p>
+<p>still not been </p>
+<p>created. The </p>
+<p>extension file will </p>
+<p>contain your </p>
+<p>settings you do in </p>
+<p>the following. </p>
+<p><b>6.2 </b></p>
+<p><b>STEP 2  Generation Tool and dbc File </b></p>
+<p>Use new Generation Tool GENy, look there &gt;&gt; </p>
+<p><b>6.2.1 </b></p>
+<p><b>Using CANgen as Generation Tool </b></p>
+<p>When  you  start  the  Generation  Tool  you  will  see  a  window  like  Figure </p>
+<p> </p>
+<p>6-1.  This </p>
+<p>starting window is the main window of the Generation Tool. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-1 </p>
+<p>Add a dbc file </p>
+<p>A click on the green plus (</p>
+<p><b>+</b></p>
+<p><b>+</b>) will open a new window to add your database (dbc </p>
+<p>file). </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-2 </p>
+<p>Warning – do not bother </p>
+<p>Browse for your dbc file and select it. When you do this for the first time, the <b>Warn-</b></p>
+<p><b>ing</b> above will occur. Ignore it, and just confirm with </p>
+<p><b>OK</b></p>
+<p>.. </p>
+<p>Select your node; choose your target system and compiler. </p>
+<p>Since we are using a CAN Driver with just one channel, the channel index has to be </p>
+<p>left empty. When you have two or more channels, they will be distinguished via this </p>
+<p>index. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>23 / 56</p>
+<p>The Name field is </p>
+<p>set to the name of </p>
+<p>the dbc file. You </p>
+<p>can change the </p>
+<p>name . It is only </p>
+<p>used in the list of </p>
+<p>your channels in </p>
+<p>figure 2-5.  </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-3 </p>
+<p>Channel properties </p>
+<p>Confirm with OK and you will see your setting as text in the field of the starting win-</p>
+<p>dow of the Generation Tool. When we save the configuration for the first time, we </p>
+<p>have to use the menu command </p>
+<p><b>File/Save as</b></p>
+<p>. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-4 </p>
+<p>Save Setting For The First Time </p>
+<p>Take a look at the directory where you stored the settings of the Generation Tool. </p>
+<p>There is your dbc file and new files (see note) only used by the Tool.  </p>
+<p>The following files belong to the Generation Tool: </p>
+<p> </p>
+<p>&lt;databasename&gt;.dbc  </p>
+<p>(exampleDRV.dbc) </p>
+<p>&lt;databasename&gt;.ext  </p>
+<p>(exampleDRV.ext) </p>
+<p> &lt;databasename_nodename&gt;.msg </p>
+<p>(exampleDRV_YourECU.msg) </p>
+<p>&lt;databasename_nodename&gt;.sig </p>
+<p>(exampleDRV_YourECU.sig) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>24 / 56</p>
+<p>The checkbox </p>
+<p>Generate only bit </p>
+<p>and byte signal </p>
+<p>macros is only </p>
+<p>used for very </p>
+<p>special applica-</p>
+<p>tions. If you have </p>
+<p>any doubt, do not </p>
+<p>choose this. </p>
+<p>(&lt;databasename_nodename&gt;.fms </p>
+<p>(exampleDRV_YourECU.fms)) </p>
+<p>fms only when using a full CAN controller. </p>
+<p>yourECU.ccf </p>
+<p>this is the project file for the Generation          </p>
+<p>                                                                    Tool. </p>
+<p> </p>
+<p>Now you can open your settings in the normal way (not via the dbc file) by opening </p>
+<p>the file YourECU.ccf. </p>
+<p>When your vehicle manufacturer changes the dbc file, just copy all files important for </p>
+<p>the Generation Tool into a new directory, delete the old dbc file and copy the new dbc </p>
+<p>file in this new directory. Rename the old ext file with the name of the new dbc file. </p>
+<p>This preserves your application-specific settings. </p>
+<p>This does not work when the target system has changed!!! </p>
+<p> </p>
+<p>Now we shall make additional settings for the component CAN Driver. Use this but-</p>
+<p>ton[</p>
+<p>] to open the Generation Options and to enter the following dialog. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-5 </p>
+<p>Overview of Signals and Directories </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>25 / 56</p>
+<p>Here you see the </p>
+<p>variety of setting </p>
+<p>you can make to </p>
+<p>configure a CAN </p>
+<p>Driver. Take a </p>
+<p>look at it but do </p>
+<p>not enter anything </p>
+<p>for this first </p>
+<p>attempt.  </p>
+<p> </p>
+<p> </p>
+<p>Refer to the </p>
+<p>document </p>
+<p>CANdrv.doc to </p>
+<p>get further infor-</p>
+<p>mation about </p>
+<p>these settings</p>
+<p><i>.</i></p>
+<p> </p>
+<p>In the overview tab page (Figure </p>
+<p> </p>
+<p>6-5) you see all receive and send messages for </p>
+<p>your node.  </p>
+<p>Just choose the path where the header and the C file are to be generated and the </p>
+<p>path for the configuration file can_cfg.h. </p>
+<p>Select the tab </p>
+<p><b>CAN Driver</b></p>
+<p>. </p>
+<p>In the following dialog you can make settings that are the same for all CAN drivers </p>
+<p>regardless of the hardware platform. For the first attempt we do not select anything. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-6 </p>
+<p>CAN Driver Dialog (for HC12) </p>
+<p>The next tab, </p>
+<p><b>CAN driver (advanced)</b></p>
+<p> is very special for the specific vehicle manufac-</p>
+<p>turer and the hardware platform. Please refer to the description of your CAN Driver </p>
+<p>Technical </p>
+<p>Reference </p>
+<p>for </p>
+<p>the </p>
+<p>advanced </p>
+<p>settings </p>
+<p>(TechnicalRefer-</p>
+<p>ence_CAN_</p>
+<p><b>hardwareplatform</b></p>
+<p>.pdf). </p>
+<p>Finally we have to set the </p>
+<p><b>Init registers</b></p>
+<p>. Please select this tab (Figure </p>
+<p> </p>
+<p>6-7).  </p>
+<p>Some of the following information might be hardware dependent but the fundamental </p>
+<p>mechanisms are the same.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>26 / 56</p>
+<p>Every two col-</p>
+<p>umns belong to </p>
+<p>one so-called init </p>
+<p>structure consist-</p>
+<p>ing of baud rate, </p>
+<p>acceptance </p>
+<p>filters… </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-7 </p>
+<p>Init Registers For The CAN Controller (for HC12) </p>
+<p>This is a very important dialog. Please pay special attention to these settings. </p>
+<p>Here is where you can make the settings for the hardware acceptance filters and </p>
+<p>the bus timing of your CAN Controller.  </p>
+<p>First we look at the </p>
+<p><b>Acceptance filters</b></p>
+<p>, second at the </p>
+<p><b>Bustiming registers</b></p>
+<p>. </p>
+<p>In order to minimize the number of messages that should not be received by your </p>
+<p>ECU, you can set a hardware filter by means of the acceptance register (<b>1</b>) (see </p>
+<p>Figure </p>
+<p> </p>
+<p>6-8). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>27 / 56</p>
+<p>The reception of any message normally causes an interrupt. To minimize the inter-</p>
+<p>rupt load you set the filters, so only relevant message will pass and cause an inter-</p>
+<p>rupt. </p>
+<p> </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-8 </p>
+<p>Acceptance Filters For The CAN Controller (</p>
+<p>for HC12</p>
+<p>) </p>
+<p>For the first attempt it is your choice whether to open all filter via the </p>
+<p><b>Open filters </b></p>
+<p>or </p>
+<p>you use the </p>
+<p><b>Optimize filters </b></p>
+<p>button. Confirm with OK. </p>
+<p>The setting of the filters is described in detail in the help document for the Generation </p>
+<p>Tool. (just use the HELP button). </p>
+<p>Next we will  look at the </p>
+<p><b>bus  timing</b></p>
+<p>.  To do this, while still on the </p>
+<p><b>Init  registers</b></p>
+<p> tab </p>
+<p>page, click on the </p>
+<p><b>Bustiming registers</b></p>
+<p> button.  </p>
+<p>Incorrect Bus Timing settings are common mistakes that cause errors while transmis-</p>
+<p>sion and reception. Please pay special attention to all settings in this dialog. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>28 / 56</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-9 </p>
+<p>Bus Timing Register Settings </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Before SOP it is duty of the OEM / Tier1 supplier to recalculate and validate these </p>
+<p>automatically calculated values for the bus timing registers. </p>
+<p> </p>
+<p>First you have to enter the clock signal frequency. This is the base for further calcu-</p>
+<p>lating the timing registers. Make sure to select the correct frequency. </p>
+<p>The Bus Timing Registers of any CAN controller contain information about the bus </p>
+<p>rate,  the  synchronization  jump  width  (SJW)  and  the  BTL  cycles.  There  are  two </p>
+<p>ways to make these setting: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>29 / 56</p>
+<p>1. </p>
+<p><b>Do you know the baud rate ? </b></p>
+<p>Enter the baud rate and click on </p>
+<p><b>Calculate bustiming registers</b></p>
+<p>. You will get a </p>
+<p>list of possible register setting. Choose your setting by a click in the list. </p>
+<p>Between 60 and 80% is a good value for the Sample Rate and the SJW for your se-</p>
+<p>lection. All vehicle manufacturers have strict guidelines for these settings. </p>
+<p>2. </p>
+<p>You can also simply enter values for the two bus timing registers (CBT0 and </p>
+<p>CBT1) and let the software calculate the baud rate. </p>
+<p>Return to the </p>
+<p><b>Init registers</b></p>
+<p> dialog via </p>
+<p><b>OK</b></p>
+<p> and see the changed values. </p>
+<p>With a further </p>
+<p><b>OK</b></p>
+<p> you return to the main window of the Generation Tool. </p>
+<p> </p>
+<p>Make  sure  that  the  checkboxes <b> Use  TP,  Use  diagnosis,  Use  Can  Calibration </b></p>
+<p><b>Protocol,  Use  MCNet  … </b> are  NOT  selected  (as  we  are  working  with  the  CAN </p>
+<p>Driver only for this example). </p>
+<p>The variety of these buttons is dependent on the manufacturer. Deactivate any com-</p>
+<p>ponent but the CAN Driver. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-10 TP Options </p>
+<p>The figure is only an example. The screenshot may look very different in your case. </p>
+<p>But you see the checkbox which must not be selected. </p>
+<p> </p>
+<p>Read the following chapter if you use GENy. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>30 / 56</p>
+<p><b>6.2.2 </b></p>
+<p><b>Using GENy, the new Generation Tool </b></p>
+<p>The following first steps with the Generation Tool are described in details in the online </p>
+<p>help of the Generation Tool GENy, too. </p>
+<p>Start the Generation Tool and setup a new configuration. Via <b>File/New </b>you open </p>
+<p>the Setup Dialog Window. Select License, Compiler, Micro and Derivative (if avail-</p>
+<p>able) and confirm via <b>[OK]</b>. Then open the Channel Setup Window via the green </p>
+<p>plus  and the selection of the underlying bus system (CAN or LIN). </p>
+<p> </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-11 Setup Dialog Window and Channel Setup Window to Create a New Configuration </p>
+<p>The channel name is Channel X per default (X is starting with 1). Use the browse </p>
+<p>functionality to enter the location of the data base (dbc file).  </p>
+<p>Select your node out of the field <b> Database Nodes </b>and confirm the settings with </p>
+<p><b>[OK]</b>. </p>
+<p>Now save the configuration via <b>File/Save </b>or <b>File/Save as</b>. </p>
+<p>First at all you should switch on/off the components you need, in this case we only </p>
+<p>use the CAN Driver. </p>
+<p>Use the component selection at the bottom of the main window of the Generation </p>
+<p>Tool  and  select  the  suitable  Driver  (in  this  example  application  we  use  the </p>
+<p>CPUHC12 and the Driver HC12). </p>
+<p> </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-12 Component Selection </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>31 / 56</p>
+<p>Now you should set the path where the Generation Tool generated the files to. To </p>
+<p>do  this,  open  the  Generation  Directories  Window  via <b> Configuration/Generation </b></p>
+<p><b>Paths</b>. Enter the root path and select additionally individual paths for the compo-</p>
+<p>nents, if the Generation Tool should generated the files to different folders. This is </p>
+<p>also described very detailed in the GENy online help. </p>
+<p>For the HC12 there are some hardware-specific settings that you have to make, </p>
+<p>the register block address and the register block offset. It depends on you hard-</p>
+<p>ware whether you have to do such kind of settings or not. Refer to the Technical-</p>
+<p>Reference_CAN_YourHardware.pdf for more information. </p>
+<p> </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-13 The Register Block Address is a General Setting for the CPU </p>
+<p> </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-14 Register Block Offset, Acceptance Filters and Bus Timing are Channel-Specific Settings for the CPU </p>
+<p>What is missing now is the settings for the acceptance filters and the bus timing. </p>
+<p>Acceptance  filter  configuration  and  bus  timing  configuration  are  very  important  set-</p>
+<p>tings. Please pay special attention to them. </p>
+<p>As you see in the navigation tree above you can open the configuration windows </p>
+<p>for these two settings via the channels of the hardware (e.g. CPUHC12).  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>32 / 56</p>
+<p>First we take a look at the <b>Acceptance filters</b>, second at the <b>Bustiming registers</b>. </p>
+<p>In order to minimize the number of messages that should not be received by your </p>
+<p>ECU, you can set a hardware filter by means of the acceptance register. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-15 Acceptance Filter Settings Window of GENy </p>
+<p>The reception of any message normally causes an interrupt. To minimize the inter-</p>
+<p>rupt load you set the filters, so only relevant message will pass and cause an inter-</p>
+<p>rupt. </p>
+<p>For the first attempt it is your choice whether to open all filter via the <b>Open filters</b></p>
+<p><b> </b></p>
+<p>or you use the <b>Optimize filters</b></p>
+<p> </p>
+<p>button. Confirm with <b>[OK]</b>. </p>
+<p>The window for the bus timing registers is the same as for the CANgen Generation </p>
+<p>Tool. Refer to the lines above for this explanation. </p>
+<p>To make the settings for the component CAN Driver itself use the lists below <b>Driv-</b></p>
+<p><b>erHC12 </b>and <b>DriverHC12/Channels/Channel 1</b>. But for the this first attempt leave </p>
+<p>these driver settings on their default values. </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>33 / 56</p>
+<p>Remember to </p>
+<p>start the genera-</p>
+<p>tion process after </p>
+<p>any change in the </p>
+<p>dialog windows of </p>
+<p>the Generation </p>
+<p>Tool. </p>
+<p><b>6.3 </b></p>
+<p><b>STEP 3  Generate Files </b></p>
+<p><b>6.3.1 </b></p>
+<p><b>Using CANgen Generation Tool </b></p>
+<p>Click on the button </p>
+<p>and start the generation process.  </p>
+<p> </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-16 Generation Process </p>
+<p> </p>
+<p>The  double  arrow  is  only  available  if  you  have  a  multi-channel  CAN  Driver  distin-</p>
+<p>guished via the Channel index. </p>
+<p>Now  we  have  generated  for  the  first  time.  Check  the  directory  and  see  the  new </p>
+<p>files. There should be at least the files YourECU.c and YourECU.h, and in the path </p>
+<p>for the configuration file there should be can_cfg.h and v_cfg.h. </p>
+<p>If you do not find the generated files check your path in the </p>
+<p><b>Overview</b></p>
+<p> dialog. </p>
+<p> </p>
+<p><b>6.3.2 </b></p>
+<p><b>Using GENy </b></p>
+<p>Click on the button </p>
+<p> and start the generation process. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-17 Information About the Generated Files and the Generation Process </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>34 / 56</p>
+<p>The Generation Tool provides you with information about the <b>Generated Files </b>and </p>
+<p><b>Generation </b> information.  In  this  example  shown  above  the  acceptance  filters  are </p>
+<p>not set correctly, Message_2 will not pass the filter. Open or optimize the filters.  </p>
+<p>If a message will not pass the acceptance filters, the Generation Tool will not create </p>
+<p>signal access macros for the hardware (_CAN_ see in chapter </p>
+<p> </p>
+<p>5.2.1). Make sure that </p>
+<p>the generation process runs without error messages. </p>
+<p>Now  we  have  generated  for  the  first  time.  Check  the  directory  and  see  the  new </p>
+<p>files: </p>
+<p>can_par.c, </p>
+<p>can_par.h, </p>
+<p>drv_par.c, </p>
+<p>drv_par.h, </p>
+<p>can_cfg.h, </p>
+<p>v_par.c, </p>
+<p>v_par.h, </p>
+<p>v_cfg.h, v_inc.h. </p>
+<p>If you do not find the files check the paths in the </p>
+<p><b>Generation Paths…</b></p>
+<p> dialog. </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>35 / 56</p>
+<p><b>6.4 </b></p>
+<p><b>STEP 4  Add Files to your Application </b></p>
+<p>In this step you have to add all files of the CANbedded Software Components (In </p>
+<p>this example these files are only the ones for the CAN Driver) and the generated </p>
+<p>ones to your project (or makefile).  </p>
+<p>Rename the file _can_inc.h to can_inc.h (remove the underscore prefix) and open </p>
+<p>it with an appropriate editor. As you do not use any other component but the CAN </p>
+<p>Driver you should delete the #include of the Network Management (nm_cfg.h) at </p>
+<p>the end of this file. </p>
+<p>If you want to use functions of the CAN Driver or you want to access signals or mes-</p>
+<p>sages, you only have to include the </p>
+<p>can_inc.h</p>
+<p> and then the </p>
+<p>YourECU.h</p>
+<p> for <b>CANgen </b></p>
+<p>and </p>
+<p>v_inc.h</p>
+<p> for using <b>GENy</b>. </p>
+<p>Now add the driver files to your source list for your compiler or your makefile. </p>
+<p>If you want to apply changes you have made in the Generation Tool, you must start </p>
+<p>the generation process again. Remember compiling afterwards. </p>
+<p>!!!     We are still not able to compile and link.     !!! </p>
+<p>The starting point for this example is a very simple application consisting of only </p>
+<p>one file (here applmain) and an interrupt vector table (vectors.c). It should give you </p>
+<p>an idea of how to handle the service- and callback functions of the CAN Driver.  </p>
+<p>In the following chapters we complete this example step by step. </p>
+<p>This example was created for using CANgen. For the usage of GENy you just have </p>
+<p>to include the v_inc.h. </p>
+<p> </p>
+<p><b>Example for </b></p>
+<p><b>HC12</b></p>
+<p><b>: </b></p>
+<p>|------------------------------------------------------------------- </p>
+<p>|               A U T H O R   I D E N T I T Y </p>
+<p>|------------------------------------------------------------------- </p>
+<p>| Initials     Name                      Company </p>
+<p>| --------     ---------------------     --------------------------- </p>
+<p>| em           Emmert Klaus              Vector Informatik GmbH </p>
+<p>|------------------------------------------------------------------- </p>
+<p> </p>
+<p>/*Includes  ********************************************************/ </p>
+<p>#include &quot;can_inc.h&quot; </p>
+<p>#include &quot;yourecu.h&quot; </p>
+<p> </p>
+<p>void main (void ) </p>
+<p>{ </p>
+<p>} </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>36 / 56</p>
+<p><b>It is forbidden to </b></p>
+<p><b>use any CAN </b></p>
+<p><b>functionality </b></p>
+<p><b>before CanInit-</b></p>
+<p><b>PowerOn !!! </b></p>
+<p><b>6.5 </b></p>
+<p><b>STEP 5 Adaptations for your Application </b></p>
+<p>To be able to compile and link, you have to adapt a few things in your application.  </p>
+<p> </p>
+<p><b>Example for the </b></p>
+<p><b>HC12</b></p>
+<p><b>: </b></p>
+<p><b> </b></p>
+<p>/* Includes*********************************************************/ </p>
+<p>#include &quot;can_inc.h&quot; /*using CANgen*/ </p>
+<p>#include &quot;yourecu.h&quot; /*using CANgen*/ </p>
+<p>#include &quot;can_par.h&quot; /*is also included for GENy via include of v_inc.h*/ </p>
+<p> </p>
+<p>/*Function prototypes **********************************************/ </p>
+<p>void enableInterrupts( void ); </p>
+<p>void hardwareInit( void ); </p>
+<p> </p>
+<p>/*Main Function **********************************************/ </p>
+<p>void main(void) </p>
+<p>{ </p>
+<p>/* <b>make sure that the interrupts are disabled to initialize the  </b></p>
+<p><b>   modules</b>.*/ </p>
+<p> </p>
+<p>DO <b> NOT </b> USE  any  CAN  API  function <b> before  calling  CanInitPowerOn</b>.  </p>
+<p><b>It is </b></p>
+<p><b>forbidden</b></p>
+<p><b> to use CanInterruptDisable here </b></p>
+<p> </p>
+<p>  hardwareInit(); </p>
+<p> </p>
+<p> </p>
+<p>  <b>CanInitPowerOn</b>(kCanInitObj1);  </p>
+<p> </p>
+<p>  enableInterrupts(); </p>
+<p> </p>
+<p>  for(;;) </p>
+<p>  {     </p>
+<p>    ; </p>
+<p>  }          </p>
+<p>} </p>
+<p> </p>
+<p>void ApplCanBusOff( void ) </p>
+<p>{ </p>
+<p>  ; /*Callback function for notification of BusOff*/ </p>
+<p>} </p>
+<p> </p>
+<p>void ApplCanWakeUp( void ) </p>
+<p>{ </p>
+<p>  ;  /*Callback  function  at  the  transition  from  SleepMode  to  sleep </p>
+<p>indication recommended*/ </p>
+<p>} </p>
+<p> </p>
+<p>void hardwareInit( void ) </p>
+<p>{ </p>
+<p>  /* </p>
+<p>  Do your hardware specific initializations here. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>37 / 56</p>
+<p>When you use a </p>
+<p>high speed </p>
+<p>transceiver, you  </p>
+<p>have to take care </p>
+<p>of your terminat-</p>
+<p>ing resistor of </p>
+<p>120</p>
+<p>Ω</p>
+<p>Make sure that </p>
+<p>the interrupts are </p>
+<p>disabled when </p>
+<p>calling the func-</p>
+<p>tion CanInitPow-</p>
+<p>erOn. Normally </p>
+<p>the interrupts are </p>
+<p>disabled by </p>
+<p>default at startup. </p>
+<p>  Remember your TRANSCEIVER </p>
+<p>  */ </p>
+<p>  ; </p>
+<p>} </p>
+<p> </p>
+<p>@interrupt void irq_dummy0(void) </p>
+<p>{ </p>
+<p>  for( ;; ); /*all other interrupts except the CAN Interrupts are routed </p>
+<p>to this function.*/ </p>
+<p>} </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Now the description of the above code: </b></p>
+<p>First,  we  have  to  include  the </p>
+<p><b>can_inc.h</b></p>
+<p>  and  then  the  generated  header,  here </p>
+<p><b>yourecu.h</b></p>
+<p>. </p>
+<p>The following define is to enable the interrupts and is hardware dependent. </p>
+<p>In the main() function you have to do initializations first.  </p>
+<p>In the </p>
+<p><b>hardwareInit</b></p>
+<p> you can turn on timers or PWM or something else.  </p>
+<p>As </p>
+<p>you </p>
+<p>see, </p>
+<p>the </p>
+<p>transceiver </p>
+<p>connects </p>
+<p>directly </p>
+<p>to </p>
+<p>the </p>
+<p>CAN </p>
+<p>Bus, </p>
+<p>so: </p>
+<p>           !!! </p>
+<p><b>PLEASE </b></p>
+<p><b>THINK </b></p>
+<p><b>OF </b></p>
+<p><b>SWITCHING </b></p>
+<p><b>YOUR </b></p>
+<p><b>TRANSCEIVER </b></p>
+<p><b>ON </b></p>
+<p>!!! </p>
+<p>             <b>THE CAN DRIVER DOES NOT HANDLE THE TRANSCEIVER </b></p>
+<p>Normally  this  is  only  necessary  when  using  a  low-speed-transceiver.  Refer  to  your </p>
+<p>hardware guide. </p>
+<p><b>CAN Driver</b></p>
+<p><b>CAN Controller</b></p>
+<p>can_rx</p>
+<p>can_tx</p>
+<p>(standby</p>
+<p>enable)</p>
+<p>CAN_H</p>
+<p>CAN_L</p>
+<p>GND</p>
+<p><b>Transceiver</b></p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-18 The Transceiver </p>
+<p>To start the CAN Controller and the CAN Driver, you have to call the function: </p>
+<p><b>CanInitPowerOn( kCanInitObj1 ) </b></p>
+<p>Make sure that you use functions of the CAN Driver API <b>after </b>CanInitPowerOn.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>38 / 56</p>
+<p>Think of adding </p>
+<p>this or a similar </p>
+<p>file to your sys-</p>
+<p>tem, i.e. your </p>
+<p>makefile or  your </p>
+<p>project. </p>
+<p>The parameter passed in determines the init structure you made the settings for via </p>
+<p>the  Generation  Tool.  You  will  find  the  macro </p>
+<p><b>kCanInitObj1</b></p>
+<p>  in  the  generated </p>
+<p><b>yourecu.h</b></p>
+<p> (</p>
+<p>can_par.h</p>
+<p> for GENy) normally at the end of the file. (On some hard-</p>
+<p>ware platforms, this parameter is not necessary (e.g. V850). Refer to your hard-</p>
+<p>ware specific documentation for this information. </p>
+<p>Now you can enable interrupts. </p>
+<p>The main-function is an endless-loop. Perhaps you can turn on some LEDs, to see </p>
+<p>the application running.  </p>
+<p>You also have to provide the CAN Driver with two application functions, </p>
+<p><b>applCan-</b></p>
+<p><b>BusOff</b></p>
+<p>  and </p>
+<p><b>applCanWakeUp</b></p>
+<p>.  For  the  first  start,  you  can  leave  these  functions </p>
+<p>empty to avoid linker errors. </p>
+<p> </p>
+<p>Since  the  CAN  Driver  uses  interrupts  for  notifying  the  application  when  a  CAN </p>
+<p>message has been received, you have to map the interrupts on the corresponding </p>
+<p>interrupt  service  routines.  Refer  to  your  compiler  manual  how  to  do  this  in  your </p>
+<p>case. </p>
+<p>For the HC12 CAN Drivers this is done in the file vectors.c. Let’s have a look at this </p>
+<p>file.  </p>
+<p>Interrupts and interrupt tables are highly dependent on the hardware. Just use this </p>
+<p>example as a guide.  </p>
+<p> </p>
+<p><b>Example for </b></p>
+<p><b>HC12</b></p>
+<p><b>: </b></p>
+<p> </p>
+<p>const functptr vectab[] = {        // @0xFFC4 start address of table </p>
+<p>    <b>CanTxInterrupt,                // $FFC4    CAN transmit </b></p>
+<p><b>    CanRxInterrupt,                // $FFC6    CAN receive </b></p>
+<p><b>    CanErrorInterrupt,             // $FFC8    CAN error</b> </p>
+<p>    irq_dummy0,                    // reserved </p>
+<p>    irq_dummy0,                    // </p>
+<p>    irq_dummy0,                    // </p>
+<p>    <b>CanWakeUpInterrupt,            // $FFD0 CAN wake-up </b></p>
+<p>    irq_dummy0,                    //ATD </p>
+<p>    irq_dummy0,                    //SCI 2 </p>
+<p>    irq_dummy0,                    //SPI </p>
+<p>    irq_dummy0,                    //SPI </p>
+<p>    irq_dummy0,                    //Pulse acc input </p>
+<p>    irq_dummy0,                    //Pulse acc overf </p>
+<p>    irq_dummy0,                    //Timer overf </p>
+<p>    irq_dummy0,                    //Timer channel 7 </p>
+<p>    irq_dummy0,                    //Timer channel 6 </p>
+<p>    irq_dummy0,                    //Timer channel 5 </p>
+<p>    irq_dummy0,                    //Timer channel 4 </p>
+<p>    irq_dummy0,                    //Timer channel 3 </p>
+<p>    irq_dummy0,                    //Timer channel 2 </p>
+<p>    irq_dummy0,                    //Timer channel 1 </p>
+<p>    irq_dummy0,                    //Timer channel 0 </p>
+<p>    irq_dummy0,                    //Real time </p>
+<p>    irq_dummy0,                    //IRQ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>39 / 56</p>
+<p>    irq_dummy0,                    //XIRQ </p>
+<p>    irq_dummy0,                    //SWI </p>
+<p>    irq_dummy0,                    //illegal </p>
+<p>    irq_dummy0,                    //cop fail </p>
+<p>    irq_dummy0,                    //clock fail </p>
+<p>    <b>_stext</b>                         <b>//RESET</b> </p>
+<p>    }; </p>
+<p> </p>
+<p> </p>
+<p>As you see in the example, we only use CAN-specific interrupts and the reset vec-</p>
+<p>tor. All other interrupts result in a dummy interrupt.  </p>
+<p>You also have to provide the function irq_dummy0( ) in your application. Refer to your </p>
+<p>hardware description to figure out the solution for your situation. </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>40 / 56</p>
+<p>CANoe is very </p>
+<p>convenient for </p>
+<p>testing a CAN </p>
+<p>communication.  </p>
+<p> As soon as you </p>
+<p>see the message </p>
+<p>Id or the Name in </p>
+<p>the  Trace win-</p>
+<p>dow after sending </p>
+<p>a message, you </p>
+<p>know that your </p>
+<p>hardware settings </p>
+<p>are correct. </p>
+<p><b>6.6 </b></p>
+<p><b>STEP 6 Compile, Link and Download </b></p>
+<p>Now start your compiler by calling the </p>
+<p><b>makefile</b></p>
+<p> or just clicking the start button. What </p>
+<p>you do is depends on your development tool chain. </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<p><b>6.7 </b></p>
+<p><b>STEP 7 Receiving A Message </b></p>
+<p> </p>
+<p><b>Congratulations !! </b></p>
+<p> </p>
+<p>You have now arrived at  <b>Step 7</b>, i.e. you can compile and link. You are very close </p>
+<p>to your first CAN communication. </p>
+<p>In every project you normally have to spend a lot of the time starting up the hardware </p>
+<p>and the development environment.  </p>
+<p> </p>
+<p><b>Make sure that: </b></p>
+<p><b>Y</b>ou have the correct clock frequency (important for baud rate). </p>
+<p><b>Y</b>ou have entered this clock in the dialog box of the Generation Tool. </p>
+<p><b>T</b>he memory mapping is correct. </p>
+<p><b>T</b>he physical CAN connection is there and has no damage. </p>
+<p><b>Y</b>ou have a terminating resistor (120</p>
+<p>Ω</p>
+<p>) if you use high-speed CAN (powertrain). </p>
+<p><b>Y</b>our transceiver is initialized properly </p>
+<p>After the download of your Application, set a breakpoint in your debugger on the </p>
+<p>main (void) function and start. Did it stop at main? </p>
+<p>If so, <b>Congratulations </b>again.  </p>
+<p>Remove the breakpoint and restart. Now your application is running in the endless </p>
+<p>loop. Please check this! </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-19 Simple Test Environment </p>
+<p>Now send a CAN message on the bus. It is best to use an ID your ECU normally </p>
+<p>has to receive. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>41 / 56</p>
+<p>There are many </p>
+<p>more ways to </p>
+<p>react  when a </p>
+<p>CAN message  is </p>
+<p>received. Refer to </p>
+<p>Step 9 in this </p>
+<p>manual. </p>
+<p>A very easy way to send a message is by using the CANoe (or CANalyzer), a PC-tool </p>
+<p>from Vector Informatik. Use the generator block and send the message. </p>
+<p>Send the message and observe the Trace window.  </p>
+<p>Do you see the name of the message or the ID?  </p>
+<p><b>Great</b>, your ECU has acknowledged the CAN message, i.e. all hardware settings </p>
+<p>are correct.   </p>
+<p>If you see Error frames, check the list above. The main mistakes are hardware set-</p>
+<p>tings  (transceiver),  the  baud  rate  (clock  of  CAN  Controller),  wiring  problems  and </p>
+<p>ground offsets. </p>
+<p>Now we are ready to modify our application. Please check in the Generation Tool </p>
+<p>on the tab </p>
+<p><b>Receive messages</b></p>
+<p>, if the </p>
+<p><b>Indication flag</b></p>
+<p> for the message is switched on. </p>
+<p> </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-20 Check button for indication flag </p>
+<p>If not, switch it on, start a new generation process, compile and link the system again </p>
+<p>and download it to the target. </p>
+<p>Now we use the so-called </p>
+<p><b>Indication flag</b></p>
+<p> to poll the reception of the CAN message. </p>
+<p>When an interrupt is triggered by the reception of a CAN message, the indication </p>
+<p>flag will be set (if chosen in the Generation Tool).  </p>
+<p>When you use another dbc file, your message will have a different name. You will find </p>
+<p>the correct macro for your indication flag in the file yourecu.h (can_par.h). Just search </p>
+<p>for </p>
+<p><b>indication</b></p>
+<p>. </p>
+<p><b>Example for the </b></p>
+<p><b>HC12</b></p>
+<p><b>: </b></p>
+<p>void main(void) </p>
+<p>{ </p>
+<p>  hardwareInit(); </p>
+<p> </p>
+<p>  CanInitPowerOn(kCanInitObj1);  </p>
+<p> </p>
+<p>  enableInterrupts(); </p>
+<p> </p>
+<p>  for(;;) </p>
+<p>  {  </p>
+<p>    <b>/* First Test modification*/ </b></p>
+<p><b>    if( Message_2_ind_b ) </b></p>
+<p><b>    {     </b></p>
+<p><b>      Message_2_ind_b = 0; Breakpoint here </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>42 / 56</p>
+<p><b>    }</b>     </p>
+<p>  }          </p>
+<p>}</p>
+<p> </p>
+<p> </p>
+<p>The names are generated out of the name of the signal and the pre- and postfixes </p>
+<p>from the “names” tab. Refer to the file YourECU.h (can_par.h) for the correct writing of </p>
+<p>messages, indication flags etc. </p>
+<p>Compile, link and download the application and set a breakpoint (as shown). Now </p>
+<p>send the CAN message via the Generator Block.  </p>
+<p> </p>
+<p>It stopped at the breakpoint?  </p>
+<p> </p>
+<p>If so, you received the message, used the correct macro for the flag and got noti-</p>
+<p>fied of the reception. </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>43 / 56</p>
+<p><b>6.8 </b></p>
+<p><b>STEP 8 Sending a Message </b></p>
+<p>The next step is the transmission of a CAN message. This is done by calling the </p>
+<p>function  </p>
+<p><b>CanTransmit( handle )</b>; </p>
+<p>The </p>
+<p><b>handle</b></p>
+<p> specifies the message you want to send. Open the file </p>
+<p><b>yourecu.h </b></p>
+<p>(can_par.h </p>
+<p>for GENy</p>
+<p>)</p>
+<p> and search for “</p>
+<p><b>handle</b></p>
+<p>” in the section on send/transmit </p>
+<p>objects. Chose the appropriate macro for the send message and use it as shown. </p>
+<p> </p>
+<p><b>Example: </b></p>
+<p>void main(void) </p>
+<p>{ </p>
+<p>  hardwareInit(); </p>
+<p> </p>
+<p>  CanInitPowerOn(kCanInitObj1);  </p>
+<p> </p>
+<p>  enableInterrupts(); </p>
+<p> </p>
+<p>  for(;;) </p>
+<p>  {  </p>
+<p>    /* First Test modification*/ </p>
+<p>    if( Message_2_ind_b ) </p>
+<p>    {   </p>
+<p> <b> /*Second Test modification*/  </b></p>
+<p><b>      if( CanTransmit( CanTxMessage_1 ) == kCanTxOk ) </b></p>
+<p><b>  {      </b></p>
+<p>    Message_2_ind_b = 0;      </p>
+<p>  }            </p>
+<p>    }         </p>
+<p>  }          </p>
+<p>} </p>
+<p> </p>
+<p>Refer to the file YourECU.h (can_par.h for GENy) for the message handles. </p>
+<p> </p>
+<p><b>Meaning of the return value of CanTransmit </b></p>
+<p>The function CanTransmit has a return value, </p>
+<p>kCanTxOk</p>
+<p> or </p>
+<p>kCanTxFailed. </p>
+<p>The </p>
+<p>meaning of this value is not as simple as it looks like.  </p>
+<p><b>Without Software Transmit Queue </b></p>
+<p><b>kCanTxOk </b></p>
+<p>means that the data has been copied from the RAM to the Tx Register </p>
+<p>and the transmit request is set in the CAN Controller hardware. The physical trans-</p>
+<p>mission of the message depends on when the message wins the CAN bus arbitra-</p>
+<p>tion. </p>
+<p><b>kCanTxFailed</b></p>
+<p> means the hardware register is busy or CAN Driver is offline.  </p>
+<p><b>With Software Transmit Queue </b></p>
+<p><b>handle</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>44 / 56</p>
+<p><b>kCanTxOk</b></p>
+<p> could mean the same as above. But it also could mean that the transmit </p>
+<p>request is set in the software queue of the CAN Driver and will be processed as soon </p>
+<p>as possible. Read more about the software queue in the chapter </p>
+<p> </p>
+<p>6.9.2.3. </p>
+<p><b>kCanTxFailed</b></p>
+<p> means the CAN Driver is offline. </p>
+<p> </p>
+<p><b>Full CAN Tx Object </b></p>
+<p>There is no Tx queue functionality for Full CAN Tx Objects. </p>
+<p> </p>
+<p>This  modified  application  sends  back  a  CAN  message.  You  should  see  the  re-</p>
+<p>sponse </p>
+<p>message </p>
+<p>in </p>
+<p>your </p>
+<p>Trace </p>
+<p>window. </p>
+<p>Refer </p>
+<p>to </p>
+<p>the </p>
+<p>TechnicalRefer-</p>
+<p>ence_CANDriver.pdf to get information about the return value.  </p>
+<p>Do you see the response message in the Trace window?  </p>
+<p> </p>
+<p><b>CONGRATULATIONS! </b></p>
+<p><b>The basic CAN communication is running. </b></p>
+<p> </p>
+<p>Of course this is a very simple application and far away from the complexity of your </p>
+<p>application, but as the saying goes: </p>
+<p><b>The longest way starts with the first step(s)</b>. </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>45 / 56</p>
+<p><b>6.9 </b></p>
+<p><b>STEP 9 Further Actions </b></p>
+<p>The next step is to build up your application around the communication. To do this </p>
+<p>in a simple manner, read the following tips and recommendations. You will then be </p>
+<p>given an exercise that poses a problem which you will try to solve. After finding the </p>
+<p>correct  answer,  you  will  understand  the  order  in  which  the  functions  of  the  CAN </p>
+<p>Driver are called. </p>
+<p><b>6.9.1 </b></p>
+<p><b>Strategies for Receiving a CAN Message </b></p>
+<p>The  Figure </p>
+<p> </p>
+<p>6-21  shows  the  calling  order  of  the  functions  when  receiving  a  mes-</p>
+<p>sage.  </p>
+<p>ApplCanMsgReceived</p>
+<p><b>CAN-BUS</b></p>
+<p>Copy of data to </p>
+<p>software buffer</p>
+<p>conditional</p>
+<p>exit</p>
+<p>conditional</p>
+<p>exit</p>
+<p>Ranges</p>
+<p>Search Algorithm</p>
+<p>Precopy Function</p>
+<p>Indication Flag/Function</p>
+<p>Hardware Filter</p>
+<p><b>Hardware</b></p>
+<p><b>locked</b></p>
+<p>exit </p>
+<p>if matched</p>
+<p>exit </p>
+<p>if not found</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-21 Calling Order Of Functions When A CAN Message Is Received </p>
+<p><b>6.9.1.1 </b></p>
+<p><b>Hardware Filter (HW Filter) </b></p>
+<p>As you have learned before, you can adjust the hardware filter in the Generation </p>
+<p>Tool. Every message that passes the hardware filter triggers an interrupt – if not </p>
+<p>using polling mode. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>46 / 56</p>
+<p>If you select the </p>
+<p>function </p>
+<p>ApplCanMsgRe-</p>
+<p>ceived, the </p>
+<p>prototype will be </p>
+<p>generated. You </p>
+<p>only have to enter </p>
+<p>the function. </p>
+<p>The _CAN_ </p>
+<p>macros will be </p>
+<p>generated only </p>
+<p>when you have </p>
+<p>chosen a precopy </p>
+<p>function or the </p>
+<p>object is a full can </p>
+<p>object.</p>
+<p>To reduce your interrupt load, optimize the filters (Generation Tool). </p>
+<p><b>6.9.1.2 </b></p>
+<p><b>ApplCanMsgReceived </b></p>
+<p>In the Generation Tool you can choose to have this function called with any recep-</p>
+<p>tion of a CAN message that passes the hardware filter. </p>
+<p>Here you can filter the messages that pass the hardware filter but contain no rele-</p>
+<p>vant information. At this point, the data is in the receive register (</p>
+<p><b>Rx register</b></p>
+<p>). Use </p>
+<p>the hardware access macros to figure out ID, DLC and DATA of the received mes-</p>
+<p>sage. </p>
+<p><b>6.9.1.3 </b></p>
+<p><b>Ranges </b></p>
+<p>Ranges are a software filter mechanism.  Since the message is filtered by its ID </p>
+<p>and  assigned  to  the  categories  Network  Management,  Diagnostics,  Application, </p>
+<p>etc., you can route more messages on the same </p>
+<p><b>Range precopy function</b></p>
+<p>. </p>
+<p><b>6.9.1.4 </b></p>
+<p><b>Search Algorithm </b></p>
+<p>To figure out whether a message is meant for your ECU and which message ID it </p>
+<p>is the CAN Driver has to compare the ID with an ID-list. This comparison can be </p>
+<p>done in different ways. The criterion is the speed for browsing the list. The Genera-</p>
+<p>tion  Tool  offers  different  search  algorithms  to  choose.  Please  refer  to  the  CAN </p>
+<p>Driver Technical Manual for the differences. </p>
+<p><b>6.9.1.5 </b></p>
+<p><b>Precopy </b></p>
+<p>In the Generation Tool (</p>
+<p><b>receive objects/functions</b></p>
+<p>) you can enter a name for a mes-</p>
+<p>sage-specific  precopy  function.  This  function  is  called  by  the  CAN  Driver  before </p>
+<p>copying the message data from the receive register to the RAM data structure (if </p>
+<p>selected).  </p>
+<p>The </p>
+<p><b>Precopy function</b></p>
+<p>  e.g.  can  be  used  to  check  to  see  if  the  data  has </p>
+<p>changed. Use the </p>
+<p><b>_CAN_</b></p>
+<p> access macros to read the data out of the receive regis-</p>
+<p>ter and compare it with the RAM buffer (look in  </p>
+<p><b>yourECU.h </b></p>
+<p>for</p>
+<p><b> </b></p>
+<p>CANgen</p>
+<p><b> </b></p>
+<p>and in</p>
+<p><b> </b></p>
+<p><b>can_par.h </b></p>
+<p>for GENy for these access macros).  </p>
+<p>This macro will be only generated if the message is a full can object or you have se-</p>
+<p>lected a precopy-function for this message (see later). </p>
+<p>As you are in interrupt context, data consistency is not in danger (refer to the tech-</p>
+<p>nical reference for you hardware). Keep your actions short in any </p>
+<p><b>Precopy func-</b></p>
+<p><b>tion</b></p>
+<p>. </p>
+<p>The return value of the </p>
+<p><b>Precopy function</b></p>
+<p> determines what happens next. </p>
+<p><b>kCanCopyData</b></p>
+<p>:  The  driver  is  to  do  the  copying  from  receive  register  to  RAM </p>
+<p>buffer. </p>
+<p><b>kCanNoCopyData</b></p>
+<p>: You did the copy of relevant data and the driver does not need </p>
+<p>to call its copying routine. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>47 / 56</p>
+<p><b>6.9.1.6 </b></p>
+<p><b>Indication Flag / Indication Function </b></p>
+<p>The application is notified by the indication flags and/or the indication functions </p>
+<p>The driver indicates the reception of a message to the application.  </p>
+<p><b>Indication Function </b></p>
+<p>This function runs in interrupt context and is message-specific. Keep your action </p>
+<p>very short in this function.  </p>
+<p>You  can  enter  a  name  for  a  message-specific </p>
+<p><b>Indication function</b></p>
+<p>  in  the </p>
+<p>Generation Tool (in the same way as you did it for the </p>
+<p><b>Precopy function</b></p>
+<p>). </p>
+<p><b>Indication Flag </b></p>
+<p>This flag is message-specific. It is set by the CAN Driver and can be polled by the </p>
+<p>application. It tells the application a new message has been received. </p>
+<p><b>!!! This flag must be reset by the application. !!! </b></p>
+<p>You can use this flag to ensure you are working on the newest contents of a mes-</p>
+<p>sage.  </p>
+<p>If the flag is set, it means that a new message has been received. Clear the flag and </p>
+<p>access the received data. If the flag is cleared after your access, you can be sure that </p>
+<p>you have current data. If the flag is set, new data has been received in the meantime, </p>
+<p>so repeat this once again.  </p>
+<p><b> </b></p>
+<p><b>Remember for Data consistency </b></p>
+<p>All flags are set by the driver in an interrupt context. If your µC does not perform an </p>
+<p>atomic  (i.e.  uninterruptible)  write  access  to  bit  data  it  is  necessary  to  protect  the </p>
+<p>write  access  via  an  interrupt  lock  to  prevent  unexpected  change  or  loss  of  flag </p>
+<p>states. It is recommended to perform this (CAN-) interrupt lock via the API func-</p>
+<p>tions CanInterruptDisable / CanInterruptRestore. </p>
+<p>Please refer to your controller and/or compiler manual for information about atomic </p>
+<p>write access to bit data in your system. In case of doubts, it is recommended to </p>
+<p>lock the interrupt during the access. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>48 / 56</p>
+<p><b>6.9.2 </b></p>
+<p><b>Strategies for Sending a CAN Message </b></p>
+<p>The transmission of a CAN message is divided into two parts: the preparations until </p>
+<p>the transmission of a message and the transmit interrupt handling, which informs </p>
+<p>you about the successful sending of a message. </p>
+<p>First we look at the preparations before sending. </p>
+<p>Pretransmit</p>
+<p><b>CAN-BUS</b></p>
+<p>Copy of data to </p>
+<p>hardware buffer</p>
+<p>exit</p>
+<p>Entry in Queue</p>
+<p>CAN Transmit</p>
+<p>Update RAM buffer</p>
+<p>Send Message</p>
+<p><b>Buffer free?</b></p>
+<p>yes</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-22 States Before Transmitting A CAN Message </p>
+<p><b>6.9.2.1 </b></p>
+<p><b>Update RAM buffer </b></p>
+<p>The methods of transmission highly depend on your application. You may have to </p>
+<p>send in a fixed cycle, or you may have to send when a specific event occurs. </p>
+<p>Both cases require current data. If you use the RAM buffer, you just have to keep </p>
+<p>the data in it up-to-date. </p>
+<p>When you use your own buffer you should enter the values directly into the trans-</p>
+<p>mit register just before sending the message. Otherwise the data could be overwrit-</p>
+<p>ten by another transmit message.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>49 / 56</p>
+<p>You can only be </p>
+<p>sure that the </p>
+<p>message has </p>
+<p>been sent when </p>
+<p>you get the </p>
+<p>confirmation </p>
+<p>interrupt (confir-</p>
+<p>mation function or </p>
+<p>confirmation flag)</p>
+<p>See the parallels </p>
+<p>between the </p>
+<p>indication func-</p>
+<p>tion/flag  and the </p>
+<p>confirmation </p>
+<p>function/flag</p>
+<p><b>6.9.2.2 </b></p>
+<p><b>CanTransmit </b></p>
+<p>The  CanTransmit  function  initiates  the  transmission  of  a  specific  message.  The </p>
+<p>handle  (in  the  file  yourECU.h  for  CANgen  and  in  can_par.h  for  GENy)  specifies </p>
+<p>which message is sent.   </p>
+<p>CanTransmit  has  2  possible  return  values,  but  none  of  them  guarantee  that  the </p>
+<p>message has been sent yet. They just say that either the message will be sent as </p>
+<p>soon as possible (with or without a queue) or the transmission request has been </p>
+<p>rejected (see </p>
+<p> </p>
+<p>6.8); </p>
+<p> </p>
+<p><b>6.9.2.3 </b></p>
+<p><b>The Queue </b></p>
+<p>There are two possible causes for a return value of kCanTxOk: either the message </p>
+<p>has directly entered the transmit buffer or the message has entered the queue (if </p>
+<p>chosen in the Generation Tool).  </p>
+<p>An entry in the queue means, the <b>REQUEST </b>to send this message is stored, not </p>
+<p>the data. So leave the data untouched until you are sure the message has been </p>
+<p>sent, i.e. until the </p>
+<p><b>Confirmation flag</b></p>
+<p> is set or the </p>
+<p><b>Confirmation function</b></p>
+<p> </p>
+<p>is called. </p>
+<p><b>6.9.2.4 </b></p>
+<p><b>Pretransmit Function </b></p>
+<p>When you do not have a RAM buffer for your message, you must copy the data to </p>
+<p>the transmit register of the CAN Controller in the </p>
+<p><b>Pretransmit function</b></p>
+<p>. With </p>
+<p>the call of the function you get a pointer directly to the transmit registers. In this </p>
+<p>case you have to know the distribution of the signals to the bytes, because you do </p>
+<p>not get signal access macros. </p>
+<p>The time between the call of CanTransmit and the confirmation interrupt is not pre-</p>
+<p>dictable. To update your data short before the transmission, use the Pretransmit func-</p>
+<p>tion too. If this function is called, you can be sure that this message is the next mes-</p>
+<p>sage to be sent. </p>
+<p>When the message is sent and at least one ECU receives this message, the ac-</p>
+<p>knowledge  will  trigger  the  so-called  transmit  interrupt.  This  interrupt  calls  the </p>
+<p>transmit interrupt service routine, which in turn might call the confirmation function </p>
+<p>or set the confirmation flag. </p>
+<p><b>6.9.2.5 </b></p>
+<p><b>Confirmation Function and Confirmation Flag  </b></p>
+<p>The </p>
+<p><b>Confirmation function</b></p>
+<p> is called in interrupt context, so keep the run time </p>
+<p>as short as possible by not doing much in the code. <b>Now </b>you can be sure, your </p>
+<p>message has been sent successfully.  </p>
+<p>The </p>
+<p><b>Confirmation flag</b></p>
+<p> has the same meaning, but you have to poll this flag in </p>
+<p>your application (similar to the way it is done with the </p>
+<p><b>Indication flag</b></p>
+<p>). You </p>
+<p>get the macro out of the generated file </p>
+<p><b>yourECU.h (can_par.h)</b></p>
+<p>.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>50 / 56</p>
+<p><b>CAN-BUS</b></p>
+<p>CanTransmitQueuedObject</p>
+<p>Confirmation Flag/Function</p>
+<p>Queue Empty?</p>
+<p>ACKNOWLEDGE</p>
+<p>Leave Interrupt</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>6-23 Confirmation Interrupt After Transmission Of CAN Message </p>
+<p>After the confirmation the queue (if chosen) will be worked on. </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>51 / 56</p>
+<p><b>7 </b></p>
+<p><b>Further Information </b></p>
+<p><b>7.1 </b></p>
+<p><b>An Exercise For Practice </b></p>
+<p>The program below is a small application (</p>
+<p><b>for the HC12</b></p>
+<p>) using the basic service- and </p>
+<p>call-back  functions  of  the  CAN  driver.  Try  to  follow  the  program  and  answer  the </p>
+<p>questions connected with. </p>
+<p> </p>
+<p>The application receives a CAN message containing a byte signal </p>
+<p><b>b_Signal_2_c</b></p>
+<p>.  </p>
+<p>After  processing  the  incoming  message,  the  application  sends  another  message </p>
+<p>containing only one byte signal, called </p>
+<p><b>b_Signal_1_c</b></p>
+<p>. </p>
+<p>Can you calculate the value that will be sent back with </p>
+<p><b>b_Signal_1_c</b></p>
+<p> depending </p>
+<p>on </p>
+<p>the </p>
+<p>value </p>
+<p>of </p>
+<p>the </p>
+<p>variable </p>
+<p><b>a</b></p>
+<p><b> </b></p>
+<p>and </p>
+<p>the </p>
+<p>value </p>
+<p>of </p>
+<p>the </p>
+<p>received </p>
+<p>signal </p>
+<p><b>b_Signal_2_c</b></p>
+<p>? </p>
+<p>See the solution at the end of this document </p>
+<p> </p>
+<p><b>Example for the </b></p>
+<p><b>HC12</b></p>
+<p><b>: </b></p>
+<p>/* Includes </p>
+<p>*******************************************************************/ </p>
+<p>#include &quot;can_inc.h&quot;   /*for CANgen*/ </p>
+<p>#include &quot;yourecu.h&quot;   /*for CANgen*/ </p>
+<p> </p>
+<p>#include &quot;can_par.h&quot;   /*only include for GENy*/ </p>
+<p> </p>
+<p>/* Variable definition </p>
+<p>*******************************************************************/ </p>
+<p>unsigned char a; </p>
+<p> </p>
+<p> </p>
+<p>/* Function prototypes </p>
+<p>********************************************************/ </p>
+<p>void main_function(void); </p>
+<p>void enableInterrupts( void ); </p>
+<p>void hardwareInit( void ); </p>
+<p> </p>
+<p>/* The Main Function </p>
+<p>**********************************************************/ </p>
+<p> </p>
+<p><b>void main(void) </b></p>
+<p>{ </p>
+<p>  hardwareInit(); </p>
+<p> </p>
+<p>  CanInitPowerOn(kCanInitObj1);  </p>
+<p> </p>
+<p>  a = 5; </p>
+<p>  b_Signal_2_c = 0; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>52 / 56</p>
+<p>  enableInterrupts(); </p>
+<p> </p>
+<p>  for(;;) </p>
+<p>  {  </p>
+<p>     </p>
+<p>    if( Message_2_ind_b ) </p>
+<p>    { </p>
+<p>      b_Signal_1_c = b_Signal_2_c + a; </p>
+<p>      if( CanTransmit( CanTxMessage_1 ) == kCanTxOk ) </p>
+<p>      { </p>
+<p>        /*Disable Interrupt*/ </p>
+<p>        Message_2_ind_b = 0;      </p>
+<p>        /*Enable Interrupt*/ </p>
+<p>      } </p>
+<p>         </p>
+<p>    } </p>
+<p>    if( Message_1_conf_b ) </p>
+<p>    { </p>
+<p>      a=1; </p>
+<p>/*Disable Interrupt*/ </p>
+<p>      Message_1_conf_b = 0; </p>
+<p>/*Enable Interrupt*/ </p>
+<p>    } </p>
+<p> </p>
+<p>  }          </p>
+<p>} </p>
+<p> </p>
+<p>/* Other Functions </p>
+<p>**********************************************************/ </p>
+<p> </p>
+<p><b>void enableInterrupts( void ) </b></p>
+<p>{ </p>
+<p>  /*Enable interrupts*/ </p>
+<p>} </p>
+<p><b>void ApplCanBusOff( void ) </b>/*later uesd for bus off treatment*/ </p>
+<p>{ </p>
+<p>  ; </p>
+<p>} </p>
+<p><b>void ApplCanWakeUp( void ) </b>/*later used for wakeup functionality*/ </p>
+<p>{ </p>
+<p>  ; </p>
+<p>} </p>
+<p>/* new function added in the Generation Tool and application */ </p>
+<p><b>canuint8 ApplCanMsgReceived( void ) </b></p>
+<p>{ </p>
+<p>  a=a+2;  </p>
+<p>  return( kCanCopyData ); </p>
+<p>} </p>
+<p><b>canuint8 M1_PretransmitFunction(CanChipDataPtr dat) </b></p>
+<p>{ </p>
+<p>  b_Signal_1_c = b_Signal_1_c +1; </p>
+<p>  return( kCanCopyData ); </p>
+<p>} </p>
+<p><b>void M1_ConfirmationFunction(CanTransmitHandle tmtObject) </b></p>
+<p>{ </p>
+<p>  a=a+23; </p>
+<p>} </p>
+<p><b>canuint8 M2_Precopy(CanReceiveHandle rcvObject) </b></p>
+<p>{ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>53 / 56</p>
+<p>rcvObject = rcvObject;  /*to </p>
+<p>avoid </p>
+<p>compiler </p>
+<p>warning. </p>
+<p>You </p>
+<p>only        </p>
+<p>  use </p>
+<p>this </p>
+<p>handle </p>
+<p>if </p>
+<p>you </p>
+<p>have </p>
+<p>one   </p>
+<p>  precopy </p>
+<p>function </p>
+<p>for </p>
+<p>two </p>
+<p>or </p>
+<p>more   </p>
+<p>  messages*/ </p>
+<p>  a=2; </p>
+<p>  if( b_CAN_Signal_2_c == b_Signal_2_c ) </p>
+<p>  { </p>
+<p>    return( kCanNoCopyData ); /*same </p>
+<p>value </p>
+<p>as </p>
+<p>before, </p>
+<p>no </p>
+<p>need </p>
+<p>to  </p>
+<p>                                     copy data, leave interrupt*/ </p>
+<p>  } </p>
+<p>  else </p>
+<p>  { </p>
+<p>    a = b_CAN_Signal_2_c; </p>
+<p>    return( kCanCopyData ); </p>
+<p>  } </p>
+<p>} </p>
+<p> </p>
+<p><b>void M2_IndicationFunction(CanReceiveHandle rcvObject) </b></p>
+<p>{ </p>
+<p>  rcvObject = rcvObject; /*to </p>
+<p>avoid </p>
+<p>compiler </p>
+<p>warning. </p>
+<p>You </p>
+<p>only        </p>
+<p>             use </p>
+<p>this </p>
+<p>handle </p>
+<p>if </p>
+<p>you </p>
+<p>have </p>
+<p>one   </p>
+<p>                               precopy </p>
+<p>function </p>
+<p>for </p>
+<p>two </p>
+<p>or </p>
+<p>more   </p>
+<p>                               messages*/ </p>
+<p>  a=a+1; </p>
+<p>} </p>
+<p>/****************************************************/ </p>
+<p><b>void hardwareInit( void ) </b></p>
+<p>{ </p>
+<p>  /* </p>
+<p>  Do your hardware specific initializations here. </p>
+<p>  Don’t forget to initialize your TRANSCEIVER, if necessary*/ </p>
+<p>  ; </p>
+<p>} </p>
+<p><b>@interrupt void irq_dummy0(void) </b></p>
+<p>{ </p>
+<p>  for( ;; ); </p>
+<p>} </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>54 / 56</p>
+<p><b>7.2 </b></p>
+<p><b>The Solution To The Exercise </b></p>
+<p><b>7.2.1 </b></p>
+<p><b>After the first reception and transmission of a </b>new <b>value: </b></p>
+<p><b>a = 1 </b></p>
+<p><b>b_Signal_1_c</b></p>
+<p> = </p>
+<p><b>b_Signal_2_c*2+2</b></p>
+<p> </p>
+<p> </p>
+<p><b>7.2.2 </b></p>
+<p><b>After the reception of the same value as before: </b></p>
+<p><b>a = 2 </b></p>
+<p><b>no return message </b></p>
+<p> </p>
+<p>Did you get it?  </p>
+<p> </p>
+<p><b>7.2.3 </b></p>
+<p><b>The solution, step by step </b></p>
+<p>At the beginning,  </p>
+<p>a=5 and b_Signal_2_c = 0 </p>
+<p>The Main loop is waiting on an Indication Flag for Message 2 and a Confirmation </p>
+<p>Flag for Message 1. </p>
+<p>The  first  function  that  is  called  after  the  reception  of  Message  2  is   </p>
+<p><b>ApplCan-</b></p>
+<p><b>MsgReceived</b></p>
+<p>. There the <b>2 </b>is added to <b>a </b>and returned with <b>kCanCopyData</b>, so </p>
+<p>the reception process continues. </p>
+<p>At this point a=7 and b_Signal_2_c = b_Signal_2_c </p>
+<p>The next function executed is </p>
+<p><b>M2_Precopy</b></p>
+<p>. The variable <b>a </b>is set to <b>2 </b>and the re-</p>
+<p>ceived signal b_CAN_Signal_2_c (the data in the Rx register, i.e. in the CAN Con-</p>
+<p>troller) is compared with the signal b_Signal_2_c. </p>
+<p>If there is no change, the return value kCanNoCopyData stops the receive process </p>
+<p>the receive interrupt is exited. </p>
+<p>Now a=2 and no response message will be sent. </p>
+<p>If there is a difference, <b>a </b>is set to b_CAN_Signal_2_c and the return value keeps </p>
+<p>the receive interrupt going on. </p>
+<p>At this point a= b_CAN_Signal_2_c and b_Signal_2_c= b_Signal_2_c </p>
+<p>Now the </p>
+<p><b>Indication function</b></p>
+<p> </p>
+<p><b>M2_IndicatinoFunction</b></p>
+<p> is called, where <b>a </b></p>
+<p>is increased by 1. </p>
+<p>Now a= b_Signal_2_c+1 and b_Signal_2_c= b_Signal_2_c </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>55 / 56</p>
+<p>Since  the </p>
+<p><b>Indication flag</b></p>
+<p>  is  set,  now  the  main  loop  put  b_Signal_1_c  = </p>
+<p>b_Signal_2_c+a, i.e. b_Signal_1_c= 2* b_Signal_2_c+1.  </p>
+<p>Now  the  message  is  requested  to  be  sent  (CanTransmit).  If  the  request  is  an-</p>
+<p>swered with a kCanTxOk, the Indication flag is cleared to avoid sending the mes-</p>
+<p>sage again and again. Otherwise the flags stay set until the request of sending this </p>
+<p>message is successful. </p>
+<p>At </p>
+<p>this </p>
+<p>point </p>
+<p>a </p>
+<p>= </p>
+<p>b_Signal_2_c+1 </p>
+<p>and </p>
+<p>b_Signal_2_c </p>
+<p>= </p>
+<p>b_Signal_2_c </p>
+<p>and </p>
+<p>b_Signal_1_c = 2* b_Signal_2_c +1 </p>
+<p>Before  the  message  is  on  its  way,  the  function </p>
+<p><b>M1_PretransmitFunction</b></p>
+<p>  is </p>
+<p>called. This function increments the send signal by 1 and the return value lets the </p>
+<p>driver copy the data from the RAM buffer to the Tx register. </p>
+<p>At </p>
+<p>this </p>
+<p>point </p>
+<p>a </p>
+<p>= </p>
+<p>b_Signal_2_c+1 </p>
+<p>and </p>
+<p>b_Signal_2_c </p>
+<p>= </p>
+<p>b_Signal_2_c </p>
+<p>and </p>
+<p>b_Signal_1_c = 2* b_Signal_2_c +2 </p>
+<p>Now the message is on its way via CAN. The first node to receive this message (in </p>
+<p>this test case, CANoe) gives an acknowledge that triggers a transmit interrupt.  </p>
+<p>In the function </p>
+<p><b>M1_ConfirmationFunction</b></p>
+<p> 23 is added to <b>a</b>. </p>
+<p>Now a = b_Signal_2_c+24 and b_Signal_2_c = b_Signal_2_c and b_Signal_1_c = 2* </p>
+<p>b_Signal_2_c +2 </p>
+<p>Then the </p>
+<p><b>Confirmation flag</b></p>
+<p> is set and recognized by the main loop. There the </p>
+<p>variable a is set to 1 and the </p>
+<p><b>Confirmation flag</b></p>
+<p> is reset to 0 to prevent setting </p>
+<p><b>a </b>over and over again. </p>
+<p>So the result is: </p>
+<p><b>a = 1  </b></p>
+<p><b>b_Signal_1_c = 2* b_Signal_2_c +2 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Vector CAN Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 2.4 </p>
+<p> </p>
+<p>based of template version 1.7 </p>
+<p>56 / 56</p>
+<p><b>8 </b></p>
+<p><b> Index </b></p>
+<p>Acceptance filters ................................. 26, 32 </p>
+<p>applCanBusOff ........................................... 38 </p>
+<p>ApplCanMsgReceived .................... 46, 52, 54 </p>
+<p>applCanWakeUp......................................... 38 </p>
+<p>baud rate............................................... 29, 41 </p>
+<p>Bootloader .................................................. 10 </p>
+<p>Bustiming ........................................ 26, 27, 32 </p>
+<p>Bustiming registers ............................... 26, 32 </p>
+<p>CAN Driver. 12, 14, 15, 17, 22, 25, 33, 35, 45, </p>
+<p>46 </p>
+<p>can_cfg.h .............................................. 25, 33 </p>
+<p>can_inc.h .................................................... 35 </p>
+<p>CANalyzer................................................... 41 </p>
+<p>CANdesc IN 8 STEPS ................................ 53 </p>
+<p>CANdesc tab............................................... 15 </p>
+<p>CanInitPowerOn ......................................... 37 </p>
+<p>CanInterruptDisable.................................... 47 </p>
+<p>CanInterruptRestore ................................... 47 </p>
+<p>CANoe .................................................. 41, 55 </p>
+<p>Channel properties ..................................... 23 </p>
+<p>clock.......................................... 28, 39, 40, 41 </p>
+<p>compile ..................................... 35, 36, 40, 41 </p>
+<p>Confirmation ............................................... 49 </p>
+<p>Data consistency ........................................ 47 </p>
+<p>dbc file ............................................ 11, 22, 41 </p>
+<p>dbc-file ............................................ 22, 23, 24 </p>
+<p>Diagnostics ................................................. 12 </p>
+<p>example .......................................... 35, 38, 39 </p>
+<p>Example........................ 35, 36, 38, 41, 43, 51 </p>
+<p>generation process ................... 14, 33, 35, 41 </p>
+<p>Hardware..................................................... 45 </p>
+<p>Including Order............................................ 15 </p>
+<p>Indication flag..................................41, 49, 55 </p>
+<p>Indication Flag............................................. 47 </p>
+<p>Indication Function...................................... 47 </p>
+<p>Init registers...........................................25, 29 </p>
+<p>Interaction Layer ...................................12, 13 </p>
+<p>interrupt ....................................................... 47 </p>
+<p>link.......................................35, 36, 40, 41, 42 </p>
+<p>makefile.................................................35, 40 </p>
+<p>memory requirement................................... 19 </p>
+<p>message...................................................... 16 </p>
+<p>Motivation...................................................... 4 </p>
+<p>Network Management................................. 12 </p>
+<p>Open filters............................................27, 32 </p>
+<p>Optimze filters .......................................27, 32 </p>
+<p>Precopy ...............................19, 46, 47, 52, 54 </p>
+<p>Pretransmit............................................19, 49 </p>
+<p>Queue ......................................................... 49 </p>
+<p>Ranges........................................................ 46 </p>
+<p>receive register............................................ 18 </p>
+<p>Registers ..................................................... 18 </p>
+<p>Search Algorithm......................................... 46 </p>
+<p>signals ......................................................... 16 </p>
+<p>Strategies ..............................................45, 48 </p>
+<p>transmit register .......................................... 18 </p>
+<p>Transport Protocol....................................... 12 </p>
+<p>Universal Measurement and Calibration </p>
+<p>Protocol (XCP)..................................12, 13 </p>
+<p>yourecu.h ................35, 36, 37, 38, 41, 43, 51 </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

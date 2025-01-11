@@ -1,0 +1,2082 @@
+---
+layout: default
+title: MICROSAR_Safety_Guide
+nav_order: 32
+parent: Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR </b></p>
+<p>Safety Guide </p>
+<p> </p>
+<p> </p>
+<p>Version 1.2.2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Jonas Wolf </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>2 / 37 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Jonas Wolf </p>
+<p>2014-01-08 </p>
+<p>0.1.0 </p>
+<p>Initial structure </p>
+<p>Jonas Wolf </p>
+<p>2014-01-27 </p>
+<p>0.2.0 </p>
+<p>Ready for review </p>
+<p>Jonas Wolf </p>
+<p>2014-01-31 </p>
+<p>0.2.1 </p>
+<p>First comments included </p>
+<p>Jonas Wolf </p>
+<p>2014-02-06 </p>
+<p>0.2.2 </p>
+<p>Review comments from visml included </p>
+<p>Jonas Wolf </p>
+<p>2014-02-07 </p>
+<p>0.2.3 </p>
+<p>Added additional AUTOSAR components </p>
+<p>Jonas Wolf </p>
+<p>2014-02-17 </p>
+<p>0.2.4 </p>
+<p>Rework after review sessions </p>
+<p>Jonas Wolf </p>
+<p>2014-03-10 </p>
+<p>0.3.0 </p>
+<p>Rework after review with visrn </p>
+<p>Jonas Wolf </p>
+<p>2014-03-28 </p>
+<p>1.0.0 </p>
+<p>Final rework and release </p>
+<p>Jonas Wolf </p>
+<p>2014-05-27 </p>
+<p>1.1.0 </p>
+<p>Improvements from workshop with </p>
+<p>customer </p>
+<p>Jonas Wolf </p>
+<p>2014-06-03 </p>
+<p>1.2.0 </p>
+<p>Rework after review with visml </p>
+<p>Jonas Wolf </p>
+<p>2014-10-14 </p>
+<p>1.2.1 </p>
+<p>Clarifications on section 2.3 </p>
+<p>Jonas Wolf </p>
+<p>2014-10-20 </p>
+<p>1.2.2 </p>
+<p>More information on securing non-volatile </p>
+<p>data </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>3 / 37 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_TR_SafetyConceptStatusReport.pdf </p>
+<p>V1.2.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_CRCLibrary.pdf </p>
+<p>V4.4.0 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_ECUStateManager.pdf </p>
+<p>V4.1.0 </p>
+<p>[4] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_E2ELibrary.pdf </p>
+<p>V3.1.0 </p>
+<p>[5] </p>
+<p> Vector </p>
+<p>MICROSAR RTE </p>
+<p>Safety Guide </p>
+<p>SafetyGuide_Rte.pdf </p>
+<p>V4.2.0 </p>
+<p>[6] </p>
+<p> Boeing </p>
+<p>Single Event Upset at Ground Level </p>
+<p>Eugene Normand, </p>
+<p>Boeing Defense &amp; Space Group, Seattle, WA 98124-2499 </p>
+<p>2004 </p>
+<p>[7] </p>
+<p> ISO </p>
+<p>ISO 26262-4:2011 </p>
+<p>Road vehicles — Functional safety — Product development at </p>
+<p>the system level </p>
+<p>2011 </p>
+<p>[8] </p>
+<p> ISO </p>
+<p>ISO 26262-5:2011 </p>
+<p>Road vehicles — Functional safety — Product development at </p>
+<p>the hardware level </p>
+<p>2011 </p>
+<p>[9] </p>
+<p> ISO </p>
+<p>ISO 26262-6:2011 </p>
+<p>Road vehicles — Functional safety — Product development at </p>
+<p>the software level </p>
+<p>2011 </p>
+<p>[10]  Koopman </p>
+<p>32-Bit Cyclic Redundancy Codes for Internet Applications </p>
+<p>Philip Koopman, </p>
+<p>ECE Department &amp; ICES, Carnegie Mellon University, </p>
+<p>Pittsburgh, PA, USA </p>
+<p>2002 </p>
+<p>[11]  IEEE </p>
+<p>IEEE Std 802.3™-2012 </p>
+<p>2012 </p>
+<p>[12]  TTTech </p>
+<p>Safe Watchdog Manager </p>
+<p>Safety Manual </p>
+<p>D-SAFEX-S-70-001 </p>
+<p>2.3.9 </p>
+<p>[13]  TTTech </p>
+<p>Safe Watchdog Interface </p>
+<p>Safety Manual </p>
+<p>D-SAFEX-S-70-005 </p>
+<p>1.8.3 </p>
+<p>[14]  TTTech </p>
+<p>E2E Protection Wrapper </p>
+<p>Safety Manual </p>
+<p>D-MSP-M-70-002 </p>
+<p>1.2.9 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>4 / 37 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Purpose ............................................................................................................. 7</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Scope ................................................................................................................ 7</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Definitions .......................................................................................................... 7</p>
+<p> </p>
+<p>1.4</p>
+<p> </p>
+<p>Overview ............................................................................................................ 8</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Functional safety on system level ............................................................................... 9</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Prevention of unintended behavior ..................................................................... 9</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Mitigation of risk associated with a failure ........................................................ 10</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Fail-safe and fail-operational systems .............................................................. 11</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Recommendations on safety mechanisms ............................................................... 12</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Integrity of the microcontroller .......................................................................... 12</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Operation in lock-step mode ............................................................ 12</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Monitoring the temperature of the microcontrollers .......................... 12</p>
+<p> </p>
+<p>3.1.3</p>
+<p> </p>
+<p>Self-test of the microcontroller components ..................................... 12</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Integrity of volatile data .................................................................................... 13</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>Static tests of volatile memory .......................................................... 13</p>
+<p> </p>
+<p>3.2.1.1</p>
+<p> </p>
+<p>Initial test of volatile memory .......................................... 13</p>
+<p> </p>
+<p>3.2.1.2</p>
+<p> </p>
+<p>Periodic tests of volatile memory .................................... 14</p>
+<p> </p>
+<p>3.2.2</p>
+<p> </p>
+<p>Protection of volatile memory through error correcting codes (ECC) 14</p>
+<p> </p>
+<p>3.2.2.1</p>
+<p> </p>
+<p>Redundant storage of data ............................................. 14</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Integrity of non-volatile data ............................................................................. 15</p>
+<p> </p>
+<p>3.3.1</p>
+<p> </p>
+<p>Consistency of configuration and calibration data ............................ 15</p>
+<p> </p>
+<p>3.3.2</p>
+<p> </p>
+<p>Securing non-volatile data with use of NVRAM Manager ................. 16</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Initialization of the microcontroller .................................................................... 17</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Separation in memory ...................................................................................... 18</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Separation in time ............................................................................................ 19</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Scheduling ....................................................................................................... 20</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>Communication ................................................................................................ 21</p>
+<p> </p>
+<p>3.9</p>
+<p> </p>
+<p>Input and output ............................................................................................... 21</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Example use-cases ..................................................................................................... 22</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>ECU with direct I/O .......................................................................................... 22</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>ECU with direct I/O and safety-related bus communication .............................. 24</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Mixed ASIL SWCs with safety-related bus communication ............................... 25</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Recommendations for the MICROSAR stack ........................................................... 27</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 27</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>5 / 37 </p>
+<p>5.2</p>
+<p> </p>
+<p>ECU State Manager (EcuM) ............................................................................ 27</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Basic Software Mode Manager (BswM) ........................................................... 27</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Development Error Tracer (Det) ....................................................................... 27</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Diagnostic Event Manager (Dem) .................................................................... 28</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>NVRAM Manager ............................................................................................. 28</p>
+<p> </p>
+<p>5.7</p>
+<p> </p>
+<p>Run-Time Environment (RTE) .......................................................................... 28</p>
+<p> </p>
+<p>5.8</p>
+<p> </p>
+<p>End-to-End Protection (E2E) ............................................................................ 28</p>
+<p> </p>
+<p>5.9</p>
+<p> </p>
+<p>Operating System (OS) .................................................................................... 28</p>
+<p> </p>
+<p>5.10</p>
+<p> </p>
+<p>Interrupt service routines (ISRs) ....................................................................... 28</p>
+<p> </p>
+<p>5.11</p>
+<p> </p>
+<p>Microcontroller Abstraction Layer (MCAL) ........................................................ 29</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Procedural requirements ........................................................................................... 30</b></p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Assumptions of Vector’s safety solution .................................................................. 31</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Assumptions of RTE ........................................................................................ 31</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Assumptions of SafeWatchdog ........................................................................ 34</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 36</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 36</p>
+<p> </p>
+<p>8.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 36</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 37</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>6 / 37 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>Relation between test depth, system functionality and residual faults ......... 9</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Example for protecting non-volatile memory with two CRCs ..................... 15</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Establishing consistency of multiple data block groups ............................. 16</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Example for failure reaction time and initialization time (Reset state is </p>
+<p>not safe state) ........................................................................................... 17</p>
+<p> </p>
+<p>Figure 3-4</p>
+<p> </p>
+<p>Memory partitioning for mixed-ASIL systems ............................................ 18</p>
+<p> </p>
+<p>Figure 3-5</p>
+<p> </p>
+<p>Example for the use of schedule tables and different modes .................... 20</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Example software architecture for an ECU with direct I/O ......................... 22</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p> </p>
+<p>Example software architecture for an ECU with direct I/O and safety-</p>
+<p>related bus communication ....................................................................... 24</p>
+<p> </p>
+<p>Figure 4-3</p>
+<p> </p>
+<p>Example software architecture for an ECU with mixed ASIL SWCs and </p>
+<p>safety-related bus communication ............................................................ 26</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Definitions from ISO 26262 ......................................................................... 7</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Properties of ECU with direct I/O use-case ............................................... 23</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Properties of ECU with direct I/O and safety-related bus communication </p>
+<p>use-case ................................................................................................... 25</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Properties of Mixed ASIL SWCs with safety-related bus communication </p>
+<p>use-case ................................................................................................... 26</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Assumptions of RTE ................................................................................. 33</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Assumptions of SafeWatchdog ................................................................. 35</p>
+<p> </p>
+<p>Table 8-1 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 36</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>7 / 37 </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p><b>1.1 </b></p>
+<p><b>Purpose </b></p>
+<p>This  document  provides  guidance  for  designing  and  implementing  software  of  safety-</p>
+<p>related systems using Vector’s AUTOSAR implementation. </p>
+<p>This  document  does  not  impose  any  requirements  on  your  development  process  when </p>
+<p>using  Vector  products.  All  necessary  requirements  are  given  in  the  respective  Safety </p>
+<p>Manuals. </p>
+<p>Its  intended  audience  is  system  and  software  engineers and  deciders who  consider the </p>
+<p>use of AUTOSAR for their safety-related development. </p>
+<p><b>1.2 </b></p>
+<p><b>Scope </b></p>
+<p>This document focusses on the architecture, design and implementation of software using </p>
+<p>AUTOSAR V4.1R2 in safety-related systems in the automotive industry. </p>
+<p>Only the Vector AUTOSAR implementation MICROSAR is considered. </p>
+<p>The design of software without AUTOSAR is not considered. </p>
+<p>Knowledge  and  understanding  of  functional  safety,  the  ISO  26262  and  AUTOSAR  is </p>
+<p>required to understand the contents of this document. </p>
+<p><b>1.3 </b></p>
+<p><b>Definitions </b></p>
+<p><b>No. </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>1.51 </p>
+<p>functional safety </p>
+<p>absence of unreasonable risk (1.136) due to hazards (1.57) caused by </p>
+<p>malfunctioning behavior (1.73) of E/E systems (1.31) </p>
+<p>1.73 </p>
+<p>malfunctioning </p>
+<p>behavior </p>
+<p>failure (1.39) or unintended behavior of an item (1.69) with respect to its </p>
+<p>design intent </p>
+<p>1.39 </p>
+<p>failure </p>
+<p>termination of the ability of an element (1.32), to perform a function as </p>
+<p>required </p>
+<p>Note: Incorrect specification is a source of failure </p>
+<p>1.57 </p>
+<p>hazard </p>
+<p>potential source of harm (1.56) caused by malfunctioning behavior </p>
+<p>(1.73) of the item (1.69) </p>
+<p>1.42 </p>
+<p>fault </p>
+<p>abnormal condition that can cause an element (1.32) or an item (1.69) to </p>
+<p>fail </p>
+<p>1.102 </p>
+<p>safe state </p>
+<p>operating mode (1.81) of an item (1.69) without an unreasonable level of </p>
+<p>risk (1.99) </p>
+<p>1.92 </p>
+<p>random hardware </p>
+<p>failure </p>
+<p>failure (1.39) that can occur unpredictably during the lifetime of a </p>
+<p>hardware element (1.32) and that follows a probability distribution </p>
+<p>1.49 </p>
+<p>freedom from </p>
+<p>interference </p>
+<p>absence of cascading failures (1.13) between two or more elements </p>
+<p>(1.32) that could lead to the violation of a safety requirement </p>
+<p>1.44 </p>
+<p>fault reaction time </p>
+<p>time-span from the detection of a fault (1.42) to reaching the safe state </p>
+<p>(1.102) </p>
+<p>Table 1-1  </p>
+<p>Definitions from ISO 26262 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>8 / 37 </p>
+<p><b>1.4 </b></p>
+<p><b>Overview </b></p>
+<p>In section 2 considerations and assumptions for the system level are summarized. </p>
+<p>In section 3 recommendations and best-practices for safety mechanisms are given based </p>
+<p>on the definitions and assumptions of section 2. </p>
+<p>In  section  4  example  use-cases  for  software  architectures  using AUTOSAR for  different </p>
+<p>kinds of systems are given. </p>
+<p>In  section  5  additional  recommendations  for  the  use  of  Vector’s  AUTOSAR  stack  are </p>
+<p>given. </p>
+<p>In  section  6  procedural  requirements  for  implementing  functional  safety  using  Vector’s </p>
+<p>safety solution are stated. </p>
+<p>In  section  7  some  of  the  assumptions  made  by  different  components  of  Vector’s  safety </p>
+<p>solution are resolved. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>9 / 37 </p>
+<p><b>2 </b></p>
+<p><b>Functional safety on system level </b></p>
+<p>Some  functions  provided  by  E/E  systems  in  cars  bear  an  inherent  risk  of  harm  to  the </p>
+<p>driver,  passengers  and  pedestrians.  Examples  for  such  systems  are  an  active  front </p>
+<p>steering or breaking system. </p>
+<p>To  have  a  low  level  of  residual  risk  for  harm  to  persons  and  damage  to  cars,  the </p>
+<p>ISO 26262 was defined to address the development of such safety-related E/E systems. </p>
+<p>The  ISO 26262  defines <i> functional  safety </i> as  the <i> absence  of  unreasonable  risk  due  to </i></p>
+<p><i>hazards caused by malfunctioning behavior of E/E systems</i>. </p>
+<p><i>Malfunctioning behavior </i>is assumed when a <i>failure or unintended behavior of an item with </i></p>
+<p><i>respect to its design intent </i>occurs. </p>
+<p><b>Thus,  a  functionally  safe system  has  to  mitigate  the  risk  associated with a  failure </b></p>
+<p><b>and prevent unintended behavior. </b></p>
+<p><b>2.1 </b></p>
+<p><b>Prevention of unintended behavior </b></p>
+<p>Prevention of unintended behavior requires a sufficiently detailed and precise specification </p>
+<p>to  identify  unintended  behavior  as  such. A  sufficiently  detailed  and  precise  specification </p>
+<p>can be assured by reviews required by the development process. </p>
+<p>Additionally, unintended behavior can accidentally be implemented into the system by e.g. </p>
+<p>programming  faults. All  faults  designed  or  implemented  into  the  system  are  systematic </p>
+<p>faults. Systematic faults are prevented by the development process through, e.g. coding </p>
+<p>standards,  reviews  and  static  analysis  tools.  As  these  verification  methods  are  limited, </p>
+<p>testing is also applied. </p>
+<p>Testing can only show the presence of faults, but never their absence. Thus, a certain test </p>
+<p>depth is required by the ISO 26262. For example a software unit may be required to be </p>
+<p>tested based on the requirements so that branch coverage is achieved. The assumption is </p>
+<p>that if the complete system functionality is tested and no faults occurred, the probability </p>
+<p>that the complete system has residual faults is very low. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>Relation between test depth, system functionality and residual faults </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>10 / 37 </p>
+<p>To facilitate testing the system needs to provide interfaces for stimulation and tracing of </p>
+<p>outputs and internal states. To achieve a very high test depth, the system needs to have a </p>
+<p>reasonable complexity. </p>
+<p>On system level, complexity is most dominantly influenced by: </p>
+<p><b>&gt; </b></p>
+<p>the number of distinct functions of the system, </p>
+<p><b>&gt; </b></p>
+<p>the number of states and transitions of the system, and </p>
+<p><b>&gt; </b></p>
+<p>the number of elements performing computations in parallel. </p>
+<p><b>Thus, the system should be as simple as possible to keep it testable. </b></p>
+<p>Additionally, </p>
+<p>non-deterministic </p>
+<p>behavior </p>
+<p>also </p>
+<p>increases </p>
+<p>complexity </p>
+<p>of </p>
+<p>the </p>
+<p>system </p>
+<p>verification. </p>
+<p><b>Thus, the system should be as deterministic as possible to ease verification. </b></p>
+<p>The  combination  of  development  process  measures  and  testing  prevents  unintended </p>
+<p>behavior of the system. </p>
+<p><b>2.2 </b></p>
+<p><b>Mitigation of risk associated with a failure </b></p>
+<p>The </p>
+<p>risk </p>
+<p>associated </p>
+<p>with </p>
+<p>a </p>
+<p>failure </p>
+<p>can </p>
+<p>be </p>
+<p>mitigated </p>
+<p>by </p>
+<p>reducing </p>
+<p>the </p>
+<p>probability </p>
+<p>of </p>
+<p>occurrence  of  the  failure  or  the  severity  of  the  failure.  The <i> failure </i> of  the  system  is  a </p>
+<p>consequence of a <i>fault</i>. <i>Faults </i>considered in this section are <i>random hardware faults</i>. </p>
+<p>Additional <i>technical safety requirements </i>have to be introduced to mitigate the severity of a </p>
+<p><i>fault</i>. The system needs to be able to <b>detect <i></b>random hardware faults </i>and then to <b>act </b>on </p>
+<p>them to achieve a <i>safe state</i>. </p>
+<p><i>Random hardware faults </i>can result either from <i>permanent faults </i>or <i>transient faults</i>. There </p>
+<p>are different methods to detect these two types of faults. Depending on the ASIL, there are </p>
+<p>different </p>
+<p>requirements </p>
+<p>on </p>
+<p>the </p>
+<p>probabilities </p>
+<p>of </p>
+<p><i>random </i></p>
+<p><i>hardware </i></p>
+<p><i>faults </i></p>
+<p>(e.g. </p>
+<p>for </p>
+<p>the </p>
+<p>probabilistic metric for random hardware faults PMHF). </p>
+<p>The probabilities, i.e. failure rate, for <i>permanent faults </i>can be estimated using standards, </p>
+<p>e.g. IEC TR 62380, or is provided by the manufacturer of the <i>hardware components</i>. The </p>
+<p>probabilities  of  some <i> transient  faults</i>,  especially  Single  Event  Upsets  (SEUs)  cannot  be </p>
+<p>estimated that easily. Several scientific papers (e.g.  [6]) suggest that the probability of a </p>
+<p>transient fault can be in the order of magnitude of 10</p>
+<p>-8 to -7</p>
+<p> 1/h. We assume that the Single </p>
+<p>Event Upset may directly lead to a violation  of a safety goal and is, thus, a single-point </p>
+<p>fault. The probability of a single-point fault has to be less than 10</p>
+<p>-7</p>
+<p> 1/h for ASIL B or 10</p>
+<p>-</p>
+<p>8</p>
+<p> 1/h for ASIL C respectively. </p>
+<p><b>Thus, we recommend the consideration of transient faults starting from ASIL B. For </b></p>
+<p><b>ASIL C systems transient faults must be handled appropriately. </b></p>
+<p>There are different methods to detect a <i>fault </i>in a <i>hardware component</i>. Among them are: </p>
+<p><b>&gt; </b></p>
+<p>Use of error detection codes, e.g. a CRC </p>
+<p><b>&gt; </b></p>
+<p>Comparison of redundant data </p>
+<p><b>&gt; </b></p>
+<p>Use of a time limit supervisor, e.g. a watchdog </p>
+<p>There are also different methods for a system to act upon a fault. Among them are: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>11 / 37 </p>
+<p><b>&gt; </b></p>
+<p>Reset of the component where the fault occurred </p>
+<p><b>&gt; </b></p>
+<p>Depowering of the component where the fault occurred </p>
+<p><b>&gt; </b></p>
+<p>Exclusion of inputs that are known to be incorrect </p>
+<p>Best practices for some of these mechanisms in relation to AUTOSAR are presented in </p>
+<p>section 3. </p>
+<p><b>2.3 </b></p>
+<p><b>Fail-safe and fail-operational systems </b></p>
+<p>Most systems in the automotive today have a fail-safe behavior, i.e. in case of a <i>random </i></p>
+<p><i>hardware  fault </i> the  system  tries  to  achieve  a <i> safe  state</i>.  This  is  the  implicitly  assumed </p>
+<p>mechanism by ISO 26262 to mitigate <i>random hardware faults</i>. </p>
+<p>Mitigation of faults for a system, thus, only means to detect the fault and enter a safe state. </p>
+<p>For  example,  in  case  of  an  active  front  steering  system,  the  actuator  of  the  system  is </p>
+<p>disabled (= <i>safe state</i>) when a <i>failure </i>is detected. </p>
+<p><b>Thus, only fail-safe systems are considered in this guide. </b></p>
+<p>There are other systems where the correct operation is required even in the presence of </p>
+<p>one or more <i>faults</i>. These systems are called <i>fail-operational</i>. </p>
+<p>For example, a steer-by-wire system may be required to operate correctly even if, e.g. the </p>
+<p>microcontroller is broken. </p>
+<p>Since support by the ISO 26262 of fail-operational systems through definitions of terms, </p>
+<p>methods and requirements is poor, we only consider fail-safe systems in this guide. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>12 / 37 </p>
+<p><b>3 </b></p>
+<p><b>Recommendations on safety mechanisms </b></p>
+<p>A  logical  prerequisite  for  a  functionally  safe  system  is  the  integrity  of  all  comprising </p>
+<p>elements.  </p>
+<p>For this document we define integrity as intended behavior with respect to its design intent. </p>
+<p><b>3.1 </b></p>
+<p><b>Integrity of the microcontroller </b></p>
+<p>Since  this  document  focuses  on  software,  the  executing  microcontroller  needs  to  be </p>
+<p>integer. </p>
+<p>Usually, there are the following techniques to achieve integrity of a microcontroller: </p>
+<p><b>&gt; </b></p>
+<p>Operation in lock-step mode </p>
+<p><b>&gt; </b></p>
+<p>Self-tests of the microcontroller components (incl. plausibility tests) </p>
+<p><b>&gt; </b></p>
+<p>Monitoring the temperature of the microcontroller </p>
+<p>The following sections provide details about these techniques. </p>
+<p><b>3.1.1 </b></p>
+<p><b>Operation in lock-step mode </b></p>
+<p>Microcontrollers  with  lock-step  mode  assure  the  integrity  of  calculations  and  register </p>
+<p>contents with respect to transient random hardware failures (e.g. bit flips). Details on what </p>
+<p>exactly is protected depend on the selected hardware architecture. </p>
+<p>Enabling  lock-step  depends  on  the  selected  hardware </p>
+<p>architecture.  We </p>
+<p>recommend </p>
+<p><b>enabling lock-step as early as possible in the boot process </b>(e.g. in start-up code). </p>
+<p>An additional self-test of the lock-step mechanism has to be implemented, depending on </p>
+<p>the required <i>diagnostic coverage </i>and the selected hardware architecture. </p>
+<p>A fault in the lock-step mechanism is a <i>latent fault</i>. </p>
+<p><b>3.1.2 </b></p>
+<p><b>Monitoring the temperature of the microcontrollers </b></p>
+<p>High temperature strongly  increases the probability of transient random hardware faults. </p>
+<p>Thus, keeping the microcontroller within its operating limits is necessary for its integrity. </p>
+<p>Some microcontrollers support measuring and monitoring the die temperature. </p>
+<p>Monitoring  the  die  temperature  is  a  measure  to  increase  the  robustness  of  the  system. </p>
+<p>Usually, the monitoring can be implemented in analogy to self-tests. </p>
+<p><b>3.1.3 </b></p>
+<p><b>Self-test of the microcontroller components </b></p>
+<p>Additional </p>
+<p>self-tests </p>
+<p>of </p>
+<p>individual </p>
+<p>microcontroller </p>
+<p>components </p>
+<p>may </p>
+<p>have </p>
+<p>to </p>
+<p>be </p>
+<p>implemented, depending on the required diagnostic coverage of the application. Self-tests </p>
+<p>can be  used  to  increase  diagnostic  coverage for single-point faults  (integrity  at  start-up) </p>
+<p>and latent faults (integrity in continuous operation). </p>
+<p><b>Thus, the requirements on self-tests are defined by the required ASIL. </b></p>
+<p>Especially, the self-test of the used watchdog is  often assumed to be mandatory by the </p>
+<p>microcontroller manufacturer. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>13 / 37 </p>
+<p>Other examples for such a self-test are the Logic built-in self-test (LBIST) of the TriCore </p>
+<p>architecture. </p>
+<p>The safety manual of the respective microcontroller has to be applied. </p>
+<p><b>3.2 </b></p>
+<p><b>Integrity of volatile data </b></p>
+<p>Since this document focuses on software,  also the used volatile memory (e.g. SRAM or </p>
+<p>DRAM) needs to be integer. </p>
+<p>Usually, there are the following techniques to achieve integrity of volatile memory: </p>
+<p><b>&gt; </b></p>
+<p>Tests of volatile memory </p>
+<p><b>&gt; </b></p>
+<p>Protection of volatile memory through error correcting codes (ECC) </p>
+<p>The following sections provide details about these techniques. </p>
+<p><b>3.2.1 </b></p>
+<p><b>Static tests of volatile memory </b></p>
+<p>Tests of volatile memory can detect several failure modes of memory cells and addressing </p>
+<p>logic. </p>
+<p>Tests  of  volatile  memory  need  to  be  implemented  depending  on  the  failure  rate  of  the </p>
+<p>selected  memory.  The  failure  rate  is  most  dominated  by  the  selected  technology  (e.g. </p>
+<p>SRAM, DRAM) and the manufacturing process quality. </p>
+<p>Tests of volatile memory can be used to increase the diagnostic coverage of the system. </p>
+<p>Tests of volatile memory may be required at start-up and periodically. </p>
+<p>A fault in the implementation of the test of volatile memory is a <i>latent fault</i>. </p>
+<p><b>3.2.1.1 </b></p>
+<p><b>Initial test of volatile memory </b></p>
+<p>An  initial  test  of  volatile  memory  can  be  implemented  in  the  start-up  code  before  the </p>
+<p>memory is used initially. </p>
+<p>Testing memory initially at start-up assures integrity of the data and code that is loaded </p>
+<p>into the memory. Additionally, the data cache can be disabled at start-up to easily allow </p>
+<p>testing of the volatile memory. </p>
+<p>Some </p>
+<p>microcontrollers </p>
+<p>provide </p>
+<p>built-in </p>
+<p>self-tests </p>
+<p>to </p>
+<p>check </p>
+<p>the </p>
+<p>volatile </p>
+<p>memory, </p>
+<p>e.g. </p>
+<p>Infineon TC27x. </p>
+<p>If the test of volatile memory has to be implemented in software, we recommend using the </p>
+<p>March  test  algorithm.  The  March  test  algorithm  provides  the  least  time  complex  (O(n)) </p>
+<p>behavior and detects the most failure modes. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Consider disabling the data cache for tests of volatile memory. The data cache may </p>
+<p>render the implemented test ineffective, because test patterns are not written to nor </p>
+<p>read from the memory chip. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>A test of volatile memory at start-up has to be implemented by the user of the MICROSAR </p>
+<p>stack. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>14 / 37 </p>
+<p>We assume that the flash bootloader has no influence on the application software and it </p>
+<p>does </p>
+<p>not </p>
+<p>prevent </p>
+<p>an </p>
+<p>intended </p>
+<p>application </p>
+<p>start. </p>
+<p>Thus, </p>
+<p>the </p>
+<p>flash </p>
+<p>bootloader </p>
+<p>is </p>
+<p>not </p>
+<p>considered here. </p>
+<p><b>3.2.1.2 </b></p>
+<p><b>Periodic tests of volatile memory </b></p>
+<p>Depending on how often the ECU is powered on and a self-test at start-up is performed </p>
+<p>and the failure rate of the memory chip, a periodic memory tests is not necessary. </p>
+<p>The AUTOSAR RAM Test component could be used to test volatile memory periodically. </p>
+<p>The periodic memory tests could also be implemented as Complex Driver. </p>
+<p>The  Vector  AUTOSAR  RAM  Test  component  is  currently  not  developed  according  to </p>
+<p>ISO 26262. </p>
+<p><b>3.2.2 </b></p>
+<p><b>Protection of volatile memory through error correcting codes (ECC) </b></p>
+<p>The volatile memory should be protected by error correcting codes (ECC), to protect the </p>
+<p>system against transient faults in volatile memory from radiation or strong electric fields. </p>
+<p>ECC-mechanisms  do  not  protect  against  most  failure  modes  mentioned  in  the  previous </p>
+<p>section, but they are the most efficient way (from a software perspective) to protect against </p>
+<p>Single Event Upsets (SEUs). </p>
+<p>Enabling the use of ECC-mechanisms depends on the selected hardware architecture. We </p>
+<p>recommend <b>enabling the use of ECC-mechanisms as early as possible in the boot </b></p>
+<p><b>process </b>(e.g. in start-up code). </p>
+<p><b>3.2.2.1 </b></p>
+<p><b>Redundant storage of data </b></p>
+<p>If no ECC-mechanism is available for the selected hardware architecture, storing the data </p>
+<p>redundantly </p>
+<p>at </p>
+<p>two </p>
+<p>separate </p>
+<p>memory </p>
+<p>locations </p>
+<p>(and </p>
+<p>at </p>
+<p>best </p>
+<p>inverted), </p>
+<p>may </p>
+<p>be </p>
+<p>an </p>
+<p>alternative under some circumstances. Special care has to be taken that all safety-related </p>
+<p>data is stored redundantly. </p>
+<p>The  redundantly  stored  values  have  to  be  compared  at  every  read. The  write  and  read </p>
+<p>operations are at best wrapped by functions performing the inversion, redundant storage </p>
+<p>and comparison. </p>
+<p>Thus,  it  is  usually  easier  to  use  ECC-mechanisms,  because  they  do  not  introduce  new </p>
+<p>functions and are an effective and transparent protection. </p>
+<p>Redundant  storage  of  data  does  not  cover  transient  faults  in  registers.  A  hardware </p>
+<p>architecture with lock-step is suggested to protect against these kinds of faults. </p>
+<p><b>Redundant storage of data is not supported by the Vector MICROSAR stack. </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>15 / 37 </p>
+<p><b>3.3 </b></p>
+<p><b>Integrity of non-volatile data </b></p>
+<p>Non-volatile  data  must  be  protected  against  random  corruption  to  show  the  required </p>
+<p><i>diagnostic coverage </i>for an ASIL. </p>
+<p>Non-volatile </p>
+<p>data </p>
+<p>comprises </p>
+<p>interrupt </p>
+<p>vector </p>
+<p>table, </p>
+<p>executable </p>
+<p>code, </p>
+<p>and </p>
+<p>initialized </p>
+<p>variables. Non-volatile data stored using NVRAM Manager is addressed in section 3.3.2. </p>
+<p>A hamming distance of four is required to claim a high <i>diagnostic coverage </i>with respect to </p>
+<p>random corruption (see [8], D.2.4.1). </p>
+<p>We recommended protecting the complete flashed binary using a CRC to ensure that the </p>
+<p>binaries on host and target are identical. </p>
+<p>We  recommend  using  the  CRC-32  (see  [2])  to  protect  the  complete  flashed  binary  file. </p>
+<p>CRC-32 offers a sufficient hamming distance for quite large data sizes. </p>
+<p>CRC-32 has a hamming distance of at least four for data sizes of up to 11450 byte (see </p>
+<p>[10]).  If  the  complete flashed  binary  file  is larger than  11450  bytes,  then  more than one </p>
+<p>CRC-32 has to be calculated to adequately protect that file. </p>
+<p>Depending on the type of binary flashed (e.g. SREC, ELF, Raw-Binary) not the complete </p>
+<p>non-volatile memory has to be checked, but only distinct sections.  </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Example for protecting non-volatile memory with two CRCs </p>
+<p><b>3.3.1 </b></p>
+<p><b>Consistency of configuration and calibration data </b></p>
+<p>Configuration  and  calibration  data  must  be  verified  together  with  the  configured  and </p>
+<p>calibrated software (see [9], Appendix C). </p>
+<p>One method to assure that only verified packages of configuration data, calibration data </p>
+<p>and software are used is to only distribute the verified packages as one flashable entity. </p>
+<p>Non-</p>
+<p>volatile  </p>
+<p>memory</p>
+<p>CRC-32 for Vector-Table, ISRs and Executable Code</p>
+<p>Vector-Table, ISRs, Executable Code (.text </p>
+<p>section)</p>
+<p>Initialized variables</p>
+<p>CRC-32 for initialized variables</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>16 / 37 </p>
+<p>There may be other organizational means to assure the consistency of configuration data, </p>
+<p>calibration data and software. However, we recommend disabling post-build configuration. </p>
+<p>This in turn reduces complexity of the system. </p>
+<p><b>3.3.2 </b></p>
+<p><b>Securing non-volatile data with use of NVRAM Manager </b></p>
+<p>The  NVRAM  Manager  component  could  be  used  to  safely  store  and  retrieve  data  from </p>
+<p>non-volatile </p>
+<p>memory. </p>
+<p>Data </p>
+<p>stored </p>
+<p>and </p>
+<p>retrieved </p>
+<p>using </p>
+<p>the </p>
+<p>NVRAM </p>
+<p>Manager </p>
+<p>is </p>
+<p>automatically secured using a CRC if configured. </p>
+<p>The </p>
+<p>Vector </p>
+<p>NVRAM </p>
+<p>Manager </p>
+<p>component </p>
+<p>is </p>
+<p>currently </p>
+<p>not </p>
+<p>developed </p>
+<p>according </p>
+<p>to </p>
+<p>ISO 26262. </p>
+<p>Thus,  we  recommend  protecting  the  safety-related  data,  which  would  be  stored  using </p>
+<p>NVRAM Manager, with an additional CRC and unique ID that is generated and checked by </p>
+<p>your application. The CRC protects against corruption in non-volatile memory and by the </p>
+<p>NVRAM Manager. The unique ID protects against the swap of equally sized data by the </p>
+<p>NVRAM Manager. See also section 5.8. </p>
+<p>The  consistency  between  different data blocks  can  be  established,  if an  additional  write </p>
+<p>cycle counter is stored with each data block. The cycle counter can be saved on its own in </p>
+<p>the last block of a writing sequence to later identify if all blocks contain data from the same </p>
+<p>writing sequence. The data is consistent if all blocks contain the same cycle counter. This </p>
+<p>mechanism can be applied multiple times for different groups of blocks. </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>Establishing consistency of multiple data block groups </p>
+<p>The NVRAM Manager can, however, never guarantee that always the last saved block of a </p>
+<p>dataset  NVRAM  block  is  retrieved.  A  reset  may  occur  any  time  before  critical  data  is </p>
+<p>written to the non-volatile memory. Thus, the system should have safe default values if no, </p>
+<p>corrupt or inconsistent data is detected in non-volatile memory. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>17 / 37 </p>
+<p><b>3.4 </b></p>
+<p><b>Initialization of the microcontroller </b></p>
+<p>The system should always be in the safe state during initialization. </p>
+<p>Thus, </p>
+<p>all </p>
+<p>code </p>
+<p>for </p>
+<p>initialization </p>
+<p>prior </p>
+<p>to </p>
+<p>executing </p>
+<p>the </p>
+<p>safety-related </p>
+<p>functions </p>
+<p>(e.g. </p>
+<p>mechanisms) usually has to be developed according to the required ASIL. Faults during </p>
+<p>initialization may prevent safety mechanisms to be executed. </p>
+<p>Faults during initialization may especially occur before calling </p>
+<p>StartOS()</p>
+<p> and before the </p>
+<p>watchdog is initialized. </p>
+<p>Initialization of the microcontroller may also happen on an unexpected reset during normal </p>
+<p>operation. </p>
+<p>Consider the time necessary for initialization of the microcontroller for your <i>fault reaction </i></p>
+<p><i>time</i>. For example, a system may need additional actions in software to achieve the safe </p>
+<p>state after a watchdog-initiated reset. This software is only executed after initialization of </p>
+<p>the microcontroller. </p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>Example for failure reaction time and initialization time (Reset state is not safe state) </p>
+<p>time</p>
+<p>Software </p>
+<p>failure, e.g. </p>
+<p>endless loop</p>
+<p>Watchdog</p>
+<p>resets the</p>
+<p>microcontroller</p>
+<p>Boot and initialization</p>
+<p>of microcontroller</p>
+<p>finished</p>
+<p>Reaction in </p>
+<p>software to achieve</p>
+<p>safe state</p>
+<p>Software failure reaction time</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>18 / 37 </p>
+<p><b>3.5 </b></p>
+<p><b>Separation in memory </b></p>
+<p>One </p>
+<p>measure </p>
+<p>to </p>
+<p>increase </p>
+<p>robustness </p>
+<p>of </p>
+<p>software </p>
+<p>is </p>
+<p>to </p>
+<p>separate </p>
+<p>different </p>
+<p>software </p>
+<p>components  in  memory.  For  mixed-ASIL  systems  or  systems  addressing  multiple  safety </p>
+<p>goals, separation in software is also necessary to show <i>freedom from interference</i>. </p>
+<p>Separation  in  memory  of  different  software  components  can  be  achieved  by  using  a </p>
+<p>Scalability Class 3 (SC3) SafeContext operating system. </p>
+<p>The  software  components  with  the  same  assigned ASIL  and  the  same  assigned  safety </p>
+<p>goal can then be grouped into one application (see Figure 3-4). </p>
+<p> </p>
+<p>Figure 3-4 </p>
+<p>Memory partitioning for mixed-ASIL systems </p>
+<p>The SC3 SafeContext operating system with the highest ASIL of the software components </p>
+<p>has to be used. For example, if the highest ASIL of all software components is ASIL D, the </p>
+<p>operating system has to have an ASIL D as well. </p>
+<p>The  SC3  SafeContext  operating  system  has  to  run  in  supervisor  mode  and,  thus,  its </p>
+<p>malfunction may lead to a violation of a safety goal of any software component running on </p>
+<p>the same processor. In multi-core systems the software components of all cores need to </p>
+<p>be considered for the ASIL of the operating system. </p>
+<p>Memory  partitioning  is  the  most </p>
+<p>effective  way  to  ensure </p>
+<p><i>freedom  from  interference </i></p>
+<p>between the partitions. If accepted by the OEM, other means, like static analysis may be </p>
+<p>applied to prevent cascading failures. </p>
+<p>Memory Partition 2</p>
+<p>Memory Partition 1</p>
+<p>SWC 2 – ASIL B</p>
+<p>Safety Goal 1 </p>
+<p>ASIL B</p>
+<p>SWC 3 – ASIL B</p>
+<p>SWC 1 – ASIL B</p>
+<p>SWC 4 – ASIL B</p>
+<p>Safety Goal 2 </p>
+<p>ASIL B</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>19 / 37 </p>
+<p><b>3.6 </b></p>
+<p><b>Separation in time </b></p>
+<p>The use of SafeWatchdog or an SC4 operating system may be adequate  depending on </p>
+<p>the safety requirements. </p>
+<p>The  use  of  SafeWatchdog  is  always  recommended.  It  may  be  supported  by  an  SC4 </p>
+<p>operating system. </p>
+<p>The use of SafeWatchdog is recommended, if the system is always in a safe state during </p>
+<p>reset and there is only one safety-related function implemented on the microcontroller. In </p>
+<p>case  of  a  fault,  the  SafeWatchdog  can  reset  the  system  to  bring  up  the  microcontroller </p>
+<p>again. </p>
+<p>The use of an SC4 operating system is recommended, if either the system is not always in </p>
+<p>a safe state during reset or there is more than one safety-related function implemented on </p>
+<p>the  microcontroller.  In  case  of  a  software  fault  in  one  of  the  SWCs,  the  SC4  operating </p>
+<p>system  can  still  schedule  another  SWC  that  transforms  the  system  into  a  safe  state  or </p>
+<p>implements  another  safety-related  function.  In  case  of  a  hardware  fault,  there  is  no </p>
+<p>advantage with respect to the use of SafeWatchdog. </p>
+<p>For further information refer to the Safety Manuals of the SafeWatchdog (see [12], [13] and </p>
+<p>Safety Manual for respective Watchdog Driver). </p>
+<p>The </p>
+<p>Vector </p>
+<p>SC4 </p>
+<p>SafeContext </p>
+<p>operating </p>
+<p>system </p>
+<p>is </p>
+<p>currently </p>
+<p>developed  according </p>
+<p>to </p>
+<p>ISO 26262,  but  the  timing  protection  mechanisms  are  not  considered  a  safety  goal </p>
+<p>currently.  Especially,  the  order  and  time  of  scheduled  tasks  is  not  guaranteed  by  any </p>
+<p>Vector OS at the moment. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>20 / 37 </p>
+<p><b>3.7 </b></p>
+<p><b>Scheduling </b></p>
+<p>Most safety-related functions require a hard real-time behavior of the software, since the </p>
+<p>safe state must always be reached in a certain period of time. </p>
+<p>A deterministic behavior increases the achievable test depth with respect to timing. </p>
+<p>We,  thus,  recommend  implement  high  ASIL  applications  with  schedule  tables  (see  [9], </p>
+<p>Table 3, 1f) and with a restricted use of interrupts (see [9], Table 3, 1g). </p>
+<p>Of  course,  a  safe  system  can  also  be  implemented  using  interrupts,  cyclic  tasks  and </p>
+<p>priority based scheduling. The effort for verification of such systems is in general higher </p>
+<p>than for time-triggered systems. </p>
+<p>Additionally, time-triggered bus systems allow easy (implicit) synchronization of more than </p>
+<p>one ECU. </p>
+<p>We further recommend: </p>
+<p><b>&gt; </b></p>
+<p>Using one schedule table for initialization and shutdown  </p>
+<p><b>&gt; </b></p>
+<p>Using one schedule table for cyclic tasks per mode </p>
+<p><b>&gt; </b></p>
+<p>Using only basic tasks to keep the system even more simple </p>
+<p>AUTOSAR </p>
+<p>allows </p>
+<p>the </p>
+<p>parallel </p>
+<p>use  of  more </p>
+<p>than  one </p>
+<p>schedule </p>
+<p>table.  We </p>
+<p>definitely </p>
+<p>recommend just using one schedule table at a time. </p>
+<p> </p>
+<p>Figure 3-5 </p>
+<p>Example for the use of schedule tables and different modes </p>
+<p>Mode 1</p>
+<p>Schedule table for </p>
+<p>initialization</p>
+<p>Mode 2</p>
+<p>Schedule table for </p>
+<p>cyclic processing </p>
+<p>of tasks</p>
+<p>Schedule table for </p>
+<p>cyclic processing </p>
+<p>of tasks</p>
+<p>Schedule table for </p>
+<p>shutdown</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>21 / 37 </p>
+<p><b>3.8 </b></p>
+<p><b>Communication </b></p>
+<p>As  described  in  section </p>
+<p>2.1,  the  system  should  be  as  deterministic  as  possible.  A </p>
+<p>deterministic behavior is supported by avoiding queues in communication. </p>
+<p>Thus, we recommend using only explicit sender/receiver communication with last-is-best </p>
+<p>behavior. </p>
+<p>Using  explicit  sender/receiver  communication  brings  two  additional  advantages.  First, </p>
+<p>unnecessary copy operations are avoided. Second, the integrator has full control over the </p>
+<p>communication (when time-triggered scheduling is introduced in parallel). </p>
+<p>We  recommend  using  the  end-to-end  (E2E)  protection  mechanisms  of  AUTOSAR  to </p>
+<p>protect communication between different ECUs. </p>
+<p>Please  refer  to  the  Safety  Guide  of  the  RTE  (see  [5])  on  how  to  protect  intra-ECU </p>
+<p>communication. </p>
+<p>Currently Vector does not provide an IOC mechanism developed according to ISO 26262. </p>
+<p>For further information refer to the Safety Guide of the RTE (see [5]). </p>
+<p><b>3.9 </b></p>
+<p><b>Input and output </b></p>
+<p>The current Vector MICROSAR stack is developed according to a standard development </p>
+<p>process  (QM).  Only  SafeContext,  SafeWatchdog  and  SafeCOM  (End-to-end  protection </p>
+<p>library) are developed using a safety development process. </p>
+<p>For most safety-related systems the software needs to assure input or output operations </p>
+<p>with certain integrity (ASIL). For example, the software needs to disable the actuator by </p>
+<p>toggling a digital output line of the ECU. </p>
+<p>Thus, at least the MCAL has to be developed according to a safety development process. </p>
+<p>Currently, there are two different methods to safely access the I/O. One way is to establish </p>
+<p>confidence in the I/O Hardware Abstraction. The other way is to develop a Complex Driver </p>
+<p>according to a safety development process. </p>
+<p>The I/O Hardware Abstraction (IoHwAb) provided by Vector is a template. The customer </p>
+<p>has to apply its safety development process on the I/O Hardware Abstraction. Additionally, </p>
+<p>the RTE functions that are used to interact with the I/O Hardware Abstraction need to be </p>
+<p>tested by the customer. </p>
+<p>If a Complex Driver is used for accessing the I/O, the Complex Driver has to be developed </p>
+<p>according to the customer’s safety development process. The Complex Driver can then be </p>
+<p>assigned  the  same  ASIL  as  the  application  implementing  the  safety  mechanisms.  The </p>
+<p>Complex Driver and the application can then be put into the same memory partition. </p>
+<p>We recommend not modelling the Complex Driver in the RTE and directly call functions of </p>
+<p>the  Complex  Driver.  The  RTE  is  then  excluded  from  the  communication  between  the </p>
+<p>application and the Complex Driver. Excluding the RTE decreases test efforts. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>22 / 37 </p>
+<p><b>4 </b></p>
+<p><b>Example use-cases </b></p>
+<p>In this section three example use-cases are described to show different possible setups for </p>
+<p>MICROSAR. </p>
+<p><b>4.1 </b></p>
+<p><b>ECU with direct I/O </b></p>
+<p>This use-case includes a system with a single ECU that performs a safety-related function. </p>
+<p>The ECU does not need any safety-related information through a communication bus. </p>
+<p>An  example  of  this  use-case  could  be  an  ECU  executing  a  control  loop  (analog  input, </p>
+<p>control  algorithm,  analog  output).  For  safety  reasons  the  controlling  actuator  has  to  be </p>
+<p>additionally enabled by the application using digital outputs. The LIN communication is not </p>
+<p>safety-related in this example use-case. </p>
+<p>The Complex Drivers are necessary, because the current Vector MICROSAR stack is not </p>
+<p>developed according to ISO 26262. </p>
+<p>This use-case covers the simplest systems. </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Example software architecture for an ECU with direct I/O </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>23 / 37 </p>
+<p><b>Property </b></p>
+<p><b>Value </b></p>
+<p>Number of cores of microcontroller </p>
+<p>1 </p>
+<p>Safety-related I/O </p>
+<p>Analog and digital </p>
+<p>Safety-related communication bus </p>
+<p>None </p>
+<p>Highest ASIL </p>
+<p>ASIL B </p>
+<p>SC of operating system </p>
+<p>SC3 </p>
+<p>MICROSAR BSW </p>
+<p>Non-trusted </p>
+<p>OS Applications </p>
+<p><b>&gt; </b></p>
+<p>Application with SWC1, SWC2, CD for ADC and </p>
+<p>CD for DIO </p>
+<p><b>&gt; </b></p>
+<p>Application with MICROSAR BSW </p>
+<p>Applied Vector products </p>
+<p>SafeContext, SafeWatchdog, SafeCOM </p>
+<p>Table 4-1  </p>
+<p>Properties of ECU with direct I/O use-case </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>24 / 37 </p>
+<p><b>4.2 </b></p>
+<p><b>ECU with direct I/O and safety-related bus communication </b></p>
+<p>This use-case includes a system with multiple ECUs that perform a safety-related function. </p>
+<p>The  ECUs  are  connected  by  a  FlexRay  bus. The  FlexRay  bus  is  used  to  communicate </p>
+<p>safety-related information. </p>
+<p>An example of this use-case could be two ECUs for battery management of hybrid cars. </p>
+<p>One ECU is responsible for protecting and wear-leveling the cells. The other ECU controls </p>
+<p>the charger. The communication between them is safety-related and protected by the end-</p>
+<p>to-end protection library, i.e. SafeCOM. </p>
+<p>The  shown  ECU  also  has  safety-related  direct  I/O,  e.g.  for  measuring  cell  voltage. This </p>
+<p>safety-related direct I/O is implemented using Complex Drivers. The Complex Drivers are </p>
+<p>necessary,  because  the  current  Vector  MICROSAR  stack  is  not  developed  according  to </p>
+<p>ISO 26262. </p>
+<p>The time synchronization using schedule tables may be helpful in such a scenario. </p>
+<p>This use-case covers the more advanced systems. </p>
+<p> </p>
+<p>Figure 4-2 </p>
+<p>Example software architecture for an ECU with direct I/O and safety-related bus communication </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>25 / 37 </p>
+<p><b>Property </b></p>
+<p><b>Value </b></p>
+<p>Number of cores of microcontroller </p>
+<p>1 </p>
+<p>Safety-related I/O </p>
+<p>Analog and digital </p>
+<p>Safety-related communication bus </p>
+<p>FlexRay </p>
+<p>Highest ASIL </p>
+<p>ASIL B </p>
+<p>SC of operating system </p>
+<p>SC3 </p>
+<p>MICROSAR BSW </p>
+<p>Non-trusted </p>
+<p>OS Applications </p>
+<p><b>&gt; </b></p>
+<p>Application with SWC1, SWC2, CD for ADC and </p>
+<p>CD for DIO </p>
+<p><b>&gt; </b></p>
+<p>Application with MICROSAR BSW </p>
+<p>Applied Vector products </p>
+<p>SafeContext, SafeWatchdog, SafeCOM </p>
+<p>Table 4-2  </p>
+<p>Properties of ECU with direct I/O and safety-related bus communication use-case </p>
+<p><b>4.3 </b></p>
+<p><b>Mixed ASIL SWCs with safety-related bus communication </b></p>
+<p>This use-case includes a system with multiple ECUs that perform a safety-related function. </p>
+<p>The  ECUs  are  connected  by  a  FlexRay  bus  and  a  CAN  bus.  Both  buses  are  used  to </p>
+<p>communicate safety-related information. </p>
+<p>An example of this use-case could be a gateway ECU that on the one hand controls the </p>
+<p>head lights via CAN bus, on the other hand controls the display information from the airbag </p>
+<p>system,  which  is  received  from  the  FlexRay  bus.  Each  safety-related  communication  is </p>
+<p>protected by the end-to-end protection library, i.e. SafeCOM. </p>
+<p>The shown ECU does not have safety-related direct I/O, e.g. does not make use of digital </p>
+<p>I/O to enter the safe state. Thus, no Complex Drivers are necessary. </p>
+<p>The  time  synchronization  using  schedule  tables  may  be  helpful  in  such  a  scenario.  In </p>
+<p>either  case  it  is  sensible  to  use  an  SC4  operating  system,  to  guarantee  freedom  of </p>
+<p>interference between the different safety-related functions. </p>
+<p>This use-case covers the more advanced systems. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>26 / 37 </p>
+<p> </p>
+<p>Figure 4-3 </p>
+<p>Example software architecture for an ECU with mixed ASIL SWCs and safety-related bus communication </p>
+<p><b>Property </b></p>
+<p><b>Value </b></p>
+<p>Number of cores of microcontroller </p>
+<p>1 </p>
+<p>Safety-related I/O </p>
+<p>None </p>
+<p>Safety-related communication bus </p>
+<p>FlexRay, CAN </p>
+<p>Highest ASIL </p>
+<p>ASIL B </p>
+<p>SC of operating system </p>
+<p>SC4 </p>
+<p>MICROSAR BSW </p>
+<p>Non-trusted </p>
+<p>OS Applications </p>
+<p><b>&gt; </b></p>
+<p>Application with SWC1 incl. end-to-end </p>
+<p>protection library </p>
+<p><b>&gt; </b></p>
+<p>Application with SWC2 incl. end-to-end </p>
+<p>protection library </p>
+<p><b>&gt; </b></p>
+<p>Application with MICROSAR BSW </p>
+<p>Applied Vector products </p>
+<p>SafeContext, SafeWatchdog, SafeCOM </p>
+<p>Table 4-3  </p>
+<p>Properties of Mixed ASIL SWCs with safety-related bus communication use-case </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>27 / 37 </p>
+<p><b>5 </b></p>
+<p><b>Recommendations for the MICROSAR stack </b></p>
+<p><b>5.1 </b></p>
+<p><b>Initialization </b></p>
+<p>We recommend creating your own start-up code that (if applicable):  </p>
+<p>1. </p>
+<p>Enables the lock-step </p>
+<p>2. </p>
+<p>Tests the volatile memory </p>
+<p>3. </p>
+<p>Tests the non-volatile memory for integrity when loading it into the volatile memory </p>
+<p><b>5.2 </b></p>
+<p><b>ECU State Manager (EcuM) </b></p>
+<p>The  ECU  State  Manager  (EcuM)  component  has  to  be  developed  in  accordance  to </p>
+<p>ISO 26262, since it usually has an effect on the functional safety of the system. </p>
+<p>The customer has the chance to use Vector’s EcuM code (generated and manually coded) </p>
+<p>to achieve the desired ASIL.  </p>
+<p>The customer may also ask Vector for verification support of the EcuM component. </p>
+<p>We recommend keeping the EcuM as simple as possible by the following measures: </p>
+<p><b>&gt; </b></p>
+<p>Move the initialization of drivers into the StartPostOS Sequence (see [3]), i.e. </p>
+<p>BswM_Init(). Initializing drivers in StartPostOS is especially necessary for drivers with </p>
+<p>lower ASIL than highest ASIL of all software components. </p>
+<p><b>&gt; </b></p>
+<p>Do not use post-build loadable configuration </p>
+<p><b>&gt; </b></p>
+<p>Only initialize and configure drivers that have the same ASIL as the EcuM </p>
+<p>If SafeWatchdog is activated during initialization, the time for StartPostOS Sequence </p>
+<p>(see [3]) needs to be considered for dimensioning the window of the SafeWatchdog. </p>
+<p><b>5.3 </b></p>
+<p><b>Basic Software Mode Manager (BswM) </b></p>
+<p>The Basic Software Mode Manager (BswM) component has to be developed according to </p>
+<p>ISO 26262,  since  it  usually  has  an  effect  on  the  functional  safety  of  the  system  as  it </p>
+<p>influences the scheduling of the system. </p>
+<p>The customer has the chance to use Vector’s BswM code (generated and manually coded) </p>
+<p>to achieve the desired ASIL.  </p>
+<p>The customer may also ask Vector for verification support of the BswM component. </p>
+<p>We recommend keeping the BswM component as simple as possible. </p>
+<p>The BswM does not have to be developed according to ISO 26262, if SafeWatchdog also </p>
+<p>monitors </p>
+<p>control </p>
+<p>flow </p>
+<p>on </p>
+<p>a </p>
+<p>global </p>
+<p>level. </p>
+<p>A </p>
+<p>safety </p>
+<p>analysis </p>
+<p>has </p>
+<p>to </p>
+<p>show </p>
+<p>if </p>
+<p>using </p>
+<p>SafeWatchdog is appropriate. </p>
+<p><b>5.4 </b></p>
+<p><b>Development Error Tracer (Det) </b></p>
+<p>The Development Error Tracer (Det) component is not recommended for series production </p>
+<p>usage. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>28 / 37 </p>
+<p>The  Det  component  has  to  be  developed  according  to  ISO 26262  if  used  in  series </p>
+<p>production, since it usually has an effect on the functional safety of the system. </p>
+<p>The Det component usually runs in the OS application that also contains the safety-related </p>
+<p>SWCs. If the Det is not used, it does not have to be developed according to ISO 26262. </p>
+<p>The customer has the chance to use Vector’s Det code (generated and manually coded) to </p>
+<p>achieve  the  desired  ASIL.  Qualifying  the  Det  code  may  especially  be  sensible  if  no </p>
+<p>difference between tested and production code is desired. </p>
+<p>The customer may also ask Vector for verification support of the Det component. </p>
+<p>We recommend keeping the Det component as simple as possible. </p>
+<p><b>5.5 </b></p>
+<p><b>Diagnostic Event Manager (Dem) </b></p>
+<p>The Diagnostic Event Manager (Dem) may be part of the degradation concept. The Dem </p>
+<p>can be used to store the degraded state of e.g. the ECU. A degraded state may be a safe </p>
+<p>state. In this case the Dem needs to be developed according to ISO 26262. </p>
+<p>The customer has the chance to use Vector’s Dem code (generated and manually coded) </p>
+<p>to achieve the desired ASIL.  </p>
+<p>The customer may also ask Vector for verification support of the Dem component. </p>
+<p><b>5.6 </b></p>
+<p><b>NVRAM Manager </b></p>
+<p>For the NVRAM Manager the recommendations of section 3.3.2 apply.  </p>
+<p><b>5.7 </b></p>
+<p><b>Run-Time Environment (RTE) </b></p>
+<p>For further information refer to the Safety Guide of the RTE (see [5]). </p>
+<p><b>5.8 </b></p>
+<p><b>End-to-End Protection (E2E) </b></p>
+<p>We recommend using the E2E Protection Wrapper as described in section 12.1 of [4]. The </p>
+<p>E2E Protection Wrapper provided by Vector is developed according to ISO 26262. </p>
+<p><b>5.9 </b></p>
+<p><b>Operating System (OS) </b></p>
+<p>We  recommend  enabling  the  stack  monitoring  facility  if  the <i> diagnostic  coverage </i> is  not </p>
+<p>sufficient for the requirements of the system. </p>
+<p>For further information refer to the Safety Manual of the SafeContext operating system. </p>
+<p><b>5.10 </b></p>
+<p><b>Interrupt service routines (ISRs) </b></p>
+<p>We recommend avoiding category 1 ISRs. </p>
+<p>All category 1 ISRs must be developed according to ISO 26262, since ISRs can corrupt </p>
+<p>the system state in e.g. either memory or timing behavior. It is assumed that for category 2 </p>
+<p>ISRs memory protection is activated. </p>
+<p>For further information refer to the Safety Manual of the SafeContext operating system. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>29 / 37 </p>
+<p><b>5.11 </b></p>
+<p><b>Microcontroller Abstraction Layer (MCAL) </b></p>
+<p>Microcontroller  Abstraction  Layer  initialization  is  usually  done  by  EcuM.  Especially,  the </p>
+<p>MCU and Port Drivers are usually initialized in a very early stage during start-up. </p>
+<p>The DIO Driver is accessed by the CAN interface if the CAN transceiver has an additional </p>
+<p>port to separately enable the CAN transceiver. </p>
+<p>If e.g. the DIO Driver is necessary for a safety mechanism, the DIO Driver cannot be used </p>
+<p>by ASIL software.  </p>
+<p>A solution using Complex Drivers and an appropriate MPU setup may be found. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>30 / 37 </p>
+<p><b>6 </b></p>
+<p><b>Procedural requirements </b></p>
+<p>Vector  does  not  provide  supporting  material  for  a  tool  qualification  of  the  compiler  and </p>
+<p>debugger  according  to  ISO 26262  Part  8.  The  customer  is  responsible  to  perform  the </p>
+<p>necessary qualification activities.  </p>
+<p>Vector  assumes  that  both  compiler  and  debugger  will  be  classified  with  a  TCL  2.  The </p>
+<p>debugger does not necessarily have to be taken into account, only if it is used for testing </p>
+<p>purposes. Otherwise, it does not matter how the debugger is classified.  </p>
+<p>If  not  stated  otherwise  the  source  code  of  software  delivered  by  Vector  must  not  be </p>
+<p>modified by the customer. It is recommended that the customer checks if the source code </p>
+<p>has been modified, e.g. by comparing it to the original delivery. </p>
+<p>The customer has to assure that sufficient resources are available to operate the software </p>
+<p>delivered by Vector. This includes:  </p>
+<p><b>&gt; </b></p>
+<p>selection of a microcontroller with sufficient RAM, ROM and calculation performance </p>
+<p><b>&gt; </b></p>
+<p>dimensioning of sufficient stack size </p>
+<p><b>&gt; </b></p>
+<p>selection of appropriate scheduling properties </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>31 / 37 </p>
+<p><b>7 </b></p>
+<p><b>Assumptions of Vector’s safety solution </b></p>
+<p>This section resolves some of the assumptions made by different components of Vector’s </p>
+<p>safety solution. </p>
+<p><b>7.1 </b></p>
+<p><b>Assumptions of RTE </b></p>
+<p>The following assumptions are extracted from [5]. </p>
+<p><b>Assumption </b></p>
+<p><b>Description </b></p>
+<p><b>Can be shown by </b></p>
+<p>ASS_RTE_1 </p>
+<p>The OS provides freedom from interference for different OS </p>
+<p>Applications with regards to memory. This means that code in </p>
+<p>one OS Application cannot destroy memory in another OS </p>
+<p>Application. </p>
+<p>Using SafeContext </p>
+<p>OS with SC3. </p>
+<p>ASS_RTE_2 </p>
+<p>The AUTOSAR Memory Abstraction for the target platform and </p>
+<p>the OS make it possible to assign RTE/BSW variables to specific </p>
+<p>OS Applications so that they can only be written by code that is </p>
+<p>executed within this OS Application. </p>
+<p>Moreover in case of Multicore, the RTE variables are mapped to </p>
+<p>noncacheable RAM so that they can be accessed by all cores. </p>
+<p>Using a </p>
+<p>microcontroller with </p>
+<p>an MPU and </p>
+<p>SafeContext OS </p>
+<p>with SC3. </p>
+<p>ASS_RTE_3 </p>
+<p>The tool chain initializes global variables or the API </p>
+<p>Rte_InitMemory is called before the OS is started. </p>
+<p>Rte_InitMemory initializes variables from different OS </p>
+<p>Applications. Therefore it needs to be started without memory </p>
+<p>protection. </p>
+<p>Qualification for </p>
+<p>customer </p>
+<p>configuration of </p>
+<p>Rte_InitMemory and </p>
+<p>calling </p>
+<p>Rte_InitMemory </p>
+<p>prior to StartOS. </p>
+<p>ASS_RTE_4 </p>
+<p>The OS allows non protected reads to RTE/BSW variables within </p>
+<p>the same and foreign OS Applications. </p>
+<p>Using SafeContext </p>
+<p>OS with SC3 allows </p>
+<p>read access to </p>
+<p>every memory </p>
+<p>location. </p>
+<p>ASS_RTE_5 </p>
+<p>Freedom from interference with regards to CPU runtime is </p>
+<p>provided through external means, for example with the help of a </p>
+<p>control flow monitor. The mechanisms for it are either </p>
+<p>implemented in a way that the RTE cannot deactivate them or a </p>
+<p>review is performed that checks that the RTE does not impact </p>
+<p>their operation. </p>
+<p>Using </p>
+<p>SafeWatchdog to </p>
+<p>implement timing </p>
+<p>protection </p>
+<p>mechanisms. </p>
+<p>ASS_RTE_6 </p>
+<p>The OS APIs that are used by the RTE in ASIL parts of the code </p>
+<p>can be called from different contexts without interference: </p>
+<p><b>&gt; </b></p>
+<p>TerminateTask </p>
+<p><b>&gt; </b></p>
+<p>SuspendOSInterrupts or osRteDisableLevel (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>ResumeOSInterrupts or osRteEnableLevel (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>GetSpinlock (Multicore Systems) </p>
+<p><b>&gt; </b></p>
+<p>ReleaseSpinlock (Multicore Systems) </p>
+<p>Using SafeContext </p>
+<p>OS with SC3. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>32 / 37 </p>
+<p><b>Assumption </b></p>
+<p><b>Description </b></p>
+<p><b>Can be shown by </b></p>
+<p> </p>
+<p>ASS_RTE_7 </p>
+<p>The OS provides at least the APIs  </p>
+<p><b>&gt; </b></p>
+<p>SuspendOSInterrupts or osRteDisableLevel (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>ResumeOSInterrupts or osRteEnableLevel (MICROSAR OS) </p>
+<p>with the same or higher ASIL than the SWCs </p>
+<p>In Multicore Systems, the OS also needs to provide the APIs </p>
+<p><b>&gt; </b></p>
+<p>GetSpinlock </p>
+<p><b>&gt; </b></p>
+<p>ReleaseSpinlock </p>
+<p>with the same or higher ASIL than the SWCs </p>
+<p>Using SafeContext </p>
+<p>OS with SC3. </p>
+<p>ASS_RTE_8 </p>
+<p>The RTE configuration is chosen in such a way that the  </p>
+<p>OS/System mechanisms for freedom from interference (memory </p>
+<p>and runtime) can also be used to implement freedom from </p>
+<p>interference for SWCs with different ASIL. This makes it </p>
+<p>necessary to map SWCs with different ASIL to different OS </p>
+<p>Applications. All OS Applications with SWCs that do not have the </p>
+<p>highest ASIL need to be non-trusted. This includes the OS </p>
+<p>Application of the BSW.  </p>
+<p>Appropriate </p>
+<p>configuration. </p>
+<p>Coaching by Vector </p>
+<p>on configuring a </p>
+<p>safe system may be </p>
+<p>ordered separately. </p>
+<p>ASS_RTE_9 </p>
+<p>The RTE configuration is chosen in such a way that no OS APIs </p>
+<p>need to be called in the RTE APIs or the TASK bodies that violate </p>
+<p>the safety requirements of the ASIL SWCs.  </p>
+<p>The RTE code calls the following OS APIs: </p>
+<p><b>&gt; </b></p>
+<p>SetRelAlarm   </p>
+<p><b>&gt; </b></p>
+<p>CancelAlarm  </p>
+<p><b>&gt; </b></p>
+<p>SetEvent </p>
+<p><b>&gt; </b></p>
+<p>GetEvent </p>
+<p><b>&gt; </b></p>
+<p>ClearEvent </p>
+<p><b>&gt; </b></p>
+<p>WaitEvent </p>
+<p><b>&gt; </b></p>
+<p>GetTaskID </p>
+<p><b>&gt; </b></p>
+<p>ActivateTask </p>
+<p><b>&gt; </b></p>
+<p>TerminateTask </p>
+<p><b>&gt; </b></p>
+<p>Schedule </p>
+<p><b>&gt; </b></p>
+<p>ChainTask </p>
+<p><b>&gt; </b></p>
+<p>GetResource </p>
+<p><b>&gt; </b></p>
+<p>ReleaseResource </p>
+<p>In case of multicore systems also the API </p>
+<p><b>&gt; </b></p>
+<p>GetCoreID </p>
+<p>Using SafeContext </p>
+<p>OS with SC3. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>33 / 37 </p>
+<p><b>Assumption </b></p>
+<p><b>Description </b></p>
+<p><b>Can be shown by </b></p>
+<p>is called. </p>
+<p>ASS_RTE_10 </p>
+<p>The RTE configuration is chosen in such a way that no SWC </p>
+<p>needs to directly call methods in (Service-) SWCs with lower </p>
+<p>ASIL and no (Service-) SWCs with lower ASIL needs to call </p>
+<p>methods in ASIL SWCs except for the case when the SWCs </p>
+<p>explicitly allow this kind of usage. If necessary, this work is </p>
+<p>delegated to wrapper SWCs in the same OS Application as the </p>
+<p>called/calling SWC. Direct calls can moreover be avoided when </p>
+<p>the server runnables are mapped to tasks. </p>
+<p>Appropriate </p>
+<p>configuration. </p>
+<p>Coaching by Vector </p>
+<p>on configuring a </p>
+<p>safe system may be </p>
+<p>ordered separately. </p>
+<p>ASS_RTE_11 </p>
+<p>The RTE configuration is chosen in such a way that the RTE </p>
+<p>APIs or TASKS for a SWC do not contain calls to BSW modules </p>
+<p>with lower ASIL than the SWC itself that might cause </p>
+<p>interference. If necessary, this work is delegated to wrapper </p>
+<p>SWCs in the same OS Application as the BSW modules. For </p>
+<p>external communication, the RTE proxies the calls to the Com </p>
+<p>module. </p>
+<p>Appropriate </p>
+<p>configuration. </p>
+<p>Coaching by Vector </p>
+<p>on configuring a </p>
+<p>safe system may be </p>
+<p>ordered separately. </p>
+<p>ASS_RTE_12 </p>
+<p>The RTE does not need to provide freedom from interference for </p>
+<p>communication. In an AUTOSAR system, the E2ELibrary that is </p>
+<p>directly called by the SWCs is responsible for Safe </p>
+<p>communication. Nevertheless, the RTE provides APIs that can be </p>
+<p>called by the E2ELibrary. </p>
+<p>Using SafeCOM. </p>
+<p>ASS_RTE_13 </p>
+<p>The Generated RTE code for ASIL SWCs is qualified according </p>
+<p>to the requirements of ISO 26262 by the integrator so that it </p>
+<p>reaches the same ASIL as the SWCs themselves. This is </p>
+<p>necessary because the RTE Generator was only developed with </p>
+<p>Vectors standard quality management (QM). </p>
+<p>Qualifying the </p>
+<p>generated code </p>
+<p>according to </p>
+<p>ISO 26262 Part 8. </p>
+<p>ASS_RTE_14 </p>
+<p>The hardware is suited for safety relevant software according to </p>
+<p>the requirements of ISO 26262. The hardware requirements are </p>
+<p>mostly determined by the SWCs that shall be supported by the </p>
+<p>RTE. The MICROSAR RTE does not impose other hardware </p>
+<p>safety requirements as those that are already required by the </p>
+<p>SWCs and the OS. </p>
+<p>Development </p>
+<p>according to </p>
+<p>ISO 26262 for the </p>
+<p>whole item. </p>
+<p>ASS_RTE_15 </p>
+<p>The development tool chain (for example editors, compilers, </p>
+<p>linkers, make environment, flash utilities) is suited for the </p>
+<p>development of safety relevant software according to the </p>
+<p>requirements of ISO 26262. All tools need to reach the </p>
+<p>appropriate Tool Confidence Level (TCL). </p>
+<p>Tool evaluation. </p>
+<p>Vector can provide </p>
+<p>assistance on </p>
+<p>evaluation Vector </p>
+<p>tools. </p>
+<p>Table 7-1  </p>
+<p>Assumptions of RTE </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>34 / 37 </p>
+<p><b>7.2 </b></p>
+<p><b>Assumptions of SafeWatchdog </b></p>
+<p>The following assumptions are extracted from [12]. </p>
+<p><b>Assumption </b></p>
+<p><b>Description </b></p>
+<p><b>Can be shown by </b></p>
+<p>282785 </p>
+<p>The software execution environment shall be able to run software </p>
+<p>according to requirements of up to the system's required ASIL.  </p>
+<p>This also includes:  </p>
+<p><b>&gt; </b></p>
+<p>free from interference among the SW components (see </p>
+<p>282807)  </p>
+<p><b>&gt; </b></p>
+<p>supervision by an extern measures (see 282795)  </p>
+<p><b>&gt; </b></p>
+<p>the hardware shall consist of an MCU with all required </p>
+<p>hardware to run according to system specifications (i.e. safe </p>
+<p>HW to detect/avoid e.g. bit-flips by means of start-up checks, </p>
+<p>cyclical checks, ECC check, ....). </p>
+<p><b>&gt; </b></p>
+<p>the hardware shall be composed of components that are </p>
+<p>qualifiable up to the desired ASIL of the system. </p>
+<p>Using appropriate </p>
+<p>hardware </p>
+<p>architecture and </p>
+<p>components, using </p>
+<p>SafeContext OS </p>
+<p>with SC3 and </p>
+<p>hardware watchdog </p>
+<p>with at least a </p>
+<p>different time base </p>
+<p>(depending on the </p>
+<p>required ASIL). </p>
+<p>297946 </p>
+<p>The software execution environment shall provide methods for </p>
+<p>mutual exclusion. </p>
+<p>Using SafeContext </p>
+<p>OS with SC3. </p>
+<p>297948 </p>
+<p>Such methods are disabling of interrupts, locks, semaphores etc.  </p>
+<p>Especially disabling of interrupts is often used to gain exclusive </p>
+<p>access to resources or perform multiple operations atomically. </p>
+<p>Using SafeContext </p>
+<p>OS with SC3. </p>
+<p>282807 </p>
+<p>The software platform shall provide an execution environment </p>
+<p>that is capable of running multiple software components with </p>
+<p>freedom from interference from each other. </p>
+<p>Using SafeContext </p>
+<p>OS with SC3. </p>
+<p>282809 </p>
+<p>The S-WdgM and the supervised application are considered as </p>
+<p>separate SW components with freedom from (unintended) </p>
+<p>interference. Freedom from interference can be achieved by e.g. </p>
+<p>microcontroller with MPU. </p>
+<p>Using SafeContext </p>
+<p>OS with SC3 and </p>
+<p>assigning different </p>
+<p>OS Applications to </p>
+<p>the SafeWatchdog </p>
+<p>and the application. </p>
+<p>282795 </p>
+<p>The system shall provide measures to detect timing violations of </p>
+<p>the MCU itself and trigger a corresponding fault reaction, if </p>
+<p>necessary:  </p>
+<p><b>&gt; </b></p>
+<p>There shall be an external safety measure that can handle a </p>
+<p>failure of the MCU.  </p>
+<p><b>&gt; </b></p>
+<p>It must be possible for the MCU to trigger the external safety </p>
+<p>measure if the MCU detects a fault within itself.</p>
+<p> </p>
+<p>Appropriate system </p>
+<p>architecture. </p>
+<p>282797 </p>
+<p>MCU faults need to be detected by external measures. An extern </p>
+<p>WD can detect MCU and S-WdgM fault. </p>
+<p>Depending on the </p>
+<p>required ASIL, an </p>
+<p>external watchdog </p>
+<p>is necessary. </p>
+<p>282789 </p>
+<p>The MCU shall be able to perform a safe startup to the point of </p>
+<p>where the S-WdgM is safely initialized. </p>
+<p>See section 5.1. </p>
+<p>265876 </p>
+<p>The FLASH memory correctness shall be checked at ECU </p>
+<p>startup time. An ECC or comparable check shall be used at run-</p>
+<p>See section 5.1. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>35 / 37 </p>
+<p><b>Assumption </b></p>
+<p><b>Description </b></p>
+<p><b>Can be shown by </b></p>
+<p>time. </p>
+<p>263975 </p>
+<p>The generated code holds a checksum over some significant </p>
+<p>fields (e.g. version) to check that:  </p>
+<p><b>&gt; </b></p>
+<p>the generated code belongs to the S-WdgM code according </p>
+<p>to version information and  </p>
+<p><b>&gt; </b></p>
+<p>the generated code is not overwritten by other code at the </p>
+<p>flashing process.  </p>
+<p>The checksum is checked with every run of the function </p>
+<p>WdgM_Init (). A failed check yields  </p>
+<p>WDGM_E_PARAM_CONFIG.  </p>
+<p>Note that the checksum does not cover the complete </p>
+<p>configuration and cannot thoroughly detect when the </p>
+<p>configuration memory is corrupted (like bit flips). </p>
+<p>See section 5.1. </p>
+<p>Table 7-2  </p>
+<p>Assumptions of SafeWatchdog </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>36 / 37 </p>
+<p><b>8 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>8.1 </b></p>
+<p><b>Glossary </b></p>
+<p>For definitions see section 1.3. </p>
+<p><b>8.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>ASIL </p>
+<p>Automotive Safety Integrity Level </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>CD </p>
+<p>Complex Driver </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>E2E </p>
+<p>End-to-end protection </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>OEM </p>
+<p>Original Equipment Manufacturer </p>
+<p>PPORT </p>
+<p>Provide Port </p>
+<p>QM </p>
+<p>Quality measures </p>
+<p>RPORT </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 8-1  </p>
+<p>Abbreviations </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.2.2 </p>
+<p>based on template version 5.7.1 </p>
+<p>37 / 37 </p>
+<p><b>9 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,1448 @@
+---
+layout: default
+title: TechnicalReference_XCP_on_CAN
+nav_order: 1
+parent: Universal Measurement and Calibration Protocol (XCP)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>XCP on CAN </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>XCP on CAN Transport Layer </p>
+<p> </p>
+<p> </p>
+<p>Version 1.08 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors: </b></p>
+<p>Frank Triem, Sven Hesselmann </p>
+<p><b>Version: </b></p>
+<p>1.08 </p>
+<p><b>Status: </b></p>
+<p>released </p>
+<p>(in preparation/completed/inspected/released)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>1 </b></p>
+<p><b>Document Information </b></p>
+<p><b>1.1 </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version</b></p>
+<p><b>Remarks </b></p>
+<p>Frank Triem </p>
+<p>Klaus Emmert </p>
+<p>2005-01-03 </p>
+<p>1.0 </p>
+<p>ESCAN00010737: Initial draft </p>
+<p>Warning Text added </p>
+<p>Frank Triem </p>
+<p>2005-02-28 </p>
+<p>1.1 </p>
+<p>ESCAN00011300: Manual configuration </p>
+<p>Frank Triem </p>
+<p>2005-06-22 </p>
+<p>1.2 </p>
+<p>ESCAN00011772: Support multiple CAN channels </p>
+<p>ESCAN00012311: Support CAN-Driver without </p>
+<p>transmit queue </p>
+<p>Frank Triem </p>
+<p>2005-12-19 </p>
+<p>1.3 </p>
+<p>Rework due to inspection </p>
+<p>Frank Triem </p>
+<p>2006-04-24 </p>
+<p>1.4 </p>
+<p>ESCAN00015915: Correct filenames </p>
+<p>Frank Triem </p>
+<p>2006-05-30 </p>
+<p>1.5 </p>
+<p>ESCAN00016517: Update of table of contents </p>
+<p>Frank Triem </p>
+<p>2006-10-26 </p>
+<p>1.6 </p>
+<p>ESCAN00017220: Documentation of reentrant </p>
+<p>capability of all functions </p>
+<p>Sven </p>
+<p>Hesselmann </p>
+<p>2007-09-14 </p>
+<p>1.7 </p>
+<p>Multiple Identity added </p>
+<p>Sven </p>
+<p>Hesselmann </p>
+<p>2008-03-19 </p>
+<p>1.07.01 </p>
+<p>Invalid reference corrected </p>
+<p>Andreas </p>
+<p>Herkommer </p>
+<p>2009-01-14 </p>
+<p>1.08 </p>
+<p>ESCAN00031509: Description of how to define </p>
+<p>Messages as Application Messages </p>
+<p> </p>
+<p><b>1.2 </b></p>
+<p><b>Reference Documents </b></p>
+<p><b>Index </b></p>
+<p><b>Document </b></p>
+<p>[1] </p>
+<p>XCP -Part 1 – Overview, Version 1.0 of 2003-04-08 </p>
+<p>[2] </p>
+<p>XCP -Part 2- Protocol Layer Specification, Version 1.0 of 2003-04-08 </p>
+<p>[3] </p>
+<p>XCP -Part 5- Example Communication Sequences, Version 1.0 of 2003-04-08 </p>
+<p>[4] </p>
+<p>Technical Reference XCP Protocol Layer, Version 1.0 of 2005-01-17 </p>
+<p>[5] </p>
+<p>Technical Reference CAN Driver, Version 2.21 of 2003-07-29 </p>
+<p>[6] </p>
+<p>AN-AND-1-108 Glossary of CAN Protocol Terminology </p>
+<p>http://www.vector-informatik.de</p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>2 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>1.3 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Complete expression </b></p>
+<p><b>A2L </b></p>
+<p>File Extension for an <b>A</b>SAM <b>2</b>MC <b>L</b>anguage File </p>
+<p><b>AML </b></p>
+<p><b>A</b>SAM 2 <b>M</b>eta <b>L</b>anguage </p>
+<p><b>API </b></p>
+<p><b>A</b>pplication <b>P</b>rogramming <b>I</b>nterface </p>
+<p><b>ASAM </b></p>
+<p><b>A</b>ssociation for <b>S</b>tandardization of <b>A</b>utomation and <b>M</b>easuring Systems </p>
+<p><b>CAN </b></p>
+<p><b>C</b>ontroller <b>A</b>rea <b>N</b>etwork </p>
+<p><b>CANape </b></p>
+<p>Calibration and Measurement Data Acquisition for Electronic Control Systems</p>
+<p><b>CMD </b></p>
+<p><b>C</b>o<b>m</b>man<b>d </b></p>
+<p><b>CTO </b></p>
+<p><b>C</b>ommand <b>T</b>ransfer <b>O</b>bject </p>
+<p><b>DAQ </b></p>
+<p>Synchronous <b>D</b>ata <b>A</b>c<b>q</b>uistion </p>
+<p><b>DLC </b></p>
+<p><b>D</b>ata <b>L</b>ength <b>C</b>ode ( Number of data bytes of a CAN message ) </p>
+<p><b>DLL </b></p>
+<p><b>D</b>ata <b>l</b>ink <b>l</b>ayer </p>
+<p><b>DTO </b></p>
+<p><b>D</b>ata <b>T</b>ransfer <b>O</b>bject </p>
+<p><b>ECU </b></p>
+<p><b>E</b>lectronic <b>C</b>ontrol <b>U</b>nit </p>
+<p><b>ID </b></p>
+<p><b>Id</b>entifier (of a CAN message) </p>
+<p><b>Identifier </b></p>
+<p>Identifies a CAN message </p>
+<p><b>ISR </b></p>
+<p><b>I</b>nterrupt <b>S</b>ervice <b>R</b>outine </p>
+<p><b>MCS </b></p>
+<p><b>M</b>aster <b>C</b>alibration <b>S</b>ystem </p>
+<p><b>Message </b></p>
+<p>One or more signals are assigned to each message. </p>
+<p><b>MRB </b></p>
+<p><b>M</b>ulti <b>r</b>eceive <b>b</b>uffer </p>
+<p><b>MRC </b></p>
+<p><b>M</b>ulti <b>r</b>eceive <b>c</b>hannel </p>
+<p><b>OEM </b></p>
+<p><b>O</b>riginal <b>e</b>quipment <b>m</b>anufacturer (vehicle manufacturer) </p>
+<p><b>RES </b></p>
+<p>Command <b>Res</b>ponse Packet </p>
+<p><b>SRB </b></p>
+<p><b>S</b>ingle <b>r</b>eceive <b>b</b>uffer </p>
+<p><b>SERV </b></p>
+<p><b>Ser</b>vice Request Packet </p>
+<p><b>STIM </b></p>
+<p><b>Stim</b>ulation </p>
+<p><b>XCP </b></p>
+<p>Universal Measurement and <b>C</b>alibration <b>P</b>rotocol </p>
+<p><b>VI </b></p>
+<p><b>V</b>ector <b>I</b>nformatik GmbH </p>
+<p> </p>
+<p>Also refer to [6] for a list of common abbreviations and terms. </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>3 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>1.4 </b></p>
+<p><b>Naming conventions </b></p>
+<p>The names of the access functions provided by the XCP Transport Layer for CAN always </p>
+<p>start with a prefix that includes the characters ‘Xcp’. The characters ‘Xcp’ are surrounded </p>
+<p>by  an  abbreviation  which  refers  to  the  service  or  to  the  layer  which  requests  a  XCP </p>
+<p>service. The designation of the main services is listed below: </p>
+<p><b>Naming conventions </b></p>
+<p>Xcp… </p>
+<p>It is mandatory to use all functions beginning with </p>
+<p>Xcp…</p>
+<p> </p>
+<p>These services are called by either the data link layer, XCP Protocol Layer or </p>
+<p>the application. </p>
+<p>They are e.g. used for the transmission of messages. </p>
+<p>ApplXcp </p>
+<p>The functions, starting with </p>
+<p>ApplXcp…</p>
+<p> are functions that are provided by the </p>
+<p>application and are called by the XCP Transport Layer for CAN. </p>
+<p>These services are user callback functions that are application specific and </p>
+<p>have to be implemented depending on the application. </p>
+<p> </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector’s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire..</p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>4 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>Contents </b></p>
+<p> </p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Document Information ............................................................................................... 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>History .......................................................................................................... 2</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Reference Documents ................................................................................. 2</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Abbreviations ............................................................................................... 3</p>
+<p> </p>
+<p>1.4</p>
+<p> </p>
+<p>Naming conventions..................................................................................... 4</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Overview ..................................................................................................................... 7</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description .............................................................................................. 8</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Overview of the functional scope ................................................................. 8</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Reception and transmission of XCP packets ............................................... 8</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Support of multiple CAN channels ............................................................... 8</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration into the application................................................................................. 9</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Files.............................................................................................................. 9</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Version changes .......................................................................................... 9</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Integration of XCP on CAN into the application ......................................... 10</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Description of the API.............................................................................................. 12</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Version of the source code ........................................................................ 12</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>XCP Transport Layer for CAN services called by the Protocol Layer ........ 13</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>ApplXcpSend: Transmission of XCP Packets............................................ 13</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>ApplXcpInit: Initialization of XCP Transport Layer for CAN........................ 13</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>ApplXcpBackground: Background task of XCP Transport Layer for </p>
+<p>CAN............................................................................................................ 14</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>XCP Transport Layer for CAN services called by the CAN-Driver............. 15</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>XcpPreCopy: XCP message precopy function........................................... 15</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>XcpConfirmation: XCP message confirmation ........................................... 16</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>XCP Protocol Layer services called by the Transport Layer for CAN ........ 16</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>CAN-Driver services called by the Transport Layer for CAN ..................... 16</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration of XCP on CAN................................................................................. 17</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration of XCP on CAN with GENy.................................................. 17</p>
+<p> </p>
+<p>6.1.1</p>
+<p> </p>
+<p>Main configuration page............................................................................. 18</p>
+<p> </p>
+<p>6.1.2</p>
+<p> </p>
+<p>Channel configuration page ....................................................................... 19</p>
+<p> </p>
+<p>6.1.3</p>
+<p> </p>
+<p>Multiple Identity configuration..................................................................... 20</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Configuration of XCP on CAN with GENy and CANgen ............................ 22</p>
+<p> </p>
+<p>6.2.1</p>
+<p> </p>
+<p>XCP on CAN uses only one CAN channel................................................. 23</p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>5 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p>6.2.2</p>
+<p> </p>
+<p>XCP on CAN uses multiple CAN channels ................................................ 24</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Limitations ................................................................................................................ 25</b></p>
+<p> </p>
+<p>7.1.1</p>
+<p> </p>
+<p>Variable length of XCP Packets is not supported ...................................... 25</p>
+<p> </p>
+<p>7.1.2</p>
+<p> </p>
+<p>Assignment of CAN identifiers to DAQ lists is not supported..................... 25</p>
+<p> </p>
+<p>7.1.3</p>
+<p> </p>
+<p>Detection of all XCP slaves within a network ............................................. 25</p>
+<p> </p>
+<p>7.1.4</p>
+<p> </p>
+<p>Channel API ............................................................................................... 25</p>
+<p> </p>
+<p>7.1.5</p>
+<p> </p>
+<p>Multiple Identity only supported for single channel configuration............... 25</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>FAQ ............................................................................................................................ 26</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Transmit queue of CAN-Driver is disabled................................................. 26</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Contact ...................................................................................................................... 27</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><i> </i></p>
+<p><b>Illustrations </b></p>
+<p>figure 4-1</p>
+<p> </p>
+<p>Integration of XCP on CAN into the application.............................................. 10</p>
+<p> </p>
+<p>figure 6-1</p>
+<p> </p>
+<p>Component selection ...................................................................................... 17</p>
+<p> </p>
+<p>figure 6-2</p>
+<p> </p>
+<p>Main configuration page of XCP on CAN Transport Layer ............................. 18</p>
+<p> </p>
+<p>figure 6-3</p>
+<p> </p>
+<p>Channel configuration page of XCP on CAN Transport Layer........................ 19</p>
+<p> </p>
+<p>figure 6-4</p>
+<p> </p>
+<p>Changing message attribute to “Application Message” .................................. 20</p>
+<p> </p>
+<p>figure 6-5</p>
+<p> </p>
+<p>Channel configuration page for Multiple Identity configurations of XCP on </p>
+<p>CAN Transport Layer...................................................................................... 21</p>
+<p> </p>
+<p>figure 6-6</p>
+<p> </p>
+<p>Adding a user config file in GENy ................................................................... 22</p>
+<p> </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>6 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>2 </b></p>
+<p><b>Overview </b></p>
+<p>This  document  describes  the  features,  API,  configuration  and  integration  of  the  XCP </p>
+<p>Transport  Layer  for  CAN.  The  XCP  Protocol  Layer,  which  is  already  described  within  a </p>
+<p>separate document [4], is not covered by this document. </p>
+<p>Please </p>
+<p>also </p>
+<p>refer </p>
+<p>to </p>
+<p>“The </p>
+<p>Universal </p>
+<p>Measurement </p>
+<p>and </p>
+<p>Calibration </p>
+<p>Protocol </p>
+<p>Family” </p>
+<p>specification by ASAM e.V. </p>
+<p>XCP on CAN is a hardware independent protocol that can be ported to almost any CAN </p>
+<p>controller.  Due  to  there  are  numerous  combinations  of  micro  controllers,  compilers  and </p>
+<p>memory  models  it  cannot  be  guaranteed  that  it  will  run  properly  on  any  of  the  above </p>
+<p>mentioned combinations. </p>
+<p>Please  note  that  in  this  document  the  term  Application  is  not  used  strictly  for  the  user </p>
+<p>software but also for any higher software layer, like e.g. a Communication Control Layer. </p>
+<p>Therefore, Application refers to any of the software components using XCP on CAN. </p>
+<p>The API of the functions is described in a separate chapter at the end of this document. </p>
+<p>Referred functions are always shown in the single channel mode. </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>7 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Overview of the functional scope </b></p>
+<p>The XCP Transport Layers mange the transmission and reception of XCP Packets. </p>
+<p>The XCP Transport Layer for CAN makes use of the CAN-Driver to transmit and receive </p>
+<p>XCP messages. Since variable message length is not supported the XCP Transport Layer </p>
+<p>has to ensure that all sent XCP messages have the same DLC. I.e. a DLC of 8. </p>
+<p><b>3.2 </b></p>
+<p><b>Reception and transmission of XCP packets </b></p>
+<p>Upon reception of any XCP message the function </p>
+<p>vuint8 <b>XcpPreCopy </b>(PRECOPY_PARAM_TYPE PRECOPY_PARAM ) </p>
+<p>(5.3.1) </p>
+<p>is called by the CAN-Driver and the XCP Packet is passed to the Protocol Layer by a call </p>
+<p>of the function: </p>
+<p>void <b>XcpCommand </b>( MEMORY_ROM vuint32* pCommand )</p>
+<p>After the command has been processed by the Protocol Layer the XCP Response Packet </p>
+<p>is passed to the Transport Layer by the service </p>
+<p>void <b>ApplXcpSend </b>(vuint8 len, MEMORY_ROM BYTEPTR msg ) </p>
+<p>(5.2.1) </p>
+<p>and the XCP message is transmitted by the CAN-Driver service </p>
+<p>vuint8 <b>CanTransmit </b>( CanTransmitHandle tmtHandle ) </p>
+<p>the successful transmission is confirmed by the CAN-Driver by a call of  </p>
+<p>void <b>XcpConfirmation </b>( CanTransmitHandle tmtObject )  </p>
+<p>(5.3.2)</p>
+<p>The confirmation is passed to the Protocol Layer by a call of  </p>
+<p>void <b>XcpSendCallback </b>(void ) </p>
+<p> </p>
+<p>Asynchronous XCP Packet transmission like e.g. SERV, EV and DAQ are transmitted and </p>
+<p>confirmed by the described sequence. </p>
+<p><b>3.3 </b></p>
+<p><b>Support of multiple CAN channels </b></p>
+<p>Multiple CAN channels are supported by the XCP Transport Layer for CAN. However it is </p>
+<p>not  possible  to  have  multiple  connections  at  one  time.  I.e.  only  one  connection  on  one </p>
+<p>CAN channel is allowed. </p>
+<p>The option ‘multi connection protection’ ensures that only one XCP Master communicates </p>
+<p>with the XCP Slave at one time. </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>8 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>4 </b></p>
+<p><b>Integration into the application </b></p>
+<p>This chapter describes the steps for the integration of the XCP Transport Layer for CAN </p>
+<p>into an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Files </b></p>
+<p>The XCP Transport Layer for CAN consists of the following files: </p>
+<p><b>Files of the XCP on CAN Transport Layer </b></p>
+<p>xcp_can.c </p>
+<p>XCP on CAN Transport Layer. </p>
+<p>This file <b>must not </b>be changed by the user! </p>
+<p>xcp_can.h </p>
+<p>API of the XCP on CAN Transport Layer. </p>
+<p>This file <b>must not </b>be changed by the application! </p>
+<p>This file has to be included prior to </p>
+<p>XcpProf.h</p>
+<p>. </p>
+<p>v_def.h </p>
+<p>General Vector definitions of memory qualifiers and types. </p>
+<p>This file <b>must not </b>be changed by the application!. </p>
+<p>_xcp.cfg </p>
+<p>XCP user config file template for the configuration on XCP Transport </p>
+<p>Layer for CAN with CANgen. </p>
+<p> </p>
+<p>Additionally the following files are generated by the generation tool GENy. </p>
+<p><b>Files generated by GENy </b></p>
+<p>xcp_cfg.h </p>
+<p>Configuration file for XCP on CAN. </p>
+<p>xcp_parc </p>
+<p>Parameter definition for the XCP on CAN. </p>
+<p>xcp_par.h </p>
+<p>External declarations for the parameters. </p>
+<p>v_cfg.h </p>
+<p>General Vector configuration file for platform specifics. </p>
+<p>v_inc.h </p>
+<p>General header for including the Vector CANbedded stack headers. </p>
+<p> </p>
+<p>Note that all files of XCP on CAN must not be changed manually except if CANgen is used </p>
+<p>for the configuration of the CAN-Driver. In this case only the generated files </p>
+<p>xcp_cfg.h</p>
+<p>, </p>
+<p>xcp_par.c</p>
+<p> and </p>
+<p>xcp_par.h</p>
+<p> are relevant and the additional general header for including </p>
+<p>the generated header files </p>
+<p>_v_inc.h</p>
+<p> has to be customized and renamed to </p>
+<p>v_inc.h</p>
+<p>. </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Version changes </b></p>
+<p>Changes and the release versions of the XCP Transport Layer for CAN are listed at the </p>
+<p>beginning of the header and source code. </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>9 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>4.3 </b></p>
+<p><b>Integration of XCP on CAN into the application </b></p>
+<p>The Vector CANbedded stack includes optionally XCP on CAN, which comprises the XCP </p>
+<p>Protocol Layer in conjunction with the XCP Transport Layer for CAN and the CAN-Driver.  </p>
+<p>Note that the CAN-Driver, which is distributed as a separate product, is only partly part of </p>
+<p>XCP on CAN. </p>
+<p>The following figure shows the interface between XCP on CAN and the application: </p>
+<p> </p>
+<p><b>XCP on CAN</b></p>
+<p><b>XCP</b></p>
+<p><b>Protocol Layer</b></p>
+<p><b>( XcpProf.c )</b></p>
+<p><b>XCP on CAN</b></p>
+<p><b>Interface Layer</b></p>
+<p><b>(xcp_can.c)</b></p>
+<p>XcpCommand</p>
+<p><b>Application</b></p>
+<p>ApplXcpSend</p>
+<p>XcpSendCallback</p>
+<p>XcpEvent</p>
+<p>XcpInit</p>
+<p>XcpBackground</p>
+<p>ApplXcp..</p>
+<p><b>CAN Driver</b></p>
+<p><b>(can_drv.c)</b></p>
+<p>C</p>
+<p>a</p>
+<p>n</p>
+<p>T</p>
+<p>r</p>
+<p>a</p>
+<p>n</p>
+<p>s</p>
+<p>m</p>
+<p>it</p>
+<p>XcpPreCopy</p>
+<p>XcpConfirmation</p>
+<p> </p>
+<p>figure 4-1 </p>
+<p>Integration of XCP on CAN into the application </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Practical Procedure </b></p>
+<p>The integration of XCP on CAN can be done by following these steps: </p>
+<p>1. </p>
+<p>Configure XCP on CAN in the generation tool GENy and generate. </p>
+<p>2. </p>
+<p>Include the include header file </p>
+<p>v_inc.h</p>
+<p> into all modules that access the </p>
+<p>XCP on CAN services or provide services that XCP on CAN uses. </p>
+<p>3. </p>
+<p>Add all source files and generated source files in the make file and link it </p>
+<p>together with the data link layer and the application. </p>
+<p>4. </p>
+<p>Initialize </p>
+<p>the </p>
+<p>data </p>
+<p>link </p>
+<p>layer </p>
+<p>after </p>
+<p>each </p>
+<p>reset </p>
+<p>during </p>
+<p>start-up </p>
+<p>before </p>
+<p>initializing XCP on CAN (interrupts have to be disabled until the complete </p>
+<p>initialization procedure is done) by calling </p>
+<p>XcpInit</p>
+<p>. </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>10 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p>5. </p>
+<p>If required call the background function </p>
+<p>XcpBackground </p>
+<p>cyclically. </p>
+<p>6. </p>
+<p>Integrate  the  desired  XCP  on  CAN  services  into  your  application.  Call </p>
+<p>especially  the  function </p>
+<p>XcpEvent(channel) </p>
+<p>cyclic  with  the  appropriate </p>
+<p>cycle time and channel number. </p>
+<p>The  XCP  on  CAN  sources  must  not  be  changed  for  the  integration  into  the </p>
+<p>application. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>11 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>5 </b></p>
+<p><b>Description of the API </b></p>
+<p>The  XCP  on  CAN  application  programming  interface  consists  of  services,  which  are </p>
+<p>realized  by  function  calls.  These  services  are  called  wherever  they  are  required.  They </p>
+<p>transfer  information  to-  or  take  over  information  from  XCP  on  CAN.  This  information  is </p>
+<p>stored in XCP on CAN until it is not required anymore, respectively until it is changed by </p>
+<p>other operations. </p>
+<p>Examples for calling the services of XCP on CAN can be found in the description of the </p>
+<p>services. </p>
+<p><b>5.1 </b></p>
+<p><b>Version of the source code </b></p>
+<p>The source code version of the XCP Transportation Layer for CAN is provided by three </p>
+<p>BCD coded constants: </p>
+<p> </p>
+<p>V_MEMROM0 MEMORY_ROM vuint8 kXcpOnCanMainVersion =  </p>
+<p>(vuint8)(CP_XCPONCAN_VERSION &gt;&gt; 8); </p>
+<p>V_MEMROM0 MEMORY_ROM vuint8 kXcpOnCanSubVersion  = </p>
+<p>(vuint8)(CP_XCPONCAN_VERSION); </p>
+<p>V_MEMROM0 MEMORY_ROM vuint8 kXcpOnCanReleaseVersion = </p>
+<p>(vuint8)(CP_XCPONCAN_RELEASE_VERSION); </p>
+<p> </p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>Version 1.00.00 is registered as: </p>
+<p>kXcpOnCanMainVersion    = 0x01; </p>
+<p>kXcpOnCanSubVersion     = 0x00; </p>
+<p>kXcpOnCanReleaseVersion = 0x00;</p>
+<p> </p>
+<p>These constants are declared as external and can be read by the application at any time. </p>
+<p> </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>12 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>XCP Transport Layer for CAN services called by the Protocol Layer </b></p>
+<p>The following XCP Transport Layer for CAN functions are called by the Protocol Layer.   </p>
+<p>The API of theses functions can be found in the header of the XCP on CAN components. </p>
+<p> </p>
+<p><b>5.2.1 </b></p>
+<p><b>ApplXcpSend: Transmission of XCP Packets </b></p>
+<p><b>ApplXcpSend</b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive Channel </p>
+<p>void <b>ApplXcpSend  </b>( vuint8 len, const BYTEPTR msg )</p>
+<p>Single Receive Buffer </p>
+<p>N/a </p>
+<p>Multiple Receive Buffer </p>
+<p>N/a </p>
+<p>Multi Channel </p>
+<p>Indexed (MRC) </p>
+<p>Not supported </p>
+<p>Code replicated (SRB) </p>
+<p>N/a </p>
+<p>Code replicated (MRB) </p>
+<p>N/a </p>
+<p><b>Parameter </b></p>
+<p>len </p>
+<p>Length of the XCP Packet that has to be transmitted. </p>
+<p>(with len = 1 ... 8)</p>
+<p> </p>
+<p>msg </p>
+<p>Pointer to the XCP Packet data. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Transmission of XCP Packets. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Not reentrant </p>
+<p></p>
+<p> </p>
+<p>Call context of: XcpEvent, XcpBackground and context of CAN-Driver </p>
+<p> </p>
+<p><b>5.2.2 </b></p>
+<p><b>ApplXcpInit: Initialization of XCP Transport Layer for CAN </b></p>
+<p><b>ApplXcpInit</b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive Channel </p>
+<p>void <b>ApplXcpInit  </b>( void )</p>
+<p>Single Receive Buffer </p>
+<p>N/a </p>
+<p>Multiple Receive Buffer </p>
+<p>N/a </p>
+<p>Multi Channel </p>
+<p>Indexed (MRC) </p>
+<p>Not supported </p>
+<p>Code replicated (SRB) </p>
+<p>N/a </p>
+<p>Code replicated (MRB) </p>
+<p>N/a </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>13 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Initialization of the XCP Transport Layer for CAN. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Not reentrant </p>
+<p></p>
+<p> </p>
+<p>Call context of XcpInit </p>
+<p> </p>
+<p><b>5.2.3 </b></p>
+<p><b>ApplXcpBackground: Background task of XCP Transport Layer for CAN </b></p>
+<p><b>ApplXcpBackground</b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive Channel </p>
+<p>void <b>ApplXcpBackground  </b>( void )</p>
+<p>Single Receive Buffer </p>
+<p>N/a </p>
+<p>Multiple Receive Buffer </p>
+<p>N/a </p>
+<p>Multi Channel </p>
+<p>Indexed (MRC) </p>
+<p>Not supported </p>
+<p>Code replicated (SRB) </p>
+<p>N/a </p>
+<p>Code replicated (MRB) </p>
+<p>N/a </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Cyclic background task of the XCP Transport Layer for CAN. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Not reentrant </p>
+<p></p>
+<p> </p>
+<p>Call context of XcpBackground </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>14 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>5.3 </b></p>
+<p><b>XCP Transport Layer for CAN services called by the CAN-Driver </b></p>
+<p>The following XCP Transport Layer for CAN functions are called by the CAN-Driver.  </p>
+<p>The API of theses functions can be found in the header of the CAN-Driver parameter file. </p>
+<p> </p>
+<p><b>5.3.1 </b></p>
+<p><b>XcpPreCopy: XCP message precopy function </b></p>
+<p><b>XcpPreCopy</b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel CAN-Driver </p>
+<p>Single Receive Channel </p>
+<p>vuint8 <b>XcpPreCopy  </b>( CanRxInfoStructPtr rxStruct )</p>
+<p>Single Receive Buffer </p>
+<p>vuint8 <b>XcpPreCopy  </b>( CanReceiveHandle rxObject )</p>
+<p>Multiple Receive Buffer </p>
+<p>vuint8 <b>XcpPreCopy  </b>( CanChipDataPtr rxDataPtr )</p>
+<p>Multi Channel CAN-Driver </p>
+<p>Indexed (MRC) </p>
+<p>vuint8 <b>XcpPreCopy  </b>( CanRxInfoStructPtr rxStruct )</p>
+<p>Code replicated (SRB) </p>
+<p>vuint8 <b>XcpPreCopy  </b>( CanReceiveHandle rxObject )</p>
+<p>Code replicated (MRB) </p>
+<p>vuint8 <b>XcpPreCopy  </b>( CanChipDataPtr rxDataPtr )</p>
+<p><b>Parameter </b></p>
+<p>rxStruct </p>
+<p>Pointer to RxInfoStruct </p>
+<p>rxObject </p>
+<p>Handle of the received object </p>
+<p>rxDataPtr </p>
+<p>Pointer to received data </p>
+<p><b>Return code </b></p>
+<p>vuint8 </p>
+<p>kCanNoCopyData</p>
+<p> : no data needs to be copied by the CAN-Driver </p>
+<p><b>Functional Description </b></p>
+<p>Precopy function that is called upon every reception of a XCP message. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Not reentrant </p>
+<p></p>
+<p> </p>
+<p>Call context of CAN-Driver </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>15 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>5.3.2 </b></p>
+<p><b>XcpConfirmation: XCP message confirmation </b></p>
+<p> </p>
+<p><b>XcpConfirmation</b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel CAN-Driver </p>
+<p>Single Receive Channel </p>
+<p>void <b>XcpConfirmation  </b>( CanTransmitHandle tmtObject )</p>
+<p>Single Receive Buffer </p>
+<p>void <b>XcpConfirmation  </b>( CanTransmitHandle tmtObject )</p>
+<p>Multiple Receive Buffer </p>
+<p>void <b>XcpConfirmation  </b>( CanTransmitHandle tmtObject )</p>
+<p>Multi Channel CAN-Driver </p>
+<p>Indexed (MRC) </p>
+<p>void <b>XcpConfirmation  </b>( CanTransmitHandle tmtObject )</p>
+<p>Code replicated (SRB) </p>
+<p>void <b>XcpConfirmation  </b>( CanTransmitHandle tmtObject )</p>
+<p>Code replicated (MRB) </p>
+<p>void <b>XcpConfirmation  </b>( CanTransmitHandle tmtObject )</p>
+<p><b>Parameter </b></p>
+<p>tmtObject </p>
+<p>Transmit Handle of the confirmed message. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Confirmation function for the XCP message. </p>
+<p>This function is called by the CAN-Driver whenever the XCP message has been transmitted successful. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Not reentrant </p>
+<p></p>
+<p> </p>
+<p>Call context of CAN-Driver </p>
+<p> </p>
+<p><b>5.4 </b></p>
+<p><b>XCP Protocol Layer services called by the Transport Layer for CAN </b></p>
+<p>The following XCP Protocol Layer services are called by the Transport Layer for CAN: </p>
+<p>-</p>
+<p> </p>
+<p>void ApplXcpInterruptEnable(void) </p>
+<p>-</p>
+<p> </p>
+<p>void ApplXcpInterruptDisbable(void) </p>
+<p>-</p>
+<p> </p>
+<p>void XcpCommand( MEMORY_ROM vuint32* pCommand ) </p>
+<p>-</p>
+<p> </p>
+<p>void XcpSendCallBack( void ) </p>
+<p>-</p>
+<p> </p>
+<p>vuint8 XcpGetState( void ) </p>
+<p>For  a  description  of  the  API  and  the  functionality  of  these  functions  please  refer  to  the </p>
+<p>Technical Reference XCP Protocol Layer [4]. </p>
+<p><b>5.5 </b></p>
+<p><b>CAN-Driver services called by the Transport Layer for CAN </b></p>
+<p>The following CAN-Driver services are called by the Transport Layer for CAN: </p>
+<p>-</p>
+<p> </p>
+<p>vuint8 CanTransmit ( CanTransmitHandle tmtHandle ) </p>
+<p>For  a  description  of  the  API  and  the  functionality  of  these  functions  please  refer  to  the </p>
+<p>Technical Reference CAN Driver [5]. </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>16 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>6 </b></p>
+<p><b>Configuration of XCP on CAN </b></p>
+<p>The configuration of XCP on CAN (XCP Protocol Layer and XCP Transport Layer for CAN) </p>
+<p>is only supported by the generation tool GENy. </p>
+<p>Therefore if the CAN-Driver is configured with CANgen two generation tools are used: </p>
+<p>- </p>
+<p>GENy for the configuration of the XCP Protocol Layer </p>
+<p>- </p>
+<p>CANgen for the configuration of the CAN-Driver. The XCP Transport Layer for CAN </p>
+<p>has to be configured manually (refer to chapter 6.2). </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration of XCP on CAN with GENy </b></p>
+<p>If GENy is used for the configuration of the whole CANbedded stack the configuration of </p>
+<p>XCP on CAN is conveniently done by GENy. No database attributes are required for the </p>
+<p>configuration of XCP on CAN. </p>
+<p> </p>
+<p>figure 6-1 </p>
+<p>Component selection </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>17 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p>In  order  to  configure  the  XCP  Transport  Layer  for  CAN  (Cp_XcpOnCan)  it  has  to  be </p>
+<p>activated on the designated channels. The activation of the XCP Transport Layer for CAN </p>
+<p>requires to activate the XCP Protocol Layer (Cp_Xcp). </p>
+<p>The  configuration  of  each  component  is  done  on  separate  pages.  Furthermore  XCP </p>
+<p>Transport Layer for CAN has ECU specific and channel specific settings that have to be </p>
+<p>customized separately. </p>
+<p><b>6.1.1 </b></p>
+<p><b>Main configuration page </b></p>
+<p> </p>
+<p>figure 6-2 </p>
+<p>Main configuration page of XCP on CAN Transport Layer </p>
+<p><b>Configuration options </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>XCP on CAN Transport Layer options </p>
+<p>Variable DLC </p>
+<p></p>
+<p> </p>
+<p>Enable </p>
+<p></p>
+<p> </p>
+<p>Disable </p>
+<p>Activate/Deactivate the transmission of messages </p>
+<p>with variable DLC. </p>
+<p>This option is not available yet! </p>
+<p>Multi connection protection </p>
+<p></p>
+<p> </p>
+<p>Enable </p>
+<p></p>
+<p> </p>
+<p>Disable </p>
+<p>Activate/Deactivate the protection against multiple </p>
+<p>connections. </p>
+<p>Only available if XCP on CAN is used on multiple </p>
+<p>CAN channels. </p>
+<p>Table 6-1 </p>
+<p>Main configuration page of XCP on CAN Transport Layer </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>18 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>6.1.2 </b></p>
+<p><b>Channel configuration page </b></p>
+<p>The  messages  can  be  selected  in  GENy  within  Component  Cp_XcpOnCan  under  the </p>
+<p>channel  view  (see  below).  The  list  boxes  of  the  master/slave  ID  entry  fields  provide </p>
+<p>messages which fit to the requirements. The user can select the appropriate message. </p>
+<p> </p>
+<p> </p>
+<p>figure 6-3 </p>
+<p>Channel configuration page of XCP on CAN Transport Layer </p>
+<p> </p>
+<p><b>Configuration options </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>Type of bus system </p>
+<p>Ready Only </p>
+<p>Bus system type for the specific channel. </p>
+<p>Manufacturer </p>
+<p>Ready Only </p>
+<p>Value of the database attribute ‘manufacturer’. </p>
+<p>XCP on CAN Transport Layer </p>
+<p>Slave Id </p>
+<p>Tx-ID </p>
+<p>XCP Slave Identifier </p>
+<p>This is the ID for Response Packets and DAQ packets. </p>
+<p>Only IDs that are not IL, TP or Diag messages and that </p>
+<p>have a DLC of 8 can be selected. </p>
+<p>Master Id </p>
+<p>RX-ID </p>
+<p>XCP Master Identifier </p>
+<p>This is the ID for Command Packets and STIM Packets. </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>19 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p>Only IDs that are not IL, TP or Diag messages and that </p>
+<p>have a DLC of 8 can be selected. </p>
+<p>Table 6-2 </p>
+<p>Channel configuration page of XCP on CAN Transport Layer </p>
+<p>In case there are no messages of type Application available, no selection can be made in </p>
+<p>the Master/Slave ID field. </p>
+<p>In this case two possible solutions exist: </p>
+<p>1.  Change  the  attributes  of  the  XCP  message(s)  in  the  database.  There  are  special </p>
+<p>attributes to specify a message as NM, TP, IL, etc.  </p>
+<p> </p>
+<p>In case this is not possible, use solution 2: </p>
+<p> </p>
+<p>2.  Within  GENy  an  IL  message  can  be  configured  to  be  ‘Appl’  message.  In  Tx  and  Rx </p>
+<p>message view, set the checkbox ‘Application Message’ for the appropriate message (as </p>
+<p>shown below, message B1_CCP). Then the type changes to Message Class ‘Appl’. Now </p>
+<p>this message should be found in the slave or master ID selection.   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>figure 6-4 </p>
+<p>Changing message attribute to “Application Message” </p>
+<p> </p>
+<p><b>6.1.3 </b></p>
+<p><b>Multiple Identity configuration </b></p>
+<p>For  information  about  setting  up  a  Multiple  Identity  configuration  please  refer  to  the </p>
+<p>according Technical Reference. This chapter only explains the XCP specific configuration. </p>
+<p>For  each  configured  Identity  the  Slave  Id  and  Master  Id  must  be  configured.  For  a </p>
+<p>configuration  with  Multiple  Identity  this  is  not  done  on  the  channel  dependent  page  as </p>
+<p>shown in chapter 6.1.2, but on the Identities page below the channel dependent page (s. </p>
+<p>figure below). </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>20 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p> </p>
+<p>figure 6-5 </p>
+<p>Channel configuration page for Multiple Identity configurations of XCP on CAN Transport Layer </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>21 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>6.2 </b></p>
+<p><b>Configuration of XCP on CAN with GENy and CANgen </b></p>
+<p>If the CAN-Driver is configured by CANgen the configuration of the XCP Transport Layer </p>
+<p>for  CAN  has  to  be  done  manually.  The  configuration  of  the  XCP  Protocol  Layer  is </p>
+<p>performed conveniently by GENy. </p>
+<p>Reference the user config file </p>
+<p>xcp.cfg</p>
+<p> on the XCP Protocol Layers main page in GENy </p>
+<p>as shown in figure 6-6 and customize it according to Table 6-3. </p>
+<p> </p>
+<p> </p>
+<p>figure 6-6 </p>
+<p>Adding a user config file in GENy </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>22 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p> </p>
+<p><b>Configuration options </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>XCP on CAN Transport Layer Options </p>
+<p>XCP_TRANSPORT_LAYER_TYPE_CAN</p>
+<p> </p>
+<p> </p>
+<p>Activate the XCP on CAN Transport Layer </p>
+<p>XCP_xxx_VARIABLE_DLC</p>
+<p> </p>
+<p>ENABLE </p>
+<p><b>DISABLE</b></p>
+<p><b> </b></p>
+<p>Activate/Deactivate the transmission of </p>
+<p>messages with variable DLC. </p>
+<p>This option is not available yet! </p>
+<p>XCP_xxx_MULTI_CHANNEL </p>
+<p><b>ENABLE </b></p>
+<p>DISABLE</p>
+<p> </p>
+<p>Enable support of multiple CAN channels </p>
+<p>XCP_xxx_MULTI_CONNECTION_PROT</p>
+<p>ECTION </p>
+<p>ENABLE </p>
+<p><b>DISABLE</b></p>
+<p> </p>
+<p>Protection against multiple connections. </p>
+<p>Only available if XCP on CAN is used on </p>
+<p>multiple CAN channels </p>
+<p>kXcpNumberOfCanChannels </p>
+<p>2..255 </p>
+<p>Specify the number of CAN channels that </p>
+<p>use XCP on CAN. </p>
+<p>Only available if XCP on CAN is used on </p>
+<p>multiple CAN channels </p>
+<p>Table 6-3 </p>
+<p>Options and configuration of XCP on CAN Transport Layer </p>
+<p> </p>
+<p>The XCP Slave ID and XCP Master ID have to be configured in the generation tool that </p>
+<p>configures  the  CAN-Driver.  If  XCP  on  CAN  is  only  used  on  one  CAN  channel  refer  to </p>
+<p>chapter 6.2.1 ‘XCP on CAN uses only one CAN channel’ otherwise refer to chapter 6.2.2 </p>
+<p>‘XCP on CAN uses multiple CAN channels’. </p>
+<p> </p>
+<p><b>6.2.1 </b></p>
+<p><b>XCP on CAN uses only one CAN channel </b></p>
+<p>The generation tool CANgen has to be configured as follows: </p>
+<p></p>
+<p> </p>
+<p>Add the precopy function </p>
+<p>XcpPreCopy</p>
+<p> for the XCP Master ID in your generation tool. </p>
+<p></p>
+<p> </p>
+<p>Add the confirmation function </p>
+<p>XcpConfirmation</p>
+<p> for the XCP Slave ID in your generation tool. </p>
+<p>The Transmit handle and the data buffer of the XCP Slave ID have to be defined in the </p>
+<p>user config file </p>
+<p>xcp.cfg</p>
+<p>: </p>
+<p></p>
+<p> </p>
+<p>#define XcpGetTransmitHandle()  <i>TransmitHandleOfSlaveId  </i></p>
+<p>#define XcpGetTransmitDataPtr() <i>TransmitDataBufferOfSlaveId</i></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Replace </p>
+<p><i>TransmitHandleOfSlaveId</i></p>
+<p> by the transmit handle of the XCP Slave Id that can be </p>
+<p>found in the header &lt;node&gt;.h.  </p>
+<p></p>
+<p> </p>
+<p>Replace </p>
+<p><i>TransmitDataBufferOfSlaveId</i></p>
+<p> by the transmit data buffer of the XCP Slave Id </p>
+<p>that can be found in the header &lt;node&gt;.c. </p>
+<p> </p>
+<p> </p>
+<p><b>Example for Slave Id XCP_DTO</b> </p>
+<p>#define XcpGetTransmitHandle()   CanTxXCP_DTO  </p>
+<p>#define XcpGetTransmitDataPtr()  (XCP_DTO._c)</p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>23 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>6.2.2 </b></p>
+<p><b>XCP on CAN uses multiple CAN channels </b></p>
+<p>If XCP on CAN is used on multiple CAN channels (e.g. vehicle bus and private CAN) the </p>
+<p>configuration of the XCP Master ID and  XCP Slave ID is done by the following steps. </p>
+<p>The generation tool CANgen has to be configured as follows: </p>
+<p></p>
+<p> </p>
+<p>Add the precopy function </p>
+<p>XcpPreCopy</p>
+<p> for the XCP Master IDs in your generation tool. </p>
+<p></p>
+<p> </p>
+<p>Add the confirmation function </p>
+<p>XcpConfirmation</p>
+<p> for the XCP Slave IDs in your generation tool. </p>
+<p>The Transmit handles and the data buffers of the XCP Slave IDs have to be defined in an </p>
+<p>additional source file. </p>
+<p>V_MEMROM0 V_MEMROM1 CanTransmitHandle V_MEMROM2 xcpTxHandleField[] =  </p>
+<p>{ </p>
+<p>  Tx handle of XCP Slave ID 1, </p>
+<p>  Tx handle of XCP Slave ID 2 </p>
+<p>}; </p>
+<p>V_MEMROM0 V_MEMROM1 TxDataPtr V_MEMROM2 xcpTxDataPtrField[] =  </p>
+<p>{ </p>
+<p>  data bufferTx of XCP Slave ID 1, </p>
+<p>  data bufferTx of XCP Slave ID 2 </p>
+<p>};</p>
+<p>The following macros have to be defined in the user config file </p>
+<p>xcp.cfg</p>
+<p>: </p>
+<p></p>
+<p> </p>
+<p>#define XcpGetTransmitHandle()  (xcpTxHandleField[xcpChannelNumber])  </p>
+<p>#define XcpGetTransmitDataPtr() (xcpTxDataPtrField[xcpChannelNumber])</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Example for Slave Id XCP_DTO and XcpSlave</b> </p>
+<p> </p>
+<p>User config file </p>
+<p>xcp.cfg</p>
+<p> : </p>
+<p>#define XcpGetTransmitHandle()   (xcpTxHandleField[xcpChannelNumber])  </p>
+<p>#define XcpGetTransmitDataPtr()  (xcpTxDataPtrField[xcpChannelNumber]) </p>
+<p> </p>
+<p>C Source Code: </p>
+<p>V_MEMROM0 V_MEMROM1 CanTransmitHandle V_MEMROM2 xcpTxHandleField[] =  </p>
+<p>{ </p>
+<p>  CanTxXCP_DTO, </p>
+<p>  CanTxXcpSlave </p>
+<p>}; </p>
+<p> </p>
+<p>V_MEMROM0 V_MEMROM1 TxDataPtr V_MEMROM2 xcpTxDataPtrField[] =  </p>
+<p>{ </p>
+<p>  XCP_DTO._c,  </p>
+<p>  XcpSlave._c </p>
+<p>};</p>
+<p> </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>24 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>7 </b></p>
+<p><b>Limitations </b></p>
+<p><b>7.1.1 </b></p>
+<p><b>Variable length of XCP Packets is not supported </b></p>
+<p>The XCP protocol allows a variable length of XCP Packets. However many OEMs require </p>
+<p>that all CAN messages sent within their automotive networks have to have a static DLC. </p>
+<p>Therefore  the  DLC  of  XCP  on  CAN  messages  is  always  8  and  the  Control  Field  of  the </p>
+<p>XCP Tails consists of fill bytes. </p>
+<p> </p>
+<p><b>7.1.2 </b></p>
+<p><b>Assignment of CAN identifiers to DAQ lists is not supported </b></p>
+<p>The assignment of CAN identifiers to DAQ lists is not supported. </p>
+<p> </p>
+<p><b>7.1.3 </b></p>
+<p><b>Detection of all XCP slaves within a network </b></p>
+<p>The detection of all XCP slaves within a network with the command GET_SLAVE_ID is not </p>
+<p>supported. </p>
+<p> </p>
+<p><b>7.1.4 </b></p>
+<p><b>Channel API </b></p>
+<p>XCP on CAN is only available with a single channel API. </p>
+<p>However  all  currently  available  single  and  multiple  channel  APIs  of  the  CAN-Driver  are </p>
+<p>supported. </p>
+<p> </p>
+<p><b>7.1.5 </b></p>
+<p><b>Multiple Identity only supported for single channel configuration </b></p>
+<p>Multiple Identity for XCP on CAN is only available fora single CAN channel configuration. </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>25 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>8 </b></p>
+<p><b>FAQ </b></p>
+<p><b>8.1 </b></p>
+<p><b>Transmit queue of CAN-Driver is disabled </b></p>
+<p> </p>
+<p> </p>
+<p><b>FAQ</b> </p>
+<p>How to operate XCP on CAN if the transmit queue of the CAN-Driver is disabled.</p>
+<p> </p>
+<p>If the transmit queue of the CAN-Driver is disabled at any time it might not be possible to </p>
+<p>transmit the XCP Slave message due to an ongoing message transmission. Therefore the </p>
+<p>message transmission might have to be requested several times.  </p>
+<p>This </p>
+<p>is </p>
+<p>done </p>
+<p>with </p>
+<p>the </p>
+<p>service </p>
+<p>ApplXcpBackground()</p>
+<p> </p>
+<p>that </p>
+<p>gets </p>
+<p>called </p>
+<p>by </p>
+<p>XcpBackground()</p>
+<p>. This service has to be called cyclic with a recommended call cycle of </p>
+<p>1ms.  The  faster  it  gets  called  the  faster  the  XCP  Slave  message  will  participate  in  the </p>
+<p>arbitration on the bus. </p>
+<p> </p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>26 / 27</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on CAN </p>
+<p> </p>
+<p><b>9 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector-informatik.com </b></p>
+<p>©</p>
+<p>2009, Vector Informatik GmbH </p>
+<p>Version: 1.08 </p>
+<p>based on template version 1.3 </p>
+<p>27 / 27</p>
+</body>
+</html>
+{% endraw %}

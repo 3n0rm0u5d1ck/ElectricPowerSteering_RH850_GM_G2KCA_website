@@ -1,0 +1,549 @@
+---
+layout: default
+title: AN-ISC-2-1011_CANfblGM_CALL_From_CANdesc
+nav_order: 3
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b> </b></p>
+<p><b>Calling the GM-Bootloader from CANdesc-Applications </b></p>
+<p><b>Version 1.00 </b></p>
+<p><b>04/05/04</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </b></p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p>Author(s) </p>
+<p> </p>
+<p>Armin Happel </p>
+<p>Restrictions </p>
+<p> </p>
+<p>Draft Document </p>
+<p>Abstract </p>
+<p> </p>
+<p>How to call the Vector bootloader from a diagnostic layer built with CANdesc-GM </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><i><b>Table of Contents </b></i></p>
+<p><i><b> </b></i></p>
+<p><i> </i></p>
+<p><i>Copyright © 2004 - Vector Informatik GmbH </i></p>
+<p><b>1 </b></p>
+<p><b>Contact Information:   www.vector-informatik.de   or +49-711-80670-0 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>1.0</p>
+<p> </p>
+<p>Overview .......................................................................................................................................................................... 2</p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Target Group.................................................................................................................................................2</p>
+<p> </p>
+<p>2.0</p>
+<p> </p>
+<p>Preparing the CDD-File with CANdelaStudio ................................................................................................................... 2</p>
+<p> </p>
+<p>3.0</p>
+<p> </p>
+<p>Contacts ......................................................................................................................................................................... 11</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Calling the GM-Bootloader from CANdesc-Applications </b></p>
+<p><b>Version 1.00 </b></p>
+<p><b>04/05/04</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </b></p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p>Author(s) </p>
+<p> </p>
+<p>Armin Happel </p>
+<p>Restrictions </p>
+<p> </p>
+<p>Draft Document </p>
+<p>Abstract </p>
+<p> </p>
+<p>How to call the Vector bootloader from a diagnostic layer built with CANdesc-GM </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><i><b>Table of Contents </b></i></p>
+<p><i><b> </b></i></p>
+<p><i> </i></p>
+<p><i>Copyright © 2004 - Vector Informatik GmbH </i></p>
+<p><b>2 </b></p>
+<p><b>Contact Information:   www.vector-informatik.de   or +49-711-80670-0 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.0 </b></p>
+<p><b>Overview </b></p>
+<p>This application note describes how to configure the GM’s CDD-File to prepare a CANdesc-GM to call the Vector </p>
+<p>Flash Bootloader for GM. </p>
+<p><b>1.1 </b></p>
+<p><b>Target Group </b></p>
+<p>The target group of this application note are ECU software developers and quality engineers involved in developing </p>
+<p>and testing CAN-based vehicle software. </p>
+<p><b>2.0 </b></p>
+<p><b>Preparing the CDD-File with CANdelaStudio  </b></p>
+<p>The following snapshots describe how to set-up the CDD-file with CANdelaStudio. </p>
+<p>As a first step, the following services need to be defined: </p>
+<p> </p>
+<p>The picture above shows which services have to be supported to cooperate with a flash download. More </p>
+<p>checkboxes can appear in your configuration. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Calling the GM-Bootloader from CANdesc-Applications</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p><i>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </i></p>
+<p><b> </b></p>
+<p><b>3</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The jump to the bootloader must be configured within the Diagnostic Class “Download”. All other services are </p>
+<p>required to manage the prologue. </p>
+<p>The prologue looks as follows: </p>
+<p> </p>
+<p><b>FLASH REPROGRAMMING PROLOGUE </b></p>
+<p> </p>
+<p> </p>
+<p>Mandatory requests </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Optional requests </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The application needs to support the services listed above. </p>
+<p>The following pages will show the corresponding pages in CANdelaStudio to define the values: </p>
+<p> </p>
+<p> </p>
+<p>Send Wakeup</p>
+<p>Start sending Tester Present</p>
+<p>Read Data By Identifier ($1A $B0)</p>
+<p>Initiate Diagnostic Operation </p>
+<p>Disable all DTCs ($10 $02) </p>
+<p>Disable Normal Comm ($28)</p>
+<p>Report Programmed State ($A2)</p>
+<p>Read Data By Identifier ($1A)</p>
+<p>Request Programming Mode  </p>
+<p>($A5 01 for normal CAN- baudrate or  </p>
+<p>$A5 $02 for Hispeed-Mode with SingleWire)</p>
+<p>Enable Programming Mode ($A5 $03)</p>
+<p>Request Download ($34) </p>
+<p>Security Seed ($27 $xx)</p>
+<p> </p>
+<p>Security Key ($27 $(xx+1))</p>
+<p> </p>
+<p>Functional AllNode requests </p>
+<p>Physical requests </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Calling the GM-Bootloader from CANdesc-Applications</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p><i>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </i></p>
+<p><b> </b></p>
+<p><b>4</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The picture above shows the configuration for the service “ReadECUIdentification” ($1A B0). The return value is a </p>
+<p>constant, namely the ECU-Diagnostic Address. Therefore, a generated MainHandler can be configured within the </p>
+<p>property of ReadDataByIdentifier. </p>
+<p>For a full support of the prologue, additional service instances for “ReadDataByIdentifier” need to be implemented. </p>
+<p>These instances must have the DIDs $C1 to $C9 if one or more calibration files need to be supported. This service </p>
+<p>instance reads the software module identifier from the GM-header</p>
+<p>1</p>
+<p> of the application or calibration files. Additional </p>
+<p>service instances that need to be supported are the DIDs $D1 to $D9 to retrieve the alphacode. </p>
+<p> </p>
+<p>                                                     </p>
+<p> </p>
+<p>1</p>
+<p> The GM-header must be the section of the downloaded data. It contains the Module checksum, the SWMI and </p>
+<p>DLS-code and some additional information. Refer to GMW3110, section 11 for more information on GM-header. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Calling the GM-Bootloader from CANdesc-Applications</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p><i>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </i></p>
+<p><b> </b></p>
+<p><b>5</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>This next picture shows how to set-up the the optional service “Initiate Diagnostic Operation”. </p>
+<p>The generated MainHandler-support of CANdesc can be used for this service. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Calling the GM-Bootloader from CANdesc-Applications</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p><i>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </i></p>
+<p><b> </b></p>
+<p><b>6</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The picture above shows the configuration of the service DisableNormalComm ($28). CANdesc will automatically </p>
+<p>call the NM-Function IlNwmDisableNormalComm(). This function of the GMLAN-NM will automatically shutdown all </p>
+<p>VNs (except VN #0). </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Calling the GM-Bootloader from CANdesc-Applications</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p><i>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </i></p>
+<p><b> </b></p>
+<p><b>7</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>This picture shows the configuration of the service ReportProgrammedState. The service returns a single byte that </p>
+<p>reflects the status of the application. This status is usually of type Fully programmed (value 0) and can therefore be </p>
+<p>a constant. Thus, it could be a fully generated service, too. </p>
+<p>If you want to provide different values here, a signal handler can be set-up to adapt it, as it is described above. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Calling the GM-Bootloader from CANdesc-Applications</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p><i>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </i></p>
+<p><b> </b></p>
+<p><b>8</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>The picture above shows now the configuration of the ProgrammingMode. </p>
+<p> </p>
+<p>The service instance “requestHiSpeedProgrammingMode” is only necessary on the Single-Wire CAN. This must </p>
+<p>be enabled even if your ECU is not programmed in this mode. It is necessary to allow other ECUs to be </p>
+<p>programmed in this mode. On Powertrain Networks (aka. “hsCAN”) this service instance is not required. </p>
+<p>Mandatory service instances are “RequestProgrammingMode” and “EnableProgrammingMode”. Note that only the </p>
+<p>service instances “RequestProgrammingMode” and “RequestHiSpeedProgrammingMode” can be denied. Once </p>
+<p>accepted, the following “EnableProgrammingMode” must be accepted as well. This service instance does not send </p>
+<p>any response. A generated Post-Handler of CANdesc will automatically call the Network Management function </p>
+<p>“</p>
+<p><b>IlNwmSetHispeedMode</b></p>
+<p>()” to switch to the Hi-speed on the Single-Wire CAN, when </p>
+<p>“RequestHiSpeedProgrammingMode” was requested before. Remember that you have to configure the generation </p>
+<p>tool to prepare the GMLAN-Network Management to switch to a higher baud rate ( “supported for Hi-speed mode </p>
+<p>for single wire CAN”.). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Calling the GM-Bootloader from CANdesc-Applications</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p><i>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </i></p>
+<p><b> </b></p>
+<p><b>9</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The last service in the prologue is the request download. Note that this service is requested using the physical </p>
+<p>requests CAN-identifier. </p>
+<p>A user-main handler must be configured for this Diagnostic Instance.  </p>
+<p>The application callback-function must include the definition-header of the bootloader. The application must not </p>
+<p>respond to this service, because the bootloader does this. Some parameters need to be passed to the bootloader, </p>
+<p>e.g. the bit-timing of the CAN-chip, the SPS_TYPE_B CAN-identifier the error status and the cause of the jump to </p>
+<p>the bootloader (usually the reception of the RequestDownload). </p>
+<p>The following code sequence shows the implementation of a jump to the bootloader. It must be noted, that the </p>
+<p>example below is hardware dependent (here: the HC08). The parameters may be grabbed in different ways on </p>
+<p>other hardware platforms. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Calling the GM-Bootloader from CANdesc-Applications</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p><i>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </i></p>
+<p><b> </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>#include “fbl_def.h” </b></p>
+<p><b> </b></p>
+<p><b>tCanInitTable  CanInitTable; </b></p>
+<p><b> </b></p>
+<p><b>void</b> <b>ApplDescRequestDownloadDownload</b>(DescMsgContext <b>*</b>pMsgContext) </p>
+<p>{ </p>
+<p>   <b>extern</b> canuint8 CanInitCBTR0[],CanInitCBTR1[], CanInitCMCR0[], CanInitCMCR1[]; </p>
+<p> </p>
+<p>   <i>/* --------------------------------------- */</i> </p>
+<p>   <i>/* --  Controller specific section      -- */</i> </p>
+<p>   <i>/* -- Initialize CanInitTable structure -- */</i> </p>
+<p>   <i>/* --------------------------------------- */</i> </p>
+<p> </p>
+<p>   <i>/* -- Initialize the pre-programmed CAN-identifier -- */</i> </p>
+<p># if <b>defined</b>( C_COMP_COSMIC_08 ) </p>
+<p># if <b>defined</b>(C_ENABLE_EXTENDED_ID) </p>
+<p>   <b>extern</b> canuint8 CanTxIdMidHi[];   <i>/* Middlehigh byte of identifier */</i> </p>
+<p>   <b>extern</b> canuint8 CanRxIdMidHi[];  <i>/* Middlehigh byte of identifier */</i> </p>
+<p># endif </p>
+<p> </p>
+<p>   CanInitTable<b>.</b>TpRxIdHigh    <b>=</b> (canuint8)(CanRxIdHi[kTpRxHandle]); </p>
+<p>   CanInitTable<b>.</b>TpTxIdHigh    <b>=</b> CanTxIdHi[kTpTxHandle]; </p>
+<p>#  if <b>defined </b>( C_ENABLE_EXTENDED_ID ) </p>
+<p>   CanInitTable<b>.</b>TpRxIdLow     <b>=</b> (canuint8)((CanRxIdMidHi[kTpRxHandle])); </p>
+<p>   CanInitTable<b>.</b>TpTxIdLow     <b>=</b> CanTxIdMidHi[kTpTxHandle]; </p>
+<p>#  else </p>
+<p>   CanInitTable<b>.</b>TpRxIdLow     <b>=</b> (canuint8)((CanRxIdLo[kTpRxHandle])); </p>
+<p>   CanInitTable<b>.</b>TpTxIdLow     <b>=</b> CanTxIdLo[kTpTxHandle]; </p>
+<p>#  endif </p>
+<p># endif </p>
+<p> </p>
+<p>#if <b>defined </b>(DESC_ENABLE_REQ_HISPEED_PROG) </p>
+<p>  if (g_descOemStateCtrl.hiSpeedMode == kDescHiSpeedModeActive) </p>
+<p>  { </p>
+<p>      CanInitTable<b>.</b>CanInitCMCR0  <b>=</b> CanInitCMCR0[kNmCanInitObjHispeed]; </p>
+<p>      CanInitTable<b>.</b>CanInitCMCR1  <b>=</b> CanInitCMCR1[kNmCanInitObjHispeed]; </p>
+<p>      CanInitTable<b>.</b>CanInitCBTR0  <b>=</b> CanInitCBTR0[kNmCanInitObjHispeed]; </p>
+<p>      CanInitTable<b>.</b>CanInitCBTR1  <b>=</b> CanInitCBTR1[kNmCanInitObjHispeed]; </p>
+<p> </p>
+<p> </p>
+<p>CanInitTable<b>.</b>RequestProgrammingMode <b>= </b>REQUEST_DOWNLOAD_MODE_HIGHSPEED; </p>
+<p>  } </p>
+<p>  else </p>
+<p>#endif </p>
+<p>  { </p>
+<p>      CanInitTable<b>.</b>CanInitCMCR0  <b>=</b> CanInitCMCR0[kNmCanInitObjStd]; </p>
+<p>      CanInitTable<b>.</b>CanInitCMCR1  <b>=</b> CanInitCMCR1[kNmCanInitObjStd]; </p>
+<p>      CanInitTable<b>.</b>CanInitCBTR0  <b>=</b> CanInitCBTR0[kNmCanInitObjStd]; </p>
+<p>      CanInitTable<b>.</b>CanInitCBTR1  <b>=</b> CanInitCBTR1[kNmCanInitObjStd]; </p>
+<p> </p>
+<p> </p>
+<p>CanInitTable<b>.</b>RequestProgrammingMode <b>= </b>REQUEST_DOWNLOAD_MODE_LOWSPEED; </p>
+<p>  } </p>
+<p>   <i>/* ProgrammedState: fully programmed */</i> </p>
+<p>   CanInitTable<b>.</b>ProgrammedState <b>=</b> 0x00; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Calling the GM-Bootloader from CANdesc-Applications</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p><i>Application Note  AN-ISC-2-1011_CANfblGM_Call_from_CANdesc </i></p>
+<p><b> </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>   <i>/* This is not an error-condition. Set error to '0'. */</i> </p>
+<p>   CanInitTable<b>.</b>ErrorCode <b>=</b> 0x00; </p>
+<p> </p>
+<p>   <i>/* Start flash boot loader. Never comes back.     */</i> </p>
+<p>   <i>/* Trigger (window-)watchdog before if necessary. */</i> </p>
+<p>   <i>/* But take care of Service timeout               */</i> </p>
+<p>   (FblHeaderTable<b>-&gt;</b>FblStartFct)(&amp;CanInitTable); </p>
+<p> </p>
+<p>   <i>/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */</i> </p>
+<p>   <i>/* !! NOTE: Code should never return here !!! */</i> </p>
+<p>   <i>/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */</i> </p>
+<p>} </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.0 </b></p>
+<p><b>Contacts </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Vector Informatik GmbH </b></p>
+<p>Ingersheimer Straße 24 </p>
+<p>70499 Stuttgart </p>
+<p>Germany </p>
+<p>Tel.: +49 711-80670-0 </p>
+<p>Fax: +49 711-80670-111 </p>
+<p>Email: FblSupport@vector-informatik.de </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Vector CANtech, Inc. </b></p>
+<p>39500 Orchard Hill Pl., Ste 550 </p>
+<p>Novi, MI  48375 </p>
+<p>Tel: (248) 449-9290 </p>
+<p>Fax: (248) 449-9704 </p>
+<p>Email: info@vector-cantech.com</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>VecScan AB </b></p>
+<p>Fabriksgatan 7 </p>
+<p>412 50 Göteborg  </p>
+<p>Sweden </p>
+<p>Tel: +46 (0)31 764 76 00 </p>
+<p>Fax: +46 (0)31 764 76 19 </p>
+<p>Email: info@vecscan.com</p>
+<p> </p>
+<p><b>Vector France SAS </b></p>
+<p>168 Boulevard Camélinat </p>
+<p>92240 Malakoff  </p>
+<p>France </p>
+<p>Tel: +33 (0)1 42 31 40 00 </p>
+<p>Fax: +33 (0)1 42 31 40 09 </p>
+<p>Email: information@vector-france.fr </p>
+<p> </p>
+<p><b>Vector Japan Co. Ltd. </b></p>
+<p>Nishikawa Bld. 2F, 3-3-9 Nihonbashi </p>
+<p>Chuo-ku Tokyo 103-0027  </p>
+<p>Japan </p>
+<p>Tel: +81(0)3-3516-7850 </p>
+<p>Fax: +81-(0)3-3516-7855 </p>
+<p>Email: info@vector-japan.co.jp</p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,477 @@
+---
+layout: default
+title: ProductInformation_2_MICROSAR_SoftwarePackagesAndMaintenance
+nav_order: 33
+parent: Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Product Information MICROSAR Software Packages and Maintenance </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.12.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>1 / 6 </p>
+<p><b>1 </b></p>
+<p><b>Vector Embedded Software </b></p>
+<p><b>Definition SLP/HLP/SIP, Maintenance and Release Types </b></p>
+<p><b>1.1 </b></p>
+<p><b>Software License Package (SLP) </b></p>
+<p>The SLP includes the license and usage rights (see quotation) for a hardware-independent </p>
+<p>module (e.g. a COM layer) based on a defined specification. </p>
+<p>Depending  on  the  type  of module,  the  software  will  be  based  on  the following  technical </p>
+<p>specifications: </p>
+<p><b>&gt; </b></p>
+<p>AUTOSAR, ASAM, OSEK/VDX, ISO, HIS, etc. </p>
+<p><b>&gt; </b></p>
+<p>OEM requirements (for OEM-specific deliveries) </p>
+<p><b>&gt; </b></p>
+<p>Customer-specific requirements (optional) </p>
+<p>The following work products are licensed by purchase of an SLP: </p>
+<p><b>&gt; </b></p>
+<p>The module as source code </p>
+<p><b>&gt; </b></p>
+<p>Detailed technical documentation </p>
+<p><b>&gt; </b></p>
+<p>Generator plug-in to generate ANSI C code </p>
+<p><b>&gt; </b></p>
+<p>Configuration files for convenient configuration with Vector configuration tools </p>
+<p>The module will be tested using a component test suite on a standard hardware platform </p>
+<p>(CANoe  Emulation).  Integration  testing  on  the  specific  µController  and  delivery  will  be </p>
+<p>performed when a SIP is purchased (see section 1.3). </p>
+<p><b>1.2 </b></p>
+<p><b>Hardware License Package (HLP) </b></p>
+<p>The HLP includes the license and usage rights (see quotation) for a hardware-dependent </p>
+<p>module (e.g. CAN Driver) and is valid for a combination of compiler (version independent), </p>
+<p>microcontroller family and relevant hardware (e.g. CAN cell). </p>
+<p>Depending  on  the  type  of module,  the  software  will  be  based  on  the following  technical </p>
+<p>specifications: </p>
+<p><b>&gt; </b></p>
+<p>AUTOSAR, ASAM, OSEK, ISO, HIS, etc. </p>
+<p><b>&gt; </b></p>
+<p>OEM requirements (for OEM-specific deliveries) </p>
+<p><b>&gt; </b></p>
+<p>Customer-specific requirements (optional) </p>
+<p><b>&gt; </b></p>
+<p>Specification of microcontroller and compiler </p>
+<p>The following work products are licensed by purchase of an HLP:  </p>
+<p><b>&gt; </b></p>
+<p>The module as source code </p>
+<p><b>&gt; </b></p>
+<p>Detailed technical documentation </p>
+<p><b>&gt; </b></p>
+<p>Generator plug-in to generate ANSI C code </p>
+<p><b>&gt; </b></p>
+<p>Configuration files for convenient configuration with Vector configuration tools. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Software Packages and Maintenance </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.12.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>2 / 6 </p>
+<p>The </p>
+<p>module </p>
+<p>will </p>
+<p>be </p>
+<p>tested </p>
+<p>using </p>
+<p>a </p>
+<p>component </p>
+<p>test </p>
+<p>suite </p>
+<p>on </p>
+<p>a </p>
+<p>derivative </p>
+<p>of </p>
+<p>the </p>
+<p>microcontroller  family  which  is  defined  by  Vector.  Integration  testing  on  the  specific </p>
+<p>µController and delivery will be performed when a SIP is purchased (see section 1.3). </p>
+<p> </p>
+<p><b>1.3 </b></p>
+<p><b>Software Integration Package (SIP) </b></p>
+<p>The SIP includes integration, test, release and delivery of the modules that are licensed by </p>
+<p>an SLP and/or an HLP.  </p>
+<p>To  perform  integration  and  closely  test  the  customer's  use  case,  the  following  must  be </p>
+<p>defined in accordance with the customer: </p>
+<p><b>&gt; </b></p>
+<p>Microcontroller derivative </p>
+<p><b>&gt; </b></p>
+<p>Compiler, compiler version, and compiler options </p>
+<p><b>&gt; </b></p>
+<p>Use case (e.g. number of CAN channels) </p>
+<p><b>&gt; </b></p>
+<p>Car manufacturer (regarding communication description, pre-configuration…) </p>
+<p>For  each  SIP,  all  delivered  work products  will  be  added  to  a  configuration  management </p>
+<p>system, thus allowing redeliveries for a minimum of 10 years (excluding the Beta SIP). </p>
+<p><b>1.4 </b></p>
+<p><b>Mini SIP </b></p>
+<p>The Mini SIP includes the delivery of individual modules. The software is tested on module </p>
+<p>level. The delivery is not tested on the target hardware and compiler. But Vector provides </p>
+<p>remedy of defects if they are based on defined processor and compiler mentioned in the </p>
+<p>quote. </p>
+<p><b>1.5 </b></p>
+<p><b>SIP Types </b></p>
+<p><b>1.5.1 </b></p>
+<p><b>Beta SIP </b></p>
+<p>A Beta SIP can only be ordered in combination with a Production SIP. Depending on the </p>
+<p>agreement </p>
+<p>with </p>
+<p>the </p>
+<p>customer, </p>
+<p>the </p>
+<p>software </p>
+<p>may </p>
+<p>include </p>
+<p>the </p>
+<p>complete </p>
+<p>or </p>
+<p>reduced </p>
+<p>functionality. The software is only preliminary integrated and tested. The usage of a Beta </p>
+<p>SIP for serial production is prohibited. The Beta SIP software may only be used for test </p>
+<p>purposes.  Vector  grants  no  warranty  and/or  liability  to  the  extent  permitted  by  law  or </p>
+<p>statute. </p>
+<p><b>1.5.2 </b></p>
+<p><b>Production SIP </b></p>
+<p>A Production SIP is a package which includes the release for serial production. </p>
+<p><b>1.5.3 </b></p>
+<p><b>Update SIP  </b></p>
+<p>An Update SIP is a package which replaces a previous Production SIP. An Update SIP is </p>
+<p>necessary if an additional delivery is needed because of modified requirements (compiler </p>
+<p>version,  options,  functionality,  etc.).  The  delivery  will  be  performed  according  to  the </p>
+<p>existing contractual agreement and must be scheduled with Vector. </p>
+<p><b>1.5.4 </b></p>
+<p><b>Prototype SIP </b></p>
+<p>A Prototype SIP is a special package which may only be purchased by a Tier 1. The use is </p>
+<p>limited  to  a  defined  application  area,  e.g.  prototyping.  The  software  is  only  preliminary </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Software Packages and Maintenance </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.12.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>3 / 6 </p>
+<p>integrated and tested. The SIP is only available for platforms which are already supported </p>
+<p>by Vector. License packages (HLP, SLP) are not necessary. An upgrade to a Production </p>
+<p>SIP is only possible if identical technical features are used and the Prototype SIP is not </p>
+<p>older than one year. Vector grants no warranty and/or liability to the extent permitted by </p>
+<p>law or statute. </p>
+<p><b>1.5.5 </b></p>
+<p><b>Overview SIP Types </b></p>
+<p>The following table lists the scope of services, deliverables and release types for each SIP </p>
+<p>Type </p>
+<p><b>SIP Type /  </b></p>
+<p><b>Mini SIP  </b></p>
+<p>Beta SIP </p>
+<p>Production </p>
+<p>SIP </p>
+<p>Update SIP </p>
+<p>Prototype </p>
+<p>SIP </p>
+<p>Scope of </p>
+<p>Services </p>
+<p>Integration and test of selected </p>
+<p>modules </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Delivery </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Remedy of defects </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Deliverables </p>
+<p>Software (Source or object code </p>
+<p>dependent on the contractual </p>
+<p>agreement - NDA) </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Documentation </p>
+<p></p>
+<p>1</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p>1</p>
+<p> </p>
+<p>Test report </p>
+<p> </p>
+<p></p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Demo application </p>
+<p></p>
+<p>2</p>
+<p> </p>
+<p></p>
+<p>2,4</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Release </p>
+<p>Types</p>
+<p>3</p>
+<p> </p>
+<p>Beta Release </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Pre Release </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Final Release </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Serial Production Release </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>1</p>
+<p> The documentation is not necessarily complete </p>
+<p>2</p>
+<p> Depends on the package </p>
+<p>3</p>
+<p> Release Types are described in detail on page 5 </p>
+<p>4</p>
+<p> Not part of the Mini SIP</p>
+<p> </p>
+<p>Table 1-1  </p>
+<p>Overview SIP Types </p>
+<p><b>1.6 </b></p>
+<p><b>Maintenance </b></p>
+<p>Maintenance  of  Vector  Embedded  Software  is  available  for  the  SLP,  HLP  and  SIP. </p>
+<p>Maintenance generally includes bug-fixing.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Software Packages and Maintenance </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.12.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>4 / 6 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Only the latest delivered version will be maintained. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>1.6.1 </b></p>
+<p><b>SLP Maintenance </b></p>
+<p>The maintenance of the SLP includes the adaptation of the appropriate working products </p>
+<p>(components, documentation, generators …). The SLP Maintenance includes: </p>
+<p><b>&gt; </b></p>
+<p>Adaptations caused by “minor“ or “patch“-version modifications of the related </p>
+<p>AUTOSAR specification. In case of new functions, the extension of the licensed </p>
+<p>functionality has to be discussed with Vector. </p>
+<p><b>&gt; </b></p>
+<p>Adaptations caused by comparable changes of other specifications based on Vector’s </p>
+<p>assessment. </p>
+<p><b>&gt; </b></p>
+<p>Registered RfCs for the AUTOSAR Specification are included as far as they are </p>
+<p>required by the OEM. </p>
+<p>Deliveries are not included as part of SLP maintenance; they are part of SIP maintenance. </p>
+<p>The SLP maintenance period begins with the first delivery. </p>
+<p><b>1.6.2 </b></p>
+<p><b>HLP Maintenance </b></p>
+<p>The  maintenance  of  the  HLP  includes  the  adaptation  of  the  appropriate  work  products </p>
+<p>(components, documentation, generators …). The HLP maintenance includes: </p>
+<p><b>&gt; </b></p>
+<p>Adaptations caused by “minor“ or “patch“-version modifications of the related </p>
+<p>AUTOSAR specification. In case of new functions, the extension of the licensed </p>
+<p>functionality has to be discussed with Vector. </p>
+<p><b>&gt; </b></p>
+<p>Adaptation caused by comparable changes of other specifications based on Vector’s </p>
+<p>assessment. </p>
+<p><b>&gt; </b></p>
+<p>Adaptation caused by minor hardware changes based on Vector’s assessment. </p>
+<p><b>&gt; </b></p>
+<p>The implementation of simple workarounds for hardware issues. </p>
+<p>Deliveries  are  not  included  as  part  of  HLP  maintenance;  they  are  part  of  the  SIP </p>
+<p>maintenance. </p>
+<p>The HLP maintenance period begins with the first delivery. </p>
+<p><b>1.6.3 </b></p>
+<p><b>SIP Maintenance </b></p>
+<p>The SIP Standard Maintenance includes: </p>
+<p><b>&gt; </b></p>
+<p>Reporting about known issues (“Active Issue Reporting“). </p>
+<p><b>&gt; </b></p>
+<p>One delivery per year (Update SIP or update of a Beta SIP) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Software Packages and Maintenance </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.12.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>5 / 6 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This update will be delivered on request ! </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>&gt; </b></p>
+<p>If a bug-fix delivery should be needed on short notice such a delivery would be </p>
+<p>performed without a comprehensive test. In this case the status of the delivery would </p>
+<p>be Beta Release or Pre Release (see Release Types in chapter 1.7). </p>
+<p>A Production Release has to be scheduled with Vector separately. </p>
+<p>The  SIP  maintenance  period  starts  with  the  first  delivery  of  the  product  (Beta  SIP  or </p>
+<p>Production SIP). </p>
+<p>In addition to the SIP Standard Maintenance, Vector offers SIP Extended Maintenance and </p>
+<p>SIP Production Maintenance. </p>
+<p>SIP Extended Maintenance contains the same features as SIP Standard Maintenance. It </p>
+<p>includes one further delivery per year (Update SIP or Beta SIP). </p>
+<p>SIP  Production  Maintenance  only  includes  reporting  about  known  issues  (“Active  Issue </p>
+<p>Reporting“). But Vector provides remedy of defects in case of high or critical issues.  SIP </p>
+<p>Production  Maintenance  requires  Standard  or  Extended  Maintenance  for  more  than  2 </p>
+<p>years. </p>
+<p><b>1.6.4 </b></p>
+<p><b>Differentiation of warranty versus maintenance </b></p>
+<p>The </p>
+<p>table </p>
+<p>shows </p>
+<p>the </p>
+<p>scope </p>
+<p>of </p>
+<p>services </p>
+<p>depending </p>
+<p>on </p>
+<p>validity </p>
+<p>of </p>
+<p>warranty </p>
+<p>and/or </p>
+<p>maintenance:  </p>
+<p><b> </b></p>
+<p><b>SIP Maintenance </b></p>
+<p><b>running </b></p>
+<p><b>SIP Maintenance </b></p>
+<p><b>expired </b></p>
+<p><b>Warranty period running </b></p>
+<p>Bugfixing    </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Bugfixing </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Issue reporting   </p>
+<p></p>
+<p> </p>
+<p>Issue reporting  </p>
+<p></p>
+<p> </p>
+<p><b>Warranty period expired </b></p>
+<p>Bugfixing    </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Bugfixing </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Issue reporting   </p>
+<p></p>
+<p> </p>
+<p>Issue reporting  </p>
+<p></p>
+<p> </p>
+<p>Table 1-2  </p>
+<p>Scope of services  </p>
+<p><b>1.7 </b></p>
+<p><b>Release Types </b></p>
+<p>The release type gives information about the scope of function, quality and application field </p>
+<p>restrictions of the delivered software. The release type depends on the delivered Software </p>
+<p>Integration Package and is defined in the delivery description. </p>
+<p><b>1.7.1 </b></p>
+<p><b>Beta Release </b></p>
+<p>The functionality of the software is incomplete and the modules are only tested partly. The </p>
+<p>development process is not fully implemented and the usage of a Beta Release delivery </p>
+<p>for serial production is prohibited.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Software Packages and Maintenance </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.12.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>6 / 6 </p>
+<p><b>1.7.2 </b></p>
+<p><b>Pre Release </b></p>
+<p>The functionality of the software is complete, but the modules are only being tested partly. </p>
+<p>The  development  process  is  not  fully  implemented  and  the  usage  of  a  Pre  Release </p>
+<p>delivery for serial production is prohibited. </p>
+<p><b>1.7.3 </b></p>
+<p><b>Final Release </b></p>
+<p>The software covers the complete functionality and the modules are being fully tested. The </p>
+<p>development  process  is  completely  implemented,  but  the  usage  of  a  Final  Release </p>
+<p>delivery for serial production is prohibited. </p>
+<p><b>1.7.4 </b></p>
+<p><b>Serial Production Release </b></p>
+<p>The software covers the complete functionality and the modules are being fully tested. The </p>
+<p>development  process  is  completely  implemented  and  the  usage  for  serial  production  is </p>
+<p>allowed. </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

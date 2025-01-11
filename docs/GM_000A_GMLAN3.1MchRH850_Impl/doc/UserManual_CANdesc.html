@@ -1,0 +1,4211 @@
+---
+layout: default
+title: UserManual_CANdesc
+nav_order: 17
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>User Manual </b></p>
+<p><b>CANdesc  </b></p>
+<p>A Step by Step Introduction</p>
+<p><b>Version 1.7 </b></p>
+<p><b>English</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Impressum </b></p>
+<p> </p>
+<p>Vector Informatik GmbH </p>
+<p>Ingersheimer Straße 24 </p>
+<p>D-70499 Stuttgart </p>
+<p> </p>
+<p> </p>
+<p>The information and data given in this user manual can be changed without prior notice. No part of this manual may be reproduced in </p>
+<p>any form or by any means without the written permission of the publisher, regardless of which method or which instruments, electronic </p>
+<p>or mechanical, are used. All technical information, drafts, etc. are liable to law of copyright protection. </p>
+<p> </p>
+<p>©</p>
+<p> Copyright 2009, Vector Informatik GmbH  </p>
+<p>All rights reserved. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Manual Information </p>
+<p><b>Manual History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Details </b></p>
+<p>Klaus Emmert </p>
+<p>2004-05-10 </p>
+<p>1.1 </p>
+<p>Vector symbols included, template </p>
+<p>version 1.8 used (this history </p>
+<p>included), AppDesc… changed to </p>
+<p>ApplDesc due to software </p>
+<p>modifications, description of GENy </p>
+<p>as generation tool added, testing of </p>
+<p>diagnostics layer described with </p>
+<p>CANoe demo configuration, further </p>
+<p>Information about diagnostic buffer </p>
+<p>(linear and ring buffer mechanism) </p>
+<p>and the repeated service call </p>
+<p>feature </p>
+<p>Klaus Emmert </p>
+<p>2004-10-15 </p>
+<p>1.2 </p>
+<p>Modifications after Review. </p>
+<p>Klaus Emmert </p>
+<p>2005-08-12 </p>
+<p>1.3 </p>
+<p>Two new functions: </p>
+<p>DescTimerTask(), </p>
+<p>DescStateTask().  </p>
+<p>These two functions can be used </p>
+<p>instead of DescTask to handle the </p>
+<p>timers and the application </p>
+<p>separately. </p>
+<p>Klaus Emmert </p>
+<p>2006-03-24 </p>
+<p>1.4 </p>
+<p>Issues in example code fixed </p>
+<p>Document overview added </p>
+<p>Oliver Garnatz </p>
+<p>2007-01-12 </p>
+<p>1.5 </p>
+<p>Added description of </p>
+<p>CANdesc_ConnectorCAN GENy </p>
+<p>component </p>
+<p>Klaus Emmert </p>
+<p>2008-01-28 </p>
+<p>1.6 </p>
+<p>References fixed </p>
+<p>Manuela Scheufele </p>
+<p>2009-07-27 </p>
+<p>1.7 </p>
+<p>(see section Version 1.7 on page </p>
+<p>66)  </p>
+<p> </p>
+<p> </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p>[1] </p>
+<p>Vector Informatik </p>
+<p>Technical Reference CANdesc </p>
+<p>[2] </p>
+<p>Vector Informatik </p>
+<p>Technical Reference CANdescBasic </p>
+<p>  </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 3 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Manual Information </p>
+<p>User Manual CANdesc </p>
+<p>Inhaltsverzeichnis </p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Manual Information </b></p>
+<p><b>6</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>About this user manual </p>
+<p>7</p>
+<p> </p>
+<p>1.1.1</p>
+<p> </p>
+<p>Certification </p>
+<p>8</p>
+<p> </p>
+<p>1.1.2</p>
+<p> </p>
+<p>Warranty </p>
+<p>8</p>
+<p> </p>
+<p>1.1.3</p>
+<p> </p>
+<p>Registered trademarks </p>
+<p>8</p>
+<p> </p>
+<p>1.1.4</p>
+<p> </p>
+<p>Errata Sheet of manufacturers </p>
+<p>8</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Getting Started </b></p>
+<p><b>9</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>How to use this Manual </p>
+<p>10</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Basic Information </b></p>
+<p><b>11</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>An Overall View </p>
+<p>12</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>What is Diagnostic </p>
+<p>13</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>What happens during Diagnostics? </p>
+<p>13</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>What is CANdesc? </p>
+<p>14</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Tools and Files </p>
+<p>14</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>CANdela Studio, CDDT, CDD </p>
+<p>14</p>
+<p> </p>
+<p>3.5.2</p>
+<p> </p>
+<p>Generation Tool, CDD, DBC </p>
+<p>14</p>
+<p> </p>
+<p>3.5.3</p>
+<p> </p>
+<p>Generation Process with CANbedded Software Components </p>
+<p>15</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>What CANdesc does </p>
+<p>15</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Diagnostics – a more detailed View </p>
+<p>17</p>
+<p> </p>
+<p>3.7.1</p>
+<p> </p>
+<p>Basic Nomenclature from the Bottom Up </p>
+<p>18</p>
+<p> </p>
+<p>3.7.2</p>
+<p> </p>
+<p>The same Nomenclature from the Top Down </p>
+<p>19</p>
+<p> </p>
+<p>3.7.3</p>
+<p> </p>
+<p>Where to find this Nomenclature in CANdela Studio </p>
+<p>19</p>
+<p> </p>
+<p>3.7.4</p>
+<p> </p>
+<p>Generic Handling of a Diagnostic Request in the CANdesc Component </p>
+<p>21</p>
+<p> </p>
+<p>3.7.5</p>
+<p> </p>
+<p>User, None, OEM, Generated – what does this mean? </p>
+<p>23</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>A Few STEPS to CANdesc </b></p>
+<p><b>24</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>STEP What do you need before start? </p>
+<p>25</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Startup Code </p>
+<p>25</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Overview </p>
+<p>25</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>STEP Installation </p>
+<p>26</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>STEP Configuration with the Generation Tool </p>
+<p>26</p>
+<p> </p>
+<p>4.5.1</p>
+<p> </p>
+<p>Using the Generation Tool CANgen </p>
+<p>26</p>
+<p> </p>
+<p>4.5.2</p>
+<p> </p>
+<p>Using the Generation Tool GENy </p>
+<p>27</p>
+<p> </p>
+<p>4.6</p>
+<p> </p>
+<p>STEP Generating Files </p>
+<p>29</p>
+<p> </p>
+<p>4.6.1</p>
+<p> </p>
+<p>Using Generation Tool CANgen </p>
+<p>29</p>
+<p> </p>
+<p>4.6.2</p>
+<p> </p>
+<p>Using the Generation Tool GENy </p>
+<p>32</p>
+<p> </p>
+<p>4.7</p>
+<p> </p>
+<p>STEP Add CANbedded to your Project </p>
+<p>32</p>
+<p> </p>
+<p>4.8</p>
+<p> </p>
+<p>STEP Adapt Your Application Files </p>
+<p>33</p>
+<p> </p>
+<p>4.8.1</p>
+<p> </p>
+<p>Including, Initializing and Cyclic Calling </p>
+<p>33</p>
+<p> </p>
+<p>4.9</p>
+<p> </p>
+<p>STEP Functional Connection between your Application and CANdesc/CANdela Studio </p>
+<p>35</p>
+<p> </p>
+<p>4.9.1</p>
+<p> </p>
+<p>How to handle User-Defined Handlers </p>
+<p>35</p>
+<p> </p>
+<p>4.9.2</p>
+<p> </p>
+<p>How to Handle Predefined Handlers (for MainHandler only) </p>
+<p>38</p>
+<p> </p>
+<p>4.9.3</p>
+<p> </p>
+<p>Handling OEM-Specific Settings </p>
+<p>40</p>
+<p> </p>
+<p>- 4 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Manual Information </p>
+<p>4.10</p>
+<p> </p>
+<p>STEP Compile and link your Project </p>
+<p>41</p>
+<p> </p>
+<p>4.11</p>
+<p> </p>
+<p>STEP Test it via CANoe </p>
+<p>41</p>
+<p> </p>
+<p>4.11.1</p>
+<p> </p>
+<p>Start CANoe.CAN OSEK TP enlarged </p>
+<p>41</p>
+<p> </p>
+<p>4.11.2</p>
+<p> </p>
+<p>Test of CANdesc </p>
+<p>42</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Further Information </b></p>
+<p><b>44</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Diagnostic State Handling using CANdela Studio </p>
+<p>45</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Typical Examples of State Groups and States in an Automotive Environment </p>
+<p>45</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Creating and editing State Groups, States and Transitions </p>
+<p>45</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Connection between the states and your application </p>
+<p>47</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Diagnostic Buffer </p>
+<p>48</p>
+<p> </p>
+<p>5.5.1</p>
+<p> </p>
+<p>Linear Diagnostic Buffer </p>
+<p>48</p>
+<p> </p>
+<p>5.5.2</p>
+<p> </p>
+<p>Ring Buffer Mechanism </p>
+<p>49</p>
+<p> </p>
+<p>5.5.2.1</p>
+<p> </p>
+<p>Activation of the Ring Buffer </p>
+<p>51</p>
+<p> </p>
+<p>5.5.2.2</p>
+<p> </p>
+<p>Main Control Functions for the Ring Buffer Mechanism </p>
+<p>51</p>
+<p> </p>
+<p>5.5.2.3</p>
+<p> </p>
+<p>Examples for Ring Buffer Mechanism </p>
+<p>52</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>Repeated Service Call Feature </p>
+<p>55</p>
+<p> </p>
+<p>5.6.1</p>
+<p> </p>
+<p>Activation of the Repeated Service Call </p>
+<p>55</p>
+<p> </p>
+<p>5.6.2</p>
+<p> </p>
+<p>Repeated Service Call and Ring Buffer 1 – “Write and Check” </p>
+<p>56</p>
+<p> </p>
+<p>5.6.3</p>
+<p> </p>
+<p>Repeated Service Call and Ring Buffer 2 – “Check and Write” </p>
+<p>57</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Additional Information </b></p>
+<p><b>58</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Persistors </p>
+<p>59</p>
+<p> </p>
+<p>6.1.1</p>
+<p> </p>
+<p>Update Persistors – Install current Version </p>
+<p>60</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>FAQs </b></p>
+<p><b>63</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Introduction </p>
+<p>64</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Frequently Asked Questions </p>
+<p>64</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>What’s new, what’s changed </b></p>
+<p><b>65</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Version 1.7 </p>
+<p>66</p>
+<p> </p>
+<p>8.1.1</p>
+<p> </p>
+<p>What’s new </p>
+<p>66</p>
+<p> </p>
+<p>8.1.2</p>
+<p> </p>
+<p>What’s changed </p>
+<p>66</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Address table </b></p>
+<p><b>67</b></p>
+<p> </p>
+<p><b>10</b></p>
+<p> </p>
+<p><b>Glossar </b></p>
+<p><b>69</b></p>
+<p> </p>
+<p><b>11</b></p>
+<p> </p>
+<p><b>Index </b></p>
+<p><b>70</b></p>
+<p> </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 5 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Manual Information </p>
+<p>User Manual CANdesc </p>
+<p><b>1 </b></p>
+<p><b>Manual Information </b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>1.1 </p>
+<p>About this user manual </p>
+<p> page 7</p>
+<p> </p>
+<p>Certification </p>
+<p> </p>
+<p>Warranty </p>
+<p> </p>
+<p>Registered trademarks </p>
+<p> </p>
+<p>Errata Sheet of manufacturers </p>
+<p>  </p>
+<p> </p>
+<p>- 6 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Manual Information </p>
+<p><b>1.1 </b></p>
+<p><b>About this user manual </b></p>
+<p>The user manual provides the following access help: </p>
+<p>Finding information </p>
+<p>quickly </p>
+<p>¼</p>
+<p> </p>
+<p>At the beginning of each chapter you will find a summary of the contents, </p>
+<p>¼</p>
+<p> </p>
+<p>In the header you can see in which chapter and paragraph you are, </p>
+<p>¼</p>
+<p> </p>
+<p>In the footer you can see to which version the user manual replies, </p>
+<p>¼</p>
+<p> </p>
+<p>At the end of the user manual you will find an index, with whose help you will </p>
+<p>quickly find information, </p>
+<p>¼</p>
+<p> </p>
+<p>Also at the end of the user manual you will find a glossary in which you can look </p>
+<p>up an explanation of used technical terms </p>
+<p>  </p>
+<p>Conventions </p>
+<p>In the two following charts you will find the conventions used in the user manual </p>
+<p>regarding utilized spellings and symbols. </p>
+<p>  </p>
+<p> </p>
+<p><b>Style </b></p>
+<p><b>Utilization </b></p>
+<p> </p>
+<p><b>bold </b></p>
+<p>Blocks, surface elements, window- and dialog names of the </p>
+<p>software. Accentuation of warnings and advices. </p>
+<p><b>[OK] </b></p>
+<p> </p>
+<p>Push buttons in brackets </p>
+<p><b>File</b>|<b>Save </b></p>
+<p>Notation for menus and menu entries </p>
+<p> </p>
+<p>MICROSAR </p>
+<p>Legally protected proper names and side notes. </p>
+<p> </p>
+<p>Source Code </p>
+<p>File name and source code. </p>
+<p> </p>
+<p>Hyperlink </p>
+<p>Hyperlinks and references. </p>
+<p> </p>
+<p>&lt;CTRL&gt;+&lt;S&gt; </p>
+<p>Notation for shortcuts. </p>
+<p>  </p>
+<p> </p>
+<p><b>Symbol </b></p>
+<p><b>Utilization </b></p>
+<p> </p>
+<p> </p>
+<p>Here you can obtain supplemental information. </p>
+<p> </p>
+<p> </p>
+<p>This symbol calls your attention to warnings. </p>
+<p> </p>
+<p> </p>
+<p>Here you can find additional information. </p>
+<p> </p>
+<p> </p>
+<p>Here is an example that has been prepared for you. </p>
+<p> </p>
+<p> </p>
+<p>Step-by-step instructions provide assistance at these points. </p>
+<p> </p>
+<p> </p>
+<p>Instructions on editing files are found at these points. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>This symbol warns you not to edit the specified file. </p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 7 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Manual Information </p>
+<p>User Manual CANdesc </p>
+<p><b>1.1.1 </b></p>
+<p><b>Certification </b></p>
+<p>Certified Quality </p>
+<p>Management System </p>
+<p>Vector Informatik GmbH has ISO 9001:2000 certification. The ISO standard is a </p>
+<p>globally recognized standard. </p>
+<p>  </p>
+<p>Spice Level 3 </p>
+<p>The Embedded Software Components business area at Vector Informatik GmbH </p>
+<p>achieved process maturity level 3 during a HIS-conformant assessment. </p>
+<p>  </p>
+<p><b>1.1.2 </b></p>
+<p><b>Warranty </b></p>
+<p>Restriction of </p>
+<p>warranty </p>
+<p> </p>
+<p>We reserve the right to change the contents of the documentation and the software </p>
+<p>without notice. Vector Informatik GmbH assumes no liability for correct contents or </p>
+<p>damages which are resulted from the usage of the documentation. We are grateful for </p>
+<p>references to mistakes or for suggestions for improvement to be able to offer you </p>
+<p>even more efficient products in the future. </p>
+<p>  </p>
+<p><b>1.1.3 </b></p>
+<p><b>Registered trademarks </b></p>
+<p>Registered </p>
+<p>trademarks </p>
+<p> </p>
+<p>All trademarks mentioned in this documentation and if necessary third party </p>
+<p>registered are absolutely subject to the conditions of each valid label right and the </p>
+<p>rights of particular registered proprietor. All trademarks, trade names or company </p>
+<p>names are or can be trademarks or registered trademarks of their particular </p>
+<p>proprietors. All rights which are not expressly allowed are reserved. If an explicit label </p>
+<p>of trademarks, which are used in this documentation, fails, should not mean that a </p>
+<p>name is free of third party rights. </p>
+<p> </p>
+<p>¼</p>
+<p> </p>
+<p>Outlook, Windows, Windows XP, Windows 2000, Windows NT, Visual Studio are </p>
+<p>trademarks of the Microsoft Corporation. </p>
+<p>  </p>
+<p><b>1.1.4 </b></p>
+<p><b>Errata Sheet of manufacturers </b></p>
+<p> </p>
+<p><b>Caution:</b> Vector only delivers software!  </p>
+<p>Your hardware manufacturer will provide you with the necessary errata sheets </p>
+<p>concerning your used hardware. In case of errata dealing with CAN please provide us </p>
+<p>the relevant erratas and we will figure out whether this hardware problem is already </p>
+<p>known to us or whether to get a possible workaround.  </p>
+<p> </p>
+<p> </p>
+<p><b>Info:</b> Because of many NDAs with different hardware manufacturers or because we </p>
+<p>are not informed about, we are not able to provide you with information concerning </p>
+<p>hardware errata of the hardware manufacturers.  </p>
+<p> </p>
+<p> </p>
+<p>- 8 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Getting Started </p>
+<p><b>2 </b></p>
+<p><b>Getting Sta</b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p><b>rted </b></p>
+<p>2.1 </p>
+<p>How to use this Manual </p>
+<p> page 10</p>
+<p>  </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 9 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Getting Started </p>
+<p>User Manual CANdesc </p>
+<p><b>2.1 </b></p>
+<p><b>How to use this Manual </b></p>
+<p>by step. </p>
+<p> </p>
+<p>nswers to special questions without reading the whole document us</p>
+<p> </p>
+<p>Just follow the description step </p>
+<p>  </p>
+<p>FAQ</p>
+<p>To find a</p>
+<p>e the </p>
+<p>FAQ list (see section FAQs on page 63). </p>
+<p>  </p>
+<p>- 10 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Basic Information </p>
+<p><b>3 </b></p>
+<p><b>Basic Information </b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>3.2 </p>
+<p>What is Diagnos</p>
+<p> 13</p>
+<p>tic </p>
+<p> page</p>
+<p>3.</p>
+<p>3 </p>
+<p>What happens during Diagnostics? </p>
+<p> page 13</p>
+<p>3.4 </p>
+<p>What is CANdesc? </p>
+<p> page 14</p>
+<p>3.5 </p>
+<p>Tools and Files </p>
+<p> page 14</p>
+<p> </p>
+<p>CANdela Studio, CDDT, CDD </p>
+<p> </p>
+<p>Generation Tool, CDD, DBC </p>
+<p> </p>
+<p>Generation Process with CANbedded Software Components </p>
+<p>3.6 </p>
+<p>What CANdesc does </p>
+<p> page 15</p>
+<p>3.7 </p>
+<p>Diagnostics – a more detailed View </p>
+<p> page 17</p>
+<p> </p>
+<p>Basic Nomenclature from the Bottom Up </p>
+<p> </p>
+<p>The same Nomenclature from the Top Down </p>
+<p> </p>
+<p>Where to find this Nomenclature in CANdela Studio </p>
+<p> </p>
+<p>Generic Handling of a Diagnostic Request in the CANdesc Component </p>
+<p> </p>
+<p>User, None, OEM, Generated – what does this mean? </p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 11 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Basic Information </p>
+<p>User Manual CANdesc </p>
+<p><b>3.1 </b></p>
+<p><b>An Overall View </b></p>
+<p>ECU in the focus </p>
+<p>What we are now talking about </p>
+<p>shown in the figure below. Almost every </p>
+<p>is an ECU, a module to be built-in a vehicle like </p>
+<p>ECU participates in a certain bus system like </p>
+<p>xRay or LIN. </p>
+<p>e.g. CAN, Fle</p>
+<p>  </p>
+<p> </p>
+<p><b>Vehicle with different bus systems</b></p>
+<p></p>
+<p><b>CAN Highspeed</b></p>
+<p></p>
+<p><b>CAN Lowspeed</b></p>
+<p></p>
+<p><b>LIN</b></p>
+<p></p>
+<p><b>FlexRay</b></p>
+<p></p>
+<p><b>MOST</b></p>
+<p> </p>
+<p>So any ECU within one bus system has to provide an identical interface to this bus </p>
+<p>system because all ECUs have to share information via this bus system as you see in </p>
+<p>the figure below. </p>
+<p> </p>
+<p>CAN Lowspeed as </p>
+<p>an example bus </p>
+<p>system </p>
+<p>  </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>For that reason all ECUs are built-up in the same way. There is a software part to </p>
+<p>realize the main job (application) of this ECU e.g. to control the engine or a door. The </p>
+<p>other part is the software part to be able to communicate with the other ECUs via the </p>
+<p>bus system that is the communication software. </p>
+<p>  </p>
+<p>- 12 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Basic Information </p>
+<p>Application Software</p>
+<p> </p>
+<p>Software for Network </p>
+<p>Communication and Diagnostics</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.2 </b></p>
+<p><b>What is Diagnostic </b></p>
+<p>Dia'gno stics - </p>
+<p>Detection, </p>
+<p>Examination of a </p>
+<p>machine; </p>
+<p>[greek. <i>diagnoskein </i></p>
+<p>„analyze deeply, </p>
+<p>differentiate] </p>
+<p>In contrast to Dia’gno </p>
+<p></p>
+<p> sis – Examination </p>
+<p>(med.) </p>
+<p>Diagnostics in a technical context is the examination of a machine. But diagnostics in </p>
+<p>this context goes way beyond this definition.  </p>
+<p>Diagnostics comprises function monitoring, error detection, fault memory, activation, </p>
+<p>data acquisition etc. and is used for variant coding, end-of-line programming, </p>
+<p>reprogramming, identification etc. </p>
+<p><b>3.3 </b></p>
+<p><b>What hap</b></p>
+<p>In most cases an Off-Board tester (Client) sends a diagnostic request to the ECU (via </p>
+<p>CAN) and the ECU (Server) sends back a diagnostic response. This can be a positive </p>
+<p>or a negative response. The following figure clearly shows a basic representation of </p>
+<p>this mechanism. </p>
+<p>  </p>
+<p>CANdesc –  </p>
+<p>CAN Diagnostic </p>
+<p>Embedded Software </p>
+<p>Component </p>
+<p> </p>
+<p>  </p>
+<p><b>pens during Diagnostics? </b></p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 13 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Basic Information </p>
+<p>User Manual CANdesc </p>
+<p><b>3.4 </b></p>
+<p><b>What is CANdesc? </b></p>
+<p>CANdesc is totally </p>
+<p>generated based </p>
+<p>upon the CDD file. </p>
+<p>CANdesc stands for <b>CAN Diagnostic Embedded Software Component</b>.  </p>
+<p>This software component differs from all other CANbedded Software Components in </p>
+<p>that it is totally generated. To be able to generate this component you need a CDD </p>
+<p>file, a DBC file and the generation tool (GENy / CANgen). </p>
+<p>Generated Software </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>Component based </p>
+<p>on .CDD and .DBC </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> The CANdesc will be explained in the section Generic Handling of a Diagnostic </p>
+<p>Request in the CANdesc Component on page 21, where you will get detailed insight </p>
+<p>into the CANdesc Component and how it works when processing a diagnostic </p>
+<p>request. </p>
+<p>  </p>
+<p><b>3.5 </b></p>
+<p><b>Tools and Files </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>CANdela S</b></p>
+<p>ela </p>
+<p>CANdela Studio is a PC tool. It reads in the diagnostic template file CDDT and </p>
+<p>generates a diagnostic data base, the CDD file. </p>
+<p>The CDDT is a description of the OEM diagnostic specification. </p>
+<p>All necessary diagnostic information, such as supported diagnostic services, sub </p>
+<p>services, format, signals, state filters, state transitions etc., is described via CANdela </p>
+<p>Studio and stored in the CDD file. </p>
+<p>To use the CANdesc component, you need the CDD file and you need to know how </p>
+<p>to make the necessary settings in CANdela Studio. </p>
+<p>  </p>
+<p><b>3.5.2 </b></p>
+<p><b>Generation Tool, CDD, DBC </b></p>
+<p>Remember to add </p>
+<p>the path to the CDD </p>
+<p>file in the Generation </p>
+<p>ol </p>
+<p> </p>
+<p>There is the same </p>
+<p>DBC file per bus </p>
+<p>The generation tool (GENy / CANgen) is a PC Tool, too. It generates configuration </p>
+<p>files and signal interface files for the CANbedded Software Components. The </p>
+<p>generation tool needs the DBC file to generate the files. </p>
+<p> </p>
+<p>The DBC file is designed by the vehicle manufacturer and distributed to all suppliers </p>
+<p>that develop an ECU. Thus every supplier uses the SAME DBC file for one vehicle </p>
+<p>platform and one bus system (powertrain, body CAN etc.) to guarantee a common </p>
+<p><b>tudio, CDDT, CDD </b></p>
+<p>All settings you have </p>
+<p>to do in CANd</p>
+<p>Studio to use </p>
+<p>CANdesc are stored </p>
+<p>in the CDD file. </p>
+<p>To</p>
+<p>- 14 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Basic Information </p>
+<p>system (high speed, </p>
+<p>low speed, etc) for all </p>
+<p>basis for developm</p>
+<p>For example, ever</p>
+<p>suppliers to </p>
+<p>n </p>
+<p>ent. </p>
+<p>y ECU has to know that a 1 in bit 7 in the 4</p>
+<p>th</p>
+<p> byte of the message </p>
+<p>0x305 means “Ignition Key” on/off. </p>
+<p>s the </p>
+<p> </p>
+<p><b>n Process with CANbedded Software Components </b></p>
+<p> </p>
+<p>Normally the generation tool generates files that contain the configuration and the </p>
+<p>signal interface of the CANbedded Software Components. CANbedded can be </p>
+<p>compiled and linked using the source code of each component. </p>
+<p>  </p>
+<p>The standard </p>
+<p>generation process </p>
+<p>for Vector Software </p>
+<p>Components. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Component </p>
+<p>guarantee a commo</p>
+<p>basis for </p>
+<p>development </p>
+<p>The DBC file contains information about every node and the messages / signal</p>
+<p>node has to send and to receive. </p>
+<p>When using CANdesc for diagnostics the CDD file must be read in by the generation</p>
+<p>tool, to be able to generate the CANdesc code. </p>
+<p>  </p>
+<p><b>3.5.3 </b></p>
+<p><b>Generatio</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>CANdesc is a </p>
+<p>completely </p>
+<p>generated Software </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>The main difference for CANdesc is that the source code for CANdesc is totally </p>
+<p>generated from the CDD file and therefore not included in your delivery as the other </p>
+<p>software components are. Since the CDD file contains most of the information about </p>
+<p>onal request with appropriate </p>
+<p>response message headers, corresponding to the given KWP2000/UDS (ISO </p>
+<p>CANdesc, there are only a few configuration settings left that can be done via the </p>
+<p>generation tool on the CANdesc tab </p>
+<p>  </p>
+<p><b>3.6 </b></p>
+<p><b>What CANdesc does </b></p>
+<p>Handles Diagnostic </p>
+<p>Communication </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc receives addressed requests physically or/and functionally </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc generates and handles a physical or functi</p>
+<p>14229-1) Diagnostics on CAN manufacturer specification. </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc connects to underlying Transport Protocol and handles the </p>
+<p>communication errors of the underlying layers. </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 15 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Basic Information </p>
+<p>User Manual CANdesc </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc is capable of communication on any bus systems, using an own </p>
+<p>abstraction interface. </p>
+<p>  </p>
+<p>Manages Diagnostic </p>
+<p>Data (Buffer) </p>
+<p>  </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc keeps the data consistency, which guarantees that no other request wi</p>
+<p>delete the current diagnostic re</p>
+<p>ll </p>
+<p>quest data being processed. </p>
+<p>dles Diagnostic </p>
+<p>rors </p>
+<p>ror handling based on the method </p>
+<p><b>report only first detected error</b>. </p>
+<p>Response pending”, </p>
+<p>  </p>
+<p>nalyzes Requests </p>
+<p>(state machine, </p>
+<p>filtering) </p>
+<p>d </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc analyzes the service instance. This includes recognition of the service-</p>
+<p>specific sub functions for each supported SID. The request length is validated if it </p>
+<p>is defined to be constant. For dynamic fields, the application must do range </p>
+<p>checking of the request length. </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc validates the states. The component ensures that a service is only </p>
+<p>executed if the diagnostic state allows the processing of that service. E. g. some </p>
+<p>services are only allowed to be executed inside a special diagnostic session. If </p>
+<p>the current state does not allow the execution, a corresponding negative </p>
+<p>response is sent automatically. </p>
+<p>rocesses the </p>
+<p>quest (optional) </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc generates a complete diagnostic handler function which fills out the </p>
+<p>correct response data for the application. </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc generates signal handlers to help the application place the response </p>
+<p>information. </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc generates a Service MainHandler which will use data access functions </p>
+<p>provided by the application, but will place the information on the message as </p>
+<p>defined in the diagnostic data description. </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc dispatches incoming request(s) to the application (Service MainHandler </p>
+<p>or signal handler level). </p>
+<p>  </p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc prrovides centralized diagnostic er</p>
+<p>Han</p>
+<p>Er</p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc monitors timeouts (e.g. S3- “Tester Present”, P2- “</p>
+<p>etc.). </p>
+<p>A</p>
+<p>¼</p>
+<p> </p>
+<p>CANdesc detects relevant SID (Service Identifier) for the ECU. If an SID is not </p>
+<p>supported by the current configuration, the appropriate reaction will be execute</p>
+<p>(e.g. negative response or the request will be ignored). </p>
+<p>  </p>
+<p>P</p>
+<p>re</p>
+<p>- 16 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Basic Information </p>
+<p><b>3.7 </b></p>
+<p><b>Diagnostics – a more detailed View </b></p>
+<p><b> this chapter you find the following information: </b></p>
+<p><b>In</b></p>
+<p>3.7.1  Basic Nomenc</p>
+<p> page 18</p>
+<p>lature from the Bottom Up </p>
+<p>3.7.2  The same Nomenclature from the Top Down </p>
+<p> page 19</p>
+<p>3.</p>
+<p>7.3  Where to find this Nomenclature in CANdela Studio </p>
+<p> page 19</p>
+<p>3.7.4  Generic Handling of a Diagnostic Request in the CANdesc Component </p>
+<p> page 21</p>
+<p>3.7.5  User, None, OEM, Generated – what does this mean? </p>
+<p> page 23</p>
+<p>  </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 17 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Basic Information </p>
+<p>User Manual CANdesc </p>
+<p><b>3.7.1 </b></p>
+<p><b>Basic Nomenclature from the Bottom Up </b></p>
+<p>Using the same </p>
+<p>the same thing </p>
+<p>Basic diagnostic communication is based upon a request / response mechanism. To </p>
+<p>ela Studio it is necessary to make some detailed </p>
+<p>est and responses (positive and negative) forms a </p>
+<p>re below. A service (in the scope of CANdesc) is a </p>
+<p>d service primitives. </p>
+<p>e Identifier = </p>
+<p>ID </p>
+<p> </p>
+<p>Build-up of Requests </p>
+<p>and Response </p>
+<p>Messages </p>
+<p>expressions does not </p>
+<p>mean to talk about </p>
+<p>understand the structure of CANd</p>
+<p>naming definitions. </p>
+<p> </p>
+<p>The combination of a requ</p>
+<p><b>Service</b>, </p>
+<p>as you can see in the figu</p>
+<p>concrete </p>
+<p>This nomenclature </p>
+<p>service of an ECU. </p>
+<p>should help to </p>
+<p>proceed with </p>
+<p>Request and responses are so-calle</p>
+<p>CANdesc and </p>
+<p>CANdela. </p>
+<p>  </p>
+<p>Servic</p>
+<p>S</p>
+<p> </p>
+<p>  </p>
+<p>Service </p>
+<p>Protocol Service </p>
+<p>Request </p>
+<p>Response </p>
+<p>Diagnostic Instance </p>
+<p>Diagnostic Class   </p>
+<p>A <b>protocol service </b>is a pattern for a service. The protocol service defines how the </p>
+<p>service primitives have to be built up. It determines the number and meaning of bytes </p>
+<p>for the sub service, and specifies the data bytes. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> The order of service identifier, sub service and data bytes can be found at the </p>
+<p>byte stream level, too. </p>
+<p>  </p>
+<p>Request </p>
+<p>A request is a service primitive and is created as shown in figure above. A request is </p>
+<p>always sent from a tester to an ECU. The ECU processes the request and has to </p>
+<p>send back a response message. </p>
+<p>  </p>
+<p>Response  </p>
+<p> </p>
+<p>The positive response is calculated very easily by just adding the value 0x40 (hex </p>
+<p>format) to the SID of the request. The sub service is just repeated from the request </p>
+<p>and the data depends on the service. </p>
+<p>The negative response always starts with 0x7F as the SID followed by the SID of the </p>
+<p>request. The error code shows the reason for the negative response (e.g. wrong </p>
+<p>format of the request, …). </p>
+<p>  </p>
+<p> </p>
+<p>Services with the same sub service (similar functional scope) are combined into the </p>
+<p>same <b>Diagnostic Instance</b>. This sub service is the characteristic factor for the </p>
+<p>- 18 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Basic Information </p>
+<p>diagnostic instance. </p>
+<p><b>nostic class</b>.  </p>
+<p> </p>
+<p>ame Subservice are </p>
+<p>ned into a </p>
+<p> - </p>
+<p>n </p>
+<p>n </p>
+<p>A diagnostic instance is a part of a <b>diag</b></p>
+<p>A diagnostic class is the abstract description of a use case. </p>
+<p>This is shown in the following two illustrations. </p>
+<p>  </p>
+<p>Services with the</p>
+<p>s</p>
+<p>combi</p>
+<p>Diagnostic Instance</p>
+<p>the Sub Functio</p>
+<p>4000 is Just a</p>
+<p>Example </p>
+<p>Service 4</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 4</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 3</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 3</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 2</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 2</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Diagnostic Instance</p>
+<p>Service 1</p>
+<p>Service 1</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p> Diagnostic </p>
+<p>ss </p>
+<p>  </p>
+<p>A</p>
+<p>Instance is a part of </p>
+<p>a Diagnostic Cla</p>
+<p>Service 4</p>
+<p><b>100A</b></p>
+<p>Request</p>
+<p><b>100A</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 3</p>
+<p><b>100A</b></p>
+<p>Request</p>
+<p><b>100A</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 2</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 1</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Diagnostic Instance 2</p>
+<p>Service 4</p>
+<p><b>100A</b></p>
+<p>Request</p>
+<p><b>100A</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 3</p>
+<p><b>100A</b></p>
+<p>Request</p>
+<p><b>100A</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 2</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 1</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Diagnostic Instance 2</p>
+<p>Diagnostic Class</p>
+<p>Service 4</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 3</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 2</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Diagnostic Instance 1</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 1</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 4</p>
+<p>Service 3</p>
+<p>Service 2</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Service 1</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p><b>4000</b></p>
+<p>Request</p>
+<p><b>4000</b></p>
+<p>Response</p>
+<p>(positive)</p>
+<p>Response</p>
+<p>(negative)</p>
+<p>Diagnostic Instance 1</p>
+<p><b>e same Nomenclature from the Top Down </b></p>
+<p>understand both </p>
+<p>directions. </p>
+<p>A <b>diagnostic class </b>is an abstract description of a use case.  </p>
+<p>A <b>diagnostic instance </b>is derived from a diagnostic class. Some diagnostic classes </p>
+<p>). </p>
+<p>ontains services. </p>
+<p><b>Service</b>s are composed of the three <b>service primitives</b>: request, positive response </p>
+<p>nformation unit exchanged between the </p>
+<p>tester and the ECU. In the automotive environment you call them signals, too. </p>
+<p><b>.7.3 </b></p>
+<p><b>Where to fi</b></p>
+<p>Getting around in </p>
+<p>CANdela Studio  </p>
+<p>you </p>
+<p>CANdela Studio where to make the necessary settings.  </p>
+<p>  </p>
+<p><b>3.7.2 </b></p>
+<p><b>Th</b></p>
+<p>CANdela is top </p>
+<p>own, CANdesc </p>
+<p>d</p>
+<p>bottom up – try to </p>
+<p>can be instantiated only once. Any diagnostic instance is unique and can be </p>
+<p>distinguished from another diagnostic instance via its sub service (e.g. data identifier</p>
+<p>A diagnostic instance c</p>
+<p>and negative response. The <b>protocol service </b>is the pattern for the service, the </p>
+<p>grammar definition.  </p>
+<p>The service primitive <b>data </b>is a concrete i</p>
+<p>  </p>
+<p><b>3</b></p>
+<p><b>nd this Nomenclature in CANdela Studio </b></p>
+<p>To generate CANdesc you will have to make settings in the CDD file, i.e. you will </p>
+<p>have to work with CANdela Studio. That’s the reason why it is very important that </p>
+<p>get to know the areas in the </p>
+<p>Below there is a screenshot of CANdela Studio. </p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 19 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Basic Information </p>
+<p>User Manual CANdesc </p>
+<p>See the Diagnostics </p>
+<p>Classes and </p>
+<p>Diagnostic Instances </p>
+<p>in the CANdela </p>
+<p>Studio tree structure </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The structure within CANdela Studio is top down. In the tree on the left of CANdela </p>
+<p>Studio you will find the diagnostic class and the diagnostic instances as shown in the </p>
+<p>figure above. </p>
+<p>  </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> To get familiar with the idea of diagnostic classes and diagnostic instances, </p>
+<p>have a look at all supported diagnostic classes. Verify for yourself what is meant by </p>
+<p><b>abstract description of a use case</b>, e.g. talking about Sessions, Security Access, </p>
+<p>Fault Memory… </p>
+<p>  </p>
+<p> </p>
+<p>If you click on a Service Instance you get a </p>
+<p>figure to understand the different areas on th</p>
+<p>window like the following figure. Use this </p>
+<p>e diagnostic instance window and to </p>
+<p>close the gap between the nomenclature in the section above and it appears in </p>
+<p>CANdela Studio. </p>
+<p>  </p>
+<p>- 20 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Basic Information </p>
+<p>Diagnostic Instance </p>
+<p>window of CA</p>
+<p>Studio – a very </p>
+<p>important window</p>
+<p> </p>
+<p> </p>
+<p>Ndela </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p><b>3.7.4 </b></p>
+<p><b>Generic Handling of a Diagnostic Request in the CANdesc Component </b></p>
+<p>What happens in the </p>
+<p>CANdesc if a </p>
+<p>diagnostic message </p>
+<p>received? </p>
+<p>es. </p>
+<p>c. </p>
+<p>Now you know the basic diagnostic elements and the build-up of diagnostic servic</p>
+<p>Now we take a closer look at how the diagnostic services are processed by CANdes</p>
+<p>You also need to know these processing steps so you can control and adapt this </p>
+<p>process. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> For this adaptation you have to use CANdela Studio. </p>
+<p>  </p>
+<p>The following figure shows the processing of a diagnostic service in detail. </p>
+<p>  </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 21 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Basic Information </p>
+<p>User Manual CANdesc </p>
+<p>Processing a </p>
+<p>Diagnostic Message </p>
+<p>received by </p>
+<p>CANdesc and the </p>
+<p>c</p>
+<p>A</p>
+<p> </p>
+<p>onnections to the </p>
+<p>pplication. </p>
+<p>  </p>
+<p>n</p>
+<p> </p>
+<p>Everything starts with a diagnostic request from a tester to the ECU. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> The path of this message through the CAN Driver and the Transport Protocol is </p>
+<p>not shown in the illustration. </p>
+<p>  </p>
+<p>ect </p>
+<p> </p>
+<p>p</p>
+<p> </p>
+<p>to the tester. The error </p>
+<p>code informs about the reason (e.g. wrong format). </p>
+<p>q</p>
+<p> </p>
+<p> function </p>
+<p>et it to </p>
+<p>&lt;none&gt;, &lt;user&gt; or &lt;OEM&gt;. </p>
+<p>  </p>
+<p>r</p>
+<p> </p>
+<p>The next function is the MainHandler. This is a mandatory function. Every service </p>
+<p>must provide a MainHandler. The MainHandler is designed to analyze the request </p>
+<p>and assemble the response message. The MainHandler provides the options &lt;user&gt;, </p>
+<p>&lt;OEM&gt; and &lt;generated&gt;. </p>
+<p>  </p>
+<p>s</p>
+<p> </p>
+<p>After the MainHandler has processed the diagnostic data, provided the data for the </p>
+<p>response and informed the CANdesc Component about the end of the processing </p>
+<p>(processing done), the positive response message will be sent back to the tester. </p>
+<p>  </p>
+<p>o</p>
+<p> </p>
+<p>Now this incoming diagnostic request will be checked in different ways. Is the SID </p>
+<p>supported in the ECU? Is this SID supported in the current session? Is the service </p>
+<p>supported? Is the format of this request message correct, i.e. correct length? Corr</p>
+<p>data? etc.</p>
+<p>  </p>
+<p>If any of these checks fail a negative response is sent back </p>
+<p>  </p>
+<p>If the incoming diagnostic request passes all of these checks, a PreHandler</p>
+<p>could be called. This PreHandler function is optional. You have options to s</p>
+<p> </p>
+<p><b>Info:</b> The path through the Transport Protocol and the CAN Driver is not shown in the </p>
+<p>figure above. </p>
+<p>  </p>
+<p>t</p>
+<p> </p>
+<p>After the diagnostic response is sent by the transport layer (ACK)<b>… </b></p>
+<p>  </p>
+<p>u</p>
+<p> </p>
+<p><b>…</b>the call of the PostHandler function is triggered. This function is optional too and </p>
+<p>- 22 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Basic Information </p>
+<p>can be set to &lt;none&gt;, &lt;user&gt; and &lt;OEM&gt;. Use this function to do any kind of state </p>
+<p>updates. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> A typical example for the <b>PostHandler </b>is to reset the CPU to start the </p>
+<p>bootloader. </p>
+<p>  </p>
+<p><b>3.7.5 </b></p>
+<p><b>User, None, OEM, Generated – what does this mean? </b></p>
+<p> </p>
+<p>As you have read in the section above, a Pre-, Main- and PostHandler can be </p>
+<p>selected for any service to process the diagnostic service in a very user-friendly </p>
+<p>manner. </p>
+<p>  </p>
+<p>All handlers can be </p>
+<p>defined via CANdela </p>
+<p>Studio </p>
+<p><b>Handler </b></p>
+<p><b>Selectable settings </b></p>
+<p> </p>
+<p>PreHandler </p>
+<p>none, user, OEM </p>
+<p> </p>
+<p>MainHandler </p>
+<p>user, OEM, generated </p>
+<p> </p>
+<p>PostHandler </p>
+<p>none, user, OEM </p>
+<p>  </p>
+<p>None </p>
+<p>  </p>
+<p>er </p>
+<p>The setting user means that you have to do the complete code for this handler. The </p>
+<p>  </p>
+<p>OEM (predefined) </p>
+<p>tion is part of the CANbedded Software Component. The user does not </p>
+<p>have to add anything. </p>
+<p>  </p>
+<p>None can be selected for Pre and PostHandlers only because these handlers are </p>
+<p>optional. As the name says, none switches the handler off. </p>
+<p>Us</p>
+<p>function prototype is generated in appdesc.h. </p>
+<p>The setting OEM handles the request as required by the car manufacturer. The </p>
+<p>implementa</p>
+<p><b>Info:</b> The setting OEM should only be used if it is predefined. </p>
+<p> </p>
+<p>  </p>
+<p>Generated </p>
+<p>ignal Handler) </p>
+<p>have two options for this handler (MainHandler) </p>
+<p>1. </p>
+<p>Generate a function prototype (appdesc.h). Use this function to handle the </p>
+<p>his variable is generated and you only need to define this </p>
+<p>  </p>
+<p>If you select <b>Generated </b>you </p>
+<p>(S</p>
+<p>diagnostic data by returning the current value (reading service) or using the </p>
+<p>parameter (writing service).  </p>
+<p>2. </p>
+<p>In CANdela Studio you can enter the name of the variable. In appdesc.h the </p>
+<p>external declaration of t</p>
+<p>variable in your application and that’s all. Your application now just has to keep </p>
+<p>the content up to date. </p>
+<p> </p>
+<p><b>Cross reference: </b>For more details about the using the handlers and how to make the </p>
+<p>settings in CANdela refer to STEP Functional Connection between your Application </p>
+<p>and CANdesc/CANdela Studio on page 35. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 23 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>A Few STEPS to CANdesc </p>
+<p>User Manual CANdesc </p>
+<p><b>4 </b></p>
+<p><b>A Few STE</b></p>
+<p><b>In this chapter you fin</b></p>
+<p><b>ing information: </b></p>
+<p><b>PS to CANdesc </b></p>
+<p><b>d the follow</b></p>
+<p>4.1 </p>
+<p>STEP What do you need before start? </p>
+<p> page 25</p>
+<p>4.2 </p>
+<p>Startup Code </p>
+<p> page 25</p>
+<p>4.3</p>
+<p> </p>
+<p>Overview </p>
+<p>25</p>
+<p> page </p>
+<p>4.4 </p>
+<p>STEP Installatio</p>
+<p>e 26</p>
+<p>n </p>
+<p> pag</p>
+<p>4.</p>
+<p>5 </p>
+<p>STEP Configura</p>
+<p>e Generation Tool </p>
+<p> page 26</p>
+<p>tion with th</p>
+<p> </p>
+<p>Using the Generation Tool CANgen </p>
+<p> </p>
+<p>Using the Generation Tool GENy </p>
+<p>4.6 </p>
+<p>STEP Generating</p>
+<p>page 29</p>
+<p> Files </p>
+<p> </p>
+<p> </p>
+<p>Using Generatio</p>
+<p>en </p>
+<p>n Tool CANg</p>
+<p> </p>
+<p>Using the Gener</p>
+<p>y </p>
+<p>ation Tool GEN</p>
+<p>4.</p>
+<p>7 </p>
+<p>STEP Add CANb</p>
+<p>r Project </p>
+<p> page 32</p>
+<p>edded to you</p>
+<p>4.8 </p>
+<p>STEP Adapt You</p>
+<p> 33</p>
+<p>r Application Files </p>
+<p> page</p>
+<p> </p>
+<p>Including, Initializing and Cyclic Calling </p>
+<p>4.</p>
+<p>9 </p>
+<p>STEP Functional Connection between your Application and CANdesc/CANdela Studio </p>
+<p> page 35</p>
+<p> </p>
+<p>How to handle User-Defined Handlers </p>
+<p> </p>
+<p>How to Handle Predefined Handlers (for MainHandler only) </p>
+<p> </p>
+<p>Handling OEM-Specific Settings </p>
+<p>4.10 </p>
+<p>STEP Compile and link your Project </p>
+<p> page 41</p>
+<p>4.11</p>
+<p> </p>
+<p>STEP Test it via</p>
+<p> page 41</p>
+<p> CANoe </p>
+<p> </p>
+<p>Start CANoe.CAN OSEK TP enlarged </p>
+<p> </p>
+<p>Test of CANdesc </p>
+<p>  </p>
+<p> </p>
+<p>- 24 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>A Few STEPS to CANdesc </p>
+<p><b>4.1 </b></p>
+<p><b>STEP What do you need before start? </b></p>
+<p> you have received everything you need. </p>
+<p>edd</p>
+<p>ded delivery? </p>
+<p>Except for the converter, you should answer all other questions with <b>yes </b>befo</p>
+<p>ere. </p>
+<p><b>.2 </b></p>
+<p>yo</p>
+<p><b>rtup code </b>of the microcontroller is not part of the Vector delivery. Th</p>
+<p>s in your responsibility.  </p>
+<p>ide an appropriate <b>startup code </b>regarding e.g. wait states, etc.  </p>
+<p>Check before you </p>
+<p>start </p>
+<p>Before you start make sure that</p>
+<p>  </p>
+<p>CANb</p>
+<p>ed </p>
+<p>Did you get the CANbed</p>
+<p>  </p>
+<p>YES? Then go on </p>
+<p>re going </p>
+<p>on h</p>
+<p>  </p>
+<p><b>4</b></p>
+<p><b>Startup Code </b></p>
+<p>It is </p>
+<p>ur </p>
+<p>The <b>sta</b></p>
+<p>e <b>startup </b></p>
+<p>responsibility </p>
+<p><b>code </b>complete i</p>
+<p>Take care to prov</p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> The <b>startup code </b>is not part of the Vector delivery. </p>
+<p> </p>
+<p><b>4</b></p>
+<p><b>Overview </b></p>
+<p><b>.3 </b></p>
+<p>steps to CANdesc. These steps are described in de</p>
+<p>ing sections. </p>
+<p>Step overview </p>
+<p>This overview shows the </p>
+<p>tail on </p>
+<p>the follow</p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 25 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>A Few STEPS to CANdesc </p>
+<p>User Manual CANdesc </p>
+<p><b>4.4 </b></p>
+<p><b>STEP Installation </b></p>
+<p>As you see in the picture before, you need 2 PC tools to work with CANbedded </p>
+<p>delivered with the CANbedded Software </p>
+<p>Components. Extract the files to an appropriate folder and follow the installation </p>
+<p>containing CANdesc as a diagnostic component. </p>
+<p>  </p>
+<p>Generation Tool </p>
+<p>The first tool is the generation tool. It is </p>
+<p>instructions. </p>
+<p>  </p>
+<p><b>Info:</b> There are two kinds of generation tools, CANgen and GENy. Which of them you </p>
+<p>have to us</p>
+<p>are shown</p>
+<p> </p>
+<p>e depends on the delivery. In the following steps the usage of both tools </p>
+<p>. </p>
+<p>  </p>
+<p>CANdela Stu</p>
+<p> </p>
+<p>dio </p>
+<p>edded </p>
+<p>ftware </p>
+<p>Components </p>
+<p> </p>
+<p>To use CANdesc you need at least a <b>CAN Driver </b>and a <b>Transport Protocol </b>(e.g. </p>
+<p>Copy all C and H files which are necessary for the components into your application </p>
+<p>project folder.  </p>
+<p>  </p>
+<p>The second PC tool is CANdela Studio. This tool is for editing the *.CDD file. Install </p>
+<p>the tool by following the installation instructions. </p>
+<p>Extract CANb</p>
+<p>So</p>
+<p>The number of CANbedded components in your delivery depends on your project. </p>
+<p>OSEK / ISO 15765-2).  </p>
+<p> </p>
+<p><b>Cross reference:</b> Refer to the corresponding user manuals (e.g. CANDriver User </p>
+<p>Manual) to get further information about the files of the different Software </p>
+<p>Components. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> Since CANdesc is totally generated, you won’t find any source files for CANdesc </p>
+<p>in your delivery. </p>
+<p>  </p>
+<p><b>4.5 </b></p>
+<p><b>STEP Configuration with the Generation Tool </b></p>
+<p> </p>
+<p> </p>
+<p>In t</p>
+<p>As described above there are two generation tools for configuring the CANbedded </p>
+<p>Software Components, CANgen and GENy.  </p>
+<p>e following chapters we describe the handling of both tools, beginning with </p>
+<p>en. Figure out which tool you use and read the corresponding chapters only. </p>
+<p>  </p>
+<p><b> the G</b></p>
+<p> </p>
+<p>Open CANgen. Add a data base (DBC file) via the green plus </p>
+<p>h</p>
+<p>CANg</p>
+<p><b>4.5.1 </b></p>
+<p><b>Using</b></p>
+<p><b>eneration Tool CANgen </b></p>
+<p>. </p>
+<p> </p>
+<p> </p>
+<p><b>Info:</b> Normally you get a data base (DBC) from your vehicle manufacturer that is </p>
+<p>designed for your project. </p>
+<p>  </p>
+<p>Are the files </p>
+<p>generated in the </p>
+<p>Make all the component settings as described in the appropriate User Manuals. For </p>
+<p>the Transport Protocol use the default <b>[Set Defaults] </b>for the first attempt. </p>
+<p>- 26 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>A Few STEPS to CANdesc </p>
+<p>correct path? </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> Remember to set the paths where the generation tool does the output. </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Very few settings </p>
+<p>have to be made in </p>
+<p>the Generation Tool </p>
+<p>CANgen for </p>
+<p>CANdesc </p>
+<p>To configure CANdesc, open the <b>CANdesc options </b>tab. For this first attempt click </p>
+<p><b>[Set Defaults]</b>. The generation tool needs to read an additional data base, the </p>
+<p>CANdela data base (CDD file). Browse for the CANdela data base file and select the </p>
+<p>CDD file you received from your vehicle manufacturer. </p>
+<p>If the two checkboxes for debugging are checked you have to provide debug callback </p>
+<p>functions in your application. </p>
+<p>A very important entry is the Call Cycle. This call cycle must be the one you call the </p>
+<p>DescTask function or the DescTimerTask function in your application (this will be </p>
+<p>explained in detail in the next steps). </p>
+<p><b>Using the Generation Tool GENy </b></p>
+<p>Open the generation tool GENy and create a new project as described in the </p>
+<p>OnlineHelp of GENy in the chapter <b>First Steps</b>. </p>
+<p>  </p>
+<p><b>4.5.2 </b></p>
+<p> </p>
+<p>  </p>
+<p><b>Info:</b> Normally you get a data base (DBC) from your vehicle manufacturer that is </p>
+<p>designed for your project. </p>
+<p> </p>
+<p>  </p>
+<p>onent settings as described in the appropriate User Manuals.  </p>
+<p> </p>
+<p>  </p>
+<p>Make all the comp</p>
+<p> </p>
+<p><b>Info:</b> Remember to set the paths where the generation tool does the output. </p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 27 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>A Few STEPS to CANdesc </p>
+<p>User Manual CANdesc </p>
+<p> </p>
+<p>Activate the component CANdesc in the component selection view. </p>
+<p> </p>
+<p>iew of </p>
+<p>  </p>
+<p> </p>
+<p>Component </p>
+<p>Selection V</p>
+<p>GENy </p>
+<p> </p>
+<p> </p>
+<p>The activation of the CANdesc component is modified with the </p>
+<p>  </p>
+<p>mponent </p>
+<p>Selection View of </p>
+<p>CAN component </p>
+<p>  </p>
+<p>Diag_CANdesc_xxx.DLL version 3.0. </p>
+<p>Co</p>
+<p>GENy with separate </p>
+<p>CANdesc_Connector</p>
+<p> </p>
+<p>sc can be connected to more than one channel or </p>
+<p>can be used standalone. The Diag _CANdesc_UDS/KWP component includes the </p>
+<p>on</p>
+<p>N </p>
+<p>component connects CANdesc to a CAN network and configures the TPMC to work </p>
+<p>  </p>
+<p>  </p>
+<p> </p>
+<p>Starting with this version CANde</p>
+<p>main configuration window of CANdesc. The Diag_CANdesc_C</p>
+<p>nectorCA</p>
+<p>with CANdesc. </p>
+<p> </p>
+<p><b>Caution:</b> If you do not activate CANdesc_ConnectorCAN component CANdesc will </p>
+<p>generate successful as standalone CANdesc. Therefore it is necessary to connect </p>
+<p>CANdesc with the CANdesc_ConnectorCAN component to a channel, if the TPMC </p>
+<p>shall be used. </p>
+<p>  </p>
+<p>- 28 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>A Few STEPS to CANdesc </p>
+<p>GENy Configuration </p>
+<p>View for CANdesc </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>view. As you see in the figure above, the </p>
+<p> </p>
+<p><b>rt </b>are checked you have to provide debug </p>
+<p>plication. </p>
+<p> the </p>
+<p><b>4.6 </b></p>
+<p><b>n</b></p>
+<p><b>.6.1 </b></p>
+<p><b>Using Gene</b></p>
+<p> </p>
+<p>To configure CANdesc, open the <b>CANdesc </b>configuration via the </p>
+<p>Diag_CANdesc_UDS in the navigation </p>
+<p>generation tool needs to read an additional data base, the CANdela data base (CDD</p>
+<p>file). Browse for the CANdela data base file and select the CDD file you received from </p>
+<p>your vehicle manufacturer. </p>
+<p>If the two checkboxes for <b>Debug Suppo</b></p>
+<p>callback functions in your ap</p>
+<p>A very important entry is the Call Cycle (“Cycle Time”). This call cycle must be</p>
+<p>one you call the DescTask function or your DescTimerTask function in your </p>
+<p>application (this will be explained in detail in the next steps). </p>
+<p>  </p>
+<p><b>STEP Ge erating Files </b></p>
+<p><b>4</b></p>
+<p><b>ration Tool CANgen </b></p>
+<p>If you have finished the settings in the previous step, hit the <b>[Generate] </b></p>
+<p> button. </p>
+<p>You get a message box containing information about the generation process and a </p>
+<p><b>[Success] </b>window containing information about the generated files and their paths. </p>
+<p>Check to see if the files are generated into the correct folders. </p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 29 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>A Few STEPS to CANdesc </p>
+<p>User Manual CANdesc </p>
+<p>Success Win</p>
+<p>after a Generation </p>
+<p>Process</p>
+<p>dow </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>Open the folder you generated in the files listed above. There you should find the </p>
+<p>generated files for CANdesc, too. These are: </p>
+<p>  </p>
+<p>desc.c  </p>
+<p> </p>
+<p>This file contains the implementation and the private interface of the Diagnostic </p>
+<p>Software Component. </p>
+<p>esc.h </p>
+<p>  </p>
+<p>appdesc.c </p>
+<p>s. All necessary callback functions are generated in this file and </p>
+<p>commented what is left to be done (&lt;&lt;TBD&gt;&gt;). See the example below: </p>
+<p>  </p>
+<p>  </p>
+<p>d</p>
+<p>This file contains the public interface of CANdesc. You will also find the &lt;Negative </p>
+<p>response codes&gt; here. </p>
+<p>This file is an implementation example for the proper usage of the diagnostics </p>
+<p>callback function</p>
+<p><b>Example:</b> Extract of the Generated Callback Functions Template. </p>
+<p> </p>
+<p>- 30 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>A Few STEPS to CANdesc </p>
+<p>/* ********************************************************************************</p>
+<p>* Function name:ApplDescReadVoltageService_Instance_For_Demonstration_Purposes</p>
+<p>* Description: Reads a signal.</p>
+<p>* Returns: signal value</p>
+<p>* Parameter(s): none</p>
+<p>* Particularitie(s) and limitation(s):</p>
+<p>*   - The function &quot;DescProcessingDone&quot; may not be called.</p>
+<p>*   - The function &quot;DescSetNegResponse&quot; may not be called.</p>
+<p>******************************************************************************** */</p>
+<p>vuint8 DESC_API_CALLBACK_TYPE </p>
+<p><b>ApplDescReadVoltageService_Instance_For_Demonstration_Purposes</b>(void)</p>
+<p>{</p>
+<p>/*&lt;&lt;TBD&gt;&gt; Remove this comment once you have completely implemented this function!!!*</p>
+<p>/</p>
+<p>/*Return the signal value.*/</p>
+<p><b>return</b> 0xFF;</p>
+<p>}</p>
+<p>/* ********************************************************************************</p>
+<p>* Function name:ApplDescReadCurrentService_Instance_For_Demonstration_Purposes</p>
+<p>* Description: Reads a signal.</p>
+<p>* Returns: signal value</p>
+<p>* Parameter(s): none</p>
+<p>* Particularitie(s) and limitation(s):</p>
+<p>*   - The function &quot;DescProcessingDone&quot; may not be called.</p>
+<p>*   - The function &quot;DescSetNegResponse&quot; may not be called.</p>
+<p>******************************************************************************** */</p>
+<p>vuint8 DESC_API_CALLBACK_TYPE </p>
+<p><b>ApplDescReadCurrentService_Instance_For_Demonstration_Purposes</b>(void)</p>
+<p>{</p>
+<p>/*&lt;&lt;TBD&gt;&gt; Remove this comment once you have completely implemented this function!!!*</p>
+<p>/</p>
+<p>/*Return the signal value.*/</p>
+<p><b>return</b> 0xFF;</p>
+<p>}</p>
+<p>/* ********************************************************************************</p>
+<p>* Function name:ApplDescReadResistanceService_Instance_For_Demonstration_Purposes</p>
+<p>YPE </p>
+<p><b>ApplDescReadResistanceService_Instance_For_Demonstration_Purposes</b></p>
+<p>*</p>
+<p>* Description: Reads a signal.</p>
+<p>* Returns: signal value</p>
+<p>* Parameter(s): none</p>
+<p>* Particularitie(s) and limitation(s):</p>
+<p>*   - The function &quot;DescProcessingDone&quot; may not be called.</p>
+<p>*   - The function &quot;DescSetNegResponse&quot; may not be called.</p>
+<p>******************************************************************************** */</p>
+<p>vuint16 DESC_API_CALLBACK_T</p>
+<p>(void)</p>
+<p>{</p>
+<p>/*&lt;&lt;TBD&gt;&gt; Remove this comment once you have completely implemented this function!!!</p>
+<p>/</p>
+<p>/*Return the signal value.*/</p>
+<p><b>return</b> 0xFFFF;</p>
+<p>}</p>
+<p>  </p>
+<p>pdesc modification   If you start programming in the file appdesc.c, you fill in the missing code for the </p>
+<p>new generation process, the generation tool detects whether </p>
+<p>d or not: </p>
+<p>Ap</p>
+<p>Detection to prevent </p>
+<p>loss of changes </p>
+<p>services and you start a </p>
+<p>the file has been change</p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> So better rename the file before you implement the diagnostic services. </p>
+<p>  </p>
+<p>appdesc.h </p>
+<p>This file provides prototypes of the application diagnostic callback functions and </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 31 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>A Few STEPS to CANdesc </p>
+<p>User Manual CANdesc </p>
+<p>All callback functio</p>
+<p>prototypes are </p>
+<p>generated</p>
+<p>n </p>
+<p> in </p>
+<p>appdesc.h. </p>
+<p>external application declarations, which are accessed by CANdesc. </p>
+<p>  </p>
+<p>Appdescdev.c </p>
+<p>This file contains the definition of the used variables in CANdela Studio.  </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b>  This  file  shall  be  used  only  during  the  first  integration  in  order  to  make  your </p>
+<p>project fully compile- and linkable. This file is no necessary later, since the variables </p>
+<p>that will be defined here shall be implemented within your ECU application code. </p>
+<p>  </p>
+<p> </p>
+<p><b>Cross reference: </b>(see section How to Handle Predefined Handlers (for MainHandler </p>
+<p>only) on page 38) </p>
+<p>  </p>
+<p><b>4.6.2 </b></p>
+<p><b>Using the Generation Tool GENy </b></p>
+<p>s step, hit the <b>[Generate]</b></p>
+<p> </p>
+<p>If you have finished the settings in the previou</p>
+<p> </p>
+<p> button.  </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> All files for the CANdesc Software Component are generated! </p>
+<p>  </p>
+<p>Generated Files for </p>
+<p>Ndesc –CANdesc </p>
+<p>re </p>
+<p>o! </p>
+<p>iew you see the files listed as shown in the figure below. Use </p>
+<p>this output to check the paths. In the list you only see the CANdesc-relevant files. The </p>
+<p>ation. </p>
+<p>In the Generated Files v</p>
+<p>CA</p>
+<p>Core Files a</p>
+<p>Generated, to</p>
+<p>files are the same as generated with CANgen, so refer above for detailed inform</p>
+<p> </p>
+<p>  </p>
+<p><b>4.7 </b></p>
+<p><b>STEP Add CANbedded to your Project </b></p>
+<p>What to do in this step depends on your development environment. Perhaps you are </p>
+<p>working with a makefile? </p>
+<p>Regardless of this you have to add the CANbedded files to your project. These are </p>
+<p> </p>
+<p>the files discussed in Section Extract CANbedded Software Components on page 26 </p>
+<p>and the ones generated in the previous step. </p>
+<p>  </p>
+<p> </p>
+<p><b>Caution:</b> Always make sure that the path in which you generate the files and the path </p>
+<p>your compiler is working on are the same! </p>
+<p>  </p>
+<p> </p>
+<p>Now there are several adaptations for you to make in your application. </p>
+<p>  </p>
+<p>- 32 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>A Few STEPS to CANdesc </p>
+<p><b>4.8 </b></p>
+<p><b>STEP Adapt Your Application Files </b></p>
+<p> </p>
+<p>Now all files for CANbedded and CANdesc are included in your project, and we can </p>
+<p>go on to make the necessary adaptations in your application files. </p>
+<p>  </p>
+<p> </p>
+<p>These adaptations can be split in two categories: </p>
+<p>¼</p>
+<p> </p>
+<p>Include, initialize and make the cyclic calls for the CANbedded Software </p>
+<p>Components (use the component-specific documentation for details). </p>
+<p>¼</p>
+<p> </p>
+<p>Connect your application to CANdesc </p>
+<p>  </p>
+<p><b>4.8.1 </b></p>
+<p><b>Including, Initializing and Cyclic Calling </b></p>
+<p>Two CANdesc </p>
+<p>headers have to be </p>
+<p>included in your </p>
+<p>application: </p>
+<p>desc.h </p>
+<p>appdesc.h </p>
+<p> </p>
+<p>Keep the including </p>
+<p>file structure. </p>
+<p>As for all other CANbedded Components, CANdesc must be included, initialized and </p>
+<p>used via a cyclic call. </p>
+<p>The figure shows all generated files of CANdesc. Your application only needs to </p>
+<p>include the files desc.h and appdesc.h in the order they are mentioned. </p>
+<p>  </p>
+<p><b>Info:</b> Any User Manual dealing with our CANbedded Software Components shows </p>
+<p>this kind of illustration. Always keep the </p>
+<p> </p>
+<p>include file structure that is shown. </p>
+<p>  </p>
+<p>Like all other </p>
+<p>CANbedded </p>
+<p>Software </p>
+<p>Components, </p>
+<p>CANdesc must be </p>
+<p>initialized and the </p>
+<p>Interrupts must be </p>
+<p>disabled during </p>
+<p>initialization </p>
+<p>As for all other CANbedded Software Components the initialization function follows </p>
+<p>the same naming conventions. For CANdesc use: </p>
+<p>DescInitPowerOn( initParameter ); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>/*Interrupts must be disabled*/ </p>
+<p>  </p>
+<p> </p>
+<p><b>Cross reference:</b> For information about the initParameter  refer to your OEM-specific </p>
+<p>Technical Reference for CANdesc. </p>
+<p>  </p>
+<p> </p>
+<p>Make sure that DescInitPowerOn is called after the call of CanInitPowerOn and </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 33 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>A Few STEPS to CANdesc </p>
+<p>User Manual CANdesc </p>
+<p>TpInitPowerOn.  </p>
+<p>Normally the components are initialized from the bottom up according to the layer </p>
+<p>model. Always do these initializations with disabled interrupts. </p>
+<p>This is the correct order of initialization if you use CAN Driver, Transport Protocol and </p>
+<p>CANdesc. </p>
+<p>  </p>
+<p>1. </p>
+<p>CanInitPowerOn(); </p>
+<p>2. </p>
+<p>TpInitPowerOn(); </p>
+<p>3. </p>
+<p>DescInitPowerOn(0); </p>
+<p> </p>
+<p>As you adjusted things in Using the Generation Tool CANgen on page 26 (<b>Call cycle </b></p>
+<p>tions to call cyclically are: </p>
+<p>DescTask( ) or </p>
+<p>escTimerTask() </p>
+<p>cally and keep </p>
+<p>e adjusted call </p>
+<p>cle </p>
+<p>ther with DescStateTask) </p>
+<p>  </p>
+<p><b>for CANdescMain</b>) the components need a cyclic call in your application to work </p>
+<p>properly. The call cycle must be the same as entered on the CANdesc tab / view </p>
+<p>(CANgen / GENy). The func</p>
+<p>  </p>
+<p>It is very important </p>
+<p>that you call </p>
+<p>DescTask( ); or </p>
+<p>DescTimerTask(); (toge</p>
+<p>D</p>
+<p>cycli</p>
+<p>th</p>
+<p>cy</p>
+<p> </p>
+<p><b>Caution:</b> Never use DescTask() and DescTimerTask() / DescStateTask() together! </p>
+<p> </p>
+<p>Using </p>
+<p>DescTask</p>
+<p> </p>
+<p>With the call of this single function the handling of the timers and of the internal </p>
+<p>service processing (including application functions) is triggered. If you receive a </p>
+<p>diagnostic request, the response can be handled not until the next call of DescTask.  </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> This could lead to slower service processing. </p>
+<p>  </p>
+<p>Using </p>
+<p>scTimerTask</p>
+<p> </p>
+<p>d </p>
+<p>This concept splits the timer handling for CANdesc from the internal service </p>
+<p>processing. Now only the function DescTimerT</p>
+<p>has to be called in the predefined </p>
+<p>(configuration tool) cycle time.  </p>
+<p>cyclic manner too, but does not </p>
+<p>st to speed-up the reaction on a </p>
+<p>diagnostic request or it can be called as soon as there are free resources (e.g. an idle </p>
+<p>  </p>
+<p>De</p>
+<p>an</p>
+<p>ask() </p>
+<p>DescStateTask</p>
+<p> </p>
+<p>The function DescStateTask() has to be called in a </p>
+<p>need a fix cycle time. It can be called very fa</p>
+<p>task in an operating system). </p>
+<p><b>Info:</b> CANdesc and DescTimerTask use the cyclic call as a time base for the timing </p>
+<p>calculations. </p>
+<p>Do not make this call out of a timer interrupt. J</p>
+<p> </p>
+<p>ust call DescTask() or </p>
+<p>DescTimerTask() at the task level. </p>
+<p>  </p>
+<p>- 34 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>A Few STEPS to CANdesc </p>
+<p><b>4.9 </b></p>
+<p><b>STEP Functional Connection between your Application and </b></p>
+<p><b>CANdesc/CANdela Studio </b></p>
+<p> </p>
+<p>It is up to you when you perform this step: before STEP Configuration with the </p>
+<p>Generation Tool (page 26), as a part of STEP Adapt Your Application Files (page 33) </p>
+<p>or perhaps at both times. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> There is a very close connection between the settings in CANdela Studio and </p>
+<p>what to do in your application. </p>
+<p>  </p>
+<p>Have a look a look at section Generic Handling of a Diagnostic Request in the </p>
+<p>CANdesc Component on page 21. </p>
+<p> </p>
+<p>As you can see, there are three types of handlers (Pre-, Main- and PostHandler) that </p>
+<p>he handlers. For this decision you need an overview of the </p>
+<p>great flexibility arising with the choice. </p>
+<p>We will first go through the possible settings for one service as an example. With the </p>
+<p>knowledge you gain from this you can then go on with the other services. </p>
+<p>The settings of the handlers value can be made in the Properties windows of each </p>
+<p> tab (see values in the following figure). </p>
+<p>apped </p>
+<p>to your application? </p>
+<p> </p>
+<p> </p>
+<p>Support for the </p>
+<p>different Handlers </p>
+<p>can be adjusted on </p>
+<p>the Service Property </p>
+<p>ge </p>
+<p>can be selected for any service. It is very important to know what happens when you </p>
+<p>choose the <b>Value </b>for t</p>
+<p>service on the <b>Attributes</b></p>
+<p>  </p>
+<p>How are the settings </p>
+<p>in CANdela m</p>
+<p> </p>
+<p>Pa</p>
+<p> </p>
+<p><b>ow to han</b></p>
+<p>  </p>
+<p><b>4.9.1 </b></p>
+<p><b>H</b></p>
+<p><b>dle User-Defined Handlers </b></p>
+<p> </p>
+<p>If you choose for the handlers to be user-defined, you have to do all the programming </p>
+<p>work for this service yourself, except for the checks. A callback function prototype will </p>
+<p>be generated in the file appdesc.h. </p>
+<p>Service Qualifier </p>
+<p>  </p>
+<p>Open the Service Properties and then the <b>General </b>tab. </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 35 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>A Few STEPS to CANdesc </p>
+<p>User Manual CANdesc </p>
+<p> </p>
+<p>Open the Diagnostic Instance Properties and then the </p>
+<p>  </p>
+<p>Diagnostic Instance </p>
+<p>ualifier </p>
+<p><b>General </b>Tab </p>
+<p>Q</p>
+<p>  </p>
+<p>Names</p>
+<p>generated callback</p>
+<p>functions </p>
+<p>  </p>
+<p> of the </p>
+<p> </p>
+<p>The names of these callback functions are built as the following  </p>
+<p> </p>
+<p><b>Example:</b> For this example, the callback function would look like this: </p>
+<p>appldesc + <b>Read </b>+ <b>Service_Instance_For_Demonstration_Purposes </b></p>
+<p>appldesc +<b>Pre</b>+ <b>Read </b>+ <b>Service_Insta</b></p>
+<p> </p>
+<p><b>nce_For_Demonstration_Purposes </b></p>
+<p>appldesc +<b>Post</b>+ <b>Read </b>+ <b>Service_Instance_For_Demonstration_Purposes </b></p>
+<p>with parameters: </p>
+<p>void ApplDescReadService_Instance_For_Demonstration_Purposes(DescMsgCont</p>
+<p>void ApplDesc<b>Pre</b>ReadService_Instance_For_Demonstration_Purposes(void);</p>
+<p>void ApplDesc<b>Post</b>ReadService_Instance</p>
+<p>ext* pMsgContext);</p>
+<p>_For_Demonstration_Purposes(vuint8 status);</p>
+<p>  </p>
+<p> </p>
+<p>Now you have to provide all the prototypes of the appdesc.h file as functions in your </p>
+<p>application and do the coding for each service, i.e. for each Pre-, Main- and </p>
+<p>PostHandler that is switched to User.  </p>
+<p>See an example for a ReadDataByIdentifier MainHandler for the service above </p>
+<p>- 36 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>A Few STEPS to CANdesc </p>
+<p>defined for <b>User</b>. The data bytes of this service are: </p>
+<p>¼</p>
+<p> </p>
+<p>g_Voltage (1 Byte) </p>
+<p>¼</p>
+<p> </p>
+<p>g_Current (1 Byte) </p>
+<p>¼</p>
+<p> </p>
+<p>g_Resistant (2 Bytes) </p>
+<p>  </p>
+<p> </p>
+<p>ws the data access for a reading service (upper figure) </p>
+<p>and a writing service. </p>
+<p> </p>
+<p>A writing service consists of a SID, perhaps a Sub-Service and the data. The </p>
+<p>ly need to process the data. That is the reason </p>
+<p>To process this service by yourself, you need to know how to access the diagnostic </p>
+<p>data. The following figure sho</p>
+<p>A reading service consists of a SID and perhaps a Sub-Service. The requested data</p>
+<p>is then sent with the response. </p>
+<p>response is only a confirmation with SID+0x40 and perhaps a Sub-Service. </p>
+<p>When working with CANdesc you on</p>
+<p>why the pointer is directed to the first data byte.  </p>
+<p><b>The same Diagnostic Buffer is used for receiving a diagnostic request AND sending the response</b></p>
+<p>SID </p>
+<p>SID + 0x40</p>
+<p><b>Diagnostic</b></p>
+<p><b>Buffer</b></p>
+<p>(RAM Memory)</p>
+<p>Sub Service</p>
+<p>Sub Service</p>
+<p>-</p>
+<p>Data</p>
+<p>-</p>
+<p>Data</p>
+<p>-</p>
+<p>Data</p>
+<p>Positive Diagnostic <b>res</b>ponse</p>
+<p>Diagnostic <b>req</b>uest (<b>A:</b> reading service)</p>
+<p><b>reqDataLen = 0</b></p>
+<p><b>reqData[ </b></p>
+<p><b>0</b></p>
+<p><b>]</b></p>
+<p><b>resDataLen</b></p>
+<p><b>resData[ </b></p>
+<p><b>0</b></p>
+<p><b>]</b></p>
+<p>resData[ </p>
+<p>2</p>
+<p>]</p>
+<p>resData[ </p>
+<p>1</p>
+<p>]</p>
+<p><b>reqData[ </b></p>
+<p><b>0</b></p>
+<p><b>]</b></p>
+<p>SID </p>
+<p>SID + 0x40</p>
+<p><b>Diagnostic</b></p>
+<p><b>Buffer</b></p>
+<p>(RAM Memory)</p>
+<p>Sub Service</p>
+<p>Sub Service</p>
+<p>Data</p>
+<p>-</p>
+<p>Data</p>
+<p>-</p>
+<p>Data</p>
+<p>-</p>
+<p>Diagnostic <b>req</b>uest (<b>B:</b> writing service)</p>
+<p>Positive Diagnostic <b>res</b>ponse</p>
+<p><b>reqDataLen</b></p>
+<p><b>resDataLen = 0</b></p>
+<p><b>resData[ </b></p>
+<p><b>0</b></p>
+<p><b>]</b></p>
+<p>reqData[ </p>
+<p>2</p>
+<p>]</p>
+<p>reqData[ </p>
+<p>1</p>
+<p>]</p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> The request data and the response data are stored to the same memory </p>
+<p>location. Writing the response data means deleting the request data. </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>Code Example for </p>
+<p>e MainHandler </p>
+<p><b>Example:</b> The example below shows a very easy way to process a diagnostic </p>
+<p>request. The data is copied to the <b>Diagnostic Buffer</b>, the amount of the response </p>
+<p>data is determined and the diagnostic service is finished via DescProcessingDone. </p>
+<p>th</p>
+<p>Using the User </p>
+<p>Option </p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 37 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>A Few STEPS to CANdesc </p>
+<p>User Manual CANdesc </p>
+<p> </p>
+<p><b>Example:</b> When preparing the diagnostic response, it is very important to provide the </p>
+<p>correct data and calculate the length of the response (</p>
+<p>Æ</p>
+<p>resDataLen).  </p>
+<p>To finish the service processing with a positive response, call: </p>
+<p>DescProcessingDone();  </p>
+<p>For a negative response, finish the service processing with: </p>
+<p>DescSetNegResponse(&lt;errorCode&gt;); </p>
+<p>DescProcessingDone();</p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> A negative response can also be set in the PreHandler. There it is enough to </p>
+<p>call DescSetNegResponse(&lt;errorCode&gt;). The PreHandler <b>must not </b>be finished with </p>
+<p>es. </p>
+<p>Remember: in the PreHandlers no access to the diagnostic data buffer is possible. </p>
+<p>DescProcessingDone. See desc.h for the definitions of the error cod</p>
+<p>  </p>
+<p>Response pending </p>
+<p>will be sent </p>
+<p>automatically by </p>
+<p>CANdesc </p>
+<p>What to do if the response cannot be sent immediately? </p>
+<p>In some cases (e.g. writing data to the EEPROM) you cannot send the response </p>
+<p>immediately, but you need not treat this as an exception. CANdesc will automatically </p>
+<p>inform the tester about the delay in the diagnostic response. So process the request </p>
+<p>and if you finish it, send DescProcessingDone. All other timing aspects are realized </p>
+<p>by CANdesc (Response Pending). </p>
+<p>  </p>
+<p><b>4.9.2 </b></p>
+<p><b>How to Handle Predefined Handlers (for MainHandler only) </b></p>
+<p>If you select <b>generated </b>you need not to program the complete service by hand. Using </p>
+<p>this option gives you two further options: </p>
+<p>1. </p>
+<p>A signal callback function will be generated </p>
+<p>2. </p>
+<p>You can tell CANdela the name of the variable (and data type) for a certain </p>
+<p>service and you only have to provide this variable in your application code. </p>
+<p>To get a signal callback function generated, i.e. to implement the first option, right </p>
+<p>click on a data object and choose Properties from the pull down menu. Now the </p>
+<p>le it is the data </p>
+<p>ct Voltage. </p>
+<p> </p>
+<p> </p>
+<p>Properties window of the chosen data object opens. In this examp</p>
+<p>obje</p>
+<p>  </p>
+<p>- 38 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>A Few STEPS to CANdesc </p>
+<p>Signal Access via the </p>
+<p>Application and a </p>
+<p>Callback Func</p>
+<p> </p>
+<p>tion </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> Make sure that the <b>Overwritten Value </b>field on the <b>Attributes </b>tab is empty. </p>
+<p>The generated prototype should look like this.  </p>
+<p>vuint8  </p>
+<p>ApplDescReadVoltageService_Instance_For_Demonstration_Purposes(</p>
+<p>void);</p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> All you have to do in your application for this MainHandler is to provide the </p>
+<p>function ApplDescReadVoltageService_Instance_For_Demonstration_Purposes and </p>
+<p>return the current value for the voltage stored anywhere in your application. The data </p>
+<p>type of the return value will be adjusted automatically to the data type (Element Type) </p>
+<p>in CANdela Studio. In this case it is a 1 byte value, therefore it is the data type vuint8</p>
+<p>oses(</p>
+<p>{ </p>
+<p>. </p>
+<p>vuint8  </p>
+<p>ApplDescReadVoltageService_Instance_For_Demonstration_Purp</p>
+<p>void); </p>
+<p>  return g_Voltage; </p>
+<p>}</p>
+<p> </p>
+<p>  </p>
+<p>t </p>
+<p>ot </p>
+<p>ng </p>
+<p>ming work </p>
+<p>left to do </p>
+<p>The second option is to connect the settings in CANdela Studio more closely to your </p>
+<p>application. Do the same steps as described above, but now enter the name of the </p>
+<p>variable in the value field of the Attributes tab as shown in the following figure. </p>
+<p>Generated does no</p>
+<p>mean that you do n</p>
+<p>have to do anythi</p>
+<p>– but there is little </p>
+<p>program</p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 39 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>A Few STEPS to CANdesc </p>
+<p>User Manual CANdesc </p>
+<p>Direct Signal Access </p>
+<p>  </p>
+<p><b>Example:</b> Now an external declaration of the variable g_Voltage prototype should be </p>
+<p>generated. </p>
+<p>extern vuint8 g_Voltage; </p>
+<p>The data type for this declaration again depends on the element type of the data </p>
+<p>object, in this case 1 byte again. </p>
+<p>Provide g_Voltage in your application (or use the appdescdev.c) and use it for storing </p>
+<p>the current voltage value. If a diagnostic request requests this value, CANdesc </p>
+<p>automatically refers to the content of g_Voltage. There is nothing more left to do f</p>
+<p>you. </p>
+<p> </p>
+<p>or </p>
+<p>  </p>
+<p><b>4.9.3 </b></p>
+<p><b>Handling OEM-Specific Settings </b></p>
+<p> </p>
+<p>The third choice is OEM. Do not change this. If the setting is on OEM, leave the </p>
+<p>settings as they are and refer to the OEM-specific documentation on how to deal with </p>
+<p>this service. </p>
+<p>Now your task is to implement all diagnostic services you have to support and select </p>
+<p>the desired status for Pre-, Main- and PostHandlers (none, user, OEM, generated). </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>Caution:</b> Do not touch the OEM-defined handlers. </p>
+<p>  </p>
+<p> </p>
+<p>Then save the settings. This will change the CDD file. Depending on which step you </p>
+<p>are on right now, either </p>
+<p>- 40 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>A Few STEPS to CANdesc </p>
+<p>continue with STEP Configuration with the Generation Tool on page 26 or </p>
+<p>start the generation process again to generated the files containing the changes you </p>
+<p>made. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> Sometimes in development, not all diagnostic services have been defined yet by </p>
+<p>the OEM. Provide this function anyway and send a negative response back. Then you </p>
+<p>can compile and link and test the other functions until the specification of the missing </p>
+<p>services is completed. </p>
+<p>  </p>
+<p><b>4.10 </b></p>
+<p><b>STEP Compile and link your Project </b></p>
+<p> </p>
+<p>Now we have all the includes and all initializations. The components have the cyclic </p>
+<p>calls of their task functions and all callback functions are provided and programmed. </p>
+<p>Start the compiler or makefile and get the project compiled and linked.  </p>
+<p>Is it ok? No errors? </p>
+<p>Congratulations! That’s it.  </p>
+<p>Go on to the next step and do the testing. </p>
+<p>  </p>
+<p><b>4.11 </b></p>
+<p><b>STEP Test it via CANoe </b></p>
+<p> </p>
+<p>Since you have arrived at this step, you are now able to compile and link. Have you </p>
+<p>already downloaded the code to your target platform?  </p>
+<p>e generated CANdesc depends on you and the OEM you are working for. </p>
+<p>not have an appropriate tester, we recommend using <b>CANoe </b>(a Vector PC </p>
+<p>tool) and one of its demo configurations. </p>
+<p>  </p>
+<p><b>4.11.1 Start CANo</b></p>
+<p>The CANoe demo </p>
+<p>environment is very </p>
+<p>simple way to </p>
+<p>basically test </p>
+<p>requests and </p>
+<p>responses </p>
+<p>n via <b>Start/Programs/CANoe/Demos/More Demos/CANoe.CAN OSEK </b></p>
+<p><b>d</b>. </p>
+<p>Testing of th</p>
+<p>Perhaps you do have a diagnostic tester, perhaps not.  </p>
+<p>If you do </p>
+<p><b>e.CAN OSEK TP enlarged </b></p>
+<p>To test you diagnostics layer use one of the CANoe demo applications. Open this </p>
+<p>configuratio</p>
+<p><b>TP enlarge</b></p>
+<p>A CANoe configuration will open with four nodes (A to D). All nodes look quite the </p>
+<p>same like this: </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 41 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>A Few STEPS to CANdesc </p>
+<p>User Manual CANdesc </p>
+<p> </p>
+<p>  </p>
+<p>Set the baud rate in CANoe to the one of your ECU and connect it to CANoe via CAN </p>
+<p>(CANcardXL, CANAC2…). Now run CANoe via the yellow lightning bolt and run </p>
+<p> </p>
+<p>YourECU. </p>
+<p>  </p>
+<p><b>Info:</b> Make sure that the CANoe mode is switched to <b>Real bus </b>and you have </p>
+<p>selected the same baud rate as the real node “YourECU” is working with. </p>
+<p> </p>
+<p>  </p>
+<p><b>4.11.2 Test of CANdesc </b></p>
+<p> </p>
+<p>Use one of the four nodes for your tests. Change the TpTxId and the TpRxId in th</p>
+<p>“Addressing” field of the node window. </p>
+<p>e </p>
+<p>  </p>
+<p><b>Caution:</b> The TpTxId is the Rx Diagnostic message in your generation tool and the </p>
+<p>TpRxId is the Tx Diagnostic message. In the example case the DiagResponse </p>
+<p>m</p>
+<p> </p>
+<p>essage is 0x7C0 and the DiagRequest message 0x7B0. </p>
+<p>It is optional to set the time for ST Min from 64ms (default) to 20ms. This is to prevent </p>
+<p>the ECU from running in time out. </p>
+<p>  </p>
+<p>- 42 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>A Few STEPS to CANdesc </p>
+<p>Panel to Test </p>
+<p>Diagnostics Layer </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>with the ones shown </p>
+<p>in CANdela Studio </p>
+<p> </p>
+<p> </p>
+<p>Compare the Values </p>
+<p>  </p>
+<p>Æ</p>
+<p>...</p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>ervices using CANoe. Enter the request in the </p>
+<p>nd see the response in the same box. </p>
+<p>CANdela Studio. The contents of the </p>
+<p>signals depend on the application. </p>
+<p>It is very simple to test the s</p>
+<p><b>Transmission </b>box and press <b>Send Data </b>a</p>
+<p>Compare this response with the desired one in </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> Make some variations to the signal contents to confirm the tests. </p>
+<p>  </p>
+<p> </p>
+<p>  </p>
+<p>Repeat this for all other services. </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 43 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Further Information </p>
+<p>User Manual CANdesc </p>
+<p><b>5 </b></p>
+<p><b>Further Information </b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>5.1 </p>
+<p>Diagnostic State Handling using CANdela Studio </p>
+<p> page 45</p>
+<p>5.2 </p>
+<p>Typical Examples of State Groups and States in an Automotive Environment </p>
+<p> page 45</p>
+<p>5.3 </p>
+<p>Creating and editing State Groups, States and Transitions </p>
+<p> page 45</p>
+<p>5.4 </p>
+<p>Connection between the states and your application </p>
+<p> page 47</p>
+<p>5.5 </p>
+<p>Diagnostic Buffer </p>
+<p> page 48</p>
+<p> </p>
+<p>Linear Diagnostic Buffer </p>
+<p> </p>
+<p>Ring Buffer Mechanism </p>
+<p>5.6 </p>
+<p>Repeated Service Call Feature </p>
+<p> page 55</p>
+<p> </p>
+<p>Activation of the Repeated Service Call </p>
+<p> </p>
+<p>Repeated Service Call and Ring Buffer 1 – “Write and Check” </p>
+<p> </p>
+<p>Repeated Service Call and Ring Buffer 2 – “Check and Write” </p>
+<p>  </p>
+<p> </p>
+<p>- 44 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Further Information </p>
+<p><b>5.1 </b></p>
+<p><b>Diagnostic State Handling using CANdela Studio </b></p>
+<p>Executing a diagnostic service generally causes a state change in the electronic </p>
+<p>control unit. Some services may only be executed if the electronic control unit is in a </p>
+<p>particular state. For example, services that change critical data may only be executed </p>
+<p>if the electronic control unit is first switched into a “security mode” (for example with </p>
+<p>the specification of a numeric key).  </p>
+<p>CANdela Studio offers the opportunity to define and edit global states and state </p>
+<p>transitions for the services of a diagnostic instance. In addition, states can be </p>
+<p>combined into state groups. </p>
+<p><b>xamples  of  State  Groups  and  States  in  an  Automotive </b></p>
+<p> </p>
+<p>The sessions (which should already be predefined) are a very “famous” example of a </p>
+<p>state group. Any diagnostic session has its set of services that are executable while </p>
+<p>the ECU is in this session. There are basically three sessions, defined from the ISO: </p>
+<p>Another very easy example for state groups is the security access. The ECU must be </p>
+<p>s the flashing </p>
+<p>action mentioned above. For example, the states for the state group security access </p>
+<p>would be: </p>
+<p>¼</p>
+<p>We use this example to very basically explain the state concept of CANdela Studio. </p>
+<p>  </p>
+<p> </p>
+<p>  </p>
+<p><b>5.2 </b></p>
+<p><b>Typical  E</b></p>
+<p><b>Environment </b></p>
+<p>¼</p>
+<p> </p>
+<p>Default session – as the name says, this is the standard session </p>
+<p>¼</p>
+<p> </p>
+<p>Programming session – while the ECU is in reprogramming mode (flashing) </p>
+<p>¼</p>
+<p> </p>
+<p>Extended Session – session for e.g. the development phase, providing an </p>
+<p>extended amount of services </p>
+<p>set to a specific state to be able to do critical data manipulation, such a</p>
+<p> </p>
+<p>Locked  </p>
+<p>¼</p>
+<p> </p>
+<p>Access granted </p>
+<p> </p>
+<p><b>Cross reference:</b> For more detailed information about this topic refer to the CANdesc </p>
+<p>Technical Reference. </p>
+<p>  </p>
+<p><b>5.3 </b></p>
+<p><b>Creating and editing State Groups, States and Transitions </b></p>
+<p> </p>
+<p>To create or edit the State Groups, click on [State Groups] in the CANdela Studio </p>
+<p>tree. Enter the new State Group Security Access by clicking on the text. A new State </p>
+<p>Group will be created called:  </p>
+<p>New State Group 1. </p>
+<p>If you generate more than one State Group without renaming the previous ones, the </p>
+<p>groups are numbered counting from 1 up.  </p>
+<p>To edit the new State Group you have two options. The first is to click on the State </p>
+<p>Group name and edit the name, then click on the description field and enter the text. </p>
+<p>Another way is to open the pull down menu of the State Group with a right click on the </p>
+<p>row of <b>SecurityAccess </b>and select <b>Properties</b>. The <b>Properties of State Group </b></p>
+<p><b>Security Access” </b>window will open. Enter the name and description. </p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 45 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Further Information </p>
+<p>User Manual CANdesc </p>
+<p> </p>
+<p><b>Info:</b> The qualifier will be created automatically. </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>Now we can add the states below in the same way. Click on the text to create a new </p>
+<p>element, adjust the names and enter a description. </p>
+<p>The next step is to assign the relevant services to the states. </p>
+<p>  </p>
+<p>Defining States for </p>
+<p>the Service </p>
+<p>SecurityAccess – </p>
+<p>Request Seed </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>Select the Diagnostic Instance Security Access Seed and open the <b>Properties </b>of the </p>
+<p><b>Service Request Seed</b>. Select the tab <b>State Transitions </b>and then <b>SecurityAccess</b>. </p>
+<p>- 46 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Further Information </p>
+<p>You see the service with the two columns states <b>Locked </b>an</p>
+<p>  </p>
+<p>d <b>Access granted</b>. </p>
+<p> </p>
+<p> </p>
+<p><b>Info:</b> To select yes or no just select the row, click on the yes/no and then use the pull </p>
+<p>down menu. </p>
+<p>  </p>
+<p><b>Info:</b> Pull down menu selections: </p>
+<p><b>No </b>= Must not be executed </p>
+<p><b>Yes </b>= may be executed, no state tran</p>
+<p> </p>
+<p>sition </p>
+<p><b>Locked </b>= state transition </p>
+<p><b>Access granted </b>= state transition </p>
+<p>  </p>
+<p> </p>
+<p>The following figure shows the properties for the service <b>Send Key </b>in the Key </p>
+<p>instance. This service is also assigned to both of the states, but there is also a </p>
+<p><b>transition to state </b>defined. How do you interpret this entry?  </p>
+<p>The service <b>Send Key </b>could be executed in the state <b>Locked</b>. If the data is </p>
+<p>onse </p>
+<p> state Locked. </p>
+<p>  </p>
+<p>A positive response </p>
+<p>is the trigger for a </p>
+<p>transition from the </p>
+<p>Locked state </p>
+<p>state Access </p>
+<p>processed (depending on the OEM, this must be done by the application or is a </p>
+<p> </p>
+<p>generated, OEM-specific Code) and a positive response is sent back, CANdesc</p>
+<p>switches the state from <b>Locked </b>to <b>Access Granted</b>. In case of a negative resp</p>
+<p>the ECU remains in the diagnostic</p>
+<p>to the </p>
+<p>granted </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p><b>5.4 </b></p>
+<p><b>Connectio</b></p>
+<p>this case the </p>
+<p>initial state is Locked. </p>
+<p>  </p>
+<p><b>n between the states and your application </b></p>
+<p>The initial state after the ECU starts is the state at the top of the list. In </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 47 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Further Information </p>
+<p>User Manual CANdesc </p>
+<p> </p>
+<p><b>Info:</b> Think about the states very carefully before editing. Make sure that the initial </p>
+<p>state is listed on top. </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> The state transition mentioned above is monitored to your application via a </p>
+<p>callback function. You will find the prototype of this function, as usual, in the </p>
+<p>appdesc.h file. It may look like this: </p>
+<p>void ApplDescOnTransitionSecurityAccess(DescStateGroup </p>
+<p>newState, DescStateGroup formerState); </p>
+<p>The parameters show the direction of the transition. Provide the function and react to </p>
+<p>a transition as you wish. </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> There is another way to switch states. Leave the transition to state empty </p>
+<p>and do the state transition in your application. This could look like: </p>
+<p>DescSetStateSecurityAccess( </p>
+<p>kDescStateSecurityAccessAccess_granted ); </p>
+<p>Use  </p>
+<p>DescStateGroup DescGetStateSession (void) </p>
+<p>to find out the current session. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> The function declaration and parameter can be found in the generated file </p>
+<p>desc.h. </p>
+<p>  </p>
+<p><b>5.5 </b></p>
+<p><b>Diagnostic Buffer </b></p>
+<p> </p>
+<p>As described in chapter How to handle User-Defined Handlers on page 35, the </p>
+<p>diagnostic buffer is an area in the RAM where the application and the CANdesc </p>
+<p>Software Component are allowed to write on and read from. How this is handled is </p>
+<p>described in this chapter above. </p>
+<p>What is not explained until now is: </p>
+<p>¼</p>
+<p> </p>
+<p>how to choose the length of the diagnostic buffer </p>
+<p>¼</p>
+<p> </p>
+<p>that there are two mechanisms of using the buffer and </p>
+<p>¼</p>
+<p> </p>
+<p>when to use which mechanism  </p>
+<p>  </p>
+<p><b>5.5.1 </b></p>
+<p><b>Linear Diagnostic Buffer </b></p>
+<p> </p>
+<p>The easiest way of using the diagnostic buffer is to use it as a linear buffer. The size </p>
+<p>of the buffer in bytes must be the size of the longest data (diagnostic response or </p>
+<p>request). </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> Normally this is a diagnostic trouble code message (DTC) and can reach up to </p>
+<p>100 bytes and more. </p>
+<p>  </p>
+<p> </p>
+<p>Copy the complete response information to the diagnostic buffer and confirm this via </p>
+<p>the call of </p>
+<p>DescProcessingDone</p>
+<p>. </p>
+<p>- 48 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Further Information </p>
+<p>This is easy to handle but there are some disadvantages arising with this concept: </p>
+<p>¼</p>
+<p> </p>
+<p>The RAM consumption could be enormous </p>
+<p>f the response message. </p>
+<p>There is another concept without these disadvantages but this concept needs a little </p>
+<p>onality. </p>
+<p>  </p>
+<p><b>5.5.2 </b></p>
+<p><b>Ring Buff</b></p>
+<p><b>r</b></p>
+<p> </p>
+<p>ring buffer mechanism: </p>
+<p>cause of small diagnostic buffer </p>
+<p>nostic request and the first response message </p>
+<p> the PostHandler is </p>
+<p>ed for linear buffer mechanism. </p>
+<p>That means that the application has to fill the buffer in portions until the complete </p>
+<p>diagnostic response is sent. </p>
+<p>The following example is very simple and designed to understand the concept behind </p>
+<p>the ring buffer mechanism. </p>
+<p>Ring Buffer STEP 1 </p>
+<p>– Application Data </p>
+<p>and Ring Buffer </p>
+<p>¼</p>
+<p> </p>
+<p>The delay time between the reception of a Diagnostic Request and the first </p>
+<p>response message could be very long, depending on the service and the amount </p>
+<p>of bytes o</p>
+<p>bit more insight in CANdesc functi</p>
+<p><b>e  Mechanism </b></p>
+<p>There are several reasons for using the </p>
+<p>¼</p>
+<p> </p>
+<p>Little RAM consumption be</p>
+<p>¼</p>
+<p> </p>
+<p>Shorter delay between the diag</p>
+<p>The ring buffer mechanism offers the following features: </p>
+<p>¼</p>
+<p> </p>
+<p>Asynchronous writing of serial diagnostic data to the diagnostic buffer </p>
+<p>¼</p>
+<p> </p>
+<p>Underrun allowed, time monitored (in case of TP underrun</p>
+<p>called with a Tx error code) </p>
+<p>¼</p>
+<p> </p>
+<p>Overrun prevented and monitored via return code </p>
+<p>One of the advantages of the ring buffer mechanism is the little RAM consumption </p>
+<p>(compared with the linear buffer). The consequence is that this little diagnostic buffer </p>
+<p>can hold less data than a diagnostic buffer design</p>
+<p>  </p>
+<p>  </p>
+<p>Starting point is a diagnostic buffer with 10 bytes size and 12 bytes of application data </p>
+<p>stic data </p>
+<p>(</p>
+<p>DescRingBufferStart</p>
+<p>). </p>
+<p>  </p>
+<p> </p>
+<p>to be sent. First you have to set the length of the complete diagno</p>
+<p>(</p>
+<p>resDataLen = 12</p>
+<p>) and start the ring buffer mechanism </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 49 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Further Information </p>
+<p>User Manual CANdesc </p>
+<p>Ring Buffer STEP 2 </p>
+<p>– First four data </p>
+<p>bytes are copied to </p>
+<p>e Ring Buffer </p>
+<p> </p>
+<p>th</p>
+<p>  </p>
+<p> </p>
+<p>plication data bytes </p>
+<p>er and amount of data - </p>
+<p>DescRingBufferWrite</p>
+<p>) to the CANdesc Software </p>
+<p> the diagnostic buffer. </p>
+<p>  </p>
+<p>ng Buffer STEP 3 </p>
+<p>– Eight Data Bytes in </p>
+<p>the Diagnostic </p>
+<p>Buffer, six Bytes are </p>
+<p>ing sent via CAN </p>
+<p>Now h</p>
+<p>(point</p>
+<p>and over the pointer to the location of the first four ap</p>
+<p>Component. CANdesc Basic copies the four data bytes to</p>
+<p>Ri</p>
+<p> </p>
+<p>be</p>
+<p>  </p>
+<p> of the next four application data bytes and </p>
+<p>CANdesc copies the data to the diagnostic buffer right <b>after </b>the first four bytes. Now </p>
+<p>ta in the buffer and CANdesc sends the first six data bytes via the </p>
+<p>  </p>
+<p> </p>
+<p>Hand over the pointer to the location</p>
+<p>there is enough da</p>
+<p>CAN bus. </p>
+<p> </p>
+<p> </p>
+<p><b>Info:</b> The first 2 bytes of the message are transport information and therefore not free</p>
+<p>for application data (TP bytes on position 0 and 1). </p>
+<p> </p>
+<p>- 50 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Further Information </p>
+<p>Ring Buffer STEP 4 </p>
+<p>– The Diagno</p>
+<p>Buffer is filled round </p>
+<p>robin </p>
+<p> </p>
+<p>stic </p>
+<p>  </p>
+<p> </p>
+<p>o </p>
+<p> 9 of the buffer, the next two bytes in position 0 and </p>
+<p>  </p>
+<p>Now there are only four bytes left to be copied to the Diagnostic Buffer. The first tw</p>
+<p>bytes are stored in position 8 and</p>
+<p>1. </p>
+<p><b>Info:</b> Now it should be obvious why this concept is called Ring Buffer; the buffer is </p>
+<p>filled round robin. </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>That is the basic mechanism, but how do you know when there is enough space in </p>
+<p>the buffer? What happens if the application writes data and the buffer is not free? </p>
+<p>How to handle this buffer in code details? </p>
+<p><b>5.5.2.1 </b></p>
+<p><b>Activation of the Ring Buffer </b></p>
+<p>Activation of Ring </p>
+<p>Buffer in GENy </p>
+<p>Although the ring buffer could be used for any service and you can meet this decision </p>
+<p>at run-time you must activate this functionality in general.  </p>
+<p>Do this on the CANdesc configuration view in GENy by clicking the <b>Ring Buffer </b></p>
+<p><b>Support </b>checkbox. </p>
+<p>In a next step the six data bytes will be copied and sent via CAN starting with the byte </p>
+<p>on position 6.  </p>
+<p>  </p>
+<p>  </p>
+<p>Activation of Ring </p>
+<p>Buffer in CANgen </p>
+<p>In CANgen you have to select the <b>Ring buffer </b>checkbox at tab <b>CANdesc Options</b>. </p>
+<p> </p>
+<p>  </p>
+<p><b>.5.2.2 </b></p>
+<p><b>Main</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p><b> Control Functions for the Ring Buffer Mechanism </b></p>
+<p><b>Cross reference:</b> For a more detailed description of the API refer to the </p>
+<p>TechnicalReference_CANde</p>
+<p> </p>
+<p>sc.pdf. </p>
+<p>  </p>
+<p>DescRingBufferStart </p>
+<p>The call of this function starts the ring buffer mechanism. You can use it for any </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 51 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Further Information </p>
+<p>User Manual CANdesc </p>
+<p>service and it replaces the </p>
+<p>DescProcessingDone</p>
+<p> that you use for the linear buffer </p>
+<p>mechanism. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> Call </p>
+<p>DescRingBufferStart</p>
+<p> on MainHandler level. </p>
+<p>  </p>
+<p>DescRingBufferWrite </p>
+<p>Via this function you tell CANdesc the location and the amount of the application </p>
+<p>diagnostic data and the software component copies this data to the diagnostic buffer. </p>
+<p>The function has two parameters; one is a pointer which points to the memory </p>
+<p>location of the next diagnostic data. The other parameter is the amount of data that </p>
+<p>should be copied (should be lower or equal to the ring buffer size). </p>
+<p>The return value of this function can be </p>
+<p>kDescOk</p>
+<p> or </p>
+<p>kDescFailed</p>
+<p> and indicates that </p>
+<p>the write process to the diagnostic buffer was successful or that there was not enough </p>
+<p>free space in the buffer. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> In case of </p>
+<p> no data has been written to the diagnostic buffer. </p>
+<p>kDescFailed</p>
+<p>  </p>
+<p>scRingBufferGetF</p>
+<p>This function shows the amount of free space in the diagnostic buffer. </p>
+<p>GetP</p>
+<p>This function shows the amount of data that has already been written to the </p>
+<p>diagnostic buffer (for this service). </p>
+<p> </p>
+<p>  </p>
+<p><b>5.5.2.3 </b></p>
+<p><b>Examples for Ring Buffer Mechanism </b></p>
+<p> </p>
+<p>Now start the coding for the example above (chapter 5.5.2). The diagnostic buffer is </p>
+<p>10 bytes and the amount of application data to be sent via a diagnostic response is </p>
+<p>12. In the example you write to the diagnostic buffer in four byte portions. </p>
+<p>The examples use an OSEK-OS operating system, but it should be very easy for you </p>
+<p>to transfer this to a system without OSEK-OS. </p>
+<p>  </p>
+<p><b>ing Buffer Example 1 - “Write and Check” </b></p>
+<p>De</p>
+<p>reeSpace </p>
+<p>  </p>
+<p>DescRingBuffer</p>
+<p>rogress </p>
+<p><b>R</b></p>
+<p><b>Example:</b> MainHandler of the Service “Service” </p>
+<p><b>uint8 state; /*global variable*/</b></p>
+<p><b>void ApplD</b></p>
+<p> </p>
+<p><b>escService( DescMsgContext* pMsgContext)</b></p>
+<p><b>{</b></p>
+<p><b>pMsgContext-&gt;resDataLen = 12;  /*amout of the complete data to be sent*/</b></p>
+<p><b>first write to diagnostic buffer*/</b></p>
+<p><b>state++;</b></p>
+<p><b>SetRelAlarm(ALServiceStateMachine, 0, &lt;cycle&gt; ); /*Alarm for activating the Basic </b></p>
+<p><b>TASK*/</b></p>
+<p><b>}</b></p>
+<p><b>DescRingBufferStart( ); </b></p>
+<p><b>state = 0;</b></p>
+<p><b>DescRingBufferWrite( &amp;dataPtr[state*4], 4 );  /*</b></p>
+<p>  </p>
+<p> </p>
+<p>Define the length of the complete diagnostic response (</p>
+<p>resDataLen = 12</p>
+<p>) and start </p>
+<p>the ring buffer mechanism (</p>
+<p>DescRingBufferStart</p>
+<p>). The global variable state is to </p>
+<p>- 52 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Further Information </p>
+<p>identify in which state your state machine is and it is an index for the data pointer </p>
+<p>dataPtr</p>
+<p>.  </p>
+<p>In the MainHandler you write to the diagnostic buffer the first time for this service - it </p>
+<p>must be free. So you can write the first four data bytes via </p>
+<p>DescRingBufferWrite</p>
+<p>. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> As the handling of the diagnostic (CANdesc only works if its task is called </p>
+<p>cyclically) needs a cyclic call of the DescTask() or DescStateTask() you have to fill </p>
+<p>the diagnostic buffer gradually e.g. by the means of a cyclic basic task. Otherwise the </p>
+<p>DescTask() or DescStateTask() would not be called and the CANdesc could not work.</p>
+<p>  </p>
+<p> </p>
+<p>Now start an alarm to get the basic task </p>
+<p>BTServiceStateMachine</p>
+<p> called all </p>
+<p>&lt;cycle&gt; ms. </p>
+<p>  </p>
+<p>Basic Task to Handle </p>
+<p>the Service State </p>
+<p>achine </p>
+<p><b>TASK( BTServiceStateMachine )</b></p>
+<p> use the return value of the </p>
+<p>DescRingBufferWrite</p>
+<p> function. Is it </p>
+<p>l of </p>
+<p>een written to the diagnostic buffer, </p>
+<p> handling of this diagnostic service. </p>
+<p>  </p>
+<p><b>am</b></p>
+<p> </p>
+<p>The difference is, that you first check whether there is enough free space in the buffer </p>
+<p>before you write the next data (<b>check and write</b>). Via the function </p>
+<p>DescRingBufferGetFreeSpace</p>
+<p> you get the information about the free space in </p>
+<p>t, </p>
+<p><b>{</b></p>
+<p><b>if( DescRingBufferWrite( &amp;dataPtr[state*4], 4 ) == kDescOk )</b></p>
+<p><b>{</b></p>
+<p><b>state++;</b></p>
+<p><b>CancelAlarm( ALServiceStateMachine );   /*all data (3x4 bytes) has been </b></p>
+<p><b>transferred to diagnostic buffer*/</b></p>
+<p>M</p>
+<p><b>} </b></p>
+<p><b>if( state == 3 ) </b></p>
+<p><b>{</b></p>
+<p><b>}</b></p>
+<p><b>TerminateTask( BTServiceStateMachine);</b></p>
+<p><b>}</b></p>
+<p>  </p>
+<p> </p>
+<p>This basic task is designed to write the next 8 data bytes to the diagnostic buffer. But </p>
+<p>the application does not know if the buffer is free or not (<b>Write and Check</b>). To get </p>
+<p>this information</p>
+<p>kDescOk</p>
+<p>, then the write was successful and we can increment the state. If not </p>
+<p>(</p>
+<p>kDescFailed</p>
+<p>), we have to repeat writing the last four bytes again in the next cal</p>
+<p>the task.  </p>
+<p>If </p>
+<p>state</p>
+<p> is equal to three, i.e. all 12 bytes have b</p>
+<p>we cancel the alarm to stop the</p>
+<p><b>Ring Buffer Ex</b></p>
+<p><b>ple 2 - “Check and Write” </b></p>
+<p>The MainHandler for this example is the same as in example 1. </p>
+<p>the buffer. If there is enough space, write the next data and increment the state, if no</p>
+<p>terminate the task and repeat the try with the next activation of the task. </p>
+<p>  </p>
+<p><b>Example:</b>  </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 53 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Further Information </p>
+<p>User Manual CANdesc </p>
+<p><b>TASK( BTServiceStateMachine )</b></p>
+<p><b>{</b></p>
+<p><b>DescMsgLen freeSpace;</b></p>
+<p><b>freeSpace = DescRingBufferGetFreeSpace();  /*MISRA*/</b></p>
+<p><b>DescRingBufferWrite( &amp;dataPtr[state*4], 4 );</b></p>
+<p><b>state++;</b></p>
+<p><b>} </b></p>
+<p><b>uffer*/</b></p>
+<p><b>if( freeSpace &gt;= 4 )</b></p>
+<p><b>{</b></p>
+<p><b>if( state == 3 ) </b></p>
+<p><b>{</b></p>
+<p><b>CancelAlarm( ALServiceStateMachine );   /*all data (3x4 bytes) has been </b></p>
+<p><b>transferred to diagnostic b</b></p>
+<p><b>}</b></p>
+<p><b>TerminateTask( BTServiceStateMachine);</b></p>
+<p><b>}</b></p>
+<p>  </p>
+<p><b>ing Buffer Example 3 – “GetProgress” </b></p>
+<p> </p>
+<p>In this example</p>
+<p>ady mentioned function </p>
+<p>DescRingBufferGetProgress</p>
+<p> to figure out how many bytes you have written to </p>
+<p>the buffer until now. This makes the example much easier but a little bit more difficult </p>
+<p>As you see you do not need a global variable for the state. The state now is defined </p>
+<p>by the amount of data that you have already written to the buffer. </p>
+<p><b>R</b></p>
+<p> you use the alre</p>
+<p>to understand why it works in this way.  </p>
+<p> </p>
+<p> </p>
+<p><b>Example:</b>  </p>
+<p><b>void ApplDescService(DescMsgContext* pMsgContext)</b></p>
+<p><b>{</b></p>
+<p><b>pMsgContext-&gt;resDataLen = 12;</b></p>
+<p><b>DescRingBufferStart();</b></p>
+<p><b>{</b></p>
+<p><b>DescMsgLen progress = DescRingBufferGetProgress();</b></p>
+<p><b>[ progress ], 4 );</b></p>
+<p><b>TerminateTask( BTServiceStateMachi</b></p>
+<p><b>}</b></p>
+<p><b>DescRingBufferWrite( &amp;dataPtr[ DescRingBufferGetProgress() ], 4); /* will be 0 at </b></p>
+<p><b>the beginning*/</b></p>
+<p><b>SetRelAlarm( ALServiceStateMachine, 0, cycle ); /*Alarm for activating the Basic </b></p>
+<p><b>TASK*/</b></p>
+<p><b>}</b></p>
+<p><b>TASK( BTServiceStateMachine )</b></p>
+<p><b>if(progress &lt; 12)</b></p>
+<p><b>{</b></p>
+<p><b>DescRingBufferWrite( &amp;dataPtr</b></p>
+<p><b>}</b></p>
+<p><b>ne );</b></p>
+<p>  </p>
+<p><b>Conclusion </b></p>
+<p> </p>
+<p>As you see in these three little examples, the handling of the ring buffer is always the </p>
+<p>same. You start the writing, you write cyclically and in portions and you have to define </p>
+<p>an ending criteria – a typical state machine.  </p>
+<p>CANdesc offers a feature to support that kind of handling that is not only useful when </p>
+<p>working with ring buffer mechanism – the repeated service call. </p>
+<p>  </p>
+<p>- 54 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Further Information </p>
+<p><b>5.6 </b></p>
+<p><b>Repeated</b></p>
+<p> </p>
+<p>buffer, to call </p>
+<p>DescProcessingDone</p>
+<p> and the service is d</p>
+<p>ason </p>
+<p>d </p>
+<p>the function call </p>
+<p>DescStartRepeatedServiceCall( CyclicFunction )</p>
+<p> you </p>
+<p>ith </p>
+<p>cStateTask</p>
+<p>. </p>
+<p><b> Service Call Feature </b></p>
+<p>The easy way would be to transfer all data in the MainHandler to the diagnostic </p>
+<p>one. </p>
+<p>But what to do with information that cannot be provided immediately? For this re</p>
+<p>you have to trigger a further function that handles the provision of diagnostic data an</p>
+<p>then finishes the service via </p>
+<p>DescProcessingDone</p>
+<p>. </p>
+<p>The Repeated Service Call helps you to handle situations like above very easy. Via </p>
+<p>trigger the call of the </p>
+<p>“CyclicFunction”</p>
+<p> with the call cycle of </p>
+<p>DescTask</p>
+<p> or w</p>
+<p>the call of </p>
+<p>Des</p>
+<p>  </p>
+<p>call</p>
+<p><b>DescStartRepeatedServiceCall(CyclicFunction)</b></p>
+<p><b>ApplDescMainHandler</b></p>
+<p><b>CanDesc</b></p>
+<p><b>CyclicFunction</b></p>
+<p>Repeated Service </p>
+<p>Call </p>
+<p>  </p>
+<p> </p>
+<p>The <b>CyclicFunction </b>can be the function where from you call the repeated service call</p>
+<p>or a second function.  </p>
+<p>At the end of the service handling you can stop the function from being called </p>
+<p>cyclically in two ways: </p>
+<p>¼</p>
+<p> </p>
+<p>call De</p>
+<p> </p>
+<p>scProcessingDone in linear mode </p>
+<p>The repeated service call is stopped too, if you  </p>
+<p>¼</p>
+<p> </p>
+<p>call (another) DescStartRepeatedServiceCall( ) </p>
+<p>¼</p>
+<p> </p>
+<p>if you have copied all announced data bytes to the diagnostic buffer if ring buffer </p>
+<p>mechanism is used </p>
+<p>¼</p>
+<p> </p>
+<p>call DescRingBufferStart </p>
+<p>  </p>
+<p><b>Info:</b> Using repeated service call and the ring buffer you have to take care about the </p>
+<p>order </p>
+<p>DescRingBufferStart</p>
+<p> and </p>
+<p>DescStartRepeatedServic</p>
+<p> </p>
+<p>eCall</p>
+<p>. </p>
+<p>  </p>
+<p><b>6.1 </b></p>
+<p><b>Activation of the Repeated Serv</b></p>
+<p> </p>
+<p>uffer mechanism you have to activate the repeated service call in the </p>
+<p>generation tool. </p>
+<p>In GENy you have to select a mode for repeated service call in the CANdesc </p>
+<p>configuration view. CANgen offers the same modes in the CANdesc option tab. </p>
+<p>As you see in the screenshot there are three modes for the Repeated Service Call: </p>
+<p>  </p>
+<p>  </p>
+<p><b>5.</b></p>
+<p><b>ice Call </b></p>
+<p>As the ring b</p>
+<p><b>Deactivated </b></p>
+<p>You cannot use this feature at all. </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 55 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Further Information </p>
+<p>User Manual CANdesc </p>
+<p><b>Deactivated </b></p>
+<p>  </p>
+<p>You cannot use this feature at all. </p>
+<p> </p>
+<p><b>Always </b></p>
+<p>The repeated service call is switched to on for any service in the </p>
+<p>way that the MainHandler is called cyclically as long as you call </p>
+<p>DescProcessingDone</p>
+<p> or all data is written to the ring buffer. </p>
+<p> </p>
+<p><b>Individual </b></p>
+<p>With the individual setting you decide for every service whether to </p>
+<p>use the repeated service call or not. To use it, just activate it via </p>
+<p>DescStartRepeatedServiceCall</p>
+<p> as you see in the following </p>
+<p>examples. </p>
+<p>  </p>
+<p>Selection for </p>
+<p>Repeated Service </p>
+<p>Call in GENy </p>
+<p> </p>
+<p>  </p>
+<p>Selection for </p>
+<p>Repeated Service </p>
+<p>Call in CANgen </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>The following two examples show the handling of the ring buffer mechanism using the</p>
+<p>repeated service call. </p>
+<p>  </p>
+<p> </p>
+<p><b>Info:</b> The setting in the generation tool is individual. </p>
+<p>  </p>
+<p><b>5.6.2 </b></p>
+<p><b>Repeated Service Call and Ring Buffer 1 – “Write and Check” </b></p>
+<p> </p>
+<p>This is the same example as in the chapter dealing with the ring buffer mechanism. </p>
+<p>This time use the repeated service call instead of the OSEK-OS task. And in this first </p>
+<p>example, define the MainHandler itself to be called cyclically via: </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> </p>
+<p>DescStartRepeatedServiceCall( ApplDescService );</p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>For this case the MainHandler must be realized as a state machine because the start </p>
+<p>of the repeated service call has to be done only once per diagnostic request handling. </p>
+<p>  </p>
+<p><b>Example:</b>  </p>
+<p> </p>
+<p>- 56 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Further Information </p>
+<p><b>uint8 state; /*global variable, set to 0 in PreHandler*/</b></p>
+<p><b>void ApplDescService( DescMsgContext* pMsgContext)</b></p>
+<p><b>state++; /*if resDataLen data bytes have been copied to the diagnostic   </b></p>
+<p><b>buffer the repeated service call stops automatically*/</b></p>
+<p><b>}</b></p>
+<p><b>}</b></p>
+<p><b>}</b></p>
+<p><b>{</b></p>
+<p><b>if( state == 0)</b></p>
+<p><b>{</b></p>
+<p><b>pMsgContext-&gt;resDataLen = 12;</b></p>
+<p><b>/*amout of the complete data to be sent*/</b></p>
+<p><b>DescRingBufferStart( );</b></p>
+<p><b>DescRingBufferWrite( &amp;dataPtr[ state*4 ], 4 )</b></p>
+<p><b>DescStartRepeatedServiceCall(ApplDescService);</b></p>
+<p><b>state++;</b></p>
+<p><b>}</b></p>
+<p><b>else</b></p>
+<p><b>{</b></p>
+<p><b>if( DescRingBufferWrite( *dataPtr[ state*4 ], 4 ) == kDescOk )</b></p>
+<p><b>{</b></p>
+<p>  </p>
+<p><b>5.6.3 </b></p>
+<p><b>Repeated Service Call and Ring Buffer 2 – “Check and Write” </b></p>
+<p> </p>
+<p>Now add a second function and call it cyclically after the MainHandler has been </p>
+<p>called. The MainHandler acts as initialization of the state machine and the second </p>
+<p>function handles all further states. </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b>  </p>
+<p><b>uint8 state; /*global variable*/</b></p>
+<p><b>void ApplDescService(</b></p>
+<p><b>{</b></p>
+<p><b> DescMsgContext* pMsgContext)</b></p>
+<p><b>( );</b></p>
+<p><b> 4)</b></p>
+<p><b>ion );</b></p>
+<p><b>) /*prototype must be defined </b></p>
+<p><b>by application*/</b></p>
+<p><b>{</b></p>
+<p><b>{</b></p>
+<p><b>state++; </b></p>
+<p><b>tate*4 ], 4 ); </b></p>
+<p><b>have been copied to the diagnostic buffer</b></p>
+<p><b>ops automatically*/</b></p>
+<p><b>}</b></p>
+<p><b>state = 0;</b></p>
+<p><b>pMsgContext-&gt;resDataLen = 12;</b></p>
+<p><b>/*amout of the complete data to be </b></p>
+<p><b>sent*/</b></p>
+<p><b>DescRingBufferStart</b></p>
+<p><b>DescRingBufferWrite( &amp;dataPtr[ state*4 ],</b></p>
+<p><b>DescStartRepeatedServiceCall( SecondFunct</b></p>
+<p><b>}</b></p>
+<p><b>void SecondFunction( DescMsgContext* pMsgContext</b></p>
+<p><b>DescMsgLen freeSpace;</b></p>
+<p><b>freeSpace = DescRingBufferGetFreeSpace();  /*MISRA*/</b></p>
+<p><b>if( freeSpace &gt;= 4 )</b></p>
+<p><b>DescRingBufferWrite( &amp;dataPtr[ s</b></p>
+<p><b>/*if resDataLen (12) data bytes </b></p>
+<p><b>the repeated service call st</b></p>
+<p><b>}</b></p>
+<p>  </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 57 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Additional Information </p>
+<p>User Manual CANdesc </p>
+<p><b>6 </b></p>
+<p><b>Additional</b></p>
+<p><b>o</b></p>
+<p><b>you find the following in</b></p>
+<p><b> Informati</b></p>
+<p><b>n </b></p>
+<p><b>In this chapter </b></p>
+<p><b>formation: </b></p>
+<p>6.1 </p>
+<p>Persistors </p>
+<p>9</p>
+<p> page 5</p>
+<p> </p>
+<p>Update Persistors – Install current Version </p>
+<p>  </p>
+<p>- 58 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Additional Information </p>
+<p><b>6.1 </b></p>
+<p><b>Persistors </b></p>
+<p>What is the Persistor </p>
+<p>for? </p>
+<p>The CANdela data base file (CDD) is created by CANdela Studio and used by GENy </p>
+<p>for configuring CANdesc. </p>
+<p>If you use a newer version of the CANdela Studio, the format of the CDD file could be </p>
+<p>also newer than your GENy is able to deal with. </p>
+<p>The Persistors are responsible to convert the newer CDD file into a CDD file which is </p>
+<p>able to read by GENy.  </p>
+<p>  </p>
+<p>Update Persistors – </p>
+<p>Download current </p>
+<p>Version </p>
+<p>The latest Persistors can be downloaded from Vector homepage </p>
+<p><b>www.vector.com</b>. </p>
+<p>Select <b>Downloads </b>and then the three settings for <b>Products</b>, <b>Categories </b>and </p>
+<p><b>Standards</b>.  </p>
+<p>¼</p>
+<p> </p>
+<p>Products: CANdela Studio </p>
+<p>¼</p>
+<p> </p>
+<p>Categories: Add-Ons/Freeware </p>
+<p>  </p>
+<p>¼</p>
+<p> </p>
+<p>Standards: All Standards </p>
+<p> </p>
+<p><b>Cross reference:</b> See the following illustration. </p>
+<p>  </p>
+<p>Available for </p>
+<p>NT/2000/XP or </p>
+<p>Windows 9.x </p>
+<p>r the Persistors download is:  </p>
+<p>¼</p>
+<p> </p>
+<p><b>Converters for CANdela diagnostic descriptions for Windows xxx</b>. </p>
+<p>  </p>
+<p> </p>
+<p>The name fo</p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 59 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Additional Information </p>
+<p>User Manual CANdesc </p>
+<p> </p>
+<p> </p>
+<p>Download </p>
+<p>Select on or more items from the list (</p>
+<p>) and click on <b>[&gt;&gt; Select one or more items, </b></p>
+<p><b>then continue] </b>to download the files after entering some administrative information.  </p>
+<p>  </p>
+<p><b>6.1.1 </b></p>
+<p><b>Update Persistors – Install current Version </b></p>
+<p>Follow description </p>
+<p>step by step </p>
+<p>Start the downloaded file <b>SetupPersistorsXP.exe</b>. </p>
+<p>    </p>
+<p>- 60 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Additional Information </p>
+<p> </p>
+<p> </p>
+<p>Click <b>[Next]</b>. </p>
+<p> </p>
+<p> </p>
+<p>Select <b>Custom </b>and enter the path to the <b>…\Generators\Components </b>folder as </p>
+<p><b>Destination Folder for Custom Setup </b>and click <b>[OK]</b>. </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 61 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Additional Information </p>
+<p>User Manual CANdesc </p>
+<p> </p>
+<p>Click <b>[Install] </b>and the installation process will be started and then on <b>[Finish] </b>when </p>
+<p>ready. </p>
+<p>  </p>
+<p>Ready </p>
+<p>Now the current Persistors are installed and your GENy is able to read the latest CDD </p>
+<p>file.  </p>
+<p>  </p>
+<p> </p>
+<p>- 62 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>FAQs </p>
+<p><b>7 </b></p>
+<p><b>FAQs </b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>7.1 </p>
+<p>Introduction </p>
+<p> page 64</p>
+<p>7.2 </p>
+<p>Frequently Asked Questions </p>
+<p> page 64</p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 63 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>FAQs </p>
+<p>User Manual CANdesc </p>
+<p><b>7.1 </b></p>
+<p><b>Introduction </b></p>
+<p>Find not search </p>
+<p>You have a certain question? You just want to know how to do e.g. a certain setting </p>
+<p>without reading the whole document again? </p>
+<p>Then go on reading the following list and use the links to get at the place in the </p>
+<p>document where your question will be answered. </p>
+<p>This chapter will be extended continuously. </p>
+<p>  </p>
+<p><b>7.2 </b></p>
+<p><b>Frequently Asked Questions </b></p>
+<p> </p>
+<p><b>FAQ:</b> RingBuffer and the UDS SuppressPositiveResponseMessageIndicationBit </p>
+<p>(SPRMIB) </p>
+<p>If the application wants to use the ring-buffer for a diagnostic service with a sub-</p>
+<p>function (usually service 0x19 &quot;ReadDtcInformation&quot;) it shall consider the SPRMIB </p>
+<p>prior deciding to start the ring buffer. The reason for that is, once the ring-buffer </p>
+<p>response is activated this means to CANdesc that the application wants to send data. </p>
+<p>But if the SPRMIB=TRUE, there shall be no positive response on the communication </p>
+<p>bus. So in such cases the Application shall follow the sequence below: </p>
+<p> </p>
+<p>if(pMsgContext-&gt;msgAddInfo.suppPosRes != 0) </p>
+<p>{ </p>
+<p>  DescProcessingDone();/* just close the service processing </p>
+<p>now. No response will be sent back*/ </p>
+<p>} </p>
+<p>else </p>
+<p>{ </p>
+<p>  DescRingBufferStart(); /* initate the ring-buffer response </p>
+<p>transmission */ </p>
+<p>}</p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>- 64 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>What’s new, what’s changed </p>
+<p><b>8 </b></p>
+<p><b>What’s new, what’s changed </b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>8.1 </p>
+<p>Version 1.7 </p>
+<p> page 66</p>
+<p> </p>
+<p>What’s new </p>
+<p> </p>
+<p>What’s changed </p>
+<p>  </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 65 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>What’s new, what’s changed </p>
+<p>User Manual CANdesc </p>
+<p>- 66 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<p><b>8.1 </b></p>
+<p><b>Version 1.7 </b></p>
+<p>What’s new and </p>
+<p>what’s changed  </p>
+<p> </p>
+<p> </p>
+<p><b>8.1.1 </b></p>
+<p><b>What’s new</b></p>
+<p>w chapter </p>
+<p>There is a new chapter for additional information about Persistors setup and update </p>
+<p>see section Persistors on page 59). </p>
+<p>  </p>
+<p><b>8.1.2 </b></p>
+<p><b>What’s cha</b></p>
+<p>New Layout </p>
+<p> </p>
+<p>This explains the changes within this document form the previous Version to the one</p>
+<p>mentioned in this headline. </p>
+<p><b> </b></p>
+<p>Ne</p>
+<p>Persistors setup and </p>
+<p>update  </p>
+<p>at chapter additional information (</p>
+<p><b>nged </b></p>
+<p>The Document has got a new template. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Address table </p>
+<p><b>9 </b></p>
+<p><b>Address table </b></p>
+<p>Vector Informatik </p>
+<p>GmbH </p>
+<p>Vector Informatik GmbH  </p>
+<p>Ingersheimer Str. 24  </p>
+<p>D-70499 Stuttgart  </p>
+<p>one: +49 (711) 80670-0  </p>
+<p>49 (711) 80670-111  </p>
+<p>Ph</p>
+<p>Fax: +</p>
+<p>mailto:info@de.vector.com  </p>
+<p>http://www.vector-informatik.com/ </p>
+<p>Vector CANtech, Inc. </p>
+<p>Vector CANtech, Inc.  </p>
+<p>Suite 550  </p>
+<p>39500 Orchard Hill Place  </p>
+<p>USA-Novi, Mi 48375  </p>
+<p>Phone: +1 (248) 449 9290  </p>
+<p>Fax: +1 (248) 449 9704  </p>
+<p>  </p>
+<p>mailto:info@us.vector.com  </p>
+<p>http://www.vector-cantech.com/ </p>
+<p>  </p>
+<p>Vector France SAS </p>
+<p>Vector France SAS  </p>
+<p>168, Boulevard Camélinat  </p>
+<p>F-92240 Malakoff  </p>
+<p>Phone: +33 (1) 4231 4000  </p>
+<p>Fax: +33 (1) 4231 4009  </p>
+<p>mailto:info@fr.vector.com  </p>
+<p>http://www.vector-france.com/ </p>
+<p>  </p>
+<p>Vector GB Ltd. </p>
+<p>Vector GB Ltd. </p>
+<p>Rhodium Central Boulevard Blythe Valley Park </p>
+<p>Solihull, Birmingham </p>
+<p>West Midlands B90 8AS </p>
+<p>Phone: +44 121 50681-50 </p>
+<p>mailto:info@uk.vector.com  </p>
+<p>http://www.vector-gb.co.uk </p>
+<p>  </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 67 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Address table </p>
+<p>User Manual CANdesc </p>
+<p>- 68 - </p>
+<p>Version 1.7 </p>
+<p>© Vector Informatik GmbH </p>
+<p>Vector Japan Co., </p>
+<p>Ltd.  </p>
+<p>Vector </p>
+<p>Seafort</p>
+<p>Japan Co., Ltd.  </p>
+<p> Square Center Bld. 18F  </p>
+<p>2-3-12, Higashi-shinagawa, Shinagawa-ku  </p>
+<p>Fax: +81 3 (5769) 6975  </p>
+<p>J-140-0002 Tokyo  </p>
+<p>Phone: +81 3 (5769) 7800  </p>
+<p>mailto:info@jp.vector.com  </p>
+<p>http://www.vector-japan.co.jp/ </p>
+<p>Daerung Post Tower III, 508 </p>
+<p>uro-gu, 182-4 </p>
+<p>2-790 </p>
+<p>Phone: +82(0)2 2028 0600 </p>
+<p>Fax: +82(0)2 2028 0604 </p>
+<p>  </p>
+<p>Vector Korea IT Inc. </p>
+<p>Vector Korea IT Inc. </p>
+<p>Guro-dong, G</p>
+<p>Seoul, 15</p>
+<p>Republic of Korea </p>
+<p>mailto:info@kr.vector.com  </p>
+<p>http://www.vector-korea.com/ </p>
+<p>  </p>
+<p>VecScan AB  </p>
+<p>VecScan AB  </p>
+<p>Theres Svenssons Gata 9 </p>
+<p>SE-417 55 Göteborg  </p>
+<p>Phone: +46 (31) 76476-00  </p>
+<p>Fax: +46 (31) 76476-19  </p>
+<p>mailto:info@se.vector.com  </p>
+<p>http://www.vecscan.com/ </p>
+<p>  </p>
+<p> </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Glossar </p>
+<p><b>10 Glossar </b></p>
+<p><b>Callback function </b></p>
+<p>ded by an application. E.g. the CAN Driver calls a callback </p>
+<p>pplication to control some action, to make decisions at runtime </p>
+<p> work of the driver. </p>
+<p><b>Diagnostics layer </b></p>
+<p>omotive applications have recently become </p>
+<p>sic requirements can be implemented by a software </p>
+<p>S. </p>
+<p>  </p>
+<p>This is a function provi</p>
+<p> a</p>
+<p>function to allow the</p>
+<p>and to influence the</p>
+<p>Diagnostics services that are used in aut</p>
+<p>standardized. As a result, ba</p>
+<p>component for KWP2000/UD</p>
+<p> </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 69 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Index </p>
+<p><b>11 Index </b></p>
+<p> </p>
+<p><b>A</b></p>
+<p> </p>
+<p>Adapt Your Application</p>
+<p>36 </p>
+<p>31, 33 </p>
+<p>application...........................................................</p>
+<p>Asynchronous writing..........................................</p>
+<p><b>C</b></p>
+<p> </p>
+<p> Files ..............................33 </p>
+<p>AppDesc .............................................................</p>
+<p>appdesc.h .....................................................</p>
+<p>33 </p>
+<p>49 </p>
+<p>call-back function........</p>
+<p>CANbedded ................</p>
+<p>2 </p>
+<p>CANdela Studio ..........</p>
+<p>CANdesc.....................</p>
+<p>Ndesc tab.......................................................15 </p>
+<p>.............</p>
+<p>CanInitPowerOn .................................................</p>
+<p>CANoe ........................</p>
+<p>CDD ............................</p>
+<p>4 </p>
+<p>Compile.......................</p>
+<p>compiler ......................</p>
+<p> </p>
+<p>onfiguration ................................... 24, 26, 35, 40 </p>
+<p>clic calls...........................................................33 </p>
+<p><b>D</b></p>
+<p> </p>
+<p>........................................48 </p>
+<p>..................................24, 3</p>
+<p>......... 11, 14, 19, 20, 45, 55 </p>
+<p>..................... 11, 14, 15, 33 </p>
+<p>CA</p>
+<p>CANgen .........</p>
+<p>........................................26 </p>
+<p>33 </p>
+<p>..................................41, 42 </p>
+<p>..................................11, 1</p>
+<p>..................................24, 41 </p>
+<p>........................................32</p>
+<p>C</p>
+<p>cy</p>
+<p>data.....................................................................19 </p>
+<p>DBC ....................................................................14 </p>
+<p>DBC file...............................................................14 </p>
+<p>Default session ...................................................45 </p>
+<p>delay ...................................................................38 </p>
+<p>desc.c .................................................................30 </p>
+<p>desc.h ...........................................................30, 33 </p>
+<p>desccore.h ..........................................................30 </p>
+<p>DescInitPowerOn................................................33 </p>
+<p>DescRingBufferGetProgress ..............................52 </p>
+<p>DescRingBufferStart...........................................51 </p>
+<p>DescRingBufferWrite ......................................... 52 </p>
+<p>development environment ................................. 32 </p>
+<p>Diagnostic Buffer................................................ 48 </p>
+<p>Diagnostic Class .......................................... 18, 19 </p>
+<p>Diagnostic Instance...................................... 18, 19 </p>
+<p>Diagnostic Request.................... 11, 14, 17, 21, 35 </p>
+<p>Diagnostics .................................................. 11, 17 </p>
+<p><b>E</b></p>
+<p> </p>
+<p>Example 1.......................................................... 52 </p>
+<p>Example 2.......................................................... 53 </p>
+<p>Example 3.......................................................... 54 </p>
+<p>Examples ........................................................... 52 </p>
+<p>Extended Session.............................................. 45 </p>
+<p><b>G</b></p>
+<p> </p>
+<p>Generate Files ................................................... 29 </p>
+<p>Generated.............................................. 11, 17, 23 </p>
+<p>Generation Process ..................................... 11, 15 </p>
+<p>Generation Tool ........................................... 14, 26 </p>
+<p>GENy ................................................................. 26 </p>
+<p><b>I</b></p>
+<p> </p>
+<p>Include ......................................................... 24, 33 </p>
+<p>Initialization .................................................. 24, 33 </p>
+<p>initParameter...................................................... 33 </p>
+<p><b>K</b></p>
+<p> </p>
+<p>KWP2000........................................................... 16 </p>
+<p><b>L</b></p>
+<p> </p>
+<p>Linear Diagnostic Buffer .................................... 48 </p>
+<p>Link .............................................................. 24, 41 </p>
+<p><b>M</b></p>
+<p> </p>
+<p>MainHandler........................................... 24, 32, 38 </p>
+<p>makefile.............................................................. 32 </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 70 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual CANdesc  </p>
+<p>Index </p>
+<p><b>N</b></p>
+<p> </p>
+<p>Nomenclature .................................. 11, 17, 18, 19 </p>
+<p>None .......................................................11, 17, 23 </p>
+<p><b>O</b></p>
+<p> </p>
+<p>OEM............................</p>
+<p>to</p>
+<p><b>P</b></p>
+<p> </p>
+<p>............................11, 17, 23 </p>
+<p>OSEK Transport Pro</p>
+<p>col ...................................26 </p>
+<p>Programming session.........................................45 </p>
+<p>roperies ............................................................38 </p>
+<p>protocol service...................................................18 </p>
+<p><b>R</b></p>
+<p> </p>
+<p>P</p>
+<p>RAM consumption ........................................48, 49 </p>
+<p>Repeated Service Call Feature ..........................55 </p>
+<p>Request ..............................................................18 </p>
+<p>Response............................................................18 </p>
+<p>Response Pending .............................................38 </p>
+<p>Ring Buffer Mechanism ......................................49 </p>
+<p><b>S</b></p>
+<p> </p>
+<p>security access ...................................................45 </p>
+<p>Service ............................................................... 18 </p>
+<p>service primitives ............................................... 19 </p>
+<p>Sessions ............................................................ 45 </p>
+<p>38 </p>
+<p> </p>
+<p>e Handling ............................................. 44, 45 </p>
+<p> </p>
+<p><b>T</b></p>
+<p> </p>
+<p>signal..................................................................</p>
+<p>State Groups................................................ 44, 45</p>
+<p>Stat</p>
+<p>States........................................................... 44, 45</p>
+<p>Test ........................................................ 24, 41, 42 </p>
+<p>test environment ................................................ 41 </p>
+<p>transition to state................................................ 47 </p>
+<p>Transitions ......................................................... 45 </p>
+<p><b>U</b></p>
+<p> </p>
+<p>UDS ................................................................... 16 </p>
+<p>User ....................................................... 11, 17, 23 </p>
+<p>User-Defined Handlers ...................................... 35 </p>
+<p><b>V</b></p>
+<p> </p>
+<p>value field........................................................... 39 </p>
+<p>variable .............................................................. 38 </p>
+<p> </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.7 </p>
+<p>- 71 - </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b> </b></p>
+<p><b>Get more Information! </b></p>
+<p><b>Visit our Website for: </b></p>
+<p>&gt; Support </p>
+<p><b>wid .com </b></p>
+<p>&gt; News </p>
+<p>&gt; Products </p>
+<p>&gt; Demo Software </p>
+<p>&gt; Training Classes </p>
+<p>&gt; Addresses </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>www.vector-world</b></p>
+<p> </p>
+<p><b>e</b></p>
+</body>
+</html>
+{% endraw %}

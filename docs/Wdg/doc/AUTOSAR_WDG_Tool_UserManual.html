@@ -1,0 +1,1924 @@
+---
+layout: default
+title: AUTOSAR_WDG_Tool_UserManual
+nav_order: 2
+parent: Watchdog Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b>                                                                                                                </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3</p>
+<p> </p>
+<p>User’s Manual</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>WDG Driver Component Ver.1.0.2 </p>
+<p> </p>
+<p>Generation Tool User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target Device: </p>
+<p>RH850/P1x </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev.0.01 Apr 2015</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>2 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>                                                                                                                </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Notice </p>
+<p>1. </p>
+<p>All information included in this document is current as of the date this document is issued. Such information, however, is subject to </p>
+<p>change without any prior notice. Before purchasing or using any Renesas Electronics products listed herein, please confirm the latest </p>
+<p>product information with a Renesas Electronics sales office. Also, please pay regular and careful attention to additional and different </p>
+<p>information to be disclosed by Renesas Electronics such as that disclosed through our website. </p>
+<p>2. </p>
+<p>Renesas Electronics does not assume any liability for infringement of patents, copyrights, or other intellectual property rights of third </p>
+<p>parties by or arising from the use of Renesas Electronics products or technical information described in this document. No license, </p>
+<p>express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p> 3. </p>
+<p>You should not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. </p>
+<p>4. </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples.  You are fully responsible for the incorporation of these circuits, software, and </p>
+<p>information in the design of your equipment.  Renesas Electronics assumes no responsibility for any losses incurred by </p>
+<p>you or third parties arising from the use of these circuits, software, or information. </p>
+<p>5. </p>
+<p>When exporting the products or technology described in this document, you should comply with the applicable export control laws </p>
+<p>and regulations and follow the procedures required by such laws and regulations.  You should not use Renesas Electronics products </p>
+<p>or the technology described in this document for any purpose relating to military applications or use by the military, including but </p>
+<p>not limited to the development of weapons of mass destruction.  Renesas Electronics products and technology may not be used for or </p>
+<p>incorporated into any products or systems whose manufacture, use, or sale is prohibited under any applicable domestic or foreign </p>
+<p>laws or regulations. </p>
+<p>6. </p>
+<p>Renesas Electronics has used reasonable care in preparing the information included in this document, but Renesas Electronics does </p>
+<p>not warrant that such information is error free.  Renesas Electronics assumes no liability whatsoever for any damages incurred by </p>
+<p>you resulting from errors in or omissions from the information included herein. </p>
+<p>7. </p>
+<p>Renesas Electronics products are classified according to the following three quality grades:  &quot;Standard&quot;, &quot;High Quality&quot;, and </p>
+<p>&quot;Specific&quot;.  The recommended applications for each Renesas Electronics product depends on the product's quality grade, as indicated </p>
+<p>below.  You must check the quality grade of each Renesas Electronics product before using it in a particular application.  You may </p>
+<p>not use any Renesas Electronics product for any application categorized as &quot;Specific&quot; without the prior written consent of Renesas </p>
+<p>Electronics.  Further, you may not use any Renesas Electronics product for any application for which it is not intended without the </p>
+<p>prior written consent of Renesas Electronics.  Renesas Electronics shall not be in any way liable for any damages or losses incurred by </p>
+<p>you or third parties arising from the use of any Renesas Electronics product for an application categorized as &quot;Specific&quot; or for which </p>
+<p>the product is not intended where you have failed to obtain the prior written consent of Renesas Electronics.  The quality grade of </p>
+<p>each Renesas Electronics product is &quot;Standard&quot; unless otherwise expressly specified in a Renesas Electronics data sheets or data </p>
+<p>books, etc. </p>
+<p>&quot;Standard&quot;: </p>
+<p>Computers; office equipment; communications equipment; test and measurement equipment; audio and visual </p>
+<p>equipment; home electronic appliances; machine tools; personal electronic equipment; and industrial robots. </p>
+<p>&quot;High Quality&quot;: Transportation equipment (automobiles, trains, ships, etc.); traffic control systems; anti-disaster systems; anti- crime </p>
+<p>systems; safety equipment; and medical equipment not specifically designed for life support. </p>
+<p>&quot;Specific&quot;: </p>
+<p>Aircraft; aerospace equipment; submersible repeaters; nuclear reactor control systems; medical equipment or </p>
+<p>systems for life support (e.g. artificial life support devices or systems), surgical implantations, or healthcare </p>
+<p>intervention (e.g. excision, etc.), and any other applications or purposes that pose a direct threat to human life. </p>
+<p>8. </p>
+<p>You should use the Renesas Electronics products described in this document within the range specified by Renesas Electronics, </p>
+<p>especially with respect to the maximum rating, operating supply voltage range, movement power voltage range, heat radiation </p>
+<p>characteristics, installation and other product characteristics. Renesas Electronics shall have no liability for malfunctions or damages </p>
+<p>arising out of the use of Renesas Electronics products beyond such specified ranges. </p>
+<p>9. </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of its products, semiconductor products have specific </p>
+<p>characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design.  Please be sure to implement safety measures to guard them against </p>
+<p>the possibility of physical injury, and injury or damage caused by fire in the event of the failure of a </p>
+<p>Renesas Electronics product, such as safety design for hardware and software including but not limited to redundancy, fire control </p>
+<p>and malfunction prevention, appropriate treatment for aging degradation or any other appropriate measures.  Because the evaluation </p>
+<p>of microcomputer software alone is very difficult, please evaluate the safety of the final products or system manufactured by you. </p>
+<p>10. </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of </p>
+<p>each Renesas Electronics product.  Please use Renesas Electronics products in compliance with all applicable laws and regulations </p>
+<p>that regulate the inclusion or use of controlled substances, including without limitation, the EU RoHS Directive.  Renesas Electronics </p>
+<p>assumes no liability for damages or losses occurring as a result of your noncompliance with applicable laws and regulations. </p>
+<p> 11. </p>
+<p>This document may not be reproduced or duplicated, in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p>12. </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this </p>
+<p>document or Renesas Electronics products, or if you have any other inquiries. </p>
+<p> </p>
+<p>(Note 1)  &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority- owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)  &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>4 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>                                                                                                                </b></p>
+<p><b>5 </b></p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Abbreviation / Acronym</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>API</p>
+<p> </p>
+<p>Application Programming Interface</p>
+<p> </p>
+<p>AUTOSAR</p>
+<p> </p>
+<p>AUTomotive Open System ARchitecture</p>
+<p> </p>
+<p>BSWMDT</p>
+<p> </p>
+<p>Basic Software Module Description Template</p>
+<p> </p>
+<p>DEM</p>
+<p> </p>
+<p>Diagnostic Event Manager</p>
+<p> </p>
+<p>ECU</p>
+<p> </p>
+<p>Electronic Control Unit</p>
+<p> </p>
+<p>ID/Id</p>
+<p> </p>
+<p>Identifier</p>
+<p> </p>
+<p>MCAL</p>
+<p> </p>
+<p>MicroController Abstraction Layer</p>
+<p> </p>
+<p>MCU</p>
+<p> </p>
+<p>MicroController Unit</p>
+<p> </p>
+<p>WDG/Wdg</p>
+<p> </p>
+<p>Watchdog Driver</p>
+<p> </p>
+<p>WDTA</p>
+<p> </p>
+<p>Window Watchdog Timer A</p>
+<p> </p>
+<p>XML</p>
+<p> </p>
+<p>eXtensible Mark-up Language</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Terminology</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>BSWMDT File</p>
+<p> </p>
+<p>This file contains Common Published Information of WDG driver.</p>
+<p> </p>
+<p>ECU Configuration Description </p>
+<p>File</p>
+<p> </p>
+<p>Input file to WDG Driver Generation Tool. It is generated by ECU </p>
+<p>Configuration Editor.</p>
+<p> </p>
+<p>Sl.No.</p>
+<p> </p>
+<p>Serial Number</p>
+<p> </p>
+<p>Translation XML File</p>
+<p> </p>
+<p>This file contains the translation and device specific header file path.</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>6 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>                                                                                                                </b></p>
+<p><b>7 </b></p>
+<p><b>Table of Contents </b></p>
+<p><b> </b></p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>Introduction ........................................................................................... 9</b></p>
+<p> </p>
+<p><b>1.1</b></p>
+<p> </p>
+<p><b>Document Overview .................................................................................................................. 9</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>Reference ............................................................................................. 11</b></p>
+<p> </p>
+<p><b>2.1</b></p>
+<p> </p>
+<p><b>Reference Documents ............................................................................................................. 11</b></p>
+<p> </p>
+<p><b>2.2</b></p>
+<p> </p>
+<p><b>Trademark Notice .................................................................................................................... 11</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>WDG Driver Generation Tool Overview ............................................. 13</b></p>
+<p> </p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p><b>Input Files ............................................................................................ 15</b></p>
+<p> </p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p><b>Output Files ......................................................................................... 17</b></p>
+<p> </p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p><b>Precautions .......................................................................................... 19</b></p>
+<p> </p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p><b>User Configuration Validation ............................................................ 21</b></p>
+<p> </p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p><b>Messages ............................................................................................. 23</b></p>
+<p> </p>
+<p><b>8.1</b></p>
+<p> </p>
+<p><b>Error Messages ........................................................................................................................ 23</b></p>
+<p> </p>
+<p><b>8.2</b></p>
+<p> </p>
+<p><b>Warning Messages .................................................................................................................. 26</b></p>
+<p> </p>
+<p><b>8.3</b></p>
+<p> </p>
+<p><b>Information Messages ............................................................................................................. 26</b></p>
+<p> </p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p><b>Notes .................................................................................................... 27</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>8 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>List of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 3-1 </p>
+<p>Overview of WDG Driver Generation Tool ................................................................ 13 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>List of Tables </b></p>
+<p><b> </b></p>
+<p>Table 5-1 </p>
+<p>Output Files Description ............................................................................................ 17 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction                                                                                                                             Chapter 1 </b></p>
+<p> </p>
+<p> </p>
+<p><b>9 </b></p>
+<p><b>Chapter 1 </b></p>
+<p><b>Introduction </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The Watchdog Driver provides services for initialization, changing the </p>
+<p>operation mode and triggering the Watchdog. </p>
+<p> </p>
+<p> </p>
+<p>The WDG Driver module comprises of two sections as Embedded Software </p>
+<p>and the Generation Tool to achieve scalability and configurability. </p>
+<p> </p>
+<p> </p>
+<p>The document describes the features of the WDG Driver Generation Tool. </p>
+<p>WDG Driver Generation Tool is a command line tool that extracts information </p>
+<p>from ECU Configuration Description File and BSWMDT File and generates </p>
+<p>WDG Driver C Source and C Header files (Wdg_59_Driver&lt;A&gt;_Cfg.h and </p>
+<p>Wdg_59_Driver&lt;A&gt;_PBcfg.c). </p>
+<p> </p>
+<p> </p>
+<p>This document contains information on the options, input and output files of the </p>
+<p>WDG Driver Generation Tool. In addition, this manual covers a step-by-step </p>
+<p>procedure for the usage of tool. ECU Configuration Description File contains </p>
+<p>information about WDG configuration. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Based on the value for the parameter ‘VendorApiInfix’, WDG Generation Tool </p>
+<p>generates </p>
+<p>Wdg_59_DriverA_Cfg.h </p>
+<p>and </p>
+<p>Wdg_59_DriverA_PBcfg.c </p>
+<p>files. </p>
+<p>Hence </p>
+<p>in </p>
+<p>this </p>
+<p>document </p>
+<p>‘Wdg_59_Driver&lt;A&gt;_Cfg.h </p>
+<p>and </p>
+<p>Wdg_59 </p>
+<p>_Driver&lt;A&gt;_PBcfg.c’ term is used. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.1 </b></p>
+<p><b>Document Overview </b></p>
+<p> </p>
+<p> </p>
+<p>This user manual is organized as given in the table below: </p>
+<p> </p>
+<p> </p>
+<p><b>Section</b></p>
+<p> </p>
+<p><b>Contents</b></p>
+<p> </p>
+<p>Section 1 (Introduction)</p>
+<p> </p>
+<p>Provides an introduction to the document and explains how information </p>
+<p>is organized in this manual.</p>
+<p> </p>
+<p>Section 2 (Reference)</p>
+<p> </p>
+<p>Provides a list of documents referred while developing this document.</p>
+<p> </p>
+<p>Section 3 (WDG Driver </p>
+<p>Generation Tool Overview)</p>
+<p> </p>
+<p>Provides the WDG Driver Generation Tool Overview.</p>
+<p> </p>
+<p>Section 4 (Input Files)</p>
+<p> </p>
+<p>Provides information about ECU Configuration Description File.</p>
+<p> </p>
+<p>Section 5 (Output Files)</p>
+<p> </p>
+<p>Explains the output files that are generated by the WDG Driver </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 6 (Precautions)</p>
+<p> </p>
+<p>Contains precautions to be taken during configuration of ECU </p>
+<p>Configuration Description File.</p>
+<p> </p>
+<p>Section 7 (User Configuration </p>
+<p>Validation)</p>
+<p> </p>
+<p>Describes about user configuration validation done by the WDG Driver </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 8 (Messages)</p>
+<p> </p>
+<p>Describes all the Error/Warning/Information messages of R4.0.3 which </p>
+<p>helps the user to understand the probable reason for </p>
+<p>the same.</p>
+<p> </p>
+<p>Section 9 (Notes)</p>
+<p> </p>
+<p>Provides notes to help the user to understand this document better.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1                                                                                                                           Introduction </b></p>
+<p> </p>
+<p><b>10 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Reference </b></p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p> </p>
+<p><b>11 </b></p>
+<p> </p>
+<p><b>Chapter 2 </b></p>
+<p><b>Reference </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>Reference Documents </b></p>
+<p> </p>
+<p> </p>
+<p>The following table lists the documents referred to create this document: </p>
+<p> </p>
+<p><b>Sl. No</b></p>
+<p> </p>
+<p><b>Title</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p><b>Autosar R4.0 </b></p>
+<p> </p>
+<p>AUTOSAR_SWS_WatchdogDriver.pdf</p>
+<p> </p>
+<p>2.5.0</p>
+<p> </p>
+<p>2. </p>
+<p><b>P1x Parameter Definition File </b></p>
+<p>R403_WDG_P1M_04_05_10_to_15_18_to_23.arxml </p>
+<p><b> </b></p>
+<p>1.0.3 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.2 </b></p>
+<p><b>Trademark Notice </b></p>
+<p> </p>
+<p> </p>
+<p>Microsoft and Windows are trademarks/registered trademarks of Microsoft </p>
+<p>Corporation. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 2 </b></p>
+<p><b>Reference </b></p>
+<p> </p>
+<p><b>12 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>WDG Driver Generation Tool Overview </b></p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p> </p>
+<p><b>13 </b></p>
+<p> </p>
+<p><b>Chapter 3 </b></p>
+<p><b>WDG Driver Generation Tool Overview </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>WDG Driver Generation Tool overview is shown </p>
+<p>below.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>ECU </b></p>
+<p><b>Configuration </b></p>
+<p><b>Description File, </b></p>
+<p><b>BSWMDT File, </b></p>
+<p><b>Translation XML </b></p>
+<p><b>File and </b></p>
+<p><b>Configuration </b></p>
+<p><b>XML File </b></p>
+<p> </p>
+<p> </p>
+<p><b>WDG Driver </b></p>
+<p><b>Generation </b></p>
+<p><b>Tool </b></p>
+<p> </p>
+<p><b>Wdg_59_Driver&lt;A</b></p>
+<p><b>&gt;_Cfg.h and </b></p>
+<p><b>Wdg_59_Driver&lt;A</b></p>
+<p><b>&gt;_PBcfg.c </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 3-1 </b></p>
+<p><b>Overview of WDG Driver Generation Tool </b></p>
+<p> </p>
+<p>WDG Driver Generation Tool is a command line tool that extracts, analyzes </p>
+<p>the configuration details provided in the input file and validates correctness of </p>
+<p>the data and provides scalability and configurability for WDG Driver module. It </p>
+<p>accepts ECU Configuration Description File(s), BSWMDT File, Translation </p>
+<p>XML File and Configuration XML File as input and displays appropriate </p>
+<p>context sensitive error messages for wrong input and exits. Tool creates the </p>
+<p>Log file (Wdg.log) that contains the list of Error/Warning/Information </p>
+<p>messages in the output directory. </p>
+<p> </p>
+<p> </p>
+<p>For the error free input file, the tool generates the following output files: </p>
+<p>Wdg_59_Driver&lt;A&gt;_Cfg.h and Wdg_59_Driver&lt;A&gt;_PBcfg.c </p>
+<p> </p>
+<p> </p>
+<p>Wdg_59_Driver&lt;A&gt;_Cfg.h will be compiled and linked with WDG Driver </p>
+<p>Component. Wdg_59_Driver&lt;A&gt;_PBcfg.c will be compiled and linked </p>
+<p>separately from the other C Source files and placed in flash. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark</b> </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>In case of errors the generation tool returns a 1, in case of no errors the </p>
+<p>generation tool returns a 0. </p>
+<p> </p>
+<p>• </p>
+<p>WDG Driver Generation Tool uses “Common Published Information” from </p>
+<p>WDG module specific BSWMDT File. WDG module specific BSWMDT File </p>
+<p>should not be updated manually since it is “Static Configuration” file. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 3                                                                                WDG Driver Generation Tool Overview </b></p>
+<p> </p>
+<p><b>14 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Input Files </b></p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p> </p>
+<p><b>15 </b></p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b>Input Files </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>WDG Driver Generation Tool accepts ECU Configuration Description File(s), </p>
+<p>BSWMDT File, Translation XML File and Configuration XML File as input. </p>
+<p>WDG Driver Generation Tool needs information about WDG Driver module. </p>
+<p>Hence ECU Configuration Description File should contain configuration of </p>
+<p>WDG Driver module. Generation Tool ignores any other AUTOSAR </p>
+<p>component configured in the ECU Configuration Description File. ECU </p>
+<p>Configuration Description File can be generated using configuration editor. </p>
+<p> </p>
+<p> </p>
+<p>ECU Configuration Description File must comply with AUTOSAR standard </p>
+<p>ECU Configuration Description File format. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>The detailed explanation about the parameters and containers are found in </p>
+<p>Parameter Definition File mentioned in the Reference Documents section.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 4                                                                                                                             Input Files </b></p>
+<p> </p>
+<p><b>16 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Output Files </b></p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p> </p>
+<p><b>17 </b></p>
+<p><b> </b></p>
+<p><b>Chapter 5 </b></p>
+<p><b>Output Files </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>WDG Driver Generation Tool generates configuration details in C Header and </p>
+<p>C Source files (Wdg_59_Driver&lt;A&gt;_Cfg.h, Wdg_59_Driver&lt;A&gt;_PBcfg.c). </p>
+<p> </p>
+<p> </p>
+<p>The content of each output file is given in the table below: </p>
+<p> </p>
+<p> </p>
+<p><b>Table 5-1 </b></p>
+<p><b>Output Files Description </b></p>
+<p> </p>
+<p><b>Output File</b></p>
+<p> </p>
+<p><b>Details</b></p>
+<p> </p>
+<p>Wdg_59_Driver&lt;A</p>
+<p>&gt;_Cfg.h</p>
+<p> </p>
+<p>This file contains pre-compile time parameters. This file also contains the macro </p>
+<p>definitions for development error detect, version info API, compile switch to allow/ </p>
+<p>forbid disabling Watchdog Driver during runtime and Watchdog Driver Id. This file also </p>
+<p>contains information for maximum Watchdog Timer timeout, Minimum Watchdog </p>
+<p>Timer timeout, configuration set handles, resolution of Watchdog time out period and </p>
+<p>Watchdog trigger mode.</p>
+<p> </p>
+<p>Wdg_59_Driver&lt;A</p>
+<p>&gt;_PBcfg.c</p>
+<p> </p>
+<p>This file contains post-build configuration data.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Output files generated by WDG Driver Generation Tool should not be modified </p>
+<p>or edited manually. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                                          Output Files </b></p>
+<p> </p>
+<p><b>18 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Precautions </b></p>
+<p><b>Chapter 6 </b></p>
+<p> </p>
+<p> </p>
+<p><b>19 </b></p>
+<p><b>Chapter 6 </b></p>
+<p><b>Precautions </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>ECU Configuration Description File and BSWMDT File must comply with </p>
+<p>AUTOSAR standard for R4.0.3 ECU Configuration Description File and </p>
+<p>BSWMDT File respectively. </p>
+<p> </p>
+<p>• </p>
+<p>The input file must contain WDG Driver, MCU Driver and DEM component </p>
+<p>related configuration. </p>
+<p> </p>
+<p>• </p>
+<p>Default Translation XML File (Wdg_X1x.trxml) should be present in same </p>
+<p>location of Wdg_X1x.exe when the variant specific trxml file is not given as </p>
+<p>input in command line. </p>
+<p> </p>
+<p>• </p>
+<p>Default Configuration XML File (Wdg_X1x.cfgxml) must be present in same </p>
+<p>location of Wdg_X1x.exe. </p>
+<p> </p>
+<p>• </p>
+<p>If </p>
+<p>Translation </p>
+<p>XML </p>
+<p>File </p>
+<p>is </p>
+<p>not </p>
+<p>provided </p>
+<p>on </p>
+<p>the </p>
+<p>command </p>
+<p>line, </p>
+<p>Wdg_X1x.trxml  which  is  present  in  same  location  of  Wdg_X1x.exe  is </p>
+<p>considered as ‘default’ Translation XML File. </p>
+<p> </p>
+<p>• </p>
+<p>If Configuration XML File is not provided on the command line, </p>
+<p>Wdg_X1x.cfgxml which is present in same location of Wdg_X1x.exe is </p>
+<p>considered as ‘default’ Configuration XML File. </p>
+<p> </p>
+<p>• </p>
+<p>Translation XML File should contain the file extension ‘.trxml’. </p>
+<p> </p>
+<p>• </p>
+<p>Configuration XML File should contain the file extension ‘.cfgxml’. </p>
+<p> </p>
+<p>• </p>
+<p>All the function names and the string values configured should follow C </p>
+<p>syntax for variables. It can only contain alphanumeric characters and “_”. It </p>
+<p>should start with an alphabet. </p>
+<p> </p>
+<p>• </p>
+<p>If the output files generated by WDG Driver Generation Tool are modified </p>
+<p>externally, then they may not produce the expected results or may lead to </p>
+<p>error/warning/Information messages. </p>
+<p> </p>
+<p>• </p>
+<p>Short Name for a container should be unique within a name space. </p>
+<p> </p>
+<p>• </p>
+<p>C Source and C Header files will be generated by the Watchdog Driver </p>
+<p>Generation Tool based on the configuration of the parameters ‘VENDOR-</p>
+<p>ID’ and ‘VENDOR-API-INFIX’ in the WDG Driver specific BSWMDT File. </p>
+<p> </p>
+<p>• </p>
+<p>An error free ECU Configuration Description File generated from </p>
+<p>configuration editor has to be provided as input to the WDG Driver </p>
+<p>Generation Tool. Otherwise Tool may not produce the expected results or </p>
+<p>may lead to errors/warnings/information. </p>
+<p> </p>
+<p>• </p>
+<p>User has to make sure that the respective device specific configuration file </p>
+<p>is used, otherwise Tool may not produce the expected results or may lead </p>
+<p>to errors/warnings/information messages.  </p>
+<p> </p>
+<p>• </p>
+<p>The description file should always be generated using AUTOSAR specified </p>
+<p>configuration editor and it should not be edited manually. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Please refer the WDG Component User Manual for deviations from </p>
+<p>AUTOSAR</p>
+<p> </p>
+<p>specifications, if any. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 6                                                                                                                           Precautions</b></p>
+<p> </p>
+<p> </p>
+<p><b>20 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>User Configuration Validation </b></p>
+<p><b>Chapter </b></p>
+<p><b>7</b></p>
+<p> </p>
+<p> </p>
+<p><b>21 </b></p>
+<p><b> </b></p>
+<p><b>Chapter 7 </b></p>
+<p><b>User Configuration Validation </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>This  section  provides  help  to  analyze  the  error,  warning  and  information </p>
+<p>messages displayed during the execution of WDG Driver Generation Tool. It </p>
+<p>ensures </p>
+<p>conformance </p>
+<p>of </p>
+<p>input </p>
+<p>files </p>
+<p>with </p>
+<p>syntax </p>
+<p>and </p>
+<p>semantics. </p>
+<p>It </p>
+<p>also </p>
+<p>performs validation on the input file for correctness of the data. </p>
+<p> </p>
+<p> </p>
+<p>For more details on list of Error/Warning/Information messages that are </p>
+<p>displayed as a result of input file validation, refer Chapter 8 “<i>Messages</i>”. </p>
+<p> </p>
+<p> </p>
+<p>The Generation Tool displays errors or warning or information when the user </p>
+<p>has  configured  incorrect  inputs.  The  format  of  Error/Warning/Information </p>
+<p>message is as shown below. </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>ERR/WRN/INF&lt;mid&gt;&lt;xxx&gt;: &lt;Error/Warning/Information Message&gt;.  </p>
+<p> </p>
+<p>where, </p>
+<p>&lt;mid&gt;: 102 - WDG Driver Module Id (102) for user configuration checks. </p>
+<p>000 - for command line checks. </p>
+<p>&lt;xxx&gt;: 001-999 - Message Id. </p>
+<p> </p>
+<p>• </p>
+<p>File Name: Name of the file in which the error has occurred. </p>
+<p> </p>
+<p>• </p>
+<p>Path: Absolute Path of the container in which the parameter is present. </p>
+<p> </p>
+<p> </p>
+<p>‘File Name’ and ‘Path’ need not be present for all Error/Warning/Information </p>
+<p>messages. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 7                                                                                               User Configuration Validation </b></p>
+<p> </p>
+<p><b>22 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages </b></p>
+<p><b>Chapter 8 </b></p>
+<p> </p>
+<p> </p>
+<p><b>23 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 8 </b></p>
+<p><b>Messages </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The  messages  help  to  identify  the  syntax  or  semantic  errors  in  the  ECU </p>
+<p>Configuration  Description  File.  Hence  it  ensures  validity  and  correctness  of </p>
+<p>the information available in the ECU Configuration Description File. </p>
+<p> </p>
+<p> </p>
+<p>The </p>
+<p>following </p>
+<p>section </p>
+<p>gives </p>
+<p>the </p>
+<p>list </p>
+<p>of </p>
+<p>error, </p>
+<p>warning </p>
+<p>and </p>
+<p>information </p>
+<p>messages displayed by the Generation Tool. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>8.1 </b></p>
+<p><b>Error Messages </b></p>
+<p> </p>
+<p><b>ERR102001: Number of fields is not same for the entity 'Structure Name'. </b></p>
+<p> </p>
+<p>This error occurs, if the number of fields is not same in the structure that is to </p>
+<p>be generated in the output file. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR102002: Field 'Field Name' is empty in the entity 'Structure Name'. </b></p>
+<p> </p>
+<p>This error occurs, if the structure fields that are to be generated in the output </p>
+<p>file are empty. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR102003: 'WDG Driver' Component is not present in the input file(s). </b></p>
+<p> </p>
+<p>This error occurs, if WDG Driver Component is not present in the input ECU </p>
+<p>Configuration Description File(s).  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ERR102004: The parameter 'parameter name' in the container 'container </b></p>
+<p><b>name' should be configured. </b></p>
+<p> </p>
+<p>This error occurs, if any of the mandatory configuration parameter(s) </p>
+<p>mentioned below is (are) not configured in ECU Configuration Description File. </p>
+<p>The list of mandatory parameters with respect to container is listed below: </p>
+<p> </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p>WdgDevErrorDetect  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>WdgGeneral </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>WdgDisableAllowed  </p>
+<p> </p>
+<p>WdgIndex  </p>
+<p> </p>
+<p>WdgVersionInfoApi  </p>
+<p> </p>
+<p>WdgVaryingActivationCodeMode  </p>
+<p> </p>
+<p>WdgTriggerLocation</p>
+<p> </p>
+<p>WdgDeviceName   </p>
+<p> </p>
+<p>WdgInitialTimeout    </p>
+<p>WdgRunArea   </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8 </b></p>
+<p><b>Messages </b></p>
+<p><b> </b></p>
+<p><b>24 </b></p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p>WdgMaxTimeout    </p>
+<p> </p>
+<p>WdgGeneral</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>WdgCriticalSectionProtection   </p>
+<p>WdgVersionCheckExternalModules    </p>
+<p>WdgClockRef    </p>
+<p>WdgRegReadBackEnable </p>
+<p>WdgTriggerMode</p>
+<p> </p>
+<p>WdgPublishedInformation</p>
+<p> </p>
+<p>WdgClkSettingsFast</p>
+<p> </p>
+<p>WdgSettingsFast</p>
+<p> </p>
+<p>WdgClkSettingsSlow</p>
+<p> </p>
+<p>WdgSettingsSlow</p>
+<p> </p>
+<p>- </p>
+<p>WdgSettingsOff </p>
+<p>WdgDefaultMode</p>
+<p> </p>
+<p>WdgSettingsConfig</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ERR102005: The reference path &lt;path&gt; provided for the parameter </b></p>
+<p><b>‘Parameter Name’ within the container ‘Container Name’ is incorrect. </b></p>
+<p> </p>
+<p>This error occurs, if path provided for the reference parameters mentioned in </p>
+<p>the below table are incorrect: </p>
+<p> </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p>WdgClockRef</p>
+<p> </p>
+<p>WdgGeneral</p>
+<p> </p>
+<p>WDG_E_DISABLE_REJECTED </p>
+<p>WdgDemEventParameterRefs </p>
+<p>WDG_E_MODE_FAILED </p>
+<p>WDG_E_TRIGGER_TIMEOUT </p>
+<p>WDG_E_READBACK_FAILURE </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>ERR102006: The value configured for the parameter </b></p>
+<p><b>‘WdgClkSettingsFast’ in the container ‘WdgSettingsFast’ and value of </b></p>
+<p><b>the parameter ‘WdgClkSettingsSlow’ in the container ‘WdgSettingsSlow’ </b></p>
+<p><b>are same. </b></p>
+<p> </p>
+<p>This error occurs, if the value configured for the parameter </p>
+<p>WdgClkSettingsFast in the container WdgSettingsFast and value of the </p>
+<p>parameter WdgClkSettingsSlow in the container WdgSettingsSlow are same. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR102007: The value configured for the parameter </b></p>
+<p><b>‘WdgClkSettingsSlow’ in the container ‘WdgSettingsSlow’ is faster </b></p>
+<p><b>(valid configuration should be WdgClkSettingsSlow &gt; WdgSettingsFast) </b></p>
+<p><b>than the value of the parameter ‘WdgClkSettingsFast’ in the container </b></p>
+<p><b>‘WdgSettingsFast’. </b></p>
+<p> </p>
+<p>This error occurs, if the value configured for the parameter </p>
+<p>WdgClkSettingsSlow in the container WdgSettingsSlow is faster than the </p>
+<p>value of the parameter WdgClkSettingsFast in the container </p>
+<p>WdgSettingsFast. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR102008: The value of the parameter ‘WdgInitialTimeout’ is greater </b></p>
+<p><b>than the value of the parameter ‘WdgMaxTimeout’. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter WdgInitialTimeout is greater </p>
+<p>than the value of the parameter WdgMaxTimeout. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages </b></p>
+<p><b>Chapter 8 </b></p>
+<p> </p>
+<p> </p>
+<p><b>25 </b></p>
+<p> </p>
+<p> </p>
+<p><b>ERR102009: The value of the parameter ‘WdgDisableAllowed’ should  </b></p>
+<p><b>not be &lt;false&gt; since the value of the parameter ‘WdgDefaultMode’ is </b></p>
+<p><b>configured as &lt;WDGIF_OFF_MODE&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter WdgDisableAllowed is false </p>
+<p>and the value of the parameter WdgDefaultMode is configured as </p>
+<p>WDGIF_OFF_MODE. </p>
+<p> </p>
+<p><b>ERR102010: The total instances of ‘WdgSettingsConfig’ container per </b></p>
+<p><b>WDTA instance is more than &lt;1&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the total instance of WdgSettingsConfig container per </p>
+<p>WDTA instance is more than 1. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR102011: The macro definition &lt;Macro name&gt; is not found in </b></p>
+<p><b>&lt;Translation Header File name&gt; translation C Header File. The macro </b></p>
+<p><b>label format should be 'Macro format'. </b></p>
+<p> </p>
+<p>This error occurs, if the macro definitions “RENESAS_ICWDTA&lt;WDG </p>
+<p>instance&gt;NMI_IMR” and “RENESAS_ICWDTA&lt;WDG instance&gt;_IMR” are not </p>
+<p>present in Translation Header File. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR102012:  &quot;DriverA&quot;  or  &quot;DriverB&quot;  WDG  instance  is  not  present  in </b></p>
+<p><b>input ECU Configuration Description File(s). &quot;DEFINITION-REF&quot; tags in </b></p>
+<p><b>WDG </b></p>
+<p><b>specific </b></p>
+<p><b>ECU </b></p>
+<p><b>Configuration </b></p>
+<p><b>Description </b></p>
+<p><b>File </b></p>
+<p><b>should </b></p>
+<p><b>contain </b></p>
+<p><b>&quot;DriverA/ Wdg&quot; or &quot;DriverB/Wdg&quot;. </b></p>
+<p> </p>
+<p>This error occurs, if “DriverA” or “DriverB” WDG instance is not present in </p>
+<p>description file. </p>
+<p>                                          </p>
+<p>                                        Note: P1x device supports only one instance i.e. DriverA. </p>
+<p> </p>
+<p><b>ERR102014:  The  reference  to  BSWMDT  file  'MODULE-DESCRIPTION- </b></p>
+<p><b>REF' should not refer to the same 'VendorApiInfix' for two different WDG </b></p>
+<p><b>drivers. 'VendorApiInfix' should be unique for each hardware driver. </b></p>
+<p> </p>
+<p>This error occurs, if the value of ‘VendorApiInfix’ is not unique for each </p>
+<p>hardware driver. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR102015: The value configured for the parameter 'WdgIndex' is same </b></p>
+<p><b>for all the  configured WDG drivers. The value of WdgIndex should be </b></p>
+<p><b>unique for each hardware driver. </b></p>
+<p> </p>
+<p>This error occurs, if the value configured for the parameter WdgIndex is same </p>
+<p>for all the configured WDG drivers. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR102016: The short name of the container ‘WdgSettingsConfig’ </b></p>
+<p><b>should be unique across the Drivers. </b></p>
+<p> </p>
+<p>This error occurs, if the short name of WdgSettingsConfig container is not </p>
+<p>same across the Drivers. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8 </b></p>
+<p><b>Messages </b></p>
+<p><b> </b></p>
+<p><b>26 </b></p>
+<p><b>ERR102017: </b></p>
+<p><b>The </b></p>
+<p><b>parameter </b></p>
+<p><b>'WDG_E_READBACK_FAILURE' </b></p>
+<p><b>in </b></p>
+<p><b>the </b></p>
+<p><b>container ‘WdgDemEventParameterRefs’ should be should be configured </b></p>
+<p><b>since  parameter  'WdgRegReadBackEnable'  in  container  'WdgGeneral'  is </b></p>
+<p><b>not configured as 'DISABLED'. </b></p>
+<p><b> </b></p>
+<p>This  error  will  occur,  if  the  parameter  'WDG_E_READBACK_FAILURE'  in </p>
+<p>the </p>
+<p>container </p>
+<p>WdgDemEventParameterRefs’ </p>
+<p>is </p>
+<p>not </p>
+<p>configured </p>
+<p>when </p>
+<p>parameter </p>
+<p>'WdgRegReadBackEnable' </p>
+<p>in </p>
+<p>container </p>
+<p>'WdgGeneral' </p>
+<p>is </p>
+<p>not </p>
+<p>configured as 'DISABLED'. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>8.2 </b></p>
+<p><b>Warning Messages </b></p>
+<p> </p>
+<p> </p>
+<p><b>WRN102001: The value of the parameter 'WdgInitialTimeout' is </b></p>
+<p><b>configured as &lt;0&gt; and 'WdgDefaultMode' is not configured as </b></p>
+<p><b>&lt;WDGIF_OFF_MODE&gt;. Hence, Watchdog hardware will be enabled </b></p>
+<p><b>directly after Wdg Module initialization and WDG counter will expire </b></p>
+<p><b>after &lt;calculated_value in msec&gt;. </b></p>
+<p> </p>
+<p>This warning occurs, if WdgInitialTimeout parameter is configured as 0 and </p>
+<p>WdgDefaultMode is not configured as WDGIF_OFF_MODE. </p>
+<p> </p>
+<p> </p>
+<p><b>8.3 </b></p>
+<p><b>Information Messages </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>INF102001: The duration of 75% of one WDG trigger cycle for slow mode </b></p>
+<p><b>is &lt;slow_time_value msec&gt;. </b></p>
+<p> </p>
+<p>This information occurs to provide 75% interrupt time for slow mode. In this </p>
+<p>information message ‘slow_time_value’ will be evaluated as follows: </p>
+<p> </p>
+<p>slow_value = Power factor from WdgClkSettingsSlow slow_time_value = </p>
+<p>integer ((0.75((2slow_value)/clock))/1000) </p>
+<p> </p>
+<p> </p>
+<p><b>INF102002: The duration of 75% of one WDG trigger cycle for fast mode </b></p>
+<p><b>is &lt;fast_time_value msec&gt;. </b></p>
+<p> </p>
+<p>This information occurs to provide 75% interrupt time for fast mode. In this </p>
+<p>information message ‘fast_time_value’ will be evaluated as follows: </p>
+<p> </p>
+<p>fast_value = Power factor from WdgClkSettingsFast fast_time_value = integer </p>
+<p>((0.75((2fast_value)/clock))/1000) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>  </p>
+<p><b>Notes  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>      </b></p>
+<p><b>    Chapter 9  </b></p>
+<p> </p>
+<p> </p>
+<p><b>27 </b></p>
+<p><b>Chapter 9 </b></p>
+<p><b>Notes </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>“Generation Tool” and “Tool” terminologies are used interchangeably to refer </p>
+<p>WDG Driver Generation Tool. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>  </p>
+<p><b>Chapter 9 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Notes </b></p>
+<p> </p>
+<p><b>28 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Revision History </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>18-Oct-2013</p>
+<p> </p>
+<p>2.  </p>
+<p>Following changes are made: </p>
+<p>1. Chapter 2 is updated for addition of PDF reference. </p>
+<p>2. WdgRegReadBackEnable parameter is added in ERR102004 error </p>
+<p>message table. </p>
+<p>3. A note is added for ERR102012 error message. </p>
+<p>4. WdgDemEventParameterRefs container and its parameters are added in </p>
+<p>the table of error message ERR102005. </p>
+<p>5. Error message ERR102017 is added newly. </p>
+<p>6. Error messages ERR102015 and ERR102016 are rephrased. </p>
+<p>7. Chapter 6 Precautions is updated. </p>
+<p>1.0.1 </p>
+<p>26-Sep-2014 </p>
+<p>3. </p>
+<p>Following change is made: </p>
+<p>1. Updated Chapter 2 to add PDF reference. </p>
+<p>1.0.2 </p>
+<p>28-Apr-2015 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>29 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR MCAL R4.0.3 User's Manual </b></p>
+<p><b>WDG Driver Component Ver.1.0.2 </b></p>
+<p><b>Generation Tool User's Manual </b></p>
+<p> </p>
+<p>Publication Date: Rev.0.01, April 28, 2015 </p>
+<p> </p>
+<p>Published by: Renesas Electronics Corporation </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES  OFFICES  </b></p>
+<p> </p>
+<p>Refer  to </p>
+<p>for the latest  and detailed </p>
+<p> </p>
+<p><b>Renesas  Electronics America </b></p>
+<p> </p>
+<p>2880  Scott  Boulevard Santa  Clara,  CA </p>
+<p>Tel:  </p>
+<p>Fax: </p>
+<p> </p>
+<p><b>Renesas  Electronics Canada </b></p>
+<p> </p>
+<p>1101  Nicholson Road,  Newmarket, Ontario  L3Y  9C3, </p>
+<p> </p>
+<p>Tel: </p>
+<p>Fax: </p>
+<p> </p>
+<p><b>Renesas  Electronics Europe </b></p>
+<p> </p>
+<p>Dukes  Meadow,  Millboard  Road,  Bourne  End, </p>
+<p>SL8  5FH, </p>
+<p>Tel: </p>
+<p>Fax: </p>
+<p> </p>
+<p><b>Renesas  Electronics Europe </b></p>
+<p>10, 40472  Düsseldorf, Germany</p>
+<p>Tel: </p>
+<p>Fax: </p>
+<p> </p>
+<p><b>Renesas  Electronics (China)  Co., </b></p>
+<p> </p>
+<p>7th Floor,  Quantum  Plaza,  No.27  ZhiChunLu Haidian  District,  Beijing  100083, </p>
+<p> </p>
+<p>Tel: </p>
+<p>Fax: </p>
+<p> </p>
+<p><b>Renesas  Electronics (Shanghai) Co., </b></p>
+<p> </p>
+<p>Unit  204, 205,  AZIA  Center,  No.1233  Lujiazui  Ring  Rd.,  Pudong  District,  Shanghai  200120, </p>
+<p> </p>
+<p>Tel: </p>
+<p>Fax: </p>
+<p>/ </p>
+<p> </p>
+<p><b>Renesas  Electronics Hong  Kong </b></p>
+<p> </p>
+<p>Unit  1601-1613, 16/F.,  Tower  2, Grand  Century  Place,  193  Prince  Edward  Road West,  Mongkok, Kowloon,  Hong </p>
+<p> </p>
+<p>Tel: </p>
+<p>Fax:  +852 </p>
+<p> </p>
+<p><b>Renesas  Electronics Taiwan  Co., </b></p>
+<p> </p>
+<p>7F, No. 363  Fu Shing  North  Road  Taipei, </p>
+<p> </p>
+<p>Tel: </p>
+<p>Fax:  +886 </p>
+<p> </p>
+<p><b>Renesas  Electronics Singapore Pte. </b></p>
+<p> </p>
+<p>1 </p>
+<p>Avenue,  #06-10,  Keppel  Bay  Tower,  Singapore 098632 </p>
+<p>Tel: </p>
+<p>Fax: </p>
+<p> </p>
+<p><b>Renesas  Electronics Malaysia </b></p>
+<p> </p>
+<p>Unit  906,  Block  B, Menara  Amcorp,  Amcorp  Trade  Centre,  No. 18, Jln Persiaran  Barat,  46050  Petaling  Jaya,  Selangor  Darul  Ehsan, </p>
+<p> </p>
+<p>Tel: </p>
+<p>Fax: </p>
+<p> </p>
+<p><b>Renesas  Electronics Korea  Co., </b></p>
+<p> </p>
+<p>11F.,  Samik  Lavied'  or Bldg.,  720-2 </p>
+<p>Seoul  135-080, </p>
+<p> </p>
+<p>Tel: </p>
+<p>Fax: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2010 Renesas Electronics Corporation. All rights </p>
+<p> </p>
+<p>Colophon </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES OFFICES</b> </p>
+<p>http://www.renesas.com</p>
+<p> </p>
+<p>Refer  to </p>
+<p>&quot;http://www.renesas.com/&quot; </p>
+<p>for the  latest  and  detailed information</p>
+<p>.</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> </b></p>
+<p><b>America Inc</b></p>
+<p><b>.</b></p>
+<p> </p>
+<p>2880  Scott </p>
+<p>Boulevard </p>
+<p>Santa  Clara,  CA </p>
+<p>95050-2554, U.S.A. </p>
+<p>Tel:  </p>
+<p>+1-408-588-6000, </p>
+<p>Fax: </p>
+<p>+1-408-588-6130</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> </b></p>
+<p><b>Canada Limited</b> </p>
+<p>1101 </p>
+<p>Nicholson </p>
+<p>Road, </p>
+<p>Newmarket, </p>
+<p>Ontario L3Y  9C3, </p>
+<p>Canada</p>
+<p> </p>
+<p>Tel: </p>
+<p>+1-905-898-5441, </p>
+<p>Fax: </p>
+<p>+1-905-898-3220</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> </b></p>
+<p><b>Europe Limited</b> </p>
+<p>Dukes  Meadow, Millboard Road,  Bourne End, </p>
+<p>Buckinghamshire, </p>
+<p>SL8  5FH, </p>
+<p>U.K </p>
+<p>Tel: </p>
+<p>+44-1628-585-100, </p>
+<p>Fax: </p>
+<p>+44-1628-585-900</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> </b></p>
+<p><b>Europe GmbH</b> </p>
+<p>Arcadiastrasse </p>
+<p>10, 40472 </p>
+<p>Düsseldorf, Germany</p>
+<p> </p>
+<p>Tel: </p>
+<p>+49-211-65030, </p>
+<p>Fax: </p>
+<p>+49-211-6503-1327</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> </b></p>
+<p><b>(China) Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>7th Floor,  Quantum Plaza,  No.27 </p>
+<p>ZhiChunLu </p>
+<p>Haidian District, Beijing  100083, P.R.China </p>
+<p>Tel: </p>
+<p>+86-10-8235-1155, </p>
+<p>Fax: </p>
+<p>+86-10-8235-7679</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> (Shanghai) </b></p>
+<p><b>Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>Unit  204,  205,  AZIA  Center,  No.1233  Lujiazui  Ring  Rd.,  Pudong  District,  </p>
+<p>Shanghai </p>
+<p>200120,  </p>
+<p>China</p>
+<p> </p>
+<p>Tel: </p>
+<p>+86-21-5877-1818, </p>
+<p>Fax: </p>
+<p>+86-21-6887-7858 </p>
+<p>/ </p>
+<p>-7898</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> </b></p>
+<p><b>Hong  Kong </b></p>
+<p><b>Limited</b></p>
+<p> </p>
+<p>Unit </p>
+<p>1601-1613, </p>
+<p>16/F.,  Tower  2, Grand  Century Place,  193  Prince  Edward Road  West, </p>
+<p>Mongkok, </p>
+<p>Kowloon, Hong </p>
+<p>Kong</p>
+<p> </p>
+<p>Tel: </p>
+<p>+852-2886-9318, </p>
+<p>Fax:  +852 </p>
+<p>2886-9022/9044</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> </b></p>
+<p><b>Taiwan Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>7F,  No.  363  Fu Shing  North  Road  Taipei, </p>
+<p>Taiwan</p>
+<p> </p>
+<p>Tel: </p>
+<p>+886-2-8175-9600, </p>
+<p>Fax:  +886 </p>
+<p>2-8175-9670</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> Singapore </b></p>
+<p><b>Pte. </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>1 </p>
+<p>harbourFront </p>
+<p>Avenue, #06-10, Keppel  Bay  Tower, </p>
+<p>Singapore 098632</p>
+<p> </p>
+<p>Tel: </p>
+<p>+65-6213-0200, </p>
+<p>Fax: </p>
+<p>+65-6278-8001</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> Malaysia Sdn.Bhd.</b></p>
+<p> </p>
+<p>Unit  906,  Block  B, Menara  Amcorp,  Amcorp  Trade  Centre,  No.  18,  Jln </p>
+<p>Persiaran </p>
+<p>Barat,  46050  Petaling  Jaya,  Selangor  Darul  Ehsan, </p>
+<p>Malaysia</p>
+<p> </p>
+<p>Tel: </p>
+<p>+60-3-7955-9390, </p>
+<p>Fax: </p>
+<p>+60-3-7955-9510</p>
+<p> </p>
+<p><b>Renesas Electronics</b></p>
+<p><b> </b></p>
+<p><b>Korea  Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>11F.  Samik  Lavied'  or Bldg.,  720-2 </p>
+<p>Yeoksam-Dong, Kangnam-Ku, </p>
+<p>Seoul  135-080, Korea </p>
+<p>Tel: </p>
+<p>+82-2-558-3737, </p>
+<p>Fax: </p>
+<p>+82-2-558-5141 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2015 Renesas  Electronics  Corporation.  All rights reserved. </p>
+<p>Colophon  1.0 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3 </p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

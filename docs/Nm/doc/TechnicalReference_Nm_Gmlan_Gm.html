@@ -1,0 +1,3391 @@
+---
+layout: default
+title: TechnicalReference_Nm_Gmlan_Gm
+nav_order: 3
+parent: Network Management Interface
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Nm_Gmlan_Gm </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 2.03.01 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Marco Pfalzgraf </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>2 / 59 </p>
+<p><b>1 </b></p>
+<p><b>Document Information </b></p>
+<p><b>1.1 </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>M. Radwick </p>
+<p>2002-06-14 </p>
+<p>1.0 </p>
+<p>creation </p>
+<p>M. Radwick </p>
+<p>2002-12-24 </p>
+<p>1.1 </p>
+<p>Incorporate comments from Armin </p>
+<p>Happel. </p>
+<p>Added Introduction, Overview and </p>
+<p>Functional sections. </p>
+<p>Klaus Emmert </p>
+<p>Ralf Fritz </p>
+<p>2004-02-23 </p>
+<p>1.2 </p>
+<p>New Layout. </p>
+<p>Minor changes. </p>
+<p>Ralf Fritz/ Laura Winder </p>
+<p>2004-10-12 </p>
+<p>1.3 </p>
+<p>Minor changes in API chapter. </p>
+<p>Ralf Fritz </p>
+<p>2005-05-09 </p>
+<p>1.4 </p>
+<p>Data types changed </p>
+<p>Ralf Fritz </p>
+<p>2005-08-02 </p>
+<p>1.5 </p>
+<p>Macros to access the return value of </p>
+<p>IlNwmIsActiveVN</p>
+<p> </p>
+<p>added  </p>
+<p>Ralf Fritz </p>
+<p>2006-10-02 </p>
+<p>1.6 </p>
+<p>Changed description of bus-off recovery </p>
+<p>time. </p>
+<p>Ralf Fritz </p>
+<p>2007-03-23 </p>
+<p>1.7 </p>
+<p>Function description of  </p>
+<p>IlNwmGetActiveListVN changed. </p>
+<p>Calibration section removed </p>
+<p>Description of ApplNwmReinitRequest </p>
+<p>corrected. </p>
+<p>Markus Schwarz </p>
+<p>2007-12-06 </p>
+<p>2.00 </p>
+<p>ESCAN00021184 </p>
+<p>added description for GENy </p>
+<p>adapted to new template </p>
+<p>changed order of chapters </p>
+<p>Markus Schwarz </p>
+<p>2010-07-16 </p>
+<p>2.00.01 </p>
+<p>ESCAN0030766: added chapter 4.5 </p>
+<p>Marco Pfalzgraf </p>
+<p>2012-08-15 </p>
+<p>2.01.00 </p>
+<p>ESCAN00055995, </p>
+<p>ESCAN00055998: </p>
+<p>adapted chapters 6.2 and 6.3.3 </p>
+<p>Marco Pfalzgraf </p>
+<p>2012-08-31 </p>
+<p>2.02.00 </p>
+<p>ESCAN00054683: Corrected code </p>
+<p>example in chapter 5.3.2 ‘Periodic </p>
+<p>tasks’ </p>
+<p>ESCAN00060804: Added chapter 4.11 </p>
+<p>Marco Pfalzgraf </p>
+<p>2012-10-26 </p>
+<p>2.02.01 </p>
+<p>Added chapter 2 </p>
+<p>Marco Pfalzgraf </p>
+<p>2013-05-15 </p>
+<p>2.02.02 </p>
+<p>ESCAN00067275: Adapted description </p>
+<p>of callback ApplNwmReinitRequest </p>
+<p>Marco Pfalzgraf </p>
+<p>2015-01-19 </p>
+<p>2.03.00 </p>
+<p>ESCAN00080646: Added API </p>
+<p>description for context switch support </p>
+<p>Marco Pfalzgraf </p>
+<p>2015-12-18 </p>
+<p>2.03.01 </p>
+<p>ESCAN00069542: Adapted description </p>
+<p>about activation of init active VNs </p>
+<p>ESCAN00087111: Added limitation to </p>
+<p>IlNwmTask API description and chapter </p>
+<p>5.3.2. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>3 / 59 </p>
+<p>Table 1-1  </p>
+<p>History of the Document </p>
+<p><b>1.2 </b></p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> </p>
+<p>GM </p>
+<p>Communication Strategy Specification GMW 3104 </p>
+<p>1.5 </p>
+<p>[2] </p>
+<p> </p>
+<p>GM </p>
+<p>RSM Fault Detection and Mitigation Algorithm </p>
+<p>- </p>
+<p>[3] </p>
+<p> </p>
+<p>GM </p>
+<p>RSM GMLAN Handler Robustness Changes V2 </p>
+<p>- </p>
+<p>[4] </p>
+<p> </p>
+<p>GM </p>
+<p>RSM GMLAN Handler NM Race Condition Resolution </p>
+<p>- </p>
+<p>[5] </p>
+<p> </p>
+<p>Vector </p>
+<p>Technical Reference GMLAN Calibration </p>
+<p>2.01.00 </p>
+<p>Table 1-2  </p>
+<p>Reference Documents </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector’s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>4 / 59 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Document Information ................................................................................................. 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>History ............................................................................................................... 2</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Reference Documents ....................................................................................... 3</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Nm_Gmlan_Gm Version 4.02.00 ....................................................................... 7</p>
+<p> </p>
+<p>2.1.1</p>
+<p> </p>
+<p>What is new? ..................................................................................... 7</p>
+<p> </p>
+<p>2.1.2</p>
+<p> </p>
+<p>What has changed? ........................................................................... 7</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Nm_Gmlan_Gm Version 4.03.00 ....................................................................... 7</p>
+<p> </p>
+<p>2.2.1</p>
+<p> </p>
+<p>What is new? ..................................................................................... 7</p>
+<p> </p>
+<p>2.2.2</p>
+<p> </p>
+<p>What has changed? ........................................................................... 7</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 8</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Layer Concept ................................................................................................... 9</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>NM Features .................................................................................................... 10</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>VN Concept ..................................................................................................... 11</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 12</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>NM States ........................................................................................................ 12</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Normal Operation ............................................................................................. 13</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Low Voltage Tolerant Mode .............................................................................. 14</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>High Load ........................................................................................................ 15</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>HighSpeed Mode ............................................................................................. 15</p>
+<p> </p>
+<p>4.6</p>
+<p> </p>
+<p>Normal Communication Halted Mode ............................................................... 16</p>
+<p> </p>
+<p>4.7</p>
+<p> </p>
+<p>Bus Off ............................................................................................................. 16</p>
+<p> </p>
+<p>4.8</p>
+<p> </p>
+<p>HLVW Failure Handling .................................................................................... 16</p>
+<p> </p>
+<p>4.9</p>
+<p> </p>
+<p>VN Activation Failure ........................................................................................ 17</p>
+<p> </p>
+<p>4.10</p>
+<p> </p>
+<p>VNMF Message ............................................................................................... 18</p>
+<p> </p>
+<p>4.11</p>
+<p> </p>
+<p>Fault Detection and Mitigation Algorithm .......................................................... 18</p>
+<p> </p>
+<p>4.11.1</p>
+<p> </p>
+<p>VN Active Fault ................................................................................ 19</p>
+<p> </p>
+<p>4.11.2</p>
+<p> </p>
+<p>Network Active Fault ........................................................................ 19</p>
+<p> </p>
+<p>4.11.3</p>
+<p> </p>
+<p>No Sleep Confirmation Fault ............................................................ 19</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 21</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Involved Files ................................................................................................... 21</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Necessary Steps to Integrate the NM in Your Project ....................................... 22</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Necessary Steps to Run the NM ...................................................................... 23</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Initialization ...................................................................................... 23</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>5 / 59 </p>
+<p>5.3.2</p>
+<p> </p>
+<p>Periodic tasks................................................................................... 23</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Operating Systems .......................................................................................... 24</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Other Aspects .................................................................................................. 24</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 25</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Concept ........................................................................................................... 25</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Data base attributes ......................................................................................... 25</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>GENy ............................................................................................................... 28</p>
+<p> </p>
+<p>6.3.1</p>
+<p> </p>
+<p>General ............................................................................................ 28</p>
+<p> </p>
+<p>6.3.2</p>
+<p> </p>
+<p>System-specific Configuration Options ............................................. 29</p>
+<p> </p>
+<p>6.3.3</p>
+<p> </p>
+<p>Channel-specific Configuration Options ........................................... 30</p>
+<p> </p>
+<p>6.3.4</p>
+<p> </p>
+<p>VN-specific Configuration Options .................................................... 31</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 32</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>General ............................................................................................................ 32</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Common Parameter ......................................................................................... 32</p>
+<p> </p>
+<p>7.3</p>
+<p> </p>
+<p>Service Functions ............................................................................................ 33</p>
+<p> </p>
+<p>7.4</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 43</p>
+<p> </p>
+<p>7.5</p>
+<p> </p>
+<p>Calibration Constants ....................................................................................... 56</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 57</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 57</p>
+<p> </p>
+<p>8.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 58</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 59</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>6 / 59 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Example for Some ECU's in a Modern Car ................................................. 8</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Layer model of Vector’s CAN communication modules CANbedded ........... 9</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>States of NM ............................................................................................. 12</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p> </p>
+<p>VNMF Message Layout ............................................................................ 18</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>GENy Overview ........................................................................................ 28</p>
+<p> </p>
+<p>Figure 6-2</p>
+<p> </p>
+<p>System-specific Configuration Options ..................................................... 29</p>
+<p> </p>
+<p>Figure 6-3</p>
+<p> </p>
+<p>Channel-specific Configuration Options .................................................... 30</p>
+<p> </p>
+<p>Figure 6-4</p>
+<p> </p>
+<p>VN-specific Configuration Options ............................................................ 31</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p><b> </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>History of the Document ............................................................................. 3</p>
+<p> </p>
+<p>Table 1-2 </p>
+<p> </p>
+<p>Reference Documents ................................................................................ 3</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Static Files ................................................................................................ 21</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Dynamic Files ........................................................................................... 21</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>7 / 59 </p>
+<p><b>2 </b></p>
+<p><b>Component History </b></p>
+<p>This chapter describes the implementation history of the Vector Network Management for </p>
+<p>General Motors (since version 4.02.00). </p>
+<p><b>2.1 </b></p>
+<p><b>Nm_Gmlan_Gm Version 4.02.00 </b></p>
+<p>In this version robustness changes were implemented according to [3]. </p>
+<p><b>2.1.1 </b></p>
+<p><b>What is new? </b></p>
+<p><b>&gt; </b></p>
+<p>The signal/node supervision timer is not started for a calibrateable time ‘Sleep </p>
+<p>Transition Time’ after VN activation. </p>
+<p><b>&gt; </b></p>
+<p>Additional ‘Sleep transition delay time’ was introduced as a calibrateable value. </p>
+<p>Please refer to [5] ‘Technical Reference GMLAN Calibration’ for more information about </p>
+<p>these new calibrateable values. </p>
+<p><b>2.1.2 </b></p>
+<p><b>What has changed? </b></p>
+<p><b>&gt; </b></p>
+<p>Initially active VNs are no more activated at power on. They are only activated by a </p>
+<p>High Level Voltage Wakeup (HLVW). </p>
+<p><b>2.2 </b></p>
+<p><b>Nm_Gmlan_Gm Version 4.03.00 </b></p>
+<p>In this version robustness changes were implemented according to [2] and [4]. </p>
+<p><b>2.2.1 </b></p>
+<p><b>What is new? </b></p>
+<p><b>&gt; </b></p>
+<p>Introduced Fault Detection and Mitigation Algorithm (see chapter 4.11) </p>
+<p><b>2.2.2 </b></p>
+<p><b>What has changed? </b></p>
+<p><b>&gt; </b></p>
+<p>Removed the possibility that the GMLAN handler enters a loop where it transmits a </p>
+<p>HLVW frame every 100ms (according to [4]). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>8 / 59 </p>
+<p><b>3 </b></p>
+<p><b>Introduction </b></p>
+<p>Nowadays cars are growing to become more and more complex systems. The functionality </p>
+<p>of a modern car is not dominated by mechanical components anymore. Electrical Control </p>
+<p>Units (ECU), sensors and actors became irreplaceable parts of a car. They are responsible </p>
+<p>for  the  reasonable  functions  of  the  power  train,  the  chassis  and  the  body  of  a  car. An </p>
+<p>example for some ECUs is shown in Figure 3-1 </p>
+<p>In  many  ways  the  functionality  of  an  ECU  in  a  car  depends  on  information  provided  by </p>
+<p>other ECUs. For example the ECU of the dashboard needs the number of revolutions per </p>
+<p>time  of  the  wheels  to  display  the  car’s  speed. As  a  result  communication  between  the </p>
+<p>ECUs is a significant component of a modern vehicle. </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Example for Some ECU's in a Modern Car </p>
+<p>The </p>
+<p>communication </p>
+<p>between </p>
+<p>ECUs </p>
+<p>should </p>
+<p>essentially </p>
+<p>remain </p>
+<p>encapsulated. </p>
+<p>The </p>
+<p>application working on an ECU should not need to know how to transmit or receive data </p>
+<p>from  other  ECUs. Therefore  Vector  Informatik  GmbH  provides  a  set  of  modules  for  the </p>
+<p>communication of ECUs by the CAN bus. </p>
+<p>These communication modules are called CANbedded. They relieve the application of its </p>
+<p>communication  assignment  including  the  exchange  of  simple  data,  diagnostic  data,  NM </p>
+<p>data, calibration data and more. This document is concerned with how ECU’s interact via </p>
+<p>NM. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>9 / 59 </p>
+<p><b>3.1 </b></p>
+<p><b>Layer Concept  </b></p>
+<p>The </p>
+<p>implementation </p>
+<p>of </p>
+<p>the </p>
+<p>Network </p>
+<p>Management </p>
+<p>(NM) </p>
+<p>is </p>
+<p>intended </p>
+<p>to </p>
+<p>relieve </p>
+<p>the </p>
+<p>application  of  communication  tasks.  The  NM  is  one  of  the  communications  modules  of </p>
+<p>CANbedded offered by Vector Informatik GmbH. It is adapted to the specific requirements </p>
+<p>of General Motors. The CANbedded communication modules are organized in layers as </p>
+<p>shown in Figure 3-2. They consist of the Interaction Layer, the Network Management, the </p>
+<p>Transport Protocol, the Diagnosis Layer, the CAN Calibration Protocol and the CAN Driver </p>
+<p>(Data Link Layer).  </p>
+<p> </p>
+<p> </p>
+<p><i>os</i></p>
+<p> </p>
+<p>CAN</p>
+<p> </p>
+<p>Network </p>
+<p>Management</p>
+<p> </p>
+<p>Transport Protocol</p>
+<p> </p>
+<p>Communication </p>
+<p>Control </p>
+<p>Layer</p>
+<p> </p>
+<p>Universal </p>
+<p>Measure- </p>
+<p>ment </p>
+<p>And </p>
+<p>Calibration </p>
+<p>Protocol</p>
+<p> </p>
+<p>CAN Driver</p>
+<p> </p>
+<p><b>CAN Bus</b></p>
+<p> </p>
+<p>Interaction </p>
+<p>Layer</p>
+<p> </p>
+<p>Diagnostics </p>
+<p>Layer</p>
+<p> </p>
+<p>Application</p>
+<p> </p>
+<p>CAN </p>
+<p>Controller</p>
+<p> </p>
+<p>Transceiver</p>
+<p> </p>
+<p>CAN Controller</p>
+<p> </p>
+<p>Transceiver</p>
+<p> </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>Layer model of Vector’s CAN communication modules CANbedded </p>
+<p> </p>
+<p>The availability  of  the CAN  bus  is controlled  by  the  NM. The  NM provides  the following </p>
+<p>features:  </p>
+<p><b>&gt; </b></p>
+<p>Control the start-up and the shut-down of the IL  </p>
+<p><b>&gt; </b></p>
+<p>Control the activation and deactivation of VNs </p>
+<p><b>&gt; </b></p>
+<p>Control the peripheral hardware (CAN Controller and Bus Transceiver)  </p>
+<p><b>&gt; </b></p>
+<p>Error recovery after BusOff  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>10 / 59 </p>
+<p>The Diagnosis Layer handles diagnostic services by CAN. It is used for the evaluation of </p>
+<p>the diagnosis requests and for the exception handling of invalid conditions like unknown </p>
+<p>services. To provide the diagnosis state, often rather long data, the Transport Protocol is </p>
+<p>used. </p>
+<p>The CAN Calibration Protocol is specially designed for calibration and measurement data </p>
+<p>acquisition  in  ECUs.  It  has  been  defined  by  the  European ASAP  task  force  as  a  CAN </p>
+<p>based high speed interface for measurement and calibration systems (MCS). </p>
+<p>If any information which has to be transmitted by the CAN bus does  not fit into a single </p>
+<p>data frame because the data length exceeds 8 bytes, the Transport Protocol splits the data </p>
+<p>into several CAN messages using the same identifier. </p>
+<p>The </p>
+<p>CAN </p>
+<p>Driver </p>
+<p>provides </p>
+<p>a </p>
+<p>mostly </p>
+<p>hardware </p>
+<p>independent </p>
+<p>interface </p>
+<p>to </p>
+<p>the </p>
+<p>higher </p>
+<p>communication layers. This enables the hardware independent implementation of the latter </p>
+<p>modules and the target platform independent reuse of them. </p>
+<p> </p>
+<p><b>3.2 </b></p>
+<p><b>NM Features </b></p>
+<p>GM’s NM behavior is completely specified in [1]. </p>
+<p>The  NM  is  used  to  control  the  start-up,  shutdown,  and  error  handling  for  the  ECU.  NM </p>
+<p>introduces the concept of a Virtual Network (VN), which is used by the system designer to </p>
+<p>divide the signals sent and received by an ECU into related functional groups. Use of VNs </p>
+<p>help conserve power and CAN bus bandwidth by permitting transmission and reception of </p>
+<p>only the signals and messages that are required at a given time. VNs may be individually </p>
+<p>active  or  inactive.  The  state  of  all  VNs  is  communicated  between  ECUs  using  a  Virtual </p>
+<p>Network Management Frame (VNMF). If a VN is active, then the ECU will be able to send </p>
+<p>and receive the signals associated with the VN. The NM will defer application requests to </p>
+<p>send a signal until one of its associated VNs is activated. If all the VNs of an ECU become </p>
+<p>inactive, then the ECU application is given the opportunity to go to sleep, thus conserving </p>
+<p>power. </p>
+<p>The primary responsibilities of the NM are shown below: </p>
+<p><b>&gt; </b></p>
+<p>Keep VNs active on other nodes by sending out VNMF messages at fixed time </p>
+<p>intervals </p>
+<p><b>&gt; </b></p>
+<p>Activate relevant VNs upon receipt of VNMFs. </p>
+<p><b>&gt; </b></p>
+<p>Restart VN timer on reception and transmission of VNMF </p>
+<p><b>&gt; </b></p>
+<p>Count down the VN timer and deactivate VN when VN timer expires </p>
+<p><b>&gt; </b></p>
+<p>Respond to and recover from bus failures. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>11 / 59 </p>
+<p><b>3.3 </b></p>
+<p><b>VN Concept </b></p>
+<p>VNs are defined by the platform engineer to associate signals that are distributed among </p>
+<p>different ECUs in the CAN network. Every signal that may be exchanged between ECUs is </p>
+<p>associated with one or more VNs. The associations are defined using specific attributes in </p>
+<p>the  message  database.  The  purpose  of  this  association  is  to  minimize  the  number  of </p>
+<p>messages being transmitted on the CAN bus at any given time. If there are no ECUs that </p>
+<p>require any signals associated with a VN, then the VN is deactivated, and transmission of </p>
+<p>those signals is halted. </p>
+<p>ECUs  are  not  required  to  participate  in  all  VNs.  The  VNs  an  ECU  participates  in  are </p>
+<p>determined  by  configuration  settings  given  in  the  database.  VN  participation  should  be </p>
+<p>configured according to the CTS documentation released by GM.  </p>
+<p>There  are  four  ways  in  which  an  ECU  may  be  associated  with  a  VN.  The  possible </p>
+<p>relationships are: </p>
+<p><b>&gt; </b></p>
+<p>Activator (Network Activated):  The ECU, in response to some application related </p>
+<p>event, needs to send and/or receive signals. The application directs NM to activate </p>
+<p>one or more VNs. The ECU begins transmitting VNMF messages to notify other ECUs </p>
+<p>of the activation. </p>
+<p><b>&gt; </b></p>
+<p>Remotely Activated:  The ECU is required respond to VN activations that are initiated </p>
+<p>by other ECUs. Remote activations are initiated in response to a received VNMF </p>
+<p>message. </p>
+<p><b>&gt; </b></p>
+<p>Shared Local: The ECU responds to an input event common to all modules that </p>
+<p>participate in the VN. </p>
+<p><b>&gt; </b></p>
+<p>Initially Active:  The VN is temporarily activated by NM upon reception or transmission </p>
+<p>of a HLVW message. </p>
+<p>Each  VN  may  be  configured  as  any  combination  of Activator,  Remotely Activated,  and </p>
+<p>Initially Active. However, if the VN is Shared Local, then the Activator and Remote options </p>
+<p>are excluded. The reason is related to how the activation is communicated to other ECUs. </p>
+<p>Normally,  the  NM  will  send  a  VNMF  message  on  the  CAN  bus  when  an  application </p>
+<p>requests that a VN be activated. Since ECUs participating in a Locally Activated VNs all </p>
+<p>see the same input event at the same time, there is no need to send or expect a VNMF </p>
+<p>message.  </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>12 / 59 </p>
+<p><b>4 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>4.1 </b></p>
+<p><b>NM States </b></p>
+<p>The behavior of VNs is defined for three primary states: COMM-OFF, COMM-ENABLED, </p>
+<p>and COMM-ACTIVE.  </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>States of NM </p>
+<p>COMM-OFF indicates that all VNs are deactivated, and that the CAN controller has been </p>
+<p>disabled.  The  application  developer  has  the  option  to  put  the  ECU  micro-controller  to </p>
+<p>sleep. During this state, no messages on the CAN bus can be processed. There are two </p>
+<p>ways to wake up the communications kernel: The application activates a VN, or, another </p>
+<p>ECU transmits a HLVW message. The NM responds to both of these events by entering </p>
+<p>the COMM-ENABLED state. </p>
+<p>COMM-ENABLED is an intermediate state. While in this state, the communications kernel </p>
+<p>will process only one message: a VNMF. The VNMF message identifies all of the VNs that </p>
+<p>are remotely active. The NM examines the contents of a VNMF to determine if the ECU </p>
+<p>participates  in  any  of the  active  VNs.  If any  relevant  VNs are  activated  as  a  result of  a </p>
+<p>VNMF message, or due to an application request, then NM will enter the COMM-ACTIVE </p>
+<p>state. If all relevant VNs remain inactive for a configured amount of time, the NM will return </p>
+<p>to the COMM-OFF state. </p>
+<p>The  NM  will  remain  in  the  COMM-ACTIVE  state  so  long  as  any  VN  that  the  ECU </p>
+<p>participates in is active. If the ECU application activates a (network-activated) VN, then NM </p>
+<p>will periodically transmit a VNMF message. The NM will continue sending VNMFs until the </p>
+<p>application deactivates all of the VNs that it started. </p>
+<p>Reception  of  a  VNMF  is  also  used  to  keep  VNs  active.  NM  maintains  a  timer  for  each </p>
+<p>remotely  activated  VN.  The  timer for  a  VN  is  reset  to  a  fixed  value  each  time  a  VNMF </p>
+<p>message is received indicating that the VN is active. If the VNMF ceases to indicate that </p>
+<p>the VN is active (or if it ceases to arrive), then the VN timer(s) will eventually reach zero. </p>
+<p>When a timer reaches zero, NM will stop sending and receiving signals associated with the </p>
+<p>VN. </p>
+<p>NM  will transition from  the  COMM-ACTIVE  state  to  the  COMM-ENABLED state  when  it </p>
+<p>determines that all the VNs relevant to the ECU are inactive.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>13 / 59 </p>
+<p><b>4.2 </b></p>
+<p><b>Normal Operation </b></p>
+<p>At  power-up,  the  NM  will  initialize  all  VNs  as  inactive.  Afterwards,  NM  will  enter  the </p>
+<p>COMM-ENABLED  state.  After  initialization,  the  application  is  free  to  activate  any  VN </p>
+<p>configured  as  Activator  or  Locally  Active.  To  activate  a  VN,  the  application  invokes </p>
+<p>IlNwmActivateVN()</p>
+<p>. Deactivation is accomplished using </p>
+<p>IlNwmDeactivateVN()</p>
+<p>. </p>
+<p>Activation </p>
+<p>of </p>
+<p>a </p>
+<p>VN </p>
+<p>is </p>
+<p>affected </p>
+<p>by </p>
+<p>several </p>
+<p>factors. </p>
+<p>VNs </p>
+<p>configured </p>
+<p>as </p>
+<p>Activator </p>
+<p>or </p>
+<p>Locally-Activated are completely under the control of the application. VNs activated by the </p>
+<p>application will remain active until the application requests that the VN be deactivated. For </p>
+<p>Locally-Activated  VNs,  transmission  and  reception  of  signals  is  halted  immediately.  VNs </p>
+<p>configured  as Activator  are  deactivated  by  NM  8  seconds  after  the  application  requests </p>
+<p>deactivation. </p>
+<p>When  the  application  requests  activation  of  an Activator  VN,  NM  will  check  to  see  how </p>
+<p>much time has elapsed since the last time a HLVW message has been sent. If the interval </p>
+<p>is too large, NM will automatically send a HLVW message in order to wake up all the ECUs </p>
+<p>on the network. NM will wait a short time (100ms) to give the other ECUs time to initialize, </p>
+<p>and then transmit a VNMF to notify the other ECUs of the VN activation.</p>
+<p> </p>
+<p>NM  will  activate  all  VNs  configured  as  Initially  Active  whenever  a  HLVW  message  is </p>
+<p>received. The VNs will remain active for 8 seconds and then automatically deactivate. If an </p>
+<p>Initially  Active  VN  is  already  active  when  a  HLVW  message  is  received,  the  HLVW  will </p>
+<p>reset the VN timers, allowing the Initially Active VNs to continue for 8 seconds after the </p>
+<p>HLVW message was received. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>14 / 59 </p>
+<p><b>4.3 </b></p>
+<p><b>Low Voltage Tolerant Mode </b></p>
+<p>Low Voltage Tolerant (LVT) mode is an optional feature intended to be used in situations </p>
+<p>when it is possible to predict when the ECU’s voltage level will be low. In a low voltage </p>
+<p>environment, communication errors between ECUs will be more frequent. The purpose of </p>
+<p>LVT mode is to reduce the amount of time required to recover from the errors. LVT Mode is </p>
+<p>a distributed operation: all active ECUs should be programmed to enter LVT mode when a </p>
+<p>“LVT Master” ECU sends an entry request. The NM does not implement all the functions </p>
+<p>needed </p>
+<p>to </p>
+<p>support  LVT  mode. </p>
+<p>ECUs </p>
+<p>are </p>
+<p>required </p>
+<p>to </p>
+<p>implement </p>
+<p>application-specific </p>
+<p>behavior to completely support LVT mode. Please consult the CTS documentation for the </p>
+<p>ECU to determine if the application is required to support LVT mode. </p>
+<p>When LVT mode is active, the  NM  will not transmit any HLVW messages.  Only VNMFs </p>
+<p>needed to activate VNs will be transmitted (VNMFs needed to maintain active VNs will not </p>
+<p>be </p>
+<p>transmitted). </p>
+<p>In </p>
+<p>addition, </p>
+<p>the </p>
+<p>timers  that </p>
+<p>control </p>
+<p>deactivation </p>
+<p>of </p>
+<p>VNs </p>
+<p>and </p>
+<p>signal </p>
+<p>supervision  are  disabled.  As  a  result,  active  VNs  will  remain  active  until  LVT  mode  is </p>
+<p>disabled. </p>
+<p>LVT mode is the default at power-up. If CAN-OFF during Low-Voltage Mode is enabled, </p>
+<p>the application must exit Low Voltage mode before any messages can be transmitted. </p>
+<p> </p>
+<p>Entry and exit from LVT mode is controlled by the ECU application via functions in the NM.  </p>
+<p>LVT mode is automatically in effect when NM leaves the COMM-OFF state. This implies </p>
+<p>that  the  ECU  responsible  for  LVT  management  (the  “LVT  Master”)  must  exit  LVT  mode </p>
+<p>before  activating  the  VN  that  carries  the  LVT  exit  signal.  To  enter  LVT  mode,  call </p>
+<p>IlNwmEnterLowVoltageMode(). </p>
+<p>To </p>
+<p>enable </p>
+<p>transmission </p>
+<p>of </p>
+<p>HLVWs, </p>
+<p>call </p>
+<p>IlNwmExitLowVoltageMode(). </p>
+<p> </p>
+<p>The  transmit  path  of  the  IL  can  also  be  disabled  in  LVT  mode. The  node  will  not  send </p>
+<p>messages  associated  with  active  and  activated  VNs  in  that  case.  This  feature  can  be </p>
+<p>enabled in the configuration. </p>
+<p><b> </b></p>
+<p>LVT mode can be enabled in the configuration tool.  </p>
+<p>If </p>
+<p>enabled, </p>
+<p>the </p>
+<p>“CAN-Off </p>
+<p>during </p>
+<p>Low-Voltage </p>
+<p>Mode” </p>
+<p>option </p>
+<p>becomes </p>
+<p>available. </p>
+<p>The </p>
+<p>CAN-Off option modifies the behavior when LVT mode is activated by the application. If the </p>
+<p>CAN-Off  option  is  selected,  then  ECU  will  stop  sending  all  messages  (instead  of  just </p>
+<p>HLVW messages). This implies that the application will be unable to activate any Network </p>
+<p>Activated VNs while LVT+CAN-Off mode is on. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>15 / 59 </p>
+<p><b>4.4 </b></p>
+<p><b>High Load </b></p>
+<p>Activation  during  High  Load  is  another optional  feature  of  NM.  If  the  ECU  configuration </p>
+<p>includes this, then the application will have the ability to inhibit (and restore) VN activation. </p>
+<p>If  the  application  requests  to  activate  a  network  activated  VN  (configured  as Activator), </p>
+<p>then  NM  will  defer  activation  until  the  application  informs  NM  to  allow  VN  activation. </p>
+<p>Requests  to  deactivate  a  deferred  VN  will  clear  the  activation  request.  All  outstanding </p>
+<p>activation requests will be attempted by NM when the application allows activation. </p>
+<p>The High Load option is enabled in the configuration tool. To enable this option, select “VN </p>
+<p>Activation  during  high  load”  from  the  GMLAN  Options  tab.  To  inhibit  VN  activation,  the </p>
+<p>application </p>
+<p>should </p>
+<p>invoke </p>
+<p>IlNwmInhibitActivationVN</p>
+<p>()</p>
+<p>, </p>
+<p>to </p>
+<p>restore </p>
+<p>activation, </p>
+<p>call </p>
+<p>IlNwmAllowActivationVN</p>
+<p>()</p>
+<p>. </p>
+<p> </p>
+<p><b>4.5 </b></p>
+<p><b>HighSpeed Mode </b></p>
+<p>HighSpeed  mode  allows  the  ECU  application  to  request  an  alternate  communication </p>
+<p>speed  on  the  CAN  bus.  This  is  normally  used  in  response  to  a  diagnostics  request  to </p>
+<p>download/flash calibration or program data.  </p>
+<p>Remote VN activation requests (via a received VNMF message) are ignored in HighSpeed </p>
+<p>Mode. </p>
+<p>HighSpeed mode is intended to be used only with single-wire CAN networks.  </p>
+<p>HighSpeed mode is available only if enabled in the configuration </p>
+<p>When HighSpeed mode is enabled, the configuration tool provides two CAN initialization </p>
+<p>objects (0=Standard, 1=HighSpeed). The CAN settings of these two initialization objects </p>
+<p>determine  the  used  baudrate  for  each  mode.  These  settings  are  used  to  configure  the </p>
+<p>CAN controller hardware when a mode change occurs.  </p>
+<p>Typical baud rates are 33.333K for standard communication and 83.333K for HighSpeed </p>
+<p>communication. </p>
+<p>HighSpeed </p>
+<p>mode </p>
+<p>should </p>
+<p>only </p>
+<p>be </p>
+<p>activated </p>
+<p>after </p>
+<p>the </p>
+<p>application </p>
+<p>has </p>
+<p>requested </p>
+<p>NormalCommunicationHalted mode.  </p>
+<p>To enter HighSpeed mode, the application calls IlNwmSetHispeedMode().  </p>
+<p>The standard communications rate is restored by invoking IlNwmResetHispeedMode(). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>16 / 59 </p>
+<p><b>4.6 </b></p>
+<p><b>Normal Communication Halted Mode </b></p>
+<p>NormalCommunicationHalted </p>
+<p>(NCH) </p>
+<p>mode </p>
+<p>is </p>
+<p>used </p>
+<p>to </p>
+<p>support </p>
+<p>diagnostics </p>
+<p>communications.  The  application  usually  invokes  this  mode  in  response  to  a  diagnostic </p>
+<p>service </p>
+<p>request </p>
+<p>(DisableNormalCommunications).  When </p>
+<p>the </p>
+<p>application </p>
+<p>requests </p>
+<p>this </p>
+<p>mode,  all  VNs  are  deactivated.  The  diagnostics  VN  (VN  0)  is  activated.  While  in  NCH </p>
+<p>mode, all requests to activate a VN are denied. </p>
+<p>The </p>
+<p>application </p>
+<p>should </p>
+<p>invoke </p>
+<p>IlNwmNormalCommHalted</p>
+<p>()</p>
+<p> </p>
+<p>to </p>
+<p>halt </p>
+<p>normal </p>
+<p>communications. </p>
+<p>Calling </p>
+<p>IlNwmReturnToNormalMode</p>
+<p>()</p>
+<p> </p>
+<p>will </p>
+<p>restore </p>
+<p>normal </p>
+<p>communications. Note that all VNs remain deactivated after returning to normal mode. The </p>
+<p>application is responsible for re-activating any required VNs. </p>
+<p>See also: GMW3110: GMLAN Enhanced Diagnostic Test Mode Specification </p>
+<p><b>4.7 </b></p>
+<p><b>Bus Off </b></p>
+<p>The CAN Data Link Layer specification requires that the CAN controller enters a BusOff </p>
+<p>state in the event of too many transmit errors. The NM is notified of this event by the CAN </p>
+<p>driver.  In  response  to  the  first  BusOff,  the  NM  will  re-initialize  the  CAN  controller  and </p>
+<p>restart  communications.  Upon  restart,  NM  will  start  the  BusOff  Recovery  Timer.  If  a </p>
+<p>subsequent  BusOff event occurs before the  timer expires,  then  the  controller will  be  re-</p>
+<p>initialized,  but  the  transmit  path  will  remain  disabled  until  the  timer  reaches  zero.  After </p>
+<p>enabling the transmit path, the NM will re-queue any messages pending transmission, and </p>
+<p>restart the recovery timer. </p>
+<p>After recovering from the BusOff event by re-initialization of the controller, it is possible to </p>
+<p>receive signals from other ECUs. </p>
+<p>If  the  application  attempts  to  activate  a  Network  Activated  VN  while  NM  is  waiting  to </p>
+<p>recover  from  BusOff,  the  activation  request  will  be  deferred.  Upon  recovery,  the  VN </p>
+<p>activation will attempted as normal. </p>
+<p>If a remotely activated VN times out while waiting for BusOff recovery, then the VN will be </p>
+<p>deactivated as normal. Deactivation requests made by the application during BusOff will </p>
+<p>be granted, in which case messages associated with the VN that are pending transmission </p>
+<p>will be de-queued.  </p>
+<p>The application can be configured to be notified about a BusOff (ApplNwmBusoff()) and a </p>
+<p>BusOff recovery (ApplNwmBusoffEnd)().  </p>
+<p>The  time  required  to  recover  from  BusOff  is  also  configurable.  The  value  of  “BusOff </p>
+<p>recovery time” defines the recovery time in milliseconds. The default value is 3500ms for </p>
+<p>body bus (single-wire) applications, and 110ms for powertrain (dual-wire) applications. </p>
+<p><b>4.8 </b></p>
+<p><b>HLVW Failure Handling </b></p>
+<p>On single-wire CAN networks, it is critical for the NM to confirm transmission of the HLVW </p>
+<p>message when activating a VN. NM will retry transmission of the HLVW each time the NM </p>
+<p>task is called for 100ms. If it fails, the CAN controller will be reset, and the activation  is </p>
+<p>retried three times.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>17 / 59 </p>
+<p><b>4.9 </b></p>
+<p><b>VN Activation Failure </b></p>
+<p>The  application  may  be  notified  in  the  event  of  VN  activation  failures.  There  are  two </p>
+<p>notifications:  VNMF Confirmation Timeout, and VN Activation Failed. </p>
+<p>Activation of a Network Activated VN requires NM to transmit a VNMF to notify the other </p>
+<p>ECUs. If NM is unable to transmit the VNMF over a configured time-period, the application </p>
+<p>may </p>
+<p>be </p>
+<p>notified </p>
+<p>via </p>
+<p>the </p>
+<p>optional </p>
+<p>callback </p>
+<p>ApplNwmVnmfConfirmationTimeout(). </p>
+<p>The </p>
+<p>timeout time is determined by the value (in milliseconds) of the <i>“VNMF confirmation time”</i>. </p>
+<p>In addition to the VNMF Confirmation Timeout, applications may select to be notified when </p>
+<p>individual VNs fail to activate. This feature is configurable.  </p>
+<p>When </p>
+<p>enabled, </p>
+<p>the </p>
+<p>NM </p>
+<p>will </p>
+<p>invoke </p>
+<p>callback  ApplNwmVnActivationFailed() </p>
+<p>upon </p>
+<p>VN </p>
+<p>activation failures.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>18 / 59 </p>
+<p><b>4.10 </b></p>
+<p><b>VNMF Message </b></p>
+<p>The  NM  communicates  with  the  different  ECUs  via  the  VNMF.  The  composition  of  the </p>
+<p>VNMF message is shown below: </p>
+<p>VNMF messages always use an 11 bit CAN ID, defined by GM to be in the range 0x600 to </p>
+<p>0x63F. VNMF messages contain 8 data bytes. The first data byte indicates the type of the </p>
+<p>message:  If  bit  0  is  set,  then  the  message  is  a  VNMF-Init  message.  Otherwise,  the </p>
+<p>message is a VNMF-Continue message. The remaining data bytes indicate which VN(s) </p>
+<p>are active.  </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-2 </p>
+<p>VNMF Message Layout </p>
+<p> </p>
+<p>A VNMF-Init message is sent by NM whenever the application requests activation of one </p>
+<p>or  more  Network-Activated  VNs.  The  initialization  message  will  identify  all  active  VNs </p>
+<p>managed by the ECU in addition to the new request(s). </p>
+<p>Once the VNMF-Init message has been sent, NM will periodically send VNMF-Continue </p>
+<p>messages to keep the other ECUs informed of the active VNs. </p>
+<p>Each  data  byte  contains  a  bit-mask  that  identifies  the  active  VN.  VNs  are  assigned </p>
+<p>numeric  values  that  are  associated  with  a  symbolic  VN  name  in  the  message/signal </p>
+<p>database. The configuration tool generates a macro for each VN that the ECU participates </p>
+<p>in.  The  macros  are  defined  in  the  file </p>
+<p>nm_cfg.h,  and  all  have  names  of </p>
+<p>the </p>
+<p>form </p>
+<p>VN_&lt;virtual </p>
+<p>network </p>
+<p>name&gt;. </p>
+<p>The </p>
+<p>application </p>
+<p>should </p>
+<p>use </p>
+<p>these </p>
+<p>macros </p>
+<p>as </p>
+<p>the </p>
+<p>VN </p>
+<p>argument to all API functions that require a VN (e.g. IlNwmActivateVN</p>
+<p>()</p>
+<p>) </p>
+<p><b>4.11 </b></p>
+<p><b>Fault Detection and Mitigation Algorithm </b></p>
+<p>To enhance robustness of the NM, a fault detection and mitigation algorithm as specified in </p>
+<p>[2] observes the activation state of each VN and the global NM state of each channel. </p>
+<p>There might be conditions that cause the NM to inadvertently keep single VNs or channels </p>
+<p>active, although all VNs and therefore the whole channel should not be active. This might </p>
+<p>happen e.g. due to single bit flips in NM internal variables. To prevent such situations and </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>19 / 59 </p>
+<p>resulting  battery  drain  situations,  the  algorithm  performs  consistency  checks  to  detect </p>
+<p>inadvertent activation of VNs and NM channels. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>To save RAM, ROM and runtime the whole Fault Detection and Mitigation Algorithm </p>
+<p>can be disabled in GENy by the attribute ‘Fault Detection and Mitigation Algorithm’. See </p>
+<p>chapter 6.3.2 ‘System-specific Configuration Options’. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>In case a faulty activated VN or network has been detected the application will be notified </p>
+<p>by  callback  functions  and  the  corresponding  VN  or  network </p>
+<p>will  be  deactivated.  In </p>
+<p>particular the following faults can be detected: </p>
+<p> </p>
+<p><b>4.11.1 </b></p>
+<p><b>VN Active Fault </b></p>
+<p>A ‘VN Active Fault’ is detected, if a VN that should be inactive is still active for more than </p>
+<p>twice the VN timer time (= 16s). </p>
+<p>After the fault has been detected the algorithm will deactivate the corresponding VN and </p>
+<p>notify the application by calling ApplNwmVnActiveFault() (see also chapter  7.4 ‘Callback </p>
+<p>Functions’). </p>
+<p><b>4.11.2 </b></p>
+<p><b>Network Active Fault </b></p>
+<p>A ‘Network Active Fault’ is detected, if the NM does not enter COMM-OFF state for more </p>
+<p>than twice the COMM-ENABLE timer time (= 16s) after the last VN has been deactivated.  </p>
+<p>After the fault has been detected the algorithm will start the shut-down sequence for the </p>
+<p>channel </p>
+<p>and </p>
+<p>the </p>
+<p>application </p>
+<p>is </p>
+<p>informed </p>
+<p>about </p>
+<p>the </p>
+<p>fault </p>
+<p>by </p>
+<p>the </p>
+<p>call </p>
+<p>of </p>
+<p>ApplNwmNetworkActiveFault() (see also chapter 7.4 ‘Callback Functions’). </p>
+<p><b>4.11.3 </b></p>
+<p><b>No Sleep Confirmation Fault </b></p>
+<p>During </p>
+<p>shut-down </p>
+<p>the </p>
+<p>application </p>
+<p>has </p>
+<p>to </p>
+<p>optionally </p>
+<p>confirm </p>
+<p>the </p>
+<p>transition </p>
+<p>to </p>
+<p>sleep </p>
+<p>(ApplNwmSleepConfirmation()  ).  If  a  shut-down  is  started  due  to  the  detection  of  a </p>
+<p>‘Network Active Fault’, the algorithm is different: </p>
+<p>A ‘No Sleep Confirmation Fault’ will be detected when the application does not confirm the </p>
+<p>transition to sleep for more than a configurable threshold value.  </p>
+<p>The concrete shut-down sequence depends on the following configuration attributes (See </p>
+<p>also chapter 6.3.2 ‘System-specific Configuration Options’): </p>
+<p><b>&gt; </b></p>
+<p><b>Sleep Confirmation: </b>This attribute enables/disables the callback </p>
+<p>ApplNwmSleepConfirmation(). The callback informs the application that sleep mode </p>
+<p>can be entered and gives the application the control over sleep mode. Depending on </p>
+<p>the return value of the callback, sleep mode is directly entered or a time delay is </p>
+<p>triggered that results in another callback invocation after 8s. </p>
+<p>If this attribute is disabled, the Fault Detection Algorithm will directly shut down after </p>
+<p>‘Network Active Fault’ has been detected, i.e. a ‘No Sleep Confirmation Fault’ will </p>
+<p>never be detected. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>20 / 59 </p>
+<p><b>&gt; </b></p>
+<p><b>No Sleep Confirmation Fault Reporting: </b>If this attribute is enabled, the detection of </p>
+<p>a ‘No Sleep Confirmation Fault’ will be reported to application by calling </p>
+<p>ApplNwmNoSleepConfirmationFault (see also chapter 7.4 ‘Callback Functions’). </p>
+<p><b>&gt; </b></p>
+<p><b>No Sleep Confirmation Fault Mitigation: </b>If this attribute is enabled, the detection of </p>
+<p>a ‘No Sleep Confirmation Fault’ will cause the Fault Detection Algorithm to shut down </p>
+<p>the network even if the application still does not confirm sleep. If this attribute is </p>
+<p>disabled, the mitigation of ‘No Sleep Confirmation Fault’ has to be handled by </p>
+<p>application. </p>
+<p><b>&gt; </b></p>
+<p><b>Max No Sleep Confirmation: </b>This value defines the threshold for the number of times </p>
+<p>the application may not confirm sleep before ‘No Sleep Confirmation Fault’ is detected. </p>
+<p>This attribute can be configured for each channel. See chapter 6.3.3 ‘Channel-specific </p>
+<p>Configuration Options’. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The configuration options for the Fault Detection and Mitigation Algorithm might be not </p>
+<p>visible in GENy. In this case the attributes a pre-configured by Vector for your delivery. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>21 / 59 </p>
+<p><b>5 </b></p>
+<p><b>Integration </b></p>
+<p><b>5.1 </b></p>
+<p><b>Involved Files </b></p>
+<p>To integrate the NM in your project, you need the following (static) embedded files:  </p>
+<p><b>File </b></p>
+<p><b>Content </b></p>
+<p>gmnm.c </p>
+<p>Source file of the NM. Contains all API and algorithms. </p>
+<p>gmnmdef.h </p>
+<p>Header file of the NM. Contains all static prototypes for the API and </p>
+<p>definitions, such as symbolic constants. </p>
+<p>_MemDef.h </p>
+<p>Sample file for definitions of memory qualifies which will be used in </p>
+<p>gmlcal.c and gmlcal.h. </p>
+<p>Table 5-1  </p>
+<p>Static Files </p>
+<p> </p>
+<p>Additionally  the  following  files  have  to  be  generated  by  the  configuration  tool  (refer  to </p>
+<p>chapter 6 ‘Configuration’): </p>
+<p><b>File </b></p>
+<p><b>Content </b></p>
+<p>nm_cfg.h </p>
+<p>Scales the NM and provides constants. </p>
+<p>nm_par.c </p>
+<p>Dynamic source file of the NM. Contains configuration tables.  </p>
+<p>nm_par.h </p>
+<p>Dynamic header file of the NM. </p>
+<p>gmlcal.c </p>
+<p>Source file of the NM calibration data. </p>
+<p>gmlcal.h </p>
+<p>Header file of the NM calibration data </p>
+<p>Table 5-2  </p>
+<p>Dynamic Files </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>22 / 59 </p>
+<p><b>5.2 </b></p>
+<p><b>Necessary Steps to Integrate the NM in Your Project </b></p>
+<p>Following steps may be necessary to integrate the NM in your project: </p>
+<p><b>&gt; </b></p>
+<p>Copy the NM-related files into your project.</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Make these files available in your project settings, e.g. set the correct paths in your </p>
+<p>makefile.</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>In order to make the NM available to your application, include the header file il_inc.h </p>
+<p>into all files that make use of NM services and functions. </p>
+<p><b>&gt; </b></p>
+<p>Start the configuration tool and configure the NM according to your needs (see chapter </p>
+<p>“6 Configuration”).</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Generate the configuration files (see chapter “6 Configuration”)</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Implement all necessary callbacks in your application (see chapter “7.4 Callback </p>
+<p>Functions”). </p>
+<p><b>&gt; </b></p>
+<p>Build your project (compile &amp; link). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>23 / 59 </p>
+<p><b>5.3 </b></p>
+<p><b>Necessary Steps to Run the NM </b></p>
+<p>The  NM  should  already  have  been  integrated  in  your  project  and  the  building  process </p>
+<p>should complete without any errors.  </p>
+<p>There are two main steps that have to be performed: Initialization and cyclic task calls. </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>If you are using a CCL within the CANbedded stack, the initialization and the cyclic call </p>
+<p>of the task functions can be handled by the CCL. Please refer to the documentation of </p>
+<p>the CCL. </p>
+<p> </p>
+<p><b>5.3.1 </b></p>
+<p><b>Initialization </b></p>
+<p>The NM needs to be initialized only once after system start. Further calls for example after </p>
+<p>canceling  of  sleep  mode  are  not  necessary. To  initialize  the  IL  and  the  NM  the function </p>
+<p>IlInitPowerOn()</p>
+<p>  is  provided  by  the  IL.  Please  note  that  it  is  not  allowed  to  call  any </p>
+<p>function  of  these  modules  before  they  are  initialized. Therefore  the  interrupts  should  be </p>
+<p>disabled until the module is initialized. If CAN driver will not be initialized by the NM, be </p>
+<p>sure that this is done before the first call of a cyclic IL or NM task function. </p>
+<p> </p>
+<p>  DisableAllInterrupts(); </p>
+<p>  CanInitPowerOn(); /* if not handled by NM */ </p>
+<p>  IlInitPowerOn(); /* initializes IL and NM */ </p>
+<p>  ReenableAllInterrupts(); </p>
+<p> </p>
+<p><b>5.3.2 </b></p>
+<p><b>Periodic tasks </b></p>
+<p>Add a cyclic function call of IlNwmTask() to your runtime environment. Ensure that the call </p>
+<p>cycle matches the value which is configured in the configuration tool. </p>
+<p>The recommend order to call the NM and IL tasks is first NM and then IL: </p>
+<p>  IlNwmTask(); </p>
+<p>  IlRxTask(); </p>
+<p>  IlTxTask(); </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>In preemptive systems and when CAN driver operates in polling mode it must be </p>
+<p>assured, that IlNwmTask does not interrupt NmConfirmation(), NmHVConfirmation(), </p>
+<p>NmPrecopy() and NmHVPrecopy(). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>24 / 59 </p>
+<p><b>5.4 </b></p>
+<p><b>Operating Systems </b></p>
+<p>The  CANbedded  stack  is  designed  and  programmed  to  work  with  or  without  operating </p>
+<p>systems. Since the modules have to work without an operating system, resource locking </p>
+<p>mechanisms  are  not  handled.  To  lock  critical  resources,  interrupts  will  be  disabled  and </p>
+<p>restored. The CAN driver (Data Link Layer) provides functions to fulfill this task. </p>
+<p>Each module  has  one  or two  functions  (tasks)  which  have  to  be called  periodically.  For </p>
+<p>operating systems it is advisable to create one task and call all the NM</p>
+<p> </p>
+<p>module functions </p>
+<p>subsequently. To implement different periods of time, the OS task could have a counter to </p>
+<p>implement this. </p>
+<p>To ensure data consistency on pre-emptive multi-tasking operating systems or when using </p>
+<p>kernel resources on interrupt level, there are two things to keep in mind. </p>
+<p><b>&gt; </b></p>
+<p>The kernel provides mechanisms to keep data consistent within multi-byte signals. </p>
+<p>That means, reading multi-byte data is always done while interrupts are locked. In that </p>
+<p>case, no task switch can occur. The disadvantage to that mechanism is a longer </p>
+<p>interrupt latency time. If your system is critical to long latency times, ensure that your </p>
+<p>system works properly in all cases. </p>
+<p><b>&gt; </b></p>
+<p>Bit field manipulation is done by macros. Some compilers and processors realize bit </p>
+<p>field manipulation by read-modify-write accesses. If data accesses to bit fields in the </p>
+<p>same byte are used on pre-emptive tasks or on interrupt level, a problem could be </p>
+<p>caused. Try to avoid this or make resource locking to such accesses.  </p>
+<p><b>5.5 </b></p>
+<p><b>Other Aspects </b></p>
+<p>If the CAN controller is not capable to detect a CAN wakeup, the application must call API </p>
+<p>NmCanWakeUp() upon detection of a CAN wakeup event. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>25 / 59 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p><b>6.1 </b></p>
+<p><b>Concept </b></p>
+<p>The  embedded  component  is  configured  with  the  help  of  a  PC-based  configuration  tool </p>
+<p>named GENy. Settings for the NM can be selected in the GUI. These settings are used to </p>
+<p>generate the configuration files, which are needed to compile and run the component.  </p>
+<p> </p>
+<p>Some configuration options are based on information from the CAN database (DBC file). </p>
+<p>Some other options depend on the OEM and cannot be changed.  </p>
+<p><b>6.2 </b></p>
+<p><b>Data base attributes </b></p>
+<p>The following table contains all attributes related to the Nm_Gmlan_Gm</p>
+<p>1</p>
+<p>. </p>
+<p><b>Attribute Name </b></p>
+<p><b>Valid </b></p>
+<p><b>for </b></p>
+<p><b>Type </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>BusOffRecoveryTime </p>
+<p>Network </p>
+<p>Integer </p>
+<p>3500 (*) </p>
+<p>This attribute defines the node recovery </p>
+<p>time after a BusOff event. </p>
+<p>This is an optional attribute. </p>
+<p>BusWakeUpDelay </p>
+<p>Network </p>
+<p>Integer </p>
+<p>100 (*) </p>
+<p>This attribute defines the time between a </p>
+<p>High-Level Voltage Wakeup (HLVW) and </p>
+<p>the activation of Initially Active VNs. </p>
+<p>This parameter is also used as a delay </p>
+<p>time between the Activation of shared-local </p>
+<p>input VNs and the actual activation inside </p>
+<p>the ECU.  </p>
+<p>This is an optional attribute. </p>
+<p>NetworkType </p>
+<p>Network </p>
+<p>String </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Bodybus </p>
+<p><b>&gt; </b></p>
+<p>Infotainme</p>
+<p>nt </p>
+<p><b>&gt; </b></p>
+<p>Powertrain </p>
+<p>This attribute defines the type of the </p>
+<p>network. </p>
+<p>NmBaseAddress </p>
+<p>Network </p>
+<p>Hex </p>
+<p>0x620 </p>
+<p>This attribute defines the base address of </p>
+<p>the NM messages (e.g. 0x620). </p>
+<p>Only a certain number of nodes can </p>
+<p>participate in the NM. The CAN identifiers </p>
+<p>of NM messages are kept in a certain </p>
+<p>range. This range starts with the ID given </p>
+<p>by attribute NmBaseAddress. The size of </p>
+<p>the range is given by attribute </p>
+<p>NmMessageCount. </p>
+<p>NmMessage </p>
+<p>Message </p>
+<p>Enum </p>
+<p><b>&gt; </b></p>
+<p>no </p>
+<p><b>&gt; </b></p>
+<p>yes (*) </p>
+<p>This attribute defines if the corresponding </p>
+<p>message is a NM message (“Yes&quot;) or not </p>
+<p>(“No”). The CAN ID of this message must </p>
+<p>be within the range given by </p>
+<p>                                            </p>
+<p>1</p>
+<p> Default values are marked with (*). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>26 / 59 </p>
+<p>NmBaseAddress and NmMessageCount. </p>
+<p>NmMessageCount </p>
+<p>Network </p>
+<p>Integer </p>
+<p>32 </p>
+<p>This attribute defines the maximum </p>
+<p>number of nodes within the NM.  </p>
+<p>The value is required to define the range </p>
+<p>precopy-function of the CAN driver’s </p>
+<p>precopy function that is used to receive the </p>
+<p>NM messages. </p>
+<p>There is the requirement that the value of </p>
+<p>attribute NmMessageCount is 2^n (where </p>
+<p>n is a natural number). </p>
+<p>NmNode </p>
+<p>Node </p>
+<p>Enum </p>
+<p><b>&gt; </b></p>
+<p>no </p>
+<p><b>&gt; </b></p>
+<p>yes (*) </p>
+<p>This attribute defines if the corresponding </p>
+<p>node uses the NM (“Yes”) or not (“No”). </p>
+<p>NmType </p>
+<p>Network </p>
+<p>String </p>
+<p>GMLAN (*) </p>
+<p>This attribute defines the OEM-specific </p>
+<p>type of the NM. Must be set to “GMLAN”. </p>
+<p>NodeSuprvStabilityTim</p>
+<p>e </p>
+<p>Node </p>
+<p>Integer </p>
+<p>0..65535 </p>
+<p>5000 (*) </p>
+<p>This attribute defines a delay time between </p>
+<p>activation of a VN and start of supervision </p>
+<p>of the corresponding signals. </p>
+<p>The default value is 5000ms. </p>
+<p>The supervision stability time is used to </p>
+<p>avoid 'Loss of Communication' DTCs due </p>
+<p>to transient conditions after VN activation. </p>
+<p>SourceID </p>
+<p>Node </p>
+<p>Integer </p>
+<p>0..255 </p>
+<p>The Source address of a node is given as </p>
+<p>an attribute inside the database. There are </p>
+<p>two possibilities to use this attribute: </p>
+<p>Instead of initialization of the Source </p>
+<p>Address by the application, the handler </p>
+<p>could do this in the function IlInit(). </p>
+<p>This would imply, that the value is always </p>
+<p>fixed (MIM-modules will be handled </p>
+<p>correctly depending on the pre-selection of </p>
+<p>the application, which instant should run). </p>
+<p>The transmit messages inside the handler </p>
+<p>will already be pre-set with the Source </p>
+<p>Address given in this attribute. </p>
+<p>This would avoid the runtime effort of the </p>
+<p>driver to add the source address every </p>
+<p>time a message must be transmitted. The </p>
+<p>dynamic setting will only be required for </p>
+<p>MIM’s. </p>
+<p>VN_&lt;name&gt; </p>
+<p>Network </p>
+<p>Integer </p>
+<p>0..55 </p>
+<p>Bit number (0 to 55) within the VNMF </p>
+<p>message Network ID Bit field identifying </p>
+<p>the VN associated with the Network Name. </p>
+<p>Successive numbers must be given. </p>
+<p>“Holes” are not allowed. </p>
+<p>VNECU&lt;name&gt; </p>
+<p>node </p>
+<p>Enum </p>
+<p><b>&gt; </b></p>
+<p>None </p>
+<p><b>&gt; </b></p>
+<p>Activator </p>
+<p><b>&gt; </b></p>
+<p>Remoted </p>
+<p><b>&gt; </b></p>
+<p>Activator_</p>
+<p>Remoted </p>
+<p><b>&gt; </b></p>
+<p>SharedLoc</p>
+<p>This attribute defines the VN type for a </p>
+<p>specific ECU for the specific VN. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>27 / 59 </p>
+<p>al </p>
+<p>VNInitAct&lt;name&gt; </p>
+<p>network </p>
+<p>Enum </p>
+<p><b>&gt; </b></p>
+<p>no (*) </p>
+<p><b>&gt; </b></p>
+<p>yes </p>
+<p>This attribute defines whether a VN is </p>
+<p>declared as ‘Initially Active’. </p>
+<p>VNSig&lt;name&gt; </p>
+<p>Signal </p>
+<p>Enum </p>
+<p><b>&gt; </b></p>
+<p>no </p>
+<p><b>&gt; </b></p>
+<p>yes (*) </p>
+<p>If yes, indicates that the signal will be </p>
+<p>associated with the named virtual network. </p>
+<p>The name of the VN must match one of </p>
+<p>those defined for the network attribute </p>
+<p>VN_&lt;name&gt;, </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>28 / 59 </p>
+<p><b>6.3 </b></p>
+<p><b>GENy </b></p>
+<p>The configuration tool GENy is used to configure the CANbedded components. This tool </p>
+<p>generates source code and configuration files to make the CANbedded components run. </p>
+<p> </p>
+<p><b>6.3.1 </b></p>
+<p><b>General </b></p>
+<p>For a detailed description of the configuration tool and the description of the component-</p>
+<p>specific configuration options, please refer to the online-documentation within GENy. </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The screen shots in this chapter can differ from your screen because some options </p>
+<p>depend on the system setup. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 6-1 </p>
+<p>GENy Overview </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>29 / 59 </p>
+<p><b>6.3.2 </b></p>
+<p><b>System-specific Configuration Options </b></p>
+<p>This  configuration  page  allows  to  configure  system-specific  settings,  e.g.  the  usage  of </p>
+<p>available features of the component. </p>
+<p> </p>
+<p>Figure 6-2 </p>
+<p>System-specific Configuration Options </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>30 / 59 </p>
+<p><b>6.3.3 </b></p>
+<p><b>Channel-specific Configuration Options </b></p>
+<p>This configuration page allows to configure channel-specific settings, e.g. the network type </p>
+<p>and the timing for each channel. </p>
+<p> </p>
+<p>Figure 6-3 </p>
+<p>Channel-specific Configuration Options </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>31 / 59 </p>
+<p><b>6.3.4 </b></p>
+<p><b>VN-specific Configuration Options </b></p>
+<p>This configuration page gives an overview of the used VNs and allows to configure VN-</p>
+<p>specific settings, e.g. the LV-susceptible mode. </p>
+<p> </p>
+<p>Figure 6-4 </p>
+<p>VN-specific Configuration Options </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>32 / 59 </p>
+<p><b>7 </b></p>
+<p><b>API Description </b></p>
+<p><b>7.1 </b></p>
+<p><b>General </b></p>
+<p>The NM uses different API prototypes. The usage depends on the number of channels in </p>
+<p>the system. Both prototypes differ in the usage of a channel parameter as the first function </p>
+<p>argument: </p>
+<p><b>&gt; </b></p>
+<p>The “Standard” prototype is used in single-channel applications. There is no channel </p>
+<p>parameter due to optimization. </p>
+<p><b>&gt; </b></p>
+<p>The “Indexed” prototype is used in multi-channel applications. The first argument is </p>
+<p>always the channel parameter. </p>
+<p><b>7.2 </b></p>
+<p><b>Common Parameter </b></p>
+<p>There are some parameters that are commonly used in multiple APIs. </p>
+<p><b>Parameter </b></p>
+<p>channel </p>
+<p>CAN channel handle </p>
+<p>vnHndl </p>
+<p>VN handle.  </p>
+<p>Note: The VN handles are defined to symbolic names in nm_cfg.h. The </p>
+<p>symbolic name and the handle correspond to the value of the DBC network </p>
+<p>attribute named VN_&lt;name&gt;. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>33 / 59 </p>
+<p><b>7.3 </b></p>
+<p><b>Service Functions </b></p>
+<p> </p>
+<p>NM Handling </p>
+<p><b>&gt; </b></p>
+<p>IlNwmTask </p>
+<p>NM status </p>
+<p><b>&gt; </b></p>
+<p>IlNwmGetStatus </p>
+<p>LVT mode </p>
+<p><b>&gt; </b></p>
+<p>IlNwmEnterLowVoltageMode </p>
+<p><b>&gt; </b></p>
+<p>IlNwmExitLowVoltageMode </p>
+<p>Diagnostic mode </p>
+<p><b>&gt; </b></p>
+<p>IlNwmNormalCommHalted </p>
+<p><b>&gt; </b></p>
+<p>IlNwmReturnToNormalMode </p>
+<p>HighSpeed mode </p>
+<p><b>&gt; </b></p>
+<p>IlNwmSetHispeedMode </p>
+<p><b>&gt; </b></p>
+<p>IlNwmResetHispeedMode </p>
+<p>VN activation </p>
+<p><b>&gt; </b></p>
+<p>IlNwmActivateVN </p>
+<p><b>&gt; </b></p>
+<p>IlNwmDeactivateVN </p>
+<p><b>&gt; </b></p>
+<p>IlNwmAllowActivationVN </p>
+<p><b>&gt; </b></p>
+<p>IlNwmInhibitActivationVN </p>
+<p>VN status </p>
+<p><b>&gt; </b></p>
+<p>IlNwmGetActiveListVN </p>
+<p><b>&gt; </b></p>
+<p>IlNwmIsActiveVN </p>
+<p>Context Switch </p>
+<p><b>&gt; </b></p>
+<p>NmGetModuleContext </p>
+<p><b>&gt; </b></p>
+<p>NmSetModuleContext </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>34 / 59 </p>
+<p><b>IlNwmActivateVN </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>Nm_Status <b>IlNwmActivateVN</b>( vuint8 VnHndl )</p>
+<p> </p>
+<p>Indexed </p>
+<p>Nm_Status <b>IlNwmActivateVN </b>( CanChannelHandle channel,  </p>
+<p>vuint8 VnHndl ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p>Nm_Status </p>
+<p>&gt; </p>
+<p>NM_OK </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The activation request was accepted. </p>
+<p>&gt; </p>
+<p>NM_ACTIVE </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The VN is already active </p>
+<p>&gt; </p>
+<p>NM_ERROR </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The node is in the HighSpeed mode. </p>
+<p>&gt; </p>
+<p>NM_HALTED   </p>
+<p> </p>
+<p> </p>
+<p>The node is in the NormalCommHalted mode. </p>
+<p>&gt; </p>
+<p>NM_INACTIVE </p>
+<p> </p>
+<p> </p>
+<p>The application is not permitted to activate the VN    </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>(The node is neither an Activator nor Local.) </p>
+<p>&gt; </p>
+<p>NM_WRONG_ARG </p>
+<p>VnHndl is invalid </p>
+<p><b>Functional Description </b></p>
+<p>This function activates a VN given by VN handle &lt;VnHndl&gt;. </p>
+<p>This function may only be called for VNs that are meant to be activated (Activator, Local). </p>
+<p>When activation is complete, the callback function ApplNwmVnActivated() is executed. </p>
+<p>Related API: IlNwmDeactivateVN() </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p> </p>
+<p> </p>
+<p><b>IlNwmAllowActivationVN </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>IlNwmAllowActivationVN </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>IlNwmAllowActivationVN </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This function restores the VN activation. The NM will start all queued VN activation requests. </p>
+<p>Related API: IlNwmInhibitActivationVN() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>Availability of this function can be configured in GENy (“Inhibit VN Activation at Highload”). </p>
+<p>&gt; </p>
+<p>Only available if there are Activator VNs. </p>
+<p> </p>
+<p><b>IlNwmDeactivateVN </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>35 / 59 </p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>Nm_Status <b>IlNwmDeactivateVN</b>( vuint8 VnHndl )</p>
+<p> </p>
+<p>Indexed </p>
+<p>Nm_Status <b>IlNwmDeactivateVN </b>( CanChannelHandle channel, </p>
+<p>vuint8 VnHndl ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p>Nm_Status </p>
+<p>&gt; </p>
+<p>NM_OK </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The deactivation request was accepted. </p>
+<p>&gt; </p>
+<p>NM_INACTIVE </p>
+<p> </p>
+<p> </p>
+<p>The VN was already deactivated. </p>
+<p>&gt; </p>
+<p>NM_WRONG_ARG </p>
+<p>VnHndl is invalid. </p>
+<p><b>Functional Description </b></p>
+<p>This function de-activates a VN given by VN handle &lt;VnHndl&gt;.  </p>
+<p>Local VNs are immediately de-activated. Activator VNs are deactivated when the VN-specific timeout timer </p>
+<p>expires. The NM starts a VN timer for this VN.  </p>
+<p>May only be called for VNs that are meant to be activated (Activator, Local). </p>
+<p>When de-activation is complete, the callback function ApplNwmVnDeactivated() is executed. </p>
+<p>Related API: IlNwmActivateVN() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>IlNwmEnterLowVoltageMode </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>IlNwmEnterLowVoltageMode</b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>IlNwmEnterLowVoltageMode</b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This function activates the Low Voltage Tolerant (LVT) Mode. </p>
+<p>The transmission of HLVW is disabled.  </p>
+<p>VN monitoring and signal supervision timers are disabled.  </p>
+<p>Please refer to “4.3 Low Voltage Tolerant Mode” for details. </p>
+<p>Related API: IlNwmExitLowVoltageMode() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is only available if the LVT mode is enabled. </p>
+<p> </p>
+<p><b>IlNwmExitLowVoltageMode </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>36 / 59 </p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>IlNwmExitLowVoltageMode</b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>IlNwmExitLowVoltageMode</b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This function de-activates the Low Voltage Tolerant (LVT) Mode. </p>
+<p>VN monitoring and signal supervision timers are re-enabled.  </p>
+<p>VNs that are LV-susceptible will be initialized and reactivated. </p>
+<p>Please refer to “4.3 Low Voltage Tolerant Mode” for details. </p>
+<p>Related API: IlNwmEnterLowVoltageMode() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is only available if the LVT mode is enabled. </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>37 / 59 </p>
+<p><b>IlNwmGetActiveListVN </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>IlNwmGetActiveListVN </b>(vuint8 *VnList)</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>IlNwmGetActiveListVN </b>( CanChannelHandle channel, vuint8 </p>
+<p>*VnList) </p>
+<p><b>Parameter </b></p>
+<p>*VnList </p>
+<p>pointer to an application-defined array that should contain the VN activation status.  </p>
+<p>The application should declare the array as: </p>
+<p>vuint8 VnList [(&lt;VNs&gt;+7)/8] </p>
+<p>VNs = Amount of used VNs in this CAN channel (Remote, Activator and Local VNs). </p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This function retrieves the activation state of all VNs on the current channel. </p>
+<p>The array pointed to by VnList is filled with a bit-mask. Each bit represents the status of a VN. If a bit is set, </p>
+<p>the corresponding VN is active. Otherwise not.  </p>
+<p>The most significant bit of the first byte represents VN 0. For example: </p>
+<p>Byte 0 </p>
+<p>Byte 1 </p>
+<p>Byte </p>
+<p>7 </p>
+<p>6 </p>
+<p>5 </p>
+<p>4 </p>
+<p>3 </p>
+<p>2 </p>
+<p>1 </p>
+<p>0 </p>
+<p>7 </p>
+<p>6 </p>
+<p>5 </p>
+<p>4 </p>
+<p>3 </p>
+<p>2 </p>
+<p>1 </p>
+<p>0 </p>
+<p>Bit </p>
+<p>0 </p>
+<p>1 </p>
+<p>2 </p>
+<p>3 </p>
+<p>4 </p>
+<p>5 </p>
+<p>6 </p>
+<p>7 </p>
+<p>8 </p>
+<p>9 </p>
+<p>10 </p>
+<p>11 </p>
+<p>12 </p>
+<p>13 </p>
+<p>14 </p>
+<p>15 </p>
+<p>VN </p>
+<p>  </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>38 / 59 </p>
+<p><b>IlNwmGetStatus </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>nmStatusType <b>IlNwmGetStatus</b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>nmStatusType <b>IlNwmGetStatus</b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p>nmStatusType</p>
+<p> </p>
+<p>Flag field that contains the network status.  </p>
+<p><b>Functional Description </b></p>
+<p>This function returns information about the NM status. The status is provided by a flag field within the return </p>
+<p>value. This return value can be decoded with the macros shown below. Each macro will return true or false. </p>
+<p>True indicates that the NM is within the specified mode: </p>
+<p>IlNwmStateNormalCommHalted ( status )  NormalCommHalted mode </p>
+<p>lNwmStateHispeedMode ( status ) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>HighSpeed mode </p>
+<p>IlNwmStateNoCommunication ( status ) </p>
+<p>Network communications are disabled. No messages can be </p>
+<p>received or transmitted (BusOff or COMM-OFF state) </p>
+<p>IlNwmStateSleepModeEntered ( status ) </p>
+<p>Sleep mode (COMM-OFF state) </p>
+<p>IlNwmStateSleepModePending ( status ) </p>
+<p>Sleep mode is pending (COMM-ENABLE state) </p>
+<p>IlNwmStateBusOffOccured ( status ) </p>
+<p> </p>
+<p> </p>
+<p>At least 1 BusOff has occurred since the last activation of the </p>
+<p>node. </p>
+<p>IlNwmStateNMActive ( status )  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>NM is active. At least 1 associated VN is active (COMM-ACTIVE </p>
+<p>state). </p>
+<p>IlNwmStateLowVoltageMode ( status ) </p>
+<p> </p>
+<p>LVT mode is active </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p> </p>
+<p> </p>
+<p><b>IlNwmInhibitActivationVN </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>IlNwmInhibitActivationVN </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>IlNwmInhibitActivationVN </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>VN activation is suspended. All requests to start a VN are queued until VN activation is allowed. </p>
+<p>Related API: IlNwmAllowActivationVN(). </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>Only available if enabled in the configuration </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>39 / 59 </p>
+<p><b>IlNwmIsActiveVN </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>vuint8 <b>IlNwmIsActiveVN</b>( vuint8 VnHndl )</p>
+<p> </p>
+<p>Indexed </p>
+<p>vuint8 <b>IlNwmIsActiveVN</b>( CanChannelHandle channel, vuint8 </p>
+<p>VnHndl ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>Status of the queried VN; </p>
+<p>Any non-zero value indicates that the VN is active.  </p>
+<p><b>Functional Description </b></p>
+<p>This function returns a flag field that contains the current state of a specific VN (given by VN handle </p>
+<p>&lt;VnHndl&gt;). </p>
+<p>If the return value is 0, the VN is inactive, otherwise active. </p>
+<p>The NM provides function macros that can evaluate the return value to get more information on the VN </p>
+<p>state. The macros evaluate to be true or false. </p>
+<p>IlNwmIsNmVnActivatorPending(vnState) </p>
+<p> </p>
+<p>Application has requested activation of VN </p>
+<p>IlNwmIsNmVnActive(vnState)    </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>VN is completely activated </p>
+<p>IlNwmIsNmVnActivator(vnState)   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Send out VNMF for this VN </p>
+<p>IlNwmIsNmVnLocal(vnState)  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>VN is locally active </p>
+<p>IlNwmIsNmVnRxActive(vnState)   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Indicates Receive-enabled </p>
+<p>IlNwmIsNmVnNone(vnState)  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>VN is not active </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p> </p>
+<p> </p>
+<p><b>IlNwmNormalCommHalted </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>Nm_Status <b>IlNwmNormalCommHalted</b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>Nm_Status <b>IlNwmNormalCommHalted</b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>&gt; </p>
+<p>NM_OK </p>
+<p> </p>
+<p> </p>
+<p>Node state was changed to Normal Comm. Halted. </p>
+<p>&gt; </p>
+<p>NM_ERROR </p>
+<p>Error if the node is in the HighSpeed, Sleep, or LVT mode </p>
+<p><b>Functional Description </b></p>
+<p>This function initiates diagnostic mode communications. All active VNs are deactivated and the diagnostic </p>
+<p>VN (VN 0) is activated. </p>
+<p>Note: If the node was in HighSpeed mode before this call, the CAN controller and transceiver will be reset </p>
+<p>into Normal mode by this function. </p>
+<p>Also refer to chapter “4.6 Normal Communication Halted” </p>
+<p>Related API: IlNwmReturnToNormalMode() </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>40 / 59 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p> </p>
+<p> </p>
+<p><b>IlNwmResetHispeedMode </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>IlNwmResetHispeedMode</b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>IlNwmResetHispeedMode</b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This function puts the transceiver and CAN controller in normal (low-speed) mode.  </p>
+<p>The diagnostics VN (VN 0) is deactivated.  </p>
+<p>After reinitializing the CAN controller, the user-defined function ApplTrcvrNormalMode() will be called, as </p>
+<p>the application is responsible for switching the transceiver to normal mode. </p>
+<p>After a delay, Rx and Tx functions of the IL are restarted. </p>
+<p>Related API: IlNwmSetHispeedMode() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p> </p>
+<p> </p>
+<p><b>IlNwmReturnToNormalMode </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>IlNwmReturnToNormalMode</b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>IlNwmReturnToNormalMode</b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This function requests the NM to return to the normal communication mode.  </p>
+<p>VNs cannot be activated during NormalCommHalted mode.  </p>
+<p>Note: If the node was in HighSpeed mode before this call, the CAN controller and transceiver will be reset </p>
+<p>into normal mode by this function. </p>
+<p>Also refer to chapter “4.6 Normal Communication Halted” </p>
+<p>Related API: IlNwmNormalCommHalted() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>41 / 59 </p>
+<p><b>IlNwmSetHispeedMode </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>Nm_Status <b>IlNwmSetHispeedMode</b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>Nm_Status <b>IlNwmSetHispeedMode</b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>&gt; </p>
+<p>NM_OK </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Node state was changed to HighSpeed. </p>
+<p>&gt; </p>
+<p>NM_ERROR </p>
+<p> </p>
+<p>Error if the node is in the NormalCommHalted or Sleep state </p>
+<p><b>Functional Description </b></p>
+<p>This function requests the NM to switch over to HighSpeed mode.  </p>
+<p>The transceiver and CAN controller are set to a higher data transmission rate. After switching to HighSpeed </p>
+<p>mode, the user-defined function ApplTrcvrHighSpeed() is called (the application is responsible for switching </p>
+<p>the transceiver into high-speed mode). </p>
+<p>Before calling this function, the application should place the GMLAN handler into the NormalCommHalted </p>
+<p>mode. </p>
+<p>Note that this function is only available for devices configured for single-wire CAN (Bodybus). </p>
+<p>This feature is only available if enabled in the configuration. </p>
+<p>Related API: IlNwmResetHispeedMode() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p> </p>
+<p> </p>
+<p><b>IlNwmTask </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>IlNwmTask</b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>IlNwmTask</b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This function is the NM cyclic task function. The function is responsible for VN activation/deactivation, </p>
+<p>reception/transmission of HLVW messages, mode and state handling.  </p>
+<p>The user-application is responsible for periodically calling this function at a user-defined timing. This timing </p>
+<p>can be configured in GENy. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>In preemptive systems and when CAN driver operates in polling mode it must be assured, that </p>
+<p>IlNwmTask does not interrupt NmConfirmation(), NmHVConfirmation(), NmPrecopy() and </p>
+<p>NmHVPrecopy(). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>42 / 59 </p>
+<p><b>NmGetModuleContext </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>NmGetModuleContext</b>( tNmModuleContextStructPtr pContext ) </p>
+<p><b>Parameter </b></p>
+<p>pContext </p>
+<p>Pointer to structure which is filled by this function with the current module </p>
+<p>context. The type definition is provided in the modules header file. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function copies all internal and global variables of the network management into the passed structure. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>The function is usually called by the QNX Mini driver wrapper. </p>
+<p><b>&gt; </b></p>
+<p>The function is only available if the QNX Mini driver wrapper is enabled or </p>
+<p>NM_ENABLE_GET_CONTEXT is defined in a user configuration file. </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>Task level only </p>
+<p> </p>
+<p><b>NmSetModuleContext </b></p>
+<p><b>Prototype </b></p>
+<p>vuint8 <b>NmSetModuleContext</b>( tNmModuleContextStructPtr pContext ) </p>
+<p><b>Parameter </b></p>
+<p>pContext </p>
+<p>Pointer to structure which is filled by this function with the current module </p>
+<p>context. The type definition is provided in the modules header file. </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>1: The magic number member of the passed structure matches the version of </p>
+<p>the module. </p>
+<p>0: The magic number does not match. The data from the passed structure is </p>
+<p>not copied. </p>
+<p><b>Functional Description </b></p>
+<p>This function initializes all internal and global variables of the network management with the values from </p>
+<p>the passed structure. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>The function is usually called by the QWrapper module </p>
+<p><b>&gt; </b></p>
+<p>The function is only available if the QWrapper module is enabled or NM_ENABLE_SET_CONTEXT is </p>
+<p>defined in a user configuration file. </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>Task level only </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>43 / 59 </p>
+<p><b>7.4 </b></p>
+<p><b>Callback Functions </b></p>
+<p> </p>
+<p><b>Transceiver Handling </b></p>
+<p><b>&gt; </b></p>
+<p>ApplTrcvrHighSpeed </p>
+<p><b>&gt; </b></p>
+<p>ApplTrcvrHighVoltage </p>
+<p><b>&gt; </b></p>
+<p>ApplTrcvrNormalMode </p>
+<p><b>&gt; </b></p>
+<p>ApplTrcvrSleepMode </p>
+<p><b>VN Handling </b></p>
+<p><b>&gt; </b></p>
+<p>ApplNwmReinitRequest </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmVnActivated </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmVnActivationFailed </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmVnDeactivated </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmVnmfConfirmationTimeout </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmVnRemoteActivateRequest </p>
+<p><b>Wakeup/Sleep Handling </b></p>
+<p><b>&gt; </b></p>
+<p>ApplNwm100MsgRecv </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmHLVWStart </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmHLVWStop </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmSleep </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmSleepConfirmation </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmWakeup </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmWakeupMsgRecv </p>
+<p><b>BusOff Handling </b></p>
+<p><b>&gt; </b></p>
+<p>ApplNwmBusoff </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmBusoffEnd </p>
+<p><b>Fault Detection &amp; Mitigation Algorithm </b></p>
+<p><b>&gt; </b></p>
+<p>ApplNwmVnActiveFault </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmNetworkActiveFault </p>
+<p><b>&gt; </b></p>
+<p>ApplNwmNoSleepConfirmationFault </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>44 / 59 </p>
+<p><b>ApplNwm100MsgRecv </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwm100MsgRecv </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwm100MsgRecv </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed to notify the application that a HLVW message was received with the CAN </p>
+<p>controller being in an active state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_WAKEUP_RECEIVED_FCT </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<p><b>ApplNwmBusoff </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmBusoff </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmBusoff </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed to notify the application that the CAN controller has entered BusOff state, </p>
+<p>indicating that errors have occurred on the CAN bus.  </p>
+<p>Transmission and reception of messages are disabled at this time.  </p>
+<p>The NM starts a recovery timer. The recovery time can be selected in the configuration tool. </p>
+<p>When the recovery time elapses, the NM will re-enable the CAN controller. </p>
+<p>Related API: ApplNwmBusoffEnd() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_BUSOFF_FCT </p>
+<p>&gt; </p>
+<p>This callback might be executed in the CAN driver’s ISR. The application should exit this function as </p>
+<p>quickly as possible, and should not call any other NM or CAN API functions. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>Same as CAN driver error handling </p>
+<p> </p>
+<p><b>ApplNwmBusoffEnd </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>45 / 59 </p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmBusoffEnd </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmBusoffEnd </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed to notify the application that the CAN controller has recovered from a BusOff </p>
+<p>state. Transmission and reception of messages are re-enabled. </p>
+<p>Related API: ApplNwmBusoff() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_BUSOFF_END_FCT </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<p><b>ApplNwmHLVWStart </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmHLVWStart </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmHLVWStart </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed just before the transmission of a HLVW message. </p>
+<p>Related API: ApplNwmHLVWStop() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_HLVW_INDICATION_FCT </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>If CAN driver transmit queue is activated this function may be called in interrupt context. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>46 / 59 </p>
+<p><b>ApplNwmHLVWStop </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmHLVWStop </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmHLVWStop </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed just after the transmission of a HLVW message has completed (and confirmed). </p>
+<p>Related API: ApplNwmHLVWStart() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_HLVW_INDICATION_FCT </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function will maybe called in interrupt context. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>47 / 59 </p>
+<p><b>ApplNwmReinitRequest </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmReinitRequest </b>( vuint8 VnHndl,  </p>
+<p>vuint8 ReinitRequest )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmReinitRequest </b>( CanChannelHandle channel,  </p>
+<p>vuint8 VnHndl,  </p>
+<p>vuint8 ReinitRequest ) </p>
+<p><b>Parameter </b></p>
+<p>ReinitRequest </p>
+<p> </p>
+<p>Reason for Re-init request </p>
+<p>&gt; </p>
+<p>0  </p>
+<p>A VNMF-Continue message was received for an inactive VN. </p>
+<p>&gt; </p>
+<p>1  </p>
+<p>A VNMF-Init message was received for an already active VN. </p>
+<p>&gt; </p>
+<p>2  </p>
+<p>A VNMF-Init message was transmitted for an already active VN. This is the case </p>
+<p>when an Activator VN is (re-)activated and VN is still active and VN timer is less than 4 </p>
+<p>seconds. </p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed to notify the application that a VN is being re-initialized. The reason for the re-</p>
+<p>initialization is given as parameter. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_REINITREQUEST_FCT </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>48 / 59 </p>
+<p><b>ApplNwmSleep </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmSleep </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmSleep </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed to notify the application that NM is entering the COMM-OFF state.  </p>
+<p>The sleep indication may be used by the application to suspend network (and other) operations, including </p>
+<p>cyclic calls to the NM task functions. </p>
+<p>Related API: ApplNwmWakeup() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_SLEEP_FCT </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<p><b>ApplNwmSleepConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>vuint8 <b>ApplNwmSleepConfirmation </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>vuint8 <b>ApplNwmSleepConfirmation </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>NmSleepOk   </p>
+<p>Enter Sleep mode </p>
+<p><b>&gt; </b></p>
+<p>NmSleepNo   </p>
+<p>Stay awake for another 8 seconds. </p>
+<p><b>Functional Description </b></p>
+<p>The callback is executed to let the application decide if the NM can enter Sleep Mode. If the application </p>
+<p>returns NmSleepNo from the callback, then the network will stay enabled for another 8 seconds. Unless </p>
+<p>other events intervene (such as VN activation), NM will call this function again when the timer expires. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_SLEEPCONFIRMATION_FCT </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>49 / 59 </p>
+<p><b>ApplNwmVnActivationFailed </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>vuint8 <b>ApplNwmVnActivationFailed </b>( vuint8 VnHndl )</p>
+<p> </p>
+<p>Indexed </p>
+<p>vuint8 <b>ApplNwmVnActivationFailed </b>( CanChannelHandle channel, </p>
+<p>vuint8 VnHndl ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>&gt; </p>
+<p>0  </p>
+<p>Deactivate the VN </p>
+<p>&gt; </p>
+<p>1  </p>
+<p>Reattempt activation of the VN. </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed to notify the application that an attempt to activate a VN has failed. The failure is </p>
+<p>detected when the VN active timer counts down to 1 second while an activation attempt still pending. </p>
+<p>This function gives the application the ability to decide whether to retry or abort the VN activation. The </p>
+<p>return value from the function (see above) controls the behavior of NM. </p>
+<p>If this callback is not enabled, then NM will deactivate the VN and does not reattempt the activation. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_VN_ACTIVATION_FAILED_FCT </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<p><b>ApplNwmVnActivated </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmVnActivated </b>(vuint8 VnHndl )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmVnActivated </b>( CanChannelHandle channel, vuint8 </p>
+<p>VnHndl ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>The callback is executed to notify the application that a VN has been activated. </p>
+<p>Related API: ApplNwmVnDeactivated() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>Mandatory callback </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<p><b>ApplNwmVnDeactivated </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>50 / 59 </p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmVnDeactivated </b>(vuint8 VnHndl )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmVnDeactivated </b>( CanChannelHandle channel,  </p>
+<p>vuint8 VnHndl ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>The callback is executed to notify the application that a VN has been deactivated. </p>
+<p>Related API: ApplNwmVnActivated() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>Mandatory callback </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<p><b>ApplNwmVnRemoteActivateRequest </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>vuint8 <b>ApplNwmVnRemoteActivateRequest </b>( vuint8 VnHndl )</p>
+<p> </p>
+<p>Indexed </p>
+<p>vuint8 <b>ApplNwmVnRemoteActivateRequest </b>(  </p>
+<p>CanChannelHandle channel, </p>
+<p>vuint8 VnHndl ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>The application must return a value indicating if the activation request should be accepted </p>
+<p>or rejected. </p>
+<p><b>&gt; </b></p>
+<p>1 </p>
+<p> </p>
+<p>Accept remote activation. </p>
+<p><b>&gt; </b></p>
+<p>0   Reject remote activation. </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed when a VN activation request (VNMF-Init) message is received. This allows the </p>
+<p>application to be notified of the activation, and to allow the activation request to be denied. </p>
+<p>Note: It is not recommended that the application reject activation requests. </p>
+<p>If this callback is disabled, the NM will accept the activation request. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: </p>
+<p>NM_ENABLE_VN_REMOTE_ACTIVATE_REQUEST_FCT </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>51 / 59 </p>
+<p><b>ApplNwmVnmfConfirmationTimeout </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmVnmfConfirmationTimeout </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmVnmfConfirmationTimeout </b>( CanChannelHandle </p>
+<p>channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed to notify the application that transmission of a VNMF could not be completed </p>
+<p>within the configured time limit.  </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: </p>
+<p>NM_ENABLE_VNMF_CONFIRMATION_TIMEOUT_FCT </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<p><b>ApplNwmWakeup </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmWakeup </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmWakeup </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed to notify the application that the NM is leaving the COMM-OFF state, and </p>
+<p>entering either COMM-ENABLED or COMM-ACTIVE.  </p>
+<p>Note: If the application does not call the cyclic task of the NM while the CAN is in sleep mode, the callback </p>
+<p>ApplNwmWakeupMsgRecv() must be activated. If it is called, application has to re-enable the cyclic call.  </p>
+<p>Related API: ApplNwmSleep() </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_WAKEUP_FCT </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>52 / 59 </p>
+<p><b>ApplNwmWakeupMsgRecv </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmWakeupMsgRecv </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmWakeupMsgRecv </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed to notify the application that a HLVW message was received when the CAN </p>
+<p>controller was asleep. This may be used by the application to restart network activities, such as invoking </p>
+<p>the NM task functions periodically, or prevent entering the STOP mode. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The availability of this callback can be configured: NM_ENABLE_WAKEUP_RECEIVED_FCT </p>
+<p>&gt; </p>
+<p>This callback might be executed in the CAN driver’s ISR. The application should exit this function as </p>
+<p>quickly as possible, and should not call any other NM or CAN API functions. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>Same as CAN driver wakeup handling. </p>
+<p> </p>
+<p><b>ApplTrcvrHighSpeed </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplTrcvrHighSpeed </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplTrcvrHighSpeed </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed when the transceiver has to be set to HighSpeed mode. </p>
+<p>The application has to set the transceiver in the corresponding state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This callback is available if a single-wire transceiver is used and HighSpeed mode is enabled</p>
+<p> </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>Same as IlNwmSetHispeedMode. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>53 / 59 </p>
+<p><b>ApplTrcvrHighVoltage </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplTrcvrHighVoltage</b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplTrcvrHighVoltage</b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed when a HLVW message has to be transmitted. </p>
+<p>The application has to set the transceiver in the corresponding state where High-Voltage transmission is </p>
+<p>possible. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This callback is available if a single-wire transceiver is used </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>If CAN driver transmit queue is activated this function will maybe called in interrupt context. </p>
+<p> </p>
+<p><b>ApplTrcvrNormalMode </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplTrcvrNormalMode</b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplTrcvrNormalMode</b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed when the transceiver has to be set to normal mode, e.g. after transmission of a </p>
+<p>HLVW message. </p>
+<p>The application has to set the transceiver in the corresponding state (normal mode). </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>Mandatory callback: always used </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function may be called in interrupt context. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>54 / 59 </p>
+<p><b>ApplTrcvrSleepMode </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplTrcvrSleepMode </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplTrcvrSleepMode </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback is executed when the transceiver has to be set to sleep mode, i.e. the NM enters COMM-OFF </p>
+<p>state. </p>
+<p>The application has to set the transceiver in the corresponding state (sleep mode). </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This callback is available if a sleep/wake-able transceiver is used (single-wire, HighSpeed with sleep) </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>55 / 59 </p>
+<p><b>ApplNwmVnActiveFault </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmVnActiveFault </b>( vuint8 vnHndl )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmVnActiveFault </b>(  CanChannelHandle channel, </p>
+<p>vuint8 vnHndl ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback informs the application about a ‘VN Active Fault’ detected by the ‘Fault Detection and </p>
+<p>Mitigation Algorithm’. Please refer to chapter 4.11 for more information.  </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This callback is available only if ‘Fault Detection and Mitigation Algorithm’ is enabled in GENy. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<p><b>ApplNwmNetworkActiveFault </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmNetworkActiveFault </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmNetworkActiveFault </b>( CanChannelHandle channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback informs the application about a ‘Network Active Fault’ detected by the ‘Fault Detection and </p>
+<p>Mitigation Algorithm’. Please refer to chapter 4.11 for more information. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This callback is only available if ‘Fault Detection and Mitigation Algorithm’ is enabled in GENy. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>56 / 59 </p>
+<p><b>ApplNwmNoSleepConfirmationFault </b></p>
+<p><b>Prototype </b></p>
+<p>Standard </p>
+<p>void <b>ApplNwmNoSleepConfirmationFault </b>( void )</p>
+<p> </p>
+<p>Indexed </p>
+<p>void <b>ApplNwmNoSleepConfirmationFault </b>( CanChannelHandle </p>
+<p>channel ) </p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p>see “7.2 Common Parameter” </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>--- </p>
+<p><b>Functional Description </b></p>
+<p>This callback informs the application about a ‘No Sleep Confirmation Fault’ detected by the ‘Fault Detection </p>
+<p>and Mitigation Algorithm’. Please refer to chapter 4.11 for more information. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This callback is available only if ‘Fault Detection and Mitigation Algorithm’ and ‘No Sleep Confirmation </p>
+<p>Fault Reporting’ is enabled in GENy. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>This function is called from task level only. </p>
+<p> </p>
+<p><b>7.5 </b></p>
+<p><b>Calibration Constants </b></p>
+<p>Please </p>
+<p>see </p>
+<p>TechnicalReferenceGMLANCalibration.pdf </p>
+<p>for </p>
+<p>more </p>
+<p>details </p>
+<p>on </p>
+<p>calibrate </p>
+<p>constants of the GMLAN handler. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>57 / 59 </p>
+<p><b>8 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>8.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>CAN Driver </p>
+<p>The CAN Driver represents an implementation of the Data Link Layer by </p>
+<p>Vector Informatik GmbH. </p>
+<p>CANbedded </p>
+<p>CANbedded stands for a group of products offered by Vector Informatik </p>
+<p>GmbH including communication modules for CAN communication and a </p>
+<p>configuration tool to configure these modules. </p>
+<p>Communication </p>
+<p>Database </p>
+<p>See Network Database </p>
+<p>Data Dictionary </p>
+<p>See Network Database </p>
+<p>Data Link Layer </p>
+<p>The Data Link Layer defines the connection between two network nodes </p>
+<p>in the same network. It is responsible for error detection, error correction </p>
+<p>and flow control.  </p>
+<p>Deadline Monitoring </p>
+<p>Deadline Monitoring is used to monitor the receipt of periodic messages </p>
+<p>related to the ECU. Each time a periodic message is received a timer or </p>
+<p>counter will be restarted. If the timer elapses the application will be </p>
+<p>notified. </p>
+<p>Delay Time </p>
+<p>To prevent high bus load the Interaction Layer waits a defined time after </p>
+<p>the transmission of a message before transmitting the next message. A </p>
+<p>delay time is related to a specific message.  </p>
+<p>Configuration Tool </p>
+<p>Tool to generate parts of the code of the communication modules. The </p>
+<p>generated code will be specific for an application and will include the </p>
+<p>interface for the signals, messages, flags ... </p>
+<p>Interaction Layer </p>
+<p>By the Interaction Layer the data is structured. It is responsible for the </p>
+<p>consistency of the data offered to the upper layer. </p>
+<p>Message </p>
+<p>Variable for data exchange of which the length depends on the length of </p>
+<p>the frames used by the underlying field bus. CAN for example use 0-8 </p>
+<p>bytes per data frame. </p>
+<p>Message Manager </p>
+<p>The Message Manager is a part of the Interaction Layer. By the Message </p>
+<p>Manager the messages received by the CAN bus is offered and the state </p>
+<p>machine of the Interaction Layer is controlled. It is responsible for the </p>
+<p>periodic transmission of messages. </p>
+<p>Network Database </p>
+<p>Database which contains information about a network, including the </p>
+<p>nodes and the data to be exchanged over the network. The Network </p>
+<p>Database is used by the Configuration Tool, CANoe, and CANalyzer. </p>
+<p>Network </p>
+<p>Management </p>
+<p>By the NM a set of services for monitor the nodes in a network are </p>
+<p>defined. It is responsible for start-up the network, co-ordination of global </p>
+<p>operation modes, support of diagnostics, ... </p>
+<p>OSEK OS </p>
+<p>Specification of an operating system for micro controllers (ECU) </p>
+<p>especially designed for cars </p>
+<p>OSEK COM </p>
+<p>Specification of a communication layer for the use with OSEK </p>
+<p>Physical Layer </p>
+<p>By the Physical Layer all the electrical, mechanical and functional </p>
+<p>parameters of the connections between network nodes are defined. (ISO </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>58 / 59 </p>
+<p>OSI-Model) </p>
+<p>Signal </p>
+<p>Variable for data exchange of which the length is defined by the </p>
+<p>application developer. One or more signals are mapped to a message. </p>
+<p>Signal Interface </p>
+<p>The Signal Interface is a part of the Interaction Layer. By the Signal </p>
+<p>Interface the messages offered by the Interaction Layer are split into </p>
+<p>signals. It is responsible for the combination of signals to messages and </p>
+<p>the splitting of messages into signals. </p>
+<p>Start Delay Time </p>
+<p>Time used to delay the beginning of the transmission of a periodic </p>
+<p>message. The start delay time should prevent transmission bursts caused </p>
+<p>by interference. </p>
+<p>Transmission Mode  </p>
+<p>Mode to transmit signals or messages. A transmission mode defines </p>
+<p>whether a message has to be send out periodically or on an event or </p>
+<p>even in both cases.</p>
+<p> </p>
+<p>There are several modes defined to satisfy the needs </p>
+<p>of the customer’s application.  </p>
+<p>Transport Protocol </p>
+<p>By the Transport Protocol the data longer than a CAN frame is handled. It </p>
+<p>is responsible for correct splitting and combining data, error detection and </p>
+<p>error correction. </p>
+<p>Note: OSEK refers to the “Transport Protocol” as “Network Layer”. They </p>
+<p>put it in layer 3, not in layer 4 of the ISO OSI Layer Model. </p>
+<p> </p>
+<p> </p>
+<p><b>8.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>CAN </p>
+<p>Controller Area Network </p>
+<p>CTS </p>
+<p>Component Technical Specification. Platform specific document provided by the </p>
+<p>car manufacturer. Provides technical details for the component. </p>
+<p>ECU </p>
+<p>Electronic Control Unit  </p>
+<p>IL </p>
+<p>Interaction Layer </p>
+<p>NM </p>
+<p>Network Management </p>
+<p>OSEK </p>
+<p>Offene Systeme und deren Schnittstellen für die Elektronik im Kraftfahrzeug </p>
+<p>TP </p>
+<p>Transport Protocol </p>
+<p>VN </p>
+<p>Virtual Network </p>
+<p>VNMF </p>
+<p>Virtual Network Management Frame </p>
+<p>HLVW </p>
+<p>High-Voltage Wake-Up </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Nm_Gmlan_Gm  </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 2.03.01 </p>
+<p>based on template version 3.7 </p>
+<p>59 / 59 </p>
+<p><b>9 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

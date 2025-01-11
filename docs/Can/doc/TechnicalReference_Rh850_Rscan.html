@@ -1,0 +1,3956 @@
+---
+layout: default
+title: TechnicalReference_Rh850_Rscan
+nav_order: 4
+parent: CAN Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Vector CAN Driver </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Renesas </p>
+<p>RH850 </p>
+<p>RSCAN </p>
+<p> </p>
+<p>Version 1.08.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Torsten Kercher </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>2 /50 </p>
+<p> </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p> </p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Torsten Kercher </p>
+<p>2013-05-27 </p>
+<p>1.00.00 </p>
+<p>Initial release (support F1L with GreenHills compiler) </p>
+<p>Torsten Kercher </p>
+<p>2013-07-18 </p>
+<p>1.01.00 </p>
+<p>Support R1L derivatives </p>
+<p>Correct description of nested interrupt behavior </p>
+<p>Torsten Kercher </p>
+<p>2013-08-26 </p>
+<p>1.02.00 </p>
+<p>Support HighEnd features </p>
+<p>Support WindRiver Diab compiler </p>
+<p>Torsten Kercher </p>
+<p>2013-10-16 </p>
+<p>1.03.00 </p>
+<p>Support R1M derivatives </p>
+<p>Update referenced version of the R1x manual </p>
+<p>Support external wakeup functionality </p>
+<p>Update chapters 5, 6, 7.2.2 </p>
+<p>Torsten Kercher </p>
+<p>2014-04-04 </p>
+<p>1.04.00 </p>
+<p>Support extended CAN RAM check </p>
+<p>Support RSCAN RAM test </p>
+<p>Support D1L, D1M, P1M derivatives </p>
+<p>Update referenced version of the F1L manual </p>
+<p>Torsten Kercher </p>
+<p>2014-04-29 </p>
+<p>1.04.01 </p>
+<p>Update description of nested interrupt behavior </p>
+<p>Torsten Kercher </p>
+<p>2014-05-15 </p>
+<p>1.05.00 </p>
+<p>Support IAR compiler </p>
+<p>Support F1H derivatives </p>
+<p>Update expected loop durations in chapter 5 </p>
+<p>Torsten Kercher </p>
+<p>2014-07-23 </p>
+<p>1.06.00 </p>
+<p>Support Renesas compiler </p>
+<p>Support C1H, C1M, E1L, E1M derivatives </p>
+<p>Update chapters 5, 9.4, 10.3 </p>
+<p>Update ref. versions of the F1L and F1H manuals </p>
+<p>Torsten Kercher </p>
+<p>2014-11-24 </p>
+<p>1.07.00 </p>
+<p>Support configuration of the used ‘CAN Interface’ </p>
+<p>Support F1M derivatives </p>
+<p>Update chapters 5, 6, 7.2.9, 9.4, 10.3 </p>
+<p>Update ref. versions of the P1x and R1x manuals </p>
+<p>Torsten Kercher </p>
+<p>2015-08-19 </p>
+<p>1.08.00 </p>
+<p>Support F1K derivatives </p>
+<p>Table 1-1  </p>
+<p>History of the document </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Please note</b> </p>
+<p>We  have  configured  the  programs  in  accordance  with  your  specifications  in  the </p>
+<p>questionnaire.  Whereas  the  programs  do  support  other  configurations  than  the  one </p>
+<p>specified  in  your  questionnaire,  Vector’s  release  of  the  programs  delivered  to  your </p>
+<p>company </p>
+<p>is </p>
+<p>expressly </p>
+<p>restricted </p>
+<p>to </p>
+<p>the </p>
+<p>configuration </p>
+<p>you </p>
+<p>have </p>
+<p>specified </p>
+<p>in </p>
+<p>the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>3 /50 </p>
+<p> </p>
+<p><b>Contents </b></p>
+<p><b> </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction .................................................................................................................... 5</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Important References .................................................................................................... 6</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Usage of Controller Features ........................................................................................ 7</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>[#hw_comObj] - Communication Objects ......................................................... 7</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Acceptance Filters ......................................................................................... 10</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>[#hw_sleep] - SleepMode and WakeUp ....................................................................... 11</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Sleep ............................................................................................................. 11</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Internal Wakeup ............................................................................................ 11</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>External Wakeup ........................................................................................... 11</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>[#hw_loop] - Hardware Loop Check ............................................................................ 13</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>[#hw_busoff] - Bus off ................................................................................................. 16</b></p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>CAN Driver Features .................................................................................................... 17</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>[#hw_feature] - Feature List ........................................................................... 17</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Description of Hardware-related Features ..................................................... 19</p>
+<p> </p>
+<p>7.2.1</p>
+<p> </p>
+<p>[#hw_status] - Status ..................................................................................... 19</p>
+<p> </p>
+<p>7.2.2</p>
+<p> </p>
+<p>[#hw_stop] - Stop Mode ................................................................................ 19</p>
+<p> </p>
+<p>7.2.3</p>
+<p> </p>
+<p>[#hw_int] - Control of CAN Interrupts ............................................................. 19</p>
+<p> </p>
+<p>7.2.4</p>
+<p> </p>
+<p>[#hw_cancel] - Cancel in Hardware ............................................................... 20</p>
+<p> </p>
+<p>7.2.5</p>
+<p> </p>
+<p>Remote Frames ............................................................................................ 20</p>
+<p> </p>
+<p>7.2.6</p>
+<p> </p>
+<p>CAN RAM Check .......................................................................................... 20</p>
+<p> </p>
+<p>7.2.7</p>
+<p> </p>
+<p>Extended CAN RAM Check ........................................................................... 21</p>
+<p> </p>
+<p>7.2.8</p>
+<p> </p>
+<p>RSCAN ECC Configuration ........................................................................... 22</p>
+<p> </p>
+<p>7.2.9</p>
+<p> </p>
+<p>RSCAN RAM Test ......................................................................................... 23</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>[#hw_assert] – Assertions ........................................................................................... 24</b></p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>API ................................................................................................................................. 25</b></p>
+<p> </p>
+<p>9.1</p>
+<p> </p>
+<p>Category ....................................................................................................... 25</p>
+<p> </p>
+<p>9.2</p>
+<p> </p>
+<p>RSCAN ECC Configuration ........................................................................... 25</p>
+<p> </p>
+<p>9.3</p>
+<p> </p>
+<p>(Extended) CAN RAM Check ........................................................................ 26</p>
+<p> </p>
+<p>9.4</p>
+<p> </p>
+<p>External CAN Interrupt Handling ................................................................... 31</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>4 /50 </p>
+<p> </p>
+<p><b>10</b></p>
+<p> </p>
+<p><b>Implementations Hints ................................................................................................. 35</b></p>
+<p> </p>
+<p>10.1</p>
+<p> </p>
+<p>Important Notes ............................................................................................. 35</p>
+<p> </p>
+<p>10.2</p>
+<p> </p>
+<p>Interrupt Configuration ................................................................................... 36</p>
+<p> </p>
+<p>10.2.1</p>
+<p> </p>
+<p>Configuration of Interrupt Vectors with IAR compiler...................................... 37</p>
+<p> </p>
+<p>10.3</p>
+<p> </p>
+<p>External CAN Interrupt Handling ................................................................... 38</p>
+<p> </p>
+<p>10.3.1</p>
+<p> </p>
+<p>Hardware Access by Call-Back Functions ..................................................... 38</p>
+<p> </p>
+<p>10.3.2</p>
+<p> </p>
+<p>Interrupt Control by Application ..................................................................... 38</p>
+<p> </p>
+<p><b>11</b></p>
+<p> </p>
+<p><b>Configuration................................................................................................................ 41</b></p>
+<p> </p>
+<p>11.1</p>
+<p> </p>
+<p>Configuration by GENy .................................................................................. 41</p>
+<p> </p>
+<p>11.1.1</p>
+<p> </p>
+<p>Platform Settings ........................................................................................... 41</p>
+<p> </p>
+<p>11.1.2</p>
+<p> </p>
+<p>Component Settings ...................................................................................... 42</p>
+<p> </p>
+<p>11.1.3</p>
+<p> </p>
+<p>Channel-specific Settings .............................................................................. 43</p>
+<p> </p>
+<p>11.2</p>
+<p> </p>
+<p>Manual Configuration .................................................................................... 48</p>
+<p> </p>
+<p><b>12</b></p>
+<p> </p>
+<p><b>Known Issues / Limitations ......................................................................................... 49</b></p>
+<p> </p>
+<p><b>13</b></p>
+<p> </p>
+<p><b>Contact.......................................................................................................................... 50</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Illustrations </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Hardware Object Layout ............................................................................. 7</p>
+<p> </p>
+<p>Figure 11-1</p>
+<p> </p>
+<p>GENy Platform Settings ............................................................................ 41</p>
+<p> </p>
+<p>Figure 11-2</p>
+<p> </p>
+<p>GENy Component Settings ....................................................................... 42</p>
+<p> </p>
+<p>Figure 11-3</p>
+<p> </p>
+<p>GENy Channel Specific Settings ............................................................... 43</p>
+<p> </p>
+<p>Figure 11-4</p>
+<p> </p>
+<p>GENy Acceptance Filter Configuration ...................................................... 45</p>
+<p> </p>
+<p>Figure 11-5</p>
+<p> </p>
+<p>GENy Acceptance Filter Assignment ........................................................ 46</p>
+<p> </p>
+<p>Figure 11-6</p>
+<p> </p>
+<p>GENy Bustiming Configuration ................................................................. 47</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Tables </b></p>
+<p> </p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>History of the document .............................................................................. 2</p>
+<p> </p>
+<p>Table 2-1 </p>
+<p> </p>
+<p>Supported Hardware Overview ................................................................... 6</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Hardware Object Layout ............................................................................. 9</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>CAN Driver Functionality .......................................................................... 18</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>CAN Status ............................................................................................... 19</p>
+<p> </p>
+<p>Table 9-1 </p>
+<p> </p>
+<p>API Category ............................................................................................ 25</p>
+<p> </p>
+<p>Table 10-1 </p>
+<p> </p>
+<p>Interrupt Service Routines ........................................................................ 36</p>
+<p> </p>
+<p>Table 11-1 </p>
+<p> </p>
+<p>GENy Platform Settings ............................................................................ 41</p>
+<p> </p>
+<p>Table 11-2 </p>
+<p> </p>
+<p>GENy Component Settings ....................................................................... 42</p>
+<p> </p>
+<p>Table 11-3 </p>
+<p> </p>
+<p>GENy Channel Specific Settings ............................................................... 44</p>
+<p> </p>
+<p>Table 11-4 </p>
+<p> </p>
+<p>GENy Acceptance Filter Configuration ...................................................... 45</p>
+<p> </p>
+<p>Table 11-5 </p>
+<p> </p>
+<p>GENy Bustiming Configuration ................................................................. 47</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>5 /50 </p>
+<p> </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p>The concept of the CAN driver and the standardized interface between the CAN driver and </p>
+<p>the  application  is  described  in  the  document <b> TechnicalReference_CANDriver.pdf</b>.  The </p>
+<p>CAN driver interface to the hardware is designed in a way that capabilities of the special </p>
+<p>CAN chips can be utilized optimally. The interface to the application was made identical for </p>
+<p>the  different  CAN  chips,  so  that  the  &quot;higher&quot;  layers  such  as  network  management, </p>
+<p>transport protocols and especially the application would essentially be independent of the </p>
+<p>particular CAN chip used. </p>
+<p> </p>
+<p>This  document  describes  the  hardware  dependent  special  features  and  implementation </p>
+<p>specifics of the Renesas RSCAN on the RH850 platform. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>6 /50 </p>
+<p> </p>
+<p><b>2 </b></p>
+<p><b>Important References </b></p>
+<p>The  following  table  summarizes  information  about  the  CAN  Driver.  It  gives  you  detailed </p>
+<p>information about  the versions,  derivatives  and  compilers. As  very important  information </p>
+<p>the documentations of the hardware manufacturers are listed. The CAN Driver is based </p>
+<p>upon these documents in the given version.  </p>
+<p> </p>
+<p><b>Driver </b></p>
+<p><b>Version </b></p>
+<p><b>Supported </b></p>
+<p><b>Compilers </b></p>
+<p><b>Supported </b></p>
+<p><b>Derivatives </b></p>
+<p><b>Hardware Manufacturer Documents </b></p>
+<p><b>Version </b></p>
+<p>3.15.xx, </p>
+<p>RI 1.5 </p>
+<p>GreenHills, </p>
+<p>WindRiver Diab, </p>
+<p>Renesas, </p>
+<p>IAR </p>
+<p>C1H </p>
+<p>C1M </p>
+<p>R01UH0414EJ0041, RH850/C1x, </p>
+<p>User’s Manual: Hardware </p>
+<p>Rev.0.41 </p>
+<p>Feb 2014 </p>
+<p>D1L </p>
+<p>D1M </p>
+<p>R01UH0451EJ0041, RH850/D1L/D1M </p>
+<p>Group, User’s Manual: Hardware </p>
+<p>Rev.0.41 </p>
+<p>Jan 2014 </p>
+<p>E1L </p>
+<p>R01UH0468JJ0040, RH850/E1L, </p>
+<p>User’s Manual: Hardware </p>
+<p>Rev.0.40 </p>
+<p>Dec 2013 </p>
+<p>E1M </p>
+<p>R01UH0466JJ0040, RH850/E1M-S,  </p>
+<p>User’s Manual: Hardware </p>
+<p>Rev.0.40 </p>
+<p>Dec 2013 </p>
+<p>F1H </p>
+<p>1</p>
+<p> </p>
+<p>R01UH0445EJ0011, RH850/F1H Group, </p>
+<p>User’s Manual: Hardware </p>
+<p>Rev.0.11 </p>
+<p>Apr 2014 </p>
+<p>F1K </p>
+<p>1</p>
+<p> </p>
+<p>R01UH0562EJ0050, RH850/F1K Group  </p>
+<p>User’s Manual: Hardware </p>
+<p>Rev.0.50 </p>
+<p>Mar 2015 </p>
+<p>F1L </p>
+<p>R01UH0390EJ0110, RH850/F1L Group,  </p>
+<p>User’s Manual: Hardware </p>
+<p>Rev.1.10 </p>
+<p>Jun 2014 </p>
+<p>F1M </p>
+<p>R01UH0518EJ0010, RH850/F1M Group,  </p>
+<p>User’s Manual: Hardware </p>
+<p>Rev.0.10 </p>
+<p>Nov 2014 </p>
+<p>P1M </p>
+<p>R01UH0436EJ0060, RH850/P1x Group,  </p>
+<p>User’s Manual: Hardware </p>
+<p>Rev.0.60 </p>
+<p>Jul 2014 </p>
+<p>R1L </p>
+<p>R1M </p>
+<p>R01UH0411EJ0110, RH850/R1x Group,  </p>
+<p>User’s Manual: Hardware </p>
+<p>Rev.1.10 </p>
+<p>Aug 2014 </p>
+<p> </p>
+<p>R01US0058EJ0020, RH850 Family, </p>
+<p>User’s Manual: Software </p>
+<p>Rev.0.20 </p>
+<p>Feb 2013 </p>
+<p>Table 2-1  </p>
+<p>Supported Hardware Overview </p>
+<p> </p>
+<p><b>Driver Version: </b>This is the current version of the CAN Driver. RI shows the version of the Reference </p>
+<p>Implementation and therefore the functional scope of the CAN Driver. </p>
+<p><b>Supported Compilers: </b>List of compilers the CAN Driver is working with. </p>
+<p><b>Supported Derivatives: </b>List of derivatives the CAN Driver can be used on. </p>
+<p><b>Hardware Manufacturer Documents: </b>List of the documentation the CAN Driver is based on.  </p>
+<p><b>Version: </b>Version of the documentation the CAN Driver is based on. </p>
+<p> </p>
+<p>                                            </p>
+<p>1</p>
+<p> Only the first RSCAN unit (RSCAN0) is supported (physical channels CAN0-CAN5). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>7 /50 </p>
+<p> </p>
+<p><b>3 </b></p>
+<p><b>Usage of Controller Features </b></p>
+<p><b>3.1 </b></p>
+<p><b>[#hw_comObj] - Communication Objects </b></p>
+<p>The generation tool supports a flexible allocation of message buffers: </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p>Figure 3-1 </p>
+<p>Hardware Object Layout </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Figure  3-1  depicts  the  maximum  capacities  of  one  RSCAN  unit  -  the  actual  layout </p>
+<p>depends on the used derivative. Refer to the hardware manual to get the number of </p>
+<p>supported physical channels to determine which Tx buffers are available. The amount </p>
+<p>of </p>
+<p>supported </p>
+<p>Rx </p>
+<p>buffers </p>
+<p>(nRXMBmax) </p>
+<p>equals </p>
+<p>the </p>
+<p>number </p>
+<p>of </p>
+<p>supported </p>
+<p>physical </p>
+<p>channels of the used RSCAN unit * 16. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>8 /50 </p>
+<p> </p>
+<p><b>Obj </b></p>
+<p><b>number </b></p>
+<p><b>Hw object </b></p>
+<p><b>type </b></p>
+<p><b>Log object </b></p>
+<p><b>type </b></p>
+<p><b>No. of </b></p>
+<p><b>objects </b></p>
+<p><b>Comment </b></p>
+<p>0 </p>
+<p>- </p>
+<p>(nRXFC -1) </p>
+<p>Receive </p>
+<p>buffer </p>
+<p>Receive </p>
+<p>FullCAN </p>
+<p> </p>
+<p>0 </p>
+<p>- </p>
+<p>nRXMBmax </p>
+<p> </p>
+<p>= nRXFC </p>
+<p>These objects are used to receive </p>
+<p>specific CAN messages. The user </p>
+<p>defines statically (Generation Tool) that </p>
+<p>a CAN message should be received in a </p>
+<p>FullCAN message object. The </p>
+<p>Generation Tool distributes the </p>
+<p>messages to the FullCAN objects. Up to </p>
+<p>nRxMBmax receive FullCAN objects can </p>
+<p>be configured per channel, but the sum </p>
+<p>over all receive FullCAN objects on all </p>
+<p>channels must not exceed nRxMBmax. </p>
+<p>The receive buffers for the FullCAN </p>
+<p>objects of all channels (sorted </p>
+<p>ascending by the physical channel </p>
+<p>index) are allocated continuously </p>
+<p>starting from index 0. </p>
+<p>nRXFC </p>
+<p>- </p>
+<p>127 </p>
+<p>Receive </p>
+<p>buffer </p>
+<p>Unused </p>
+<p>0 </p>
+<p>- </p>
+<p>128 </p>
+<p>These objects are not used. It depends </p>
+<p>on the configuration of receive FullCAN </p>
+<p>objects and nRxMBmax how many </p>
+<p>receive buffers are not used. These </p>
+<p>objects will not be configured, so they </p>
+<p>don’t consume shared hardware buffers. </p>
+<p>128 </p>
+<p>-  </p>
+<p>(128 +  </p>
+<p>nRXBC -1) </p>
+<p>Receive </p>
+<p>FIFO buffer </p>
+<p>Receive </p>
+<p>BasicCAN </p>
+<p>0 </p>
+<p>- </p>
+<p>8 </p>
+<p> </p>
+<p>= nRXBC </p>
+<p>All other CAN messages (Application, </p>
+<p>Diagnostics, Network Management) are </p>
+<p>received via the BasicCAN objects. </p>
+<p>Each object consists of one receive </p>
+<p>FIFO buffer with a configurable amount </p>
+<p>of acceptance filters and an individually </p>
+<p>configurable FIFO depth (number of </p>
+<p>allocated shared buffers). In general </p>
+<p>there is one BasicCAN object per </p>
+<p>channel, but by using the Multiple </p>
+<p>BasicCAN feature the amount of used </p>
+<p>BasicCAN objects can be configured. </p>
+<p>Up to 8 receive BasicCAN objects can </p>
+<p>be configured per channel, but the sum </p>
+<p>over all receive BasicCAN objects on all </p>
+<p>channels must not exceed 8. The </p>
+<p>receive FIFO buffers for the BasicCAN </p>
+<p>objects of all channels (sorted </p>
+<p>ascending by the physical channel </p>
+<p>index) are allocated continuously </p>
+<p>starting from index 128. </p>
+<p>128 + nRXBC </p>
+<p>- </p>
+<p>135 </p>
+<p>Receive </p>
+<p>FIFO buffer </p>
+<p>Unused </p>
+<p>0 </p>
+<p>- </p>
+<p>8 </p>
+<p>These objects are not used. It depends </p>
+<p>on the configuration of receive </p>
+<p>BasicCAN objects how many receive </p>
+<p>FIFO buffers are not used. These </p>
+<p>objects will not be configured, so they </p>
+<p>don’t consume shared hardware buffers. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>9 /50 </p>
+<p> </p>
+<p><b>Obj </b></p>
+<p><b>number </b></p>
+<p><b>Hw object </b></p>
+<p><b>type </b></p>
+<p><b>Log object </b></p>
+<p><b>type </b></p>
+<p><b>No. of </b></p>
+<p><b>objects </b></p>
+<p><b>Comment </b></p>
+<p>136 </p>
+<p>- </p>
+<p>159 </p>
+<p>Transmit / </p>
+<p>Receive </p>
+<p>FIFO buffer </p>
+<p>Unused </p>
+<p>24 </p>
+<p>The usage of Transmit / Receive FIFO </p>
+<p>buffers is not supported by this driver. </p>
+<p>These objects are always unused and </p>
+<p>will not be configured, so they don’t </p>
+<p>consume shared hardware buffers. </p>
+<p>160 + (n*16) </p>
+<p>Transmit </p>
+<p>buffer </p>
+<p>Transmit </p>
+<p>Normal </p>
+<p>1  </p>
+<p>per channel </p>
+<p>This object is used by </p>
+<p>CanTransmit()</p>
+<p> </p>
+<p>to send several messages on the logical </p>
+<p>channel that is mapped to physical </p>
+<p>channel n. If the transmit message </p>
+<p>object is busy, the transmit request is </p>
+<p>stored in a software queue. </p>
+<p>161 + (n*16) </p>
+<p>Transmit </p>
+<p>buffer </p>
+<p>Low Level </p>
+<p>Transmit </p>
+<p>0 or 1 </p>
+<p>per channel </p>
+<p> </p>
+<p>= nTXLL </p>
+<p>This object is used by </p>
+<p>CanMsgTransmit()</p>
+<p> to send its </p>
+<p>messages on the logical channel that is </p>
+<p>mapped to physical channel n if the Low </p>
+<p>Level transmit functionality is used. </p>
+<p>161 + (n*16) </p>
+<p> + nTXLL  </p>
+<p>- </p>
+<p>161 + (n*16) + </p>
+<p>nTXLL + </p>
+<p>nTXFC(n) -1 </p>
+<p>Transmit </p>
+<p>buffer </p>
+<p>Transmit </p>
+<p>FullCAN </p>
+<p> </p>
+<p>0 </p>
+<p>- </p>
+<p>15 </p>
+<p>per channel </p>
+<p> </p>
+<p>= nTXFC(n)  </p>
+<p>These objects are used by </p>
+<p>CanTransmit()</p>
+<p> to send a certain </p>
+<p>message on the logical channel that is </p>
+<p>mapped to physical channel n. The user </p>
+<p>defines statically (Generation Tool) </p>
+<p>which CAN messages are located in </p>
+<p>such Tx FullCAN objects. The </p>
+<p>Generation Tool distributes the </p>
+<p>messages to the objects. Up to 15 </p>
+<p>transmit FullCAN objects can be </p>
+<p>assigned per channel (up to 14 if the </p>
+<p>Low Level transmit functionality is used). </p>
+<p>161 + (n*16) + </p>
+<p>nTXLL + </p>
+<p>nTXFC(n) </p>
+<p>- </p>
+<p>161 + (n*16) </p>
+<p>+14 </p>
+<p>Transmit </p>
+<p>buffer </p>
+<p>Unused </p>
+<p>0 </p>
+<p>- </p>
+<p>15  </p>
+<p>per channel </p>
+<p>These objects are not used. It depends </p>
+<p>on the configuration of transmit objects </p>
+<p>how many transmit buffer objects are </p>
+<p>not used. Additionally all transmit buffers </p>
+<p>of not supported or unused physical </p>
+<p>channels n are unused. </p>
+<p>Table 3-1  </p>
+<p>Hardware Object Layout </p>
+<p> </p>
+<p>nRxMBmax </p>
+<p>Amount of RX buffers that is supported by the used derivative (see note above) </p>
+<p>nRxFC </p>
+<p>Number of used Rx FullCAN objects over all channels </p>
+<p>nRxBC </p>
+<p>Number of used Rx BasicCAN objects over all channels </p>
+<p>n </p>
+<p>Index of the physical channel </p>
+<p>nTXLL </p>
+<p>Number of Low Level transmit objects per channel (0 or 1) </p>
+<p>nTXFC(n) </p>
+<p>Number of used Tx FullCAN objects on the channel that is mapped to the physical channel n </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>10 /50 </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The number of available transmit buffer objects per physical channel is constant. The </p>
+<p>receive buffers and FIFOs are shared over all channels and the availability per channel </p>
+<p>is restricted as explained in table 3-1. Furthermore the internal buffers for all receive </p>
+<p>objects are allocated out of a common buffer pool with size of (number of supported </p>
+<p>physical  channels  of  the  used  RSCAN  unit  *  64).  This  has  to  be  considered  when </p>
+<p>configuring the number of the Rx FullCAN objects and the number and individual FIFO </p>
+<p>depths of the Rx BasicCAN objects (refer to section 11.1.3 for further information and </p>
+<p>details on how to configure the hardware objects). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.2 </b></p>
+<p><b>Acceptance Filters </b></p>
+<p>The hardware acceptance filters of the receive BasicCAN objects must allow reception of </p>
+<p>all  messages  that  are  not  received  in  FullCAN  message  objects  and  additionally  all </p>
+<p>messages </p>
+<p>that </p>
+<p>fit </p>
+<p>in </p>
+<p>a </p>
+<p>configured </p>
+<p>range </p>
+<p>(e.g. </p>
+<p>for </p>
+<p>Network </p>
+<p>Management, </p>
+<p>Transport </p>
+<p>Protocol).  The  generation  tool  offers  assistance  for  configuration.  The  number  of  used </p>
+<p>filters  is  also  configurable  to  allow  efficient  hardware  filtering  to  minimize  unnecessary </p>
+<p>CPU load. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The hardware supports a pool of acceptance filters with size of (number of supported </p>
+<p>physical channels of the used RSCAN unit * 64) that are used for Rx BasicCAN as well </p>
+<p>as Rx FullCAN objects. This has to be considered when configuring the number of Rx </p>
+<p>FullCAN objects and the number of filters per Rx BasicCAN object. See section 11.1.3 </p>
+<p>for further information and details on the configuration. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>11 /50 </p>
+<p> </p>
+<p><b>4 </b></p>
+<p><b> [#hw_sleep] - SleepMode and WakeUp </b></p>
+<p>The  driver  supports  sleep  and  wakeup  functionality.  With  the  function </p>
+<p>CanSleep()</p>
+<p>  the </p>
+<p>CAN controller enters sleep mode and leaves it with the function </p>
+<p>CanWakeUp()</p>
+<p> (internal </p>
+<p>wakeup)  or  upon  a  falling  edge  respectively  dominant  level  on  the  Rx  pin  (external </p>
+<p>wakeup). </p>
+<p>Specify the Sleep/Wakeup option in the generation tool in order to use the Sleep/Wakeup </p>
+<p>functionality. </p>
+<p>If </p>
+<p>this </p>
+<p>option </p>
+<p>is </p>
+<p>not </p>
+<p>enabled, </p>
+<p>the </p>
+<p>service </p>
+<p>functions </p>
+<p>CanSleep()</p>
+<p> </p>
+<p>and </p>
+<p>CanWakeUp()</p>
+<p> are empty and return </p>
+<p>kCanNotSupported</p>
+<p>. </p>
+<p><b>4.1 </b></p>
+<p><b>Sleep </b></p>
+<p>The  function </p>
+<p>CanSleep()</p>
+<p>  changes  the  channel  from  communication  mode  via  reset </p>
+<p>mode to stop mode. If the function is called during CAN communication, the reception or </p>
+<p>transmission </p>
+<p>is </p>
+<p>terminated </p>
+<p>before </p>
+<p>it </p>
+<p>is </p>
+<p>completed </p>
+<p>(the </p>
+<p>same </p>
+<p>applies </p>
+<p>to </p>
+<p>a </p>
+<p>call </p>
+<p>of </p>
+<p>CanResetBusSleep()</p>
+<p>). </p>
+<p>The return value </p>
+<p>kCanOk</p>
+<p> is always expected as these mode transitions do not depend on </p>
+<p>external influences (e.g. the CAN bus level). However, if the function returns </p>
+<p>kCanFailed</p>
+<p> </p>
+<p>(e.g. caused by a hardware loop cancellation, see chapter 5 for details) call </p>
+<p>CanSleep()</p>
+<p> </p>
+<p>again or re-initialize the channel. </p>
+<p><b>4.2 </b></p>
+<p><b>Internal Wakeup </b></p>
+<p>The  function </p>
+<p>CanWakeUp()</p>
+<p>  changes  the  channel  from  stop  mode  via  reset  mode  to </p>
+<p>communication mode. </p>
+<p>The return value </p>
+<p>kCanOk</p>
+<p> is always expected as these mode transitions do not depend on </p>
+<p>external influences (e.g. the CAN bus level). However, if the function returns </p>
+<p>kCanFailed</p>
+<p> </p>
+<p>(e.g. caused by a hardware loop cancellation, see chapter 5 for details) call </p>
+<p>CanWakeup()</p>
+<p> </p>
+<p>again or re-initialize the channel. </p>
+<p><b>4.3 </b></p>
+<p><b>External Wakeup </b></p>
+<p>The external wakeup functionality is realized by external interrupts but fully handled by the </p>
+<p>CAN driver in default configurations. The RSCAN itself does not provide any possibility of </p>
+<p>detecting bus activity if it is in stop mode. Instead the port configuration of many RH850 </p>
+<p>derivatives allows combining the CANn Rx pin with an external interrupt INTPm to be able </p>
+<p>to </p>
+<p>detect </p>
+<p>a </p>
+<p>CAN </p>
+<p>event </p>
+<p>even </p>
+<p>if </p>
+<p>the </p>
+<p>driver </p>
+<p>is </p>
+<p>in </p>
+<p>sleep </p>
+<p>mode. </p>
+<p>See </p>
+<p>the </p>
+<p>hardware </p>
+<p>documentation of the actual derivative for details (Port x – Alternative Functions) and refer </p>
+<p>to chapter 10 for implementation hints. </p>
+<p>When the driver is in sleep mode and a CAN event is detected on the Rx pin a wakeup </p>
+<p>interrupt is generated. It is also possible to detect this event by polling the interrupt request </p>
+<p>flag without enabling the interrupt source. The ISR or the task function calls the application </p>
+<p>function </p>
+<p>ApplCanPreWakeUp()</p>
+<p>  (if  configured),  changes  the  channel  mode  via  reset </p>
+<p>mode to communication mode and then calls </p>
+<p>ApplCanWakeUp()</p>
+<p>. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>12 /50 </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If the Sleep/Wakeup functionality is enabled via the configuration tool both the internal </p>
+<p>and external wakeup are available by default and the CAN driver expects that the Rx </p>
+<p>pin  of  each  used  CAN  channel  is  linked  with  an  external  interrupt  in  context  of  the </p>
+<p>RH850 </p>
+<p>port </p>
+<p>configuration </p>
+<p>as </p>
+<p>depicted </p>
+<p>in </p>
+<p>the </p>
+<p>corresponding </p>
+<p>hardware </p>
+<p>manual. </p>
+<p>Additionally  the  driver  expects  that  each  external  interrupt  source  is  assigned  to  the </p>
+<p>lowest  possible  interrupt  channel  if  the  sources  are  multiplexed  (check  the  “INTC1 </p>
+<p>interrupt select register” if applicable). </p>
+<p>If  this  configuration  is  not  possible  for  the  actual  derivative  (refer  to  the  hardware </p>
+<p>documentation) or any respective external interrupt cannot be used exclusively by the </p>
+<p>driver (write accesses to the corresponding interrupt control register, e.g. if any external </p>
+<p>MCU </p>
+<p>wakeup </p>
+<p>handling </p>
+<p>using </p>
+<p>this </p>
+<p>source </p>
+<p>is </p>
+<p>implemented), </p>
+<p>the </p>
+<p>external </p>
+<p>wakeup </p>
+<p>functionality must not be used. </p>
+<p>In this case the Sleep/Wakeup functionality has to be disabled via the generation tool </p>
+<p>or the external wakeup handling has to be deactivated by adding following to the user </p>
+<p>configuration file: </p>
+<p>#define C_ENABLE_EXTERNAL_WAKEUP_SUPPRESSION </p>
+<p>Then the  driver  does  not  access  the  external  interrupt  sources  and  only  the  internal </p>
+<p>wakeup is possible (the driver does not wake up on bus activity). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The driver performs write accesses within the interrupt controller address space of the </p>
+<p>MCU if the external wakeup functionality is used. If wakeup processing is configured to </p>
+<p>interrupt  the  corresponding  source  is  enabled  at  successful  sleep  transitions  and </p>
+<p>disabled  during  wakeup  transitions.  Additionally  the  corresponding  interrupt  request </p>
+<p>flag is cleared right before the interrupt is enabled; hence a wakeup event can only be </p>
+<p>detected after the sleep transition has been  successfully completed. Refer to section </p>
+<p>10.3 if an exclusive write access to the interrupt control registers is not possible. Please </p>
+<p>note that the interrupt request flag also has to be cleared for polling configurations.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>13 /50 </p>
+<p> </p>
+<p><b>5 </b></p>
+<p><b> [#hw_loop] - Hardware Loop Check </b></p>
+<p>In  context  of  the  feature  Hardware  Loop  Check  (see  TechnicalReference_CANDriver, </p>
+<p>chapter Hardware Loop Check) this CAN Driver provides the following timer identifications.  </p>
+<p>Refer to the hardware manual for a description of the RSCAN clock sources and additional </p>
+<p>information  on  other  hardware  specifics  like  the  mode  transitions.  Please  note  that  the </p>
+<p>expected loop durations vary between individual derivatives. The given values depict the </p>
+<p>worst case and may be lower for the actually used derivative. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Always significantly increase the given durations for the loop callout implementation to </p>
+<p>compensate additional software delays. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>kCanLoopRamInit </b></p>
+<p>This loop may be called within the function </p>
+<p>CanInitPowerOn()</p>
+<p> and is processed until </p>
+<p>the  CAN  RAM  initialization  after  a  MCU  reset  has  finished.  This  is  necessary  as  this </p>
+<p>initialization has to be completed before the RSCAN can be configured. As this loop is </p>
+<p>not called in channel context the channel parameter has to be ignored. </p>
+<p>The maximum expected duration to wait for the CAN RAM initialization starts from the </p>
+<p>time  of  the  MCU  reset  and  is  device  specific.  Refer  to  the  corresponding  hardware </p>
+<p>manual (e.g. section RSCAN Setting Procedure – Initial Settings) to get the number of </p>
+<p>required cycles of the pclk. If this loop is canceled try to call </p>
+<p>CanInitPowerOn()</p>
+<p> again </p>
+<p>or reset the MCU.</p>
+<p> </p>
+<p> </p>
+<p><b>kCanLoopInit </b></p>
+<p>This loop may be called within the function </p>
+<p>CanInitPowerOn()</p>
+<p>. As it is not called in </p>
+<p>channel  context  the  channel  parameter  has  to  be  ignored.  The  loop  may  be  called </p>
+<p>multiple times within this function and the possible occurrences are as follows: </p>
+<p></p>
+<p> </p>
+<p>To protect the transition via global reset mode to global stop mode. </p>
+<p></p>
+<p> </p>
+<p>To protect the transition to global reset mode. </p>
+<p></p>
+<p> </p>
+<p>To protect transitions and settings in context of the global test mode (only active if the </p>
+<p>RSCAN RAM test is enabled) </p>
+<p></p>
+<p> </p>
+<p>To protect the transition to channel reset mode for each active channel. </p>
+<p></p>
+<p> </p>
+<p>To protect the transition to global operation mode. </p>
+<p> </p>
+<p>The duration for each mode transition in this context is expected to be two CAN bit times </p>
+<p>at  highest  (of  the  lowest  communication  speed  of  the  channels  in  use).  If  any  loop </p>
+<p>occurrence is canceled try to call </p>
+<p>CanInitPowerOn()</p>
+<p> again or reset the MCU.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>14 /50 </p>
+<p> </p>
+<p><b>kCanLoopBusOffRecovery </b></p>
+<p>This channel dependent loop may be called in </p>
+<p>CanInit()</p>
+<p> if the RSCAN is currently in </p>
+<p>BusOff  state and  is processed  until 11  consecutive  recessive  bits  have  been  detected </p>
+<p>128 times on the bus to ensure compliance to the BusOff recovery specification (see also </p>
+<p>chapter 6). </p>
+<p>The  maximum  expected  duration  is  1408  CAN  bit  times  on  a  recessive  bus,  128 </p>
+<p>message  times  including  inter-frame  space  on  a  communicative  bus  or  any  time  if </p>
+<p>disturbances are present. There is no issue and nothing to do if the loop is canceled, but </p>
+<p>the specified BusOff recovery time may not be met.</p>
+<p> </p>
+<p> </p>
+<p><b>kCanLoopEnterResetMode </b></p>
+<p>This  channel  dependent  loop  may  be  called </p>
+<p>multiple  times  in </p>
+<p>CanInit()</p>
+<p>  and  is </p>
+<p>processed  as  long  as  the  CAN  cell  does  not  enter  channel  reset  mode,  respectively </p>
+<p>channel operation mode. </p>
+<p>The  maximum  expected  duration  of  each  loop  is  three  CAN  bit  times.  If  the  loop  is </p>
+<p>canceled try to call </p>
+<p>CanInit()</p>
+<p> again. If the loop still doesn’t finish within the expected </p>
+<p>time call </p>
+<p>CanInitPowerOn()</p>
+<p>. </p>
+<p> </p>
+<p><b>kCanLoopEnterOperationMode </b></p>
+<p>This channel dependent loop is called in </p>
+<p>CanStart()</p>
+<p> and is processed as long as the </p>
+<p>CAN cell does not enter channel operation mode.  </p>
+<p>The  maximum  expected  duration  of  the  loop  is  three  CAN  bit  times.  If  the  loop  is </p>
+<p>canceled  try  to  call </p>
+<p>CanStart()</p>
+<p>  again  or invoke </p>
+<p>CanInit()</p>
+<p>.  If  the  loop  still  doesn’t </p>
+<p>finish within the expected time call </p>
+<p>CanInitPowerOn()</p>
+<p>.</p>
+<p> </p>
+<p> </p>
+<p><b>kCanLoopEnterSleepMode </b></p>
+<p>This  channel  dependent  loop  may  be  called  multiple  times  in </p>
+<p>CanSleep()</p>
+<p>  and  is </p>
+<p>processed  as  long  as  the  CAN  cell  does  not  enter  channel  reset  mode,  respectively </p>
+<p>channel stop mode. </p>
+<p>The maximum expected duration of the loop is two CAN bit times. If the loop is canceled </p>
+<p>try to call </p>
+<p>CanSleep()</p>
+<p> again or invoke </p>
+<p>CanInit()</p>
+<p>. If the loop still doesn’t finish within </p>
+<p>the expected time call </p>
+<p>CanInitPowerOn()</p>
+<p>. </p>
+<p> </p>
+<p><b>kCanLoopEnterWakeupMode </b></p>
+<p>This  channel  dependent  loop  may  be  called  multiple  times  in </p>
+<p>CanWakeUp()</p>
+<p>  and  is </p>
+<p>processed  as  long  as  the  CAN  cell  does  not  enter  channel  reset  mode,  respectively </p>
+<p>channel operation mode.  </p>
+<p>The  maximum  expected  duration  of  the  loop  is  three  CAN  bit  times.  If  the  loop  is </p>
+<p>canceled try to call </p>
+<p>CanWakeUp()</p>
+<p> again or invoke </p>
+<p>CanInit()</p>
+<p>. If the loop still doesn’t </p>
+<p>finish within the expected time call </p>
+<p>CanInitPowerOn()</p>
+<p>.</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>15 /50 </p>
+<p> </p>
+<p><b>kCanLoopRxFcProcess </b></p>
+<p>This  channel  depended  loop  may  be  called  in </p>
+<p>CanFullCanMsgReceived()</p>
+<p>  and  is </p>
+<p>processed  as  long  as  new  messages  are  received  by  the  current  receive  buffer  while </p>
+<p>copying a previously received message to a temporary software buffer. This ensures that </p>
+<p>always consistent and most recent data is indicated to the higher layers. </p>
+<p>It is expected that the loop is called only one time. Please note that if the loop iterates at </p>
+<p>all,  previously  received  messages  of  the  current  receive  buffer  are  discarded  without </p>
+<p>further notification as data consistency cannot be ensured. There is no issue and nothing </p>
+<p>to do if the loop is canceled, but the latest message is also discarded and the function </p>
+<p>CanFullCanMsgReceived()</p>
+<p> returns without indicating any message at all.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>16 /50 </p>
+<p> </p>
+<p><b>6 </b></p>
+<p><b>[#hw_busoff] - Bus off </b></p>
+<p>In  case  of  a  BusOff  event  the  controller  automatically  changes  to  stop  mode  on  the </p>
+<p>respective  channel.  There  is  no  automatic  recovery  as  specified  by  ISO11898-1;  the </p>
+<p>application </p>
+<p>has </p>
+<p>to </p>
+<p>restart </p>
+<p>communication </p>
+<p>following </p>
+<p>the </p>
+<p>description </p>
+<p>in </p>
+<p>the </p>
+<p>Technical </p>
+<p>Reference CAN driver, i.e. by calling </p>
+<p>CanResetBusOffStart/-End()</p>
+<p> which leads to a </p>
+<p>call of </p>
+<p>CanInit()</p>
+<p>. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Please note that if </p>
+<p>CanResetBusOffEnd()</p>
+<p> is called before 11 consecutive recessive </p>
+<p>bits have been detected 128 times on the bus, the function </p>
+<p>CanInit()</p>
+<p> waits until this </p>
+<p>condition </p>
+<p>is </p>
+<p>met. </p>
+<p>Reason </p>
+<p>is </p>
+<p>that </p>
+<p>the </p>
+<p>current </p>
+<p>recovery </p>
+<p>status </p>
+<p>is </p>
+<p>lost </p>
+<p>during </p>
+<p>re-</p>
+<p>initialization. It may not be acceptable for the program to wait until  the hardware has </p>
+<p>recovered  as  this  delay  is  implemented  synchronously.  In  this  case  use  the  feature </p>
+<p>“Hardware Loop Check” to control the behavior. See </p>
+<p>kCanLoopBusOffRecovery</p>
+<p> in </p>
+<p>chapter 5 for details. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>17 /50 </p>
+<p> </p>
+<p><b>7 </b></p>
+<p><b>CAN Driver Features </b></p>
+<p><b>7.1 </b></p>
+<p><b>[#hw_feature] - Feature List </b></p>
+<p> </p>
+<p><b>Standard </b></p>
+<p><b>HighEnd </b></p>
+<p><b>Initialization </b></p>
+<p>Power-On Initialization </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Re-Initialization </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p><b>Transmission </b></p>
+<p>Transmit Request </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Transmit Request Queue </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Internal data copy mechanism </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Pretransmit functions </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Common confirmation function </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Confirmation flag </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Confirmation function </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Offline Mode </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Partial Offline Mode </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Passive-Mode </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Tx Observe mode </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Dynamic TxObjects </p>
+<p>ID </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>DLC </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Data-Ptr </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Full CAN Tx Objects </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Cancellation in Hardware </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Low Level Message Transmit </p>
+<p>- </p>
+<p></p>
+<p> </p>
+<p><b>Reception </b></p>
+<p>Receive function </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Search algorithms </p>
+<p>Linear </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Table </p>
+<p>- </p>
+<p>- </p>
+<p> </p>
+<p>Index </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Hash </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Range specific precopy functions </p>
+<p>(min. 2, typ.4) </p>
+<p>4 </p>
+<p>4 </p>
+<p>DLC check </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Internal data copy mechanism </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Generic precopy function </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Precopy function </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Indication flag </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Indication function </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Message not matched function </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>18 /50 </p>
+<p> </p>
+<p>Overrun Notification </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Full CAN overrun notification </p>
+<p>- </p>
+<p>- </p>
+<p>Multiple Basic CAN </p>
+<p>- </p>
+<p></p>
+<p> </p>
+<p>Rx Queue </p>
+<p>2</p>
+<p> </p>
+<p>- </p>
+<p></p>
+<p> </p>
+<p><b>Bus off </b></p>
+<p>Notification function </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Nested Recovery functions </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p><b>Sleep Mode </b></p>
+<p>Mode Change </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Preparation </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Notification function </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p><b>Special Features </b></p>
+<p>Status </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Security Level </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Assertions </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Hardware loop check </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Stop Mode </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Support of OSEK operating </p>
+<p>system </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Polling Mode </p>
+<p>Tx  </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rx (FullCAN) </p>
+<p>3</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rx (BasicCAN) </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Error </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Wakeup </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Individual Polling </p>
+<p>4</p>
+<p> </p>
+<p>- </p>
+<p></p>
+<p> </p>
+<p>Multi channel </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Support extended ID addressing </p>
+<p>mode </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Support mixed ID addressing </p>
+<p>mode </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Support access to error counters </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Copy functions </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>CAN RAM check </p>
+<p>5</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Extended CAN RAM check </p>
+<p>6</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Table 7-1  </p>
+<p>CAN Driver Functionality </p>
+<p> </p>
+<p>                                            </p>
+<p>2</p>
+<p> Consider that the Rx BasicCAN hardware FIFOs in combination with Rx BasicCAN polling might be a more </p>
+<p>efficient alternative to the Rx Queue in many configurations. </p>
+<p>3</p>
+<p> Due to hardware limitations (no interrupt request can be generated for receive buffers) Rx FullCAN polling </p>
+<p>is mandatory if Rx FullCAN objects are configured. </p>
+<p>4</p>
+<p> Due to hardware limitations (see note 3) all Rx FullCAN objects have to be polled. </p>
+<p>5</p>
+<p> Due to hardware limitations (no write access to Rx objects) only supported for Tx objects. </p>
+<p>6</p>
+<p> This feature is project specific and only available if explicitly ordered. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>19 /50 </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Description of Hardware-related Features </b></p>
+<p><b>7.2.1 </b></p>
+<p><b>[#hw_status] - Status </b></p>
+<p>If a status is not supported, the related macro always returns false. </p>
+<p><b>Status </b></p>
+<p><b>Support </b></p>
+<p>CanHwIsOk(state) </p>
+<p></p>
+<p> </p>
+<p>CanHwIsWarning(state) </p>
+<p></p>
+<p> </p>
+<p>CanHwIsPassive(state) </p>
+<p></p>
+<p> </p>
+<p>CanHwIsBusOff(state) </p>
+<p></p>
+<p> </p>
+<p>CanHwIsWakeup(state) </p>
+<p></p>
+<p> </p>
+<p>CanHwIsSleep(state) </p>
+<p></p>
+<p> </p>
+<p>CanHwIsStart(state) </p>
+<p></p>
+<p> </p>
+<p>CanHwIsStop(state) </p>
+<p></p>
+<p> </p>
+<p>CanIsOnline(state) </p>
+<p></p>
+<p> </p>
+<p>CanIsOffline(state) </p>
+<p></p>
+<p> </p>
+<p>Table 7-2  </p>
+<p>CAN Status </p>
+<p><b>7.2.2 </b></p>
+<p><b>[#hw_stop] - Stop Mode </b></p>
+<p>The service function </p>
+<p>CanStop()</p>
+<p> calls </p>
+<p>CanInit()</p>
+<p> and leaves the channel in reset mode, </p>
+<p>where it is disconnected from the bus. If the function is called during CAN communication, </p>
+<p>the reception or transmission is terminated before it is completed. This mode can be left by </p>
+<p>calling </p>
+<p>CanStart()</p>
+<p>. Both transitions do not depend on external influences (e.g. the CAN </p>
+<p>bus level), so the return value </p>
+<p>kCanOk</p>
+<p> is always expected. However, if the functions return </p>
+<p>kCanFailed</p>
+<p> (e.g. caused by a hardware loop cancellation, see chapter 5 for details) call </p>
+<p>CanStop()</p>
+<p> respectively </p>
+<p>CanStart()</p>
+<p> again or re-initialize the channel. </p>
+<p> </p>
+<p><b>7.2.3 </b></p>
+<p><b>[#hw_int] - Control of CAN Interrupts </b></p>
+<p>CAN interrupt locking is performed by modifying the interrupt request mask bits (MK) in the </p>
+<p>control registers of the appropriate sources directly within the interrupt controller address </p>
+<p>space of the MCU. Therefore the driver needs exclusive write access to all CAN related EI </p>
+<p>level  interrupt  control  registers  (ICn).  If  the  Sleep/Wakeup  functionality  is  enabled  this </p>
+<p>includes the ICn of external interrupt sources (see chapter 4). </p>
+<p>Since  Rx  FIFO  interrupt  and  overrun  (global  error)  cannot  be  enabled  and  disabled  for </p>
+<p>every  object  individually  they  are  disabled  globally  when  the  interrupts  of  at  least  one </p>
+<p>controller are disabled and enabled globally if the interrupts of no controller are disabled </p>
+<p>anymore. </p>
+<p>All CAN related ICn are initialized and then modified by the driver during runtime (interrupt </p>
+<p>disable  and  restore).  The  priority  level  for  the  initialization  can  be  selected  via  the </p>
+<p>configuration  tool  (all  CAN  interrupts  must  have  the  same  priority),  see  section  11.1.3. </p>
+<p>Refer to chapter 10 for further information on CAN interrupts. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>20 /50 </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>In standard configuration the driver needs <b>exclusive</b> write access to all CAN related EI </p>
+<p>level </p>
+<p>interrupt </p>
+<p>control </p>
+<p>registers. </p>
+<p>Refer </p>
+<p>to </p>
+<p>chapter </p>
+<p>10 </p>
+<p>for </p>
+<p>further </p>
+<p>information </p>
+<p>and </p>
+<p>especially section 10.3 if an exclusive write access is not possible. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>7.2.4 </b></p>
+<p><b>[#hw_cancel] - Cancel in Hardware </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Yes </b></p>
+<p><b>No </b></p>
+<p>Has the </p>
+<p>CanTxTask()</p>
+<p> to be called by the application to handle the canceled </p>
+<p>transmit request in the hardware? </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Cancelling transmission of messages via </p>
+<p>CanCancelTransmit()</p>
+<p> or</p>
+<p> </p>
+<p>CanCancelMsgTransmit()</p>
+<p>:</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Yes </b></p>
+<p><b>No </b></p>
+<p>ApplCanTxConfirmation()</p>
+<p> is only called for transmitted messages, successfully </p>
+<p>canceled messages are not notified. That means the CAN driver is able to detect </p>
+<p>whether a message is transmitted even if the application has tried to cancel. </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>7.2.5 </b></p>
+<p><b>Remote Frames </b></p>
+<p>Remote Frames will not have any influence on the communication because they are not </p>
+<p>received due to hardware filtering. </p>
+<p> </p>
+<p><b>7.2.6 </b></p>
+<p><b>CAN RAM Check </b></p>
+<p>The  CAN  driver  supports  a  check  of  the  CAN  mailboxes  which  is  performed  internally </p>
+<p>every  time  the  function </p>
+<p>CanInit()</p>
+<p>  is  called.  The  CAN  driver  verifies  that  no  used </p>
+<p>mailboxes are corrupt. A mailbox is considered corrupt if predefined patterns are written to </p>
+<p>the appropriate mailbox registers and read operations do not return the expected patterns. </p>
+<p>If  a  corrupt  mailbox  is  found  the  function </p>
+<p>ApplCanCorruptMailbox()</p>
+<p>  is  optionally </p>
+<p>called to inform the application which mailbox is affected. </p>
+<p>After  the  check  of  all  mailboxes  on  the  given  channel  the  CAN  driver  calls  the  function </p>
+<p>ApplCanMemCheckFailed()</p>
+<p> if at least one corrupt mailbox was found. The application </p>
+<p>can control whether the CAN driver disables communication on the current channel or not </p>
+<p>by  means  of  the  return  value  of  the  call-back function.  If the  application  has  decided  to </p>
+<p>disable the communication there is no possibility to enable the communication again until </p>
+<p>the next call of </p>
+<p>CanInitPowerOn()</p>
+<p>. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Due to hardware limitations (no write access for receive objects) the CAN RAM check </p>
+<p>is only supported for transmit mailboxes. Consider the behavioural differences of CAN </p>
+<p>RAM check when it is used in combination with the extended CAN RAM check feature. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>21 /50 </p>
+<p> </p>
+<p>The additional call-back function </p>
+<p>ApplCanCorruptMailbox()</p>
+<p> can only be activated via </p>
+<p>the user configuration file - the settings are listed below. In case no user config file is used </p>
+<p>(i.e. the mentioned switch is not defined) the feature is disabled. </p>
+<p><b>Switch </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>C_ENABLE_NOTIFY_CORRUPT_MAILBOX </p>
+<p> </p>
+<p>Activate call of </p>
+<p>ApplCanCorruptMailbox()</p>
+<p> </p>
+<p>in case the CAN RAM check fails for a certain </p>
+<p>mailbox. </p>
+<p> </p>
+<p> </p>
+<p><b>7.2.7 </b></p>
+<p><b>Extended CAN RAM Check </b></p>
+<p>The extended RAM check provides an additional check of the CAN cell control registers </p>
+<p>RAM with extended API and modified standard CAN RAM check and driver behaviour. </p>
+<p>The RSCAN control registers are differentiated between registers that have to be written in </p>
+<p>global reset mode (afterwards referred to as “global registers”) or can also be written in </p>
+<p>channel reset mode (afterwards referred to as “channel registers”). Since the transition to </p>
+<p>global reset mode affects all channels, the global register RAM is checked only once within </p>
+<p>CanInitPowerOn()</p>
+<p>. If the global register RAM is considered corrupt a call-back function </p>
+<p>(see below) is issued to allow the application to control whether the driver initialization is </p>
+<p>proceeded or not. </p>
+<p>The </p>
+<p>channel </p>
+<p>register </p>
+<p>and </p>
+<p>mailbox </p>
+<p>RAM </p>
+<p>check </p>
+<p>is </p>
+<p>performed </p>
+<p>within </p>
+<p>the </p>
+<p>function </p>
+<p>CanInit()</p>
+<p>. The registers RAM check disables the complete channel communication if at </p>
+<p>least  one of  the  checked  registers is considered  corrupt. The mailbox  RAM  check  (only </p>
+<p>available for Tx objects) disables corrupt mailboxes so that no transmission is possible on </p>
+<p>them.  In  both  cases  the  appropriate  call-backs  (see  below)  are  called  to  inform  the </p>
+<p>application </p>
+<p>about </p>
+<p>the </p>
+<p>failures. </p>
+<p>Channels </p>
+<p>and </p>
+<p>mailboxes </p>
+<p>can </p>
+<p>be </p>
+<p>re-enabled </p>
+<p>by </p>
+<p>the </p>
+<p>application  using  the  extended API.  If  any  of  the  control  registers  check  or  the  mailbox </p>
+<p>registers  check  fails  the  overall  RAM  check  call-back </p>
+<p>ApplCanMemCheckFailed()</p>
+<p><i> </i> is </p>
+<p>invoked.  </p>
+<p>More detailed information is given below; section 9.3 describes the API functions: </p>
+<p></p>
+<p> </p>
+<p>If any of the global registers (e.g. global configuration registers, registers relating to the </p>
+<p>configuration of receive objects and receive rules) are considered corrupt the function </p>
+<p>ApplCanGlobalMemCheckFailed()</p>
+<p>  is  invoked  within </p>
+<p>CanInitPowerOn()</p>
+<p>.  If  this </p>
+<p>function  returns </p>
+<p>kCanEnableCommunication</p>
+<p>  the  initialization  is  continued  ignoring </p>
+<p>the results of the check. If it returns </p>
+<p>kCanDisableCommunication</p>
+<p> the RSCAN is put </p>
+<p>back  into  global  stop  mode  and</p>
+<p> CanInitPowerOn()</p>
+<p>  returns  without  initializing  the </p>
+<p>RSCAN. </p>
+<p>The </p>
+<p>check </p>
+<p>of </p>
+<p>the </p>
+<p>channel </p>
+<p>registers </p>
+<p>RAM </p>
+<p>is </p>
+<p>also </p>
+<p>not </p>
+<p>performed </p>
+<p>and </p>
+<p>CanInitPowerOn()</p>
+<p> has to be called again to be able to use the CAN functionality in </p>
+<p>this case (other CAN API functions must not be called until </p>
+<p>CanInitPowerOn()</p>
+<p> was </p>
+<p>executed completely). The check is performed with every call of this function. </p>
+<p></p>
+<p> </p>
+<p>If </p>
+<p>any </p>
+<p>of </p>
+<p>the </p>
+<p>channel </p>
+<p>control </p>
+<p>registers </p>
+<p>are </p>
+<p>considered </p>
+<p>corrupt </p>
+<p>the </p>
+<p>function </p>
+<p>ApplCanCorruptRegisters()</p>
+<p> </p>
+<p>is </p>
+<p>called </p>
+<p>and </p>
+<p>the </p>
+<p>communication </p>
+<p>on </p>
+<p>the </p>
+<p>given </p>
+<p>channel is disabled. The CAN cell stays in stop mode whatever the general call-back </p>
+<p>function </p>
+<p>ApplCanMemCheckFailed()</p>
+<p> returns and the channel is disconnected from </p>
+<p>the Tx port pin. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>22 /50 </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>If  a  corrupt  mailbox  is  found  it  is  disabled  by  the  driver  and  the  call-back  function </p>
+<p>ApplCanCorruptMailbox()</p>
+<p><i> </i></p>
+<p>is </p>
+<p>invoked </p>
+<p>(if </p>
+<p>this </p>
+<p>is </p>
+<p>enabled </p>
+<p>by </p>
+<p>the </p>
+<p>definition </p>
+<p>of </p>
+<p>C_ENABLE_NOTIFY_CORRUPT_MAILBOX</p>
+<p>).  In  this  case  (but  only  if  no  corrupt  CAN </p>
+<p>control registers were found on the given channel) the application can decide whether </p>
+<p>the  communication  on  the  channel  should  be  disabled  using  the  return  value  of  the </p>
+<p>function </p>
+<p>ApplCanMemCheckFailed()</p>
+<p><i>, </i>but the mailbox stays disabled anyway. </p>
+<p></p>
+<p> </p>
+<p>If the communication on a channel was disabled previously it can be re-enabled using </p>
+<p>the function </p>
+<p>CanEnableChannelCommunication()</p>
+<p>. </p>
+<p></p>
+<p> </p>
+<p>Mailboxes that were disabled by mailbox RAM check can be re-enabled by the function </p>
+<p>CanEnableMailboxCommunication()</p>
+<p> (but only if the communication on the given </p>
+<p>channel is enabled). </p>
+<p></p>
+<p> </p>
+<p>No  mailbox  or  register  RAM  check  is  performed  and  no  RAM  check  call-backs  are </p>
+<p>invoked if </p>
+<p>CanInit()</p>
+<p> is called by </p>
+<p>CanResetBusOffEnd()</p>
+<p>. However, all previously </p>
+<p>disabled channels or mailboxes stay disabled. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The only way to re-enable channel or mailbox communication is to use the functions </p>
+<p>CanEnableChannelCommunication()</p>
+<p>, </p>
+<p>CanEnableMailboxCommunication()</p>
+<p> </p>
+<p>or </p>
+<p>CanInitPowerOn()</p>
+<p>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>The extended CAN RAM check feature needs the standard CAN RAM check functionality </p>
+<p>to  be  activated. The following  settings  have  to  be  done  in  the  user configuration file.  In </p>
+<p>case  no  user config file  is  used  (i.e.  the mentioned  switch  is not defined) the feature  is </p>
+<p>disabled. Please note that this is a project specific feature that might not be available and </p>
+<p>C_ENABLE_CAN_RAM_CHECK_EXTENDED</p>
+<p> has no effect in this case. </p>
+<p><b>Switch </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>C_ENABLE_CAN_RAM_CHECK_EXTENDED </p>
+<p> </p>
+<p>Activate the extended CAN RAM check feature. </p>
+<p> </p>
+<p> </p>
+<p><b>7.2.8 </b></p>
+<p><b>RSCAN ECC Configuration </b></p>
+<p>In context of the RSCAN RAM error detection and correction (ECC) the driver provides the </p>
+<p>additional  call-back  function </p>
+<p>ApplCanEccConfiguration()</p>
+<p>  (see  section  9.2)  that  is </p>
+<p>invoked by </p>
+<p>CanInitPowerOn()</p>
+<p> after the CAN RAM initialization is complete and before </p>
+<p>the RSCAN is configured while the cell is in global stop mode. This gives the application </p>
+<p>the possibility to configure the ECC behavior for the RSCAN. The driver offers no further </p>
+<p>support for this feature - any ECC configuration and handling has to be performed by the </p>
+<p>application. </p>
+<p>The following settings have to be done in the user configuration file. In case no user config </p>
+<p>file is used (i.e. the mentioned switch is not defined) the feature is disabled. </p>
+<p><b>Switch </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>C_ENABLE_ECC_CALLOUT </p>
+<p> </p>
+<p>Activate call of </p>
+<p>ApplCanEccConfiguration()</p>
+<p>. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>23 /50 </p>
+<p> </p>
+<p><b>7.2.9 </b></p>
+<p><b>RSCAN RAM Test </b></p>
+<p>The RSCAN provides a global test mode that enables the driver to perform a check of the </p>
+<p>internal  RSCAN  RAM  that  is  not  accessible  during  normal  operation.  This  check  is </p>
+<p>performed once within </p>
+<p>CanInitPowerOn()</p>
+<p>. Similar to the (extended) CAN RAM check </p>
+<p>the internal RAM is considered corrupt if predefined patterns are written to the appropriate </p>
+<p>RAM addresses and read operations do not return the expected patterns. If any corrupt </p>
+<p>bits  are  found  the  call-back  function </p>
+<p>ApplCanGlobalMemCheckFailed() </p>
+<p>is  invoked </p>
+<p>(see section 9.3). If this function returns </p>
+<p>kCanEnableCommunication</p>
+<p> the initialization is </p>
+<p>continued  ignoring  the  results  of  the  check.  If  it  returns </p>
+<p>kCanDisableCommunication</p>
+<p> </p>
+<p>the RSCAN is put back into global stop mode and</p>
+<p> CanInitPowerOn()</p>
+<p> returns without </p>
+<p>initializing the RSCAN. </p>
+<p>CanInitPowerOn()</p>
+<p> has to be called again to be able to use the </p>
+<p>CAN </p>
+<p>functionality </p>
+<p>in </p>
+<p>this </p>
+<p>case </p>
+<p>(other </p>
+<p>CAN  API </p>
+<p>functions </p>
+<p>must </p>
+<p>not </p>
+<p>be </p>
+<p>called </p>
+<p>until </p>
+<p>CanInitPowerOn()</p>
+<p>  was  executed  completely). The  RAM  test  is  performed  with  every </p>
+<p>call of this function. </p>
+<p>If this test is used in combination with the (extended) CAN RAM check the coverage of the </p>
+<p>latter one is reduced in order to save runtime. </p>
+<p></p>
+<p> </p>
+<p>The receive rule registers are omitted by the global register check within the function </p>
+<p>CanInitPowerOn().</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>The mailbox check is omitted if </p>
+<p>CanInit()</p>
+<p> is called out of </p>
+<p>CanInitPowerOn()</p>
+<p>. </p>
+<p> </p>
+<p>The following settings have to be done in the user configuration file. In case no user config </p>
+<p>file is used (i.e. the first switch is not defined) the feature is disabled. The second switch is </p>
+<p>only evaluated if </p>
+<p>C_ENABLE_CAN_HW_RAM_CHECK</p>
+<p> is defined. </p>
+<p><b>Switch </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>C_ENABLE_CAN_HW_RAM_CHECK </p>
+<p> </p>
+<p>Activate the RSCAN RAM test feature. </p>
+<p>C_ENABLE_CAN_HW_RAM_CHECK_SIZE </p>
+<p>32 .. 65504 </p>
+<p>(bytes) </p>
+<p>The given number of bytes is checked by the </p>
+<p>RAM test (always starting from the beginning </p>
+<p>of the CAN RAM). The value must be a </p>
+<p>multiple of 32 bytes and has to be valid for the </p>
+<p>used derivative (refer to the corresponding </p>
+<p>hardware manual). </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Depending on the size of RAM to be checked, used compiler options, clock settings </p>
+<p>and others this check might take up to several milliseconds. Suggestion is to verify the </p>
+<p>runtime of </p>
+<p>CanInitPowerOn()</p>
+<p>in the actual project if this feature is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>24 /50 </p>
+<p> </p>
+<p><b>8 </b></p>
+<p><b> [#hw_assert] – Assertions </b></p>
+<p>The driver implements no specific assertions with additional error codes. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>25 /50 </p>
+<p> </p>
+<p><b>9 </b></p>
+<p><b>API </b></p>
+<p><b>9.1 </b></p>
+<p><b>Category </b></p>
+<p><b>Single Receive Channels (SRC) </b></p>
+<p></p>
+<p> </p>
+<p>A “Single Receive Channel” CAN Driver supports one CAN </p>
+<p>channel.) </p>
+<p><b>Multiple Receive Channel (MRC) </b></p>
+<p></p>
+<p> </p>
+<p>A &quot;Multiple Receive Channel&quot; CAN Driver is typically </p>
+<p>extended for multiple channels by adding an index to the </p>
+<p>function parameter list (e.g. </p>
+<p>CanOnline()</p>
+<p> becomes </p>
+<p>CanOnline(channel)</p>
+<p>) or by using the handle as a </p>
+<p>channel indicator (e.g. </p>
+<p>CanTransmit(txHandle)</p>
+<p>). </p>
+<p>Table 9-1  </p>
+<p>API Category </p>
+<p> </p>
+<p><b>9.2 </b></p>
+<p><b>RSCAN ECC Configuration </b></p>
+<p>In  context  of  the  RSCAN ECC feature the  application  has  to  provide following  call-back </p>
+<p>function (see section 7.2.8 further information). </p>
+<p> </p>
+<p><b>ApplCanEccConfiguration </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>void <b>ApplCanEccConfiguration </b>(void) </p>
+<p>Multiple Receive Channel </p>
+<p>void <b>ApplCanEccConfiguration </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by </p>
+<p>CanInitPowerOn()</p>
+<p> to allow the configuration of the RSCAN ECC functionality. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Only required if </p>
+<p>C_ENABLE_ECC_CALLOUT</p>
+<p> is defined. </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>26 /50 </p>
+<p> </p>
+<p><b>9.3 </b></p>
+<p><b>(Extended) CAN RAM Check </b></p>
+<p> </p>
+<p>In context of the CAN RAM check feature the application has to provide following call-back </p>
+<p>functions (see sections 7.2.6 and 7.2.7 for further information). </p>
+<p> </p>
+<p><b>ApplCanMemCheckFailed </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>vuint8 <b>ApplCanMemCheckFailed </b>(void) </p>
+<p>Multiple Receive Channel </p>
+<p>vuint8 <b>ApplCanMemCheckFailed </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>CanChannelHandle channel </p>
+<p>This parameter specifies the CAN channel on which the memory check is </p>
+<p>performed. </p>
+<p><b>Return code </b></p>
+<p>vuint8 </p>
+<p><b>kCanEnableCommunication – </b></p>
+<p>Allow communication (see note in </p>
+<p>“Particularities and Limitations”). </p>
+<p><b>kCanDisableCommunication – </b></p>
+<p>Disable communication, no reception and </p>
+<p>no transmission is performed. </p>
+<p><b>Functional Description </b></p>
+<p>This call-back function is invoked within </p>
+<p>CanInit()</p>
+<p> if the CAN driver has found at least one corrupt bit </p>
+<p>within the CAN mailboxes RAM or (if extended CAN RAM check is enabled) at least one corrupt bit within </p>
+<p>the channel control registers RAM. The application can decide whether the CAN driver allows further </p>
+<p>communication by means of the return value. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>Call context</b>: If the feature Extended CAN RAM check is deactivated this function is called on task level or </p>
+<p>within the BusOff interrupt; else only on task level. </p>
+<p><b>Configuration</b>: Required if the following setting is active: </p>
+<p>C_ENABLE_CAN_RAM_CHECK </p>
+<p><b>Important note: </b>If the optional feature “Extended CAN RAM check” is activated </p>
+<p>(</p>
+<p>C_ENABLE_CAN_RAM_CHECK_EXTENDED</p>
+<p> is defined) and the registers RAM check failed (call-back </p>
+<p>function </p>
+<p>ApplCanCorruptRegisters()</p>
+<p><i> </i>was called for the given channel), the communication on the </p>
+<p>channel will be disabled, the CAN cell stays in stop mode and the return value of this function is ignored – </p>
+<p>the communication will NOT be allowed even if the return value is </p>
+<p>kCanEnableCommunication</p>
+<p>. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>27 /50 </p>
+<p> </p>
+<p><b>ApplCanCorruptMailbox </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>void <b>ApplCanCorruptMailbox </b>(CanObjectHandle hwObjHandle) </p>
+<p>Multiple Receive Channel </p>
+<p>void <b>ApplCanCorruptMailbox </b>(CanChannelHandle channel, </p>
+<p>CanObjectHandle hwObjHandle) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>       CanObjectHandle hwObjHandle ) </p>
+<p><b>Parameter </b></p>
+<p>CanChannelHandle channel </p>
+<p>This parameter specifies the CAN channel on which the memory check is </p>
+<p>performed. </p>
+<p>CanObjectHandle </p>
+<p>hwObjHandle </p>
+<p>This parameter specifies the index of the corrupt mailbox. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is called within </p>
+<p>CanInit()</p>
+<p> if the CAN driver has found a corrupt mailbox. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>Call context</b>: If the feature “Extended CAN RAM check” is deactivated this function is called on task level or </p>
+<p>within the BusOff interrupt; else only on task level. </p>
+<p><b>Configuration</b>: Required if the following settings are active: </p>
+<p>C_ENABLE_CAN_RAM_CHECK </p>
+<p>C_ENABLE_NOTIFY_CORRUPT_MAILBOX </p>
+<p> </p>
+<p> </p>
+<p>In case the feature extended CAN RAM check is enabled the following additional call-back </p>
+<p>functions have to be provided by the application. </p>
+<p> </p>
+<p><b>ApplCanCorruptRegisters </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>void <b>ApplCanCorruptRegisters </b>(void) </p>
+<p>Multiple Receive Channel </p>
+<p>void <b>ApplCanCorruptRegisters </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>CanChannelHandle channel </p>
+<p>This parameter specifies the CAN channel on which the memory check is </p>
+<p>performed. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is called if the CAN driver has found corrupt channel control registers. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>Call context</b>: This function is called out of task level within </p>
+<p>CanInit()</p>
+<p> on the given channel if the RAM </p>
+<p>check is not suppressed. The RAM check is suppressed if </p>
+<p>CanInit()</p>
+<p><i> </i>is called in scope of the functions </p>
+<p>CanResetBusOffEnd()</p>
+<p>or (dependent on parameter) </p>
+<p>CanEnableChannelCommunication()</p>
+<p>. </p>
+<p><b>Configuration</b>: Required if the following settings are active: </p>
+<p>C_ENABLE_CAN_RAM_CHECK </p>
+<p>C_ENABLE_CAN_RAM_CHECK_EXTENDED </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>28 /50 </p>
+<p> </p>
+<p><b>ApplCanGlobalMemCheckFailed </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>vuint8 <b>ApplCanGlobalMemCheckFailed </b>(void) </p>
+<p>Multiple Receive Channel </p>
+<p>vuint8 <b>ApplCanGlobalMemCheckFailed </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>vuint8 </p>
+<p><b>kCanEnableCommunication – </b></p>
+<p>Continue initialization of the RSCAN. </p>
+<p><b>kCanDisableCommunication – </b></p>
+<p>Stop initialization of the RSCAN. </p>
+<p><b>Functional Description </b></p>
+<p>This call-back function is invoked if the CAN driver has found at least one corrupt bit within the global control </p>
+<p>registers RAM in context of the extended CAN RAM check or if any corrupt bit was found in context of the </p>
+<p>RSCAN RAM test (see section 7.2.9). The application can decide whether the CAN driver proceeds with the </p>
+<p>RSCAN initialization by means of the return value. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>Call context</b>: This function is called out of task level within </p>
+<p>CanInitPowerOn()</p>
+<p>. </p>
+<p><b>Configuration</b>: Required if the following settings are active: </p>
+<p>C_ENABLE_CAN_RAM_CHECK </p>
+<p>C_ENABLE_CAN_RAM_CHECK_EXTENDED </p>
+<p>or </p>
+<p>C_ENABLE_CAN_HW_RAM_CHECK </p>
+<p><b>Important note: </b>Be aware of undefined runtime behavior if </p>
+<p>kCanEnableCommunication</p>
+<p> is returned as </p>
+<p>the driver tries to initialize and communicate despite corrupt RAM was found. The application has to verify </p>
+<p>the system in this case. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>29 /50 </p>
+<p> </p>
+<p>The following service functions are provided by the driver in context of the extended CAN </p>
+<p>RAM check feature. </p>
+<p> </p>
+<p><b>CanEnableChannelCommunication </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>void <b>CanEnableChannelCommunication </b>(vuint8 suppressRamCheck) </p>
+<p>Multiple Receive Channel </p>
+<p>void <b>CanEnableChannelCommunication </b>(CanChannelHandle channel, </p>
+<p>vuint8 suppressRamCheck) </p>
+<p><b>Parameter </b></p>
+<p>CanChannelHandle channel </p>
+<p>This parameter specifies the CAN channel that shall be re-enabled. </p>
+<p>vuint8 suppressRamCheck </p>
+<p><b>kCanTrue – </b></p>
+<p>RAM check will be suppressed while re-enabling the </p>
+<p>communication on the channel. </p>
+<p><b>kCanFalse – </b></p>
+<p>RAM check will be performed while re-enabling the </p>
+<p>communication on the channel </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The function re-enables the channel communication if it was disabled previously. It calls </p>
+<p>CanInit()</p>
+<p> </p>
+<p>internally but all eventually disabled mailboxes stay disabled. If the RAM check is not suppressed it can fail </p>
+<p>again and the appropriate call-back function is invoked in this case. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>Restriction</b>: Same restrictions as for a call of </p>
+<p>CanInit()</p>
+<p> apply. </p>
+<p><b>Call context</b>: This function is called by the application. </p>
+<p><b>Configuration</b>: Available if the following settings are active: </p>
+<p>C_ENABLE_CAN_RAM_CHECK </p>
+<p>C_ENABLE_CAN_RAM_CHECK_EXTENDED </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>30 /50 </p>
+<p> </p>
+<p><b>CanEnableMailboxCommunication </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>vuint8 <b>CanEnableMailboxCommunication </b>(CanObjectHandle </p>
+<p>hwObjHandle) </p>
+<p>Multiple Receive Channel </p>
+<p>vuint8 <b>CanEnableMailboxCommunication </b>(CanChannelHandle channel, </p>
+<p>CanObjectHandle hwObjHandle) </p>
+<p><b>Parameter </b></p>
+<p>CanChannelHandle channel </p>
+<p>This parameter specifies the CAN channel for which the mailbox shall be </p>
+<p>re-enabled. </p>
+<p>CanObjectHandle </p>
+<p>hwObjHandle </p>
+<p>The index of the mailbox to be re-enabled. </p>
+<p><b>Return code </b></p>
+<p>vuint8 </p>
+<p><b>kCanOk</b></p>
+<p> </p>
+<p><b>-</b></p>
+<p> Mailbox communication was re-enabled. </p>
+<p><b>kCanFailed</b></p>
+<p> </p>
+<p><b>-</b></p>
+<p> Enabling of mailbox communication failed: </p>
+<p>hwObjHandle</p>
+<p> is </p>
+<p>not a valid Tx mailbox, the mailbox was not disabled previously or the </p>
+<p>communication on the channel is still disabled. </p>
+<p><b>Functional Description </b></p>
+<p>The function re-enables the mailbox communication that was disabled previously by the extended CAN </p>
+<p>RAM check. Note that the mailbox RAM check is not performed in scope of this function call - the </p>
+<p>application must guarantee that the mailbox is not corrupt. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>Call context</b>: This function is called by the application. </p>
+<p><b>Configuration</b>: Available if the following settings are active: </p>
+<p>C_ENABLE_CAN_RAM_CHECK </p>
+<p>C_ENABLE_CAN_RAM_CHECK_EXTENDED</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>31 /50 </p>
+<p> </p>
+<p><b>9.4 </b></p>
+<p><b>External CAN Interrupt Handling </b></p>
+<p>These  call-back  functions  are  invoked  if  the  driver  does  not  perform  the  CAN  interrupt </p>
+<p>handling. See section 10.3 for details. </p>
+<p> </p>
+<p><b>ApplCanWriteIcr8 </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>void <b>ApplCanWriteIcr8 </b>(vuint32 address, vuint8 value) </p>
+<p>Multiple Receive Channel </p>
+<p>void <b>ApplCanWriteIcr8 </b>(vuint32 address, vuint8 value) </p>
+<p><b>Parameter </b></p>
+<p>vuint32 address </p>
+<p>This parameter specifies the memory address the function has to write to. </p>
+<p>It is always part of the interrupt controller address space. </p>
+<p>vuint8 value </p>
+<p>This parameter specifies the value the function has to write. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This call-back is invoked by several driver functions and has to write one byte with the given value to the </p>
+<p>given address.  </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Only required if </p>
+<p>C_ENABLE_INTC_ACCESS_BY_APPL</p>
+<p> is defined. </p>
+<p>Always perform a byte access. The function has to be synchronous. </p>
+<p> </p>
+<p> </p>
+<p><b>ApplCanReadIcr8 </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>vuint8 <b>ApplCanReadIcr8 </b>(vuint32 address) </p>
+<p>Multiple Receive Channel </p>
+<p>vuint8 <b>ApplCanReadIcr8 </b>(vuint32 address) </p>
+<p><b>Parameter </b></p>
+<p>vuint32 address </p>
+<p>This parameter specifies the memory address the function has to read </p>
+<p>from. It is always part of the interrupt controller address space. </p>
+<p><b>Return code </b></p>
+<p>vuint8</p>
+<p> </p>
+<p>The value that was read from the given address.</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This call-back is invoked by several driver functions and has to read and return one byte from the given </p>
+<p>address. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Only required if </p>
+<p>C_ENABLE_INTC_ACCESS_BY_APPL</p>
+<p> is defined. </p>
+<p>Always perform a byte access. The function has to be synchronous. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>32 /50 </p>
+<p> </p>
+<p><b>OsCanCanInterruptDisable </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>void <b>OsCanCanInterruptDisable </b>(void) </p>
+<p>Multiple Receive Channel </p>
+<p>void <b>OsCanCanInterruptDisable </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>CanChannelHandle channel </p>
+<p>This parameter specifies the logical CAN channel for which the interrupts </p>
+<p>shall be disabled. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by </p>
+<p>CanCanInterruptDisable()</p>
+<p> </p>
+<p>and has to disable the CAN interrupts on the </p>
+<p>given channel.</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Only required if </p>
+<p>C_ENABLE_OSEK_CAN_INTCTRL</p>
+<p> is defined. </p>
+<p> </p>
+<p> </p>
+<p><b>OsCanCanInterruptRestore </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>void <b>OsCanCanInterruptRestore </b>(void) </p>
+<p>Multiple Receive Channel </p>
+<p>void <b>OsCanCanInterruptRestore </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>CanChannelHandle channel </p>
+<p>This parameter specifies the logical CAN channel for which the interrupts </p>
+<p>shall be restored. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by </p>
+<p>CanCanInterruptRestore()</p>
+<p> </p>
+<p>and has to restore the CAN interrupts on the </p>
+<p>given channel.</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Only required if </p>
+<p>C_ENABLE_OSEK_CAN_INTCTRL</p>
+<p> is defined. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>33 /50 </p>
+<p> </p>
+<p><b>ApplCanWakeupInterruptDisable </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>void <b>ApplCanWakeupInterruptDisable </b>(vuint8 channel) </p>
+<p>Multiple Receive Channel </p>
+<p>void <b>ApplCanWakeupInterruptDisable </b>(vuint8 channel) </p>
+<p><b>Parameter </b></p>
+<p>vuint8 channel </p>
+<p>This parameter specifies the logical CAN channel for which the wakeup </p>
+<p>interrupt shall be disabled. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by </p>
+<p>CanWakeup()</p>
+<p> and </p>
+<p>CanInit()</p>
+<p> </p>
+<p>and has to disable the wakeup interrupt on </p>
+<p>the given channel.</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Only required if </p>
+<p>C_ENABLE_OSEK_CAN_INTCTRL</p>
+<p> and </p>
+<p>C_ENABLE_SLEEP_WAKEUP</p>
+<p> are defined and the </p>
+<p>external wakeup is used. </p>
+<p> </p>
+<p> </p>
+<p><b>ApplCanWakeupInterruptEnable </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>void <b>ApplCanWakeupInterruptEnable </b>(vuint8 channel) </p>
+<p>Multiple Receive Channel </p>
+<p>void <b>ApplCanWakeupInterruptEnable </b>(vuint8 channel) </p>
+<p><b>Parameter </b></p>
+<p>vuint8 channel </p>
+<p>This parameter specifies the logical CAN channel for which the wakeup </p>
+<p>interrupt shall be enabled. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by </p>
+<p>CanSleep()</p>
+<p> </p>
+<p>and has to enable the wakeup interrupt on the given channel.</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Only required if </p>
+<p>C_ENABLE_OSEK_CAN_INTCTRL</p>
+<p> and </p>
+<p>C_ENABLE_SLEEP_WAKEUP</p>
+<p> are defined and the </p>
+<p>external wakeup is used. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>34 /50 </p>
+<p> </p>
+<p><b>ApplCanWakeupOccurred </b></p>
+<p><b>Prototype </b></p>
+<p>Single Receive Channel </p>
+<p>vuint8 <b>ApplCanWakeupOccurred </b>(vuint8 channel) </p>
+<p>Multiple Receive Channel </p>
+<p>vuint8 <b>ApplCanWakeupOccurred </b>(vuint8 channel) </p>
+<p><b>Parameter </b></p>
+<p>vuint8 channel </p>
+<p>This parameter specifies the logical CAN channel to check for a wakeup </p>
+<p>occurrence. </p>
+<p><b>Return code </b></p>
+<p>vuint8</p>
+<p> </p>
+<p>CAN_NOT_OK: If no wakeup occurred on this channel </p>
+<p>CAN_OK: If a wakeup occurred on this channel</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by </p>
+<p>CanWakeupTask()</p>
+<p> </p>
+<p>and has to check for a wakeup event on the given </p>
+<p>channel.</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Only required if </p>
+<p>C_ENABLE_OSEK_CAN_INTCTRL</p>
+<p>, </p>
+<p>C_ENABLE_SLEEP_WAKEUP</p>
+<p> and </p>
+<p>C_ENABLE_WAKEUP_POLLING</p>
+<p> are defined and the external wakeup is used. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>35 /50 </p>
+<p> </p>
+<p><b>10 Implementations Hints </b></p>
+<p><b>10.1 </b></p>
+<p><b>Important Notes </b></p>
+<p>1. </p>
+<p>The </p>
+<p>following </p>
+<p>condition </p>
+<p>will </p>
+<p>lead </p>
+<p>to </p>
+<p>an </p>
+<p>endless </p>
+<p>recursion </p>
+<p>in </p>
+<p>the </p>
+<p>CAN </p>
+<p>Driver:  </p>
+<p>Recursive  call  of  'CanTransmit'  within  a  confirmation  routine,  if  the  CAN  Driver  has </p>
+<p>been set into the passive state by </p>
+<p>CanSetPassive</p>
+<p>. Recommendations are: </p>
+<p><b>&gt; </b> NO CALL OF </p>
+<p>CanTransmit</p>
+<p> WITHIN CONFIRMATION-ROUTINES </p>
+<p><b>&gt; </b> PLEASE USE </p>
+<p>CanSetPassive</p>
+<p> ONLY ACCORDING TO THE DESCRIPTION </p>
+<p> </p>
+<p>2. </p>
+<p>Only the transmit line of the CAN Driver is blocked by the functions </p>
+<p>CanOffline()</p>
+<p>. </p>
+<p>However, messages in the transmit buffer of the CAN-Chip, are still sent. For a reliable </p>
+<p>prevention  of  this  fact,  call  function </p>
+<p>CanInit()</p>
+<p>  after  calling </p>
+<p>CanOffline()</p>
+<p>.  The </p>
+<p>order of the two function calls is urgently required, due to the fact, that </p>
+<p>CanInit()</p>
+<p> is </p>
+<p>only allowed in offline mode. </p>
+<p>3. </p>
+<p>If the VStdLib interrupt-lock-level is used, the chosen priority level must be higher than </p>
+<p>the  highest  level  of any  functionality  of  the  CAN  Driver (signal  access,  etc).  Keep  in </p>
+<p>mind that smaller values represent higher priorities. </p>
+<p>4. </p>
+<p>Resetting  indication  flags  and  confirmation  flags  is  done  by  Read-Modify-Write.  The </p>
+<p>application  is  responsible  for  consistency. </p>
+<p>CanGlobalInterruptDisable()</p>
+<p>  and </p>
+<p>CanGlobalInterruptRestore()</p>
+<p> must be called to avoid interruption by the CAN. </p>
+<p>Otherwise confirmations or indications can be lost. </p>
+<p>5. </p>
+<p>Port and general clock settings are not handled by the driver. This has to be performed </p>
+<p>by </p>
+<p>the </p>
+<p>upper </p>
+<p>layers </p>
+<p>before </p>
+<p>the </p>
+<p>call </p>
+<p>of </p>
+<p>CanInitPowerOn()</p>
+<p>. </p>
+<p>Please </p>
+<p>check </p>
+<p>the </p>
+<p>appropriate hardware manual of the used derivative for details regarding the hardware </p>
+<p>specific  configuration  aspects.  The  CAN  clock  (f</p>
+<p>CAN</p>
+<p>)  for  baudrate  generation  can  be </p>
+<p>selected via the configuration tool; refer to section 11.1.2. </p>
+<p>6. </p>
+<p>If  external  wakeup  support  is  used  the  port  configuration  (performed  by  the  upper </p>
+<p>layers) has to be extended. Besides setting the correct port functions for CAN it has to </p>
+<p>be  ensured  that  this  function  is  combined  with  the  respective  external  interrupt. </p>
+<p>Additionally the edge/level detection has to be configured correctly to generate interrupt </p>
+<p>requests  upon  detection  of  CAN  events  (e.g.  on  low  level  or  falling  edges)  on  the </p>
+<p>corresponding  pins  (see  the  hardware  manual  for  details;  refer  to  the  filter  control </p>
+<p>register for instance). If the external wakeup is used the control registers of the external </p>
+<p>interrupts are also fully handled by the CAN driver in default configuration. </p>
+<p>7. </p>
+<p>When using GreenHills, IAR or Renesas compiler the ID bit of the PSW is cleared by </p>
+<p>software when any category 1 interrupt service routine of the CAN driver is entered to </p>
+<p>allow  nesting  of  interrupts.  For  other  compilers  the  default  platform  behavior  is  not </p>
+<p>modified (the ID bit stays set) and the acknowledgement of further interrupt requests is </p>
+<p>blocked when any driver ISR is processed. This default driver behavior for category 1 </p>
+<p>interrupts </p>
+<p>can </p>
+<p>be </p>
+<p>changed </p>
+<p>by </p>
+<p>definition </p>
+<p>of </p>
+<p>C_DISABLE_NESTED_INTERRUPTS</p>
+<p> </p>
+<p>respectively </p>
+<p>C_ENABLE_NESTED_INTERRUPTS</p>
+<p> via the user configuration file. Keep in </p>
+<p>mind that enabling the feature is redundant if the compiler inserts code to allow nesting </p>
+<p>of interrupts in general and always verify that the compiler generates correct code if the </p>
+<p>feature is enabled. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>36 /50 </p>
+<p> </p>
+<p><b>10.2 </b></p>
+<p><b>Interrupt Configuration </b></p>
+<p>With  exception  of  the  CAN  related  EI  level  interrupt  control  registers  (ICn,  see  section </p>
+<p>7.2.3) all further interrupt configuration within the interrupt controller address space of the </p>
+<p>MCU has to be performed by the application before the call of </p>
+<p>CanInitPoweron()</p>
+<p>. </p>
+<p>The  default  implementation  configures  table  reference  as  the  way  to  determine  the </p>
+<p>interrupt  vector  (TB  bit  in  ICn  registers  is  set).  The  application  has  to  take  care  about </p>
+<p>referencing the CAN interrupt service routines in the interrupt vector table - the prototypes </p>
+<p>are exported in the driver header file. Please check the appropriate hardware manual of </p>
+<p>the used derivative for details regarding the hardware specific configuration aspects. Table </p>
+<p>10-1 shows the provided ISRs and the accordant interrupt sources (n is the index of the </p>
+<p>physical  channel).  Please  note  that  it  is  configuration  dependent  whether  a  particular </p>
+<p>interrupt service routine is available (see remarks in table).  </p>
+<p> </p>
+<p><b>CAN interrupt </b></p>
+<p><b>request name </b></p>
+<p><b>CAN interrupt  </b></p>
+<p><b>request cause </b></p>
+<p><b>Provided service </b></p>
+<p><b>routine </b></p>
+<p><b>Remarks </b></p>
+<p>INTRCANGRECC </p>
+<p>CAN RX FIFO </p>
+<p>interrupt </p>
+<p>CanIsrRxFifo</p>
+<p> </p>
+<p>Used for BasicCAN reception if ‘Rx </p>
+<p>BasicCan Polling’ is not enabled or </p>
+<p>‘Individual Polling’ is configured. </p>
+<p>INTRCANGERR </p>
+<p>CAN global error </p>
+<p>interrupt </p>
+<p>CanIsrGlobalStatus </p>
+<p>Used for Rx BasicCAN overrun if ‘Error </p>
+<p>Polling’ is not enabled. </p>
+<p>INTRCANnTRX </p>
+<p>CANn TX interrupt  </p>
+<p>CanIsrTx_n </p>
+<p>Used for transmission on physical </p>
+<p>channel n if ‘Tx Polling’ is not enabled </p>
+<p>or ‘Individual Polling’ is configured. </p>
+<p>INTRCANnREC </p>
+<p>CANn TX/RX  FIFO </p>
+<p>RX complete interrupt </p>
+<p>- </p>
+<p>This interrupt is not used. </p>
+<p>INTRCANnERR </p>
+<p>CANn error interrupt </p>
+<p>CanIsrStatus_n </p>
+<p>Used for BusOff detection on physical </p>
+<p>channel n if ‘Error Polling’ is not </p>
+<p>enabled. </p>
+<p>INTPm </p>
+<p>External interrupt </p>
+<p>(see chapter 4) </p>
+<p>CanIsrWakeup_n </p>
+<p>Used for wakeup detection on physical </p>
+<p>channel n if the Sleep/Wakeup </p>
+<p>functionality is enabled, the external </p>
+<p>wakeup is used and ‘Wakeup Polling’ is </p>
+<p>not enabled. </p>
+<p>Table 10-1  </p>
+<p>Interrupt Service Routines </p>
+<p>If the INTC shall implement direct jumps to an address determined by the interrupt priority </p>
+<p>level  (instead  of  table  reference)  the  switch </p>
+<p>C_ENABLE_DIRECT_INTERRUPT_BRANCH</p>
+<p> </p>
+<p>has to be defined via the user configuration file. (This setting affects the TB bit in the ICn </p>
+<p>registers.) In this case the application has to implement a common service routine for all </p>
+<p>CAN interrupts and jump to it from the corresponding address (refer to hardware manual </p>
+<p>for configuration aspects).  </p>
+<p>See below an implementation example for GreenHills compiler and a full interrupt system </p>
+<p>with disabled Sleep/Wakeup functionality that uses physical channels 1 and 4; also refer to </p>
+<p>the information in table 10-1 about the presence of the individual CAN interrupt functions. </p>
+<p>Each driver routine must not be called if the CAN interrupts for the corresponding channel </p>
+<p>(respectively  any  CAN  channel  for  the  global  handlers)  are  currently  disabled.  This  is </p>
+<p>especially relevant if more than one channel is used or other interrupt sources also call the </p>
+<p>common service routine. In general it is recommended to check the status of the MK bit in </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>37 /50 </p>
+<p> </p>
+<p>the  ICn  register  of  each  CAN  interrupt  source  before  invoking  the  corresponding  driver </p>
+<p>routine as these bits directly indicate the status of the CAN interrupt lock mechanism. Any </p>
+<p>driver routine may only be called if the corresponding interrupt source is enabled (MK bit </p>
+<p>== 0). These actions may differ if the application handles the CAN interrupt disable/restore </p>
+<p>mechanism (see section 10.3 below), but the requirements above must always be met. If </p>
+<p>the feature “Multiple Configurations” is used only functions corresponding to channels that </p>
+<p>are used in the active identity should be called. </p>
+<p> </p>
+<p>#pragma ghs interrupt </p>
+<p>void CommonIsr_Prio_x ( void ) </p>
+<p>{ </p>
+<p>  /* handling for other interrupts that are assigned to  </p>
+<p>     this priority and not handled by table reference   */ </p>
+<p> </p>
+<p>  /* CAN interrupts */ </p>
+<p>  if (MK bit of INTRCANGRECC == 0) CanIsrRxFifo(); </p>
+<p>  if (MK bit of INTRCANGERR == 0) CanIsrGlobalStatus(); </p>
+<p>  if (MK bit of INTRCAN1ERR == 0) CanIsrStatus_1(); </p>
+<p>  if (MK bit of INTRCAN1TRX == 0) CanIsrTx_1(); </p>
+<p>  if (MK bit of INTRCAN4ERR == 0) CanIsrStatus_4(); </p>
+<p>  if (MK bit of INTRCAN4TRX == 0) CanIsrTx_4(); </p>
+<p> </p>
+<p>  /* handling for other interrupts that are assigned to  </p>
+<p>     this priority and not handled by table reference   */ </p>
+<p>} </p>
+<p> </p>
+<p>Since  the  common  service  routine  is  already  qualified  as  an  ISR  to  the  compiler,  the </p>
+<p>individual CAN interrupt routines have to be configured as void-void functions if this variant </p>
+<p>is used. Therefore the switch </p>
+<p>C_ENABLE_ISRVOID</p>
+<p> additionally has to be defined via the </p>
+<p>user configuration file (if category 1 CAN interrupts are used). </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The  driver  performs  no  measures  to  ensure  the  correct  functionality  of  the  CAN </p>
+<p>interrupt disable/restore mechanism if it is bypassed by the common interrupt handler </p>
+<p>when </p>
+<p>C_ENABLE_DIRECT_INTERRUPT_BRANCH</p>
+<p>  is  defined.  Therefore  the  usage  of </p>
+<p>this switch in not recommended in general and should only be defined if table reference </p>
+<p>is not possible at all.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>10.2.1 </b></p>
+<p><b>Configuration of Interrupt Vectors with IAR compiler </b></p>
+<p>Instead of a manual initialization of the interrupt vector table it is possible to let the IAR </p>
+<p>compiler set up the  table  by  using  the  #pragma  vector=xx  directive  (only  for category  1 </p>
+<p>interrupts). This feature can be enabled via the user configuration file by defining the EI </p>
+<p>level  interrupt  number  for  each  used  CAN  interrupt.  The  names  of  these  defines  are </p>
+<p>derived from the corresponding ISR names. </p>
+<p>See below an example for a full interrupt system with external wakeup support that uses </p>
+<p>physical channels 2 and 5. Refer to the information in table 10-1 about the presence of the </p>
+<p>individual CAN interrupt functions. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>38 /50 </p>
+<p> </p>
+<p>#define C_CANISRRXFIFO_VECTOR         15 </p>
+<p>#define C_CANISRGLOBALSTATUS_VECTOR 14 </p>
+<p>#define C_CANISRTX_VECTOR_2           211 </p>
+<p>#define C_CANISRSTATUS_VECTOR_2       209 </p>
+<p>#define C_CANISRWAKEUP_VECTOR_2       31 </p>
+<p>#define C_CANISRTX_VECTOR_5           281 </p>
+<p>#define C_CANISRSTATUS_VECTOR_5       279 </p>
+<p>#define C_CANISRWAKEUP_VECTOR_5       36 </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>This is an example and the necessary defines depend on the actual configuration. The </p>
+<p>interrupt numbers depend on the selected derivative; refer to the hardware manual to </p>
+<p>get the respective values.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>10.3 </b></p>
+<p><b>External CAN Interrupt Handling </b></p>
+<p>There are several solutions if accesses to the EI level interrupt control registers (ICn) are </p>
+<p>not possible or allowed for the driver (reasons may be restricted operating modes, memory </p>
+<p>protection, bus guard functionalities or similar). </p>
+<p><b>10.3.1 </b></p>
+<p><b>Hardware Access by Call-Back Functions </b></p>
+<p>If the switch </p>
+<p>C_ENABLE_INTC_ACCESS_BY_APPL</p>
+<p> is defined via the user configuration file </p>
+<p>the driver implementation is still used to initialize and modify all ICn as described in the </p>
+<p>previous sections, but all actual read and write accesses to the interrupt control registers </p>
+<p>have to be performed by call-back functions.</p>
+<p> </p>
+<p> </p>
+<p>The functions </p>
+<p>ApplCanWriteIcr8()</p>
+<p> and </p>
+<p>ApplCanReadIcr8()</p>
+<p> (see section 9.4 for the </p>
+<p>API  definitions)  are  always  invoked  when  accessing  registers  of  the  interrupt  controller </p>
+<p>(other </p>
+<p>peripherals </p>
+<p>are </p>
+<p>not </p>
+<p>accessed </p>
+<p>by </p>
+<p>the </p>
+<p>driver). </p>
+<p>These </p>
+<p>functions </p>
+<p>have </p>
+<p>to </p>
+<p>be </p>
+<p>implemented by the application and perform the hardware access including any unlocking </p>
+<p>mechanisms, checks for the given addresses or similar. It is expected by the driver that </p>
+<p>every access is synchronous and always successfully performed.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>An exclusive write access to the ICn as stated in the previous sections still has to be </p>
+<p>guaranteed.  If  any  access  is  not  successfully  performed  when  these  functions  are </p>
+<p>called,  the  driver  has  to  be  re-initialized  by  calling </p>
+<p>CanInitPowerOn()</p>
+<p>  as  correct </p>
+<p>behavior cannot be ensured.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>10.3.2 </b></p>
+<p><b>Interrupt Control by Application </b></p>
+<p>If an exclusive write access to the  CAN related ICn is not possible or the internal driver </p>
+<p>mechanisms </p>
+<p>that </p>
+<p>are </p>
+<p>described </p>
+<p>above </p>
+<p>are </p>
+<p>not </p>
+<p>applicable, </p>
+<p>the </p>
+<p>switch </p>
+<p>C_ENABLE_OSEK_CAN_INTCTRL</p>
+<p>  can  be  defined  via  the  user  configuration  file.  In  this </p>
+<p>case the application has to ensure proper initialization, disabling and restoring of the CAN </p>
+<p>interrupt sources as the driver provides no support for these tasks at all. The registers of </p>
+<p>the interrupt controller are never accessed by the driver. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>39 /50 </p>
+<p> </p>
+<p>If  this  switch  is defined  the application  additionally  has  to  perform  the  initialization  of  all </p>
+<p>necessary ICn before the call of </p>
+<p>CanInitPowerOn()</p>
+<p>. All used sources (see remarks in </p>
+<p>table  10-1)  have  to  be  enabled  after  initialization  whereas  unused  sources  have  to  be </p>
+<p>disabled.  </p>
+<p>In </p>
+<p>context </p>
+<p>of </p>
+<p>the </p>
+<p>CAN </p>
+<p>interrupt </p>
+<p>disable/restore </p>
+<p>mechanism </p>
+<p>the </p>
+<p>driver </p>
+<p>implements </p>
+<p>application  call-back  functions  that  are  used  whenever </p>
+<p>CanCanInterruptDisable() </p>
+<p>or</p>
+<p> CanCanInterruptRestore()</p>
+<p> are invoked by the program (see section 9.4 for the </p>
+<p>API definitions). Suggestion is that the function </p>
+<p>OsCanCanInterruptDisable()</p>
+<p> saves </p>
+<p>the value of the MK bit of the ICn of all used CAN interrupt sources that are linked to the </p>
+<p>given  logical  channel  and  then  sets  these  MK  bits  to  1  in  order to  disable  the  sources. </p>
+<p>OsCanCanInterruptRestore()</p>
+<p>  should  restore  the  value  of  the  previously  saved  MK </p>
+<p>bits for the given logical channel. Keep in mind that the right physical channel has to be </p>
+<p>chosen based on the given logical channel (to get the right ICn) and that the receive FIFO </p>
+<p>and global status interrupt are used by all channels, hence they should be disabled as long </p>
+<p>as any channel’s interrupts are disabled. </p>
+<p>If the Sleep/Wakeup functionality is enabled and the external wakeup is used please note </p>
+<p>that the external wakeup interrupts always have to be disabled after initialization as these </p>
+<p>sources are only enabled on demand. Also additional application call-back functions (see </p>
+<p>section 9.4 for the API definitions) are invoked by the driver. This is relevant for interrupt </p>
+<p>and polling systems as the external interrupt request flag has to be cleared independently </p>
+<p>of the interrupt configuration. </p>
+<p> </p>
+<p>ApplCanWakeupInterruptEnable()</p>
+<p>  is  always  invoked  in  context  of </p>
+<p>CanSleep()</p>
+<p>. </p>
+<p>This function first has to clear the external interrupt request flag in the corresponding ICn </p>
+<p>and  then  –  only  if  wakeup  detection  is  performed  by  interrupts  –  enable  the  external </p>
+<p>interrupt.  Keep  in  mind  that </p>
+<p>depending  on  the  current </p>
+<p>status  of  the  CAN  interrupt </p>
+<p>disable/restore mechanism this has to be performed either by clearing the corresponding </p>
+<p>mask bit in the respective hardware register or in the mask status that was saved by the </p>
+<p>function </p>
+<p>OsCanCanInterruptDisable()</p>
+<p>. </p>
+<p>ApplCanWakeupInterruptDisable()</p>
+<p>  is </p>
+<p>only invoked if wakeup detection is performed by interrupts in context of </p>
+<p>CanWakeup()</p>
+<p>, </p>
+<p>respectively  the  external  wakeup  handling,  and  in </p>
+<p>CanInit()</p>
+<p>.  This  function  has  to </p>
+<p>disable the interrupt, depending on the current status of the CAN interrupt disable/restore </p>
+<p>mechanism either by setting the corresponding mask bit in the hardware register or in the </p>
+<p>saved  mask  status. </p>
+<p>ApplCanWakeupOccurred()</p>
+<p>  is  called  in  context  of  the  function </p>
+<p>CanWakeupTask()</p>
+<p> to check for the occurrence of a wakeup event (i.e. the presence of </p>
+<p>the interrupt request flag) if the detection is performed by polling. </p>
+<p>The implementation may differ but all CAN interrupts for the corresponding channel have </p>
+<p>to </p>
+<p>be </p>
+<p>disabled </p>
+<p>after </p>
+<p>the </p>
+<p>first </p>
+<p>call </p>
+<p>(keep </p>
+<p>in </p>
+<p>mind </p>
+<p>that </p>
+<p>nested </p>
+<p>calls </p>
+<p>can </p>
+<p>occur) </p>
+<p>of </p>
+<p>OsCanCanInterruptDisable()</p>
+<p> </p>
+<p>and </p>
+<p>stay </p>
+<p>disabled </p>
+<p>until </p>
+<p>the </p>
+<p>last </p>
+<p>nested </p>
+<p>call </p>
+<p>of </p>
+<p>OsCanCanInterruptRestore()</p>
+<p> </p>
+<p>that </p>
+<p>has </p>
+<p>to </p>
+<p>restore </p>
+<p>the </p>
+<p>previous </p>
+<p>interrupt </p>
+<p>state.</p>
+<p> </p>
+<p>ApplCanWakeupInterruptEnable()</p>
+<p>  and</p>
+<p> ApplCanInterruptDisable()</p>
+<p>  have  to </p>
+<p>enable and disable the wakeup interrupt for one channel but must not violate the general </p>
+<p>CAN interrupt disable/restore mechanism. It is also important to clear the wakeup interrupt </p>
+<p>request  flag  within </p>
+<p>ApplCanWakeupInterruptEnable()</p>
+<p>.  The  application  additionally </p>
+<p>has to handle possible concurrent accesses to the ICn and ensure that those accesses do </p>
+<p>not violate the conditions above. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>40 /50 </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The  definition  of </p>
+<p>C_ENABLE_INTC_ACCESS_BY_APPL</p>
+<p>  is  recommended  if  interrupt </p>
+<p>control registers cannot be accessed by the driver. If </p>
+<p>C_ENABLE_OSEK_CAN_INTCTRL</p>
+<p> </p>
+<p>is defined the driver performs no measures to ensure consistency of the interrupt lock </p>
+<p>mechanism. Additionally the application has to ensure correct concurrent accesses to </p>
+<p>the  ICn  and  has  to  handle  nested  calls  of </p>
+<p>OsCanCanInterruptDisable()</p>
+<p>  and</p>
+<p> </p>
+<p>OsCanCanInterruptRestore()</p>
+<p>. </p>
+<p>Therefore </p>
+<p>the </p>
+<p>usage </p>
+<p>of </p>
+<p>this </p>
+<p>switch </p>
+<p>is </p>
+<p>not </p>
+<p>recommended in general and should only be defined if the internal driver mechanisms </p>
+<p>or the definition of </p>
+<p>C_ENABLE_INTC_ACCESS_BY_APPL</p>
+<p> are not possible at all.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>41 /50 </p>
+<p> </p>
+<p><b>11 Configuration </b></p>
+<p><b>11.1 </b></p>
+<p><b>Configuration by GENy </b></p>
+<p>The  driver  is  configured  with  the  help  of  the  configuration  tool  GENy.  This  section </p>
+<p>describes  the  configuration  of  the  driver  specific  aspects. </p>
+<p>The  configuration  options </p>
+<p>common to all CAN drivers are described in TechnicalReference_CANDriver.pdf. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>To get further information please refer to the online help of the generation tool. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>11.1.1 </b></p>
+<p><b>Platform Settings </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 11-1 </p>
+<p>GENy Platform Settings </p>
+<p><b>Attribute </b></p>
+<p><b>Supported </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p>Preconfiguration </p>
+<p> </p>
+<p>Select the pre-configuration file to use. </p>
+<p>Micro </p>
+<p>Hw_Rh850Cpu </p>
+<p>Select the target platform. </p>
+<p>Derivative </p>
+<p>See Table 2-1 </p>
+<p>Select the specific derivative group. </p>
+<p>Compiler </p>
+<p>See Table 2-1 </p>
+<p>Select the used compiler. </p>
+<p>Table 11-1  </p>
+<p>GENy Platform Settings </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>42 /50 </p>
+<p> </p>
+<p><b>11.1.2 </b></p>
+<p><b>Component Settings </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 11-2 </p>
+<p>GENy Component Settings  </p>
+<p><b>Attribute </b></p>
+<p><b>Supported </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p>CAN Interface </p>
+<p>RSCAN, </p>
+<p>RSCAN_FD </p>
+<p>Select the CAN interface that is incorporated by the used </p>
+<p>derivative - see the HW manual for information. This selection </p>
+<p>is independent of the actual CAN-FD usage as the driver has </p>
+<p>to handle general hardware differences for both variants. </p>
+<p>Maximum number of </p>
+<p>CAN channels </p>
+<p>1 - 8 </p>
+<p>Enter the maximum number of physical CAN channels that </p>
+<p>are supported by the used RSCAN unit of the actual </p>
+<p>derivative. This value is independent from the number of </p>
+<p>channels in the configuration but used to determine the </p>
+<p>available hardware resources. Only if this value is correct the </p>
+<p>tool can ensure valid configurations for the actual derivative. </p>
+<p>Depending on the selected derivative not all values may be </p>
+<p>available. </p>
+<p>CAN external clock </p>
+<p>source </p>
+<p>true, </p>
+<p>false </p>
+<p>Enable this attribute to use the external clock input </p>
+<p>(clk_xincan) as CAN clock (f</p>
+<p>CAN</p>
+<p>). If the attribute is disabled </p>
+<p>clkc is used - this is the default selection. (This setting directly </p>
+<p>affects the DCS bit in the global configuration register.) </p>
+<p>Table 11-2  </p>
+<p>GENy Component Settings </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>43 /50 </p>
+<p> </p>
+<p><b>11.1.3 </b></p>
+<p><b>Channel-specific Settings </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 11-3 </p>
+<p>GENy Channel Specific Settings </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The sum of the shared buffers used to allocate the receive objects over all channels </p>
+<p>must not exceed (“Maximum number of CAN channels”</p>
+<p>   </p>
+<p>* 64)</p>
+<p>7</p>
+<p>. This includes  the Rx </p>
+<p>FullCAN objects (1 buffer per actually assigned object; not the value of “Rx FullCAN </p>
+<p>object allocation) and the depth of all Rx BasicCAN objects (individually configurable </p>
+<p>amount of buffers, selected by the attribute “Rx Fifo depth”) on all channels.  </p>
+<p>The  sum  of  used  acceptance  filters  over  all  channels  must  not  exceed  (“Maximum </p>
+<p>number of CAN channels” * 64)</p>
+<p>7</p>
+<p>. Each actually assigned Rx FullCAN object uses one </p>
+<p>filter and each Rx BasicCAN object uses the number of filters that is selected by the </p>
+<p>attribute “Filters per BasicCAN” on the corresponding channel. </p>
+<p>The generation tool checks these and other restrictions (e.g. allowed selection for the </p>
+<p>attribute “Physical controller”) to ensure valid configurations. Therefore it is mandatory </p>
+<p>to enter a valid value for the attribute “Maximum number of CAN channels”</p>
+<p>7</p>
+<p>. Refer to </p>
+<p>chapter 3 for additional information.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>                                            </p>
+<p>7</p>
+<p> Refer to section 11.1.2 for the description of the attribute “Maximum number of CAN channels“. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>44 /50 </p>
+<p> </p>
+<p><b>Attribute </b></p>
+<p><b>Supported </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p>BCFG </p>
+<p>register value </p>
+<p>The value for the Channel Configuration Register. </p>
+<p>Acceptance Filter </p>
+<p>Configuration </p>
+<p>- </p>
+<p>Opens the acceptance filter dialog, see section 11.1.3.1. If </p>
+<p>several init structures are created this is only possible for the </p>
+<p>first structure. </p>
+<p>Bustiming </p>
+<p>Configuration </p>
+<p>- </p>
+<p>Opens the bustiming dialog to determine the value for BCFG, </p>
+<p>see section 11.1.3.2. </p>
+<p>Physical controller </p>
+<p>CAN 0 – CAN 7 </p>
+<p>Select the physical channel you want to assign to this logical </p>
+<p>channel. The value is enumerated the same way as referenced </p>
+<p>in the hardware manual. Depending on the selected derivative </p>
+<p>and configuration of the attribute “Maximum number of CAN </p>
+<p>channels” (see section 11.1.2) not all values may be available. </p>
+<p>CAN interrupt priority </p>
+<p>0 – 15 </p>
+<p>Select the interrupt priority level of this CAN channel’s interrupts </p>
+<p>that are configured if the driver has interrupt control. Depending </p>
+<p>on the selected derivative not all levels may be available. See </p>
+<p>section 7.2.3 and chapter 10 for further information. </p>
+<p>Rx FullCAN object </p>
+<p>allocation </p>
+<p>0 – nRXMBmax </p>
+<p>You can configure as many receive FullCAN messages on this </p>
+<p>channel as specified here. This value is used to limit the </p>
+<p>selection for manual or automatic configuration - only the </p>
+<p>actually arranged FullCAN objects will be configured in </p>
+<p>hardware. The value of nRXMBmax equals “Maximum number </p>
+<p>of CAN channels” * 16. </p>
+<p>Filters per BasicCAN </p>
+<p>1 – 128 </p>
+<p>Select how many acceptance filters will be assigned to each Rx </p>
+<p>BasicCAN object on this channel; see section 11.1.3.1 for </p>
+<p>details. Depending on the selected derivative not all values may </p>
+<p>be available. </p>
+<p>Rx Fifo process count </p>
+<p>2 – 255 </p>
+<p>Select the maximum number of pending receive messages that </p>
+<p>are processed for each Rx BasicCAN object within one polling </p>
+<p>cycle respectively one interrupt occurrence. By adjusting this </p>
+<p>value it can be ensured that high FIFO loads will be evenly </p>
+<p>processed by the driver. Remaining messages are processed </p>
+<p>within the next polling cycle respectively the interrupt of the next </p>
+<p>received message on this channel. Select greater values if </p>
+<p>overruns occur. </p>
+<p>Rx Fifo depth </p>
+<p>4, 8, 16, 32, </p>
+<p>48, 64, 128 </p>
+<p>Individually configure the depth (amount of assigned shared </p>
+<p>buffers) of every Rx FIFO, that is used as Rx BasicCAN object </p>
+<p>on this channel. </p>
+<p>Table 11-3  </p>
+<p>GENy Channel Specific Settings </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>As </p>
+<p>the </p>
+<p>RSCAN </p>
+<p>has </p>
+<p>restrictions </p>
+<p>regarding </p>
+<p>the </p>
+<p>receive </p>
+<p>buffers </p>
+<p>(e.g. </p>
+<p>no </p>
+<p>interrupt </p>
+<p>processing,  no  overrun  detection)  also  consider  configurations  without  Rx  FullCAN </p>
+<p>objects. The large FIFO sizes and amount of filters that are possible for the BasicCAN </p>
+<p>objects </p>
+<p>give </p>
+<p>similar </p>
+<p>advantages </p>
+<p>as </p>
+<p>the </p>
+<p>usage </p>
+<p>of </p>
+<p>FullCAN </p>
+<p>objects. </p>
+<p>For </p>
+<p>many </p>
+<p>configurations  this  can  be  an  alternative  that  above  all  is  more  effective  regarding </p>
+<p>runtime and memory usage. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>45 /50 </p>
+<p> </p>
+<p><b>11.1.3.1 </b></p>
+<p><b>Acceptance Filter Configuration </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 11-4 </p>
+<p>GENy Acceptance Filter Configuration </p>
+<p><b>Attribute  </b></p>
+<p><b>Supported </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p>Acceptance Filter </p>
+<p>representation of </p>
+<p>type, mask and </p>
+<p>code </p>
+<p>The configured BasicCAN filters are shown. Each ID-bit is </p>
+<p>represented by “0/1/X”, meaning must match “0”, “1” or don’t </p>
+<p>care “X”. The number of filters can be adjusted by the attribute </p>
+<p>“Filters per BasicCAN” on the channel view. </p>
+<p>Type </p>
+<p>standard, </p>
+<p>extended </p>
+<p>Select if the filter shall apply to standard or extended ID types. </p>
+<p>(Based on the database and configuration only one type may </p>
+<p>be available.) </p>
+<p>Mask / Code </p>
+<p>register values </p>
+<p>The register values for this filter that will be configured in </p>
+<p>hardware. </p>
+<p>Open filters </p>
+<p>- </p>
+<p>Open the filters completely to receive all messages. </p>
+<p>Optimize </p>
+<p>- </p>
+<p>Configure the filters automatically to just receive IDs in the </p>
+<p>database if possible. A large number of filters allow better </p>
+<p>optimizations, but don’t configure more filters than the </p>
+<p>optimization algorithm uses for message distribution. </p>
+<p>“Use FullCAN” tries to put as many messages as possible in </p>
+<p>FullCAN objects. Select the maximum number of available </p>
+<p>objects by adjusting the attribute “Rx FullCAN object </p>
+<p>allocation” on the channel view. This is useful when only a few </p>
+<p>number of BasicCAN filters are configured for example. </p>
+<p>Table 11-4  </p>
+<p>GENy Acceptance Filter Configuration </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>46 /50 </p>
+<p> </p>
+<p><b>11.1.3.1.1  Additional information if the feature “Multiple BasicCAN objects” is used </b></p>
+<p>The dialog shows all BasicCAN acceptance filters for the respective channel. The amount </p>
+<p>of filters equals the product of configured BasicCAN objects and the number of filters per </p>
+<p>BasicCAN.  An  example  configuration  with  3  BasicCAN  objects  and  2  filters  per  object </p>
+<p>results in 6 filters as shown in figure 11-5. The first 2 filters (in accordance with the attribute </p>
+<p>“Filters per BasicCAN”) are assigned to the first BasicCAN object, the next 2 to the second </p>
+<p>BasicCAN object and so on.  </p>
+<p> </p>
+<p> </p>
+<p>Figure 11-5 </p>
+<p>GENy Acceptance Filter Assignment </p>
+<p>Please note that a received message is stored in the first mailbox with a matching filter. </p>
+<p>After  an  identifier  was  compared  against  the  FullCAN  filters,  it  is  compared  against  the </p>
+<p>BasicCAN filters in the order that is depicted in the dialog. This has to be considered when </p>
+<p>the  feature  “Multiple  BasicCAN  objects”  is  used.  If  filter  number  1  in  the  example  from </p>
+<p>figure 11-5 was open (all bits “don’t care”), all non FullCAN standard identifiers would be </p>
+<p>received by BasicCAN0 and BasicCAN2 would never receive any message.  </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>In </p>
+<p>some </p>
+<p>“Multiple </p>
+<p>BasicCAN” </p>
+<p>configurations </p>
+<p>it </p>
+<p>may </p>
+<p>be </p>
+<p>useful </p>
+<p>to </p>
+<p>assign </p>
+<p>certain </p>
+<p>BasicCAN  messages  to  specific  hardware  objects  as  the  FIFO  depths  or  “Individual </p>
+<p>Polling” settings can be adapted to the actual communication aspects for example. As </p>
+<p>the  optimization  algorithms  don’t  consider this  use  case  the filters  have  to  be  edited </p>
+<p>manually in this case. </p>
+<p>Alternatively it is possible to configure and lock only several significant filters and then </p>
+<p>use the optimization functionality. But after doing so always check the result because </p>
+<p>manually configured filters may not always receive the pre-assigned identifiers as the </p>
+<p>message could match an automatically assigned filter that is compared first. Focus on </p>
+<p>filters with smaller numbers or add some “dummy filters” for earlier objects to achieve </p>
+<p>better results.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>47 /50 </p>
+<p> </p>
+<p><b>11.1.3.2 </b></p>
+<p><b>Bustiming Configuration </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 11-6 </p>
+<p>GENy Bustiming Configuration </p>
+<p><b>Attribute  </b></p>
+<p><b>Supported </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p>Clock </p>
+<p>CAN clock </p>
+<p>Set the clock frequency that is provided to the CAN cell for </p>
+<p>baudrate generation (f</p>
+<p>CAN</p>
+<p>). Consider the setting of the </p>
+<p>attribute “CAN external clock source” (see section 11.1.2). </p>
+<p>Baudrate </p>
+<p>baudrate </p>
+<p>Set the baudrate to be used for this channel. </p>
+<p>CAN BTR register </p>
+<p>register value </p>
+<p>Enter the value for the Channel Configuration Register (see </p>
+<p>attribute BCFG in section 11.1.3). </p>
+<p>Calculate </p>
+<p>- </p>
+<p>Calculate possible Channel Configuration Register settings </p>
+<p>out of the entered baudrate or vice versa. </p>
+<p>CAN_BTR, Sample, </p>
+<p>BTL cycles, SJW </p>
+<p>- </p>
+<p>Select specific channel configuration register values to adapt </p>
+<p>the sample point and sync phase to comply with your bus </p>
+<p>physics. </p>
+<p>Table 11-5  </p>
+<p>GENy Bustiming Configuration </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>48 /50 </p>
+<p> </p>
+<p><b>11.2 </b></p>
+<p><b>Manual Configuration </b></p>
+<p>This section describes additional configuration options for special features that can only be </p>
+<p>configured via the user configuration file. </p>
+<p></p>
+<p> </p>
+<p>Define </p>
+<p>C_DISABLE_NESTED_INTERRUPTS</p>
+<p>  or </p>
+<p>C_ENABLE_NESTED_INTERRUPTS</p>
+<p>  to </p>
+<p>control the nesting of the CAN interrupts. See section 10.1 for further information. </p>
+<p></p>
+<p> </p>
+<p>Define </p>
+<p>C_ENABLE_DIRECT_INTERRUPT_BRANCH</p>
+<p> </p>
+<p>(and </p>
+<p>if </p>
+<p>needed </p>
+<p>additionally </p>
+<p>C_ENABLE_ISRVOID</p>
+<p>)  to  deactivate  table  reference  as  the  method  to  handle  CAN </p>
+<p>interrupts. See section 10.2 for further information.  </p>
+<p></p>
+<p> </p>
+<p>Define </p>
+<p>C_ENABLE_INTC_ACCESS_BY_APPL</p>
+<p>  or</p>
+<p> </p>
+<p>C_ENABLE_OSEK_CAN_INTCTRL</p>
+<p>  to </p>
+<p>prohibit  read  and  write  accesses  within  the  interrupt  controller  address  space.  See </p>
+<p>section 10.3 for further information. </p>
+<p></p>
+<p> </p>
+<p>Define </p>
+<p>C_ENABLE_EXTERNAL_WAKEUP_SUPPRESSION</p>
+<p> to disable the external wakeup </p>
+<p>functionality. See chapter 4 for further information. </p>
+<p></p>
+<p> </p>
+<p>See sections 7.2.6 to 7.2.9 for options that control different RAM test features. </p>
+<p></p>
+<p> </p>
+<p>See  section  10.2.1  for  information  on  how  to  set  up  the  interrupt  vector  table  when </p>
+<p>using IAR compiler. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>49 /50 </p>
+<p> </p>
+<p><b>12 Known Issues / Limitations </b></p>
+<p>1. </p>
+<p>Due to hardware limitations the feature CAN RAM check is not supported for receive </p>
+<p>mailboxes (no write access is possible for these objects). </p>
+<p>2. </p>
+<p>Due to hardware limitations receive FullCANs cannot be processed in interrupt context </p>
+<p>and no overruns can be detected for these objects. </p>
+<p>3. </p>
+<p>With  default  configuration  the  driver  needs  exclusive  write  access  to  all  EI  level </p>
+<p>interrupt control registers (ICn) that are related to a CAN interrupt source (see section </p>
+<p>7.2.3 and chapter 10 for further information.). </p>
+<p>4. </p>
+<p>Refer </p>
+<p>to </p>
+<p>chapter </p>
+<p>4 </p>
+<p>for </p>
+<p>restrictions </p>
+<p>when </p>
+<p>using </p>
+<p>the </p>
+<p>Sleep/Wakeup </p>
+<p>functionality. </p>
+<p>Additionally the global stop mode of the RSCAN is not supported. </p>
+<p>5. </p>
+<p>When using multiple initialization structures no multiple acceptance filter configurations </p>
+<p>are  supported  by  the  driver.  The  filter  settings  are  always  derived  from  the  first </p>
+<p>structure. Use several structures only to arrange multiple baudrate configurations. </p>
+<p>6. </p>
+<p>When using the feature Multiple ECU Configurations it is not supported to use a logical </p>
+<p>channel in more than one identity. The only exception is the first logical channel which </p>
+<p>can be present in any identity if it is also mapped to the physical channel CAN0. This </p>
+<p>limitation  does not  apply  to  the  usage  of  physical  channels:  Every  available  physical </p>
+<p>channel can be used in any identity and the same physical channel can be used in as </p>
+<p>many identities as needed (if it is referenced by different logical channels). </p>
+<p>7. </p>
+<p>For derivatives that incorporate multiple RSCAN units only the first one (RSCAN0) is </p>
+<p>supported by the driver. </p>
+<p> </p>
+<p> </p>
+<p>For  latest  information  about  issues  or  limitations  of  the  actually  used  derivative  please </p>
+<p>contact the hardware manufacturer. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Vector CAN Driver Technical Reference RH850 RSCAN </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.08.00  </p>
+<p>based on template version 3.2 </p>
+<p> </p>
+<p>50 /50 </p>
+<p> </p>
+<p><b>13 Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b> News </p>
+<p><b>&gt; </b> Products </p>
+<p><b>&gt; </b> Demo software </p>
+<p><b>&gt; </b> Support </p>
+<p><b>&gt; </b> Training data </p>
+<p><b>&gt; </b> Addresses </p>
+<p> </p>
+<p>www.vector.com<b> </b></p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

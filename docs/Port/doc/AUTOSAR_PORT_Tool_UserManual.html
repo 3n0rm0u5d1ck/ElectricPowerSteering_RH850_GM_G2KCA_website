@@ -1,0 +1,1998 @@
+---
+layout: default
+title: AUTOSAR_PORT_Tool_UserManual
+nav_order: 2
+parent: Port Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3</p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>PORT Driver Component Ver.1.0.5 </p>
+<p> </p>
+<p>Generation Tool User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target Device: </p>
+<p>RH850/P1x </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev.0.02 Apr 2015</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Notice </p>
+<p>1. </p>
+<p>All information included in this document is current as of the date this document is issued. Such information, however, is subject to </p>
+<p>change without any prior notice. Before purchasing or using any Renesas Electronics products listed herein, please confirm the latest </p>
+<p>product information with a Renesas Electronics sales office. Also, please pay regular and careful attention to additional and different </p>
+<p>information to be disclosed by Renesas Electronics such as that disclosed through our website. </p>
+<p>2. </p>
+<p>Renesas Electronics does not assume any liability for infringement of patents, copyrights, or other intellectual property rights of third </p>
+<p>parties by or arising from the use of Renesas Electronics products or technical information described in this document. No license, </p>
+<p>express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p> 3. </p>
+<p>You should not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. </p>
+<p>4. </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples.  You are fully responsible for the incorporation of these circuits, software, and </p>
+<p>information in the design of your equipment.  Renesas Electronics assumes no responsibility for any losses incurred by </p>
+<p>you or third parties arising from the use of these circuits, software, or information. </p>
+<p>5. </p>
+<p>When exporting the products or technology described in this document, you should comply with the applicable export control laws </p>
+<p>and regulations and follow the procedures required by such laws and regulations.  You should not use Renesas Electronics products </p>
+<p>or the technology described in this document for any purpose relating to military applications or use by the military, including but </p>
+<p>not limited to the development of weapons of mass destruction.  Renesas Electronics products and technology may not be used for or </p>
+<p>incorporated into any products or systems whose manufacture, use, or sale is prohibited under any applicable domestic or foreign </p>
+<p>laws or regulations. </p>
+<p>6. </p>
+<p>Renesas Electronics has used reasonable care in preparing the information included in this document, but Renesas Electronics does </p>
+<p>not warrant that such information is error free.  Renesas Electronics assumes no liability whatsoever for any damages incurred by </p>
+<p>you resulting from errors in or omissions from the information included herein. </p>
+<p>7. </p>
+<p>Renesas Electronics products are classified according to the following three quality grades:  &quot;Standard&quot;, &quot;High Quality&quot;, and </p>
+<p>&quot;Specific&quot;.  The recommended applications for each Renesas Electronics product depends on the product's quality grade, as indicated </p>
+<p>below.  You must check the quality grade of each Renesas Electronics product before using it in a particular application.  You may </p>
+<p>not use any Renesas Electronics product for any application categorized as &quot;Specific&quot; without the prior written consent of Renesas </p>
+<p>Electronics.  Further, you may not use any Renesas Electronics product for any application for which it is not intended without the </p>
+<p>prior written consent of Renesas Electronics.  Renesas Electronics shall not be in any way liable for any damages or losses incurred by </p>
+<p>you or third parties arising from the use of any Renesas Electronics product for an application categorized as &quot;Specific&quot; or for which </p>
+<p>the product is not intended where you have failed to obtain the prior written consent of Renesas Electronics.  The quality grade of </p>
+<p>each Renesas Electronics product is &quot;Standard&quot; unless otherwise expressly specified in a Renesas Electronics data sheets or data </p>
+<p>books, etc. </p>
+<p>&quot;Standard&quot;: </p>
+<p>Computers; office equipment; communications equipment; test and measurement equipment; audio and visual </p>
+<p>equipment; home electronic appliances; machine tools; personal electronic equipment; and industrial robots. </p>
+<p>&quot;High Quality&quot;: Transportation equipment (automobiles, trains, ships, etc.); traffic control systems; anti-disaster systems; anti- crime </p>
+<p>systems; safety equipment; and medical equipment not specifically designed for life support. </p>
+<p>&quot;Specific&quot;: </p>
+<p>Aircraft; aerospace equipment; submersible repeaters; nuclear reactor control systems; medical equipment or </p>
+<p>systems for life support (e.g. artificial life support devices or systems), surgical implantations, or healthcare </p>
+<p>intervention (e.g. excision, etc.), and any other applications or purposes that pose a direct threat to human life. </p>
+<p>8. </p>
+<p>You should use the Renesas Electronics products described in this document within the range specified by Renesas Electronics, </p>
+<p>especially with respect to the maximum rating, operating supply voltage range, movement power voltage range, heat radiation </p>
+<p>characteristics, installation and other product characteristics. Renesas Electronics shall have no liability for malfunctions or damages </p>
+<p>arising out of the use of Renesas Electronics products beyond such specified ranges. </p>
+<p>9. </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of its products, semiconductor products have specific </p>
+<p>characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design.  Please be sure to implement safety measures to guard them against </p>
+<p>the possibility of physical injury, and injury or damage caused by fire in the event of the failure of a </p>
+<p>Renesas Electronics product, such as safety design for hardware and software including but not limited to redundancy, fire control </p>
+<p>and malfunction prevention, appropriate treatment for aging degradation or any other appropriate measures.  Because the evaluation </p>
+<p>of microcomputer software alone is very difficult, please evaluate the safety of the final products or system manufactured by you. </p>
+<p>10. </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of </p>
+<p>each Renesas Electronics product.  Please use Renesas Electronics products in compliance with all applicable laws and regulations </p>
+<p>that regulate the inclusion or use of controlled substances, including without limitation, the EU RoHS Directive.  Renesas Electronics </p>
+<p>assumes no liability for damages or losses occurring as a result of your noncompliance with applicable laws and regulations. </p>
+<p> 11. </p>
+<p>This document may not be reproduced or duplicated, in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p>12. </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this </p>
+<p>document or Renesas Electronics products, or if you have any other inquiries. </p>
+<p> </p>
+<p>(Note 1)  &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority- owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)  &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics. </p>
+<p><b>3 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>4 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p><b> </b></p>
+<p><b>Abbreviation / Acronym</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>AUTOSAR</p>
+<p> </p>
+<p>AUTomotive Open System ARchitecture</p>
+<p> </p>
+<p>BSWMDT</p>
+<p> </p>
+<p>Basic Software Module Description Template</p>
+<p> </p>
+<p>ECU</p>
+<p> </p>
+<p>Electronic Control Unit</p>
+<p> </p>
+<p>ICU</p>
+<p> </p>
+<p>Input Capture Unit</p>
+<p> </p>
+<p>Id/ID</p>
+<p> </p>
+<p>Identifier</p>
+<p> </p>
+<p>INTP</p>
+<p> </p>
+<p>Interrupt</p>
+<p> </p>
+<p>MCAL</p>
+<p> </p>
+<p>Micro Controller Abstraction Layer</p>
+<p> </p>
+<p>MCU</p>
+<p> </p>
+<p>Micro Controller Unit</p>
+<p> </p>
+<p>NMI</p>
+<p> </p>
+<p>Non Maskable Interrupt</p>
+<p> </p>
+<p>XML</p>
+<p> </p>
+<p>eXtensible Mark-up Language</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p><b>Terminology</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>BSWMDT File</p>
+<p> </p>
+<p>This file is the template for the Basic Software Module Description.</p>
+<p> </p>
+<p>Configuration XML File</p>
+<p> </p>
+<p>This file contains the setting of command line options.</p>
+<p> </p>
+<p>ECU Configuration Description </p>
+<p>File</p>
+<p> </p>
+<p>Input file to PORT Driver Generation Tool. It is generated by ECU </p>
+<p>Configuration Editor.</p>
+<p> </p>
+<p>Sl.No</p>
+<p> </p>
+<p>Serial Number.</p>
+<p> </p>
+<p>Translation XML File</p>
+<p> </p>
+<p>This file contains the translation and device specific header file path.</p>
+<p> </p>
+<p><b>5 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>6 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Table of Contents </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>Introduction ........................................................................................ 9</b></p>
+<p> </p>
+<p><b>1.1</b></p>
+<p> </p>
+<p><b>Document Overview ............................................................................................................. 9</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>Reference ......................................................................................... 11</b></p>
+<p> </p>
+<p><b>2.1</b></p>
+<p> </p>
+<p><b>Reference Documents ........................................................................................................ 11</b></p>
+<p> </p>
+<p><b>2.2</b></p>
+<p> </p>
+<p><b>Trademark Notice................................................................................................................ 11</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>PORT Driver Generation Tool Overview......................................... 13</b></p>
+<p> </p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p><b>Input Files ......................................................................................... 15</b></p>
+<p> </p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p><b>Output Files ...................................................................................... 17</b></p>
+<p> </p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p><b>Precautions ...................................................................................... 19</b></p>
+<p> </p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p><b>User Configuration Validation ........................................................ 21</b></p>
+<p> </p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p><b>Messages.......................................................................................... 23</b></p>
+<p> </p>
+<p><b>8.1</b></p>
+<p> </p>
+<p><b>Error Messages ................................................................................................................... 23</b></p>
+<p> </p>
+<p><b>8.2</b></p>
+<p> </p>
+<p><b>Warning Messages ............................................................................................................. 26</b></p>
+<p> </p>
+<p><b>8.3</b></p>
+<p> </p>
+<p><b>Information Messages ........................................................................................................ 27</b></p>
+<p> </p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p><b>Notes ................................................................................................. 29</b></p>
+<p> </p>
+<p> </p>
+<p><b>7 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b> </b></p>
+<p><b>List of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Overview of PORT Driver Generation Tool .................................................................. 13</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>      List of Tables </b></p>
+<p><b> </b></p>
+<p>Table 5-1</p>
+<p> </p>
+<p>Output Files Description .................................................................................................... 17</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>8 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction </b></p>
+<p><b>Chapter 1 </b></p>
+<p> </p>
+<p><b>Chapter 1  Introduction </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The PORT Driver component provides the service for initializing the whole </p>
+<p>PORT structure of the microcontroller. </p>
+<p> </p>
+<p> </p>
+<p>The PORT Driver Component comprises of two sections as Embedded </p>
+<p>Software and the Generation Tool to achieve scalability and configurability. </p>
+<p> </p>
+<p> </p>
+<p>The document describes the features of the PORT Driver Generation Tool. </p>
+<p>PORT Driver Generation Tool is a command line tool that extracts </p>
+<p>information from ECU Configuration Description File and generates PORT </p>
+<p>Driver C Source and C Header files (Port_PBcfg.c and Port_Cfg.h). </p>
+<p> </p>
+<p> </p>
+<p>This document contains information on the options, input and output files of </p>
+<p>the PORT Driver Generation Tool. In addition, this manual covers a step-by-</p>
+<p>step procedure for the usage of tool. </p>
+<p> </p>
+<p> </p>
+<p>ECU Configuration Description File contains information about PORT </p>
+<p>General Configuration, Port Pin Configurations. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.1 </b></p>
+<p><b>Document Overview </b></p>
+<p> </p>
+<p> </p>
+<p>This user manual is organized as given in the table below: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Section</b></p>
+<p> </p>
+<p><b>Contents</b></p>
+<p> </p>
+<p>Section 1 (Introduction)</p>
+<p> </p>
+<p>Provides an introduction to the document and explains how information </p>
+<p>is organized in this manual.</p>
+<p> </p>
+<p>Section 2 (Reference)</p>
+<p> </p>
+<p>Provides a list of documents referred while developing this document.</p>
+<p> </p>
+<p>Section 3 (PORT Driver </p>
+<p>Generation Tool Overview)</p>
+<p> </p>
+<p>Provides the component overview of PORT Driver.</p>
+<p> </p>
+<p>Section 4 (Input Files)</p>
+<p> </p>
+<p>Provides information about ECU Configuration Description File.</p>
+<p> </p>
+<p>Section 5 (Output Files)</p>
+<p> </p>
+<p>Explains the output files that are generated by the PORT Driver </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 6 (Precautions)</p>
+<p> </p>
+<p>Contains precautions to be taken during configuration of ECU </p>
+<p>Configuration Description File.</p>
+<p> </p>
+<p>Section 7 (User Configuration </p>
+<p>Validation)</p>
+<p> </p>
+<p>Describes about user configuration validation done by the PORT Driver </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 8 (Messages)</p>
+<p> </p>
+<p>Describes all the Error/Warning/Information messages of  R4.0.3 </p>
+<p>which helps the user to understand the probable reason for the same.</p>
+<p> </p>
+<p>Section 9 (Notes)</p>
+<p> </p>
+<p>Provides notes to help the user to understand this document better.</p>
+<p> </p>
+<p><b>9 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1                                                                                                                              Introduction </b></p>
+<p> </p>
+<p> </p>
+<p><b>10 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Reference </b></p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 2  Reference </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>Reference Documents </b></p>
+<p> </p>
+<p> </p>
+<p>The following table lists the documents referred to develop this document: </p>
+<p> </p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Title</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>AUTOSAR_SWS_PortDriver.pdf </p>
+<p> </p>
+<p>3.2.0</p>
+<p> </p>
+<p>2. </p>
+<p><b>P1x Parameter Definition File </b></p>
+<p> </p>
+<p>R403_PORT_P1M_04_05.arxml </p>
+<p> </p>
+<p>1.0.1 </p>
+<p>3. </p>
+<p><b>P1x Parameter Definition File </b></p>
+<p> </p>
+<p>R403_PORT_P1M_12_13.arxml </p>
+<p>1.0.2 </p>
+<p>4. </p>
+<p><b>P1x Parameter Definition File </b></p>
+<p> </p>
+<p>R403_PORT_P1M_20_21.arxml </p>
+<p>1.0.1 </p>
+<p>5. </p>
+<p><b>P1x Parameter Definition File </b></p>
+<p> </p>
+<p>R403_PORT_P1M_18_19_22_23.arxml </p>
+<p>1.0.1 </p>
+<p>6. </p>
+<p><b>P1x Parameter Definition File </b></p>
+<p>  </p>
+<p> R403_PORT_P1M_10_11_14_15.arxml </p>
+<p>1.0.4 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.2 </b></p>
+<p><b>Trademark Notice </b></p>
+<p> </p>
+<p> </p>
+<p>Microsoft and Windows are trademarks/registered trademarks of Microsoft </p>
+<p>Corporation. </p>
+<p><b>11 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 2 </b></p>
+<p><b>Reference </b></p>
+<p> </p>
+<p> </p>
+<p><b>12 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>PORT Driver Generation Tool Overview  </b></p>
+<p><b>Chapter 3                                                                           </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 3  PORT Driver Generation Tool Overview </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>PORT Driver Generation Tool overview is shown </p>
+<p>below. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>ECU </b></p>
+<p><b>Configuration </b></p>
+<p><b>Description File, </b></p>
+<p><b>Translation XML </b></p>
+<p><b>File, BSWMDT </b></p>
+<p><b>File and </b></p>
+<p><b>Configuration </b></p>
+<p><b>XM L File </b></p>
+<p> </p>
+<p> </p>
+<p><b>PORT Driver </b></p>
+<p><b>Generation </b></p>
+<p><b>Tool </b></p>
+<p> </p>
+<p> </p>
+<p><b>Port_Cfg.h, </b></p>
+<p><b>Port_P Bcfg.c </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>                 Figure 3-1 </b></p>
+<p><b>Overview of PORT Driver Generation Tool </b></p>
+<p> </p>
+<p> </p>
+<p>PORT Driver Generation Tool is a command line tool that provides scalability </p>
+<p>and configurability for PORT Driver component. It accepts ECU Configuration </p>
+<p>Description File(s) , BSWMDT File, Translation XML File and Configuration </p>
+<p>XML File as input and generates the C Header and C Source files (Port_Cfg.h </p>
+<p>and Port_PBcfg.c) </p>
+<p> </p>
+<p>Port_Cfg.h </p>
+<p>will  be  compiled  and </p>
+<p>linked </p>
+<p>with  PORT  Driver  Component. </p>
+<p>Port_PBcfg.c will be compiled and linked separately from the other C Source </p>
+<p>files and placed in flash. </p>
+<p> </p>
+<p>ECU Configuration Description File can be created or edited using ECU </p>
+<p>Configuration Editor. </p>
+<p> </p>
+<p>PORT  Driver  Generation  Tool  extracts,  analyzes  the  configuration  details </p>
+<p>provided in the input file and validates correctness of the data. Tool displays </p>
+<p>appropriate context sensitive error messages for wrong input and exits. Tool </p>
+<p>creates </p>
+<p>the </p>
+<p>Log </p>
+<p>file </p>
+<p>(Port.log) </p>
+<p>that </p>
+<p>contains </p>
+<p>the </p>
+<p>list </p>
+<p>of </p>
+<p>Error/Warning/Information messages in the output directory. </p>
+<p> </p>
+<p>For the error free input file, the tool generates the following output files: C </p>
+<p>header Port_Cfg.h and C source Port_PBcfg.c file names. </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>• </p>
+<p>In case of errors the generation tool returns a 1, in case of no errors </p>
+<p>the generation tool returns a 0. </p>
+<p>• </p>
+<p>PORT Driver Generation Tool uses “Common Published Information” </p>
+<p>from  PORT  module  specific  BSWMDT  File  should  not  be  updated </p>
+<p>manually since it is “Static Configuration” file. </p>
+<p><b> </b></p>
+<p><b>13 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3                                                                             PORT Driver Generation Tool Overview </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>14 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Input Files </b></p>
+<p><b>Chapter 4 </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 4  Input Files </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>PORT Driver Generation Tool accepts ECU Configuration Description File(s), </p>
+<p>Configuration  XML  file,  BSWMDT  File  and  Translation  XML  File  as  input. </p>
+<p>PORT </p>
+<p>Driver </p>
+<p>Generation </p>
+<p>Tool </p>
+<p>needs </p>
+<p>information </p>
+<p>about </p>
+<p>PORT </p>
+<p>Driver </p>
+<p>component. </p>
+<p>Hence </p>
+<p>ECU </p>
+<p>Configuration </p>
+<p>Description </p>
+<p>File </p>
+<p>should </p>
+<p>contain </p>
+<p>configuration of PORT Driver component. Generation Tool ignores any other </p>
+<p>AUTOSAR component configured in the ECU Configuration Description File. </p>
+<p>ECU  Configuration  Description  File  can  be  generated  using  configuration </p>
+<p>editor. </p>
+<p> </p>
+<p>ECU Configuration Description File must comply with AUTOSAR standard </p>
+<p>ECU Configuration Description File format. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>The detailed explanation about the parameters and containers are found in </p>
+<p>Parameter Definition File mentioned in the Reference Documents section.</p>
+<p><b>15 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 4 </b></p>
+<p><b>   Input Files </b></p>
+<p> </p>
+<p> </p>
+<p><b>16 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Output Files </b></p>
+<p><b> </b></p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 5  Output Files </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>PORT Driver Generation Tool generates configuration details in C Header and </p>
+<p>C Source files (Port_Cfg.h and Port_PBcfg.c). </p>
+<p> </p>
+<p>The content of each output file is given in the table below: </p>
+<p> </p>
+<p> </p>
+<p><b>Table 5-1 </b></p>
+<p><b>Output Files Description </b></p>
+<p> </p>
+<p><b>Output File</b></p>
+<p> </p>
+<p><b>Details</b></p>
+<p> </p>
+<p>Port_Cfg.h</p>
+<p> </p>
+<p>This file contains the macro definitions for general configuration, total number of Port </p>
+<p>Pins configured and configuration set handles. This file also includes the Port Pin </p>
+<p>handles for each configuration set.</p>
+<p> </p>
+<p>Port_PBcfg.c</p>
+<p> </p>
+<p>This file contains structure for Port Pin Initialization, Port Pin Direction Switch and Port </p>
+<p>Pin Direction Refresh during runtime.</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Remark </b></p>
+<p>Output files generated by PORT Driver Generation Tool should not be modified </p>
+<p>or edited manually. </p>
+<p><b>17 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5 </b></p>
+<p><b>        Output Files</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>18 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Precautions </b></p>
+<p><b>Chapter 6 </b></p>
+<p> </p>
+<p><b>Chapter 6  Precautions </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>ECU Configuration Description File and BSWMDT File must comply with </p>
+<p>AUTOSAR  standard  for  R4.0.3  ECU  Configuration  Description  File  and </p>
+<p>BSWMDT File respectively. </p>
+<p> </p>
+<p>• </p>
+<p>The input file must contain PORT Driver component. </p>
+<p> </p>
+<p>• </p>
+<p>Default Translation XML File (Port_X1x.trxml) should be present in same </p>
+<p>location of Port_X1x.exe when the variant specific trxml file is not given as </p>
+<p>input in command line. </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>Default  Configuration  XML  File  (Port_X1x.cfgxml)  must  be  present  in </p>
+<p>same location of Port_X1x.exe. </p>
+<p> </p>
+<p>• </p>
+<p>If </p>
+<p>Translation </p>
+<p>XML </p>
+<p>File </p>
+<p>is </p>
+<p>not </p>
+<p>provided </p>
+<p>on </p>
+<p>the </p>
+<p>command </p>
+<p>line, </p>
+<p>Port_X1x.trxml  which  is  present  in  same  location  of  Port_X1x.exe  is </p>
+<p>considered as ‘default’ Translation XML File. </p>
+<p> </p>
+<p>• </p>
+<p>If </p>
+<p>Configuration </p>
+<p>XML </p>
+<p>File </p>
+<p>is </p>
+<p>not </p>
+<p>provided </p>
+<p>on </p>
+<p>the </p>
+<p>command </p>
+<p>line, </p>
+<p>Port_X1x.cfgxml  which  is  present  in  same  location  of  Port_X1x.exe  is </p>
+<p>considered as ‘default’ Configuration XML File. </p>
+<p> </p>
+<p>• </p>
+<p>Translation XML File should contain the file extension ‘.trxml’. </p>
+<p> </p>
+<p>• </p>
+<p>Configuration XML File should contain the file extension ‘.cfgxml’. </p>
+<p> </p>
+<p>• </p>
+<p>All  the  function  names  and  the  string  values  configured  should  follow  C </p>
+<p>syntax for variables. It can only contain alphanumeric characters and “_”. </p>
+<p>It should start with an alphabet. </p>
+<p> </p>
+<p>• </p>
+<p>If the output files generated by PORT Driver Generation Tool are modified </p>
+<p>externally, then they may not produce the expected results or may lead to </p>
+<p>error/warning/Information messages. </p>
+<p> </p>
+<p>• </p>
+<p>Short Name for a container should be unique within a name space. </p>
+<p> </p>
+<p>• </p>
+<p>An </p>
+<p>error </p>
+<p>free </p>
+<p>ECU </p>
+<p>Configuration </p>
+<p>Description </p>
+<p>File </p>
+<p>generated </p>
+<p>from </p>
+<p>configuration  editor  has  to  be  provided  as  input  to  the  PORT  Driver </p>
+<p>Generation Tool. Otherwise Tool may not produce the expected results or </p>
+<p>may lead to “errors/warnings/information messages”. </p>
+<p> </p>
+<p>• </p>
+<p>If no configuration of certain port filter is done within this Port Module, the </p>
+<p>device specific default settings will take effect on this filter. </p>
+<p> </p>
+<p>• </p>
+<p>If  user  selects  the  alternate  signal  in  the  port  group  container,  then  the </p>
+<p>respective port filter container should be configured. For example: If signal </p>
+<p>NMI </p>
+<p>is </p>
+<p>selected </p>
+<p>in </p>
+<p>the </p>
+<p>port </p>
+<p>group </p>
+<p>container </p>
+<p>respective </p>
+<p>filter </p>
+<p>group </p>
+<p>container has to be configured. </p>
+<p> </p>
+<p>• </p>
+<p>The  digital  noise  filter  clock  container  ‘PortDigitalFilterClkCtrl’  should  be </p>
+<p>configured along with containers ‘PortDigitalFilterGroup’, if </p>
+<p>‘PortDigitalFilterClkCtrl’ container exists. </p>
+<p> </p>
+<p>• </p>
+<p>In  case  of  multiple  configuration  sets,  if  any  filter  is  configured  in  one </p>
+<p>configuration  set,  then  the  same  filter  should  be  configured  across  all </p>
+<p>configured multiple configuration sets. </p>
+<p> </p>
+<p>• </p>
+<p>In  post-build  time,  sub  containers  of  PortFilterGroupConfig  containers </p>
+<p>should not be added or deleted. </p>
+<p> </p>
+<p>• </p>
+<p>Edge/Level </p>
+<p>settings </p>
+<p>for </p>
+<p>External </p>
+<p>Interrupt </p>
+<p>(INTP) </p>
+<p>signals </p>
+<p>can </p>
+<p>be </p>
+<p>overwritten by ICU component to change the default activation type and </p>
+<p>the type of activation at run-time. </p>
+<p><b>19 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 6 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>          </b></p>
+<p><b> </b></p>
+<p><b>              Precautions</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>User has to make sure that the respective device specific configuration file </p>
+<p>is used otherwise Tool may not produce the expected results or may lead </p>
+<p>to errors/warnings/information messages. </p>
+<p> </p>
+<p>• </p>
+<p>The description file should always be generated using AUTOSAR </p>
+<p>specified configuration editor and it should not be edited manually. </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p><b>  </b>Please refer the PORT Component User Manual for deviations from </p>
+<p>  AUTOSAR specifications, if any. </p>
+<p><b>20 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>User Configuration Validation </b></p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 7  User Configuration Validation </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>This  section  provides  help  to  analyze  the  error,  warning  and  information </p>
+<p>messages displayed during the execution of PORT Driver Generation Tool. It </p>
+<p>ensures conformance of input file with syntax and semantics. It also performs </p>
+<p>validation on the input file for correctness of the data. </p>
+<p> </p>
+<p> </p>
+<p>For  more  details  on  list  of  Error/Warning/Information  messages  that  are </p>
+<p>displayed as a result of input file(s) validation, refer Chapter 8 “<i>Messages</i>”. </p>
+<p> </p>
+<p> </p>
+<p>The Generation Tool displays error or warning or information messages when </p>
+<p>the </p>
+<p>user </p>
+<p>has </p>
+<p>configured </p>
+<p>incorrect </p>
+<p>inputs. </p>
+<p>The </p>
+<p>format </p>
+<p>of </p>
+<p>Error/Warning/ </p>
+<p>Information message is as shown below. </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>ERR/WRN/INF&lt;mid&gt;&lt;xxx&gt;: &lt;Error/Warning/Information Message&gt;. </p>
+<p>where, </p>
+<p>&lt;mid&gt;: 124 - PORT Driver Module Id (124) for user configuration checks. </p>
+<p>000 - for command line checks. </p>
+<p>&lt;xxx&gt;: 001-999 - Message Id. </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>File Name: Name of the file in which the error has occurred. </p>
+<p> </p>
+<p>• </p>
+<p>Path: Absolute Path of the container in which the parameter is present. </p>
+<p> </p>
+<p> </p>
+<p>‘File Name’ and ‘Path’ need not be present for all Error/Warning/Information </p>
+<p>messages. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>21 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 7 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>         User Configuration Validation</b></p>
+<p> </p>
+<p> </p>
+<p><b>22 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Messages </b></p>
+<p><b> </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 8  Messages </b></p>
+<p> </p>
+<p> </p>
+<p>The  messages  help  to  identify  the  syntax  or  semantic  errors  in  the  ECU </p>
+<p>Configuration  Description  File.  Hence  it  ensures  validity  and  correctness  of </p>
+<p>the information available in the ECU Configuration Description File. </p>
+<p> </p>
+<p>The </p>
+<p>following </p>
+<p>section </p>
+<p>gives </p>
+<p>the </p>
+<p>list </p>
+<p>of </p>
+<p>error, </p>
+<p>warning </p>
+<p>and </p>
+<p>information </p>
+<p>messages displayed by the Generation Tool. </p>
+<p> </p>
+<p> </p>
+<p><b>8.1 </b></p>
+<p><b>Error Messages </b></p>
+<p> </p>
+<p><b>ERR124001: Number of fields is not same for the entity 'Structure Name'. </b></p>
+<p> </p>
+<p>This error occurs, if the number of fields is not same in the structure that is to </p>
+<p>be generated in the output file. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR124002: Field 'Field Name' is empty in the entity 'Structure Name'. </b></p>
+<p> </p>
+<p>This error occurs, if the structure fields that are to be generated in the output </p>
+<p>file are empty. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR124003: 'PORT Driver / DEM' Component is not present in the input </b></p>
+<p><b>file(s). </b></p>
+<p> </p>
+<p>This error occurs, if PORT Driver or DEM component is not present in the </p>
+<p>input ECU Configuration Description File(s). </p>
+<p> </p>
+<p> </p>
+<p><b>ERR124004: The parameter 'parameter name' in the container 'container </b></p>
+<p><b>name' should be configured. </b></p>
+<p> </p>
+<p>This error occurs, if any of the mandatory configuration parameter(s) </p>
+<p>mentioned below is (are) not configured in ECU Configuration Description File. </p>
+<p>The list of mandatory parameters with respect to container is listed below: </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>PortConfigSet   </p>
+<p> </p>
+<p>PortDevErrorDetect  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>PortGeneral</p>
+<p> </p>
+<p>PortDemErrorDetect</p>
+<p> </p>
+<p>PortSetPinDirectionApi</p>
+<p> </p>
+<p>PortSetPinModeApi</p>
+<p> </p>
+<p>PortVersionInfoApi</p>
+<p> </p>
+<p>PortDeviceName</p>
+<p> </p>
+<p>PortCriticalSectionProtection</p>
+<p> </p>
+<p>PortVersionCheckExternalModules</p>
+<p> </p>
+<p>PortLoopTimeout </p>
+<p><b>23 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                     </b></p>
+<p>                                               </p>
+<p><b>Messages</b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p>PortMaxMode </p>
+<p> </p>
+<p>PortSetToDioAltModeApi </p>
+<p>PortSetPinDefaultDirectionApi </p>
+<p>PortSetPinDefaultModeApi </p>
+<p>PortPinDirection    </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>‘Port Group’ container </p>
+<p>Where in ‘Port Group container': PortGroup&lt;Group </p>
+<p>number/Alphabetic name&gt; for PortPin&lt;Pin </p>
+<p>number&gt;.  </p>
+<p>E.g. PortGroup0 </p>
+<p>PortPin0, </p>
+<p>PortGroup1 </p>
+<p>PortPin1,  </p>
+<p>PortGroupJtag0 </p>
+<p> PortPin0 etc.</p>
+<p> </p>
+<p> </p>
+<p>PortPinDirectionChangeable   </p>
+<p> </p>
+<p>PortPinLevelValue    </p>
+<p> </p>
+<p>PortPinInitialMode      </p>
+<p> </p>
+<p>PortInputBufferControl   </p>
+<p> </p>
+<p>PortBiDirectionControl     </p>
+<p> </p>
+<p>PortPullUpOption   </p>
+<p> </p>
+<p>PortPullDownOption    </p>
+<p> </p>
+<p>PortInputSelection    </p>
+<p> </p>
+<p>PortIpControl     </p>
+<p> </p>
+<p>PortOpenDrainControl    </p>
+<p> </p>
+<p>PortDriveStrengthControl   </p>
+<p> </p>
+<p>PortPinModeChangeable    </p>
+<p> </p>
+<p>PortOpenDrainControlExpansion    </p>
+<p>PortOutputLevelInversion    </p>
+<p>PortUnlimitedCurrentControl   </p>
+<p>PortPinDioAltModeChangeable   </p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>PortFilterGroupConfig</p>
+<p> </p>
+<p>PortSameLevelSamples </p>
+<p> </p>
+<p>Digital Filter Container </p>
+<p>PortDigitalFilterGroup&lt;Filter Group number&gt; Ex: </p>
+<p>PortDigitalFilterGroup0,  </p>
+<p>PortDigitalFilterGroup1... etc</p>
+<p> </p>
+<p>PortSamplingClockFrequency </p>
+<p> </p>
+<p>PortDigitalFilterEnableInput </p>
+<p>PortDigitalFilterEdgeControl </p>
+<p>PORT_E_WRITE_TIMEOUT_FAILURE </p>
+<p>PortDemEventParameterRefs </p>
+<p>PortClockSource&lt;Filter clock source selection </p>
+<p>number&gt; </p>
+<p>SamplingClockSourceSelection </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ERR124005:</b></p>
+<p> </p>
+<p><b>The  number  of  configuration  sets  configured  for  'PORT' </b></p>
+<p><b>and 'MCU' modules should be same. </b></p>
+<p> </p>
+<p>This error occurs, if the number of configuration sets configured for PORT and </p>
+<p>MCU modules are not same. </p>
+<p><b> </b></p>
+<p><b>ERR124007:  Short  name  of  ‘Port  Group  container’  container  should </b></p>
+<p><b>be same across all configuration sets. </b></p>
+<p> </p>
+<p>This  error  occurs,  if  short  name  of  ‘Port  Group  container’  container  is  not </p>
+<p>same across all configuration sets. </p>
+<p><b> </b></p>
+<p><b>ERR124008:</b></p>
+<p> </p>
+<p><b>Short name of '</b></p>
+<p><b> Port Pin container’</b></p>
+<p><b> should be same across all </b></p>
+<p><b>configuration sets. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if short name of ‘Port Pin container’ is not same across all </p>
+<p>configuration sets. </p>
+<p> </p>
+<p> </p>
+<p><b>24 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Messages </b></p>
+<p><b> </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>ERR124009: The value for parameter 'PortPinModeChangeable' from </b></p>
+<p><b>‘Port Group Container’  container should not be  configured as  &lt;true&gt; </b></p>
+<p><b>as the value for parameter ‘PortSetPinModeApi’ in the container </b></p>
+<p><b>‘PortGeneral’ is configured as &lt;false&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the parameter PortSetPinModeApi in the container </p>
+<p>PortGeneral is configured as false and parameter PortPinModeChangeable </p>
+<p>is configured as true for at least one of the ‘Port Group container’ container. </p>
+<p> </p>
+<p> </p>
+<p><b>  ERR124010: The value for parameter ‘PortInputBufferControl’ of the ‘Port    </b></p>
+<p><b>Group Container’ container should not be configured as &lt;true&gt; as the </b></p>
+<p><b>value configured for parameter ‘PortPinInitialMode’ of the same </b></p>
+<p><b>container  </b></p>
+<p><b>is configured as &lt;PORT_PIN_OUT&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the parameter PortPinInitialMode of the ‘Port Group </p>
+<p>container’ is configured as an output and parameter PortInputBufferControl </p>
+<p>of the same ‘Port Group container’ container is true. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ERR124011: The value for parameter ‘PortPinDirectionChangeable’ for </b></p>
+<p><b>any ‘Port Group Container’ container should not be configured as &lt;true&gt; </b></p>
+<p><b>as the value for parameter ‘PortSetPinDirectionApi’ in the container </b></p>
+<p><b>‘PortGeneral’ is configured as &lt;false&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the parameter PortSetPinDirectionApi in the container </p>
+<p>PortGeneral is configured as false and parameter </p>
+<p>PortPinDirectionChangeable is configured as true for at least one of the ‘Port </p>
+<p>Group container’ container. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>ERR124012: The reference path &lt;path&gt; provided for the parameter </b></p>
+<p><b>'PORT_E_WRITE_FAILURE' within the container </b></p>
+<p><b>'PortDemEventParameterRefs' is incorrect. </b></p>
+<p> </p>
+<p>This error occurs, if the path provided for parameter </p>
+<p>PORT_E_WRITE_FAILURE in the container PortDemEventParameterRefs is </p>
+<p>incorrect. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR124013: </b></p>
+<p><b>Value </b></p>
+<p><b>of </b></p>
+<p><b>the </b></p>
+<p><b>parameter </b></p>
+<p><b>'PortPinInitialMode' </b></p>
+<p><b>of </b></p>
+<p><b>'Port </b></p>
+<p><b>Group </b></p>
+<p><b>container' </b></p>
+<p><b>'Port </b></p>
+<p><b>Pin </b></p>
+<p><b>container' </b></p>
+<p><b>container </b></p>
+<p><b>should </b></p>
+<p><b>not </b></p>
+<p><b>be </b></p>
+<p><b>configured as </b></p>
+<p><b>&lt;value of PortPinInitialMode&gt;, since the parameter </b></p>
+<p><b>'PortPinDioAltModeChangeable' of same container is configured as </b></p>
+<p><b>&lt;true&gt;. </b></p>
+<p> </p>
+<p>This  error  occurs,  if  the  parameter  PortPinInitialMode  of  the  ‘Port  Group </p>
+<p>container’ </p>
+<p>is </p>
+<p>configured </p>
+<p>as </p>
+<p>DIO </p>
+<p>and </p>
+<p>parameter </p>
+<p>PortPinDioAltModeChangeable of the same ‘Port Group container’ container </p>
+<p>is true. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ERR124014: The value for parameter ‘PortPinDioAltModeChangeable’ for </b></p>
+<p><b>any ‘Port Group Container’ container should not be configured as &lt;true&gt; </b></p>
+<p><b>as  the  value  for  parameter  ‘PortSetToDioAltModeApi’  in  the  container </b></p>
+<p><b>‘PortGeneral’ is configured as &lt;false&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the parameter PortSetToDioAltModeApi in the container </p>
+<p>PortGeneral </p>
+<p>is </p>
+<p>configured </p>
+<p>as </p>
+<p>false </p>
+<p>and </p>
+<p>parameter </p>
+<p><b>25 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                     </b></p>
+<p>                                               </p>
+<p><b>Messages</b></p>
+<p><b> </b></p>
+<p> </p>
+<p>PortPinDioAltModeChangeable  is  configured  as  true  for  at  least  one  of  the </p>
+<p>‘Port Group container’ container. </p>
+<p><b> </b></p>
+<p><b>ERR124015: The value for parameter 'PortSetPinDefaultDirectionApi' </b></p>
+<p><b>from 'PortGeneral' container should not be configured as &lt;true&gt; as the </b></p>
+<p><b>value for parameter 'PortSetPinDirectionApi' in the container </b></p>
+<p><b>'PortGeneral' is configured as &lt;false&gt;. </b></p>
+<p><b> </b></p>
+<p>This error will occur, if the parameter PortSetPinDirectionApi in the container </p>
+<p>PortGeneral is configured as false and parameter </p>
+<p>PortSetPinDefaultDirectionApi in the PortGeneral container PortGeneral is </p>
+<p>configured as true. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR124016: The value for parameter 'PortSetPinDefaultModeApi' from </b></p>
+<p><b>'PortGeneral' container should not be configured as &lt;true&gt; as the value </b></p>
+<p><b>for parameter 'PortSetPinModeApi' in the container 'PortGeneral' is </b></p>
+<p><b>configured as &lt;false&gt;. </b></p>
+<p><b> </b></p>
+<p>This error will occur, if the parameter PortSetPinModeApi in the container </p>
+<p>PortGeneral is configured as false and parameter PortSetPinDefaultModeApi </p>
+<p>in the PortGeneral container PortGeneral is configured as true. </p>
+<p> </p>
+<p><b>ERR124018: The configured value of the parameter ‘PortPinInitialMode’ </b></p>
+<p><b>of the container ‘PortPin1’ is incorrect, since the parameter </b></p>
+<p><b>‘PortIpControl’ is configured as &lt;true&gt; and ‘PortPinInitialMode’ is </b></p>
+<p><b>configured as &lt;&gt;. </b></p>
+<p><b> </b></p>
+<p>This error will occur, if the parameter PortIpControl in the container </p>
+<p>PortGroup is configured as true and parameter PortPinInitialMode of the </p>
+<p>same PortGroup container is configured as any mode except the one for </p>
+<p>which the parameter PortIpControl is required to be TRUE. </p>
+<p> </p>
+<p> </p>
+<p><b>8.2 </b></p>
+<p><b>Warning Messages </b></p>
+<p> </p>
+<p> </p>
+<p><b>WRN124001: </b></p>
+<p><b>The </b></p>
+<p><b>parameter </b></p>
+<p><b>‘PortPinDirection’ </b></p>
+<p><b>of </b></p>
+<p><b>container </b></p>
+<p><b>‘Port </b></p>
+<p><b>Group  container’  should  not  be  configured  as  &lt;PORT_PIN_OUT&gt;, </b></p>
+<p><b>since  the  parameter  ‘PortPinInitialMode’  of  the  same  ‘Port  Group </b></p>
+<p><b>container’  container  is  configured  as  an  Input  type  mode.  The  value </b></p>
+<p><b>for parameter </b></p>
+<p><b>‘PortPinDirection’ is considered as &lt;PORT_PIN_IN&gt;. </b></p>
+<p> </p>
+<p> </p>
+<p>This warning occurs, if value configured for the parameter PortPinDirection is </p>
+<p>Output and value configured for the parameter PortPinInitialMode is of Input </p>
+<p>type mode. The value of the parameter PortPinDirection will be considered </p>
+<p>as Input. </p>
+<p> </p>
+<p><b>WRN124002: </b></p>
+<p><b>The </b></p>
+<p><b>parameter </b></p>
+<p><b>‘PortPinDirection’ </b></p>
+<p><b>of </b></p>
+<p><b>container </b></p>
+<p><b>‘Port </b></p>
+<p><b>Group container’ should not be configured as &lt;PORT_PIN_IN&gt;, since </b></p>
+<p><b>the parameter ‘PortPinInitialMode’ of the same ‘Port Group container’ </b></p>
+<p><b>container </b></p>
+<p><b>'is </b></p>
+<p><b>configured </b></p>
+<p><b>as </b></p>
+<p><b>an </b></p>
+<p><b>Output </b></p>
+<p><b>type </b></p>
+<p><b>mode. </b></p>
+<p><b>The </b></p>
+<p><b>value </b></p>
+<p><b>for </b></p>
+<p><b>parameter </b></p>
+<p><b>‘PortPinDirection’ is considered as &lt;PORT_PIN_OUT&gt;. </b></p>
+<p> </p>
+<p> </p>
+<p>This warning occurs, if value configured for the parameter PortPinDirection is </p>
+<p>Input and value configured for the parameter PortPinInitialMode is of Output </p>
+<p>type mode. The value of the parameter PortPinDirection will be considered </p>
+<p><b>26 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Messages </b></p>
+<p><b> </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p>as Output. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>WRN124003:</b></p>
+<p> </p>
+<p><b>The </b></p>
+<p><b>configured </b></p>
+<p><b>value </b></p>
+<p><b>of </b></p>
+<p><b>the </b></p>
+<p><b>parameter </b></p>
+<p><b>'PortPinInitialMode' </b></p>
+<p><b>of </b></p>
+<p><b>the </b></p>
+<p><b>container </b></p>
+<p><b>'Port </b></p>
+<p><b>Group </b></p>
+<p><b>Container' </b></p>
+<p><b>are </b></p>
+<p><b>ignored, since the parameters 'PortPinModeChangeable' is configured </b></p>
+<p><b>as </b></p>
+<p><b>&lt;true&gt; </b></p>
+<p><b>and </b></p>
+<p><b>'PortSpecialBufferControl' </b></p>
+<p><b>is </b></p>
+<p><b>configured </b></p>
+<p><b>as </b></p>
+<p><b>&lt;SPECIAL_BUFFER&gt;. </b></p>
+<p><b> </b></p>
+<p>This warning occurs, if the configured value of the parameter  </p>
+<p>PortPinInitialMode  of  the  container  Port  Group  Container  are  not  ignored, </p>
+<p>when  the  parameters  PortPinModeChangeable  is  configured  as  true  and </p>
+<p>PortSpecialBufferControl is configured as SPECIAL_BUFFER. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>WRN124005: To check, if the value for parameter </b></p>
+<p><b>‘PortDriveStrengthControl’ from ‘PortPin’ of ‘PortGroup’ container </b></p>
+<p><b>should not be configured as &lt; MIDDLE_0 &gt; and since the parameter </b></p>
+<p><b>'PortUnlimitedCurrentControl' of same container is configured as &lt; </b></p>
+<p><b>HIGH&gt;. </b></p>
+<p>This  warning  will  occur  if  the  value  for  parameter  ‘PortDriveStrengthControl’ </p>
+<p>from </p>
+<p>‘PortPin’ </p>
+<p>of </p>
+<p>‘PortGroup’ </p>
+<p>container </p>
+<p>should </p>
+<p>not </p>
+<p>be </p>
+<p>configured </p>
+<p>as </p>
+<p>&lt; </p>
+<p>MIDDLE_0 &gt; and since the parameter 'PortUnlimitedCurrentControl' of same </p>
+<p>container is configured as &lt; HIGH&gt;. </p>
+<p> </p>
+<p><b>WRN124006: The values configured in SamplingClockSourceSelection </b></p>
+<p><b>container </b></p>
+<p><b>are </b></p>
+<p><b>ignored </b></p>
+<p><b>since </b></p>
+<p><b>no </b></p>
+<p><b>PortDigitalFilterGroup </b></p>
+<p><b>container </b></p>
+<p><b>is  </b></p>
+<p><b>configured.  </b></p>
+<p>This </p>
+<p>warning </p>
+<p>will </p>
+<p>occur </p>
+<p>if </p>
+<p>the </p>
+<p>values </p>
+<p>configured </p>
+<p>for </p>
+<p>SamplingClockSourceSelection </p>
+<p>container </p>
+<p>are </p>
+<p>ignored </p>
+<p>when </p>
+<p>no </p>
+<p>PortDigitalFilterGroup container is configured. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>8.3 </b></p>
+<p><b>Information Messages </b></p>
+<p> </p>
+<p>None.</p>
+<p><b>27 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                     </b></p>
+<p>                                               </p>
+<p><b>Messages</b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>28 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Notes </b></p>
+<p><b> </b></p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 9  Notes </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>“Generation Tool” and “Tool” terminologies are used interchangeably to refer </p>
+<p>PORT Driver Generation Tool. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>29 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 9 </b></p>
+<p><b> </b></p>
+<p><b>     Notes</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>30 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Revision History </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>08-Oct-2013</p>
+<p> </p>
+<p>2. </p>
+<p>Following change is made: </p>
+<p> </p>
+<p>• </p>
+<p>Error message ERR124004 is updated for addition of </p>
+<p>PortDemEventParameterRefs container. </p>
+<p> </p>
+<p>1.0.1 </p>
+<p>21-Nov-2013 </p>
+<p>3. </p>
+<p>Following changes are made: </p>
+<p> </p>
+<p>• </p>
+<p>Error messages ERR124003, ERR124005, ERR124006, </p>
+<p>ERR124008 and ERR124014 are added in section 8.1. </p>
+<p> </p>
+<p>• </p>
+<p>Error message ERR124004 is updated in section 8.1. </p>
+<p> </p>
+<p>• </p>
+<p>Warning messages WRN124003, WRN124005 are updated in </p>
+<p>section 8.2. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>1.0.2 </p>
+<p>28-Jan-2014 </p>
+<p>4. </p>
+<p>Following changes are made: </p>
+<p> </p>
+<p>• </p>
+<p>Error messages ERR124004 is updated in section 8.1 for the </p>
+<p>removal of PortPinStatusBackup parameter. </p>
+<p> </p>
+<p>• </p>
+<p>The error message ERR124006 and the warning message </p>
+<p>WRN124004 are deleted from chapter 8. </p>
+<p> </p>
+<p>1.0.3 </p>
+<p>12-Mar-2014 </p>
+<p>5. </p>
+<p>Following changes are made: </p>
+<p>      </p>
+<p> </p>
+<p>• </p>
+<p>Error messages ERR124015 and ERR124016 are added newly in </p>
+<p>section 8.1. </p>
+<p> </p>
+<p>• </p>
+<p>Error message ERR124004 is updated for addition of </p>
+<p>SamplingClockSourceSelection container and </p>
+<p>PortSetPinDefaultDirectionApi and PortSetPinDefaultModeApi </p>
+<p>parameters in PortGeneral container. </p>
+<p> </p>
+<p>• </p>
+<p>The warning message WRN124006 is added newly in section 8.3 </p>
+<p>. </p>
+<p>• </p>
+<p>Reference Documents section is updated for addition of Parameter </p>
+<p>definition file reference in chapter 2. </p>
+<p> </p>
+<p>• </p>
+<p>Precautions chapter is updated. </p>
+<p> </p>
+<p>1.0.4 </p>
+<p>27-Aug-2014 </p>
+<p>6. </p>
+<p>Following changes are made: </p>
+<p> </p>
+<p>• </p>
+<p>Parameter definition file names and versions are updated in </p>
+<p>section 2.1. </p>
+<p> </p>
+<p>• </p>
+<p>Error message ERR124018 is added in section 8.1. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>1.0.5 </p>
+<p>29-Apr-2015 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>31 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR MCAL R4.0.3 User's Manual </b></p>
+<p><b>PORT Driver Component Ver.1.0.5 </b></p>
+<p><b>Generation Tool User's Manual </b></p>
+<p> </p>
+<p>Publication Date: Rev.0.02, April 29, 2015 </p>
+<p> </p>
+<p> </p>
+<p>Published by: Renesas Electronics Corporation </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES OFFICES</b> </p>
+<p>http://www.renesas.com </p>
+<p>Refer to &quot;http://www.renesas.com/&quot; for the latest and detailed information. </p>
+<p><b>Renesas Electronics  America Inc.</b> </p>
+<p>2880 Scott Boulevard  Santa Clara, CA 95050-2554, U.S.A. </p>
+<p>Tel:  +1-408-588-6000, Fax: +1-408-588-6130 </p>
+<p><b>Renesas Electronics  Canada Limited</b> </p>
+<p>1101 Nicholson Road, Newmarket, Ontario L3Y 9C3, Canada </p>
+<p>Tel: +1-905-898-5441, Fax: +1-905-898-3220 </p>
+<p><b>Renesas Electronics Europe Limited</b> </p>
+<p>Dukes Meadow, Millboard Road, Bourne End, Buckinghamshire, SL8 5FH, U.K Tel: </p>
+<p>+44-1628-585-100, Fax: +44-1628-585-900 </p>
+<p><b>Renesas Electronics Europe GmbH </b></p>
+<p>Arcadiastrasse 10, 40472 Düsseldorf, Germany </p>
+<p>Tel: +49-211-65030, Fax: +49-211-6503-1327 </p>
+<p><b>Renesas Electronics (China) Co., Ltd.</b> </p>
+<p>7th Floor, Quantum Plaza, No.27 ZhiChunLu Haidian District, Beijing 100083, P.R.China </p>
+<p>Tel: +86-10-8235-1155, Fax: +86-10-8235-7679 </p>
+<p><b>Renesas Electronics (Shanghai) Co., Ltd.</b> </p>
+<p>Unit 204, 205, AZIA Center, No.1233 Lujiazui Ring Rd., Pudong District, Shanghai 200120, China </p>
+<p>Tel: +86-21-5877-1818, Fax: +86-21-6887-7858 / -7898 </p>
+<p><b>Renesas Electronics Hong Kong Limited</b> </p>
+<p>Unit 1601-1613, 16/F., Tower 2, Grand Century Place, 193 Prince Edward Road West, Mongkok, Kowloon, Hong Kong </p>
+<p>Tel: +852-2886-9318, Fax: +852 2886-9022/9044 </p>
+<p><b>Renesas Electronics Taiwan Co., Ltd.</b> </p>
+<p>7F, No. 363 Fu Shing North Road Taipei, Taiwan </p>
+<p>Tel: +886-2-8175-9600, Fax: +886 2-8175-9670 </p>
+<p><b>Renesas Electronics Singapore Pte. Ltd.</b> </p>
+<p>1 harbourFront Avenue, #06-10, Keppel Bay Tower, Singapore 098632 </p>
+<p>Tel: +65-6213-0200, Fax: +65-6278-8001 </p>
+<p><b>Renesas Electronics Malaysia Sdn.Bhd.</b> </p>
+<p>Unit 906, Block B, Menara Amcorp, Amcorp Trade Centre, No. 18, Jln Persiaran  Barat, 46050 Petaling Jaya, Selangor Darul Ehsan, Malaysia </p>
+<p>Tel: +60-3-7955-9390, Fax: +60-3-7955-9510 </p>
+<p><b>Renesas Electronics Korea Co., Ltd.</b> </p>
+<p>11F., Samik Lavied' or Bldg., 720-2 Yeoksam-Dong, Kangnam-Ku, Seoul 135-080, Korea </p>
+<p>Tel: </p>
+<p>+82-2-558-3737, </p>
+<p>Fax: </p>
+<p>+82-2-558-5141</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2015 Renesas Electronics Corporation. All rights reserved. </p>
+<p>Colophon 1.0 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3 </p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

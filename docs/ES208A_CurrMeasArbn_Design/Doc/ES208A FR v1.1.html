@@ -1,0 +1,427 @@
+---
+layout: default
+title: ES208A FR v1.1
+nav_order: 1
+parent: Component Design
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b>/ESG Group/FDD Module Requirements/EA4 Specific</b></p>
+<p><b>ES208A CurrMeasArbn</b></p>
+<p>Baselined v1.1 and Released</p>
+<p>Version: 1.1</p>
+<p>Printed by: Nayeem Mahmud</p>
+<p>Printed on: Friday, October 16, 2015</p>
+<p>Generated from DOORS 9.3.0.7</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Contents</b></p>
+<p><b>1</b></p>
+<p><b>1</b></p>
+<p><b>Purpose</b></p>
+<p><b>2</b></p>
+<p><b>2</b></p>
+<p><b>Interface Requirements</b></p>
+<p>2.1</p>
+<p>2</p>
+<p>Definitions</p>
+<p>2.1.1</p>
+<p>2</p>
+<p>Inputs</p>
+<p>2.1.2</p>
+<p>2</p>
+<p>Outputs</p>
+<p>2.1.3</p>
+<p>3</p>
+<p>Internally Defined Terms</p>
+<p><b>3</b></p>
+<p><b>4</b></p>
+<p><b>Requirements</b></p>
+<p>3.1</p>
+<p>4</p>
+<p>Primary Functional Requirements</p>
+<p>3.2</p>
+<p>4</p>
+<p>Hardware Requirements</p>
+<p>3.3</p>
+<p>4</p>
+<p>Software / Algorithm Requirements</p>
+<p>3.3.1</p>
+<p>4</p>
+<p>Special Execution Requirements</p>
+<p>3.3.2</p>
+<p>4</p>
+<p>Software Algorithm Decomoposition</p>
+<p>3.4</p>
+<p>5</p>
+<p>Diagnostic Requirements</p>
+<p>3.5</p>
+<p>5</p>
+<p>Manufacturing Requirements</p>
+<p>Contents</p>
+<p>ii</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 1A of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>ID</b></p>
+<p>ES208A_1</p>
+<p>ES208A_9</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 1B of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>Baselined v1.1 and Released</b></p>
+<p><b>1 Purpose</b></p>
+<p>The Current Measurement Arbitration function is responsible to calculate the direct (D) and quadrature (Q) axes </p>
+<p>motor currents using the combined Clarke/Park transformation.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 1C of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>Is </b></p>
+<p><b>Requir</b></p>
+<p><b>ement</b></p>
+<p><b>?</b></p>
+<p>False</p>
+<p>False</p>
+<p><b>.ASIL</b></p>
+<p>NA</p>
+<p>NA</p>
+<p><b>.ReqCat</b></p>
+<p><b>Review </b></p>
+<p><b>Date</b></p>
+<p><b>Review Action</b></p>
+<p><b>Review </b></p>
+<p><b>Action </b></p>
+<p><b>Status</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 2A of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>ID</b></p>
+<p>ES208A_2</p>
+<p>ES208A_11</p>
+<p>ES208A_12</p>
+<p>ES208A_200</p>
+<p>ES208A_205</p>
+<p>ES208A_202</p>
+<p>ES208A_104</p>
+<p>ES208A_103</p>
+<p>ES208A_102</p>
+<p>ES208A_101</p>
+<p>ES208A_100</p>
+<p>ES208A_99</p>
+<p>ES208A_215</p>
+<p>ES208A_214</p>
+<p>ES208A_213</p>
+<p>ES208A_212</p>
+<p>ES208A_13</p>
+<p>ES208A_204</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 2B of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>Baselined v1.1 and Released</b></p>
+<p><b>2 Interface Requirements</b></p>
+<p><b>2.1 Definitions</b></p>
+<p><b>2.1.1 Inputs</b></p>
+<p><b>MotCtrlMotElecMeclPolarity: </b>Motor electro mechanical polarity to determine the orientation of the three phases. </p>
+<p><b>MotCtrlCurrMeasCorrlnSts</b>: Current Measurement Correlation Status which indicates if there is any correlation </p>
+<p>fault exists between channels.</p>
+<p><b>MotCtrlCurrMeasMotAgCorrd</b>: Corrected motor position used to calculate Q and D axis motor current.</p>
+<p><b>MotCtrlMotCurrCorrdA</b>: Phase A motor current in amps.</p>
+<p><b>MotCtrlMotCurrCorrdB</b>: Phase B motor current in amps.</p>
+<p><b>MotCtrlMotCurrCorrdC</b>: Phase C motor current in amps.</p>
+<p><b>MotCtrlMotCurrCorrdD</b>: Phase D motor current in amps.</p>
+<p><b>MotCtrlMotCurrCorrdE</b>: Phase E motor current in amps.</p>
+<p><b>MotCtrlMotCurrCorrdF</b>: Phase F motor current in amps.</p>
+<p><b>MotCtrlMotCurrQlfr1</b>: Qualifier to indicate the status of the current sense amplifiers of Gate Drive 1.</p>
+<p><b>MotCtrlMotCurrQlfr2</b>: Qualifier to indicate the status of the current sense amplifiers of Gate Drive 2.</p>
+<p><b>MotCtrlMotCurrRollgCntr1</b>: Rolling Counter will be incremented when  a new set of valid phase current </p>
+<p>measurement of Inverter 1 is performed.</p>
+<p><b>MotCtrlMotCurrRollgCntr2</b>: Rolling Conuter will be incremented when  a new set of valid phase current </p>
+<p>measurement of Inverter 2 is performed.</p>
+<p><b>2.1.2 Outputs</b></p>
+<p><b>MotCtrlMotCurrDax: </b>D-Axis Motor Current.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 2C of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>Is </b></p>
+<p><b>Requir</b></p>
+<p><b>ement</b></p>
+<p><b>?</b></p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p><b>.ASIL</b></p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p><b>.ReqCat</b></p>
+<p><b>Review </b></p>
+<p><b>Date</b></p>
+<p><b>Review Action</b></p>
+<p><b>Review </b></p>
+<p><b>Action </b></p>
+<p><b>Status</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 3A of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>ID</b></p>
+<p>ES208A_206</p>
+<p>ES208A_41</p>
+<p>ES208A_207</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 3B of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>Baselined v1.1 and Released</b></p>
+<p><b>MotCtrlMotCurrQax: </b>Q-Axis Motor Current.</p>
+<p><b>2.1.3 Internally Defined Terms</b></p>
+<p>None.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 3C of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>Is </b></p>
+<p><b>Requir</b></p>
+<p><b>ement</b></p>
+<p><b>?</b></p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p><b>.ASIL</b></p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p><b>.ReqCat</b></p>
+<p><b>Review </b></p>
+<p><b>Date</b></p>
+<p><b>Review Action</b></p>
+<p><b>Review </b></p>
+<p><b>Action </b></p>
+<p><b>Status</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 4A of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>ID</b></p>
+<p>ES208A_3</p>
+<p>ES208A_4</p>
+<p>ES208A_15</p>
+<p>ES208A_5</p>
+<p>ES208A_114</p>
+<p>ES208A_6</p>
+<p>ES208A_44</p>
+<p>ES208A_216</p>
+<p>ES208A_45</p>
+<p>ES208A_135</p>
+<p>ES208A_219</p>
+<p>ES208A_217</p>
+<p>ES208A_218</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 4B of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>Baselined v1.1 and Released</b></p>
+<p><b>3 Requirements</b></p>
+<p><b>3.1 Primary Functional Requirements</b></p>
+<p>The Current Measurement Arbitration function is responsible to calculate the direct (D) and quadrature (Q) axes </p>
+<p>motor currents using the combined Clarke/Park transformation.</p>
+<p><b>3.2 Hardware Requirements</b></p>
+<p>None.</p>
+<p><b>3.3 Software / Algorithm Requirements</b></p>
+<p><b>3.3.1 Special Execution Requirements</b></p>
+<p>The Current Measurement Arbitration function shall be executed every other motor control loop (125us).</p>
+<p><b>3.3.2 Software Algorithm Decomoposition</b></p>
+<p>The Current Measurement Arbitration function shall indicate the signal availability 1 is TRUE when all the </p>
+<p>following conditions are satisfied </p>
+<p><b>MotCurrRollgCntr1 </b>is NOT equal to the previous value or <b>MotCurrRollgCntr1 </b>is equal to the previous value for </p>
+<p>the duration less than a field configurable value,</p>
+<p><b>MotCurrQlfr1 </b>is NOT equal to <b>Failed</b>,</p>
+<p><b>CurrMeasCorrlnSts </b>of Phase A, B, C is TRUE or <b>CurrMeasCorrlnSts </b>bits for Phase A, B, C is equal to </p>
+<p><b>CORRLNSTSCOMPCON1_ULS_U08</b>.</p>
+<p>The Current Measurement Arbitration function shall indicate the signal availability 2 is TRUE when all the </p>
+<p>following conditions are satisfied</p>
+<p><b>MotCurrRollgCntr2 </b>is NOT equal to the previous value or <b>MotCurrRollgCntr2 </b>is equal to the previous value for </p>
+<p>the duration less than a field configurable value,</p>
+<p><b>MotCurrQlfr2  </b>is NOT equal to <b>Failed</b>,</p>
+<p><b>CurrMeasCorrlnSts </b>of Phase D, E, F is TRUE or <b>CurrMeasCorrlnSts </b>bits for Phase D, E, F is equal to </p>
+<p><b>CORRLNSTSCOMPCON2_ULS_U08</b>.</p>
+<p>The Current Measurement Arbitration function shall only use <b>MotCtrlMotCurrCorrdA, </b></p>
+<p><b>MotCtrlMotCurrCorrdB, MotCtrlMotCurrCorrdC </b>in Q and D axes current calculation, if signal availability 1 </p>
+<p>is TRUE and signal availability 2 is FALSE.</p>
+<p>The Current Measurement Arbitration function shall only use <b>MotCtrlMotCurrCorrdD, </b></p>
+<p><b>MotCtrlMotCurrCorrdE, MotCtrlMotCurrCorrdF </b>in Q and D axes current calculation, if signal availability 2 </p>
+<p>is TRUE and signal availability 1 is FALSE.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 4C of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>Is </b></p>
+<p><b>Requir</b></p>
+<p><b>ement</b></p>
+<p><b>?</b></p>
+<p>False</p>
+<p>False</p>
+<p>True</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>True</p>
+<p>False</p>
+<p>True</p>
+<p>True</p>
+<p>True</p>
+<p>True</p>
+<p><b>.ASIL</b></p>
+<p>NA</p>
+<p>NA</p>
+<p>D</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>D</p>
+<p>NA</p>
+<p>D</p>
+<p>D</p>
+<p>D</p>
+<p>D</p>
+<p><b>.ReqCat</b></p>
+<p><b>Review </b></p>
+<p><b>Date</b></p>
+<p>Monday, </p>
+<p>March 16, </p>
+<p>2015</p>
+<p>Monday, </p>
+<p>March 16, </p>
+<p>2015</p>
+<p>Monday, </p>
+<p>March 16, </p>
+<p>2015</p>
+<p>Monday, </p>
+<p>March 16, </p>
+<p>2015</p>
+<p>Monday, </p>
+<p>March 16, </p>
+<p>2015</p>
+<p>Monday, </p>
+<p>March 16, </p>
+<p>2015</p>
+<p><b>Review Action</b></p>
+<p><b>Review </b></p>
+<p><b>Action </b></p>
+<p><b>Status</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 5A of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>ID</b></p>
+<p>ES208A_211</p>
+<p>ES208A_220</p>
+<p>ES208A_221</p>
+<p>ES208A_222</p>
+<p>ES208A_7</p>
+<p>ES208A_181</p>
+<p>ES208A_8</p>
+<p>ES208A_32</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 5B of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>Baselined v1.1 and Released</b></p>
+<p>The Current Measurement Arbitration function shall use average of <b>MotCtrlMotCurrCorrdA </b>and </p>
+<p><b>MotCtrlMotCurrCorrdD, </b>average of <b>MotCtrlMotCurrCorrdB </b>and <b>MotCtrlMotCurrCorrdE, </b>average of </p>
+<p><b>MotCtrlMotCurrCorrdC </b>and <b>MotCtrlMotCurrCorrdF </b>in Q and D axes current calculation, if both signal </p>
+<p>availability 1 and 2 are TRUE.</p>
+<p>The Current Measurement Arbitration function shall set the average of <b>MotCtrlMotCurrCorrdA </b>and </p>
+<p><b>MotCtrlMotCurrCorrdD </b>to zero<b>, </b>average of <b>MotCtrlMotCurrCorrdB </b>and <b>MotCtrlMotCurrCorrdE </b>to zero </p>
+<p>and the average of <b>MotCtrlMotCurrCorrdC </b>and <b>MotCtrlMotCurrCorrdF </b>to zero in Q and D axes current </p>
+<p>calculation, if both signal availability 1 and 2 are FALSE.</p>
+<p>The Current Measurement Arbitration function shall use Park/Clark Transformation equations to calculate the direct </p>
+<p>(D) and quadrature (Q) axes motor currents using three phase currents and <b>MotCtrlMotElecMeclPolarity</b>.</p>
+<p>The Current Measurement Arbitration function shall range limit the direct (D) and quadrature (Q) axes motor </p>
+<p>current outputs within <b>MOTCURRDAXQAXLIM_AMPR_F32 </b>and -</p>
+<p>(<b>MOTCURRDAXQAXLIM_AMPR_F32</b>) constant.</p>
+<p><b>3.4 Diagnostic Requirements</b></p>
+<p>None</p>
+<p><b>3.5 Manufacturing Requirements</b></p>
+<p>None</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 5C of 5</p>
+<p>Printed Friday, October 16, 2015</p>
+<p><b>Is </b></p>
+<p><b>Requir</b></p>
+<p><b>ement</b></p>
+<p><b>?</b></p>
+<p>True</p>
+<p>True</p>
+<p>True</p>
+<p>True</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p>False</p>
+<p><b>.ASIL</b></p>
+<p>D</p>
+<p>D</p>
+<p>D</p>
+<p>D</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p><b>.ReqCat</b></p>
+<p><b>Review </b></p>
+<p><b>Date</b></p>
+<p>Monday, </p>
+<p>March 16, </p>
+<p>2015</p>
+<p>Monday, </p>
+<p>March 16, </p>
+<p>2015</p>
+<p>Monday, </p>
+<p>March 16, </p>
+<p>2015</p>
+<p>Monday, </p>
+<p>March 16, </p>
+<p>2015</p>
+<p><b>Review Action</b></p>
+<p><b>Review </b></p>
+<p><b>Action </b></p>
+<p><b>Status</b></p>
+</body>
+</html>
+{% endraw %}

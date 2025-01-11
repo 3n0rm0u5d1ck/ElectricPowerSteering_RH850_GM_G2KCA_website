@@ -1,0 +1,1701 @@
+---
+layout: default
+title: IssueReport_CBD1400346
+nav_order: 12
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b>Issue Report</b></p>
+<p>1</p>
+<p><b>License Number</b></p>
+<p><b>Customer</b></p>
+<p>CBD1400346</p>
+<p>Nexteer Automotive Corporation</p>
+<p>Package: GMLAN 3.1 - CANbedded License for GM; </p>
+<p>MultiChannel</p>
+<p>Micro: R7F701311</p>
+<p>Compiler: GHS 2015.1.7</p>
+<p><b>Maintenance Expiry Date</b></p>
+<p>2014-08-01</p>
+<p><b>SIP Delivery Date</b></p>
+<p><b>SIP Version</b></p>
+<p>2016-04-29</p>
+<p>01.01.35</p>
+<p><b>SLP</b></p>
+<p><b>Delivery Number</b></p>
+<p>GMLAN 3.1</p>
+<p>D01</p>
+<p><b>Report Creation Date</b></p>
+<p>2016-05-06</p>
+<p><b>Contact</b></p>
+<p>In case of questions or the need for an update of the basic software delivery, please contact </p>
+<p>GMSupport@us.vector.com or your Vector contact person.</p>
+<p><b>Table of Contents</b></p>
+<p><b>1.</b></p>
+<p><b>Introduction</b></p>
+<p><b>1.1 Resolving Issues</b></p>
+<p><b>1.2 Issue Classification</b></p>
+<p><b>2.</b></p>
+<p><b>New Issues</b></p>
+<p><b>2.1 Runtime Issues without Workaround:</b> <b>0</b></p>
+<p><b>2.2 Runtime Issues with Workaround:</b> <b>6</b></p>
+<p><b>2.3 Apparent Issues:</b> <b>8</b></p>
+<p><b>2.4 Not Released Functionality:</b> <b>0</b></p>
+<p><b>2.5 Compiler Warnings:</b> <b>24</b></p>
+<p><b>3.</b></p>
+<p><b>New Issues for Information:</b></p>
+<p> </p>
+<p><b>0</b></p>
+<p><b>4.</b></p>
+<p><b>Report Legend</b></p>
+<p><b>5.</b></p>
+<p><b>Quality Management Contact</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>2</p>
+<p><b>1. Introduction</b></p>
+<p><b>1.1 Resolving Issues</b></p>
+<p>Reported issues are not necessarily fixed automatically by the next update delivery. If some of the </p>
+<p>reported issues shall be fixed, please contact Vector to establish an agreement about issues that </p>
+<p>shall be fixed in upcoming deliveries. Please note that Vector may fix additional issues without </p>
+<p>explicit request.</p>
+<p><b>1.2 Issue Classification</b></p>
+<p>This Issue Report provides issues that have been detected since the last report. The issues have </p>
+<p>been classified to facilitate the assessment of their impact:</p>
+<p>The chapter 'New Issues' lists issues that have been detected since the last report and which could </p>
+<p>not be excluded based on the use-case defined in the questionnaire. The issues are classified as </p>
+<p>follows:</p>
+<p>•</p>
+<p><b>Runtime Issues without Workaround: </b>Runtime issues without a workaround require an </p>
+<p>update of the basic software delivery in case the issue affects the ECU overall functionality. </p>
+<p>The effect of an issue to the ECU functionality has to be analyzed by the customer as the basic </p>
+<p>software usage and its configuration is not known by Vector. The risk of change has also to be </p>
+<p>taken into account.</p>
+<p>•</p>
+<p><b>Runtime Issues with Workaround: </b>It is not recommended to update a delivery due to a </p>
+<p>runtime issue with a documented workaround. The effect of an issue to the ECU functionality </p>
+<p>has to be analyzed by the customer as the basic software usage and its configuration is not </p>
+<p>known by Vector. The risk of change has also to be taken into account.</p>
+<p>•</p>
+<p><b>Apparent Issues: </b>Apparent issues are detected immediately when using the basic software. </p>
+<p>If an issue does not show up while working with the basic software the ECU project is not </p>
+<p>affected by the issue. Apparent issues may or may not have workarounds.</p>
+<p>•</p>
+<p><b>Not Released Functionality: </b>Not released functionalities are modules and features that have </p>
+<p>not yet passed a complete development cycle (they are e.g. not or only partly tested). For </p>
+<p>serial production projects the integrator has to ensure that all BETA features are disabled as </p>
+<p>indicated. If a ESCAN affects a complete BSW module, the module must not be used for serial </p>
+<p>production.</p>
+<p>•</p>
+<p><b>Compiler Warnings: </b>As a service we report the known compiler warnings. The occurrence of </p>
+<p>a compiler warning may depend on the used configuration and compiler settings.</p>
+<p>The chapter 'New Issues for Information' lists issues that are not relevant for the use case that </p>
+<p>has been documented in the questionnaire provided to Vector. The issues may, however, be </p>
+<p>relevant for other use cases. Additionally, issues that have been accepted or are tolerated by the </p>
+<p>OEM (as defined in the questionnaire) are reported here.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>3</p>
+<p><b>2. New Issues</b></p>
+<p><b>2.1 Runtime Issues without Workaround</b></p>
+<p>The lists contain issues that have been detected since the last report and which could not be </p>
+<p>excluded based on the use-cases defined in the questionnaire (see chapter ‘New Issues for </p>
+<p>Information’).</p>
+<p><b>2.2 Runtime Issues with Workaround</b></p>
+<p>It is not recommended to update a delivery due to a runtime issue with a documented </p>
+<p>workaround. The effect of an issue to the ECU functionality has to be analyzed by the customer as </p>
+<p>the basic software usage and its configuration is not known by Vector. Thereby the risk of change </p>
+<p>has also to be taken into account. </p>
+<p><b>Index</b></p>
+<p>ESCAN00027894</p>
+<p>Memory is overwritten when initializing the CANBedded Stack</p>
+<p>Nm_Gmlan_Gm@Implementation</p>
+<p>ESCAN00045854</p>
+<p>An incorrect timeout is issued for Flow Control and Consecutive Frame timing </p>
+<p>supervision.</p>
+<p>Tp_Iso15765@GenTool_Geny</p>
+<p>ESCAN00068912</p>
+<p>Positive response to service $A5 03 not suppressed</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00073999</p>
+<p>Signal handler names have wrong names after deletion of some signals of a </p>
+<p>DID</p>
+<p>Diag_CanDesc__coreBase@GenTool_Geny_CANdesc</p>
+<p>ESCAN00078197</p>
+<p>Missing first response for service 0xA9 0x81 request</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081145</p>
+<p>Validity Bits for Oem GM (Consistency Checks)</p>
+<p>GenTool_GenyObjectHierarchyCan@GenTool_Geny</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>4</p>
+<p><b>ESCAN00027894</b></p>
+<p><b>Memory is overwritten when initializing the </b></p>
+<p><b>CANBedded Stack</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Nm_Gmlan_Gm@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>3.30.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>Memory is overwritten when initializing the CANBedded Stack.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The issue occurs always and immediately if CclInitPowerOn or IlInitPowerOn is called with the </p>
+<p>configuration mentioned below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Any configuration, where the number of Nm Channels differs from the number of Can Channels.</p>
+<p>Hint: The generated define in kCanNumberOfChannels in can_cfg.h differs from </p>
+<p>kNmNumberOfChannels generated to nm_cfg.h</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Do not call IlInitPowerOn in the application. Instead, call IlInit for each channel which uses the </p>
+<p>Interaction Layer.</p>
+<p>Note for GM ECUs: If the Interaction Layer is not used on the first channel in GENy (channel index </p>
+<p>0), the application must additionally call CanInitPowerOn before IlInit.</p>
+<p>Example:</p>
+<p>The ECU has three CAN channels, where the Interaction Layer is only used on the first two.</p>
+<p>IlInit(0); /* Initialize the IL on CAN channel 0 */</p>
+<p>IlInit(1); /* Initialize the IL on CAN channel 1 */</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>5</p>
+<p><b>ESCAN00045854</b></p>
+<p><b>An incorrect timeout is issued for Flow Control and </b></p>
+<p><b>Consecutive Frame timing supervision.</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Tp_Iso15765@GenTool_Geny</p>
+<p><i><b>First affected version:</b></i></p>
+<p>2.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>An incorrect timeout is issued for Flow Control (TX) and Consecutive Frame (RX) timing </p>
+<p>supervision in case of large timeouts.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>During runtime at transmission and/or reception of multi frames.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>This can only appear if channel specific timing is activated (#if defined </p>
+<p>TP_CHANNEL_SPECIFIC_TIMING)</p>
+<p>AND </p>
+<p>the configured timeout values are greater than 255 &quot;ticks&quot;.</p>
+<p>Please note that the number of &quot;ticks&quot; is calculated by dividing the configured timeout value by </p>
+<p>the configured periodic cycle time of the TP.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Use smaller timeouts or increase the call-cycle of the TP task functions.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>6</p>
+<p><b>ESCAN00068912</b></p>
+<p><b>Positive response to service $A5 03 not suppressed</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>6.12.01</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The positive response to service $A5 03 is not suppressed. </p>
+<p>AND possibly</p>
+<p>The following compiler warning occurs:</p>
+<p> static void DescOemEnableProgrammingMode(DescMsgContext *pMsgContext)</p>
+<p> ^</p>
+<p>&quot;desc.c&quot;, Warning[Pe177]: </p>
+<p> function &quot;DescOemEnableProgrammingMode&quot; was declared but never referenced</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>At runtime/compile time.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Configurations created in an older delivery affected by ESCAN00061312:</p>
+<p>&quot;Not possible to support negative responses while suppressing positive response for service $A5 </p>
+<p>03&quot;</p>
+<p>AND</p>
+<p>The 'Reload all description files' button on the 'Diag_CanDesc_Kwp' page in GENy has NOT been </p>
+<p>pressed at least once since moving from the older delivery.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Press the 'Reload all description files' button on the 'Diag_CanDesc_Kwp' page in GENy and then </p>
+<p>save the configuration. This process only needs to be done once.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>7</p>
+<p><b>ESCAN00073999</b></p>
+<p><b>Signal handler names have wrong names after </b></p>
+<p><b>deletion of some signals of a DID</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@GenTool_Geny_CANdesc</p>
+<p><i><b>First affected version:</b></i></p>
+<p>6.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>After reloading a modified CDD file, where signals of a DID were deleted, the signal handlers of </p>
+<p>the DID have the names of the deleted signals.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>After deleting some signals within a signal list of a DID in CANdela Studio and reloading the </p>
+<p>modified CDD file</p>
+<p>within GENy.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Signal handlers are used</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Empty the field &quot;CANdela document name&quot; and click &quot;Reload all description files&quot;. The </p>
+<p>configuration is now empty and no old names are stored. Afterwards import the CDD file again.</p>
+<p>OR</p>
+<p>For the affected signals change the Signal Handler Type to &quot;Direct Access&quot; and back to &quot;Signal </p>
+<p>Handler&quot; again</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>8</p>
+<p><b>ESCAN00078197</b></p>
+<p><b>Missing first response for service 0xA9 0x81 request</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>6.06.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p>6.21.00</p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>For a service 0xA9 0x81 request the first response with the first DTC is not sent on the bus.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Always during run-time in the following scenario:</p>
+<p>- A scheduled DPID is currently read out (could take multiple task calls)</p>
+<p>- During the reading the service 0xA9 0x81 is requested</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Service 0xAA is configured</p>
+<p>AND</p>
+<p>Service 0xA9 0x81 is configured</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Create a user config file with the following content and add it in GENy to the component CANdesc:</p>
+<p>#ifdef DESC_UUDTNET_DISABLE_MULTI_CLIENT</p>
+<p># undef DESC_UUDTNET_DISABLE_MULTI_CLIENT</p>
+<p># define DESC_UUDTNET_ENABLE_MULTI_CLIENT</p>
+<p>#endif</p>
+<p>Afterwards generate CANdesc again.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>9</p>
+<p><b>ESCAN00081145</b></p>
+<p><b>Validity Bits for Oem GM (Consistency Checks)</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>GenTool_GenyObjectHierarchyCan@GenTool_Geny</p>
+<p><i><b>First affected version:</b></i></p>
+<p>1.09.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>GENy in combination with the Il_Vector_Gm does not generate.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Always and immediately if the configuration has been created with an inconsistent dbc file.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Any configuration with validity bits, where</p>
+<p>a validity bit is part of a rx message</p>
+<p>AND</p>
+<p>a signal using a validity bit is mapped to the current ECU</p>
+<p>AND</p>
+<p>the validity bit itself is NOT mapped to the current ECU.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Change your dbc file and map the validity bit signal to the ECU. Update the configuration in GENy </p>
+<p>or create a new the configuration with the updated dbc file.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>10</p>
+<p><b>2.3 Apparent Issues</b></p>
+<p>Apparent issues are detected immediately when using the basic software. If an issue does not </p>
+<p>show up while working with the basic software the ECU project is not affected by the issue. </p>
+<p>Apparent issues may or may not have workarounds. </p>
+<p><b>Index</b></p>
+<p>ESCAN00049589</p>
+<p>Compile error: direct signal access feature in CANdesc does not consider far </p>
+<p>memory pointers</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00055957</p>
+<p>appdesc.c missing line feed (LF) after carraige return (CR) on some lines</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00069876</p>
+<p>Incorrect Description for Calibration Attribute nmMaxApplShutDownDenyCnt</p>
+<p>CBD_TechRef_GmlanCalibration@Doc_TechRef</p>
+<p>ESCAN00070445</p>
+<p>The P2 timings can be changed in the tool GUI but the new values have no </p>
+<p>effect on CANdesc code generation</p>
+<p>Diag_CanDesc__coreBase@GenTool_Geny_CANdesc</p>
+<p>ESCAN00071069</p>
+<p>The description of service 0x12 is out-dated</p>
+<p>Diag_CanDesc_Oem@Doc_TechRef_Kwp_Gm</p>
+<p>ESCAN00076919</p>
+<p>&quot;unknown exception occurred&quot; occurs during DBC update</p>
+<p>Il_Vector@GenTool_Geny</p>
+<p>ESCAN00079945</p>
+<p>Os cat2 interrupts for Autosar OS are not supported in CANbedded </p>
+<p>configurations</p>
+<p>DrvCan__HllIdxCrx@Doc_TechRef</p>
+<p>ESCAN00083461</p>
+<p>Description missing, that Block Size and STmin always reset when a </p>
+<p>connection is terminated</p>
+<p>Tp_Iso15765@Doc_TechRef</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>11</p>
+<p><b>ESCAN00049589</b></p>
+<p><b>Compile error: direct signal access feature in </b></p>
+<p><b>CANdesc does not consider far memory pointers</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>1.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>Compile error for mismatching pointer type assignment.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>At compile time.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>- CANdesc</p>
+<p>AND</p>
+<p>- Direct signal access to RAM/ROM objects is used.</p>
+<p>AND</p>
+<p>- FAR memory</p>
+<p>Some services such as the UDS ones 0x22/0x2A and 0x2E, can be processed on signal level. If </p>
+<p>they are processed on signal level it is possible to choose &quot;Direct Access&quot; as Signal </p>
+<p>Handler Type. In this case, CANdesc reads or writes the value of signal direct of/to a variable. </p>
+<p>(The name of the variable is configured in the cdd file or GENy.) If this variable</p>
+<p>is located in FAR memory a Compiler/Linker warning or error will occur. </p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Avoid direct signal access to such objects and implement the main-handler within the application </p>
+<p>code. (Choose &quot;Signal Handler&quot; for the Signal Handler Type and copy the</p>
+<p>data that is located in the FAR memory in the application callback for this signal.)</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>12</p>
+<p><b>ESCAN00055957</b></p>
+<p><b>appdesc.c missing line feed (LF) after carraige </b></p>
+<p><b>return (CR) on some lines</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>5.07.26</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The appdesc.c file is missing the line feed (LF) character at the end of certain lines. It should </p>
+<p>follow the carraige return (CR) character. This will cause compilers and debuggers to display the </p>
+<p>incorrect line of source code. Additionally, some IDEs will complain that the line feed character is </p>
+<p>missing.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>At generation time.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>All configurations.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>13</p>
+<p><b>ESCAN00069876</b></p>
+<p><b>Incorrect Description for Calibration Attribute </b></p>
+<p><b>nmMaxApplShutDownDenyCnt</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>CBD_TechRef_GmlanCalibration@Doc_TechRef</p>
+<p><i><b>First affected version:</b></i></p>
+<p>2.01.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The description in chapter 6.7 for calibration attribute nmMaxApplShutDownDenyCnt suggests </p>
+<p>that this attribute can be modified in the GENy GUI, but the selection doesn't exist. The </p>
+<p>documentation will be updated to remove this suggestion.</p>
+<p>nmMaxApplShutDownDenyCnt can be modified in the generated handler calibrations file gmlcal.c.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Always</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>All</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>14</p>
+<p><b>ESCAN00070445</b></p>
+<p><b>The P2 timings can be changed in the tool GUI but </b></p>
+<p><b>the new values have no effect on CANdesc code </b></p>
+<p><b>generation</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@GenTool_Geny_CANdesc</p>
+<p><i><b>First affected version:</b></i></p>
+<p>6.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The user is able to modify the default P2 timings in the GENtool GUI, but the new values are not </p>
+<p>used during the CANdesc code generation. As a result the default P2 timings are only applicable.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>At CANdesc configuration resp. code generation time.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Any KWP2000 configuration that shall use P2 timings other than the default ones.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The P2/P2* timings are set automatically according to the GM specification to the values of 75 ms/</p>
+<p>5000 ms. Usually, there should be no need to change the P2/P2* timings in GENy to a different </p>
+<p>value.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>15</p>
+<p><b>ESCAN00071069</b></p>
+<p><b>The description of service 0x12 is out-dated</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc_Oem@Doc_TechRef_Kwp_Gm</p>
+<p><i><b>First affected version:</b></i></p>
+<p>3.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The description of service 0x12 doesn't consider the changes made with CANdesc 6.</p>
+<p>Only one application callback on SID level is generated instead of two, for each sub-function.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Always.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Any.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>6.2 Service ReadFailureRecordData ($12)</p>
+<p>CANdesc generates only one function callback (main-handler) for all service $12 requests and </p>
+<p>does not offer any special support for this service. Therefore all dispatching and validation steps </p>
+<p>(e.g. dispatching on sub-function level, check the request length or validate the PID parameter if </p>
+<p>applicable), as well as the assembly of the response message (including the sub-function byte) </p>
+<p>have to be performed by the application.</p>
+<p>6.2.1 Service ReadFailureRecordIdentifiers ($12 $01)</p>
+<p>Depending on the report type requested (PID or DPID) the application must place one of the </p>
+<p>following values into the first data byte of the response message:</p>
+<p> 0x00 - for report by PID</p>
+<p> 0x01 - for report by DPID</p>
+<p> </p>
+<p> Note</p>
+<p>The ECU can support either reports by PID or DPID, but not both.</p>
+<p> </p>
+<p>6.2.2 Service ReadFailureRecordParameters ($12 $02)</p>
+<p>CANdesc does not automatically include the PID parameter in the response message for service </p>
+<p>$12 $02. The application must perform this task.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>16</p>
+<p><b>ESCAN00076919</b></p>
+<p><b>&quot;unknown exception occurred&quot; occurs during DBC </b></p>
+<p><b>update</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Il_Vector@GenTool_Geny</p>
+<p><i><b>First affected version:</b></i></p>
+<p>1.05.02</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The following error message is displayed:</p>
+<p>“[Error] an unknown exception occurred when updating VObjectConsumer: &lt;unnamed&gt;”</p>
+<p>Additionally, it is not possible to reload the GENy configuration after saving and closing it. Upon </p>
+<p>reloading, the following error message is displayed:</p>
+<p>&quot;[Error] Unknown exception during ECU load&quot;</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>When performing the 'Upgrade Database' action in GENy (the &quot;X-&gt;Z&quot; button on the toolbar).</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>When an Rx message in the original DBC file is changed to a Tx message in the new DBC file</p>
+<p>Note: This can happen when one identity of a multiple identity module receives its own message </p>
+<p>from another identity</p>
+<p>AND</p>
+<p>This message is configured to use a common buffer in GENy</p>
+<p>(both conditions must be true for the issue to occur)</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Perform the following steps in GENy:</p>
+<p>1. On the Tx or Rx Messages page, for the affected message, click in the &quot;Common Buffer&quot; field </p>
+<p>and delete all the text in this box</p>
+<p>2. On the Tx or Rx Messages page, change the affected message buffer type from &quot;Common </p>
+<p>Buffer&quot; to &quot;Own Buffer&quot;</p>
+<p>3. Perform the DBC update as usual</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>17</p>
+<p><b>ESCAN00079945</b></p>
+<p><b>Os cat2 interrupts for Autosar OS are not supported </b></p>
+<p><b>in CANbedded configurations</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>DrvCan__HllIdxCrx@Doc_TechRef</p>
+<p><i><b>First affected version:</b></i></p>
+<p>3.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>It is not possible to select OS cat 2 interrupts for the CAN driver in GENy.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>This happens during configuration in GENy.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>in CANbedded configurations where OS Type is set to &quot;Autosar&quot; and the CAN interrupt has to be </p>
+<p>set to OS cat 2.</p>
+<p> </p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The OS Type &quot;OSEK&quot; can be used instead. The application has to provide the file &quot;osek.h&quot; which </p>
+<p>has to include &quot;os.h&quot;.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>18</p>
+<p><b>ESCAN00083461</b></p>
+<p><b>Description missing, that Block Size and STmin </b></p>
+<p><b>always reset when a connection is terminated</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Tp_Iso15765@Doc_TechRef</p>
+<p><i><b>First affected version:</b></i></p>
+<p>2.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>When using the APIs TpRxSetBS and TpRxSetSTmin, the values are not persisted after the end of </p>
+<p>a connection. This means that after the connection is terminated, also the APIs TpRxGetBS and </p>
+<p>TpRxGetSTmin don't return the value which have been set before.</p>
+<p>The APIs need to be called again before the next connection (e.g. from the context of </p>
+<p>ApplTpGetBuffer).</p>
+<p>Although this behavior is intended, it is not described in the TechRef.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Whenever using the APIs to dynamically change the flow control parameter </p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>TP_USE_EXTENDED_API_BS == kTpOn</p>
+<p>or</p>
+<p>TP_USE_EXTENDED_API_STMIN == kTpOn</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>If FC parameters shall be persisted after a connection is terminated, the application must call </p>
+<p>TpSetBS / TpRxSetSTmin at the beginning of each connection, ideally from the context of the </p>
+<p>ApplTpGetBuffer call-out.</p>
+<p>If the value of the parameters read back by TpGetBS / TpGetSTmin shall be the same as set </p>
+<p>before by the according APIs, even if the connection is terminated, it must be persisted in the </p>
+<p>application.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<p><b>2.4 Not Released Functionality</b></p>
+<p>Not released functionalities are modules and features that have not yet passed a complete </p>
+<p>development cycle (they are e.g. not or only partly tested). For serial production projects the </p>
+<p>integrator has to ensure that all BETA features are disabled as indicated. If a ESCAN affects a </p>
+<p>complete BSW module, the module must not be used for serial production.</p>
+<p>No issue to be reported.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>19</p>
+<p><b>2.5 Compiler Warnings </b></p>
+<p>As a service we also provide the known compiler warnings. The occurrence of a compiler warning </p>
+<p>may depend on the used basic software configuration and compiler settings.</p>
+<p><b>Index</b></p>
+<p>ESCAN00027183</p>
+<p>Compiler warning: condition is always true</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00027751</p>
+<p>Compiler warning for cast to smaller type for &quot;failedByteMask&quot;</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00029697</p>
+<p>Compiler warning for useless assignment on API DescPmClientCheckPid</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00031035</p>
+<p>Compiler Warning: variable &quot;timer&quot; in &quot;DescRdpiDeletePid&quot; is possibly </p>
+<p>uninitialized</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00047283</p>
+<p>IL flags are declared without the &quot;volatile&quot; keyword.</p>
+<p>Il_Vector@Implementation</p>
+<p>ESCAN00058378</p>
+<p>Compiler warning: narrowing or signed-to-unsigned type conversion found</p>
+<p>Diag_CanDescGgdaExt_Gm@Implementation</p>
+<p>ESCAN00059701</p>
+<p>Compiler warning: condition is always true&quot; in the IlTxTimerTask, </p>
+<p>IlTxStateTask and IlTxRepetitionsAreActive</p>
+<p>Il_Vector@Implementation</p>
+<p>ESCAN00079828</p>
+<p>Compiler warning: CANdesc Variable &quot;reason&quot; Set But Never Used</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081827</p>
+<p>Compiler warning: Truncating assignment in DescUsdtNetIsoTpCopyToCan</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081836</p>
+<p>Compiler warning: Truncating assignment in DescConfirmation</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081850</p>
+<p>Compiler warning: Truncating assignment in DescICNGetResponseData</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081852</p>
+<p>Compiler warning: Truncating assignment in </p>
+<p>DescUudtNetCANTxReserveResource</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081853</p>
+<p>Compiler warning: Truncating assignment in DescPidDispatcher</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081861</p>
+<p>Compiler warning: Truncating assignment in DescContextStateTask</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081862</p>
+<p>Compiler warning: Truncating assignment in DescUpdateScheduler</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081863</p>
+<p>Compiler warning: Truncating assignment</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081864</p>
+<p>Compiler warning: Truncating assignment in DescGetDynDpidHandle</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00081869</p>
+<p>Compiler warning: Truncating assignment in </p>
+<p>DescDefDynDpidAppendPidDefinition</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00083566</p>
+<p>Compiler warning: variable g_descSchedulerTimer set but never used</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00083588</p>
+<p>Compiler warning: variable g_descRdpiStateCtrl is set but never used</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p>ESCAN00085287</p>
+<p>Canbedded only: Compiler warning: Variable 'canPendingTemp' was set but </p>
+<p>never used</p>
+<p>DrvCan_Sh2RscanLl@Implementation</p>
+<p>ESCAN00086295</p>
+<p>Compiler warning: Infinite loop possibility</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>20</p>
+<p><b>Index</b></p>
+<p>ESCAN00088724</p>
+<p>Compiler warning: dummy function has no prototype</p>
+<p>Tp_Iso15765@GenTool_Geny</p>
+<p>ESCAN00089512</p>
+<p>Compiler warning: braces around scalar initializer [enabled by default]</p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>21</p>
+<p><b>ESCAN00027183</b></p>
+<p><b>Compiler warning: condition is always true</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>5.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler produces the warning &quot;variable ondition is always true&quot; when compiling desc.c. </p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>At compile time</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Tasking compiler is used</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>This does not affect the behavior of the compiled code, and can be safely ignored.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>22</p>
+<p><b>ESCAN00027751</b></p>
+<p><b>Compiler warning for cast to smaller type for </b></p>
+<p><b>&quot;failedByteMask&quot;</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>3.01.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>Compiler warning message for the assignment:</p>
+<p>*failedByteMask = (vuint8)(0x02 &lt;&lt; *failedByteMask);</p>
+<p>But there is no real danger of losing information by casting down to a smaller type since the code </p>
+<p>generator does not allow more than 7 (seven) sub-service bytes in the request message. So </p>
+<p>skipping the SID (bit 0) does not lead to losing the MSB and the value of the failedByteMask </p>
+<p>cannot be greater than six.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>At compile time.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>-CANdesc/CANdescBasic</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Ignore the warning</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>This ESCAN will not be resolved, since the fix might require more resources on the ECU. The code </p>
+<p>generator assures that there will be no overflow on the shift operation.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>23</p>
+<p><b>ESCAN00029697</b></p>
+<p><b>Compiler warning for useless assignment on API </b></p>
+<p><b>DescPmClientCheckPid</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>4.02.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler generates a warning message for useless assignment (a = a;) .</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>At compile time.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>- CANdesc</p>
+<p>_AND_</p>
+<p>- Service 0x22 is supported with multiple DIDs in single request.</p>
+<p>_AND_</p>
+<p>- Service 0x2C is not supported.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Ignore this warning since it is only because of an useless assignment.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue will not be corrected, since the solution will require more ROM resources.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>24</p>
+<p><b>ESCAN00031035</b></p>
+<p><b>Compiler Warning: variable &quot;timer&quot; in </b></p>
+<p><b>&quot;DescRdpiDeletePid&quot; is possibly uninitialized</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>5.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler produces the warning &quot;variable 'timer' is possibly uninitialized&quot; when compiling </p>
+<p>desc.c. </p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>At compile time</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>If service 0xAA supported and at least one periodic transmission mode is supported (i.e. not only </p>
+<p>&quot;send one response&quot; is supported).</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>This warning is incorrect and can be safely ignored.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>25</p>
+<p><b>ESCAN00047283</b></p>
+<p><b>IL flags are declared without the &quot;volatile&quot; keyword.</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Il_Vector@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>3.10.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>IL flags (Indication, FirstValue, Confirmation, Timeout) are declared without the &quot;volatile&quot; </p>
+<p>keyword. Read and Write access to IL flags has no effect due to a Read-Modify-Write problematic.</p>
+<p>e.g.</p>
+<p>FlagA and FlagB are in the same byte and set on interrupt level</p>
+<p>this sequence is executed on task level:</p>
+<p>disable int; </p>
+<p>clear FlagA; /*1*/</p>
+<p>enable int;</p>
+<p>... /*3*/</p>
+<p>disable int;</p>
+<p>clear FlagB; /*2*/</p>
+<p>enable int;</p>
+<p>The compiler might optimize this sequence and the flag read and write ALWAYS fails:</p>
+<p>read the byte at 1), modify the local copy and write the byte at 2)</p>
+<p>if the byte is written on interrupt level at 3), the data is lost.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>At runtime (This Problem has been found by a review and has never been detected in a ECU)</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>- This issue highly depends on the used compiler and compiler options.</p>
+<p>- Preemptive IL flag access is used (e.g. interrupt system)</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Review the optimization configuration of your compiler.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>26</p>
+<p><b>ESCAN00058378</b></p>
+<p><b>Compiler warning: narrowing or signed-to-unsigned </b></p>
+<p><b>type conversion found</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDescGgdaExt_Gm@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>2.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The following compiler warning occurs:</p>
+<p>warning (dcc:1643): narrowing or signed-to-unsigned type conversion found: unsigned int to </p>
+<p>unsigned short</p>
+<p>This warning occurs for the following code in GgdaRdiRxTask:</p>
+<p> /* send the DTC number and the FTB */</p>
+<p> vuint16 DTCNr = ((vuint16) ggdaContexts[context].uudtPrimBuffer[1] &lt;&lt; 8)</p>
+<p> | (vuint16) ggdaContexts[context].uudtPrimBuffer[2];</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below. </p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Configurations which use service $A9.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning can be safely ignored.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>27</p>
+<p><b>ESCAN00059701</b></p>
+<p><b>Compiler warning: condition is always true&quot; in the </b></p>
+<p><b>IlTxTimerTask, IlTxStateTask and </b></p>
+<p><b>IlTxRepetitionsAreActive</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Il_Vector@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>2.42.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>Compiler warns for &quot;condition is always true&quot; in the IlTxTimerTask, IlTxStateTask and </p>
+<p>IlTxRepetitionsAreActive API. This may happen depending on the configuration.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>IlTxTimerTask, IlTxStateTask: Any configuration with exactly one tx message.</p>
+<p>IlTxRepetitionsAreActive: Any configuration with exactly one tx message and the API is </p>
+<p>configured. (IL_ENABLE_SYS_TX_REPETITIONS_ARE_ACTIVE_FCT must be defined)</p>
+<p>Hint:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning is known and has been analyzed thoroughly for its impact on the code. </p>
+<p>Nevertheless it will not be fixed due to the rare configuration. The code uses a while loop with a </p>
+<p>counter and can probably replaced by a for loop, but other compilers or codeanalysers may warn </p>
+<p>about a useless loop. The code exists for about 15 Years and will not be changed.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>28</p>
+<p><b>ESCAN00079828</b></p>
+<p><b>Compiler warning: CANdesc Variable &quot;reason&quot; Set </b></p>
+<p><b>But Never Used</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>6.16.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>A compiler warning is issued for &quot;desc.c, line ____:warning #550: variable &quot;reason&quot; was set but </p>
+<p>never used&quot;. This is found in function DescDefDynDpidAppendPidDefinition.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Always during compilation of the code in case the configuration is as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Service 0x2C is configured</p>
+<p> </p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>29</p>
+<p><b>ESCAN00081827</b></p>
+<p><b>Compiler warning: Truncating assignment in </b></p>
+<p><b>DescUsdtNetIsoTpCopyToCan</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>5.07.24</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning &quot;Truncating assignment&quot; is issued in the function </p>
+<p>DescUsdtNetIsoTpCopyToCan:</p>
+<p>...</p>
+<p>vuint8_least i = infoStruct-&gt;Length;</p>
+<p>...</p>
+<p>No issues will result from this warning, because the value passed from the ISO TP will never </p>
+<p>exceed 255.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The data type vuint8_least is mapped to vuint8 (unsigned char) (which is mostly done for 8Bit </p>
+<p>Controller)</p>
+<p>AND</p>
+<p>ISO TP from Vector is used</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>30</p>
+<p><b>ESCAN00081836</b></p>
+<p><b>Compiler warning: Truncating assignment in </b></p>
+<p><b>DescConfirmation</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>3.01.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning &quot;Truncating assignment&quot; is issued in the function DescConfirmation in the </p>
+<p>usage of the conditional operator:</p>
+<p>...</p>
+<p>result = (status != kTpSuccess) ? kDescUsdtNetworkAbort:kDescUsdtNetworkOk;</p>
+<p>...</p>
+<p>No issues will result from this warning, because the two possible values used in the conditional </p>
+<p>operator have the same type as the variable they are assigned to.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>ISO TP from Vector is used</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>31</p>
+<p><b>ESCAN00081850</b></p>
+<p><b>Compiler warning: Truncating assignment in </b></p>
+<p><b>DescICNGetResponseData</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>3.02.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning &quot;Truncating assignment&quot; is issued in the function DescICNGetResponseData </p>
+<p>in the usage of the conditional operator:</p>
+<p>...</p>
+<p> copyLen = ((((vuint16)</p>
+<p>(g_descUsdtNetInfoPoolDescICN[DICN_CHANNEL_PARAM_VALUE].dataLength - </p>
+<p>g_descIcnState[DICN_CHANNEL_PARAM_VALUE].rdIdx)) / kDescICNTempBufferLen) != 0)?</p>
+<p> kDescICNTempBufferLen:</p>
+<p> (g_descUsdtNetInfoPoolDescICN[DICN_CHANNEL_PARAM_VALUE].dataLength % </p>
+<p>kDescICNTempBufferLen);</p>
+<p>...</p>
+<p>No issues will result from this warning, because the two possible values which can be assigned are </p>
+<p>always smaller than 8 byte. </p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>ISO TP from Vector is used</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>32</p>
+<p><b>ESCAN00081852</b></p>
+<p><b>Compiler warning: Truncating assignment in </b></p>
+<p><b>DescUudtNetCANTxReserveResource</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>6.16.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning &quot;Truncating assignment&quot; is issued in the function </p>
+<p>DescUudtNetCANTxReserveResource for the following assignment:</p>
+<p>...</p>
+<p> g_descUudtNetResMgrCtxt.size = </p>
+<p>DESC_CHNL_INFO_MSG_BASE_IDX_NXT(CHANNEL_ITER_VALUE) - </p>
+<p>g_descUudtNetResMgrCtxt.baseIdx;</p>
+<p>...</p>
+<p>No issues will result from this warning, because the two operands for the subtraction are always </p>
+<p>smaller than 255 and the first operand always greater or equal than the second operand. </p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Service 0x2A is configured</p>
+<p>AND</p>
+<p>UUDT messages for the periodic responses are configured</p>
+<p>AND</p>
+<p>UUDT messages on more than one channel are configured</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>33</p>
+<p><b>ESCAN00081853</b></p>
+<p><b>Compiler warning: Truncating assignment in </b></p>
+<p><b>DescPidDispatcher</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>5.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning &quot;Truncating assignment&quot; is issued in the function DescPidDispatcher for the </p>
+<p>following assignment:</p>
+<p>...</p>
+<p> iter = g_descMsgContext[DESC_CONTEXT_PARAM_VALUE].reqDataLen;</p>
+<p>...</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>data type vuint8_least is mapped to vuint8 (unsigned char)(mostly done for 8 bit controller)</p>
+<p>AND</p>
+<p>Service 0x22 is used</p>
+<p>AND</p>
+<p>Multiple PIDs are allowed to be requested in one request</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>34</p>
+<p><b>ESCAN00081861</b></p>
+<p><b>Compiler warning: Truncating assignment in </b></p>
+<p><b>DescContextStateTask</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>4.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning &quot;Truncating assignment&quot; is issued in the function DescContextStateTask for </p>
+<p>the following assignment:</p>
+<p>...</p>
+<p>g_descInterruptContextCtrl[DESC_CONTEXT_PARAM_VALUE].infoPoolPtr-&gt;resType = </p>
+<p>(g_descNegResCode[DESC_CONTEXT_PARAM_VALUE] == kDescNrcNone)?</p>
+<p>kDescUsdtResponsePositive:kDescUsdtResponseNegative;</p>
+<p>...</p>
+<p>No issues will result from this warning, because the two possible values used in the conditional </p>
+<p>operator have the same type as the variable they are assigned to.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>In all configurations</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>35</p>
+<p><b>ESCAN00081862</b></p>
+<p><b>Compiler warning: Truncating assignment in </b></p>
+<p><b>DescUpdateScheduler</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>4.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning &quot;Truncating assignment&quot; is issued in the function DescUpdateScheduler for </p>
+<p>the following assignment:</p>
+<p>...</p>
+<p>i = pMsgContext-&gt;reqDataLen;</p>
+<p>...</p>
+<p>No issue will result from this warning because the reqDataLen parameter is checked against the </p>
+<p>constant kDescNumOfPeriodicPids and this constant will be limited by the CANdesc generator to </p>
+<p>255.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>data type vuint8_least is mapped to vuint8 (unsigned char)(mostly done for 8 bit controller)</p>
+<p>AND</p>
+<p>Service 0xAA is used</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>36</p>
+<p><b>ESCAN00081863</b></p>
+<p><b>Compiler warning: Truncating assignment</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>4.02.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning &quot;Truncating assignment&quot; is issued in...</p>
+<p>1) ... the function DescReadDpidStop for the assignment</p>
+<p> ...</p>
+<p> i = pMsgContext-&gt;reqDataLen;</p>
+<p> ...</p>
+<p>2) ... the function DescReadDpidOnce for the assignment</p>
+<p> ...</p>
+<p> i = pMsgContext-&gt;reqDataLen;</p>
+<p> ...</p>
+<p>An issue would only arise for warnings 1) and 2) if one request contains more than 255 DPIDs. </p>
+<p>However, the range of allowed DPID values is smaller than 240 elements. Therefore, to request </p>
+<p>more than 255 DPIDs implies that one DPIDs is requested multiple times in the same request, </p>
+<p>which is not a use case at all.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>data type vuint8_least is mapped to vuint8 (unsigned char)(mostly done for 8 bit controller)</p>
+<p>AND</p>
+<p>Service 0xAA is used</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>37</p>
+<p><b>ESCAN00081864</b></p>
+<p><b>Compiler warning: Truncating assignment in </b></p>
+<p><b>DescGetDynDpidHandle</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>4.02.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning &quot;Truncating assignment&quot; is issued in the function DescGetDynDpidHandle </p>
+<p>for the following statement:</p>
+<p>...</p>
+<p> return (g_descDynDpid2GlobalDpidHandle[iter] != globalDpidHandle)?</p>
+<p> kDescNumDynDefinedDpids:iter;</p>
+<p>...</p>
+<p>No issue will arise from that warning because the value range of DPIDs is by definition smaller </p>
+<p>than 255 .</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Dynamic DPIDs are supported</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>38</p>
+<p><b>ESCAN00081869</b></p>
+<p><b>Compiler warning: Truncating assignment in </b></p>
+<p><b>DescDefDynDpidAppendPidDefinition</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>4.02.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning &quot;Truncating assignment&quot; is issued in the function </p>
+<p>DescDefDynDpidAppendPidDefinition for the following statement:</p>
+<p>...</p>
+<p>g_descDynDpidTempInfoTable.resDataLength += DescPmGetPidResponseLen(srcPidHandle);</p>
+<p>...</p>
+<p>No issue will arise from that warning because the amount of response data will never exceed 255.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below.</p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Dynamic DPIDs are supported</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>39</p>
+<p><b>ESCAN00083566</b></p>
+<p><b>Compiler warning: variable g_descSchedulerTimer </b></p>
+<p><b>set but never used</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>5.00.02</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>Compiler warns that the variable g_descSchedulerTimer is set but never used.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below. </p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Service 0xAA is configured only with the sub-function 0x01 to read a DPID once.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>40</p>
+<p><b>ESCAN00083588</b></p>
+<p><b>Compiler warning: variable g_descRdpiStateCtrl is </b></p>
+<p><b>set but never used</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>5.04.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>Compiler warns that the variable g_descRdpiStateCtrl is set but never used.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below. </p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Service 0xAA is configured only with the sub-function 0x01 to read a DPID once.</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>No workaround available.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>41</p>
+<p><b>ESCAN00085287</b></p>
+<p><b>Canbedded only: Compiler warning: Variable </b></p>
+<p><b>'canPendingTemp' was set but never used</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>DrvCan_Sh2RscanLl@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>3.01.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p>4.01.00, 3.13.04</p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler issues a warning like following: Variable 'canPendingTemp' was set but never used.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below. </p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>C_ENABLE_CANCEL_IN_HW is defined</p>
+<p>and</p>
+<p>C_ENABLE_TX_OBSERVE is NOT defined</p>
+<p>and</p>
+<p>C_ENABLE_CAN_TX_CONF_FCT is NOT defined</p>
+<p>and</p>
+<p>C_ENABLE_RETRANSMIT is NOT used in the project</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning does not indicate any unsuspected behavior and can be ignored.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>42</p>
+<p><b>ESCAN00086295</b></p>
+<p><b>Compiler warning: Infinite loop possibility</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>5.07.24</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p>6.21.00</p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>Compiler warning due to the possibility of infinite loop when the following code is executed</p>
+<p>while(i--)</p>
+<p> {</p>
+<p> infoStruct-&gt;pDestination[i] = infoStruct-&gt;pSource[i];</p>
+<p> }</p>
+<p>There is no possibility of going through an infinite loop in this situation. Ultimately i reaches zero. </p>
+<p>If i is zero in the first place, while loop will not be executed.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below. </p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>all Configurations</p>
+<p>Hint:</p>
+<p>-------------------------------------------------------------------</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>43</p>
+<p><b>ESCAN00088724</b></p>
+<p><b>Compiler warning: dummy function has no </b></p>
+<p><b>prototype</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Tp_Iso15765@GenTool_Geny</p>
+<p><i><b>First affected version:</b></i></p>
+<p>2.00.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>Compiler warns for a function definition without prototype in tp_par.c</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below. </p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>TP Class = Static Normal Multip TP</p>
+<p>AND</p>
+<p>at least one connection group does not use the same callbacks as the other connection groups</p>
+<p>(this also happens automatically if there are unidirectional connection groups)</p>
+<p> </p>
+<p>Hint:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The compiler warning is known and has been analyzed thoroughly for its impact on the code. </p>
+<p>Nevertheless it will not be fixed because there is a workaround</p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>1) Provide the missing prototypes with a user config file</p>
+<p>2) If possible, disable the coding rule checks of the compiler</p>
+<p>For Metrowerks, there is separate &quot;Require Function Prototypes&quot; setting to enable / disable the </p>
+<p>check</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>44</p>
+<p><b>ESCAN00089512</b></p>
+<p><b>Compiler warning: braces around scalar initializer </b></p>
+<p><b>[enabled by default]</b></p>
+<p><i><b>Component@Subcomponent:</b></i></p>
+<p>Diag_CanDesc__coreBase@Implementation</p>
+<p><i><b>First affected version:</b></i></p>
+<p>3.02.00</p>
+<p><i><b>Fixed in versions:</b></i></p>
+<p><i><b>Problem Description:</b></i></p>
+<p>What happens (symptoms):</p>
+<p>-------------------------------------------------------------------</p>
+<p>When the size of the array g_desc19UsedExtDatRecIds is reduced to only one element as follows:</p>
+<p>V_MEMROM0 static V_MEMROM1 vuint8 V_MEMROM2 g_desc19UsedExtDatRecIds[1] = </p>
+<p>{</p>
+<p>{ 0x01 }</p>
+<p>};</p>
+<p>the compiler error: 1510:3: warning: braces around scalar initializer [enabled by default] is </p>
+<p>issued.</p>
+<p>When does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The warning is issued by the compiler during compilation of the code in case the configuration is </p>
+<p>as described below. </p>
+<p>In which configuration does this happen:</p>
+<p>-------------------------------------------------------------------</p>
+<p>When only one element exists in the array g_desc19UsedExtDatRecIds. </p>
+<p> </p>
+<p><i><b>Resolution Description:</b></i></p>
+<p>Workaround:</p>
+<p>-------------------------------------------------------------------</p>
+<p>Ignore the warning.</p>
+<p>Resolution:</p>
+<p>-------------------------------------------------------------------</p>
+<p>The described issue is corrected by modification of all affected work-products.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>45</p>
+<p><b>3. New Issues for Information</b></p>
+<p>Issues which should not have an effect on the usage of the license as the issues are relevant for </p>
+<p>use cases other than those defined in the questionnaire. The list contains issues that have been </p>
+<p>detected since the last report.</p>
+<p>Issues listed in this section are not relevant for the use case that has been documented in the </p>
+<p>questionnaire provided to Vector. However, the issues may be relevant for other use cases.  Also </p>
+<p>issues that have been accepted or are tolerated by the OEM (as defined in the questionnaire) are </p>
+<p>reported here. </p>
+<p>No issue to be reported.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>46</p>
+<p><b>4. Report Legend</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Issue Report</b></p>
+<p>47</p>
+<p><b>5. Quality Management Contact</b></p>
+<p>Quality Management </p>
+<p>Productline Embedded Software (PES)  </p>
+<p> </p>
+<p>Vector Informatik GmbH  </p>
+<p>Ingersheimer Str. 24  </p>
+<p>D-70499 Stuttgart  </p>
+<p> </p>
+<p>Phone: +49 711 80670-3700</p>
+<p>Fax: +49 711 80670-399  </p>
+<p>eMail: QualityPES@vector.com</p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,2340 @@
+---
+layout: default
+title: S-WdgM_ReleaseNotes
+nav_order: 1
+parent: Watchdog Manager
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>TTTech Automotive GmbH </b></p>
+<p>Schoenbrunner Str. 7, A-1040 Vienna, Austria, Tel. + 43 1 585 34 34-0, Fax +43 1 585 34 34-90, office@tttech-automotive.com</p>
+<p> </p>
+<p>No part of the document may be reproduced or transmitted in any from or by any means, electronic or mechanical, for any purpose, without the written permission of TTTech </p>
+<p>Automotive. Company or product names mentioned in this document may be trademarks or registered trademarks of their respective companies. TTTech Automotive undertakes no </p>
+<p>further obligation in relation to this document. </p>
+<p>Copyright © 2009, TTTech Automotive GmbH. All rights reserved.                                                                                                                                Subject to change and corrections </p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p><b>Safe Watchdog Manager</b></p>
+<p> </p>
+<p>Release Notes </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>Security: </b></p>
+<p>Confidential </p>
+<p><b>Document number: </b></p>
+<p>D-SAFEX-RP-70-012 </p>
+<p><b>Document Version: </b></p>
+<p>3.4.6 </p>
+<p><b>Date: </b></p>
+<p>21.11.2014 </p>
+<p><b>Status: </b></p>
+<p>released </p>
+<p><b>Review: </b></p>
+<p>JDU </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>2 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>Approval </b></p>
+<p><b>Name  </b></p>
+<p><b>Function </b></p>
+<p><b>Signature </b></p>
+<p>PPU </p>
+<p>Project Manager </p>
+<p> </p>
+<p>TGA </p>
+<p>Head of Software Department </p>
+<p> </p>
+<p>MAL </p>
+<p>Quality Manager </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Revision Chart </b></p>
+<p>A revision is a new edition of the document and affects all sections of this document. </p>
+<p> </p>
+<p><b>Document </b></p>
+<p><b>Version  </b></p>
+<p><b>Date </b></p>
+<p><b>Responsible Person </b></p>
+<p><b>Modification </b></p>
+<p>0.9.0 </p>
+<p>09.06.2011 </p>
+<p>PPU </p>
+<p>Version for Series Release 0.9 </p>
+<p>0.9.1 </p>
+<p>17.06.2011 </p>
+<p>PPU </p>
+<p>Integration with DaVinci tool chain. </p>
+<p>1.0.0 </p>
+<p>15.07.2011 </p>
+<p>PPU </p>
+<p>Integration with DaVinci tool chain.  </p>
+<p>1.1.0 </p>
+<p>19.08.2011 </p>
+<p>PPU </p>
+<p>Version for Series Release 1.1 </p>
+<p>1.2.0 </p>
+<p>07.09.2011 </p>
+<p>PPU </p>
+<p>Version 1.2.0, TMP570LS3xx related release </p>
+<p>1.3.0 </p>
+<p>16.09.2011 </p>
+<p>PPU </p>
+<p>Version 1.3.0, MPC56xx (MPC5604B) release </p>
+<p>1.3.1 </p>
+<p>06.12.2011 </p>
+<p>PPU </p>
+<p>Version 1.3.1, Wdg_MPC56xx_bswmd.arxml </p>
+<p>changed only </p>
+<p>1.4.0 </p>
+<p>14.12.2011 </p>
+<p>PPU </p>
+<p>New software release and document split. Watchdog </p>
+<p>Manager, </p>
+<p>Interface </p>
+<p>and </p>
+<p>Driver </p>
+<p>becomes </p>
+<p>own </p>
+<p>Release documents. </p>
+<p>1.5.0 </p>
+<p>10.02.2012 </p>
+<p>PPU </p>
+<p>Version 1.5.0 </p>
+<p>1.6.0 </p>
+<p>08.03.2012 </p>
+<p>PPU </p>
+<p>Release 1.6.0 </p>
+<p>1.7.0 </p>
+<p>13.04.2012 </p>
+<p>PPU </p>
+<p>Release 1.7.0 </p>
+<p>1.8.0 </p>
+<p>21.11.2014 </p>
+<p>PPU </p>
+<p>Release 1.8.0 </p>
+<p>1.8.1 </p>
+<p>12.06.2012 </p>
+<p>PPU </p>
+<p>Release </p>
+<p>1.8.1 </p>
+<p>did </p>
+<p>not </p>
+<p>contain </p>
+<p>WdgM </p>
+<p>module. </p>
+<p>It </p>
+<p>contains the MPC56xx driver only. </p>
+<p>1.8.2 </p>
+<p>13.07.2012 </p>
+<p>PPU </p>
+<p>Release 1.8.2, BugFixes, Manager release only </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>3 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>1.9.0 </p>
+<p>07.09.2012 </p>
+<p>PPU </p>
+<p>Release 1.9.0, Code only </p>
+<p>1.9.1 </p>
+<p>15.09.2012 </p>
+<p>PPU </p>
+<p>Release 1.9.1, Documentation only </p>
+<p>1.9.2 </p>
+<p>21.09.2012 </p>
+<p>PPU </p>
+<p>Release 1.9.2, Style sheet update </p>
+<p>1.9.3 </p>
+<p>02.10.2012 </p>
+<p>PPU </p>
+<p>Release 1.9.3, S-WdgM Verifier - update,  </p>
+<p>S-WdgM_UserManual  - document update </p>
+<p>S-WdgM_Stack_SafetyCase - document new </p>
+<p>2.0.7 </p>
+<p>25.10.2012 </p>
+<p>PPU </p>
+<p><b>Test  release </b> 2.0.7  to  check  the  delivery  structure. </p>
+<p>This is NOT a customer release!  </p>
+<p>3.0.3 </p>
+<p>16.11.2012 </p>
+<p>PPU </p>
+<p>Cumulative module update. </p>
+<p>(The major version changed to 3 because of the API </p>
+<p>change in function  (WdgIf_GetTickCounter()) </p>
+<p>3.1.0 </p>
+<p>11.01.2013 </p>
+<p>PPU </p>
+<p>Release 1.11.0, embedded code not changed </p>
+<p>3.1.1 </p>
+<p>27.02.2013 </p>
+<p>PPU </p>
+<p>Release 1.13.0, Verifier update only </p>
+<p>3.2.0 </p>
+<p>05.04.2013 </p>
+<p>JDU </p>
+<p>Release 1.14.0, generator update only </p>
+<p>3.3.2 </p>
+<p>29.11.2013 </p>
+<p>PPU </p>
+<p>Release 1.21.0, generator only </p>
+<p>3.4.0 </p>
+<p>19.02.2014 </p>
+<p>PPU </p>
+<p>Autosar 4 update and bug fixes, beta version </p>
+<p>3.4.1 </p>
+<p>21.03.2014 </p>
+<p>PPU </p>
+<p>Update  and  bug  fixes  for  Autosar  4  environment </p>
+<p>compatibility.  Backward  compatibility  to  Autosar  3.1 </p>
+<p>environment added too. </p>
+<p>3.4.2 </p>
+<p>10.04.2014 </p>
+<p>PPU </p>
+<p>Generator bug fix for Autosar compatible driver </p>
+<p>3.4.3 </p>
+<p>27.05.2014 </p>
+<p>PPU </p>
+<p>Release  for  the  AUTOSAR  4.0  and  AUTOSAR  3.1 </p>
+<p>compatible S-WdgM module </p>
+<p>3.4.4 </p>
+<p>14.08.2014 </p>
+<p>PPU </p>
+<p>Safety Case document for previous version 3.4.3 </p>
+<p>released only. </p>
+<p>3.4.5 </p>
+<p>04.11.2014 </p>
+<p>PPU </p>
+<p>S-WdgM Generator correction only </p>
+<p>3.4.6 </p>
+<p>21.11.2014 </p>
+<p>PPU </p>
+<p>S-WdgM Generator correction only </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>4 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Overview .................................................................................................................................................. 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Content of the Module Release ............................................................................................................. 7</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Change history ........................................................................................................................................ 9</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Changes with version 3.4.6 .............................................................................................................. 9</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Changes with version 3.4.5 .............................................................................................................. 9</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Changes with version 3.4.4 ............................................................................................................ 10</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Changes with version 3.4.3 ............................................................................................................ 10</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Changes with version 3.4.2 ............................................................................................................ 10</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Changes with version 3.4.1 ............................................................................................................ 11</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Changes with version 3.4.0 ............................................................................................................ 11</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>Changes with version 3.3.2 ............................................................................................................ 11</p>
+<p> </p>
+<p>3.9</p>
+<p> </p>
+<p>Changes with version 3.2.0 ............................................................................................................ 11</p>
+<p> </p>
+<p>3.10</p>
+<p> </p>
+<p>Changes with version 3.1.2 ............................................................................................................ 13</p>
+<p> </p>
+<p>3.11</p>
+<p> </p>
+<p>Changes with version 3.1.1 ............................................................................................................ 13</p>
+<p> </p>
+<p>3.12</p>
+<p> </p>
+<p>Changes with version 3.1.0 ............................................................................................................ 13</p>
+<p> </p>
+<p>3.13</p>
+<p> </p>
+<p>Changes with version 3.0.3 ............................................................................................................ 14</p>
+<p> </p>
+<p>3.14</p>
+<p> </p>
+<p>Changes with version 2.0.7 ............................................................................................................ 15</p>
+<p> </p>
+<p>3.15</p>
+<p> </p>
+<p>Changes with TTTech Release 1.9.3: S-WdgM Subpackage 2.0.6 .............................................. 15</p>
+<p> </p>
+<p>3.16</p>
+<p> </p>
+<p>Changes with TTTech Release 1.9.2: S-WdgM Subpackage 2.0.5 .............................................. 16</p>
+<p> </p>
+<p>3.17</p>
+<p> </p>
+<p>Changes with Release 1.9.1: S-WdgM Subpackage 2.0.4 ............................................................ 17</p>
+<p> </p>
+<p>3.18</p>
+<p> </p>
+<p>Changes with Release 1.9.0: S-WdgM Subpackage 2.0.3 ............................................................ 17</p>
+<p> </p>
+<p>3.19</p>
+<p> </p>
+<p>Changes with Release 1.8.2: S-WdgM Subpackage 1.8.2 ............................................................ 20</p>
+<p> </p>
+<p>3.20</p>
+<p> </p>
+<p>Changes with Release 1.8.0: S-WdgM Subpackage 1.8.0 ............................................................ 20</p>
+<p> </p>
+<p>3.21</p>
+<p> </p>
+<p>Changes with Release 1.7.0: S-WdgM Subpackage 1.7.0 ............................................................ 20</p>
+<p> </p>
+<p>3.22</p>
+<p> </p>
+<p>Changes with Release 1.6.0: S-WdgM Subpackage 1.6.0 ............................................................ 20</p>
+<p> </p>
+<p>3.23</p>
+<p> </p>
+<p>Changes with Release 1.5.0: S-WdgM Subpackage 1.5.0 ............................................................ 21</p>
+<p> </p>
+<p>3.24</p>
+<p> </p>
+<p>Changes with Release 1.4.0: S-WdgM Subpackage 1.4.0 ............................................................ 21</p>
+<p> </p>
+<p>3.25</p>
+<p> </p>
+<p>Changes with Release 1.3.1: WdgM Subpackage 1.3.1 ................................................................ 21</p>
+<p> </p>
+<p>3.26</p>
+<p> </p>
+<p>Changes with Release 1.3.0 .......................................................................................................... 21</p>
+<p> </p>
+<p>3.27</p>
+<p> </p>
+<p>Changes with Release 1.2.0: WdgM Subpackage 1.2.0 ................................................................ 21</p>
+<p> </p>
+<p>3.28</p>
+<p> </p>
+<p>Changes with Release 1.1.0: WdgM Subpackage 1.1.0 ................................................................ 22</p>
+<p> </p>
+<p>3.29</p>
+<p> </p>
+<p>Changes with Release 1.0.0: WdgM Subpackage 1.0.0 ................................................................ 23</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Test status ............................................................................................................................................. 24</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Known issues, limitations, updates .................................................................................................... 25</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Abbreviation and glossary ................................................................................................................... 26</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>5 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>6 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>1 </b></p>
+<p><b>Overview </b></p>
+<p>The <b>Safe Watchdog Manager </b>(<b>S-WdgM</b>) is upper software layer of the <b>Safe Watchdog Manager Stack</b>. </p>
+<p>The S-WdgM Stack is part of the service layer of the AUTOSAR architecture. The S-WdgM monitors the </p>
+<p>program flow and timing constrains of so-called Supervised Entities. When it detects a violation of the pre-</p>
+<p>configured program flow and timing values, it takes a number of configurable actions to recover from this </p>
+<p>state. </p>
+<p> </p>
+<p>The Safe <b>Watchdog Manager Stack </b>consists of the following embedded software modules: </p>
+<p></p>
+<p> </p>
+<p><b>Safe Watchdog Manager </b>software module (hardware independent) </p>
+<p></p>
+<p> </p>
+<p><b>Safe Watchdog Interface </b>software module (hardware independent) </p>
+<p></p>
+<p> </p>
+<p><b>Safe Watchdog Driver </b>software module (hardware dependent), </p>
+<p> </p>
+<p>and the Safe Watchdog Manager Stack configuration generators: </p>
+<p></p>
+<p> </p>
+<p><b>Safe Watchdog Manager configuration generator </b>(hardware independent) </p>
+<p></p>
+<p> </p>
+<p><b>Safe Watchdog Interface configuration generator </b>(hardware independent) </p>
+<p></p>
+<p> </p>
+<p><b>Safe Watchdog Driver configuration generator </b>(hardware dependent) </p>
+<p> </p>
+<p>and the Safe Watchdog Manager Stack configuration verifier </p>
+<p></p>
+<p> </p>
+<p><b>Safe Watchdog Manager configuration verifier </b>(hardware independent) </p>
+<p> </p>
+<p>This document represents the release notes for the <b>Safe Watchdog Manager </b>module only. </p>
+<p> </p>
+<p>The <b>Safe Watchdog Manager </b>is compatible to the WdgM module as specified in the AUTOSAR 4.0 and </p>
+<p>AUTOSAR 3.1 specifications but not fully compliant. For deviations and justifications please see the S-</p>
+<p>WdgM User Manual. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>7 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>2 </b></p>
+<p><b>Content of the Module Release </b></p>
+<p> </p>
+<p><b>Title </b></p>
+<p><b>Version*) </b></p>
+<p><b>Author </b></p>
+<p><b>Description </b></p>
+<p><b>WdgM/ </b></p>
+<p><b>3.4.6</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>S-WdgM Module </p>
+<p>    S-WdgM_ReleaseNotes.pdf </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>    Description/ </b></p>
+<p>3.3.3 </p>
+<p>TTTech </p>
+<p><b> </b></p>
+<p>        WdgM_Bswmd_A4.arxml </p>
+<p> </p>
+<p> </p>
+<p>For AUTOSAR 4.0.x environment </p>
+<p>        WdgM_Bswmd.arxml </p>
+<p> </p>
+<p> </p>
+<p>For AUTOSAR 3.1.y environment </p>
+<p><b>    Doc_SafetyManual/ </b></p>
+<p>2.3.28 </p>
+<p> </p>
+<p> </p>
+<p>        S-WdgM_SafetyManual.pdf </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>    Doc_SafetyCase/ </b></p>
+<p>1.1.0 </p>
+<p> </p>
+<p> </p>
+<p>        S-WdgM_SafetyCase.pdf </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>    <b>Doc_TechRef/ </b></p>
+<p>3.3.1 </p>
+<p>TTTech </p>
+<p> </p>
+<p>        S-WdgM_UserManual.pdf </p>
+<p> </p>
+<p> </p>
+<p>User Manual </p>
+<p><b>    Generator/ </b></p>
+<p><b>3.3.15</b></p>
+<p><b> </b></p>
+<p>TTTech </p>
+<p><b> </b></p>
+<p>        LICENSE </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>        Wdg_Mgr_Cfg_Gen.exe </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>    GenTool_Ead/ </b></p>
+<p>2.0.12 </p>
+<p>TTTech </p>
+<p><b> </b></p>
+<p>        SWC_WdgM_A4.xsl </p>
+<p> </p>
+<p> </p>
+<p>For AUTOSAR 4.0.x environment </p>
+<p>        SWC_WdgM.xsl </p>
+<p> </p>
+<p> </p>
+<p>For AUTOSAR 3.1.y environment </p>
+<p>        Identifier.xml </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>        Generation.xml </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>        Generation_A4.xml </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>    Implementation/ </b></p>
+<p>3.3.3 </p>
+<p>TTTech </p>
+<p><b> </b></p>
+<p>        WdgM.c </p>
+<p> </p>
+<p> </p>
+<p>Watchdog Manager - Main </p>
+<p>        WdgM_Checkpoint.c   </p>
+<p> </p>
+<p> </p>
+<p>Watchdog Manager - Checkpoint </p>
+<p>        WdgM_Cfg.h </p>
+<p> </p>
+<p> </p>
+<p>Watchdog Manager - </p>
+<p>Configuration structures </p>
+<p>        WdgM.h </p>
+<p> </p>
+<p> </p>
+<p>Watchdog Manager - API </p>
+<p>declaration </p>
+<p><b>    Verifier/ </b></p>
+<p>1.2.11 </p>
+<p>TTTech </p>
+<p><b> </b></p>
+<p>        wdgm_verifier.dll </p>
+<p> </p>
+<p> </p>
+<p>S-WdgM Configuration Verifier </p>
+<p>        libwdgm_verifierdll.a </p>
+<p> </p>
+<p> </p>
+<p>S-WdgM Configuration Verifier lib </p>
+<p>        wdgm_verifier.h </p>
+<p> </p>
+<p> </p>
+<p>S-WdgM Configuration Verifier </p>
+<p>        wdgm_verifier_types.h </p>
+<p> </p>
+<p> </p>
+<p>S-WdgM Configuration Verifier </p>
+<p>        wdgm_verifier_version.h </p>
+<p> </p>
+<p> </p>
+<p>S-WdgM Configuration Verifier </p>
+<p>        verify_wdgm_header.xsl </p>
+<p> </p>
+<p> </p>
+<p>S-WdgM Configuration Verifier </p>
+<p>        verify_wdgm_source.xsl </p>
+<p> </p>
+<p> </p>
+<p>S-WdgM Configuration Verifier </p>
+<p><b>    VerifierTools/ </b></p>
+<p>1.0.0 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>8 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>        MinGW/ </b></p>
+<p>5.1.6 </p>
+<p>MinGW </p>
+<p> </p>
+<p>            w32api-3.13-mingw32-dev.tar.gz </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>            mingwrt-3.15.2-mingw32-dll.tar.gz </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>            mingwrt-3.15.2-mingw32-dev.tar.gz </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>            MinGW-5.1.6.exe </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>            mingw.ini </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>            gcc-core-3.4.5-20060117-3.tar.gz </p>
+<p>3.4.5 </p>
+<p> </p>
+<p> </p>
+<p>            binutils-2.19.1-mingw32-bin.tar.gz </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>        xsltproc/ </b></p>
+<p>1.0.0 </p>
+<p>xsltproc </p>
+<p> </p>
+<p>            zlib1.dll </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>            xsltproc.exe </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>            libxslt.dll </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>            libxml2.dll </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>            libexslt.dll </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>            iconv.dll </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>*) <b>Bold </b>version numbers are new artefacts in this release. The non-bold artefacts are the previously released </p>
+<p>compatible artifacts. All artefacts listed here are consistent. </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>9 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>3 </b></p>
+<p><b>Change history  </b></p>
+<p>This chapter describes the changes in each released version. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1 </b></p>
+<p><b>Changes with version 3.4.6 </b></p>
+<p><b>Issue Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>69689 </p>
+<p>G </p>
+<p>wk47 </p>
+<p>`WdgM_PBcfg.h` shall #include `WdgM_Cfg.h` </p>
+<p>S </p>
+<p>The issue description (issue69689): </p>
+<p>The file `WdgM_PBcfg.h` uses a type `WdgM_ConfigType` but does not #include the header file where that </p>
+<p>type is defined. This situation causes normally no problems because the corresponding C source file </p>
+<p>`WdgM_PBcfg.h` has the following #include directive: </p>
+<p>    #include &quot;WdgM.h&quot; </p>
+<p>    #include &quot;WdgM_PBcfg.h&quot; </p>
+<p>Where &quot;WdgM.h&quot; includes the necessary `WdgM_Cfg.h`. </p>
+<p> </p>
+<p>The current release improved this point and the `WdgM_PBcfg.h` includes the `WdgM_Cfg.h` directly. </p>
+<p> </p>
+<p><b>3.2 </b></p>
+<p><b>Changes with version 3.4.5 </b></p>
+<p>S-WdgM module was not changed in this release, the Safety Case document was added only. </p>
+<p> </p>
+<p><b>Issue Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>68941 </p>
+<p>G </p>
+<p>44 </p>
+<p>/2014 </p>
+<p>Safe Execution - Remove Cross Cutting Checks in </p>
+<p>the WdgM Config Generator </p>
+<p>S </p>
+<p>68932 </p>
+<p>G </p>
+<p>44/ </p>
+<p>2014 </p>
+<p>Wdg Config Generator RH850P1x_TLE4473   </p>
+<p>missing paramterers </p>
+<p>S </p>
+<p>The change description (issue68941): </p>
+<p>The cross-cutting checks are removed from S-WdgM Generator. The Watchdog Manager </p>
+<p>Config Generator should not attempt to verify the Watchdog Driver's data because this is on this level not </p>
+<p>necessary. The removed cross-check parameters are the following: </p>
+<p></p>
+<p> </p>
+<p>WdgGeneral/WdgInitialTimeout </p>
+<p></p>
+<p> </p>
+<p>WdgSettingsConfig/WdgWindowStart </p>
+<p></p>
+<p> </p>
+<p>WdgSettingsConfig/WdgSlowModeMax </p>
+<p></p>
+<p> </p>
+<p>WdgSettingsConfig/WdgFastModeMax </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>10 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b> </b></p>
+<p><b>Release status: </b></p>
+<p> S … solved,  O … open,  C … Closed as obsolete </p>
+<p><b>Area: </b></p>
+<p> E … embedded, G … generator, V … verifier, SWC … SWC/bswmd file, T … Tests </p>
+<p> D … documentation </p>
+<p> </p>
+<p><b>3.3 </b></p>
+<p><b>Changes with version 3.4.4 </b></p>
+<p>S-WdgM module was not changed in this release, the Safety Case document was added only. </p>
+<p> </p>
+<p><b>Issue Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>65369 </p>
+<p>D </p>
+<p> </p>
+<p>Release Management Tasks for 1.26.1 CW </p>
+<p>31/2014 </p>
+<p>S </p>
+<p> </p>
+<p><b>3.4 </b></p>
+<p><b>Changes with version 3.4.3 </b></p>
+<p>S-WdgM module changes and corrections </p>
+<p> </p>
+<p><b>Issue Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>62326 </p>
+<p>all </p>
+<p> </p>
+<p>Safe Execution Release 1.26.0 - Release </p>
+<p>Management Tasks </p>
+<p>(include collection of issues for this release) </p>
+<p>S </p>
+<p> </p>
+<p> </p>
+<p><b>3.5 </b></p>
+<p><b>Changes with version 3.4.2 </b></p>
+<p>S-WdgM module changes and corrections </p>
+<p> </p>
+<p><b>Issue Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>61768 </p>
+<p>G </p>
+<p>Wk15 </p>
+<p>SafeExecution - Deactivate cross-cutting tests to </p>
+<p>avoid problems with AS3-compatible Third-Party </p>
+<p>Drivers </p>
+<p>S </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>11 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>3.6 </b></p>
+<p><b>Changes with version 3.4.1 </b></p>
+<p>S-WdgM module changes and corrections </p>
+<p> </p>
+<p><b>Issue Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>61023 </p>
+<p>G+E </p>
+<p> </p>
+<p>Issue collection for Autosar4.x S-WdgM issues and </p>
+<p>Autosar compatibility of the S-WdgIf module. </p>
+<p>S </p>
+<p> </p>
+<p> </p>
+<p><b>3.7 </b></p>
+<p><b>Changes with version 3.4.0 </b></p>
+<p>S-WdgM module changes and corrections </p>
+<p> </p>
+<p><b>Issue Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>59931 </p>
+<p>G+E </p>
+<p> </p>
+<p>API and generator points for AUTOSAR 4, reported </p>
+<p>by Vector </p>
+<p>S </p>
+<p> </p>
+<p><b>3.8 </b></p>
+<p><b>Changes with version 3.3.2 </b></p>
+<p>S-WdgM module changes and corrections </p>
+<p> </p>
+<p><b>Issue Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found  </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>58478 </p>
+<p>G </p>
+<p>Wk 48 </p>
+<p>MPC5643L_ATA5021 is no “third-party” driver </p>
+<p>S </p>
+<p>58479 </p>
+<p>G </p>
+<p>Wk 48 </p>
+<p>Add hint re need to provide driver data in EDF </p>
+<p>S </p>
+<p> </p>
+<p><b>3.9 </b></p>
+<p><b>Changes with version 3.2.0 </b></p>
+<p>S-WdgM module changes and corrections: </p>
+<p> </p>
+<p><b>Issue Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found  </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>51893 </p>
+<p>G </p>
+<p>Wk 6 </p>
+<p>Different checks for third-party drivers </p>
+<p>S </p>
+<p>51859 </p>
+<p>G </p>
+<p>Wk 6 </p>
+<p>Use symbolic IDs for SEs and CPs </p>
+<p>S </p>
+<p>52428 </p>
+<p>G </p>
+<p>Wk 10 </p>
+<p>#define constants moved from source to header file </p>
+<p>S </p>
+<p>52577 </p>
+<p>G </p>
+<p>Wk 11 </p>
+<p>Do not assume system-wide unique CP names </p>
+<p>S </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>12 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>Release status: </b></p>
+<p> S … solved,  O … open,  C … Closed as obsolete </p>
+<p><b>Area: </b></p>
+<p> E … embedded, G … generator, V … verifier, SWC … SWC/bswmd file, T … Tests </p>
+<p> D … documentation </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>13 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>3.10 </b></p>
+<p><b>Changes with version 3.1.2 </b></p>
+<p> </p>
+<p><b>Issue </b></p>
+<p><b>Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>in Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>52577 </p>
+<p>G </p>
+<p>Wk6 </p>
+<p>“Do not assume system-wide unique CP </p>
+<p>names”: If there are 2 or more checkpoints </p>
+<p>with the same name in different Supervised </p>
+<p>Entities then the generator can generate </p>
+<p>wrong configurations.  </p>
+<p>O </p>
+<p> </p>
+<p> </p>
+<p><b>3.11 </b></p>
+<p><b>Changes with version 3.1.1 </b></p>
+<p>S-WdgM module changes and corrections: </p>
+<p> </p>
+<p><b>Issue </b></p>
+<p><b>Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>in Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>52281 </p>
+<p>V </p>
+<p>Wk08 </p>
+<p>Deactivate the test 36. The test is obsolete. </p>
+<p>S </p>
+<p><b>Release status: </b></p>
+<p> S … solved,  O … open,  C … Closed as obsolete </p>
+<p><b>Area: </b></p>
+<p> E … embedded, G … generator, V … verifier, SWC … SWC/bswmd file, T … Tests </p>
+<p> D … documentation </p>
+<p> </p>
+<p> </p>
+<p><b>3.12 </b></p>
+<p><b>Changes with version 3.1.0 </b></p>
+<p> </p>
+<p>S-WdgM module changes and corrections: </p>
+<p> </p>
+<p><b>Issue </b></p>
+<p><b>Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>in Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>50917 </p>
+<p>V </p>
+<p> </p>
+<p>Test 73, The Verifier doesn’t read the </p>
+<p>WDGM_STATE_CHANGE_NOTIFICATION  </p>
+<p>Correctly. </p>
+<p>S </p>
+<p>50131 </p>
+<p>G </p>
+<p>Wk45 </p>
+<p>WdgM and WdgIf config generators must </p>
+<p>work together with unsupported Wdg Drivers </p>
+<p>S </p>
+<p>49656 </p>
+<p>V </p>
+<p> </p>
+<p>Verifier - Sorting of parameters might make </p>
+<p>test results wrong. </p>
+<p>S </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>14 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>48637 </p>
+<p>G </p>
+<p>Wk36 </p>
+<p> </p>
+<p>CP ID is used as CFG array ID, </p>
+<p>(when the CP ID’s are not sorted, then the </p>
+<p>generator stops generating)  </p>
+<p>S </p>
+<p>51164</p>
+<p> </p>
+<p>D </p>
+<p>Wk02 </p>
+<p>Safety Manual update </p>
+<p>S </p>
+<p>51222 </p>
+<p>D </p>
+<p>Wk02 </p>
+<p>Safety Case update (version numbers) </p>
+<p>S </p>
+<p><b>Release status: </b></p>
+<p> S … solved,  O … open,  C … Closed as obsolete </p>
+<p><b>Area: </b></p>
+<p> E … embedded, G … generator, V … verifier, SWC … SWC/bswmd file, T … Tests </p>
+<p> D … documentation </p>
+<p><b>3.13 </b></p>
+<p><b>Changes with version 3.0.3 </b></p>
+<p>S-WdgM module changes and corrections: </p>
+<p> </p>
+<p><b>Issue </b></p>
+<p><b>Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Found </b></p>
+<p><b>in Wk </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>status </b></p>
+<p>50131 </p>
+<p>G </p>
+<p>Wk45 </p>
+<p>WdgM and WdgIF config generators must </p>
+<p>work together with unsupported Wdg Drivers </p>
+<p>S partly </p>
+<p>49950 </p>
+<p>E </p>
+<p>Wk45 </p>
+<p>WdgM: line 792: warning (dcc:1516): </p>
+<p>parameter CallerID is never used </p>
+<p>S </p>
+<p>49735 </p>
+<p>E </p>
+<p>Wk44 </p>
+<p>WdgM: The </p>
+<p>WdgM_GlobalSuspendInterrupts() should be </p>
+<p>defined &quot;extern&quot; and renamed to </p>
+<p>GlobalSuspendInterrupts() </p>
+<p>S </p>
+<p>49837 </p>
+<p>E </p>
+<p>Wk44 </p>
+<p>Common Suspend/Restore Interrupt routines </p>
+<p>shall be used </p>
+<p>S </p>
+<p>48420 </p>
+<p>E </p>
+<p>Wk44 </p>
+<p>Deactivating an active SE should rise in some </p>
+<p>cases DET report </p>
+<p>S </p>
+<p>48667 </p>
+<p>G </p>
+<p>Wk43 </p>
+<p>Generator shall generate constants with 'u' </p>
+<p>sufix </p>
+<p>S </p>
+<p>48637 </p>
+<p>G </p>
+<p>Wk 36 </p>
+<p>Change  </p>
+<p>request </p>
+<p>The CP and SE IDs must be strict ordered. </p>
+<p>Otherwise the Generator rises an error. </p>
+<p>O </p>
+<p>48601 </p>
+<p>SWC </p>
+<p> </p>
+<p>Uneven implementation of port defined </p>
+<p>argument values for port interface </p>
+<p>&lt;WdgM_GlobalMode&gt; </p>
+<p>S </p>
+<p>48993 </p>
+<p>E </p>
+<p> </p>
+<p>WdgIf_GetTickCounter()  writes to WdgM </p>
+<p>global memory </p>
+<p>S </p>
+<p>48818 </p>
+<p>G </p>
+<p> </p>
+<p>S-WdgM Code segment fixed in the </p>
+<p>WdgM_MemMap.h file </p>
+<p>S </p>
+<p><b>Release status: </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>15 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> S … solved,  O … open,  C … Closed as obsolete </p>
+<p><b>Area: </b></p>
+<p> E … embedded, G … generator, V … verifier, SWC … SWC/bswmd file, T … Tests </p>
+<p> </p>
+<p> </p>
+<p><b>3.14 </b></p>
+<p><b>Changes with version 2.0.7 </b></p>
+<p>Test release for new versioning and delivery structure. This is not a customer version. Used internally only. </p>
+<p> </p>
+<p>S-WdgM module changes and corrections: </p>
+<p> </p>
+<p>Embedded Code changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>Generator changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>Verifier changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>Documentation changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>DaVinci interface changes: </p>
+<p></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p><b>3.15 </b></p>
+<p><b>Changes with TTTech Release 1.9.3: S-WdgM Subpackage 2.0.6 </b></p>
+<p>This release contains an update of the Watchdog Manager Configuration Verifier. The release is compatible </p>
+<p>with the embedded code basis of the release 1.9.0 and documentation release 1.9.1 and 1.9.2 </p>
+<p> </p>
+<p>Embedded Code changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>Generator changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>Verifier changes: </p>
+<p></p>
+<p> </p>
+<p>Report file header corrected (“TTTech Internal Use only” removed). </p>
+<p></p>
+<p> </p>
+<p>[46858] Verify all relevant WdgM global settings </p>
+<p></p>
+<p> </p>
+<p>[48716] Detect NULL pointers </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>16 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p>Documentation changes: </p>
+<p></p>
+<p> </p>
+<p>S-WdgM User Manual - update </p>
+<p></p>
+<p> </p>
+<p>S-WdgM Stack Safety Case - new </p>
+<p> </p>
+<p>DaVinci interface changes: </p>
+<p></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p>Open issues in this release: </p>
+<p><b>Issue </b></p>
+<p><b>Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>1.9.3 </b></p>
+<p>48993 </p>
+<p>E </p>
+<p>WdgIf_GetTickCounter()  writes to WdgM global memory </p>
+<p>O </p>
+<p>48818 </p>
+<p>G </p>
+<p>S-WdgM Code segment fixed in the WdgM_MemMap.h file </p>
+<p>O </p>
+<p>48601 </p>
+<p>SWC </p>
+<p>Uneven implementation of port defined argument values for port </p>
+<p>interface &lt;WdgM_GlobalMode&gt; </p>
+<p>O </p>
+<p><b>Release: </b></p>
+<p> S … solved,  O … open,  C … Closed as obsolete </p>
+<p><b>Area: </b></p>
+<p> E … embedded, G … generator, V … verifier, SWC … SWC/bswmd file, T … Tests </p>
+<p> </p>
+<p><b>3.16 </b></p>
+<p><b>Changes with TTTech Release 1.9.2: S-WdgM Subpackage 2.0.5 </b></p>
+<p>This release contains an update of the Watchdog Manager SWC_WdgM.xsl file only. The release is </p>
+<p>compatible with the embedded code basis of the release 1.9.0 and documentation release 1.9.1 </p>
+<p> </p>
+<p>Embedded Code changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>Generator changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>Verifier changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>Documentation changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>DaVinci interface changes: </p>
+<p></p>
+<p> </p>
+<p>[47956] SWC_WdgM.xsl file changed because of problem with the </p>
+<p>WdgMTimebaseSource</p>
+<p> </p>
+<p>parameter. The selection of the </p>
+<p>WDGM_INTERNAL_HARDWARE_TICK </p>
+<p>was not possible. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>17 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>3.17 </b></p>
+<p><b>Changes with Release 1.9.1: S-WdgM Subpackage 2.0.4 </b></p>
+<p>This release contains S-WdgM documentation and S-WdgM Verifier only. The documentation in this release </p>
+<p>is compatible with the embedded code basis of the release 1.9.0 (Subpackage 2.0.3) </p>
+<p> </p>
+<p>Embedded Code changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>Generator changes: </p>
+<p></p>
+<p> </p>
+<p>none </p>
+<p> </p>
+<p>Verifier issues: </p>
+<p></p>
+<p> </p>
+<p>See the chapter “Known issues, limitations, updates” </p>
+<p> </p>
+<p>Documentation changes: </p>
+<p></p>
+<p> </p>
+<p>[48745] S-WdgM Safety Manual Formal Review </p>
+<p></p>
+<p> </p>
+<p>[48722] S-WdgM User Manual Review </p>
+<p><b>3.18 </b></p>
+<p><b>Changes with Release 1.9.0: S-WdgM Subpackage 2.0.3 </b></p>
+<p>Open issues in this release: </p>
+<p><b>Issue </b></p>
+<p><b>Nr. </b></p>
+<p><b>Area </b></p>
+<p><b>Issue title </b></p>
+<p><b>Release </b></p>
+<p><b>1.9.0 </b></p>
+<p>48624 </p>
+<p>E </p>
+<p>MPC56xx Driver – MISRA issues. </p>
+<p>S </p>
+<p>48607 </p>
+<p>E </p>
+<p>WdgIf Interface – MISRA issues. </p>
+<p>S </p>
+<p>48583 </p>
+<p>E </p>
+<p>WdgM Manager – MISRA issues. </p>
+<p>S </p>
+<p>47956 </p>
+<p>SWC </p>
+<p>Removed unused runnable entities. </p>
+<p>S </p>
+<p>47459 </p>
+<p>E </p>
+<p>WdgM_MainFunction should have a reentrancy check. </p>
+<p>O </p>
+<p>47828 </p>
+<p>E </p>
+<p>Service IDs of an API function differ from AUTOSAR </p>
+<p>S </p>
+<p>47832 </p>
+<p>E </p>
+<p>A global transition to a deactivated SE doesn’t produce a </p>
+<p>error response. </p>
+<p>O </p>
+<p>48320 </p>
+<p>E, G </p>
+<p>The first Supervision cycle should have definable Alive </p>
+<p>test. </p>
+<p>S </p>
+<p>48320] </p>
+<p>E </p>
+<p>The ProgramFlowViolationCnt is wrongly incremented </p>
+<p>S </p>
+<p>48298 </p>
+<p>E, G </p>
+<p>The OS Partition Reset makes compile warning problem </p>
+<p>S </p>
+<p>46101 </p>
+<p>T </p>
+<p>WdgM: Unit test for the Autosar 3.1 compatibility </p>
+<p>S </p>
+<p>46382 </p>
+<p>V </p>
+<p>Defines are not checked for correct value (STD_ON, </p>
+<p>STD_OFF) </p>
+<p>S </p>
+<p>46977 </p>
+<p>SWC </p>
+<p>WdgM: Each Entity may have zero or more End </p>
+<p>Checkpoints </p>
+<p>S </p>
+<p>47905 </p>
+<p>SWC </p>
+<p>Location of xxx_SEC_CONST_UNSPECIFIED + </p>
+<p>xxx_SEC_CODE </p>
+<p>S </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>18 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>47386 </p>
+<p>SWC </p>
+<p>Special Handling for Callback in Service Component </p>
+<p>Description </p>
+<p>O </p>
+<p>47990 </p>
+<p>SWC </p>
+<p>The WdgM_SetMode() need to be added to the 3.1 </p>
+<p>compatibility mode </p>
+<p>S </p>
+<p>47956 </p>
+<p>SWC </p>
+<p>WdgM Generator creates runnable trigger which is not </p>
+<p>configured </p>
+<p>S </p>
+<p>42841 </p>
+<p>SWC </p>
+<p>Service Component always has all version's APIs </p>
+<p>S </p>
+<p>47328 </p>
+<p>E </p>
+<p>S-WdgM: initialize uninitialized local variable,   </p>
+<p>S </p>
+<p>47131 </p>
+<p>E </p>
+<p>Cover combined X-Y-Monitoring violations in status </p>
+<p>FAILED </p>
+<p>S </p>
+<p>44842 </p>
+<p>E </p>
+<p>WdgM: Magic constants should not be used when not </p>
+<p>necessary (Disable automatically generated typedefs) </p>
+<p>O </p>
+<p>45280 </p>
+<p>G </p>
+<p>Wdgx: The RAM sections of WdgM, Wdg should be </p>
+<p>related to an Application only </p>
+<p>S </p>
+<p>45566 </p>
+<p>E </p>
+<p>WdgM: Configuration checks only if </p>
+<p>WdgMDevErrorDetect is off </p>
+<p>O </p>
+<p>45709 </p>
+<p>E </p>
+<p>Safe WdgM - Alive Counter overrun </p>
+<p>S </p>
+<p>45814 </p>
+<p>E </p>
+<p>WdgM: Update Copyright information in embedded codes </p>
+<p>S </p>
+<p>45827 </p>
+<p>E </p>
+<p>WdgM: Add AUTOSAR _AR_ Version macros </p>
+<p>S </p>
+<p>46044 </p>
+<p>E </p>
+<p>S-WdgM: protect sensitive data accesses from interrupts </p>
+<p>S </p>
+<p>46383 </p>
+<p>E </p>
+<p>ascSC is assumed to be defined but this is not checked </p>
+<p>S </p>
+<p>46388 </p>
+<p>E </p>
+<p>INVALID_OSAPPLICATION is not necessarily 0xFF in </p>
+<p>Os.h </p>
+<p>S </p>
+<p>46464 </p>
+<p>E </p>
+<p>WdgM: remove not used code when API_3_1 selected </p>
+<p>O </p>
+<p>46816 </p>
+<p>E </p>
+<p>Safe WdgM - error from WdgIf during initialization </p>
+<p>C </p>
+<p>46819 </p>
+<p>G </p>
+<p>S-WdgM: 0xFFFF tolerance values prevent from going to </p>
+<p>EXPIRED </p>
+<p>S </p>
+<p>46820 </p>
+<p>E </p>
+<p>WdgM: AUTOSAR Compiler abstraction </p>
+<p>S </p>
+<p>46993 </p>
+<p>E </p>
+<p>WdgM: Fixing the external function names </p>
+<p>S </p>
+<p>46574 </p>
+<p>G </p>
+<p>avoid division by zero if Ticks/second = 0 </p>
+<p>S </p>
+<p>46794 </p>
+<p>G </p>
+<p>reject multiple DM elements for one transition </p>
+<p> </p>
+<p>S </p>
+<p>46920 </p>
+<p>G </p>
+<p>checkpoint attribute &quot;startsAGlobalTransition&quot; is now </p>
+<p>correctly computed </p>
+<p>S </p>
+<p>44628 </p>
+<p>G </p>
+<p>remove compiler warning ({{0}, {1}, ..} instead of {0, 1} </p>
+<p> </p>
+<p>S </p>
+<p>47177 </p>
+<p>G </p>
+<p>reject configurations not having a 1:1:1 relationship for </p>
+<p>driver/interface/watchdog </p>
+<p>S </p>
+<p>47058 </p>
+<p>G </p>
+<p>disable OS Partition Reset in generator </p>
+<p>S </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Release: </b></p>
+<p> S … solved,  O … open,  C … Closed as obsolete </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>19 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p><b>Area: </b></p>
+<p> E … embedded, G … generator, V … verifier, SWC … SWC/bswmd file, T … Tests </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>20 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p> </p>
+<p><b>3.19 </b></p>
+<p><b>Changes with Release 1.8.2: S-WdgM Subpackage 1.8.2 </b></p>
+<p>Embedded Code BugFixies: </p>
+<p></p>
+<p> </p>
+<p>[47131] - Cover combined X-Y-Monitoring violations in status FAILED </p>
+<p></p>
+<p> </p>
+<p>[45709] - Safe WdgM -  Alive Counter overrun </p>
+<p></p>
+<p> </p>
+<p>[45827] - WdgM: Add AUTOSAR  _AR_ Version macros </p>
+<p></p>
+<p> </p>
+<p>[46044] - S-WdgM: protect sensitive data accesses from interrupts </p>
+<p></p>
+<p> </p>
+<p>[45280] - Wdgx: The RAM sections of WdgM, Wdg should be related to an Application only </p>
+<p></p>
+<p> </p>
+<p>[47328] - S-WdgM: initialize uninitialized local variables </p>
+<p> </p>
+<p>Configuration Generator BugFixies: </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>[46574]: avoid division by zero if Ticks/second = 0 </p>
+<p></p>
+<p> </p>
+<p>[46794]: reject multiple DM elements for one transition </p>
+<p></p>
+<p> </p>
+<p>[46920]: checkpoint attribute &quot;startsAGlobalTransition&quot; is now correctly computed </p>
+<p></p>
+<p> </p>
+<p>[44628]: remove compiler warning ({{0}, {1}, ..} instead of {0, 1} </p>
+<p></p>
+<p> </p>
+<p>[47177]: reject configurations not having a 1:1:1 relationship for driver/interface/watchdog </p>
+<p></p>
+<p> </p>
+<p>[47058]: disable OS Partition Reset in generator </p>
+<p> </p>
+<p><b>3.20 </b></p>
+<p><b>Changes with Release 1.8.0: S-WdgM Subpackage 1.8.0 </b></p>
+<p></p>
+<p> </p>
+<p>The Safety Manual revorked, the not safety related informations are moved to the User Manual. </p>
+<p></p>
+<p> </p>
+<p>[45700] Trigger Mode implemented (Simplified SetMode() function) </p>
+<p></p>
+<p> </p>
+<p>[45927] RememberedEntityId replaced by global transition flags </p>
+<p></p>
+<p> </p>
+<p>[45959] Periodicity of deadline and program flow  tolerances repaired </p>
+<p></p>
+<p> </p>
+<p>[46206] Minor changes to increase test coverage </p>
+<p> </p>
+<p><b>3.21 </b></p>
+<p><b>Changes with Release 1.7.0: S-WdgM Subpackage 1.7.0 </b></p>
+<p></p>
+<p> </p>
+<p>[45210] Hardware TickCounter implemented </p>
+<p></p>
+<p> </p>
+<p>[45572] WdgM_GetLocalStatus() adapted, WdgMEnableEntityDeactivation flag was moved </p>
+<p></p>
+<p> </p>
+<p>[45663] tick_count_diff calculation repaired </p>
+<p></p>
+<p> </p>
+<p>[45388] Mcu_PerformReset() removed from WdgM_MainFunciton. </p>
+<p><b>3.22 </b></p>
+<p><b>Changes with Release 1.6.0: S-WdgM Subpackage 1.6.0 </b></p>
+<p></p>
+<p> </p>
+<p>[44418] Checksum for configuration added </p>
+<p></p>
+<p> </p>
+<p>[44978] SE deactivation/activation variable protection in the GS memory added </p>
+<p></p>
+<p> </p>
+<p>[45008] Partition reset partly corrected, the Entity reset was added. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>21 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p></p>
+<p> </p>
+<p>[45066] Refactoring, MISRA check corrections </p>
+<p> </p>
+<p><b>3.23 </b></p>
+<p><b>Changes with Release 1.5.0: S-WdgM Subpackage 1.5.0 </b></p>
+<p></p>
+<p> </p>
+<p>[43770] The write access of the MainFunction() to the entity memory removed. </p>
+<p></p>
+<p> </p>
+<p>[44107] Deadline, Program flow monitoring debouncing parameters optimization </p>
+<p></p>
+<p> </p>
+<p>[43913] MainFunction() interrupted by Checkpoint() corrections </p>
+<p></p>
+<p> </p>
+<p>[44257] Check for Number of S-WdgM Ticks in SupervisionCycle added </p>
+<p></p>
+<p> </p>
+<p>[43912] The direct reset (hardware reg. access) was removed from CheckpointReached() </p>
+<p><b>3.24 </b></p>
+<p><b>Changes with Release 1.4.0: S-WdgM Subpackage 1.4.0 </b></p>
+<p></p>
+<p> </p>
+<p>The documentation structure was changed. Each module (Manager, Interface and Driver) has now </p>
+<p>an own User Manual, Safety Manual and Release Notes. The changes mentioned in this chapter </p>
+<p>represents the S-WdgM changes only. </p>
+<p></p>
+<p> </p>
+<p> [42537] WDGM_DEM_SUPERVISION_REPORT define moved to WdgM_Cfg_Feature.h file </p>
+<p></p>
+<p> </p>
+<p> [42797] Compiler warnings removed,  the SE deactivation/activation simplified </p>
+<p></p>
+<p> </p>
+<p> [42943] SE Deactivation/Activation issue removed </p>
+<p></p>
+<p> </p>
+<p> [43092] global transitions repaired – internal global transition flag introduced </p>
+<p></p>
+<p> </p>
+<p> [43881] Unused variable removed </p>
+<p><b>3.25 </b></p>
+<p><b>Changes with Release 1.3.1: WdgM Subpackage 1.3.1 </b></p>
+<p>The Wdg_MPC56xx_bswmd.arxml file was changed only. The xml element Wdg_Impl was removed from the </p>
+<p>file by Mr. Kalmbach at Vector. The element causes a problem in GENy. </p>
+<p><b>3.26 </b></p>
+<p><b>Changes with Release 1.3.0 </b></p>
+<p><b>Embedded code: </b></p>
+<p></p>
+<p> </p>
+<p>[42477] Notification in GLOBAL_STATE_STOPPED was not necessary and was removed  </p>
+<p></p>
+<p> </p>
+<p>[42503] Error message to DEM in GLOBAL_STATE_STOPPED is now reported correctly </p>
+<p></p>
+<p> </p>
+<p>[42509] Check for a valid global transition repaired in the case of a local initial checkpoint. </p>
+<p></p>
+<p> </p>
+<p>[42249] Added the new MPC56xx family platform, new S-Wdg driver created </p>
+<p> </p>
+<p><b>Generators: </b></p>
+<p></p>
+<p> </p>
+<p>Added new MPC56xx family platform  </p>
+<p><b>3.27 </b></p>
+<p><b>Changes with Release 1.2.0: WdgM Subpackage 1.2.0 </b></p>
+<p><b>Embedded code: </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>22 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p></p>
+<p> </p>
+<p>For the global Disable/Enable interrupts the AUTOSAR Schedule Manager interface is now used </p>
+<p>instead of the operating system interface. (Now  the SchM_WdgM.h needs to be included) </p>
+<p></p>
+<p> </p>
+<p>When the RTE is used, then the S-WdgM uses the defines and typedefs generated by RTE instead </p>
+<p>of the S-WdgM internal typedefs and defines (switchable with WDGM_USE_RTE) </p>
+<p></p>
+<p> </p>
+<p>Primary Reset path instead of Secondary reset path is used when the </p>
+<p>WDGM_IMMEDIATE_RESET==STD_ON is selected. This change was done to guarantee safe </p>
+<p>reset. (The previously used external Mcu_PerformReset() function is a QM function) </p>
+<p></p>
+<p> </p>
+<p>The Timebase Tick counter check (stuck-in and negative count) was corrected in the </p>
+<p>WdgM_MainFunction()  </p>
+<p></p>
+<p> </p>
+<p>Similar to the S-WdgM the S-Wdg has now a Wdg_MemMap.h file. So it is possible to place the </p>
+<p>Wdg variables to a memory section predefined by DaVinci Configurator. </p>
+<p><b>Generators: </b></p>
+<p></p>
+<p> </p>
+<p>better error handling </p>
+<p></p>
+<p> </p>
+<p>XSLT Stylesheet now includes `WdgM_MainFunction` and `WdgM_UpdateTickCount` as runnables. </p>
+<p></p>
+<p> </p>
+<p>Drivers/platforms now can be identified correctly regardless of the SHORT-NAMEs chosen by users </p>
+<p> </p>
+<p><b>ECU description file change: </b></p>
+<p>Release 1.2.0 uses SUB-PACKAGEs for organizing platform-related data inside ECU description file.  </p>
+<p>ECU description files created for previous versions have to be adapted slightly - otherwise the code </p>
+<p>generators may not be able to find the platform data.  Please follow these steps: </p>
+<p><i> </i></p>
+<p>1. </p>
+<p>Open the ECU Description file with a text editor </p>
+<p>2. </p>
+<p>Find &lt;DEFINITION-REF&gt; elements in the ECU description file containing `/TTTECH/Wdg` or </p>
+<p>`/TTTECH/WdgImpl` </p>
+<p>3. </p>
+<p>Replace the `TTTECH/Wdg` substring with `TTTech/TMS570LS3x/Wdg`  and  /TTTECH/WdgImpl` </p>
+<p>with /TTTECH/TMS570LS3x/WdgImpl` </p>
+<p>4. </p>
+<p>Save your changes </p>
+<p> </p>
+<p><b>3.28 </b></p>
+<p><b>Changes with Release 1.1.0: WdgM Subpackage 1.1.0 </b></p>
+<p><b>Embedded code: </b></p>
+<p></p>
+<p> </p>
+<p>The AUTOSAR 3.1 functionality Deactivate / Activate entity was implemented. </p>
+<p></p>
+<p> </p>
+<p>The Callback Notification was implemented. </p>
+<p></p>
+<p> </p>
+<p>The entities initialization in the WdgM_Init() was corrected. </p>
+<p></p>
+<p> </p>
+<p>The Timebase Tick overrun correction was removed on places where it wasn’t necessary </p>
+<p></p>
+<p> </p>
+<p>The MPC5604B Safe Watchdog driver was implemented </p>
+<p>o</p>
+<p> </p>
+<p>Note: the MPC5604B internal watchdog’s registers (module SWT) can only be accessed in </p>
+<p>one of the supervisor modes. This means that the WdgM_MainFunction(), which periodically </p>
+<p>triggers the watchdog, must run in a supervisor mode! </p>
+<p>o</p>
+<p> </p>
+<p>This first version of the MPC5604B Safe Watchdog driver was developed and tested using </p>
+<p>the Freescale CodeWarrior Compiler 5.9.0. </p>
+<p>o</p>
+<p> </p>
+<p>Following configuration sets were verified: fSIRCkhz=128, interruptThenReset=false, </p>
+<p>hardLock=false, stopModeControl=true, debugModeControl=true, WdgDevErrorDetect=true, </p>
+<p>WdgDemReport=true, WdgDisableAllowed=true, WdgVersionInfoApi=true. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>23 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p><b>Generators: </b></p>
+<p>Wdg_Mgr_Cfg_Gen.exe generates code to support supervised entity activation/deactivation and </p>
+<p>callback notifications. </p>
+<p>Wdg_If_Cfg_Gen.exe generates code for the MPC5604B driver and corresponding interface. </p>
+<p><b>3.29 </b></p>
+<p><b>Changes with Release 1.0.0: WdgM Subpackage 1.0.0 </b></p>
+<p></p>
+<p> </p>
+<p>The Safe Watchdog Interface embedded code was split in to two modules: </p>
+<p>1. </p>
+<p>Safe Watchdog  Interface, is now hardware independent </p>
+<p>2. </p>
+<p>Safe Watchdog Driver, is hardware dependent </p>
+<p></p>
+<p> </p>
+<p>The Mode switch through the WdgM_Init was removed. </p>
+<p></p>
+<p> </p>
+<p>There is now possibility to disable interrupts while the Global shared data are manipulated </p>
+<p></p>
+<p> </p>
+<p>Some enum definitions in the S-WdgM API (like LOCAL_STATUS_OK) was changed to AUTOSAR  </p>
+<p>specified #defines </p>
+<p></p>
+<p> </p>
+<p>Changes in the generators: </p>
+<p></p>
+<p> </p>
+<p>The generators generates now additionally WdgM_Cfg_Features.h,WdgIf_Cfg_Features.h, </p>
+<p>Wdg_TMS570LS3x_Cfg_Features.h files. </p>
+<p></p>
+<p> </p>
+<p>The generators generates now additionally WdgM_MemMap.f file. </p>
+<p></p>
+<p> </p>
+<p>Changes in the bswmd and swc files: </p>
+<p></p>
+<p> </p>
+<p>Feature definitions are added (defined in the …Cfg_Features.h files) </p>
+<p></p>
+<p> </p>
+<p>Software version and vendor info was added </p>
+<p></p>
+<p> </p>
+<p>Obsolete 3.1 items was deleted </p>
+<p></p>
+<p> </p>
+<p>DEFINITION-REF elements now contains paths beginning with TTTECH instead of AUTOSAR  </p>
+<p></p>
+<p> </p>
+<p>The bswmd files are now schema compliant.  </p>
+<p></p>
+<p> </p>
+<p>At typedefs WdgM_CheckpointIdType,  WdgM_SupervisedEntityIdType was the maximum value  </p>
+<p>changed to 65535. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>24 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>4 </b></p>
+<p><b>Test status </b></p>
+<p>The S-WdgM integration tests based on the issue 69689 were performed. No findings. </p>
+<p> </p>
+<p>All test results are positive. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>25 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>5 </b></p>
+<p><b>Known issues, limitations, updates </b></p>
+<p><b>Known issues: </b></p>
+<p>For known issues please see the chapter “Change history” above. </p>
+<p> </p>
+<p> </p>
+<p><b>Functional limitations of current version: </b></p>
+<p>Not known. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Updates: </b></p>
+<p>Current release represents a S-WdgM module for AUTOSAR 4.0.x and AUTOSAR 3.1.y. </p>
+<p> </p>
+<p>Note, that the S-WdgM Configuration generator reads the AUTOSAR version from ECU description file and </p>
+<p>generates a define “#define </p>
+<p>WDGM_AUTOSAR_4_x STD_ON”</p>
+<p> in case of Autosar 4.x. Dependent on this </p>
+<p>define the embedded code uses the appropriate Autosar 4.0.x functionality. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>26 </p>
+<p><b>Project Name: </b></p>
+<p>Safe Watchdog Manager </p>
+<p>Version: 3.4.6 </p>
+<p><b>Document Title: </b></p>
+<p>Release Notes</p>
+<p> </p>
+<p>Doc.No:  D-SAFEX-RP-70-012</p>
+<p> </p>
+<p>Page </p>
+<p><b>Date:  </b></p>
+<p>21.11.2014 </p>
+<p>Version:  </p>
+<p>3.4.6 </p>
+<p><b>File name: </b></p>
+<p>S-WdgM_ReleaseNotes.doc </p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>© TTTech-Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>6 </b></p>
+<p><b>Abbreviation and glossary </b></p>
+<p><b>Acronym / </b></p>
+<p><b>Term </b></p>
+<p><b>Meaning </b></p>
+<p>CP </p>
+<p>Checkpoint </p>
+<p>EDF </p>
+<p>ECU Description File (.arxml file used as input to the configuration generator) </p>
+<p>SE </p>
+<p>Supervised Entity </p>
+<p>OS </p>
+<p>Operating System </p>
+<p>SCx </p>
+<p>Scalability Class (of an Operating System) </p>
+<p>S-WdgM </p>
+<p>Safe Watchdog Manager (TTTech product, platform independent part) </p>
+<p>S-WdgIf </p>
+<p>Safe Watchdog Interface (TTTech product, is the platform independent part) </p>
+<p>S-Wdg </p>
+<p>Safe Watchdog Driver (TTTech product, is the platform dependent part) </p>
+<p>WdgM </p>
+<p>Watchdog Manager  (module according AUTOSAR specification) </p>
+<p>[xxxxx] </p>
+<p>TTTech internal issue tracking number. </p>
+<p><b> </b></p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,3225 @@
+---
+layout: default
+title: UserManual_CANoe_Model_Generator
+nav_order: 18
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>User Manual </b></p>
+<p><b>GMLAN Package </b></p>
+<p>Installation and usage in CANoe </p>
+<p><b>Version 2.10.0 </b></p>
+<p><b>English</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Imprint </b></p>
+<p> </p>
+<p>Vector Informatik GmbH </p>
+<p>Ingersheimer Straße 24 </p>
+<p>D-70499 Stuttgart </p>
+<p> </p>
+<p> </p>
+<p>The information and data given in this user manual can be changed without prior notice. No part of this manual may be reproduced in </p>
+<p>any form or by any means without the written permission of the publisher, regardless of which method or which instruments, electronic </p>
+<p>or mechanical, are used. All technical information, drafts, etc. are liable to law of copyright protection. </p>
+<p></p>
+<p> Copyright 2013, Vector Informatik GmbH  </p>
+<p>All rights reserved. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Table of contents </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- I - </p>
+<p>Table of contents </p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction </b></p>
+<p><b>3</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Package Overview </p>
+<p>4</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Reference Documents </p>
+<p>4</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Features </p>
+<p>4</p>
+<p> </p>
+<p>1.4</p>
+<p> </p>
+<p>History </p>
+<p>5</p>
+<p> </p>
+<p>1.5</p>
+<p> </p>
+<p>Releases and Compatibility </p>
+<p>5</p>
+<p> </p>
+<p>1.6</p>
+<p> </p>
+<p>About this User Manual </p>
+<p>7</p>
+<p> </p>
+<p>1.6.1</p>
+<p> </p>
+<p>Access Helps and Conventions </p>
+<p>7</p>
+<p> </p>
+<p>1.6.2</p>
+<p> </p>
+<p>Certification </p>
+<p>8</p>
+<p> </p>
+<p>1.6.3</p>
+<p> </p>
+<p>Warranty </p>
+<p>8</p>
+<p> </p>
+<p>1.6.4</p>
+<p> </p>
+<p>Support </p>
+<p>8</p>
+<p> </p>
+<p>1.6.5</p>
+<p> </p>
+<p>Registered Trademarks </p>
+<p>8</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Installation and Configuration </b></p>
+<p><b>9</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Prerequisites </p>
+<p>10</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Installation </p>
+<p>10</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Update of CANoe </p>
+<p>10</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Quick Start </b></p>
+<p><b>11</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Automatic Generation of the Simulation Model (recommended) </p>
+<p>12</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Model Generation by Drag &amp; Drop </p>
+<p>12</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Model Generation Wizard </p>
+<p>12</p>
+<p> </p>
+<p>3.1.3</p>
+<p> </p>
+<p>Trouble-shooting </p>
+<p>14</p>
+<p> </p>
+<p>3.1.4</p>
+<p> </p>
+<p>Result of the Automatic Generation </p>
+<p>14</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Database Settings – to be Considered before the Simulation Model can be Operated </p>
+<p>15</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>Network Attributes </p>
+<p>15</p>
+<p> </p>
+<p>3.2.2</p>
+<p> </p>
+<p>Node Attributes </p>
+<p>15</p>
+<p> </p>
+<p>3.2.3</p>
+<p> </p>
+<p>Message Attributes </p>
+<p>16</p>
+<p> </p>
+<p>3.2.4</p>
+<p> </p>
+<p>Signal Attributes </p>
+<p>17</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Operate the Simulation Model </b></p>
+<p><b>19</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Main Panel </p>
+<p>20</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>ActiveX Controls </p>
+<p>21</p>
+<p> </p>
+<p>4.2.1</p>
+<p> </p>
+<p>ActiveX Message Send Control </p>
+<p>22</p>
+<p> </p>
+<p>4.2.2</p>
+<p> </p>
+<p>ActiveX Message Display Control </p>
+<p>23</p>
+<p> </p>
+<p>4.2.3</p>
+<p> </p>
+<p>ActiveX Network Management Control </p>
+<p>24</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Trouble-shooting </p>
+<p>25</p>
+<p> </p>
+<p>4.3.1</p>
+<p> </p>
+<p>Missing VNMF Messages </p>
+<p>25</p>
+<p> </p>
+<p>4.3.2</p>
+<p> </p>
+<p>Nodes with the Same Source ID </p>
+<p>25</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Interface Specifications </b></p>
+<p><b>27</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Interaction Layer (IL) </p>
+<p>28</p>
+<p> </p>
+<p>5.1.1</p>
+<p> </p>
+<p>Interaction Layer Control </p>
+<p>28</p>
+<p> </p>
+<p>5.1.2</p>
+<p> </p>
+<p>Setting Signal Values </p>
+<p>29</p>
+<p> </p>
+<p>5.1.3</p>
+<p> </p>
+<p>Setting Signal Values - Obsolete API Functions </p>
+<p>31</p>
+<p> </p>
+<p>5.1.4</p>
+<p> </p>
+<p>Reading Signals within CAPL </p>
+<p>32</p>
+<p> </p>
+<p>5.1.5</p>
+<p> </p>
+<p>Incomplete Transmission Models and Tests </p>
+<p>33</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Table of contents </p>
+<p>User Manual GMLAN Package </p>
+<p>- II - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p>5.1.6</p>
+<p> </p>
+<p>Fault Injection Functions </p>
+<p>34</p>
+<p> </p>
+<p>5.1.7</p>
+<p> </p>
+<p>GM Specific Functions </p>
+<p>36</p>
+<p> </p>
+<p>5.1.8</p>
+<p> </p>
+<p>Error Codes </p>
+<p>37</p>
+<p> </p>
+<p>5.1.9</p>
+<p> </p>
+<p>Definition of Return Codes for the IL </p>
+<p>38</p>
+<p> </p>
+<p>5.1.10</p>
+<p> </p>
+<p>CAPL Call-back Functions </p>
+<p>38</p>
+<p> </p>
+<p>5.1.11</p>
+<p> </p>
+<p>IL States </p>
+<p>39</p>
+<p> </p>
+<p>5.1.12</p>
+<p> </p>
+<p>Write Window Outputs </p>
+<p>40</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Network Management (NM) </p>
+<p>40</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Restrictions and Deficiencies </b></p>
+<p><b>41</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Restrictions </p>
+<p>42</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Tips and Examples </b></p>
+<p><b>43</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Tips </p>
+<p>44</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Examples </p>
+<p>47</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Index </b></p>
+<p><b>49</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 3 - </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>1.1 </p>
+<p>Package Overview </p>
+<p> page 4 </p>
+<p>1.2 </p>
+<p>Reference Documents </p>
+<p> page 4 </p>
+<p>1.3 </p>
+<p>Features </p>
+<p> page 4 </p>
+<p>1.4 </p>
+<p>History </p>
+<p> page 5 </p>
+<p>1.5 </p>
+<p>Releases and Compatibility </p>
+<p> page 5 </p>
+<p>1.6 </p>
+<p>About this User Manual </p>
+<p> page 7 </p>
+<p> </p>
+<p>Access Helps and Conventions </p>
+<p> </p>
+<p>Certification </p>
+<p> </p>
+<p>Warranty </p>
+<p> </p>
+<p>Support </p>
+<p> </p>
+<p>Registered Trademarks </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Introduction </p>
+<p>User Manual GMLAN Package </p>
+<p>- 4 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p><b>1.1 </b></p>
+<p><b>Package Overview </b></p>
+<p> </p>
+<p>This document is the enclosing document for the GMLAN specification 3.0 support </p>
+<p>package. </p>
+<p>Components </p>
+<p>This package contains the following components: </p>
+<p><b>&gt; </b></p>
+<p>CANoe Interaction Layer GMLAN (GMLAN IL “CANoeILNLGM.DLL”) </p>
+<p><b>&gt; </b></p>
+<p>ActiveX message control panel for GM </p>
+<p><b>&gt; </b></p>
+<p>GMLAN Network Management simulation (GMLAN NM “GMLAN02.DLL”) </p>
+<p><b>&gt; </b></p>
+<p>GMLAN ActiveX NM control panel </p>
+<p><b>&gt; </b></p>
+<p>CAPL generator for GM (“CaplGeneratorGMIL.exe”) </p>
+<p><b>&gt; </b></p>
+<p>Model Generation Support </p>
+<p> </p>
+<p> </p>
+<p><b>Info:</b> This package requires as minimal CANoe version 7.1. </p>
+<p> </p>
+<p><b>1.2 </b></p>
+<p><b>Reference Documents </b></p>
+<p>[1] </p>
+<p>CANoe online help and manual </p>
+<p>[2] </p>
+<p>Documentation GMLAN NM DLL (CANoe Start Menu – Help) </p>
+<p>[3] </p>
+<p>Documentation IVLAN NM DLL (CANoe Start Menu – Help) </p>
+<p> </p>
+<p><b>1.3 </b></p>
+<p><b>Features </b></p>
+<p> </p>
+<p>The CANoe GMLAN Package supports the GMLAN standard within CANoe. It allows </p>
+<p>creating automatically a simulation model using the network database, and it sup-</p>
+<p>ports the Interaction Layer and Network Management functionality within the </p>
+<p>simulation. </p>
+<p> </p>
+<p>CANoe IL GMLAN </p>
+<p><b>&gt; </b></p>
+<p>Provides a signal-oriented interface </p>
+<p><b>&gt; </b></p>
+<p>Controls the transmission of messages dependent to the send types of signals and </p>
+<p>messages. </p>
+<p><b>&gt; </b></p>
+<p>Provides the possibility to send messages on request (using a signal or a </p>
+<p>message as triggering object) </p>
+<p><b>&gt; </b></p>
+<p>Provides a fault injection interface to influence the sending of messages </p>
+<p> </p>
+<p>Network </p>
+<p>Management </p>
+<p>GMLAN </p>
+<p><b>&gt; </b></p>
+<p>The appropriate DLL implements the GMLAN NM protocol that allows nodes that </p>
+<p>are simulated by CANoe to interact with hardware nodes attached to the CAN </p>
+<p>network </p>
+<p><b>&gt; </b></p>
+<p>Handles all network management concerns for GMLAN including &quot;Virtual Net-</p>
+<p>works&quot; (VNs) </p>
+<p> </p>
+<p>ActiveX message </p>
+<p>control/GM </p>
+<p><b>&gt; </b></p>
+<p>Displays the message- and signal-related information and establishes possibilities </p>
+<p>to control them </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 5 - </p>
+<p>ActiveX NM </p>
+<p>control/GM </p>
+<p><b>&gt; </b></p>
+<p>Displays the network management related information and establishes possibilities </p>
+<p>to control them in a dedicated way for GMLAN </p>
+<p> </p>
+<p>Main Panel </p>
+<p><b>&gt; </b></p>
+<p>Displays all nodes of a configuration and establishes the possibility to open their </p>
+<p>ActiveX message and NM controls </p>
+<p> </p>
+<p><b>1.4 </b></p>
+<p><b>History </b></p>
+<p>  </p>
+<p><b>Package version </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>2.10.0 of 2013-03-08 </p>
+<p>Updated CANoe IL CANoeILNLGM.dll to version 2.13.30 </p>
+<p><b>&gt; </b></p>
+<p>Supporting new message attribute </p>
+<p><i>AppGenMsgCycleTime</i>: If attribute </p>
+<p><i>AppGenMsgCycleTime </i>&gt; 0 and <i>GenMsgSendType </i>is not </p>
+<p>‘cyclicX’ and <i>GenMsgCycleTime </i>== 0 and </p>
+<p><i>GenSigCycleTime </i>== 0, then the message will be set to </p>
+<p>‘cyclicX’ with period := <i>AppGenMsgCycleTime</i>. </p>
+<p>Updated GMLAN NM DLL GMLAN02.dll to version 1.9.17 </p>
+<p>and documentation to version 1.14, cf. [2]: </p>
+<p><b>&gt; </b></p>
+<p>Supports enabling/disabling of “shared local” VNs by </p>
+<p>manipulating system variable </p>
+<p><b>&gt; </b></p>
+<p>Removed function </p>
+<p>ILOutput(…)</p>
+<p> and added new </p>
+<p>function </p>
+<p>ILOutput2(…)</p>
+<p>. </p>
+<p>Updated &quot;OSEK NM Control&quot; for CANoe 8.0 SP4 </p>
+<p> </p>
+<p>2.9.1 of 2012-01-31 </p>
+<p>Updated CANoe IL CANoeILNLGM.dll to version 2.12.22 </p>
+<p><b>&gt; </b></p>
+<p>Added function </p>
+<p>applILTxPending(long aId, </p>
+<p>dword aDlc, byte data[])</p>
+<p>, cf. section 5.1.10 </p>
+<p>Updated the GMLAN02 DLL 1.9.14 and documentation to </p>
+<p>version 1.13, cf. [2] </p>
+<p>Added the IVLAN DLL in version 2.0.0 with manual [3] and </p>
+<p>demo configuration </p>
+<p> </p>
+<p>2.9.0 of 2010-10-26 </p>
+<p>Updated &quot;OSEK NM Control&quot; for CANoe 7.5 </p>
+<p>Added &quot;Version History&quot; and &quot;Releases and compatibility&quot; </p>
+<p>section </p>
+<p> </p>
+<p>2.8.0 of 2010-02-12 </p>
+<p>Release for CANoe 7.2 </p>
+<p> </p>
+<p>2.7.0 of 2008-01-30 </p>
+<p>Release for CANoe 7.0 </p>
+<p> </p>
+<p>2.6.0 of 2006-12-01 </p>
+<p>Release for CANoe 6.0 </p>
+<p> </p>
+<p>2.5.0 of 2006-04-05 </p>
+<p>Release for CANoe 5.2 </p>
+<p> </p>
+<p>2.3.0 of 2004-11-12 </p>
+<p>Release for CANoe 5.1 </p>
+<p><b>&gt; </b></p>
+<p>Added IL </p>
+<p> </p>
+<p>1.5.5 of 2003-08-01 </p>
+<p>Release for CANoe 4.1 (NM only) </p>
+<p> </p>
+<p><b>1.5 </b></p>
+<p><b>Releases and Compatibility </b></p>
+<p>Min. CANoe version </p>
+<p><b>Package name </b></p>
+<p><b>Package version </b></p>
+<p><b>Min. CANoe version </b></p>
+<p> </p>
+<p>GMLAN Package </p>
+<p>2.10.0 </p>
+<p>7.1 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Introduction </p>
+<p>User Manual GMLAN Package </p>
+<p>- 6 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p>Min. CANoe version </p>
+<p><b>Package name </b></p>
+<p><b>Package version </b></p>
+<p><b>Min. CANoe version </b></p>
+<p> </p>
+<p>GMLAN Package </p>
+<p>2.9.1 </p>
+<p>7.1 </p>
+<p> </p>
+<p>GMLAN Package </p>
+<p>2.9.0 </p>
+<p>7.1 </p>
+<p> </p>
+<p>GMLAN Package </p>
+<p>2.8.0 </p>
+<p>7.1 </p>
+<p> </p>
+<p>GMLAN Package </p>
+<p>2.7.0 </p>
+<p>7.0 </p>
+<p> </p>
+<p>GMLAN Package </p>
+<p>2.6.0 </p>
+<p>6.0 </p>
+<p> </p>
+<p>GMLAN Package </p>
+<p>2.5.0 </p>
+<p>5.2 </p>
+<p> </p>
+<p>GMLAN Package </p>
+<p>2.3.0 </p>
+<p>5.1 </p>
+<p> </p>
+<p>GMLAN Package </p>
+<p>1.5.5 </p>
+<p>4.1 </p>
+<p> </p>
+<p> </p>
+<p><b>Caution:</b> Always use the latest possible package version according to your CANoe </p>
+<p>version! </p>
+<p> </p>
+<p>Min. package version </p>
+<p><b>CANoe version </b></p>
+<p><b>Package name </b></p>
+<p><b>Min. package version </b></p>
+<p> </p>
+<p>&gt;= 8.0 SP4 </p>
+<p>GMLAN Package </p>
+<p>2.10.0 </p>
+<p> </p>
+<p>&gt;= 7.5 </p>
+<p>GMLAN Package </p>
+<p>2.9.1 </p>
+<p> </p>
+<p>&lt; 7.5 and &gt;= 7.1 </p>
+<p>GMLAN Package </p>
+<p>2.8.0 </p>
+<p> </p>
+<p>&lt; 7.1 and &gt;= 7.0 </p>
+<p>GMLAN Package </p>
+<p>2.7.0 </p>
+<p> </p>
+<p>&lt; 7.0 and &gt;= 6.0 </p>
+<p>GMLAN Package </p>
+<p>2.6.0 </p>
+<p> </p>
+<p>&lt; 6.0 and &gt;= 5.2 </p>
+<p>GMLAN Package </p>
+<p>2.5.0 </p>
+<p> </p>
+<p>&lt; 5.2 and &gt;= 5.1 </p>
+<p>GMLAN Package </p>
+<p>2.3.0 </p>
+<p> </p>
+<p>&lt; 5.1 and &gt;= 4.1 </p>
+<p>GMLAN Package </p>
+<p>1.5.5 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 7 - </p>
+<p><b>1.6 </b></p>
+<p><b>About this User Manual </b></p>
+<p><b>1.6.1 </b></p>
+<p><b>Access Helps and Conventions </b></p>
+<p>To find information </p>
+<p>quickly </p>
+<p>The user manual provides you the following access helps: </p>
+<p><b>&gt; </b></p>
+<p>At the beginning of each chapter you will find a summary of the contents, </p>
+<p><b>&gt; </b></p>
+<p>In the header you can see in which chapter and paragraph you are ((situated)), </p>
+<p><b>&gt; </b></p>
+<p>In the footer you can see to which version the user manual replies, </p>
+<p><b>&gt; </b></p>
+<p>At the end of the user manual you will find an index, with whose help you will </p>
+<p>quickly find information. </p>
+<p>  </p>
+<p>Conventions </p>
+<p>In the two following charts you will find the conventions used in the user manual </p>
+<p>regarding utilized spellings and symbols. </p>
+<p>  </p>
+<p> </p>
+<p><b>Style </b></p>
+<p><b>Utilization </b></p>
+<p> </p>
+<p><b>bold </b></p>
+<p>Blocks, surface elements, window- and dialog names of the </p>
+<p>software. Accentuation of warnings and advices. </p>
+<p><b>[OK] </b></p>
+<p> </p>
+<p>Push buttons in brackets </p>
+<p><b>File </b>| <b>Save </b></p>
+<p>Notation for menus and menu entries </p>
+<p> </p>
+<p>CANoe </p>
+<p>Legally protected proper names and side notes. </p>
+<p> </p>
+<p>Source code </p>
+<p>File name and source code. </p>
+<p> </p>
+<p>Hyperlink </p>
+<p>Hyperlinks and references. </p>
+<p> </p>
+<p>&lt;STRG&gt;+&lt;S&gt; </p>
+<p>Notation for shortcuts. </p>
+<p>  </p>
+<p> </p>
+<p><b>Symbol </b></p>
+<p><b>Utilization </b></p>
+<p> </p>
+<p> </p>
+<p>Here you can obtain supplemental information. </p>
+<p> </p>
+<p> </p>
+<p>This symbol calls your attention to warnings. </p>
+<p> </p>
+<p> </p>
+<p>Here you can find additional information. </p>
+<p> </p>
+<p> </p>
+<p>Here is an example that has been prepared for you. </p>
+<p> </p>
+<p> </p>
+<p>Step-by-step instructions provide assistance at these points. </p>
+<p> </p>
+<p> </p>
+<p>Instructions on editing files are found at these points. </p>
+<p> </p>
+<p> </p>
+<p>This symbol warns you not to edit the specified file. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Introduction </p>
+<p>User Manual GMLAN Package </p>
+<p>- 8 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p><b>1.6.2 </b></p>
+<p><b>Certification </b></p>
+<p>Certified Quality </p>
+<p>Management System </p>
+<p>Vector Informatik GmbH has ISO 9001:2000-12 certification. </p>
+<p>The ISO standard is a globally recognized quality standard. </p>
+<p>  </p>
+<p><b>1.6.3 </b></p>
+<p><b>Warranty </b></p>
+<p>Restriction of </p>
+<p>warranty </p>
+<p>We reserve the right to change the contents of the documentation and the software </p>
+<p>without notice. Vector Informatik GmbH assumes no liability for correct contents or </p>
+<p>damages which are resulted from the usage of the user manual. We are grateful for </p>
+<p>references to mistakes or for suggestions for improvement to be able to offer you </p>
+<p>even more efficient products in the future.  </p>
+<p>  </p>
+<p><b>1.6.4 </b></p>
+<p><b>Support </b></p>
+<p>You need support? </p>
+<p>You can get through to our hotline at the phone number </p>
+<p>+49 (711) 80670-200 </p>
+<p>or you send a problem report to the CANoe-Support. </p>
+<p>  </p>
+<p><b>1.6.5 </b></p>
+<p><b>Registered Trademarks </b></p>
+<p>Registered </p>
+<p>trademarks </p>
+<p>All trademarks mentioned in this user manual and if necessary third party registered </p>
+<p>are absolutely subject to the conditions of each valid label right and the rights of </p>
+<p>particular registered proprietor. All trademarks, trade names or company names are </p>
+<p>or can be trademarks or registered trademarks of their particular proprietors. All </p>
+<p>rights, which are not expressly allowed, are reserved. If an explicit label of </p>
+<p>trademarks, which are used in this user manual, fails, should not mean that a name is </p>
+<p>free of third party rights. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Outlook, Windows, Windows XP, Windows 2000, Vista, Windows7 are trademarks </p>
+<p>of the Microsoft Corporation. </p>
+<p>  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Installation and Configuration </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 9 - </p>
+<p><b>2 </b></p>
+<p><b>Installation and Configuration </b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>2.1 </p>
+<p>Prerequisites </p>
+<p> page 10 </p>
+<p>2.2 </p>
+<p>Installation </p>
+<p> page 10 </p>
+<p>2.3 </p>
+<p>Update of CANoe </p>
+<p> page 10 </p>
+<p>  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Installation and Configuration </p>
+<p>User Manual GMLAN Package </p>
+<p>- 10 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p><b>2.1 </b></p>
+<p><b>Prerequisites </b></p>
+<p>Operating system </p>
+<p>Generation: Microsoft® Windows® 2000, XP, Vista or Windows7 </p>
+<p> </p>
+<p>Simulation: Refer the Operating Systems that are supported by CANoe. </p>
+<p> </p>
+<p>CANoe </p>
+<p>Version 7.1 (7.1.43) or later must be installed. </p>
+<p> </p>
+<p>User Requirements </p>
+<p>The user should be familiar with </p>
+<p><b>&gt; </b></p>
+<p>Microsoft® Windows® </p>
+<p><b>&gt; </b></p>
+<p>CANoe  </p>
+<p>If the user intends to do any changes in the simulation model, then the user should be </p>
+<p>familiar with </p>
+<p><b>&gt; </b></p>
+<p>CAPL </p>
+<p><b>&gt; </b></p>
+<p>Interaction Layer functioning </p>
+<p><b>&gt; </b></p>
+<p>Network Management functioning </p>
+<p> </p>
+<p>Hardware </p>
+<p>Requirements </p>
+<p>Refer CANoe's hardware requirements. </p>
+<p> </p>
+<p><b>2.2 </b></p>
+<p><b>Installation </b></p>
+<p>Software Installation </p>
+<p>Close all applications </p>
+<p>Start the setup program - it will guide you through the installation process </p>
+<p> </p>
+<p> </p>
+<p><b>Note:</b> Please note that the directory to select is the root directory of your CANoe </p>
+<p>installation, not the Exec32 directory within this root-directory. </p>
+<p>  </p>
+<p><b>2.3 </b></p>
+<p><b>Update of CANoe </b></p>
+<p>Updating CANoe </p>
+<p>The <b>GMLAN package </b>extends and/or modifies some basic CANoe components. </p>
+<p>Thus, the GMLAN package is to be re-installed after CANoe is updated. </p>
+<p> </p>
+<p> </p>
+<p><b>Note:</b> Always de-install the <b>GMLAN package </b>before you update CANoe, and then </p>
+<p>install it again. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Quick Start </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 11 - </p>
+<p><b>3 </b></p>
+<p><b>Quick Start  </b></p>
+<p><b>In this chapter you find information about “How to create with the Simulation Model”: </b></p>
+<p>3.1 </p>
+<p>Automatic Generation of the Simulation Model (recommended) </p>
+<p> page 12 </p>
+<p> </p>
+<p>Model Generation by Drag &amp; Drop </p>
+<p> </p>
+<p>Model Generation Wizard </p>
+<p> </p>
+<p>Trouble-shooting </p>
+<p> </p>
+<p>Result of the Automatic Generation </p>
+<p>3.2 </p>
+<p>Database Settings – to be Considered before the Simulation Model can be Operated </p>
+<p> page 15 </p>
+<p> </p>
+<p>Network Attributes </p>
+<p> </p>
+<p>Node Attributes </p>
+<p> </p>
+<p>Message Attributes </p>
+<p> </p>
+<p>Signal Attributes </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Quick Start </p>
+<p>User Manual GMLAN Package </p>
+<p>- 12 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p><b>3.1 </b></p>
+<p><b>Automatic Generation of the Simulation Model (recommended) </b></p>
+<p><b>3.1.1 </b></p>
+<p><b>Model Generation by Drag &amp; Drop </b></p>
+<p> </p>
+<p>1. </p>
+<p>Prepare a new directory that shall contain the simulation configuration. </p>
+<p>2. </p>
+<p>There, create the folder 'candb' and copy your network database into this folder. </p>
+<p>The nodes will be generated to the folder &quot;&lt;Database-folder&gt;/../Nodes&quot;. </p>
+<p>The panels will be generated to the folder &quot;&lt;Database-folder&gt;/../Panels&quot;. </p>
+<p> </p>
+<p>3. </p>
+<p>The set-up program has installed a new icon onto your desktop “Create GMLAN </p>
+<p>configuration”. Open the Windows™-Explorer, drag the network database and </p>
+<p>drop it onto this icon. </p>
+<p> </p>
+<p> </p>
+<p>4. </p>
+<p>A command-line-window is opened and CANoe is started automatically. </p>
+<p>The Simulation creation runs about ½ up to 2 minutes, depending on your </p>
+<p>hardware configuration and the complexity of the model. You can track the status </p>
+<p>of the generation within the write window of CANoe. </p>
+<p> </p>
+<p> </p>
+<p><b>Caution:</b> Please do not operate CANoe before the message </p>
+<p>&quot;GMLAN Simulation creation finished.&quot; </p>
+<p>has occurred there. </p>
+<p>Don't modify any configuration settings, e.g. channel settings, before the model </p>
+<p>generation is finished. </p>
+<p> </p>
+<p><b>3.1.2 </b></p>
+<p><b>Model Generation Wizard </b></p>
+<p> </p>
+<p>1. </p>
+<p>Prepare a new directory that shall contain the simulation configuration. </p>
+<p>2. </p>
+<p>There, create the folder 'candb' and copy your network database into this folder. </p>
+<p>The nodes will be generated to the folder &quot;&lt;Database-folder&gt;/../Nodes&quot;. </p>
+<p>The panels will be generated to the folder &quot;&lt;Database-folder&gt;/../Panels&quot;. </p>
+<p> </p>
+<p>3. </p>
+<p>Since the CANoe 5.2 release there is a new model generation tool with a very </p>
+<p>simple graphical user interface. Start the Model Generation Wizard from the </p>
+<p>‘<i>Tools</i>’ start menu of the CANoe: </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Quick Start </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 13 - </p>
+<p>  </p>
+<p>If your CANoe installation is not correctly registered at the system, you will be </p>
+<p>notified about that and an automated possibility to adjust the registration will be </p>
+<p>offered. </p>
+<p> </p>
+<p>There are a few settings that can be changed before the generation of the model </p>
+<p>can be started. First, select the OEM &quot;<b>GMLAN modeling</b>&quot;, then the generation </p>
+<p>mode: </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p><b>Create configuration: </b>A new configuration will be created. Please select the </p>
+<p>network database and verify the output root folder. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p><b>Extend configuration: </b>A new bus will be added to the configuration that is </p>
+<p>currently loaded and active in CANoe. Please select the network database; </p>
+<p>the output root folder is retrieved from the CANoe configuration automatically. </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p><b>Note:</b> se the “<b>Extend configuration” </b>mode only with configurations that were </p>
+<p>initially created by the model generation wizard in the “<b>Create configuration</b>” </p>
+<p>mode. Don’t modify any configuration settings, e.g. channel settings, before the </p>
+<p>model generation is finished. </p>
+<p>  </p>
+<p>  </p>
+<p>4. </p>
+<p>Push the button ‘<i>Generate</i>’. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>CANoe is started automatically. The Simulation creation runs about ½ up to 2 </p>
+<p>minutes, depending on your hardware configuration and the complexity of the </p>
+<p>model. You can track the status of the generation within the write window of </p>
+<p>CANoe. </p>
+<p>  </p>
+<p> </p>
+<p><b>Caution:</b> Please do not operate CANoe before the message </p>
+<p>&quot;GMLAN Simulation creation finished.&quot; </p>
+<p>has occurred there. </p>
+<p>Don't modify any configuration settings, e.g. channel settings, before the model </p>
+<p>generation is finished. </p>
+<p>  </p>
+<p> </p>
+<p><b>Note:</b> &quot; The original database will be not modified. A copy of the database will be </p>
+<p>created and used for the CANoe simulation. The suffix &quot;Cpy&quot; will be appended to the </p>
+<p>filename of the network database. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Quick Start </p>
+<p>User Manual GMLAN Package </p>
+<p>- 14 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p> </p>
+<p><b>Note:</b> The run of the automatic simulation creation requires the confirmation of the </p>
+<p>disclaimer of CANoe. Refer the section &quot;COM Server&quot; within CANoe's online-help for </p>
+<p>details about this topic. </p>
+<p>  </p>
+<p> </p>
+<p><b>Note:</b> If old CAPL files are found during the generation process, they will be kept. </p>
+<p>  </p>
+<p> </p>
+<p><b>Note:</b> &quot; If the generation mode &quot;Extend configuration&quot; is used, the new panels are </p>
+<p>saved in a folder that is named like &quot;…/Panels/&lt;database name&gt;&quot; </p>
+<p>  </p>
+<p> </p>
+<p><b>Caution:</b> When using the generation mode “Extend Configuration”: </p>
+<p><b>&gt; </b></p>
+<p>Use this mode only with configurations that were initially created by the model </p>
+<p>generation wizard </p>
+<p><b>&gt; </b></p>
+<p>Don't modify any configuration settings, e.g. channel settings, before the model </p>
+<p>generation is finished. </p>
+<p> </p>
+<p><b>3.1.3 </b></p>
+<p><b>Trouble-shooting </b></p>
+<p>Problems </p>
+<p>If the automatic simulation creation fails, then please check the following topics: </p>
+<p> </p>
+<p> </p>
+<p><b>Is CANoe currently running? If yes, is the currently active configuration already </b></p>
+<p><b>saved? </b></p>
+<p>If the currently running configuration is not yet saved, then save it. </p>
+<p> </p>
+<p> </p>
+<p><b>Do you have multiple installations of CANoe on your system? </b></p>
+<p>During the set-up of the GMLAN Package, do you have selected the CANoe </p>
+<p>installation area you have installed at last?  </p>
+<p>In this case please deinstall the GMLAN Package and reinstall it to the CANoe, you </p>
+<p>have installed at last. If you do not want to use the GMLAN Package within this </p>
+<p>CANoe installation, then please install the intended CANoe version and then install </p>
+<p>the GMLAN-package to this CANoe version. </p>
+<p> </p>
+<p> </p>
+<p><b>Is your operating system supported? </b></p>
+<p>Refer chapter 2.1 for details. </p>
+<p> </p>
+<p><b>3.1.4 </b></p>
+<p><b>Result of the Automatic Generation </b></p>
+<p>CANoe configuration </p>
+<p>CANoe simulation of all nodes of the given database </p>
+<p>CAPL simulation files </p>
+<p>Each node of the configuration contains a CAPL file. </p>
+<p>Main Panel </p>
+<p>Panel with all nodes in order to open their message and NM control panels </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Quick Start </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 15 - </p>
+<p><b>3.2 </b></p>
+<p><b>Database Settings – to be Considered before the Simulation Model </b></p>
+<p><b>can be Operated </b></p>
+<p> </p>
+<p>Network databases for the CANoeIL must fulfil several requirements. Please ensure </p>
+<p>that you use a GM database with a version that is <b>at least 7.01 </b>or later.  </p>
+<p>Binary enumerations such as yes/no are expected always with the negative clause on </p>
+<p>index 0. </p>
+<p>There are several attributes that must be defined to use the database. </p>
+<p> </p>
+<p><b>3.2.1 </b></p>
+<p><b>Network Attributes </b></p>
+<p>IL </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>UseGMParameterIDs </p>
+<p>Integer </p>
+<p>0, 1 </p>
+<p>Defines if the network uses the </p>
+<p>GMLAN parameter ID’s in the </p>
+<p>29-bit architecture. </p>
+<p>Default: 1 </p>
+<p> </p>
+<p>GMLAN NM </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>VN_&lt;name&gt; </p>
+<p>Integer </p>
+<p>0 – 255 </p>
+<p>Defines a unique network ID </p>
+<p>for the virtual network </p>
+<p>&lt;name&gt;. </p>
+<p> </p>
+<p>VNInitAct&lt;name&gt; </p>
+<p>Enum </p>
+<p>0 – No, </p>
+<p>1 – Yes </p>
+<p>If the value of this attribute is </p>
+<p>&quot;Yes&quot;, the VN &lt;name&gt; will be </p>
+<p>active on initialization of the </p>
+<p>system, or on reception of a </p>
+<p>high voltage wakeup. </p>
+<p>Otherwise it is in-active and </p>
+<p>has to be activated explicitly </p>
+<p>by a node. </p>
+<p> </p>
+<p>NmBaseAddress </p>
+<p>Hex </p>
+<p>0x620 – </p>
+<p>0x63F </p>
+<p>Base address for the VNMF </p>
+<p>messages </p>
+<p>Default: 0x620 </p>
+<p> </p>
+<p>NmMessageCount </p>
+<p>Integer </p>
+<p>0 – 32 </p>
+<p>Maximum number of nodes in </p>
+<p>a network </p>
+<p>Default: 32 </p>
+<p> </p>
+<p>NodeStatusMsgID </p>
+<p>Hex </p>
+<p>0x0 – </p>
+<p>0x1FFFFFFF </p>
+<p>ID of the NCA messages </p>
+<p>Default: 0xFFFE000 </p>
+<p> </p>
+<p>NodeStatusMsgCycleTime </p>
+<p>Integer </p>
+<p>0 – 65535 </p>
+<p>Periodic rate [ms] of the NCA </p>
+<p>messages </p>
+<p>Default: 1200 </p>
+<p> </p>
+<p><b>3.2.2 </b></p>
+<p><b>Node Attributes </b></p>
+<p>CANoe </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>NodeLayerModules </p>
+<p>String </p>
+<p>e.g. </p>
+<p>CANoeILNLGM.dll,  </p>
+<p>GMLAN02.dll</p>
+<p> </p>
+<p>Defines the modules the node </p>
+<p>needs in the simulation model </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Quick Start </p>
+<p>User Manual GMLAN Package </p>
+<p>- 16 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p>IL </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>SourceId </p>
+<p>Hex </p>
+<p>0x0 – 0xFF </p>
+<p>Source address of a node. </p>
+<p>Used to build the transmission </p>
+<p>CAN ID. </p>
+<p> </p>
+<p>GMLAN NM </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>VNECU&lt;name&gt; </p>
+<p>Enum </p>
+<p>0 – 4 </p>
+<p>Role of the node for the </p>
+<p>specific VN &lt;name&gt;. </p>
+<p><b>Enum </b></p>
+<p><b>Mode </b></p>
+<p>0 </p>
+<p>None </p>
+<p>1 </p>
+<p>Activator </p>
+<p>2 </p>
+<p>Remoted </p>
+<p>3 </p>
+<p>Activator and Remoted </p>
+<p>4 </p>
+<p>Shared Local </p>
+<p> </p>
+<p> </p>
+<p>NmStationAddress </p>
+<p>Integer </p>
+<p>0 – 31 </p>
+<p>Station address of the node – </p>
+<p>used by the network </p>
+<p>management (cf. [2]) </p>
+<p> </p>
+<p><b>3.2.3 </b></p>
+<p><b>Message Attributes </b></p>
+<p>IL </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>GenMsgILSupport </p>
+<p>Enum </p>
+<p>0 – No, </p>
+<p>1 – Yes </p>
+<p>Yes defines the support of the </p>
+<p>CANoe IL for this message. </p>
+<p>Default: Yes </p>
+<p> </p>
+<p>NmMessage </p>
+<p> </p>
+<p>Enum </p>
+<p>0 – No, </p>
+<p>1 – Yes </p>
+<p>NM messages are not </p>
+<p>supported by the CANoe IL. </p>
+<p>Default: No </p>
+<p> </p>
+<p>TpApplType </p>
+<p>String </p>
+<p> </p>
+<p>TP or diagnostics messages </p>
+<p>are not supported by the </p>
+<p>CANoe IL. </p>
+<p> </p>
+<p>Prio </p>
+<p>Integer </p>
+<p>0 – 7 </p>
+<p>Priority of the message. Used </p>
+<p>to build the transmission CAN </p>
+<p>ID. </p>
+<p>Default: 4 </p>
+<p> </p>
+<p>GenMsgSendType </p>
+<p>Enum </p>
+<p>0, 1 </p>
+<p>Send type of the message </p>
+<p>Default: <i>NoMsgSendType </i></p>
+<p>Due to the signal-oriented </p>
+<p>approach of the CANoe IL the </p>
+<p>signal attribute </p>
+<p><i>GenSigSendType </i>is normally </p>
+<p>used to define the send types </p>
+<p>of the simulation model. </p>
+<p><b>Enum </b></p>
+<p><b>Mode </b></p>
+<p>0 </p>
+<p>cyclicX </p>
+<p>1 </p>
+<p>spontanX </p>
+<p>Default: <i>spontanX </i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Quick Start </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 17 - </p>
+<p> </p>
+<p>GenMsgCycleTime </p>
+<p>Integer </p>
+<p>0 – 10000 </p>
+<p>Cycle time of periodic </p>
+<p>messages [ms] </p>
+<p> </p>
+<p>AppGenMsgCycleTime </p>
+<p>Integer </p>
+<p>0 – 10000 </p>
+<p>If attribute </p>
+<p><i>AppGenMsgCycleTime </i>&gt; 0 </p>
+<p>and <i>GenMsgSendType </i>is not </p>
+<p>‘cyclicX’ and </p>
+<p><i>GenMsgCycleTime </i>== 0 and </p>
+<p><i>GenSigCycleTime </i>== 0, then </p>
+<p>the message will be set to </p>
+<p>‘cyclicX’ with period := </p>
+<p><i>AppGenMsgCycleTime</i>. </p>
+<p> </p>
+<p>GenMsgCycleTimeFast </p>
+<p>Integer </p>
+<p>0 – 10000 </p>
+<p>Fast cycle time of messages </p>
+<p>(‘IfActive’ send types) [ms] </p>
+<p> </p>
+<p>GenMsgStartDelayTime </p>
+<p>Integer </p>
+<p>0 – 10000 </p>
+<p>Defines the delay time after </p>
+<p>start-up of the CANoe IL [ms] </p>
+<p> </p>
+<p>GenMsgDelayTime </p>
+<p>Integer </p>
+<p>0 – 10000 </p>
+<p>Defines the minimum delay </p>
+<p>time between multiple </p>
+<p>sendings of a message [ms] </p>
+<p> </p>
+<p><b>3.2.4 </b></p>
+<p><b>Signal Attributes </b></p>
+<p>IL </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>GenSigStartValue </p>
+<p>Integer </p>
+<p>0 – 65535 </p>
+<p>Start value of the signal (raw </p>
+<p>format) </p>
+<p>Default: 0 </p>
+<p> </p>
+<p>GenSigSendType </p>
+<p>Enum </p>
+<p>0, 1, 7, 10, 11, </p>
+<p>12 </p>
+<p>Send type of the signal </p>
+<p>Default: <i>NoSigSendType </i></p>
+<p><b>Enum </b></p>
+<p><b>Mode </b></p>
+<p>0 </p>
+<p>Periodic </p>
+<p>1 </p>
+<p>OnWrite </p>
+<p>7 </p>
+<p>NoSigSendType </p>
+<p>10 </p>
+<p>OnAnyChange </p>
+<p>11 </p>
+<p>OnChangeIfActive </p>
+<p>12 </p>
+<p>OnDelta </p>
+<p> </p>
+<p> </p>
+<p>GenSigInactiveValue </p>
+<p>Integer </p>
+<p> </p>
+<p>Value of the signal at which it </p>
+<p>is in an Inactive state. Used by </p>
+<p>send types </p>
+<p>‘<i>OnChangeIfActive</i>’. </p>
+<p>Default: 0 </p>
+<p> </p>
+<p>GenSigCycleTime </p>
+<p> </p>
+<p> </p>
+<p>Cycle time for a periodic send </p>
+<p>type </p>
+<p> </p>
+<p>GenSigDeltaValue </p>
+<p>Integer </p>
+<p> </p>
+<p>Defines the delta for the send </p>
+<p>type ‘<i>OnDelta</i>’ </p>
+<p>Default: 0 </p>
+<p> </p>
+<p>GenSigSendTopBottom </p>
+<p>Enum </p>
+<p>0 – 3 </p>
+<p>Used for the send type </p>
+<p>‘<i>OnDelta</i>’ to send the value </p>
+<p>although the delta &lt; </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Quick Start </p>
+<p>User Manual GMLAN Package </p>
+<p>- 18 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p>IL </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p><i>GenSigDeltaValue </i></p>
+<p><b>Enum </b></p>
+<p><b>Mode </b></p>
+<p>0 </p>
+<p>None </p>
+<p>1 </p>
+<p>SendOnTop </p>
+<p>2 </p>
+<p>SendOnBottom </p>
+<p>3 </p>
+<p>SendOnTopBottom </p>
+<p>Default: <i>None </i></p>
+<p> </p>
+<p>GMLAN NM </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Values </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>VNSig&lt;name&gt; </p>
+<p>Enum </p>
+<p>0 – No, </p>
+<p>1 – Yes </p>
+<p>Declares if the signal is </p>
+<p>assigned to the VN &lt;name&gt;. </p>
+<p> </p>
+<p> </p>
+<p><b>Reference:</b> See more about the GMLAN NM attributes in [2]. </p>
+<p> </p>
+<p> </p>
+<p><b>Reference:</b> For possible values of the attribute ‘<i>GenSigSendType</i>’ cf. “<b>CANoe IL | </b></p>
+<p><b>Vector IL | Used Attributes in the Database</b>” in [1]. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Operate the Simulation Model </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 19 - </p>
+<p><b>4 </b></p>
+<p><b>Operate the Simulation Model </b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>4.1 </p>
+<p>Main Panel </p>
+<p> page 20 </p>
+<p>4.2 </p>
+<p>ActiveX Controls </p>
+<p> page 21 </p>
+<p> </p>
+<p>ActiveX Message Send Control </p>
+<p> </p>
+<p>ActiveX Message Display Control </p>
+<p> </p>
+<p>ActiveX Network Management Control </p>
+<p>4.3 </p>
+<p>Trouble-shooting </p>
+<p> page 25 </p>
+<p> </p>
+<p>Missing VNMF Messages </p>
+<p> </p>
+<p>Nodes with the Same Source ID </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Operate the Simulation Model </p>
+<p>User Manual GMLAN Package </p>
+<p>- 20 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p><b>4.1 </b></p>
+<p><b>Main Panel </b></p>
+<p> </p>
+<p>The generated Main Panel displays all nodes of the configuration. The node buttons </p>
+<p>opens the ActiveX Message Controls and the ActiveX NM Controls for the appropriate </p>
+<p>node. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Operate the Simulation Model </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 21 - </p>
+<p><b>4.2 </b></p>
+<p><b>ActiveX Controls </b></p>
+<p> </p>
+<p>For each simulation node, there are 3 panels available  </p>
+<p><b>&gt; </b></p>
+<p>“<b>Send Panel</b>” - where all transmitted messages are displayed and their mapped </p>
+<p>signals can be changed </p>
+<p><b>&gt; </b></p>
+<p>“<b>Display Panel</b>” - where all received messages and received signals are displayed </p>
+<p>and can be observed. Only the received signals are listed within the received </p>
+<p>messages. </p>
+<p><b>&gt; </b></p>
+<p><b>“ECU NM Panel” </b>- where the status of the Virtual Networks (VNs) can be viewed. </p>
+<p>This panel additionally allows activating and deactivating the Virtual Networks from </p>
+<p>the Node's application view for these VNs, the node is an activator. </p>
+<p> </p>
+<p>The send and display panels for the GM package were improved concerning </p>
+<p>performance and usability issues. They are using the new message group control. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Within this group control the user gets control about the visualization of a possible </p>
+<p>huge amount of messages. The user is able to open and close single message </p>
+<p>controls on demand. </p>
+<p> </p>
+<p> </p>
+<p>1. </p>
+<p>Chose the node you want to observe and press the appropriate button on the </p>
+<p>main panel. </p>
+<p>2. </p>
+<p>The Network Management Panel shows the current status of the Virtual </p>
+<p>networks. If a VN is active (for the node) then the rightmost indicator is </p>
+<p>highlighted. You can activate and deactivate those VNs, the node is an </p>
+<p>activator.  </p>
+<p>At last, you can switch off all sending activities of the node by operating the </p>
+<p>'Online'-switch. The node is active per default. </p>
+<p>3. </p>
+<p>Now you can easily set signal values on the send-panels of the node. Each </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Operate the Simulation Model </p>
+<p>User Manual GMLAN Package </p>
+<p>- 22 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p>signal is represented by a value-control you can change. Additionally, each </p>
+<p>message has a “Set Event”-button available, where an additional transmission </p>
+<p>can be forced. Normally the IL takes care about the send model itself, but for </p>
+<p>test purposes, this button can be used. Please note, that the message is sent </p>
+<p>only, if at least one VN of the mapped signals is currently activated. If not, then </p>
+<p>a text message is written to the write window of CANoe and no transmission is </p>
+<p>done. </p>
+<p>4. </p>
+<p>You can additionally observe all messages with their signals, the node </p>
+<p>receives. The received messages with their signals are listed onto the </p>
+<p>&quot;display-panels&quot;. Please keep in mind, that GMLAN allows the sending of the </p>
+<p>same message by multiple nodes. Therefore the panels are grouped by the </p>
+<p>message name and by the sending node. Display panels are not intended to </p>
+<p>change values; they are intended just to observe the current status. </p>
+<p> </p>
+<p><b>4.2.1 </b></p>
+<p><b>ActiveX Message Send Control </b></p>
+<p>Preconditions </p>
+<p>This panel requires a simulated send node where the IL is loaded as node-layer DLL. </p>
+<p>Features </p>
+<p>The representation of the message ID can be changed between decimal and </p>
+<p>hexadecimal. The sending can be de-/activated by the checkbox &quot;Enabled&quot;. </p>
+<p>The enable state of the message can also be changed by the CAPL functions </p>
+<p>ILFaultInjectionEnableMessage()</p>
+<p> and </p>
+<p>ILFaultInjectionDisableMessage()</p>
+<p>. Calling those functions also changes this </p>
+<p>“Enabled” checkbox. </p>
+<p>The Button 'DB Info' of the send and display control opens a window that shows the </p>
+<p>dependency of the virtual networks of the message. This is the resulting dependency </p>
+<p>after considering all signals of this message. </p>
+<p>The status line shows the messages send type (right cell) and the signals send type </p>
+<p>(middle cell) of the currently selected signal. </p>
+<p>The send types are taken from the database. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Operate the Simulation Model </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 23 - </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p>The send control provides two possibilities to send a message: </p>
+<p><b>&gt; </b></p>
+<p>The Button that shows the message name ignores the transmission model of the </p>
+<p>database and leads to a message transmission if one of the associated signals </p>
+<p>takes part at a currently activated VN (analogously to the CAPL function </p>
+<p>ILSetMsgEvent(dbMessage msg)</p>
+<p> of the Interaction Layer). </p>
+<p><b>&gt; </b></p>
+<p>The Input of a value in the column ‘Value’ leads to a transmission of the message </p>
+<p>dependent on the transmission model of the database (analogously to the CAPL </p>
+<p>function </p>
+<p>SetSignal(dbSignal sig,double value)</p>
+<p> or </p>
+<p>$Node::Signal = </p>
+<p>value;</p>
+<p>). There are three possibilities to set a signal value: </p>
+<p><b>&gt; </b></p>
+<p>Combo Box with Enumeration values </p>
+<p></p>
+<p> signals that are defined with a value </p>
+<p>table in the database </p>
+<p><b>&gt; </b></p>
+<p>Check Box </p>
+<p></p>
+<p> one bit signals without a value table in the database </p>
+<p><b>&gt; </b></p>
+<p>Decimal Field </p>
+<p></p>
+<p> signals longer one bit and without a value table in the </p>
+<p>database </p>
+<p> </p>
+<p>Some features were added to display the signal values: </p>
+<p><b>&gt; </b></p>
+<p>The cell of the signal value is greyed means </p>
+<p></p>
+<p> The current value in the cell is not </p>
+<p>the value that was received last from the bus. </p>
+<p><b>&gt; </b></p>
+<p>The signal value has red colour means </p>
+<p></p>
+<p> The current value is out of range. The </p>
+<p>ranges were taken from the database (min/max value of the signal). The ranges </p>
+<p>are considered only, if at least min or max is different to 0 (zero). </p>
+<p> </p>
+<p><b>4.2.2 </b></p>
+<p><b>ActiveX Message Display Control </b></p>
+<p>Preconditions </p>
+<p>None </p>
+<p>Features </p>
+<p>This panel is able to work in both, the simulated and the real environment because it </p>
+<p>reflects the current signal values. </p>
+<p> </p>
+<p>There are only minor differences between the send and the display control: </p>
+<p><b>&gt; </b></p>
+<p>The display control has no 'Set Event' Button, thus no possibility to send </p>
+<p><b>&gt; </b></p>
+<p>Signal values are read-only </p>
+<p><b>&gt; </b></p>
+<p>The signals of the specific receiver node will be displayed </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Operate the Simulation Model </p>
+<p>User Manual GMLAN Package </p>
+<p>- 24 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.2.3 </b></p>
+<p><b>ActiveX Network Management Control </b></p>
+<p>Preconditions </p>
+<p>This control requires the observed node being simulated and the Node-Layer DLLs </p>
+<p>GMLAN02.dll and CANoeILNLGM.dll loaded into this node. </p>
+<p> </p>
+<p> </p>
+<p>Features </p>
+<p>The network management control shows the status of all relevant virtual networks of </p>
+<p>the node ('S' for status) and provides the possibility to activate/deactivate all virtual </p>
+<p>networks ('A' for Application-Activation) with the appropriate association 'Shared </p>
+<p>Local', 'Activator' or 'Activator &amp; Remoted'. </p>
+<p> </p>
+<p><b>If a 'Shared Local' network is activated by a network management control, all </b></p>
+<p><b>nodes that are configured as 'Shared Local' for this network will be activated </b></p>
+<p><b>too. </b>As an exception, the diagnostic network (VN number 0) supports only an </p>
+<p>activation of the single local node. </p>
+<p> </p>
+<p>The information about the NCA, VNMF and Source Id is displayed first after </p>
+<p>measurement start, because this is runtime information of the GMLAN02.dll. </p>
+<p> </p>
+<p>The Check Box 'Online' establishes the possibility to stop all sending of this node, </p>
+<p>both from the Interaction Layer and from the Network Management. If one of these </p>
+<p>two components is inactive, the Check Box will be greyed. This checkbox allows to </p>
+<p>mute the sending of CANoe IL and NM completely, e.g. for manually executed </p>
+<p>supervision tests. Please note that the functionality of CANoe IL and NM do not take </p>
+<p>care about the setting except being silent. After switching a node &quot;offline&quot;, the </p>
+<p>recovery into the online-mode is done roughly just be letting through all further </p>
+<p>sending. All sending that became due while being 'offline' have been lost. </p>
+<p> </p>
+<p>If it is needed to switch the sending on/off in a more deterministic way (e.g. for </p>
+<p>reproducible automated tests), then the following API functions are to be used </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Operate the Simulation Model </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 25 - </p>
+<p><b>&gt; </b></p>
+<p>ILControlStop()</p>
+<p> and </p>
+<p>ILControlStart()</p>
+<p> (for CANoe IL) and </p>
+<p><b>&gt; </b></p>
+<p>NwmDiag(…)</p>
+<p> (for NM, refer [2] for more details). </p>
+<p> </p>
+<p><b>4.3 </b></p>
+<p><b>Trouble-shooting </b></p>
+<p><b>4.3.1 </b></p>
+<p><b>Missing VNMF Messages </b></p>
+<p>Missing VNMF </p>
+<p>Messages </p>
+<p>The current revision of the database (8.54) results in a generated configuration that </p>
+<p>cannot be operated at once, due to network management reasons: So if the </p>
+<p>measurement cannot be started with your database, please have a look into the write </p>
+<p>window of your CANoe. With the mentioned database revision, CANoe complains </p>
+<p>about missing VNMF Messages. You can recognize problematic node's simulations </p>
+<p>additionally by the NM address that is shown within the simulation set-up. If there is -1 </p>
+<p>assigned, then the network management is not able to work for this node.  </p>
+<p> </p>
+<p>You can solve this problem by one (or more) of the following means: </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Switch all these problematic nodes into the inactive mode (if the node is not to be </p>
+<p>simulated) </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Add a valid VNMF-frame into the database and associate it as send message to </p>
+<p>the node (if the database has to be changed) </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Deactivate network management for these nodes (if the real nodes do not have </p>
+<p>network management). But please be aware that you then have to </p>
+<p>activate/deactivate the VNs for the Interaction Layer manually by using the CAPL </p>
+<p>functions </p>
+<p>GMILActivateVN(…)</p>
+<p> and </p>
+<p>GMILDeactivateVN(…)</p>
+<p>. </p>
+<p>To deactivate the network management, you can choose one of the following </p>
+<p>possibilities: </p>
+<p>1. </p>
+<p>Do not use the GMLAN02.dll for these nodes. You can deactivate this module </p>
+<p>within the configuration menu for each (problematic) simulation node, within </p>
+<p>the tab &quot;modules&quot;. Just uncheck the module &quot;GMLAN02.dll&quot; </p>
+<p>2. </p>
+<p>You can change the database, that this module is not loaded within the node. </p>
+<p>Just remove the text GMLAN02.dll from the attribute <i>NodeLayerModules </i>of </p>
+<p>each problematic node. </p>
+<p> </p>
+<p><b>4.3.2 </b></p>
+<p><b>Nodes with the Same Source ID </b></p>
+<p>Multiple defined </p>
+<p>Source IDs </p>
+<p>There is another issue within the current database revision (8.54): There may exist </p>
+<p>several nodes having the same Source ID. If these nodes are running in parallel </p>
+<p>within one simulation, then these nodes are working concurrently. This results e.g. in </p>
+<p>alternating contents of the panels, because the different Interaction Layers are each </p>
+<p>sending different values. This constellation is to be changed by selecting one node </p>
+<p>(the right one that is intended for your network setup) for simulation, and deactivating </p>
+<p>the others. </p>
+<p> </p>
+<p>The CANoe IL detects this case during measurement start. It is indicated by a </p>
+<p>message within the write window, e.g. </p>
+<p>Source ID 96 is multiple defined in the database. </p>
+<p> </p>
+<p>This message is indicated once for each overlapping. So two occurring messages </p>
+<p>indicate two additional nodes; that mean that there are 3 nodes of the same Source </p>
+<p>ID. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Interface Specifications </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 27 - </p>
+<p><b>5 </b></p>
+<p><b>Interface Specifications </b></p>
+<p> </p>
+<p><b>Note:</b> The tool-chain generates a fully working simulation model. You should read this chapter </p>
+<p>only if there is a need to modify the automatically generated CAPL code. </p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>5.1 </p>
+<p>Interaction Layer (IL) </p>
+<p> page 28 </p>
+<p> </p>
+<p>Interaction Layer Control </p>
+<p> </p>
+<p>Setting Signal Values </p>
+<p> </p>
+<p>Setting Signal Values - Obsolete API Functions </p>
+<p> </p>
+<p>Reading Signals within CAPL </p>
+<p> </p>
+<p>Incomplete Transmission Models and Tests </p>
+<p> </p>
+<p>Fault Injection Functions </p>
+<p> </p>
+<p>GM Specific Functions </p>
+<p> </p>
+<p>Error Codes </p>
+<p> </p>
+<p>Definition of Return Codes for the IL </p>
+<p> </p>
+<p>CAPL Call-back Functions </p>
+<p> </p>
+<p>IL States </p>
+<p> </p>
+<p>Write Window Outputs </p>
+<p>5.2 </p>
+<p>Network Management (NM) </p>
+<p> page 40 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Interface Specifications </p>
+<p>User Manual GMLAN Package </p>
+<p>- 28 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p><b>5.1 </b></p>
+<p><b>Interaction Layer (IL)  </b></p>
+<p> </p>
+<p><b>Note:</b> These functions (except </p>
+<p>ILControlInit()</p>
+<p>) should not be used in the “on </p>
+<p>PreStart()” event procedure. </p>
+<p> </p>
+<p><b>5.1.1 </b></p>
+<p><b>Interaction Layer Control </b></p>
+<p> </p>
+<p>The following functions are suitable to control the Interaction Layer. These functions </p>
+<p>can be used when needed. This may be the case when simulating bus-off-states or </p>
+<p>network management sleep active states. The standard NM-module (GMLAN02.dll) </p>
+<p>doesn't need those functions. </p>
+<p> </p>
+<p>Init IL </p>
+<p><b>Syntax </b></p>
+<p>long ILControlInit (); </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Initializes the IL. If this function is called in “on PreStart()”, then the </p>
+<p>IL will enter the stop state during “on Start()” and must explicitly be </p>
+<p>started. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>None </b></p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Start IL </p>
+<p><b>Syntax </b></p>
+<p>long ILControlStart (); </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>When the IL is started, then it is fully operating and sending. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>None </b></p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Stop IL </p>
+<p><b>Syntax </b></p>
+<p>long ILControlStop (); </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Stops sending of messages. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>None </b></p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Suspend IL </p>
+<p><b>Syntax </b></p>
+<p>long ILControlWait (); </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Stops sending, but accepts signal changes. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>None </b></p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Resume IL </p>
+<p><b>Syntax </b></p>
+<p>long ILControlResume (); </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Resumes a suspended IL and starts sending messages again. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>None </b></p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Interface Specifications </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 29 - </p>
+<p>Stop IL simulation </p>
+<p><b>Syntax </b></p>
+<p>long ILControlSimulationOff (); </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Stops the simulation of the IL. The IL is not operational. All API </p>
+<p>function except function </p>
+<p>ILControlSimulationOn()</p>
+<p> will not </p>
+<p>work. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>None </b></p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Start IL simulation </p>
+<p><b>Syntax </b></p>
+<p>long ILControlSimulationOn (); </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Starts the simulation of the IL. The IL is operational and started. </p>
+<p>The IL will send messages. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>None </b></p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p> </p>
+<p>Please find the state graph that is traversed by these functions in section 5.1.10. </p>
+<p> </p>
+<p> </p>
+<p><b>Note:</b> Please note, that send panels require a running IL, otherwise the sending of </p>
+<p>messages cannot be controlled there. </p>
+<p> </p>
+<p><b>5.1.2 </b></p>
+<p><b>Setting Signal Values </b></p>
+<p> </p>
+<p>In order to set a signal value the following assignment should be used: </p>
+<p> </p>
+<p>Set physical signal </p>
+<p>value </p>
+<p><b>Syntax </b></p>
+<p>$dbSignal = value; </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>The assignment sets the physical value of the signal. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p><b>value: </b>The pysical value to be set. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Nothing </p>
+<p> </p>
+<p>Set raw signal value </p>
+<p><b>Syntax </b></p>
+<p>$dbSignal.raw = value; </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>The assignment sets the raw value of the signal. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p><b>value: </b>The raw value to be set. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Nothing </p>
+<p> </p>
+<p> </p>
+<p><b>Example:</b> </p>
+<p>$SignalABC = 1;</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note:</b> It is recommended to use this assignment to set a signal (with less or equal </p>
+<p>than 32 Bits) or a floating point signal. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Interface Specifications </p>
+<p>User Manual GMLAN Package </p>
+<p>- 30 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p> </p>
+<p><b>Note:</b> The sending of the mapped messages is dependent to the chosen send types </p>
+<p>for the message and for the signal that was set. </p>
+<p> </p>
+<p> </p>
+<p>The following functions can be used for setting signal values directly by the GMLAN </p>
+<p>IL (obsolete): </p>
+<p>  </p>
+<p>Set physical signal </p>
+<p>value </p>
+<p><b>Syntax </b></p>
+<p>long ILSetSignal (dbSignal, double value);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>The function sets the physical value of the signal directly at the IL. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p><b>value: </b>The pysical value to be set. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Set raw signal value </p>
+<p><b>Syntax </b></p>
+<p>long ILSetSignalRaw (dbSignal, double value);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>The function sets the raw value of the signal directly at the IL. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p><b>value: </b>The pysical value to be set. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Set raw signal byte </p>
+<p>field </p>
+<p><b>Syntax </b></p>
+<p>long ILSetSignalRawField (dbSignal, const byte </p>
+<p>pData[], long aDataLen);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>The function sets the raw value of the signal as a data field. With </p>
+<p>this function, there is the possibility to set lengthy integers </p>
+<p>(&gt; 32 Bits). </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p><b>pData</b>: Reference to the input byte array. </p>
+<p><b>aDataLen</b>: Size of the input byte array. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p> </p>
+<p><b>Example 1:</b> Setting an integer signal with less or equal 32 Bits or a floating point </p>
+<p>signal: </p>
+<p>ILSetSignal(MessageXYZ::SignalABC, 1); </p>
+<p> </p>
+<p> </p>
+<p><b>Example 2:</b> Setting a signal with more than 32 Bits: </p>
+<p> </p>
+<p>void codeQWord2ByteArray (qword value, byte data[]) </p>
+<p>{ </p>
+<p>  int i; </p>
+<p>  for (i=0; i&lt;8; i++) { </p>
+<p>    // Motorola coding: </p>
+<p>    data[i] = (value &amp; 0xFF); </p>
+<p>    value = value &gt;&gt; 8; </p>
+<p>  } </p>
+<p>} </p>
+<p> </p>
+<p>on key '2' </p>
+<p>{ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Interface Specifications </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 31 - </p>
+<p>  qword val = 0; </p>
+<p>  byte data[8]; </p>
+<p> </p>
+<p>  val += 1; </p>
+<p>  codeQWord2ByteArray(val, data); </p>
+<p>  ILSetSignalRawField(ECU_APPL_BCM::ECU_APPL_BCM, data, </p>
+<p>                      elcount(data)); </p>
+<p>} </p>
+<p> </p>
+<p> </p>
+<p><b>Note:</b> If groups of signals shall be set consistently without intermediate inconsistent </p>
+<p>transmissions, no additional API is needed. </p>
+<p> </p>
+<p><b>5.1.3 </b></p>
+<p><b>Setting Signal Values - Obsolete API Functions </b></p>
+<p> </p>
+<p>It is highly recommended always to use the functions that are described within sec-</p>
+<p>tion 5.1.2</p>
+<p>, that all use the symbolic access by &quot;dbSignal&quot;, the functions described in </p>
+<p>this section are obsolete but still supported. </p>
+<p>  </p>
+<p>Set physical signal </p>
+<p>value </p>
+<p><b>Syntax </b></p>
+<p>long ILSetSignal (dword sigHandle, double value);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>The function sets the physical value of the signal directly at the IL. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>sigHandle: </b>The signal handle of a signal that must be created prior </p>
+<p>to the call of this function (see hints below). </p>
+<p><b>value: </b>The pysical value to be set. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Set raw signal value </p>
+<p><b>Syntax </b></p>
+<p>long ILSetSignalRaw (dword sigHandle, double </p>
+<p>value);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>The function sets the raw value of the signal directly at the IL. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>sigHandle: </b>The signal handle of a signal that must be created prior </p>
+<p>to the call of this function (see hints below). </p>
+<p><b>value: </b>The pysical value to be set. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Set raw signal byte </p>
+<p>field </p>
+<p><b>Syntax </b></p>
+<p>long ILSetSignalRawField (dword sigHandle, const </p>
+<p>byte pData[], long aDataLen);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>The function sets the raw value of the signal as a data field. With </p>
+<p>this function, there is the possibility to set lengthy integers </p>
+<p>(&gt; 32 Bits). </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>sigHandle: </b>The signal handle of a signal that must be created prior </p>
+<p>to the call of this function (see hints below). </p>
+<p><b>pData</b>: Reference to the input byte array. </p>
+<p><b>aDataLen</b>: Size of the input byte array. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Signal Handles </p>
+<p>Within CANoe 5.0, it is possible to pass signal objects as &quot;Signal Handles&quot;. With the </p>
+<p>earlier version of CANoe (4.1), the Signal Handle had to be produced in CAPL by the </p>
+<p>programmer. So the programmer had to call the following function to obtain signal </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Interface Specifications </p>
+<p>User Manual GMLAN Package </p>
+<p>- 32 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p>handles: </p>
+<p>dword ILConfigureSignal(char QualifiedSignalName[]); </p>
+<p> </p>
+<p><b>Tip: </b></p>
+<p>The function returns over the whole measurement time the same handle for </p>
+<p>the same signal name. So it may be called multiply or only once after the initialization. </p>
+<p>To reduce database lookups, it is recommended to call this function only once per </p>
+<p>signal and node. </p>
+<p> </p>
+<p>The qualified signal name must be enclosed in string quotation marks and may </p>
+<p>consist of  </p>
+<p><b>&gt; </b></p>
+<p>the network database name (optional) </p>
+<p><b>&gt; </b></p>
+<p>the message name (optional) </p>
+<p><b>&gt; </b></p>
+<p>the signal name (mandatory) </p>
+<p> </p>
+<p>If the qualified signal name is not valid respectively to the quotation, it is not possible </p>
+<p>to obtain a valid signal handle. Then the handle 0 (zero) is returned. If there is interest </p>
+<p>to gather more hints for the failure, the user may call the following function: </p>
+<p>long ILErrno(); </p>
+<p>This function returns the error code, if it is called directly after the call of an Interaction </p>
+<p>Layer API-function. </p>
+<p> </p>
+<p><b>5.1.4 </b></p>
+<p><b>Reading Signals within CAPL </b></p>
+<p> </p>
+<p>You can use the functions </p>
+<p>GetSignal(…)</p>
+<p> to read out the current value of a signal. </p>
+<p>For GM Extended messages, the signal must be qualified with the node to get the </p>
+<p>value that was sent last by the node having the dedicated source id. Just have a look </p>
+<p>into the CAPL browser in the section &quot;Signal Access&quot;. </p>
+<p>  </p>
+<p>Get physical signal </p>
+<p>value </p>
+<p><b>Syntax </b></p>
+<p>var = $dbSignal; </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Retrieves the current physical value of a signal. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p><b>var: </b>The name of the variable that should store the signal’s value. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Nothing </p>
+<p> </p>
+<p>Get raw signal value </p>
+<p><b>Syntax </b></p>
+<p>var = $dbSignal.raw; </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Retrieves the current raw value of a signal. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p><b>var: </b>The name of the variable that should store the signal’s value. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Nothing </p>
+<p> </p>
+<p> </p>
+<p>The following functions can be used for reading signal values: </p>
+<p>  </p>
+<p>Get physical signal </p>
+<p>value </p>
+<p><b>Syntax </b></p>
+<p>double GetSignal (dbSignal);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Retrieves the current physical value of a signal. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>The physical value of the signal </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Interface Specifications </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 33 - </p>
+<p>Get raw signal value </p>
+<p><b>Syntax </b></p>
+<p>double GetSignalRaw (dbSignal);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Retrieves the current raw value of a signal. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>The raw value of the signal </p>
+<p> </p>
+<p>Get last reception </p>
+<p>time </p>
+<p><b>Syntax </b></p>
+<p>dword GetSignalTime (dbSignal);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Retrieves the CANoe time when the signal was on the bus at last. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Returns 0 if never </p>
+<p> </p>
+<p>Check range </p>
+<p><b>Syntax </b></p>
+<p>long CheckSignalInRange (dbSignal, </p>
+<p>float lowLimit, float highLimit);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Checks if a signal value is in a dedicated range. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p><b>lowLimit: </b>lower limit to check </p>
+<p><b>highLimit: </b>upper limit to check </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Returns 1 if the signal is in the range, returns 0 if the signal is </p>
+<p>outside the range. </p>
+<p> </p>
+<p> </p>
+<p><b>Caution:</b> For GM Extended messages, the signal must be qualified with the node to </p>
+<p>get the value that was sent last by the node having the dedicated source ID. </p>
+<p> </p>
+<p> </p>
+<p><b>Example:</b> Code for Standard-CAN: </p>
+<p>double value; </p>
+<p>value = GetSignal(SignalName); </p>
+<p>or </p>
+<p>value = $SignalName; </p>
+<p>Example code for GM-Extended: </p>
+<p>double value; </p>
+<p>value = GetSignal(NodeName::SignalName); </p>
+<p>or </p>
+<p>value = $NodeName::SignalName; </p>
+<p> </p>
+<p> </p>
+<p><b>5.1.5 </b></p>
+<p><b>Incomplete Transmission Models and Tests </b></p>
+<p> </p>
+<p>It is possible to ignore the transmit-model in the database and to generate the </p>
+<p>transmission event manually. </p>
+<p> </p>
+<p>There are two possible levels, where “events” can be injected: </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Interface Specifications </p>
+<p>User Manual GMLAN Package </p>
+<p>- 34 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p>Set signal event </p>
+<p><b>Syntax </b></p>
+<p>long ILSetEvent (dbSignal);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>This function considers <i>GenMsgDelayTime</i>, and it also considers </p>
+<p>the activity of the network. So a call of this function will lead to a </p>
+<p>transmission of the associated message, if there is any active VN, </p>
+<p>the signal is associated to. If there is no active VN, then a message </p>
+<p>is provided to the write window. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Set message event </p>
+<p><b>Syntax </b></p>
+<p>long ILSetMsgEvent (dbMessage);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>A call of this function will lead to a transmission of the associated </p>
+<p>message. This function considers <i>GenMsgDelayTime</i>. The call will </p>
+<p>lead to a message transmission if one of the associated signals </p>
+<p>takes part at a currently active VN. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbMessage: </b>The symbolic name of a message in the database. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p> </p>
+<p><b>Caution:</b> It is strongly recommended, to use this functionality only for test purposes </p>
+<p>and not in real simulations. The database should be corrected instead. </p>
+<p> </p>
+<p><b>5.1.6 </b></p>
+<p><b>Fault Injection Functions </b></p>
+<p> </p>
+<p><b>Reference:</b> The IL provides a standard fault injection interface which is suitable to </p>
+<p>control the sending of messages. For more information about these functions refer to </p>
+<p>the CANoe Online Help </p>
+<p>[1] “<b>Technical Reference: CAPL Functions | CANoe IL</b>”. </p>
+<p> </p>
+<p>Generic fault </p>
+<p>injections </p>
+<p>With these fault injection functions the sending behavior of a message can be </p>
+<p>changed.  </p>
+<p> </p>
+<p>Disable message </p>
+<p><b>Syntax </b></p>
+<p>long ILFaultInjectionDisableMsg (dbMessage);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Disables the sending of the message except by calling the function </p>
+<p>ILSetMsgEvent()</p>
+<p>. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbMessage: </b>The symbolic name of a message in the database. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Enable message </p>
+<p><b>Syntax </b></p>
+<p>long ILFaultInjectionEnableMsg (dbMessage);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Enables the sending of the message. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbMessage: </b>The symbolic name of a message in the database. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Interface Specifications </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 35 - </p>
+<p>Set cycle time </p>
+<p><b>Syntax </b></p>
+<p>long ILFaultInjectionSetMsgCycleTime (dbMessage, </p>
+<p>dword value);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Assigns a new cycle time to the message. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbMessage: </b>The symbolic name of a message in the database. </p>
+<p><b>value: </b>new cycle time in [ms]. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Reset cycle time </p>
+<p><b>Syntax </b></p>
+<p>long ILFaultInjectionResetMsgCycleTime </p>
+<p>(dbMessage);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Resets the cycle time back to its original value from the DBC. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbMessage: </b>The symbolic name of a message in the database. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Set DLC </p>
+<p><b>Syntax </b></p>
+<p>long ILFaultInjectionSetMsgDlc (dbMessage, </p>
+<p>dword DLC);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Sets a new DLC for the message. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbMessage: </b>The symbolic name of a message in the database. </p>
+<p><b>DLC: </b>new data length code. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Reset DLC </p>
+<p><b>Syntax </b></p>
+<p>long ILFaultInjectionResetMsgDlc (dbMessage);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Resets the DLC back to its original value from the DBC. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbMessage: </b>The symbolic name of a message in the database. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Reset all </p>
+<p><b>Syntax </b></p>
+<p>long ILFaultInjectionResetAllFaultInjections ();  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Resets the fault injection settings for all messages of the node. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>None </b></p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p> </p>
+<p><b>Note:</b> These fault injection functions can also be used for messages with extended </p>
+<p>IDs (available with CANoe 7.0 SP3). Therefore the ID-based functions have to be </p>
+<p>used: </p>
+<p> </p>
+<p>id_DDM = gmLanId(Driver_Door_Status, DDM); </p>
+<p>   testDisableMsg(id_DDM); </p>
+<p>This example disables the sending of the message &quot;Driver_Door_Status&quot; of node </p>
+<p>&quot;DDM&quot;. </p>
+<p> </p>
+<p> </p>
+<p><b>Reference:</b> Some fault injection functions are also available in CAPL test modules. </p>
+<p>Refer to the CANoe Online Help [1] “<b>Technical Reference: CAPL Functions | Test </b></p>
+<p><b>Feature Set | Fault Injection Functions</b>”. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Interface Specifications </p>
+<p>User Manual GMLAN Package </p>
+<p>- 36 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p> </p>
+<p><b>Caution:</b> It is strongly recommended, to use these fault injections only for test </p>
+<p>purposes and not in real simulations. The database should be corrected instead. </p>
+<p> </p>
+<p><b>5.1.7 </b></p>
+<p><b>GM Specific Functions </b></p>
+<p>VN activity control </p>
+<p>The following functions are provided to control the activity of virtual networks. If the </p>
+<p>simulation node uses the Node-Layer module &quot;GMLAN02.dll&quot;, then it is not needed to </p>
+<p>call these functions explicitly, because the Interaction Layer is informed automatically </p>
+<p>by the network management component about changes in the activity of Virtual </p>
+<p>Networks. </p>
+<p> </p>
+<p>Activate VN </p>
+<p><b>Syntax </b></p>
+<p>long GMILActivateVN(long VirtualNetwork);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Activates the supplied VN. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>VirtualNetwork: </b>The number of the VN </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Deactivate VN </p>
+<p><b>Syntax </b></p>
+<p>long GMILDeactivateVN(long VirtualNetwork);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Deactivates the supplied VN. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>VirtualNetwork: </b>The number of the VN </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p>Check activation </p>
+<p>state of VN </p>
+<p><b>Syntax </b></p>
+<p>long GMILIsVNActive (long VirtualNetwork);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Returns the activity state of the supplied VN. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>VirtualNetwork: </b>The number of the VN </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Returns 1 if yes, 0 if no. </p>
+<p> </p>
+<p>Signal observation </p>
+<p>The following function registers a CAPL Handler for a specific signal. It can be used </p>
+<p>to decide whether a VN should be activated or deactivated. It is possible to provide </p>
+<p>one handler per signal. On “<b>setting a signal</b>” following conditions would lead to a call </p>
+<p>of the handler: </p>
+<p><b>&gt; </b></p>
+<p>Send type &quot;<i>OnAnyChange</i>&quot;, &quot;<i>OnChangeIfActive</i>&quot; and cyclic sending: only if the </p>
+<p>signal value has changed </p>
+<p><b>&gt; </b></p>
+<p>Send type &quot;<i>OnWrite</i>&quot;: Always </p>
+<p><b>&gt; </b></p>
+<p>Send type &quot;<i>OnDelta</i>&quot;: Only if the delta has exceeded </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Interface Specifications </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 37 - </p>
+<p>Register signal </p>
+<p>observer </p>
+<p><b>Syntax </b></p>
+<p>long ILRegisterSignalObserver(dbsignal, </p>
+<p>char handlerName[]);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>Register a call-back function in CAPL as a signal observer. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>dbSignal: </b>The symbolic name of a signal in the database. </p>
+<p><b>handlerName: </b>The function name of the call-back function. This </p>
+<p>call-back function must match the following signature: </p>
+<p>void </p>
+<p>nameOfTheSignalObserver(double signalValue) </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p><b>5.1.8 </b></p>
+<p><b>Error Codes </b></p>
+<p> </p>
+<p>Most of the API-functions are able to return error codes. Some of the API functions </p>
+<p>when successful return an object that may be de-referenced later on. </p>
+<p>In most cases the exact reason of the error is obvious and there is no need to </p>
+<p>interpret the error code, because the errors are output to the write window </p>
+<p>additionally. All error messages should contain enough context information to localize </p>
+<p>the source of the problem. </p>
+<p> </p>
+<p> </p>
+<p>If there is interest to gather more hints for a failure, the user may call the following </p>
+<p>function: </p>
+<p> </p>
+<p>Get last error code </p>
+<p><b>Syntax </b></p>
+<p>long ILErrno ();  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>This function returns the last error code, if it is called directly after </p>
+<p>the call of an Interaction Layer API-function. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>None </b></p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p> </p>
+<p>The IL helps CAPL to supply an error message by the transformation of the error </p>
+<p>code into an error text. The following function can be used for that: </p>
+<p> </p>
+<p>Get error text </p>
+<p><b>Syntax </b></p>
+<p>long ILSetResultString (long aResult, char </p>
+<p>aText[], long aLenText);  </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>This function transforms an error code of the IL into an error text. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>aResult: </b>An error code that is returned by any IL function. </p>
+<p><b>aText: </b>The output buffer for the text string. </p>
+<p><b>aLenText: </b>The size of the output buffer. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p>Refer to section 5.1.8 </p>
+<p> </p>
+<p> </p>
+<p><b>Example:</b>  </p>
+<p>long ret; </p>
+<p>char buffer[256]; </p>
+<p>ret = ILSetSignal(MessageXYZ::SignalABC, 1.0); </p>
+<p>ILSetResultString(ret, buffer, 255); </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Interface Specifications </p>
+<p>User Manual GMLAN Package </p>
+<p>- 38 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p><b>5.1.9 </b></p>
+<p><b>Definition of Return Codes for the IL </b></p>
+<p> </p>
+<p>It is not necessary to check the error codes of the API functions. In case of an error </p>
+<p>the errors are additionally output to the write window. </p>
+<p> </p>
+<p>  </p>
+<p><b>num. Value (long) </b></p>
+<p><b>Explanation </b></p>
+<p> </p>
+<p>0 </p>
+<p>Request processed </p>
+<p> </p>
+<p>Warnings </p>
+<p>Are not reported to the write window </p>
+<p> </p>
+<p>-1 </p>
+<p>IL is in a state that ignores the given request. </p>
+<p></p>
+<p> State graph </p>
+<p>of the IL </p>
+<p> </p>
+<p>-2 </p>
+<p>Allowed value range of a signal exceeded.  </p>
+<p>(The exceeded value is transmitted to the bus nevertheless) </p>
+<p> </p>
+<p>Configuration errors </p>
+<p>Are reported to write window – indicate a fundamental </p>
+<p>problem that must be solved before usage </p>
+<p> </p>
+<p>-50 </p>
+<p>Node-Layer is not active. Presumably it is deactivated in the </p>
+<p>node’s configuration dialog. </p>
+<p> </p>
+<p>-51 </p>
+<p>API function not supported </p>
+<p> </p>
+<p>-52 </p>
+<p>The node is connected to another bus like the CAN Bus </p>
+<p> </p>
+<p>Dynamic Errors </p>
+<p>Are reported to write window. The supplied data is not </p>
+<p>consumed; therefore it is not needed to set signal’s value </p>
+<p>back. </p>
+<p> </p>
+<p>-100 </p>
+<p>Signal/message not found in DB, or not mapped to the node </p>
+<p> </p>
+<p>-101 </p>
+<p>Maximum possible value range exceeded. (There is no </p>
+<p>transmission to the bus) </p>
+<p> </p>
+<p>-102 </p>
+<p>A Network management-, diagnosis, or transport protocol </p>
+<p>signal was set. IL declines such types of signals, because it </p>
+<p>is not intended to connect these layers to the IL. </p>
+<p> </p>
+<p>-103 </p>
+<p>Invalid value supplied (for all types of requests) </p>
+<p> </p>
+<p>-104 </p>
+<p>General error for invalid requests that are not described </p>
+<p>furthermore. </p>
+<p>  </p>
+<p><b>5.1.10 CAPL Call-back Functions </b></p>
+<p>Background </p>
+<p>The CAPL program may define these optional functions (all marked with the prefix </p>
+<p>applIL</p>
+<p>) to receive indications about events from the IL. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Interface Specifications </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 39 - </p>
+<p>TX pending </p>
+<p><b>Syntax </b></p>
+<p>dword applILTxPending(long aId, dword aDlc, byte </p>
+<p>data[]); </p>
+<p>dword applILTxPending(long aId); // deprecated </p>
+<p> </p>
+<p><b>Function </b></p>
+<p>This call-back is optionally being called before the IL sends a </p>
+<p>message to the bus. In this call-back it is possible to prevent the </p>
+<p>sending of the message or to change the data of the message. </p>
+<p>An example can be found in section 7.2. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>aId: </b>With the ID you can identify the message. </p>
+<p><b>aDLC: </b>The DLC of the message to be sent and the length of the </p>
+<p>data bytes array. </p>
+<p><b>data: </b>Data bytes array with the bytes to be sent. The bytes can </p>
+<p>optionally be changed. </p>
+<p> </p>
+<p><b>Returns </b></p>
+<p><b>&gt; </b></p>
+<p>If the return value of this function is 0, then sending of the </p>
+<p>message with the supplied </p>
+<p>aId</p>
+<p> is prevented. </p>
+<p><b>&gt; </b></p>
+<p>If the return value of this function is 1, then the sending of the </p>
+<p>message with the supplied </p>
+<p>aId</p>
+<p> is done. </p>
+<p> </p>
+<p> </p>
+<p><b>Caution:</b> You should not use &quot;set signal&quot; functionality within the call-backs, because </p>
+<p>this may trigger another sending to the bus. </p>
+<p> </p>
+<p><b>5.1.11 IL States </b></p>
+<p> </p>
+<p>If the IL is simulated (default), it knows the following states. Please refer the Interface </p>
+<p>functions for details how to traverse the state graph. These functions are described in </p>
+<p>section 5.1.2. </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Simulation On/Off </p>
+<p>If the IL is not simulated, the described functions have no consequences to the IL. </p>
+<p> </p>
+<p>If the IL changes from &quot;SimulationOn&quot; to &quot;SimulationOff&quot;, the IL is stopped. </p>
+<p>uninited</p>
+<p>event ILSetSignal/ return error</p>
+<p>Start</p>
+<p>waiting</p>
+<p>event ILSetSignal/ store as pending request</p>
+<p>running</p>
+<p>event ILSetSignal/ process</p>
+<p>do/ checkSendDues / process</p>
+<p>suspended</p>
+<p>event ILSetSignal/ ignore</p>
+<p>ILControlInit / initialize</p>
+<p>ILControlRelease / </p>
+<p>process pending requests</p>
+<p>ILControlStop / </p>
+<p>delete pending </p>
+<p>requests</p>
+<p>ILControlStart</p>
+<p>ILControlWait</p>
+<p>ILControlStop</p>
+<p>startup</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Interface Specifications </p>
+<p>User Manual GMLAN Package </p>
+<p>- 40 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p>If the IL changes from &quot;SimulationOff&quot; to &quot;SimulationOn&quot;, the IL is started. </p>
+<p> </p>
+<p><b>5.1.12 Write Window Outputs </b></p>
+<p> </p>
+<p>Here some outputs to the write window are described: </p>
+<p>  </p>
+<p>SignalHandle invalid </p>
+<p>This signal is not known in the node scope of the IL. Reasons: </p>
+<p><b>&gt; </b></p>
+<p>Attribute ‘</p>
+<p>GenMsgILSupport</p>
+<p>’ of the associated message is not correctly set. </p>
+<p><b>&gt; </b></p>
+<p>Send node of the associated message is not the node the IL is responsible for. </p>
+<p><b>&gt; </b></p>
+<p>Associated message was identified as a diagnostic, NM or TP message. </p>
+<p>MessageHandle </p>
+<p>invalid </p>
+<p>This message is not known in the node scope of the IL. Reasons: </p>
+<p><b>&gt; </b></p>
+<p>Attribute ‘</p>
+<p>GenMsgILSupport</p>
+<p>’ of the message is not correctly set. </p>
+<p><b>&gt; </b></p>
+<p>Send node of the message is not the node the IL is responsible for. </p>
+<p><b>&gt; </b></p>
+<p>Message was identified as a diagnostic, NM or TP message. </p>
+<p> </p>
+<p>Message for </p>
+<p>(un)changed signal is </p>
+<p>not sent </p>
+<p>A set signal request doesn’t cause a output of the associated message to the bus. </p>
+<p>Reasons: </p>
+<p><b>&gt; </b></p>
+<p>IL inactive </p>
+<p><b>&gt; </b></p>
+<p>Sporadic message send type and no signal send type </p>
+<p>Sending of message </p>
+<p>forced </p>
+<p>Only a notification that the message was sent although the send type had prevented </p>
+<p>a sending. Reasons: </p>
+<p><b>&gt; </b></p>
+<p>Usage of “</p>
+<p>ILSetEvent</p>
+<p>” or ”</p>
+<p>ILSetEvent</p>
+<p>” in CAPL </p>
+<p><b>&gt; </b></p>
+<p>Usage of the send button of an ActiveX send control </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>Network Management (NM) </b></p>
+<p> </p>
+<p>The NM features and interface is described in [2]. </p>
+<p>NM ↔ IL  </p>
+<p>There is not implemented any automatic local coordination between the IL and the </p>
+<p>NM module. The IL and NM in CANoe for GM work independently of each other. </p>
+<p>Thus, also the CAPL functions for the activation and deactivation of the (local) VN are </p>
+<p>both present (with different names) at the IL and NM DLL. </p>
+<p>ActiveX NM Control </p>
+<p>The controls of the Active X NM panel sometime have impact simultaneously onto the </p>
+<p>NM and IL and sometimes even to a group of nodes (VN) instead of having only local </p>
+<p>impact to the NM module! (cf. section 4.2.3) </p>
+<p>DLL </p>
+<p>A NM node’s node attribute <i>NodeLayerModules </i>in the database must contain the </p>
+<p>entry “GMLAN02.dll”. </p>
+<p>In opposite to the ActiveX NM Controls all DLL functions (of the IL and the NM) have </p>
+<p>only impact on the local module (either NM or IL) of that node the CAPL program is </p>
+<p>attached to. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Restrictions and Deficiencies </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 41 - </p>
+<p><b>6 </b></p>
+<p><b>Restrictions and Deficiencies </b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>6.1 </p>
+<p>Restrictions </p>
+<p> page 42 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Restrictions and Deficiencies </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 42 - </p>
+<p><b>6.1 </b></p>
+<p><b>Restrictions </b></p>
+<p>Integer signals &gt; 52 </p>
+<p>bits </p>
+<p>The standard message panel-controls that are delivered with this package are </p>
+<p>working in the following way: </p>
+<p><b>&gt; </b></p>
+<p>The setting of values is not possible. (cf. also tip “Sending integer signals &gt; 52 </p>
+<p>bits” in chapter 7.1) </p>
+<p><b>&gt; </b></p>
+<p>The display of values is possible for the maximum value of 2</p>
+<p>52-1</p>
+<p>. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Tips and Examples </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 43 - </p>
+<p><b>7 </b></p>
+<p><b>Tips and Examples </b></p>
+<p><b>In this chapter you find the following information: </b></p>
+<p>7.1 </p>
+<p>Tips </p>
+<p> page 44 </p>
+<p>7.2 </p>
+<p>Examples </p>
+<p> page 47 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Tips and Examples </p>
+<p>User Manual GMLAN Package </p>
+<p>- 44 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p><b>7.1 </b></p>
+<p><b>Tips </b></p>
+<p> </p>
+<p><b>Write window views </b></p>
+<p>Make the write window docked so that other windows will not hide it. Sometimes it is </p>
+<p>crucial to cf. the write window because all error messages and warnings will be output </p>
+<p>there. </p>
+<p>  </p>
+<p> </p>
+<p><b>Setting a signal at the IL </b></p>
+<p>If you use the function </p>
+<p>ILSetSignal()</p>
+<p> make sure that you use it in the correct </p>
+<p>node. I.e. if you want to set a ESP signal value you must edit the “ESP.can” file, </p>
+<p>otherwise you will see no change to the signal value. This is a correct behaviour of </p>
+<p>the IL because one node cannot set a signal value of another node. Therefore it is </p>
+<p>recommended to use always the </p>
+<p>SetSignal()</p>
+<p> function. Then the routing to the </p>
+<p>correct node is done automatically. </p>
+<p>  </p>
+<p> </p>
+<p><b>Sending integer signals &gt; 52 bits </b></p>
+<p>If the standard mechanism (refer 5.1) does not match the requirements, then an </p>
+<p>additional API function of GM CANoe IL can be used. With this function, the <b>raw </b></p>
+<p><b>value </b>can be set. It is not possible to set the physical value of such signals within </p>
+<p>CAPL. </p>
+<p>1. </p>
+<p>Create an environment variable of type 'data' with the intended length within </p>
+<p>the network database (or an additional database you have to associate to the </p>
+<p>used channel(s)). </p>
+<p>2. </p>
+<p>Put a Hex-Edit-control onto a (new) panel and associated it to environment </p>
+<p>variable that was created in the previous step. </p>
+<p>3. </p>
+<p>Open the CAPL program of the send node of the signal, add an &quot;on envVar&quot;-</p>
+<p>handler for that environment variable and add the following code fragment: </p>
+<p>on EnvVar &lt;myEnvvar&gt; </p>
+<p>{ </p>
+<p>  byte lValue [8]; </p>
+<p>  GetValue (this, lValue); </p>
+<p> </p>
+<p>  ILSetSignalRawField(&lt;Message&gt;::&lt;Signal&gt;, lValue, 8); </p>
+<p>} </p>
+<p>Then replace the names in brackets: </p>
+<p><b>&gt; </b></p>
+<p>&lt;myEnvvar&gt;</p>
+<p> by the previously created environment variable </p>
+<p><b>&gt; </b></p>
+<p>&lt;Message&gt;</p>
+<p> by the message that contains the lengthy signal </p>
+<p><b>&gt; </b></p>
+<p>&lt;signal&gt;</p>
+<p> by the lengthy signal. </p>
+<p>Please note, that all these names are to be inserted without any quotation. </p>
+<p>There are some rules to follow when operating these hex-edit controls: </p>
+<p><b>&gt; </b></p>
+<p>The first byte to enter is the lease significant byte of the raw value of the signal. </p>
+<p><b>&gt; </b></p>
+<p>Only those bytes are affected that are supplied in the control. If for example the </p>
+<p>last byte is omitted, then this last byte remains unaffected!  ' It is recommended to </p>
+<p>supply always all needed bytes. </p>
+<p>It is currently not possible to display these lengthy integers on the panels: </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Tips and Examples </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 45 - </p>
+<p> </p>
+<p><b>Caution:</b> The displayed values represent only a part (52 bits) of the really received </p>
+<p>value. Recommendation not to consume the value from the display panel. Use the </p>
+<p>trace window instead. </p>
+<p> </p>
+<p> </p>
+<p><b>Get hooks on activation/deactivation of Virtual Networks </b></p>
+<p>The network management component communicates automatically with the </p>
+<p>Interaction-Layer component and automatically activates and deactivates the VNs. If </p>
+<p>the activation/deactivation of the Virtual Networks should be observed, then it is </p>
+<p>possible to define CAPL functions that are called on activation/deactivation of the </p>
+<p>Virtual Networks. See [2] and 5.1.7</p>
+<p> for details. </p>
+<p> </p>
+<p> </p>
+<p><b>Avoid the automatic start of the Interaction Layer </b></p>
+<p>The Interaction Layer is started per default on start of measurement. If this should be </p>
+<p>prevented, then call the initialization function (cf. 5.1.1</p>
+<p>) of the CANoe IL in the pre-</p>
+<p>start section manually. Then the automatic start is not done. Please note, that send </p>
+<p>panels require a running CANoe IL, otherwise the sending of messages cannot be </p>
+<p>controlled there. </p>
+<p> </p>
+<p> </p>
+<p><b>Get application callbacks (hooks) on transmit activity of the Interaction Layer </b></p>
+<p>It is possible to get an application call-back within CAPL before the GMLAN IL sends </p>
+<p>a message to the bus. In this call-back it is possible to prevent the sending of the </p>
+<p>message or to change the data of the message. </p>
+<p>dword applILTxPending(long aId, dword aDlc, byte data[]); </p>
+<p>dword applILTxPending(long aId); // old version </p>
+<p><b>&gt; </b></p>
+<p>Cf. section 5.1.10 for details. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Caution:</b> You should not use &quot;set signal&quot; functionality within the call-back, because </p>
+<p>this may trigger another sending to the bus. </p>
+<p> </p>
+<p> </p>
+<p><b>CAPL signal driver </b></p>
+<p>If a signal value will be set (e.g. in a panel, by the COM-API, within CAPL) a signal </p>
+<p>driver is used to set the value and send the message. Normally the GMLAN IL is the </p>
+<p>signal driver of all TX signals within an ECU. But for dedicated signals or for test </p>
+<p>purposes it might be helpful to send the message within CAPL. Therefore a CAPL </p>
+<p>signal driver (CAPL call-back) can be registered, that is called on each set signal </p>
+<p>request. </p>
+<p> </p>
+<p>long registerSignalDriver(dbSignal, char callback[]) </p>
+<p> </p>
+<p>The CAPL call-back must have following signature: </p>
+<p>void fct(double value)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>How to globally activate a VN from CAPL that is locally “shared local”? </b></p>
+<p>All CAPL function for the activation or deactivation of the VN has only impact on the </p>
+<p>local node. Especially al nodes that are “shared local” to this VN can only be activated </p>
+<p>in their local CAPL program. In order to trigger all nodes from one dedicated node a </p>
+<p>new trigger event must be defined, that is handled in all participating nodes </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Tips and Examples </p>
+<p>User Manual GMLAN Package </p>
+<p>- 46 - </p>
+<p>Version 2.10.0 </p>
+<p>© Vector Informatik GmbH </p>
+<p>accordingly. </p>
+<p>1. </p>
+<p>Create an environment variable of type 'integer' with name VN_Act_&lt;name&gt; </p>
+<p>for the VN &lt;name&gt; with the ID <i>n </i>within the network database (or an additional </p>
+<p>database you have to associate to the used channel(s)) of the CANoe </p>
+<p>configuration.. </p>
+<p>2. </p>
+<p>Open the CAPL programs of all participating nodes, add an &quot;on envVar&quot;-</p>
+<p>handler for that environment variable and add the following code fragment: </p>
+<p>on EnvVar VN_Act_&lt;name&gt; </p>
+<p>{ </p>
+<p>  long i; </p>
+<p>  i = &lt;n&gt;; </p>
+<p>  if (@this == 0) </p>
+<p>  { </p>
+<p>    GMILDeactivateVN(i); // Deactivate VN at IL </p>
+<p>    ILDeactivateVN(i); // Deactivate VN at NM </p>
+<p>  } </p>
+<p>  else </p>
+<p>  { </p>
+<p>    GMILActivateVN(i); // Activate VN at at IL </p>
+<p>    ILActivateVN(i); // Activate VN at NM </p>
+<p>  } </p>
+<p>} </p>
+<p>Then replace the names in brackets: </p>
+<p><b>&gt; </b></p>
+<p>&lt;name&gt;</p>
+<p> by the name of the VN </p>
+<p><b>&gt; </b></p>
+<p>&lt;n&gt;</p>
+<p> by the unique ID of the VN (equal to value of database network </p>
+<p>attribute <i>VN_&lt;name&gt;</i>) </p>
+<p>Please note, that all these names are to be inserted without any quotation. </p>
+<p>3. </p>
+<p>In the local node’s CAPL program that should activate or deactivate the </p>
+<p>appropriate VN simply set the value of the environment variable: </p>
+<p>@VN_Act_&lt;name&gt; = 1; // 1 to activate or 0 to deactivate </p>
+<p>the VN </p>
+<p>Instead of using an environment variable also a system variable of CANoe can be </p>
+<p>used. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Tips and Examples </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 47 - </p>
+<p><b>7.2 </b></p>
+<p><b>Examples </b></p>
+<p> </p>
+<p><b>Example 1:</b> Individual calculation of a checksum and a message counter </p>
+<p> </p>
+<p>dword <b>applILTxPending </b>(long aId, dword aDlc, byte data[]) </p>
+<p>{ </p>
+<p>  dword i; </p>
+<p>  byte xor; </p>
+<p> </p>
+<p>  /* Message 0x1A0 contains a XOR checksum in Byte 0. It will  </p>
+<p>   * be calculated from the other data bytes of the message. </p>
+<p>   */ </p>
+<p>  if(aId == 0x1A0) </p>
+<p>  { </p>
+<p>    // calculate </p>
+<p>    xor = 0x00; </p>
+<p>    for(i = 1; i &lt; aDlc; ++i) { </p>
+<p>      xor = xor ^ data[i]; </p>
+<p>    } </p>
+<p>    // set the new checksum </p>
+<p>    data[0] = xor; </p>
+<p>  } </p>
+<p>   </p>
+<p>  /* Message 0x1A1 contains a 4-Bit message counter in  </p>
+<p>   * the first 4 Bits of Byte 0. </p>
+<p>   */ </p>
+<p>  if(aId == 0x1A1) </p>
+<p>  {   </p>
+<p>    // get the old value </p>
+<p>    i = data[0] &amp; 0x0F; </p>
+<p>     </p>
+<p>    // increment </p>
+<p>    i++; </p>
+<p>    i = i % 16; </p>
+<p>     </p>
+<p>    //set the new message counter </p>
+<p>    data[0] = i &amp; 0x0F; </p>
+<p>  } </p>
+<p> </p>
+<p>  return 1; // don't prevent sending of the message </p>
+<p>} </p>
+<p> </p>
+<p> </p>
+<p><b>Note:</b> Use the new fault injection interface (4.1.6) to prevent the sending of a </p>
+<p>message. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual GMLAN Package  </p>
+<p>Index </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 2.10.0 </p>
+<p>- 49 - </p>
+<p><b>8 </b></p>
+<p><b>Index</b></p>
+<p><b>C</b></p>
+<p> </p>
+<p>CANoe CAPL functions </p>
+<p>CheckSignalInRange ....................................... 33 </p>
+<p>GetSignal ......................................................... 32 </p>
+<p>GetSignalRaw .................................................. 33 </p>
+<p>GetSignalTime ................................................. 33 </p>
+<p><b>D</b></p>
+<p> </p>
+<p>Database settings ............................................... 15 </p>
+<p><b>F</b></p>
+<p> </p>
+<p>Features ................................................................ 4 </p>
+<p><b>H</b></p>
+<p> </p>
+<p>History ................................................................... 5 </p>
+<p><b>I</b></p>
+<p> </p>
+<p>IL CAPL callback functions </p>
+<p>applILTxPending .............................................. 39 </p>
+<p>IL CAPL functions </p>
+<p>GMILActivateVN .............................................. 36 </p>
+<p>GMILDeactivateVN .......................................... 36 </p>
+<p>GMILIsVNActive .............................................. 36 </p>
+<p>ILControlInit ..................................................... 28 </p>
+<p>ILControlResume ............................................. 28 </p>
+<p>ILControlSimulationOff .................................... 29 </p>
+<p>ILControlSimulationOn .................................... 29 </p>
+<p>ILControlStart ................................................... 28 </p>
+<p>ILControlStop ................................................... 28 </p>
+<p>ILControlWait ................................................... 28 </p>
+<p>ILErrno ............................................................. 37 </p>
+<p>ILFaultInjectionDisableMsg ............................. 34 </p>
+<p>ILFaultInjectionEnableMsg .............................. 34 </p>
+<p>ILFaultInjectionResetAllFaultInjections ........... 35 </p>
+<p>ILFaultInjectionResetMsgCycleTime ............... 35 </p>
+<p>ILFaultInjectionResetMsgDlc ........................... 35 </p>
+<p>ILFaultInjectionSetMsgCycleTime ................... 35 </p>
+<p>ILFaultInjectionSetMsgDlc .............................. 35 </p>
+<p>ILRegisterSignalObserver ............................... 37 </p>
+<p>ILSetEvent ...................................................... 34 </p>
+<p>ILSetMsgEvent................................................ 34 </p>
+<p>ILSetResultString ............................................ 37 </p>
+<p>ILSetSignal ................................................ 30, 31 </p>
+<p>ILSetSignalRaw ........................................ 30, 31 </p>
+<p>ILSetSignalRawField ................................ 30, 31 </p>
+<p>Installation .......................................................... 10 </p>
+<p>Interface Specifications ...................................... 27 </p>
+<p>Interaction Layer (IL) ....................................... 28 </p>
+<p>Network Management (NM) ............................ 40 </p>
+<p><b>M</b></p>
+<p> </p>
+<p>Minimal CANoe version ....................................... 4 </p>
+<p>Model Generation by Drag &amp; Drop .................... 12 </p>
+<p>Model Generation Wizard .................................. 12 </p>
+<p><b>O</b></p>
+<p> </p>
+<p>Operate the simulation model ............................ 19 </p>
+<p><b>P</b></p>
+<p> </p>
+<p>Prerequisites ...................................................... 10 </p>
+<p><b>Q</b></p>
+<p> </p>
+<p>Quick start .......................................................... 11 </p>
+<p><b>R</b></p>
+<p> </p>
+<p>Restrictions and Deficiencies ............................. 41 </p>
+<p><b>T</b></p>
+<p> </p>
+<p>Tips and Examples ............................................ 43 </p>
+<p><b>W</b></p>
+<p> </p>
+<p>Warranty .............................................................. 8 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Get more Information! </b></p>
+<p><b>Visit our Website for: </b></p>
+<p>&gt; News </p>
+<p>&gt; Products </p>
+<p>&gt; Demo Software </p>
+<p>&gt; Support </p>
+<p>&gt; Training Classes </p>
+<p>&gt; Addresses </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>www.vector.com </b></p>
+<p><b> </b></p>
+</body>
+</html>
+{% endraw %}

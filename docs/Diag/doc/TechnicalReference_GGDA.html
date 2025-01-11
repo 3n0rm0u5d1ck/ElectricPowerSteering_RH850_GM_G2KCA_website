@@ -1,0 +1,2000 @@
+---
+layout: default
+title: TechnicalReference_GGDA
+nav_order: 2
+parent: GM Gateway Diagnostic Add-On
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>1 / 41 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>GM Gateway Diagnostic Add-On </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>GGDA </p>
+<p>Version 1.8 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Mishel Shishmanyan, Matthias Heil </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>2 / 41 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Mishel Shishmanyan </p>
+<p>2005-11-08 </p>
+<p>1.0 </p>
+<p>Created </p>
+<p>Mishel Shishmanyan </p>
+<p>2006-01-31 </p>
+<p>1.1 </p>
+<p>Rework and textual corrections. </p>
+<p>Matthias Heil </p>
+<p>2006-02-20 </p>
+<p>1.2 </p>
+<p>Extensions for multibus support </p>
+<p>Mishel Shishmanyan </p>
+<p>2007-01-24 </p>
+<p>1.3 </p>
+<p>Modified:  </p>
+<p>- 5.1.1 “1st step – GENtool” </p>
+<p>- 5.1.1.2 ”UUDT Transmitter </p>
+<p>Configuration” </p>
+<p>- 5.1.2 “2nd step – Ggda_par.h </p>
+<p>file” </p>
+<p> </p>
+<p>Added: </p>
+<p>- 5.2 “Timings Parameter” </p>
+<p>- 5.3 “Supported Diagnostic </p>
+<p>Services” </p>
+<p>- 5.4 “Development and </p>
+<p>Integration Support” </p>
+<p>- 5.5 “Target Address Acceptance </p>
+<p>on Functional Requests” </p>
+<p>Mishel Shishmanyan </p>
+<p>2007-02-16 </p>
+<p>1.4 </p>
+<p>Modified: </p>
+<p>- 5.1.3.1”CAN Channel </p>
+<p>Configuration” </p>
+<p>Added: </p>
+<p>- 5.3.1 </p>
+<p>InitializeDiagnosticOperationMode </p>
+<p>($10 $xx) </p>
+<p>- 5.3.3 ReadDiagnosticInformation </p>
+<p>($A5 $02) </p>
+<p>Matthias Heil </p>
+<p>2007-05-29 </p>
+<p>1.5 </p>
+<p>Added: Infobox clarifying cdb-</p>
+<p>Attributes for functional receive </p>
+<p>message </p>
+<p>Matthias Heil </p>
+<p>2008-04-04 </p>
+<p>1.6 </p>
+<p>Added: Configuration aspects </p>
+<p>regarding GENy configuration Tool </p>
+<p>Matthias Heil </p>
+<p>2012-05-04 </p>
+<p>1.7 </p>
+<p>Added: Added description of </p>
+<p>configuration file values for mode </p>
+<p>$A9 selection </p>
+<p>Matthias Heil </p>
+<p>2015-05-28 </p>
+<p>1.8 </p>
+<p>Added: Precondition for </p>
+<p>DisableNormalCommunication </p>
+<p>(Sid: $28) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>3 / 41 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Title </b></p>
+<p>[1] </p>
+<p>TechnicalReference_CANdesc_GM_Opel.pdf </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>4 / 41 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Overview ....................................................................................................................... 8</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Management Functions ................................................................................................ 9</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Initialization ........................................................................................................ 9</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Processing ......................................................................................................... 9</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>What is inside ............................................................................................................. 11</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>InitializeDiagnosticOperationMode (Sid $10) .................................................... 11</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>DisableAllDTCs ( $02) ...................................................................... 11</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>WakeUp Link ($04) .......................................................................... 12</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>ReadEcuIdentification (Sid $1A) ...................................................................... 13</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>ReturnToNormalMode (Sid: $20) ...................................................................... 14</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>DisableNormalCommunication (Sid: $28) ........................................................ 15</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>TesterPresent (Sid $3E) ................................................................................... 17</p>
+<p> </p>
+<p>4.6</p>
+<p> </p>
+<p>ProgrammingMode (Sid: $A5) .......................................................................... 18</p>
+<p> </p>
+<p>4.6.1</p>
+<p> </p>
+<p>RequestProgrammingMode ($01) .................................................... 18</p>
+<p> </p>
+<p>4.6.2</p>
+<p> </p>
+<p>RequestHiSpeedProgrammingMode ($02) ....................................... 19</p>
+<p> </p>
+<p>4.6.3</p>
+<p> </p>
+<p>EnableProgrammingMode ($03) ...................................................... 20</p>
+<p> </p>
+<p>4.7</p>
+<p> </p>
+<p>ReadDiagnosticInformation (Sid: $A9) ............................................................. 21</p>
+<p> </p>
+<p>4.7.1</p>
+<p> </p>
+<p>ReadStatusOfDTCByDTCNumber ($80) .......................................... 21</p>
+<p> </p>
+<p>4.7.2</p>
+<p> </p>
+<p>ReadStatusOfDTCByStatusMask ($81) ........................................... 23</p>
+<p> </p>
+<p>4.7.3</p>
+<p> </p>
+<p>SendOnChangeDTCCount ($82) ..................................................... 26</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Configuration in CANGen .......................................................................................... 28</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Communication Parameter .............................................................................. 28</p>
+<p> </p>
+<p>5.1.1</p>
+<p> </p>
+<p>1</p>
+<p>st</p>
+<p> step – GENtool ............................................................................ 28</p>
+<p> </p>
+<p>5.1.1.1</p>
+<p> </p>
+<p>USDT Connection Configuration .................................... 29</p>
+<p> </p>
+<p>5.1.1.2</p>
+<p> </p>
+<p>UUDT Transmitter Configuration .................................... 31</p>
+<p> </p>
+<p>5.1.2</p>
+<p> </p>
+<p>2</p>
+<p>nd</p>
+<p> step – Ggda_par.h file ................................................................. 32</p>
+<p> </p>
+<p>5.1.3</p>
+<p> </p>
+<p>3</p>
+<p>rd</p>
+<p> step – Ggda_par.c file ................................................................. 32</p>
+<p> </p>
+<p>5.1.3.1</p>
+<p> </p>
+<p>CAN Channel Configuration ........................................... 32</p>
+<p> </p>
+<p>5.1.3.2</p>
+<p> </p>
+<p>Static TP Channel Configuration .................................... 33</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Timings Parameter ........................................................................................... 34</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Supported Diagnostic Services ........................................................................ 36</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>InitializeDiagnosticOperationMode ($10 $xx) ................................... 36</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>ReadDiagnosticInformation ($A9) .................................................... 36</p>
+<p> </p>
+<p>5.3.3</p>
+<p> </p>
+<p>ReadDiagnosticInformation ($A5 $02) ............................................. 36</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>5 / 41 </p>
+<p>5.4</p>
+<p> </p>
+<p>Development and Integration Support .............................................................. 37</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Target Address Acceptance on Functional Requests ........................................ 37</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration in GENy ............................................................................................... 38</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Communication Parameters ............................................................................. 38</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>General Parameters ......................................................................................... 38</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Supported Diagnostic services ......................................................................... 39</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 40</b></p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 41</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>6 / 41 </p>
+<p><b>Figures </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>System overview. ........................................................................................ 8</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>GGDA OSEK-TP configuration ................................................................. 29</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>User-config file for the GGDA TPMC configuration. .................................. 30</p>
+<p> </p>
+<p>Figure 5-3</p>
+<p> </p>
+<p>„GgdaFuncPrecopy“ configuration. ........................................................... 30</p>
+<p> </p>
+<p>Figure 5-4</p>
+<p> </p>
+<p>„GgdaUudtConfirmation“ configuration...................................................... 31</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>Global configuration parameters in GENy ................................................. 38</p>
+<p> </p>
+<p>Figure 6-2</p>
+<p> </p>
+<p>Channel specific configuration parameters in GENy ................................. 39</p>
+<p> </p>
+<p> </p>
+<p><b>Tables </b></p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>GgdaTimerTask ........................................................................................ 10</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>GgdaStateTask ......................................................................................... 10</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>ApplGgdaOnDisableAllDtc ........................................................................ 11</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>ApplGgdaOnWakeUpLink ......................................................................... 12</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>ApplGgdaOnReturnToNormalMode .......................................................... 14</p>
+<p> </p>
+<p>Table 4-4 </p>
+<p> </p>
+<p>ApplGgdaForceEcuReset ......................................................................... 14</p>
+<p> </p>
+<p>Table 4-5 </p>
+<p> </p>
+<p>ApplGgdaMayDisableNormalComm ......................................................... 15</p>
+<p> </p>
+<p>Table 4-6 </p>
+<p> </p>
+<p>ApplGgdaOnDisableNormalComm ........................................................... 16</p>
+<p> </p>
+<p>Table 4-7 </p>
+<p> </p>
+<p>ApplGgdaMayEnterProgMode .................................................................. 18</p>
+<p> </p>
+<p>Table 4-8 </p>
+<p> </p>
+<p>ApplGgdaMayEnterHiSpeedProgMode..................................................... 19</p>
+<p> </p>
+<p>Table 4-9 </p>
+<p> </p>
+<p>ApplGgdaGetDtcStatusByNumber ............................................................ 21</p>
+<p> </p>
+<p>Table 4-10 </p>
+<p> </p>
+<p>GgdaRdiDtcStatusByNumberFound ......................................................... 22</p>
+<p> </p>
+<p>Table 4-11 </p>
+<p> </p>
+<p>GgdaRdiDtcStatusByNumberNotFound .................................................... 22</p>
+<p> </p>
+<p>Table 4-12 </p>
+<p> </p>
+<p>ApplGgdaGetDtcStatusByMask ................................................................ 23</p>
+<p> </p>
+<p>Table 4-13</p>
+<p> </p>
+<p>GgdaRdiDtcStatusByMaskFound ............................................................. 24</p>
+<p> </p>
+<p>Table 4-14 </p>
+<p> </p>
+<p>GgdaRdiDtcStatusByMaskNotFound ........................................................ 24</p>
+<p> </p>
+<p>Table 4-15 </p>
+<p> </p>
+<p>ApplGgdaEnableOnChangeDtcCount ....................................................... 26</p>
+<p> </p>
+<p>Table 4-16 </p>
+<p> </p>
+<p>ApplGgdaDisableOnChangeDtcCount ...................................................... 26</p>
+<p> </p>
+<p>Table 4-17 </p>
+<p> </p>
+<p>GgdaRdiOnDtcCountChanged ................................................................. 27</p>
+<p> </p>
+<p>Table 4-18 </p>
+<p> </p>
+<p>GgdaRdiDeactivateOnChangeDtcCount ................................................... 27</p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>7 / 41 </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p>The GGDA (GM Gateway Diagnostic Add-on) is a small diagnostic software component </p>
+<p>with reduced functionality to support only the GM’s gateway non-diagnostic physical </p>
+<p>channel. This module is optimized only for this purpose and is thus very efficient. The </p>
+<p>following goals are achieved with its usage: </p>
+<p> </p>
+<p>- </p>
+<p>implements </p>
+<p>a </p>
+<p>complete </p>
+<p>ISO-TP </p>
+<p>API </p>
+<p>for </p>
+<p>reception/transmission </p>
+<p>of </p>
+<p>diagnostic </p>
+<p>messages; </p>
+<p>- </p>
+<p>implements an own UUDT message transmitter with timeout and data consistency </p>
+<p>protection; </p>
+<p>- </p>
+<p>implements </p>
+<p>completely </p>
+<p>all </p>
+<p>GM </p>
+<p>required </p>
+<p>diagnostic </p>
+<p>services </p>
+<p>for </p>
+<p>a </p>
+<p>minimum </p>
+<p>diagnostic operations; </p>
+<p>- </p>
+<p>provides CANdesc-like API for the <i>ReadDiagnosticInformation </i>service to reduce the </p>
+<p>application fault memory diagnostic API complexity; </p>
+<p>- </p>
+<p>provides  event  notifications  to  the  application  for  each  relevant  diagnostic  state </p>
+<p>change (e.g. communication control disabled, wake-up link, return to normal mode, </p>
+<p>etc.); </p>
+<p>- </p>
+<p>monitors the tester-present timeout; </p>
+<p>- </p>
+<p>monitors the request processing time and sends automatically RCR-RP response if </p>
+<p>the final response is not registered at the P2/P2Ex times. </p>
+<p>- </p>
+<p>implements the required interaction functionality for proper VN management; </p>
+<p>- </p>
+<p>sends unsolicited positive response on service $20 when the tester-present timeout </p>
+<p>event. </p>
+<p>- </p>
+<p>has minimum ROM/RAM and run-time overhead for gateways; </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>8 / 41 </p>
+<p><b>2 </b></p>
+<p><b>Overview </b></p>
+<p>The GGDA component takes a place parallel to the fully functional diagnostic layer </p>
+<p>CANdesc. It serves only the diagnostic services on the other communication channel on </p>
+<p>the gateway, to provide the necessary minimum of diagnostics for GM. </p>
+<p>Application</p>
+<p>CAN controller</p>
+<p>HS-CAN</p>
+<p>LS-CAN(s)</p>
+<p>CANdrv</p>
+<p>ISO-TPMC</p>
+<p>CANdesc</p>
+<p>GGDA</p>
+<p>CAN controller</p>
+<p> </p>
+<p>Figure 2-1 System overview. </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The GGDA component must be always placed on the low speed CANs, since the ECU </p>
+<p>will be not flash-able on this side. If the gateway is a flash-able ECU it shall be flashed </p>
+<p>only from the CANdesc side. </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>GGDA is not designed to be a stand-alone component. It operates only together with the </p>
+<p>CANdesc component in the system. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>9 / 41 </p>
+<p><b>3 </b></p>
+<p><b>Management Functions </b></p>
+<p>To be able to work properly, the GGDA component must be managed with the following </p>
+<p>APIs as described: </p>
+<p> </p>
+<p><b>3.1 </b></p>
+<p><b>Initialization </b></p>
+<p><b>GgdaInitPowerOn </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>GgdaInitPowerOn </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>-  </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>In order to run properly the GGDA component must be initialized. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Interrupts must be disabled to guarantee consistent state machine initialization. </p>
+<p></p>
+<p> </p>
+<p>This function shall be called at ECU power-up but if needed, considering the above limitation </p>
+<p>this API may be called any time the component has to be initialized. </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Any. </p>
+<p> </p>
+<p><b>3.2 </b></p>
+<p><b>Processing </b></p>
+<p>The </p>
+<p>GGDA </p>
+<p>component </p>
+<p>contains </p>
+<p>two </p>
+<p>tasks </p>
+<p>for </p>
+<p>processing </p>
+<p>speed </p>
+<p>and </p>
+<p>CPU </p>
+<p>load </p>
+<p>optimization. The timer task (GgdaTimerTask) needs to be called cyclically  exactly in the </p>
+<p>configured  time  period.  The  cycle  time  defaults  to  the  same  value  as  configured  for </p>
+<p>CANdesc, but can be changed in ggda_par.h if needed: (example for 10ms cycle time): </p>
+<p><b>Configuration: </b></p>
+<p>#define kGgdaTimerMsCycle                                            10   /*ms*/ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>10 / 41 </p>
+<p><b>GgdaTimerTask </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>GgdaTimerTask </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>-  </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Call this function cyclically exactly in the configured time period to achieve correct timeout monitoring. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>The function iterates through all configured channels. </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Background loop with equal priority as <i>GgdaStateTask</i>(). </p>
+<p>Table 3-1   GgdaTimerTask </p>
+<p><b>GgdaStateTask </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>GgdaStateTask </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>-  </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Call this function cyclically as fast as possible to achieve maximum service processing performance. </p>
+<p>Constant call time period is not necessary to be considered since there is only event polling and no time </p>
+<p>management. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>The function iterates through all configured channels </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Background loop with equal priority as <i>GgdaTimerTask</i>(). </p>
+<p>Table 3-2   GgdaStateTask </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>11 / 41 </p>
+<p><b>4 </b></p>
+<p><b>What is inside </b></p>
+<p>The GGDA software component implements completely all GM required services on the </p>
+<p>non-diagnostic side of the gateway. Some events and call-backs are necessary to be </p>
+<p>implemented by the application, since they reference other ECU application’s specific </p>
+<p>functionality. Below you will find the implementation description of the GGDA referenced by </p>
+<p>the diagnostic service specification. </p>
+<p> </p>
+<p><b>4.1 </b></p>
+<p><b>InitializeDiagnosticOperationMode (Sid $10) </b></p>
+<p>This service is only needed if the ECU must support one of the following sub-functions: </p>
+<p><b>4.1.1 </b></p>
+<p><b>DisableAllDTCs ( $02) </b></p>
+<p><b>Configuration: </b></p>
+<p>In order to activate this feature, please see the configuration details in chapter 5.1.3. </p>
+<p>If this feature is activated and the tester sends a valid request of this service, the following </p>
+<p>call-back function will be called: </p>
+<p><b>ApplGgdaOnDisableAllDtc </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplGgdaOnDisableAllDtc </b>( void ) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Notifies about requested service to disable the DTC setting. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Available only if configured. </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-1   ApplGgdaOnDisableAllDtc </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>12 / 41 </p>
+<p><b>4.1.2 </b></p>
+<p><b>WakeUp Link ($04) </b></p>
+<p><b>Configuration: </b></p>
+<p>In order to activate this feature, please see the configuration details in chapter 5.1.3. </p>
+<p>If this feature is activated and the tester sends a valid request of this service, the following </p>
+<p>call-back function will be called: </p>
+<p><b>ApplGgdaOnWakeUpLink </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplGgdaOnWakeUpLink </b>( void ) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Notifies about requested service for wake up. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Available only if configured. </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-2   ApplGgdaOnWakeUpLink </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>13 / 41 </p>
+<p><b>4.2 </b></p>
+<p><b>ReadEcuIdentification (Sid $1A) </b></p>
+<p>From  this  service  only  one  identifier  is  necessary  to  be  supported  ($B0)  and  it  is </p>
+<p>completely implemented in GGDA. </p>
+<p><b>Configuration: </b></p>
+<p>Since  this  service  returns  the  ECU  address,  you  have  to  configure  the  correct  ECU </p>
+<p>address id. The configuration defaults to the address configured for CANdesc.  </p>
+<p>In  CANgen  configurations  the  value  can  be  changed  in  Ggda_par.h  (example:  ECU </p>
+<p>address is 0x3B): </p>
+<p>#define kGgdaEcuNumber                                               0x3B </p>
+<p> </p>
+<p>In GENy configurations this value is configurable in the GENy tool. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>14 / 41 </p>
+<p><b>4.3 </b></p>
+<p><b>ReturnToNormalMode (Sid: $20) </b></p>
+<p>If a valid request of this service has been received, or a timeout of the tester-present timer </p>
+<p>has been detected, the following APIs will be called: </p>
+<p><b>ApplGgdaOnReturnToNormalMode </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplGgdaOnReturnToNormalMode </b>( GgdaContextIndexType context ) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- Identifies the channel on which the GGDA has restored normal </p>
+<p>mode. You can safely ignore this parameter if the GGDA only </p>
+<p>handles one channel. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Notifies about leaving all activities activated from the tester (e.g. CommControlHalted, WakeUpLink, etc.) up </p>
+<p>to now. Within this function call you have to enable the DTC setting (if previously disabled). </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>None </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-3   ApplGgdaOnReturnToNormalMode </p>
+<p>If the ECU was simulating the flash-process, the following function will be called to perform </p>
+<p>an ECU reset (within or outside the callback): </p>
+<p><b>ApplGgdaForceEcuReset </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplGgdaForceEcuReset </b>( void ) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Notifies about ECU reset execution. The reset can be done immediately or later (if some EEPROM writing is </p>
+<p>needed). If a diagnostic response was necessary, it already has been sent before this function is called. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>None </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-4   ApplGgdaForceEcuReset </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>15 / 41 </p>
+<p><b>4.4 </b></p>
+<p><b>DisableNormalCommunication (Sid: $28) </b></p>
+<p>Once a valid service of this type has been requested the  GGDA will (optionally) request </p>
+<p>application permission to process it: </p>
+<p><b>ApplGgdaMayDisableNormalComm </b></p>
+<p><b>Prototype </b></p>
+<p>vuint8 <b>ApplGgdaMayDisableNormalComm </b>( GgdaContextIndexType context ) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- Identifies the channel on which the request has been received. You </p>
+<p>can safely ignore this parameter if the GGDA only handles one </p>
+<p>channel. </p>
+<p><b>Return code </b></p>
+<p>vuint8 </p>
+<p><i>kDescOk </i>– if the communication control request can be accepted or  </p>
+<p><i>kDescFailed </i>– if the communication control request shall <b>NOT </b>be </p>
+<p>accepted. </p>
+<p><b>Functional Description </b></p>
+<p>Once a valid diagnostic request $28 was received this function will be called. The application shall decide </p>
+<p>whether to accept the communication control request, or to reject it. </p>
+<p>Rejection will always result in NRC ‘ConditionsNotCorrect’ </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Entering NormalCommDisabled can fail even if the application has allowed the service. Use </p>
+<p>ApplGgdaOnDisableNormalComm as notification of the state change. Also, your code may not </p>
+<p>depend on ApplGgdaOnDisableNormalComm being called after this function has returned </p>
+<p>kDescOk. </p>
+<p></p>
+<p> </p>
+<p>This callback is called only when enabled in the configuration tool. </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-5  </p>
+<p>ApplGgdaMayDisableNormalComm </p>
+<p>Once the service has been processed, the application will be notified about the new state </p>
+<p>with the call of: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>16 / 41 </p>
+<p><b>ApplGgdaOnDisableNormalComm </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplGgdaOnDisableNormalComm </b>( GgdaContextIndexType context ) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- Identifies the channel on which the GGDA disabled </p>
+<p>communication. You can safely ignore this parameter if the GGDA </p>
+<p>only handles one channel. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Notifies about entering in disabled normal communication mode. The GGDA has already disabled </p>
+<p>communication when this function is called. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>None </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-6   ApplGgdaOnDisableNormalComm </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>17 / 41 </p>
+<p><b>4.5 </b></p>
+<p><b>TesterPresent (Sid $3E) </b></p>
+<p>This service is completely handled by GGDA. The valid request resets the tester-present </p>
+<p>timeout timer.  </p>
+<p> </p>
+<p><b>FAQ</b> </p>
+<p>Functionally requested valid $3E resets always the tester present timeout timer (even if </p>
+<p>currently another service processing is in progress). The timeouts are supervised </p>
+<p>independently for each configured channel<b>. </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>18 / 41 </p>
+<p><b>4.6 </b></p>
+<p><b>ProgrammingMode (Sid: $A5) </b></p>
+<p>The  GGDA  implements  the  whole  GM  flash  process  preparation  flow,  considering  the </p>
+<p>correct services’ requests order. The application will be asked only if it is ready to accept </p>
+<p>the entering in program mode request. Once accepted, the GGDA component handles the </p>
+<p>remaining services. </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The flowcharts for supporting this service are equal to the one used in CANdesc- just </p>
+<p>the API names are different. Please, refer to [1] for details. </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>Please, note that the same return type <b>vuint8 </b>is used here to allow you to implement a </p>
+<p>central condition check API to your application. </p>
+<p> </p>
+<p><b>4.6.1 </b></p>
+<p><b>RequestProgrammingMode ($01) </b></p>
+<p> </p>
+<p><b>ApplGgdaMayEnterProgMode </b></p>
+<p><b>Prototype </b></p>
+<p>vuint8 <b>ApplGgdaMayEnterProgMode </b>( GgdaContextIndexType context ) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- Identifies the channel on which the request has been received. You </p>
+<p>can safely ignore this parameter if the GGDA only handles one </p>
+<p>channel. </p>
+<p><b>Return code </b></p>
+<p>vuint8 </p>
+<p><i>kDescOk </i>– if the programming mode shall be accepted or  </p>
+<p><i>kDescFailed </i>–if the programming mode shall <b>NOT </b>be accepted. </p>
+<p><b>Functional Description </b></p>
+<p>Once the diagnostic request $A5 $01 was received from the CANdesc module this function will be called. </p>
+<p>The application shall decide whether to accept the requested programming mode or to reject it. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>None </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-7   ApplGgdaMayEnterProgMode </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>19 / 41 </p>
+<p><b>4.6.2 </b></p>
+<p><b>RequestHiSpeedProgrammingMode ($02) </b></p>
+<p><b>Configuration: </b></p>
+<p>In order to activate this feature, please see the configuration details in chapter 5.1.3. </p>
+<p><b>ApplGgdaMayEnterHiSpeedProgMode </b></p>
+<p><b>Prototype </b></p>
+<p>vuint8 <b>ApplGgdaMayEnterHiSpeedProgMode </b>( GgdaContextIndexType context ) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- Identifies the channel on which the request has been received. You </p>
+<p>can safely ignore this parameter if the GGDA only handles one </p>
+<p>channel. </p>
+<p><b>Return code </b></p>
+<p>vuint8 </p>
+<p><i>kDescOk </i>– if the programming mode shall be accepted or  </p>
+<p><i>kDescFailed </i>–if the programming mode shall <b>NOT </b>be accepted. </p>
+<p><b>Functional Description </b></p>
+<p>Once the diagnostic request $A5 $02 was received from the CANdesc module this function will be called. </p>
+<p>The application shall decide whether to accept the requested programming mode or to reject it. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>None </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-8   ApplGgdaMayEnterHiSpeedProgMode </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>20 / 41 </p>
+<p><b>4.6.3 </b></p>
+<p><b>EnableProgrammingMode ($03) </b></p>
+<p>Once the requested programming mode has been accepted, the GGDA module performs </p>
+<p>just a state transition here to allow the ECU programming mode compliant behaviour (e.g. </p>
+<p>no response on $A5 $03, no response on the next request $20 and suppressed unsolicited </p>
+<p>positive response on Sid $20 on tester-present timeout. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>21 / 41 </p>
+<p><b>4.7 </b></p>
+<p><b>ReadDiagnosticInformation (Sid: $A9) </b></p>
+<p>The GGDA implements the whole GM fault memory reading process flow. The application </p>
+<p>will  be  asked  with  the  usage  of  signal API  to  provide  the  necessary  information  and  if </p>
+<p>iteration is needed, the API will be used multiple times. </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The flow-charts for supporting this service are equal to the one used in CANdesc – just </p>
+<p>the API names are different. Please, refer to [1] for details. </p>
+<p> </p>
+<p><b>4.7.1 </b></p>
+<p><b>ReadStatusOfDTCByDTCNumber ($80) </b></p>
+<p><b>Configuration: </b></p>
+<p>In order to activate this feature, please see the configuration details in chapter 5.1.3. </p>
+<p><b>ApplGgdaGetDtcStatusByNumber </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplGgdaGetDtcStatusByNumber </b>( GgdaContextIndexType context </p>
+<p>                                    vuint16 dtcNum, </p>
+<p>                                    vuint8 failureTypeByte ) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- dtcNum </p>
+<p>- failureTypeByte </p>
+<p>- Identifies the channel on which the request has been received. </p>
+<p>You can safely ignore this parameter if the GGDA only handles one </p>
+<p>channel. </p>
+<p>- The DTC which status will be checked from the application </p>
+<p>- The failure type combination. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the diagnostic request $A9 $80 was received from the CANdesc module this function will be called. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Available only if mode $A9 is enabled and level $80 is supported  </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-9   ApplGgdaGetDtcStatusByNumber </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>22 / 41 </p>
+<p><b>GgdaRdiDtcStatusByNumberFound </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>GgdaRdiDtcStatusByNumberFound </b>( GgdaContextIndexType context, </p>
+<p>                                     vuint8 statusByte ) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- statusByte </p>
+<p>- Identifies the channel for which the request is answered.  </p>
+<p>Please pass ‘0’ (zero) here if the GGDA only handles one channel. </p>
+<p>- The found DTC’s status byte value. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the application has been requested to find a specific DTC through the call of </p>
+<p><i>ApplGgdaGetDtcStatusByNumber </i>function, it shall confirm the status of the search process with this API if </p>
+<p>such a DTC has been found. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Available only if mode $A9 is enabled and level $80 is supported  </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Any </p>
+<p>Table 4-10   GgdaRdiDtcStatusByNumberFound </p>
+<p><b>GgdaRdiDtcStatusByNumberNotFound </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>GgdaRdiDtcStatusByNumberNotFound </b>( GgdaContextIndexType context ) </p>
+<p><b>Parameter </b></p>
+<p>- context  </p>
+<p>- Identifies the channel for which the request is answered. </p>
+<p>Please pass ‘0’ (zero) here if the GGDA only handles one channel. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the application has been requested to find a specific DTC through the call of </p>
+<p><i>ApplGgdaGetDtcStatusByNumber </i>function, it shall confirm the status of the search process with this API if </p>
+<p><b>NO </b>such a DTC has been found. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Available only if mode $A9 is enabled and level $80 is supported  </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Any </p>
+<p>Table 4-11   GgdaRdiDtcStatusByNumberNotFound </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>23 / 41 </p>
+<p><b>4.7.2 </b></p>
+<p><b>ReadStatusOfDTCByStatusMask ($81) </b></p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>Please, not that the same data type <b>DescRdiDtcRecord </b>is used here to allow you to </p>
+<p>implement a central data acquisition API to your application. </p>
+<p> </p>
+<p><b>ApplGgdaGetDtcStatusByMask </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplGgdaGetDtcStatusByMask </b>( GgdaContextIndexType context, </p>
+<p>                                  vuint16 iterPos, </p>
+<p>                                  vuint8 statusMask) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- iterPos </p>
+<p>- statusMask </p>
+<p>- Identifies the channel for which the request is answered. You can </p>
+<p>safely ignore this parameter if the GGDA only handles one channel. </p>
+<p>- The next DTC status scanner start position (assumed normal iterator); </p>
+<p>- The searched status mask. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the diagnostic request $A9 $81 was received from the CANdesc module this function will be called. It </p>
+<p>will be called as long as the application responds each time with <i>GgdaRdiDtcStatusByMaskFound </i>until the </p>
+<p>application some time responses with <i>GgdaRdiDtcStatusByMaskNotFound</i>. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>The application is responsible to hold the DTC information separate for each channel. </p>
+<p>Requests on different channels may request different status masks. </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-12   ApplGgdaGetDtcStatusByMask </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>24 / 41 </p>
+<p><b>GgdaRdiDtcStatusByMaskFound </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>GgdaRdiDtcStatusByMaskFound </b>(GgdaContextIndexType context, </p>
+<p>                                  const DescRdiDtcRecord * const </p>
+<p>pDtcReport) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- pDtcReport </p>
+<p>- Identifies the channel for which the request is answered. Please pass </p>
+<p>‘0’ (zero) here if the GGDA only handles one channel. </p>
+<p>- The found DTC’s response relevant information. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the application has been requested to find a specific DTC through the call of </p>
+<p><i>ApplGgdaGetDtcStatusByMask </i>function, it shall confirm the status of the search process with this API if </p>
+<p>such a DTC has been found. Additionally all required by the </p>
+<p><i>DescRdiDtcRecord </i></p>
+<p>data structure </p>
+<p>information shall be initialized as described in [1]. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Available only if mode $A9 is enabled.  </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Any </p>
+<p>Table 4-13 GgdaRdiDtcStatusByMaskFound </p>
+<p> </p>
+<p><b>GgdaRdiDtcStatusByMaskNotFound </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>GgdaRdiDtcStatusByMaskNotFound </b>(GgdaContextIndexType context </p>
+<p>                                     vuint8 dtcSam) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- dtcSam </p>
+<p>- Identifies the channel for which the request is answered. Please pass </p>
+<p>‘0’ (zero) here if the GGDA only handles one channel. </p>
+<p>- The DTC Status Availability Mask. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the application has been requested to find a specific DTC through the call of </p>
+<p><i>ApplGgdaGetDtcStatusByMask </i>function, it shall confirm the status of the search process with this API if no </p>
+<p>(more) such a DTC has been found. Additionally the status availability mask shall be as described in [1]. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Available only if mode $A9 is enabled </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Any </p>
+<p>Table 4-14   GgdaRdiDtcStatusByMaskNotFound </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>25 / 41 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>26 / 41 </p>
+<p><b>4.7.3 </b></p>
+<p><b>SendOnChangeDTCCount ($82) </b></p>
+<p> </p>
+<p><b>ApplGgdaEnableOnChangeDtcCount </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplGgdaEnableOnChangeDtcCount </b>(GgdaContextIndexType context </p>
+<p>                                     vuint8 statusMask) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- statusMask </p>
+<p>- Identifies the channel for which the request is answered. You can </p>
+<p>safely ignore this parameter if the GGDA only handles one channel. </p>
+<p>- the monitored DTCs’ matching status mask. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Once the diagnostic request $A9 $82 was received from the CANdesc module this function will be called. </p>
+<p>The application shall store the statusMask parameter value and start its background DTC count evaluation </p>
+<p>algorithm. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>The application is responsible to support several concurrent counting algorithms. Requests on </p>
+<p>different channels may request different status mask </p>
+<p></p>
+<p> </p>
+<p>Available only if mode $A9 is enabled and level $82 is supported </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-15   ApplGgdaEnableOnChangeDtcCount </p>
+<p><b>ApplGgdaDisableOnChangeDtcCount </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplGgdaDisableOnChangeDtcCount </b>(GgdaContextIndexType context) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- Identifies the channel for which the counting is to be cancelled. You </p>
+<p>can safely ignore this parameter if the GGDA only handles one </p>
+<p>channel. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function will be called to notify the application for stopping the background DTC count monitoring </p>
+<p>mechanism. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Available only if mode $A9 is enabled and level $82 is supported </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Called from the <b>GgdaStateTask </b>context. </p>
+<p>Table 4-16   ApplGgdaDisableOnChangeDtcCount </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>27 / 41 </p>
+<p><b>GgdaRdiOnDtcCountChanged </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>GgdaRdiOnDtcCountChanged </b>(GgdaContextIndexType context, </p>
+<p>                               vuint16 newCount) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- newCount </p>
+<p>- Identifies the channel for which the request is answered. Please pass </p>
+<p>‘0’ (zero) here if the GGDA only handles one channel. </p>
+<p>- (Changed) new number of DTCs </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Call this function when you have detected a DTC count change. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>The application is responsible to support several concurrent counting algorithms. Requests on </p>
+<p>different channels may request different status mask </p>
+<p></p>
+<p> </p>
+<p>Available only if mode $A9 is enabled and level $82 is supported </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Any. </p>
+<p>Table 4-17   GgdaRdiOnDtcCountChanged </p>
+<p> </p>
+<p><b>GgdaRdiDeactivateOnChangeDtcCount </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>GgdaRdiDeactivateOnChangeDtcCount </b>( GgdaContextIndexType context) </p>
+<p><b>Parameter </b></p>
+<p>- context </p>
+<p>- Identifies the channel for which the counting is to be deactivated. </p>
+<p>Please pass ‘0’ (zero) here if the GGDA only handles one channel. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Call this function if you need explicitly to stop the DTC count change activity in the GGDA component. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Available only if mode $A9 is enabled and level $82 is supported </p>
+<p>Call context </p>
+<p></p>
+<p> </p>
+<p>Any. </p>
+<p>Table 4-18   GgdaRdiDeactivateOnChangeDtcCount </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>28 / 41 </p>
+<p><b>5 </b></p>
+<p><b>Configuration in CANGen </b></p>
+<p>Some of the configuration aspects were already mentioned at the affected features of the </p>
+<p>component. The remaining set of configuration options is described here: </p>
+<p><b>5.1 </b></p>
+<p><b>Communication Parameter </b></p>
+<p><b>5.1.1 </b></p>
+<p><b>1</b></p>
+<p><b>st</b></p>
+<p><b> step – GENtool </b></p>
+<p>Prior  adding  your  database  files  in  your  configuration  you  shall  assure  the  following </p>
+<p>requirements: </p>
+<p>- </p>
+<p>The CAN channel on which CANdesc shall operate (HS-CAN) shall use a DBC file </p>
+<p>with all CANdesc required message attributes (for USDT and UUDT messages) set </p>
+<p>to the appropriate values. See [1] for further instructions. </p>
+<p>- </p>
+<p>For  CANgen  versions  prior  to  4.23.49,  the  UUDT  messages  used  by  the  GGDA </p>
+<p>may <b>not </b>have the message type attribute set in the DBC file. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>29 / 41 </p>
+<p><b>5.1.1.1 </b></p>
+<p><b>USDT Connection Configuration </b></p>
+<p>Once  you  have  prepared  the  DBC  files  and  their  CAN  mapping,  you  can  create  your </p>
+<p>configuration as usual. Since CANdesc is automatically prepared for the TPMC API you </p>
+<p>have only to adapt the hook functions for each GGDA TP connection: </p>
+<p> </p>
+<p>Figure 5-1 GGDA OSEK-TP configuration </p>
+<p>The TP timing parameters are the same as those for the CANdesc connection. </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>Please note that this is an example configuration where the GGDA was configured to </p>
+<p>use the connections 0 and 2. The connection numbers may vary for your configuration. </p>
+<p> </p>
+<p>The  transport  layer  must  be  configured  to  support  an  additional  feature  for  the  GGDA </p>
+<p>component: </p>
+<p><b>GM </b></p>
+<p><b>requires </b></p>
+<p><b>that </b></p>
+<p><b>any </b></p>
+<p><b>request </b></p>
+<p><b>length </b></p>
+<p><b>(except </b></p>
+<p><b>zero-length) </b></p>
+<p><b>shall </b></p>
+<p><b>be </b></p>
+<p><b>accepted independent of the buffer size. After the reception has been accomplished </b></p>
+<p><b>with success,  it shall be checked if the buffer size is enough to handle the whole </b></p>
+<p><b>request data. If it is not true, a negative response $12 must be sent. </b></p>
+<p>To </p>
+<p>activate </p>
+<p>the </p>
+<p>buffer-overflow </p>
+<p>option </p>
+<p>of </p>
+<p>the </p>
+<p>TPMC, </p>
+<p>used </p>
+<p>for </p>
+<p>implementing </p>
+<p>this </p>
+<p>requirement, a user-config file is needed to be prepared with the following content: </p>
+<p>#define TP_USE_OVERRUN_INDICATION kTpOn </p>
+<p>Assuming  that  the file  name  was <b> tpmc_ggda.cfg</b>,  you have  to  add  the  path  to  it  in  the </p>
+<p>GENtool as shown below: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>30 / 41 </p>
+<p> </p>
+<p>Figure 5-2 User-config file for the GGDA TPMC configuration. </p>
+<p> </p>
+<p>A </p>
+<p>functionally </p>
+<p>requested </p>
+<p>service </p>
+<p>is </p>
+<p>not </p>
+<p>received </p>
+<p>by </p>
+<p>the </p>
+<p>TPMC, </p>
+<p>but </p>
+<p>by </p>
+<p>the </p>
+<p>GGDA </p>
+<p>component it self. Therefore the necessary pre-copy function must be configured manually </p>
+<p>in the GENtool as shown below: </p>
+<p> </p>
+<p>Figure 5-3 „GgdaFuncPrecopy“ configuration. </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>If you have the ‘DiagState’ attribute set to ‘true’ in your database for the GGDA channels, </p>
+<p>you need to also select the ‘App-Message’ check box. </p>
+<p>Else, the ‘GgdaFuncPrecopy’ function will be replaced by ‘TpFuncPrecopy’ during the </p>
+<p>generation process. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>31 / 41 </p>
+<p><b>5.1.1.2 </b></p>
+<p><b>UUDT Transmitter Configuration </b></p>
+<p>Since </p>
+<p>the </p>
+<p>GGDA </p>
+<p>component </p>
+<p>handles </p>
+<p>also </p>
+<p>the </p>
+<p>$A9 </p>
+<p>service, </p>
+<p>the </p>
+<p>embedded </p>
+<p>UUDT </p>
+<p>transmitter must be configured too. Please, enter the confirmation function name for the </p>
+<p>UUDT  message  on the  GGDA  CAN  channel as  shown  below  (channel  2 messages not </p>
+<p>visible here): </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-4 „GgdaUudtConfirmation“ configuration </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>From CANGen 4.23.49 on, please select the ‘App-Message’ check box for the UUDT </p>
+<p>message the GGDA is to use. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>32 / 41 </p>
+<p><b>5.1.2 </b></p>
+<p><b>2</b></p>
+<p><b>nd</b></p>
+<p><b> step – Ggda_par.h file </b></p>
+<p>Once  you  are  done  with  the  GENtool  settings,  you  have  to  adapt  the  GGDA  module </p>
+<p>configuration in the Ggda_par.h file. Most settings default to the same value as configured </p>
+<p>for the CANdesc component, but they can be changed if needed. </p>
+<p>The  number  of  channels  the  GGDA  works  on  defaults  to  the  number  of  CAN  channels </p>
+<p>minus one, for the full CANdesc diagnostics. This can be changed in Ggda_par.h: </p>
+<p><b>Number of CAN channels for GGDA </b></p>
+<p>#define kGgdaNumContexts                                          (kCanNumberOfChannels - 1) </p>
+<p> </p>
+<p><b>5.1.3 </b></p>
+<p><b>3</b></p>
+<p><b>rd</b></p>
+<p><b> step – Ggda_par.c file </b></p>
+<p>In the Ggda_par.c file the connection parameters are configured. </p>
+<p>The  first  step  is  change  the  following  #include  directive  to  include  your  configuration </p>
+<p>header file, and to remove the #error directive: </p>
+<p><b>ECU configuration header </b></p>
+<p>#error “Please include your ECU configuration header file. Then remove this line” </p>
+<p>#include “YourECU.h” </p>
+<p><b>5.1.3.1 </b></p>
+<p><b>CAN Channel Configuration </b></p>
+<p>For  each  channel  you  need  to  fill  out  a  configuration  context  struct  in  the  configuration </p>
+<p>array </p>
+<p>GgdaCanConfig</p>
+<p>. </p>
+<p><b>CAN configuration structure </b></p>
+<p>typedef </p>
+<p>{ </p>
+<p>#if (GGDA_CONFIG_SERVICE_A9_SUPPORT == GGDA_CONFIG_ON) </p>
+<p> </p>
+<p>CanTransmitHandle </p>
+<p>uudtResMsgHandle; </p>
+<p>#endif </p>
+<p> </p>
+<p>CanChannelHandle </p>
+<p>canChannel; </p>
+<p> </p>
+<p>canuint8 </p>
+<p>optionalModes; </p>
+<p>}GgdaCanConfigType; </p>
+<p>The optional modes each channel can support are </p>
+<p><b>Optional modes per channel </b></p>
+<p>kGgdaDisableAll </p>
+<p>No optional modes supported </p>
+<p>kGgdaEnableModeA502 </p>
+<p>Enable HiSpeed support (mode $A5 02) </p>
+<p>kGgdaEnableMode1002 </p>
+<p>Enable support for DisableAllDTCs request (mode $10 02) </p>
+<p>kGgdaEnableMode1004 </p>
+<p>Enable support for WakeUpLink request (mode $10 04) </p>
+<p>kGgdaEnableMode10xx </p>
+<p>Enable support for all levels of mode $10 </p>
+<p>kGgdaEnableModeA980 </p>
+<p>Enable support for mode $A9 80 and $A9 81 </p>
+<p>kGgdaEnableModeA981 </p>
+<p>Enable support for mode $A9 81 </p>
+<p>kGgdaEnableModeA982 </p>
+<p>Enable support for mode $A9 81 and $A9 82 </p>
+<p>kGgdaEnableModeA9xx </p>
+<p>Enable support for all levels of mode $A9 </p>
+<p>kGgdaEnableAll </p>
+<p>Enable all optional modes </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>33 / 41 </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Please take into account that the settings in this table must be consistent with those that </p>
+<p>determine the availability of the corresponding service. You have to set the appropriate </p>
+<p>service specific setting to have consistent configuration on GGDA (please refer chapters </p>
+<p>: <i>5.3 “Supported Diagnostic Services” </i>). </p>
+<p><b> </b></p>
+<p><b>Example </b></p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>For a configuration with 3 channels, CAN0 and CAN2 are handled by GGDA. The CAN </p>
+<p>message for UUD responses is named mUUDResfroDut, and CAN0 supports HiSpeed </p>
+<p>programming. Both channels shall support modes $10 02 and $10 04. The configuration </p>
+<p>would look like this: </p>
+<p><b>CAN configuration </b></p>
+<p>const GgdaCanConfigType ggdaCanConfig[kGgdaNumContexts] = </p>
+<p>{ </p>
+<p> </p>
+<p>{ </p>
+<p>#if (GGDA_CONFIG_SERVICE_A9_SUPPORT == GGDA_CONFIG_ON) </p>
+<p> </p>
+<p> </p>
+<p>CanTxmUUDResfroDUT_0, </p>
+<p>/* UudtResMsgHandle for Can 0*/ </p>
+<p>#endif </p>
+<p> </p>
+<p> </p>
+<p>kCanIndex0, </p>
+<p>/* CanChannel 0 */ </p>
+<p> </p>
+<p> </p>
+<p>kGgdaEnableAll </p>
+<p>/* Levels 02, 04 - Hispeed support */ </p>
+<p> </p>
+<p>}, </p>
+<p> </p>
+<p>{ </p>
+<p>#if (GGDA_CONFIG_SERVICE_A9_SUPPORT == GGDA_CONFIG_ON) </p>
+<p> </p>
+<p> </p>
+<p>CanTxmUUDResfroDUT_2, </p>
+<p>/* UudtResMsgHandle for Can 2*/ </p>
+<p>#endif </p>
+<p> </p>
+<p> </p>
+<p>kCanIndex2, </p>
+<p>/* CanChannel for Can 0 */ </p>
+<p> </p>
+<p> </p>
+<p>kGgdaEnable1002 | kGgdaEnable1004  /* Levels 02, 04 - No HiSpeed support */ </p>
+<p> </p>
+<p>} </p>
+<p>}; </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Please take into account that the message transmission handle is configuration </p>
+<p>dependent (refer the section <i>5.3.2 ”ReadDiagnosticInformation ($A9)”</i>! </p>
+<p> </p>
+<p><b>5.1.3.2 </b></p>
+<p><b>Static TP Channel Configuration </b></p>
+<p>The static TP channel configuration is separate from the CAN configuration in the context </p>
+<p>configuration array </p>
+<p>ggdaTpConfig</p>
+<p>. Again, a struct needs to be filled in for each channel. </p>
+<p><b>Static TP configuration structure </b></p>
+<p>typedef struct  </p>
+<p>{ </p>
+<p> </p>
+<p>canuint8 tpTxChannel; </p>
+<p> </p>
+<p>canuint8 tpRxChannel; </p>
+<p>}GgdaTpConfigType; </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>34 / 41 </p>
+<p><b>Example </b></p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>For the example the TP is configured as described in chapter 5.1.1.1. The CAN </p>
+<p>transmit/receive handles are prefixed with “CanTx”/”CanRx”. </p>
+<p><b>Static TP configuration </b></p>
+<p>const GgdaTpConfigType ggdaTpConfig[kGgdaNumContexts] = </p>
+<p>{ </p>
+<p> </p>
+<p>/* Tp channels for Can 0 */ </p>
+<p> </p>
+<p>{ </p>
+<p> </p>
+<p> </p>
+<p>CanTxDiag, </p>
+<p>/* TpTxChannel for Can 0*/ </p>
+<p> </p>
+<p> </p>
+<p>CanRxDiag </p>
+<p>/* TpRxChannel for Can 0*/ </p>
+<p> </p>
+<p>}, </p>
+<p> </p>
+<p>/* Tp channels for Can 2 */ </p>
+<p> </p>
+<p>{ </p>
+<p> </p>
+<p> </p>
+<p>CanTxDiag2, </p>
+<p>/* TpTxChannel for Can 2*/ </p>
+<p> </p>
+<p> </p>
+<p>CanRxDiag2 </p>
+<p>/* TpRxChannel for Can 2*/ </p>
+<p> </p>
+<p>} </p>
+<p>}; </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Please take care and assure that the order of ggdaCanConfig and ggdaTpConfig is the </p>
+<p>same. </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The context parameter passed to the context depending callback functions ApplGgda* </p>
+<p>actually is an index into these configuration arrays. If you need more information about </p>
+<p>the CAN channel on which a request was received, you can include ggda_par.h in your </p>
+<p>application and access these configuration structures. </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>Timings Parameter </b></p>
+<p>All  needed  GM  diagnostics  time  parameters  are  taken  from  the  CANdesc  configuration </p>
+<p>and should therefore comply with GMW 3110 v 1.5, but they are still configurable. If you </p>
+<p>need  to  adjust  a  parameter,  you  can  adapt  the  GGDA  module  configuration  in  the  file </p>
+<p>Ggda_par.h (all times are in ms units): </p>
+<p><b>Tester Present timeout  </b></p>
+<p>#define kGgdaTimeoutS1                                               5000 /*ms*/ </p>
+<p> </p>
+<p><b>RequestCorrectlyReceived-ResponsePending (RCR-RP) timeouts </b></p>
+<p>#define kGgdaTimeoutP2                                               100  /*ms*/ </p>
+<p>#define kGgdaTimeoutP2Ex                                           1000 /*ms*/ </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>35 / 41 </p>
+<p><b>VN_Diagnsotic timeout  </b></p>
+<p>#define kGgdaTimeoutVnDiagnostics                             8000 /*ms*/ </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>36 / 41 </p>
+<p><b>5.3 </b></p>
+<p><b>Supported Diagnostic Services </b></p>
+<p>Some  of  the  services  implemented  in  GGDA  are  optionally  supported  (depends  on  the </p>
+<p>current  ECU  specification).  Therefore  they  can  be  deactivated  in  order  to  save  ECU </p>
+<p>resources. </p>
+<p><b>5.3.1 </b></p>
+<p><b>InitializeDiagnosticOperationMode ($10 $xx) </b></p>
+<p>In  order  to  specify  whether  any  sub-function  of  this  service  will  be  supported  or  not  by </p>
+<p>GGDA, you have to modify the switches in the Ggda_par.h file. Example for activating the </p>
+<p>services: </p>
+<p><b> Service $10 $02 support  </b></p>
+<p>#define GGDA_CONFIG_SERVICE_10_02_SUPPORT                              GGDA_CONFIG_ON </p>
+<p><b>Service $10 $04 support  </b></p>
+<p>#define GGDA_CONFIG_SERVICE_10_04_SUPPORT                              GGDA_CONFIG_ON </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Please take into account that this switch enables/disables the complete support of this </p>
+<p>service. You have to set the appropriate channel specific setting to have consistent </p>
+<p>configuration on GGDA (please refer <i>5.1.3.1”CAN Channel Configuration”</i>). </p>
+<p> </p>
+<p><b>5.3.2 </b></p>
+<p><b>ReadDiagnosticInformation ($A9) </b></p>
+<p>In  order to  specify  whether  this  service  will  be  supported  or not  by  GGDA,  you  have  to </p>
+<p>modify the switch in the Ggda_par.h file. Example for activating the service: </p>
+<p><b> Service $A9 support  </b></p>
+<p>#define GGDA_CONFIG_SERVICE_A9_SUPPORT                                       GGDA_CONFIG_ON </p>
+<p>#define GGDA_CONFIG_SERVICE_A9_80_SUPPORT                        GGDA_CONFIG_ON </p>
+<p>#define GGDA_CONFIG_SERVICE_A9_82_SUPPORT                                 GGDA_CONFIG_ON </p>
+<p>Mode  $A9  81  is  always  enabled  if  GGDA_CONFIG_SERVICE_A9_SUPPORT  is  set  to </p>
+<p>GGDA_CONFIG_ON. </p>
+<p> </p>
+<p><b>5.3.3 </b></p>
+<p><b>ReadDiagnosticInformation ($A5 $02) </b></p>
+<p>In  order to  specify  whether  this  service  will  be  supported  or not  by  GGDA,  you  have  to </p>
+<p>modify the switch in the Ggda_par.h file. Example for activating the service: </p>
+<p><b> Service $A5 $02 support  </b></p>
+<p>#define GGDA_CONFIG_SERVICE_A5_02_SUPPORT                              GGDA_CONFIG_ON </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Please take into account that this switch enables/disables the complete support of this </p>
+<p>service. You have to set the appropriate channel specific setting to have consistent </p>
+<p>configuration on GGDA (please refer <i>5.1.3.1”CAN Channel Configuration”</i>). </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>37 / 41 </p>
+<p><b>5.4 </b></p>
+<p><b>Development and Integration Support </b></p>
+<p>In ordert to lighten the integration support of GGDA in your ECU this module provide own </p>
+<p>monitoring functionality than can be optionally turned one using the switch in Ggda_par.h. </p>
+<p>Example for turning debug support on: </p>
+<p><b>Debug support  </b></p>
+<p>#define GGDA_CONFIG_DEBUG                              GGDA_CONFIG_ON </p>
+<p> </p>
+<p><b>5.5 </b></p>
+<p><b>Target Address Acceptance on Functional Requests </b></p>
+<p>GGDA handles by itself the functional request reception. The used target address will be </p>
+<p>evaluated and GGDA decides whether to accept or ignore the requested frame. There are </p>
+<p>two use-cases for the ECUs: a non-gateway and a gateway ECUs. GGDA synchronizes </p>
+<p>the current use case with the CANdesc use case detection (please refer the [1] for more </p>
+<p>details on CANdesc gateway usage configuration). </p>
+<p>If you want to override this detection use the switch below to specify your use-case: </p>
+<p><b>Gateway address support  </b></p>
+<p>#define GGDA_CONFIG_GW_SUPPORT                              GGDA_CONFIG_ON </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>38 / 41 </p>
+<p><b>6 </b></p>
+<p><b>Configuration in GENy </b></p>
+<p><b>6.1 </b></p>
+<p><b>Communication Parameters </b></p>
+<p>For  all  channels  the  GGDA  shall  be  used  on  set  up  the  communication  databases  as </p>
+<p>described in [1]  </p>
+<p>The activate the Diag_CanDescGgdaExt_Gm module in the GENy tool on the appropriate </p>
+<p>channels.  You  will  not  be  able  to  activate  the  Ggda  module  on  the  same  channel  as </p>
+<p>CANdesc. </p>
+<p> </p>
+<p> </p>
+<p>If  the </p>
+<p>DBC  file </p>
+<p>is </p>
+<p>set </p>
+<p>up </p>
+<p>correctly </p>
+<p>the </p>
+<p>communication </p>
+<p>configuration </p>
+<p>will </p>
+<p>be </p>
+<p>set </p>
+<p>up </p>
+<p>automatically. </p>
+<p> </p>
+<p><b>6.2 </b></p>
+<p><b>General Parameters </b></p>
+<p>You </p>
+<p>can </p>
+<p>configure </p>
+<p>the </p>
+<p>parameters </p>
+<p>that </p>
+<p>affect </p>
+<p>GGDA </p>
+<p>as </p>
+<p>a </p>
+<p>whole </p>
+<p>on </p>
+<p>the </p>
+<p>‘root’ </p>
+<p>Diag_CanDescGgdaExt_Gm entry of the component tree. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 6-1 Global configuration parameters in GENy </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>39 / 41 </p>
+<p><b> </b></p>
+<p><b>ECU settings, Timing Parameters </b></p>
+<p>Most parameters default to the CANdesc values, which is the recommended setting. If you </p>
+<p>disable  the  checkbox  ‘Use  CANdesc  setting’,  you  are  able  to  override  the  defaults  with </p>
+<p>own values. </p>
+<p><b>6.3 </b></p>
+<p><b>Supported Diagnostic services </b></p>
+<p>You  can  configure  the  channel  specific  parameters  depending  on  the  channel  entries </p>
+<p>below the Diag_CanDescGgdaExt_Gm entry. </p>
+<p>The </p>
+<p>HiSpeed </p>
+<p>support </p>
+<p>is </p>
+<p>only </p>
+<p>available </p>
+<p>if </p>
+<p>that </p>
+<p>functionality </p>
+<p>is </p>
+<p>supported </p>
+<p>by </p>
+<p>the </p>
+<p>Nm_Gmlan_Gm module. To allow more flexibility in use cases, the configuration tool does </p>
+<p>not prevent to enable support for mode $A5 02 on a DW Link, and does not enforce it on a </p>
+<p>SW Link either. </p>
+<p>If mode $A9 is supported, the level $81 is mandatory and cannot be disabled. </p>
+<p> </p>
+<p> </p>
+<p>Figure 6-2 Channel specific configuration parameters in GENy </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>40 / 41 </p>
+<p><b>7 </b></p>
+<p><b>Integration </b></p>
+<p>In order to integrate properly GGDA, your diagnostic application must comply to the </p>
+<p>following include rules in this order: </p>
+<p>- </p>
+<p>Always include <b>can_inc.h </b>(resp. <b>v_inc.h</b>) as first header file. </p>
+<p>- </p>
+<p>If this application source file manages the TPMC initialization and task calls, include </p>
+<p>the <b>tpmc.h </b>file; </p>
+<p>- </p>
+<p>Include <b>desc.h</b>; </p>
+<p>- </p>
+<p>Include <b>ggda.h</b>; </p>
+<p>- </p>
+<p>Include (if necessary) all header files required by your application source file. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Using CANGen, the GGDA is not supported by CCL. In this case your application needs </p>
+<p>to explicitely call GgdaInitPowerOn, GgdaStateTask and GgdaTimerTask. </p>
+<p>Using GENy this restriction does not apply. </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GM Gateway Diagnostic Add-On </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.8 </p>
+<p>based on template version 5.1.0 </p>
+<p>41 / 41 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b> News </p>
+<p><b>&gt; </b> Products </p>
+<p><b>&gt; </b> Demo software </p>
+<p><b>&gt; </b> Support </p>
+<p><b>&gt; </b> Training data </p>
+<p><b>&gt; </b> Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+</body>
+</html>
+{% endraw %}

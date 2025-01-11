@@ -1,0 +1,182 @@
+---
+layout: default
+title: ProductInformation_2_Restrictions-for-MSR-OS-SafeContext-SC3
+nav_order: 5
+parent: OS
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Product Information Restrictions for MICROSAR OS SafeContext </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.0.0 </p>
+<p>based on template version 4.7.2 </p>
+<p>1 / 2 </p>
+<p><b>1 </b></p>
+<p><b>Purpose </b></p>
+<p>This document describes the restrictions of MICROSAR OS SafeContext compared with </p>
+<p>the AUTOSAR specification and the Vector OS feature set. </p>
+<p><b>2 </b></p>
+<p><b>Application area </b></p>
+<p>All projects with operating system MICROSAR OS SC3 or MICROSAR OS SafeContext. </p>
+<p>Normally these projects are safety relevant ECUs (ISO 26262). </p>
+<p><b>3 </b></p>
+<p><b>Target </b></p>
+<p>Due </p>
+<p>to </p>
+<p>safety </p>
+<p>aspects, </p>
+<p>not </p>
+<p>all </p>
+<p>requirements </p>
+<p>of </p>
+<p>the </p>
+<p>AUTOSAR </p>
+<p>specification </p>
+<p>are </p>
+<p>implemented. This document describes the restrictions. </p>
+<p><b>4 </b></p>
+<p><b>Supported Use Cases </b></p>
+<p>Only applications based on OS scalability class SC3 or SC4 will be supported. </p>
+<p><b>5 </b></p>
+<p><b>Features not supported </b></p>
+<p><b>Class </b></p>
+<p><b>Description </b></p>
+<p>OS service API </p>
+<p>TerminateApplication </p>
+<p>CheckISRMemoryAccess </p>
+<p>CheckTaskMemoryAccess </p>
+<p>GetAlarmBase </p>
+<p>StartScheduleTableSynchron </p>
+<p>SyncScheduleTable  </p>
+<p>SetScheduleTableAsync</p>
+<p> </p>
+<p>Internal Resources </p>
+<p>Internal Resources are not supported. </p>
+<p>Killing </p>
+<p>“Killing” of Tasks or Applications is not supported. </p>
+<p>The only allowed protection reaction in the</p>
+<p> </p>
+<p>ProtectionHook</p>
+<p> is</p>
+<p> </p>
+<p>PRO_SHUTDOWN</p>
+<p>. </p>
+<p>Other reactions will be interpreted as</p>
+<p> </p>
+<p>PRO_SHUTDOWN</p>
+<p>. </p>
+<p>A missing TerminateTask error always causes shutdown. </p>
+<p>OS Hooks </p>
+<p>ISRHook </p>
+<p>PreAlarmHook</p>
+<p> </p>
+<p>OS Application </p>
+<p>specific Hooks </p>
+<p>StartupHook&lt;<i>Applicationname</i>&gt; </p>
+<p>ErrorHook&lt;<i>Applicationname</i>&gt; </p>
+<p>ShutdownHook&lt;<i>Applicationname</i>&gt;</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information Restrictions for MICROSAR OS SafeContext </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.0.0 </p>
+<p>based on template version 4.7.2 </p>
+<p>2 / 2 </p>
+<p><b>Class </b></p>
+<p><b>Description </b></p>
+<p>Address Parameter </p>
+<p>Check </p>
+<p>In case API functions with out-parameters (parameter passed by </p>
+<p>reference, e.g. GetEvent, GetAlarm, …) are called with illegal address-</p>
+<p>parameter, they do not return with the error code </p>
+<p>E_OS_ILLEGAL_ADDRESS as required by the AUTOSAR </p>
+<p>specification. Instead the out-parameter is written with the access </p>
+<p>rights of the caller, which may lead to a memory protection violation in </p>
+<p>case the given pointer is invalid.  </p>
+<p>Stack optimization </p>
+<p>Stack sharing is not supported.  </p>
+<p>Single stack model is not supported. </p>
+<p>Internal trace </p>
+<p>The “Internal Trace” feature is not supported. </p>
+<p>COM </p>
+<p>OSEK COM inter task communication with messages is not supported.</p>
+<p> </p>
+<p>ORTI </p>
+<p>ORTIVersion</p>
+<p> = 2.0</p>
+<p> </p>
+<p>is not supported</p>
+<p>. </p>
+<p>Error Hook </p>
+<p>ErrorInfoLevel = Modulenames</p>
+<p> </p>
+<p>is not supported.</p>
+<p> </p>
+<p>Table 5-1  </p>
+<p>Not supported Features </p>
+<p><b>6 </b></p>
+<p><b>Features with restricted usage </b></p>
+<p><b>Class </b></p>
+<p><b>Description </b></p>
+<p>Interrupt resources </p>
+<p>Resources are only available at task level, not in interrupt service </p>
+<p>routines. </p>
+<p>OS Hooks </p>
+<p>The following hook functions are limited: </p>
+<p>PreTaskHook</p>
+<p> is available for debugging only and must not be used in </p>
+<p>final code. </p>
+<p>PostTaskHook</p>
+<p> is available for debugging only and must not be used </p>
+<p>in final code. </p>
+<p>Address Parameter </p>
+<p>Check </p>
+<p>In case API functions with out-parameters (parameter passed by </p>
+<p>reference, e.g. GetEvent, GetAlarm, …) are called with illegal address-</p>
+<p>parameter, they do not return with the error code </p>
+<p>E_OS_ILLEGAL_ADDRESS as required by the AUTOSAR </p>
+<p>specification. Instead the out-parameter is written with the access </p>
+<p>rights of the caller, which may lead to a memory protection violation in </p>
+<p>case the given pointer is invalid.  </p>
+<p>Configuration </p>
+<p>Aspects </p>
+<p>The following hooks must be always enabled: </p>
+<p>StartupHook </p>
+<p>ErrorHook </p>
+<p>ShutdownHook </p>
+<p>ProtectionHook</p>
+<p> </p>
+<p>For</p>
+<p> </p>
+<p>SCALABILITYCLASS</p>
+<p> </p>
+<p>only the settings SC3 or SC4 are supported.  </p>
+<p>Memory protection must be active always.</p>
+<p> </p>
+<p>STACKMONITORING</p>
+<p> </p>
+<p>must be enabled.</p>
+<p> </p>
+<p>OSInternalChecks</p>
+<p> </p>
+<p>must be configured to Additional.</p>
+<p> </p>
+<p>Table 6-1  </p>
+<p>Supported Features with restricted usage </p>
+</body>
+</html>
+{% endraw %}

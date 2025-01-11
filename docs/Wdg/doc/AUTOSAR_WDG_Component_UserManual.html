@@ -1,0 +1,3884 @@
+---
+layout: default
+title: AUTOSAR_WDG_Component_UserManual
+nav_order: 1
+parent: Watchdog Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3</p>
+<p> </p>
+<p>User‟s Manual</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>WDG Driver Component Ver.1.0.4 </p>
+<p> </p>
+<p>Embedded User‟s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target Device: </p>
+<p>RH850/P1x </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev.0.01 Apr 2015</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>2 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>3 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Notice </p>
+<p>1. </p>
+<p>All information included in this document is current as of the date this document is issued. Such information, however, is subject to </p>
+<p>change without any prior notice. Before purchasing or using any Renesas Electronics products listed herein, please confirm the latest </p>
+<p>product information with a Renesas Electronics sales office. Also, please pay regular and careful attention to additional and different </p>
+<p>information to be disclosed by Renesas Electronics such as that disclosed through our website. </p>
+<p>2. </p>
+<p>Renesas Electronics does not assume any liability for infringement of patents, copyrights, or other intellectual property rights of third </p>
+<p>parties by or arising from the use of Renesas Electronics products or technical information described in this document. No license, </p>
+<p>express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p> 3. </p>
+<p>You should not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. </p>
+<p>4. </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples.  You are fully responsible for the incorporation of these circuits, software, and </p>
+<p>information in the design of your equipment.  Renesas Electronics assumes no responsibility for any losses incurred by </p>
+<p>you or third parties arising from the use of these circuits, software, or information. </p>
+<p>5. </p>
+<p>When exporting the products or technology described in this document, you should comply with the applicable export control laws </p>
+<p>and regulations and follow the procedures required by such laws and regulations.  You should not use Renesas Electronics products </p>
+<p>or the technology described in this document for any purpose relating to military applications or use by the military, including but </p>
+<p>not limited to the development of weapons of mass destruction.  Renesas Electronics products and technology may not be used for or </p>
+<p>incorporated into any products or systems whose manufacture, use, or sale is prohibited under any applicable domestic or foreign </p>
+<p>laws or regulations. </p>
+<p>6. </p>
+<p>Renesas Electronics has used reasonable care in preparing the information included in this document, but Renesas Electronics does </p>
+<p>not warrant that such information is error free.  Renesas Electronics assumes no liability whatsoever for any damages incurred by </p>
+<p>you resulting from errors in or omissions from the information included herein. </p>
+<p>7. </p>
+<p>Renesas Electronics products are classified according to the following three quality grades:  &quot;Standard&quot;, &quot;High Quality&quot;, and </p>
+<p>&quot;Specific&quot;.  The recommended applications for each Renesas Electronics product depends on the product's quality grade, as indicated </p>
+<p>below.  You must check the quality grade of each Renesas Electronics product before using it in a particular application.  You may </p>
+<p>not use any Renesas Electronics product for any application categorized as &quot;Specific&quot; without the prior written consent of Renesas </p>
+<p>Electronics.  Further, you may not use any Renesas Electronics product for any application for which it is not intended without the </p>
+<p>prior written consent of Renesas Electronics.  Renesas Electronics shall not be in any way liable for any damages or losses incurred by </p>
+<p>you or third parties arising from the use of any Renesas Electronics product for an application categorized as &quot;Specific&quot; or for which </p>
+<p>the product is not intended where you have failed to obtain the prior written consent of Renesas Electronics.  The quality grade of </p>
+<p>each Renesas Electronics product is &quot;Standard&quot; unless otherwise expressly specified in a Renesas Electronics data sheets or data </p>
+<p>books, etc. </p>
+<p>&quot;Standard&quot;: </p>
+<p>Computers; office equipment; communications equipment; test and measurement equipment; audio and visual </p>
+<p>equipment; home electronic appliances; machine tools; personal electronic equipment; and industrial robots. </p>
+<p>&quot;High Quality&quot;: Transportation equipment (automobiles, trains, ships, etc.); traffic control systems; anti-disaster systems; anti- crime </p>
+<p>systems; safety equipment; and medical equipment not specifically designed for life support. </p>
+<p>&quot;Specific&quot;: </p>
+<p>Aircraft; aerospace equipment; submersible repeaters; nuclear reactor control systems; medical equipment or </p>
+<p>systems for life support (e.g. artificial life support devices or systems), surgical implantations, or healthcare </p>
+<p>intervention (e.g. excision, etc.), and any other applications or purposes that pose a direct threat to human life. </p>
+<p>8. </p>
+<p>You should use the Renesas Electronics products described in this document within the range specified by Renesas Electronics, </p>
+<p>especially with respect to the maximum rating, operating supply voltage range, movement power voltage range, heat radiation </p>
+<p>characteristics, installation and other product characteristics. Renesas Electronics shall have no liability for malfunctions or damages </p>
+<p>arising out of the use of Renesas Electronics products beyond such specified ranges. </p>
+<p>9. </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of its products, semiconductor products have specific </p>
+<p>characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design.  Please be sure to implement safety measures to guard them against </p>
+<p>the possibility of physical injury, and injury or damage caused by fire in the event of the failure of a </p>
+<p>Renesas Electronics product, such as safety design for hardware and software including but not limited to redundancy, fire control </p>
+<p>and malfunction prevention, appropriate treatment for aging degradation or any other appropriate measures.  Because the evaluation </p>
+<p>of microcomputer software alone is very difficult, please evaluate the safety of the final products or system manufactured by you. </p>
+<p>10. </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of </p>
+<p>each Renesas Electronics product.  Please use Renesas Electronics products in compliance with all applicable laws and regulations </p>
+<p>that regulate the inclusion or use of controlled substances, including without limitation, the EU RoHS Directive.  Renesas Electronics </p>
+<p>assumes no liability for damages or losses occurring as a result of your noncompliance with applicable laws and regulations. </p>
+<p> 11. </p>
+<p>This document may not be reproduced or duplicated, in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p> 12. </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this </p>
+<p>document or Renesas Electronics products, or if you have any other inquiries. </p>
+<p>(Note 1)  &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority- owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)  &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>4 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>5 </b></p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p> </p>
+<p><b>Abbreviation / Acronym</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>ADC</p>
+<p> </p>
+<p>Analog Digital Converter</p>
+<p> </p>
+<p>ANSI</p>
+<p> </p>
+<p>American National Standards Institute</p>
+<p> </p>
+<p>API</p>
+<p> </p>
+<p>Application Programming Interface</p>
+<p> </p>
+<p>AUTOSAR</p>
+<p> </p>
+<p>Automotive Open System ARchitecture</p>
+<p> </p>
+<p>CAN</p>
+<p> </p>
+<p>Controller Area Network</p>
+<p> </p>
+<p>DEM</p>
+<p> </p>
+<p>Diagnostic Event Manager</p>
+<p> </p>
+<p>DET/Det</p>
+<p> </p>
+<p>Development Error Tracer</p>
+<p> </p>
+<p>DIO</p>
+<p> </p>
+<p>Digital Input And Output</p>
+<p> </p>
+<p>ECU</p>
+<p> </p>
+<p>Electronic Control Unit</p>
+<p> </p>
+<p>EEPROM</p>
+<p> </p>
+<p>Electrical Erasable Programmable Read Only Memory</p>
+<p> </p>
+<p>ID/Id</p>
+<p> </p>
+<p>Identifier</p>
+<p> </p>
+<p>ISR</p>
+<p> </p>
+<p>Interrupt Service Routine</p>
+<p> </p>
+<p>LIN</p>
+<p> </p>
+<p>Local Interconnect Network</p>
+<p> </p>
+<p>MCAL</p>
+<p> </p>
+<p>Microcontroller Abstraction Layer</p>
+<p> </p>
+<p>MCU</p>
+<p> </p>
+<p>MicroController Unit</p>
+<p> </p>
+<p>PWM</p>
+<p> </p>
+<p>Pulse Width Modulation</p>
+<p> </p>
+<p>RAM</p>
+<p> </p>
+<p>Random Access Memory</p>
+<p> </p>
+<p>ROM</p>
+<p> </p>
+<p>Read Only Memory</p>
+<p> </p>
+<p>SCI</p>
+<p> </p>
+<p>Serial Communication Interface</p>
+<p> </p>
+<p>SPI</p>
+<p> </p>
+<p>Serial Peripheral Interface</p>
+<p> </p>
+<p>WDG/wdg</p>
+<p> </p>
+<p>WatchDog</p>
+<p> </p>
+<p>WDT</p>
+<p> </p>
+<p>WatchDog Timer</p>
+<p> </p>
+<p>WDGIF</p>
+<p> </p>
+<p>WatchDog Interface</p>
+<p> </p>
+<p>CDD </p>
+<p>Complex Device Driver </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p><b>Term</b></p>
+<p> </p>
+<p><b>Represented by</b></p>
+<p> </p>
+<p>Sl. No.</p>
+<p> </p>
+<p>Serial Number</p>
+<p> </p>
+<p>WDTAEVAC</p>
+<p> </p>
+<p>Watchdog Timer Enable Register for Varying Activation Code</p>
+<p> </p>
+<p>WDTAMD</p>
+<p> </p>
+<p>Watchdog Timer Mode Register</p>
+<p> </p>
+<p>WDTAWDTE</p>
+<p> </p>
+<p>Watchdog Timer Enable Register for Fixed Activation Code</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>6 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>7 </b></p>
+<p><b>Table Of Contents </b></p>
+<p><b> </b></p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>Introduction ..................................................................... 11</b></p>
+<p> </p>
+<p><b>1.1.</b></p>
+<p> </p>
+<p><b>Document Overview ........................................................................................................... 13</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>Reference Documents ..................................................... 15</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>Integration And Build Process ....................................... 17</b></p>
+<p> </p>
+<p><b>3.1.</b></p>
+<p> </p>
+<p><b>WDG Driver Component Makefile ..................................................................................... 17</b></p>
+<p> </p>
+<p>3.1.1.</p>
+<p> </p>
+<p>Folder Structure.................................................................................................... 17</p>
+<p> </p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p><b>Forethoughts ................................................................... 19</b></p>
+<p> </p>
+<p><b>4.1.</b></p>
+<p> </p>
+<p><b>General ................................................................................................................................. 19</b></p>
+<p> </p>
+<p><b>4.2.</b></p>
+<p> </p>
+<p><b>Preconditions ...................................................................................................................... 20</b></p>
+<p> </p>
+<p><b>4.3.</b></p>
+<p> </p>
+<p><b>Data Consistency ................................................................................................................ 20</b></p>
+<p> </p>
+<p><b>4.4.</b></p>
+<p> </p>
+<p><b>WDG State Diagram ............................................................................................................ 21</b></p>
+<p> </p>
+<p><b>4.5.</b></p>
+<p> </p>
+<p><b>WDTA 75% ISR Usage Details for R4.0.3 .......................................................................... 22</b></p>
+<p> </p>
+<p><b>4.6.</b></p>
+<p> </p>
+<p><b>Deviation List ...................................................................................................................... 24</b></p>
+<p> </p>
+<p><b>4.7.</b></p>
+<p> </p>
+<p><b>User mode and supervisor mode ...................................................................................... 25</b></p>
+<p> </p>
+<p><b>4.8.</b></p>
+<p> </p>
+<p><b>Register Read-Back ............................................................................................................ 25</b></p>
+<p> </p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p><b>Architecture Details ......................................................... 27</b></p>
+<p> </p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p><b>Registers Details ............................................................. 29</b></p>
+<p> </p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p><b>Interaction Between The User And WDG  Driver </b></p>
+<p><b>Component .......................................................................................... 31</b></p>
+<p> </p>
+<p><b>7.1.</b></p>
+<p> </p>
+<p><b>Services Provided By WDG Driver Component To the User .......................................... 31</b></p>
+<p> </p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p><b>WDG Driver Component Header And Source File </b></p>
+<p><b>Description .......................................................................................... 33</b></p>
+<p> </p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p><b>Generation Tool Guide .................................................... 35</b></p>
+<p> </p>
+<p><b>Chapter 10</b></p>
+<p> </p>
+<p><b>Application Programming Interface ............................... 37</b></p>
+<p> </p>
+<p><b>10.1.</b></p>
+<p> </p>
+<p><b>Imported Types ................................................................................................................... 37</b></p>
+<p> </p>
+<p>10.1.1.</p>
+<p> </p>
+<p>Standard Types .................................................................................................... 37</p>
+<p> </p>
+<p>10.1.2.</p>
+<p> </p>
+<p>Other Module Types ............................................................................................. 37</p>
+<p> </p>
+<p><b>10.2.</b></p>
+<p> </p>
+<p><b>Type Definitions .................................................................................................................. 37</b></p>
+<p> </p>
+<p>10.2.1.</p>
+<p> </p>
+<p>Wdg_59_DriverA_ConfigType .............................................................................. 37</p>
+<p> </p>
+<p><b>10.3.</b></p>
+<p> </p>
+<p><b>Function Definitions ........................................................................................................... 38</b></p>
+<p> </p>
+<p><b>Chapter 11</b></p>
+<p> </p>
+<p><b>Development And Production Errors ............................. 39</b></p>
+<p> </p>
+<p><b>11.1.</b></p>
+<p> </p>
+<p><b>WDG Driver Component Development Errors ................................................................. 39</b></p>
+<p> </p>
+<p><b>11.2.</b></p>
+<p> </p>
+<p><b>WDG Driver Component Production Errors ..................................................................... 39</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>8 </b></p>
+<p><b>Chapter 12</b></p>
+<p> </p>
+<p><b>Memory Organization ...................................................... 41</b></p>
+<p> </p>
+<p><b>Chapter 13</b></p>
+<p> </p>
+<p><b>P1M Specific Information ................................................ 43</b></p>
+<p> </p>
+<p><b>13.1.</b></p>
+<p> </p>
+<p><b>Interaction Between The User And WDG Driver Component .......................................... 43</b></p>
+<p> </p>
+<p>13.1.1.</p>
+<p> </p>
+<p>ISR Function Mapping Interrupt Vector Table ...................................................... 43</p>
+<p> </p>
+<p>13.1.2.</p>
+<p> </p>
+<p>Translation Header File ........................................................................................ 43</p>
+<p> </p>
+<p>13.1.3.</p>
+<p> </p>
+<p>Parameter Definition File ...................................................................................... 44</p>
+<p> </p>
+<p><b>13.2.</b></p>
+<p> </p>
+<p><b>Sample Application............................................................................................................. 44</b></p>
+<p> </p>
+<p>13.2.1</p>
+<p> </p>
+<p>Sample Application Structure ............................................................................... 44</p>
+<p> </p>
+<p>13.2.2</p>
+<p> </p>
+<p>Building Sample Application ................................................................................. 46</p>
+<p> </p>
+<p>13.2.2.1</p>
+<p> </p>
+<p>Configuration Example ..................................................................... 46</p>
+<p> </p>
+<p>13.2.2.2</p>
+<p> </p>
+<p>Debugging The Sample Application ................................................. 46</p>
+<p> </p>
+<p><b>13.3.</b></p>
+<p> </p>
+<p><b>Memory and Throughput for R4.0.3 .................................................................................. 47</b></p>
+<p> </p>
+<p>13.3.1</p>
+<p> </p>
+<p>ROM/RAM Usage ................................................................................................ 47</p>
+<p> </p>
+<p>13.3.2</p>
+<p> </p>
+<p>Stack Depth .......................................................................................................... 48</p>
+<p> </p>
+<p>13.3.3</p>
+<p> </p>
+<p>Throughput Details ............................................................................................... 48</p>
+<p> </p>
+<p><b>Chapter 14</b></p>
+<p> </p>
+<p><b>Release Details ................................................................ 49</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>9 </b></p>
+<p><b>List Of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 1-1</p>
+<p> </p>
+<p>System Overview Of AUTOSAR Architecture ...................................................... 11</p>
+<p> </p>
+<p>Figure 1-2</p>
+<p> </p>
+<p>System Overview Of The WDG Driver In AUTOSAR MCAL Layer ...................... 12</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>State Diagram of WDG when WdgDisableAllowed is true .................................... 21</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p> </p>
+<p>State Diagram of WDG when WdgDisableAllowed is false .................................. 21</p>
+<p> </p>
+<p>Figure 4-3</p>
+<p> </p>
+<p>WDG behavior during Data exchange with hardware ........................................... 22</p>
+<p> </p>
+<p>Figure 4-4</p>
+<p> </p>
+<p>WDG behavior when Wdg_SetTriggerCondition is called ................................... 23</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>Watch Driver And Watchdog Interface Architecture ............................................ 27</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>Basic Architecture Of WDG Component .............................................................. 28</p>
+<p> </p>
+<p>Figure 12-1</p>
+<p> </p>
+<p>Memory Organization Of WDG Driver Component .............................................. 41</p>
+<p> </p>
+<p>Figure 13-1</p>
+<p> </p>
+<p>Overview Of WDG Driver Sample Application ..................................................... 44</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>List Of Tables </b></p>
+<p><b> </b></p>
+<p>Table 4-1</p>
+<p> </p>
+<p>WDG Driver Deviation </p>
+<p>List</p>
+<p> ................................................................................... 24</p>
+<p> </p>
+<p>Table 4-2</p>
+<p> </p>
+<p>Supervisor mode and User mode details ............................................................. 25</p>
+<p> </p>
+<p>Table 4-3</p>
+<p> </p>
+<p>Registers categorization definition ....................................................................... 25</p>
+<p> </p>
+<p>Table 4-4</p>
+<p> </p>
+<p>Watchdog module Static Register Table .............................................................. 26</p>
+<p> </p>
+<p>Table 6-1</p>
+<p> </p>
+<p>Register Details .................................................................................................... 29</p>
+<p> </p>
+<p>Table 8-1</p>
+<p> </p>
+<p>Description Of The WDG Driver Component Files ............................................... 34</p>
+<p> </p>
+<p>Table 10-1</p>
+<p> </p>
+<p>APIs provided by the WDG Driver Component .................................................... 38</p>
+<p> </p>
+<p>Table 11-1</p>
+<p> </p>
+<p>DET Errors Of WDG Driver Component .............................................................. 39</p>
+<p> </p>
+<p>Table 11-2</p>
+<p> </p>
+<p>DEM Errors Of WDG Driver Component .............................................................. 40</p>
+<p> </p>
+<p>Table 13-1</p>
+<p> </p>
+<p>Interrupt Vector Table .......................................................................................... 43</p>
+<p> </p>
+<p>Table 13-2</p>
+<p> </p>
+<p>PDF information for P1M ...................................................................................... 44</p>
+<p> </p>
+<p>Table 13-8</p>
+<p> </p>
+<p>ROM/RAM Details Without DET .......................................................................... 47</p>
+<p> </p>
+<p>Table 13-9</p>
+<p> </p>
+<p>ROM/RAM Details With DET ............................................................................... 48</p>
+<p> </p>
+<p>Table 13-10</p>
+<p> </p>
+<p>Throughput Details Of The APIs .......................................................................... 48</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>10 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction                                                                                                                             Chapter 1 </b></p>
+<p> </p>
+<p><b>11 </b></p>
+<p><b>Chapter 1 </b></p>
+<p><b>Introduction </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The purpose of this document is to describe the information related to WDG </p>
+<p>Driver Component for Renesas P1x microcontrollers. </p>
+<p> </p>
+<p>This document shall be used as reference by the users of WDG Driver </p>
+<p>Component. The system overview of complete AUTOSAR architecture is </p>
+<p>shown in the below Figure: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Application Layer </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>RTE</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>System Services </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>On board Device Abstraction </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>WDG </b></p>
+<p><b>Driver</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Microcontroller </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 1-1 </b></p>
+<p><b>System Overview Of AUTOSAR Architecture </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The WDG Component comprises embedded software and the Configuration </p>
+<p>Tool to achieve scalability and configurability. </p>
+<p> </p>
+<p> </p>
+<p>The WDG Generation Tool is a command line tool that accepts ECU </p>
+<p>configuration description files as input and generates source and header files. </p>
+<p>The configuration description is an ARXML file that contains information about </p>
+<p>the configuration for Watchdog timer. The tool generates the </p>
+<p>Wdg_59_DriverA_PBcfg.c and Wdg_59_DriverA_Cfg.h for Watchdog      </p>
+<p>Driver A. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1                                                                                                                            Introduction </b></p>
+<p> </p>
+<p><b>12 </b></p>
+<p> </p>
+<p>PORT </p>
+<p> </p>
+<p>DIO </p>
+<p> </p>
+<p>ADC </p>
+<p> </p>
+<p>PWM </p>
+<p> </p>
+<p>ICU </p>
+<p> </p>
+<p>FlexRay </p>
+<p> </p>
+<p>CAN </p>
+<p> </p>
+<p>LIN </p>
+<p> </p>
+<p> </p>
+<p>Internal EEPROM </p>
+<p> </p>
+<p>Internal Flash </p>
+<p> </p>
+<p>External Flash </p>
+<p> </p>
+<p>RAM </p>
+<p> </p>
+<p>Core </p>
+<p> </p>
+<p>MCU </p>
+<p> </p>
+<p><b>Watchdog </b></p>
+<p><b> </b></p>
+<p>GPT </p>
+<p> </p>
+<p>DIO </p>
+<p>ADC </p>
+<p>PWM </p>
+<p>ICU </p>
+<p>CAN </p>
+<p>LIN or  </p>
+<p>SCI </p>
+<p>SPI </p>
+<p>EEPRO</p>
+<p>M </p>
+<p>FLASH </p>
+<p>Ext.BUS </p>
+<p>MCU  </p>
+<p>Power &amp; </p>
+<p>Clock </p>
+<p>WDT </p>
+<p>GPT </p>
+<p>The Figure in the following page depicts the WDG Driver as part of layered </p>
+<p>AUTOSAR MCAL Layer:</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Microcontroller  Drivers </p>
+<p>Memory Drivers </p>
+<p>Communication  Drivers </p>
+<p>I/O Drivers </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>                                   <b>Micro </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>        <b>Controller </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 1-2 </b></p>
+<p><b>System Overview Of The WDG Driver In AUTOSAR MCAL Layer </b></p>
+<p> </p>
+<p>Watchdog Driver module provides the services for initializing, changing the </p>
+<p>operation mode and triggering the watchdog.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction                                                                                                                             Chapter 1 </b></p>
+<p> </p>
+<p><b>13 </b></p>
+<p><b>1.1. </b></p>
+<p><b>Document Overview </b></p>
+<p> </p>
+<p> </p>
+<p>The document has been segmented for easy reference. The table below </p>
+<p>provides user with an overview of the contents of each section: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Section</b></p>
+<p> </p>
+<p><b>Contents</b></p>
+<p> </p>
+<p>Section 1 (Introduction)</p>
+<p> </p>
+<p>This section provides an introduction and overview of WDG Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 2 (Reference Documents)</p>
+<p> </p>
+<p>This section lists the documents referred for developing this document.</p>
+<p> </p>
+<p>Section 3 (Integration And Build </p>
+<p>Process)</p>
+<p> </p>
+<p>This section explains the folder structure, Makefile structure for WDG </p>
+<p>Driver Component. This section also explains about the Makefile </p>
+<p>descriptions, Integration of WDG Driver Component with other </p>
+<p>components, building the WDG Driver Component along with a sample </p>
+<p>application.</p>
+<p> </p>
+<p>Section 4 (Forethoughts)</p>
+<p> </p>
+<p>This section provides brief information about the WDG Driver </p>
+<p>Component, the preconditions that should be known to the user before it </p>
+<p>is used, data consistency details, WDG State Diagram, WDTA 75% ISR </p>
+<p>Usage Details, deviation list, Support For Different Interrupt Categories, </p>
+<p>user-mode and supervisor mode API support list, register read-back.</p>
+<p> </p>
+<p>Section 5 (Architecture Details)</p>
+<p> </p>
+<p>This section describes the layered architectural details of the WDG </p>
+<p>Driver Component.</p>
+<p> </p>
+<p>Section 6 (Register Details)</p>
+<p> </p>
+<p>This section describes the register details of WDG Driver Component.</p>
+<p> </p>
+<p>Section 7 (Interaction Between </p>
+<p>The User And WDG Driver </p>
+<p>Component)</p>
+<p> </p>
+<p>This section describes interaction of the WDG Driver Component with </p>
+<p>the upper layers.</p>
+<p> </p>
+<p>Section 8 (WDG Driver </p>
+<p>Component Header And Source </p>
+<p>File Description)</p>
+<p> </p>
+<p>This section provides information about the WDG Driver Component </p>
+<p>source files is mentioned. This section also contains the brief note on the </p>
+<p>tool generated output file.</p>
+<p> </p>
+<p>Section 9 (Generation Tool Guide)</p>
+<p> </p>
+<p>This section provides information on the WDG Driver Component Code </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 10 (Application </p>
+<p>Programming Interface)</p>
+<p> </p>
+<p>This section explains all the APIs provided by the WDG Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 11 (Development And </p>
+<p>Production Errors)</p>
+<p> </p>
+<p>This section lists the DET and DEM errors.</p>
+<p> </p>
+<p>Section 12 (Memory </p>
+<p>Organization)</p>
+<p> </p>
+<p>This section provides the typical memory organization, which must be </p>
+<p>met for proper functioning of component.</p>
+<p> </p>
+<p>Section 13 (P1M Specific </p>
+<p>Information)</p>
+<p> </p>
+<p>This section provides the P1M Specific Information.</p>
+<p> </p>
+<p>Section 14 (Release Details)</p>
+<p> </p>
+<p>This section provides release details with version name and base </p>
+<p>version.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1                                                                                                                            Introduction </b></p>
+<p> </p>
+<p><b>14 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Reference Documents                                                                                                         Chapter 2 </b></p>
+<p> </p>
+<p><b>15 </b></p>
+<p><b>Chapter 2 </b></p>
+<p><b>Reference Documents </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Title</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Autosar R3.2 </p>
+<p>AUTOSAR_SWS_WatchdogDriver.pdf</p>
+<p> </p>
+<p>2.3.0</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>Autosar R4.0 </p>
+<p>AUTOSAR_SWS_WatchdogDriver.pdf</p>
+<p> </p>
+<p>2.5.0</p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p>AUTOSAR BUGZILLA (http://www.autosar.org/bugzilla) </p>
+<p>Note: AUTOSAR BUGZILLA is a database, which contains concerns raised </p>
+<p>against information present in AUTOSAR Specifications.</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>4. </p>
+<p> r01uh0436ej0070_rh850p1x.pdf </p>
+<p>    0.70 </p>
+<p> </p>
+<p>5. </p>
+<p> AUTOSAR_SWS_CompilerAbstraction.pdf </p>
+<p>    3.2.0 </p>
+<p> 6. </p>
+<p> AUTOSAR_SWS_MemoryMapping.pdf </p>
+<p>    1.4.0 </p>
+<p>7. </p>
+<p> AUTOSAR_SWS_PlatformTypes.pdf </p>
+<p>    2.5.0 </p>
+<p>8. </p>
+<p> AUTOSAR_BSW_MakefileInterface.pdf </p>
+<p>    0.3 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 2                                                                                                             Reference Documents </b></p>
+<p> </p>
+<p><b>16 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration And Build Process </b></p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p> </p>
+<p><b>17 </b></p>
+<p> </p>
+<p><b>Chapter 3 </b></p>
+<p><b>Integration And Build Process </b></p>
+<p> </p>
+<p> </p>
+<p>In this section the folder structure of the WDG Driver Component is explained. </p>
+<p>Description of the Makefiles along with samples is provided in this section. </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>The details about the C Source and Header files that are generated by the </p>
+<p>WDG Driver Generation Tool are mentioned in the </p>
+<p>“AUTOSAR_WDG_Tool_UserManual.pdf”. </p>
+<p> </p>
+<p><b>3.1. </b></p>
+<p><b>WDG Driver Component Makefile </b></p>
+<p> </p>
+<p> </p>
+<p>The Makefile provided with the WDG Driver Component consists of the GNU </p>
+<p>Make compatible script to build the WDG Driver Component in case of any </p>
+<p>change in the configuration. This can be used in the upper level Makefile (of </p>
+<p>the application) to link and build the final application executable. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.1. </b></p>
+<p><b>Folder Structure </b></p>
+<p> </p>
+<p>The files are organized in the following folders: </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Trailing slash „\‟ at the end indicates a folder </p>
+<p> </p>
+<p>X1X\common_platform\modules\wdg\src\</p>
+<p> </p>
+<p>Wdg_59_DriverA.c </p>
+<p> </p>
+<p>\Wdg_59_DriverA_Irq.c </p>
+<p> </p>
+<p>\Wdg_59_DriverA_Private.c </p>
+<p> </p>
+<p>\Wdg_59_DriverA_Ram.c </p>
+<p> </p>
+<p>\Wdg_59_DriverA_Version.c </p>
+<p> </p>
+<p>X1X\common_platform\modules\wdg\include\Wdg_59_DriverA.h </p>
+<p> </p>
+<p>\Wdg_59_DriverA_Debug.h </p>
+<p> </p>
+<p>\Wdg_59_DriverA_Irq.h </p>
+<p> </p>
+<p>\Wdg_59_DriverA_PBTypes.h </p>
+<p> </p>
+<p>\Wdg_59_DriverA_Private.h </p>
+<p> </p>
+<p>\Wdg_59_DriverA_Ram.h </p>
+<p> </p>
+<p>\Wdg_59_DriverA_RegReadBack.h </p>
+<p> </p>
+<p>\Wdg_59_DriverA_Types.h </p>
+<p> </p>
+<p>\Wdg_59_DriverA_Version.h </p>
+<p> </p>
+<p> </p>
+<p>X1X\P1x\modules\wdg\sample_application\&lt;SubVariant&gt;\make\&lt;Complier&gt; </p>
+<p>\App_WDG_P1M_Sample.mak  </p>
+<p> </p>
+<p>  X1X\P1x\modules\wdg\sample_application\&lt;SubVariant&gt;\obj\&lt;Complier&gt; </p>
+<p> </p>
+<p>  (Note: For example compiler can be ghs.) </p>
+<p> </p>
+<p>   X1X\P1x\modules\wdg\generator </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 3                                                                                                               Integration And Build Process </b></p>
+<p> </p>
+<p><b>18 </b></p>
+<p> </p>
+<p>\R403_WDG_P1x_BSWMDT.arxml </p>
+<p> </p>
+<p>X1X\common_platform\modules\wdg\generator\Wdg_X1x.exe </p>
+<p>X1X\P1x\common_family\generator </p>
+<p>                                                         \Sample_Application_P1x.trxml </p>
+<p>                                                         \P1x_translation.h </p>
+<p> </p>
+<p>X1X\P1x\modules\wdg\user_manual </p>
+<p> </p>
+<p> (User manuals will be available in this folder) </p>
+<p><b>Notes:</b>  </p>
+<p><b>1. </b></p>
+<p>&lt;Compiler&gt; can be ghs. </p>
+<p> </p>
+<p><b>2. </b></p>
+<p>&lt;SubVariant&gt; can be P1M. </p>
+<p> </p>
+<p><b>3. </b></p>
+<p>&lt;AUTOSAR_version&gt; should be 4.0.3. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Forethoughts </b></p>
+<p><b>Chapter 4 </b></p>
+<p> </p>
+<p><b>19 </b></p>
+<p><b>Chapter 4 </b></p>
+<p><b>Forethoughts </b></p>
+<p> </p>
+<p> </p>
+<p><b>4.1. </b></p>
+<p><b>General </b></p>
+<p> </p>
+<p> </p>
+<p>Following information will aid the user to use the WDG Driver Component </p>
+<p>software efficiently: </p>
+<p> </p>
+<p>• </p>
+<p>The WDG Component does not enable or disable the ECU or </p>
+<p>Microcontroller power supply. The upper layer should handle this </p>
+<p>operation. </p>
+<p> </p>
+<p>• </p>
+<p>Option byte values required for the operation of watchdog will be flashed </p>
+<p>through Start up code. </p>
+<p> </p>
+<p>• </p>
+<p>The WDG Component does not implement any scheduled functions. </p>
+<p> </p>
+<p>• </p>
+<p>WDG Component does not implement any Call Back Notification functions. </p>
+<p> </p>
+<p>• </p>
+<p>Example code mentioned in this document shall be taken only as a </p>
+<p>reference for implementation. </p>
+<p> </p>
+<p>• </p>
+<p>The Watchdog hardware supports only Driver A. Hence, WDG Driver </p>
+<p>Component is implemented as Driver A. WDG_DRIVER_INSTANCE </p>
+<p>variable of Base Make file is updated for Driver A. </p>
+<p> </p>
+<p>• </p>
+<p>All development errors will be reported to Det by using the API </p>
+<p>Det_ReportError() provided by DET. </p>
+<p> </p>
+<p>• </p>
+<p>All production errors will be reported to Dem by using the API </p>
+<p>Dem_ReportErrorStatus() provided by DEM. </p>
+<p> </p>
+<p>• </p>
+<p>&quot;It should be ensured that the respective clock source is switched ON </p>
+<p>before Watchdog is set to corresponding Clock Unit in </p>
+<p>Wdg_59_DriverA_Init() API. </p>
+<p> </p>
+<p>• </p>
+<p>The API Wdg_59_DriverA_SetTriggerCondition() initializes the trigger </p>
+<p>counter global variable with timeout value divided by either slow or fast time </p>
+<p>Value generated by the configuration. </p>
+<p> </p>
+<p>• </p>
+<p>For WDG Reset functionality in debug mode, unmask the reset in debug </p>
+<p>mode during debug session with GHS command &quot;target pinmask k&quot;. </p>
+<p> </p>
+<p>• </p>
+<p>The file Interrupt_VectorTable.c provided is just a Demo and not all </p>
+<p>interrupts will be mapped in this file. So the user has to update the </p>
+<p>Interrupt_VectorTable.c as per his configuration. </p>
+<p> </p>
+<p><b>  </b> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 4                                                                                                                                                Forethoughts </b></p>
+<p> </p>
+<p><b>20 </b></p>
+<p><b>4.2. </b></p>
+<p><b>Preconditions </b></p>
+<p> </p>
+<p> </p>
+<p>Following preconditions have to be adhered by the user, for proper </p>
+<p>functioning of the WDG Driver Component: </p>
+<p> </p>
+<p>• </p>
+<p>The user should ensure that WDG Component API requests are invoked in </p>
+<p>the correct and expected sequence along with correct input arguments. </p>
+<p> </p>
+<p>• </p>
+<p>User should ensure that the appropriate option bytes are flashed for the </p>
+<p>configured mode in the watchdog driver module. </p>
+<p> </p>
+<p>• </p>
+<p>Validation of input parameters are done only when the static configuration </p>
+<p>parameter WDG_59_DRIVERA_DEV_ERROR_DETECT is enabled. </p>
+<p>Application should ensure that the right parameters are passed while </p>
+<p>invoking the APIs when WDG_59_DRIVERA_DEV_ERROR_DETECT is </p>
+<p>disabled. </p>
+<p> </p>
+<p>• </p>
+<p>A mismatch in the version numbers will result in compilation error. Ensure </p>
+<p>that the correct versions of the header and the source files are used. </p>
+<p> </p>
+<p>• </p>
+<p>The files Wdg_59_DriverA_Cfg.h and Wdg_59_DriverA_PBcfg.c </p>
+<p>generated using watchdog driver generation tool has to be linked along </p>
+<p>with WDG Component source files. </p>
+<p> </p>
+<p>• </p>
+<p>File Wdg_59_DriverA_PBcfg.c generated for single configuration set using </p>
+<p>Watchdog Driver Generation Tool can be compiled and linked </p>
+<p>independently. </p>
+<p> </p>
+<p>• </p>
+<p>The WDG Component needs to be initialized before accepting any API </p>
+<p>requests. Wdg_59_DriverA_Init should be called by the ECU State </p>
+<p>Manager Module to initialize WDG Component. It should not be called </p>
+<p>more than once. </p>
+<p> </p>
+<p><b>4.3. </b></p>
+<p><b>Data Consistency </b></p>
+<p> </p>
+<p> </p>
+<p>To support the re-entrance and interrupt services, the AUTOSAR WDG </p>
+<p>component will ensure the data consistency while switching the watchdog </p>
+<p>mode and during the watchdog trigger routine. The WDG Driver component </p>
+<p>will use SchM_Enter_Wdg and SchM_Exit_Wdg functions. The </p>
+<p>SchM_Enter_Wdg function is called before the data needs to be protected </p>
+<p>and SchM_Exit_Wdg function is called after the data is accessed. </p>
+<p> </p>
+<p>The following exclusive areas along with scheduler services are used to </p>
+<p>provide data integrity for shared resources: </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>TRIGG_PROTECTION  </p>
+<p></p>
+<p> </p>
+<p>MODE_SWITCH_PROTECTION </p>
+<p>The protection areas TRIGG_PROTECTION and </p>
+<p>MODE_SWITCH_PROTECTION are used to protect the WDG </p>
+<p>triggering and WDG mode switching respectively. </p>
+<p> </p>
+<p>The functions SchM_Enter_Wdg and SchM_Exit_Wdg can be disabled by </p>
+<p>disabling the configuration parameter „WdgCriticalSectionProtection‟. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Forethoughts </b></p>
+<p><b>Chapter 4 </b></p>
+<p> </p>
+<p><b>21 </b></p>
+<p><b>4.4. </b></p>
+<p><b>WDG State Diagram </b></p>
+<p> </p>
+<p> </p>
+<p>The State diagram of WDG Driver is as shown below</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-1 </b></p>
+<p><b>State Diagram of WDG when WdgDisableAllowed is true </b></p>
+<p> </p>
+<p>WDG Driver supports following modes when configuration parameter </p>
+<p>WdgDisableAllowed is true. </p>
+<p> </p>
+<p>1.WDGIF_OFF_MODE </p>
+<p> </p>
+<p>2.WDGIF_SLOW_MODE </p>
+<p> </p>
+<p>3.WDGIF_FAST_MODE </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>No Initialization </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>                                                      Wdg_59_DriverA_Init() with </p>
+<p>                                                      WDGIF_FAST_MODE </p>
+<p>Wdg_59_DriverA_Init() with </p>
+<p>WDGIF_S LOW_MODE </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FAST</p>
+<p> </p>
+<p>SLOW</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-2 </b></p>
+<p><b>State Diagram of WDG when WdgDisableAllowed is false </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 4                                                                                                                                                Forethoughts </b></p>
+<p> </p>
+<p><b>22 </b></p>
+<p> </p>
+<p>Reset Release </p>
+<p>Wdg_59_DriverA_Init() </p>
+<p>Wdg_59_DriverA_SetTriggerCondition() </p>
+<p>75% of Time Period </p>
+<p>Wdg_59_DriverA_SetTriggerCondition() </p>
+<p>75% of maximum </p>
+<p>counter value </p>
+<p>   WDTAnTRES  </p>
+<p>A </p>
+<p>B </p>
+<p>A </p>
+<p>Counter Value </p>
+<p>INTWDTn(75% Interrupt) </p>
+<p>WDG Trigger </p>
+<p>Maximum counter </p>
+<p>value 0xFFFF </p>
+<p>WDG Driver supports following modes when configuration parameter </p>
+<p>WdgDisableAllowed is false </p>
+<p> </p>
+<p>1. </p>
+<p>WDGIF_SLOW_MODE </p>
+<p> </p>
+<p>2. </p>
+<p>WDGIF_FAST_MODE </p>
+<p> </p>
+<p>Like shown in the above figures when WDG Driver is initialized by the API </p>
+<p>Wdg_59_DriverA_Init(), the WDG Driver gets into one of the modes based on </p>
+<p>the default value configured during configuration. Also the modes can be </p>
+<p>changed by the API Wdg_59_DriverA_SetMode() only once after </p>
+<p>Wdg_59_DriverA_Init(), if the current mode is WDGIF_OFF_MODE. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.5. </b></p>
+<p><b>WDTA 75% ISR Usage Details for R4.0.3 </b></p>
+<p> </p>
+<p> </p>
+<p>WDG Driver using '75% interrupt output' feature services the Watchdog </p>
+<p>hardware to trigger watchdog hardware as long as the trigger condition is </p>
+<p>valid. If the trigger condition becomes invalid the Wdg Driver stops triggering </p>
+<p>and the watchdog expires. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-3 </b></p>
+<p><b>WDG behavior during Data exchange with hardware </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Forethoughts </b></p>
+<p><b>Chapter 4 </b></p>
+<p> </p>
+<p><b>23 </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Figure 4-4 </b></p>
+<p><b>WDG behavior when Wdg_SetTriggerCondition is called </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>User should adjust the Timeout value in such a way that the corrections of 'A‟ </p>
+<p>and 'B' are considered while passing the 'timeout' value to API </p>
+<p>'Wdg_59_DriverA_SetTriggerCondition‟. </p>
+<p> </p>
+<p>The above figure illustrates the scenario where </p>
+<p>Wdg_59_DriverA_SetTriggerCondition API </p>
+<p>is called before the expiry of the Initial Timeout value. </p>
+<p> </p>
+<p><b>The 75% duration calculation for one WDG trigger cycle in slow mode </b></p>
+<p> </p>
+<p>WDTATCKI = 240 kHz </p>
+<p> </p>
+<p>For example considering current mode settings = WDTATCKI/2^16 </p>
+<p> </p>
+<p>Period = 2^16/240k = 0.273 sec </p>
+<p> </p>
+<p>Total window time = 273 msec </p>
+<p> </p>
+<p>75% interrupt time = 204.7 msec </p>
+<p> </p>
+<p>Generation tool will round off the 75% interrupt time “204.7 msec” to “205 </p>
+<p>msec” and rounded value is displayed on the command prompt. For the </p>
+<p>above example the information on command prompt for slow mode will be </p>
+<p>displayed as given below.</p>
+<p> </p>
+<p><b>The duration of 75% of one WDG trigger cycle for slow mode is &lt;205 </b></p>
+<p><b>msec&gt; </b></p>
+<p> </p>
+<p>If the timeout value passed by the API Wdg_59_DriverA_Settriggercondition </p>
+<p>is 410 msec, then the counter value will be calculated in the WDG Driver as </p>
+<p>2. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 4                                                                                                                                                Forethoughts </b></p>
+<p> </p>
+<p><b>24 </b></p>
+<p><b>The duration of 75% of one WDG trigger cycle calculation for fast mode </b></p>
+<p> </p>
+<p>WDTATCKI = 240 kHz </p>
+<p> </p>
+<p>For example considering current mode settings = WDTATCKI/2^9 </p>
+<p> </p>
+<p>Period = 2^9/240k = 0.0021 sec </p>
+<p> </p>
+<p>Total window time = 2.1 msec </p>
+<p> </p>
+<p>75% interrupt time = 1.5 msec </p>
+<p> </p>
+<p>Generation tool will round off the 75% interrupt time “1.5 msec” to “2 msec” </p>
+<p>and rounded value is displayed on the command prompt. For the above </p>
+<p>example the information on command prompt for fast mode will be displayed </p>
+<p>as given below. </p>
+<p> </p>
+<p><b>The duration of 75% of one WDG trigger cycle for fast mode is &lt;2 </b></p>
+<p><b>msec&gt; </b></p>
+<p> </p>
+<p>If the timeout value passed by the API </p>
+<p>Wdg_59_DriverA_Settriggercondition() is 50 msec, then the counter value </p>
+<p>will be calculated in the WDG Driver as 25. </p>
+<p> </p>
+<p>The API Wdg_59_DriverA_SetTriggerCondition() will not trigger the </p>
+<p>watchdog hardware it will only calculate the trigger counter value. </p>
+<p> </p>
+<p>In General the user should use the below formula while calculating the </p>
+<p>Timeout Period by considering the corrections of 75% duration round off, A </p>
+<p>and B values. </p>
+<p> </p>
+<p>Timeout Period = (Trigger Count)* (75% of Time Period + A)+B </p>
+<p> </p>
+<p>where „A” is the time required for the ISR to trigger the WDG hardware and </p>
+<p> </p>
+<p>„B‟ is the time gap between Wdg_59_DriverA_SetTriggerCondition() execution </p>
+<p>and next WDG trigger from 75% ISR. </p>
+<p> </p>
+<p> </p>
+<p><b>4.6. </b></p>
+<p><b>Deviation List </b></p>
+<p> </p>
+<p> </p>
+<p><b>Table 4-1 </b></p>
+<p><b>WDG Driver Deviation </b></p>
+<p><b>List</b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>AUTOSAR Bugzilla</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>&quot;WDG_SETTINGS_SLOW&quot; and </p>
+<p>&quot;WDG_SETTINGS_FAST&quot; is configured from the list of </p>
+<p>clock selections (16 choices are possible) and depending </p>
+<p>on the mode configured for &quot;WDG_DEFAULT_MODE&quot;, </p>
+<p>watchdog settings is initialized in the API </p>
+<p>Wdg_59_DriverA_Init(). </p>
+<p>-</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>The requirement 'WDG025' is handled in the generation </p>
+<p>tool itself by the error 'ERR102009'. </p>
+<p>-</p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p>If the API Wdg_59_DriverA_SetTriggerCondition, is </p>
+<p>invoked with the timeout value &quot;0&quot; will not result in </p>
+<p>instantaneous watchdog reset of the ECU like mentioned </p>
+<p>in WDG140, instead the trigger counter will be set to &quot;0&quot; </p>
+<p>and watchdog reset will occur after the WatchDog counter </p>
+<p>value has reached its maximum value. </p>
+<p>-</p>
+<p> </p>
+<p>4. </p>
+<p>The API Wdg_59_DriverA_GetVersionInfo is </p>
+<p>implemented as macro without DET error </p>
+<p>Wdg_59_DriverA_E_PARAM_POINTER. </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Forethoughts </b></p>
+<p><b>Chapter 4 </b></p>
+<p> </p>
+<p><b>25 </b></p>
+<p><b>4.7. </b></p>
+<p><b>User mode and supervisor mode  </b></p>
+<p> </p>
+<p>The below table specifies the APIs which can run in user mode, supervisor </p>
+<p>mode or both modes </p>
+<p> </p>
+<p><b>Table 4-2 </b></p>
+<p><b>Supervisor mode and User mode details </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl.No</b></p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>User Mode</b></p>
+<p> </p>
+<p><b>Supervisor mode</b></p>
+<p> </p>
+<p>1</p>
+<p> </p>
+<p>Wdg_59_DriverA_Init</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>2</p>
+<p> </p>
+<p>Wdg_59_DriverA_SetMode</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>3</p>
+<p> </p>
+<p>Wdg_59_DriverA_SetTriggerCondition</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>4</p>
+<p> </p>
+<p>Wdg_59_DriverA_GetVersionInfo</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.8. </b></p>
+<p><b>Register Read-Back </b></p>
+<p> </p>
+<p><b>Categorization of registers </b></p>
+<p>Register  read-back  is  a  functional  safety  based  implementation  were  all  the </p>
+<p>registers used in the module are categorized into two different category which </p>
+<p>are as fallows </p>
+<p>1 </p>
+<p>Static registers. </p>
+<p>2</p>
+<p> </p>
+<p>Dynamic registers.</p>
+<p> </p>
+<p><b>Static Registers: </b></p>
+<p>Static registers is defined as the registers which are written only in </p>
+<p>Wdg_59_DriverA_Init () API and not changed during runtime.  </p>
+<p><b>Dynamic Registers: </b></p>
+<p>Dynamic register is defined as the register which are written during runtime </p>
+<p>API‟s independently to that of it is used in Wdg_59_DriverA_Init (). </p>
+<p><b>Table 4-3 </b></p>
+<p><b>Registers categorization definition </b></p>
+<p><b> </b></p>
+<p><b>Static Registers </b></p>
+<p><b>Dynamic Registers </b></p>
+<p><b>HW </b></p>
+<p><b>Register </b></p>
+<p>  Write-read-verify performed for each      </p>
+<p>register write. DEM report in case of </p>
+<p>error. </p>
+<p>Write-read-verify performed for each register </p>
+<p>write. DEM report in case of error. </p>
+<p><b>RAM </b></p>
+<p><b>mirror </b></p>
+<p>Only for static registers same value </p>
+<p>as written to the register is written to </p>
+<p>RAM mirror. </p>
+<p>Write-read-verify performed for each register </p>
+<p>write. DEM report in case of error. </p>
+<p> </p>
+<p><b>Register read-back </b></p>
+<p>In register read-back implementation each register which is written in the WDG </p>
+<p>timer is verified by doing read-back on that registers. However a global copy of </p>
+<p>the register  value is  always kept in the RAM for static registers and a global </p>
+<p>copy is not made for dynamic registers. These variables can be used to verify </p>
+<p>the registers in CDD. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 4                                                                                                                                                Forethoughts </b></p>
+<p> </p>
+<p><b>26 </b></p>
+<p> </p>
+<p>In the below table, details about the static register, global mirror variable and </p>
+<p>mask value to be used in connective with the register is provided. The Global </p>
+<p>mask provided in the table is of logical “&amp;” based mask </p>
+<p><b>Table 4-4 </b></p>
+<p><b>Watchdog module Static Register Table </b></p>
+<p><b>Sl.No. </b></p>
+<p><b>Register </b></p>
+<p><b>Name </b></p>
+<p><b>Global Mirror variable </b></p>
+<p><b>Global Mask Variable </b></p>
+<p>1. </p>
+<p> </p>
+<p>IMR0 </p>
+<p>Wdg_59_DriverA_GulIMR1Mirror </p>
+<p>Wdg_59_DriverA_GulIMR1Mask</p>
+<p>(0xFFFFFDFF) </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Architecture Details </b></p>
+<p><b>Chapter 5 </b></p>
+<p> </p>
+<p><b>27 </b></p>
+<p><b>Chapter 5 </b></p>
+<p><b>Architecture Details </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The WDG Driver architecture is shown in the following figure. The WDG user </p>
+<p>shall directly use the APIs to configure and execute the WDG conversions: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Watchdog Interface</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Watchdog Driver</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Hardware Registers</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 5-1 </b></p>
+<p><b>Watch Driver And Watchdog Interface Architecture </b></p>
+<p> </p>
+<p>Watchdog Interface invokes the corresponding Driver. The Driver APIs will </p>
+<p>access the hardware register of the Watchdog Timers for changing the mode </p>
+<p>and trigger the Watchdog Timer. </p>
+<p> </p>
+<p><b>Watchdog Driver component</b>: </p>
+<p> </p>
+<p>The Watchdog Driver component is composed of following modules: </p>
+<p> </p>
+<p>• </p>
+<p>Watchdog Driver Initialization module </p>
+<p> </p>
+<p>• </p>
+<p>Watchdog Driver SetMode module </p>
+<p> </p>
+<p>• </p>
+<p>Watchdog Driver SetTriggerCondition module </p>
+<p> </p>
+<p>• </p>
+<p>Watchdog Driver VersionInfo module </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                                                   Architecture Details </b></p>
+<p> </p>
+<p><b>28 </b></p>
+<p>The basic architecture of the Watchdog Driver component is illustrated in the </p>
+<p>following figure: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Watch Dog Driver</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Initialization Module</b></p>
+<p> </p>
+<p><b>SetMode Module </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SetTriggerCondition </b></p>
+<p><b>Module</b></p>
+<p> </p>
+<p><b>VersionInfo Module </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 5-2 </b></p>
+<p><b>Basic Architecture Of WDG Component </b></p>
+<p><b> </b></p>
+<p><b>Watchdog Driver Initialization module</b>: </p>
+<p> </p>
+<p>This module initializes the watchdog driver and watchdog hardware. It </p>
+<p>provides the API Wdg_59_DriverA_Init(). This API should be invoked before </p>
+<p>the usage of any other APIs of Watchdog Driver Module. </p>
+<p> </p>
+<p><b>Watchdog Driver SetMode module</b>: </p>
+<p> </p>
+<p>This module will handle the functionality for setting the modes. It provides the </p>
+<p>API Wdg_59_DriverA_SetMode(). Following are the possible mode settings: </p>
+<p> </p>
+<p>• </p>
+<p>WDGIF_SLOW_MODE </p>
+<p> </p>
+<p>• </p>
+<p>WDGIF_FAST_MODE </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>The above settings are configured using the WDTAMD register. SetMode will </p>
+<p>support mode switch as described in the <i>chapter 4.4 WDG State Diagram</i>. </p>
+<p> </p>
+<p>SetMode API will set module‟s state to WDG_BUSY during execution and </p>
+<p>reset the module‟s state to WDG_IDLE before return. </p>
+<p> </p>
+<p><b>Watchdog Driver SetTriggerCondition module</b>: </p>
+<p> </p>
+<p>This module will handle the functionality to reset the watchdog timeout </p>
+<p>counter according to the timeout value passed. It provides the API </p>
+<p>Wdg_59_DriverA_SetTriggerCondition. </p>
+<p> </p>
+<p>There are two types of Activation codes to trigger the Watchdog. They are </p>
+<p> </p>
+<p>• </p>
+<p>Fixed Activation Code. </p>
+<p> </p>
+<p>• </p>
+<p>Varying Activation code. </p>
+<p> </p>
+<p>Depending on the Activation code chosen, this function has to trigger the </p>
+<p>corresponding register. </p>
+<p> </p>
+<p>• </p>
+<p>WDTAWDTE register will be used for Fixed Activation Code. </p>
+<p> </p>
+<p>• </p>
+<p>WDTAEVAC register will be used for Varying Activation Code. </p>
+<p> </p>
+<p><b>Watchdog Driver VersionInfo module</b>: </p>
+<p> </p>
+<p>This module will provide the current version of the Watchdog Driver Module. It </p>
+<p>contains the API Wdg_59_DriverA_GetVersionInfo(). </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Registers Details </b></p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>29 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Chapter 6 </b></p>
+<p><b>Registers Details </b></p>
+<p> </p>
+<p> </p>
+<p>This section describes the register details of WDG Driver Component. </p>
+<p> </p>
+<p><b>Table 6-1 </b></p>
+<p><b>Register Details </b></p>
+<p> </p>
+<p><b>API Name </b></p>
+<p><b>Registers </b></p>
+<p><b>Config Parameter </b></p>
+<p><b>Macro/Variable </b></p>
+<p>Wdg_59_DriverA_Init</p>
+<p> </p>
+<p>IMRn</p>
+<p> </p>
+<p>WdgErrorModeSetting</p>
+<p> </p>
+<p>WDG_59_DRIVERA_INTWDTIM </p>
+<p>R_MASK</p>
+<p> </p>
+<p>WDTAnMD</p>
+<p> </p>
+<p>WdgDefaultMode</p>
+<p> </p>
+<p>ucWdtamdDefaultValue.</p>
+<p> </p>
+<p>Wdg_59_DriverA_SetMode</p>
+<p> </p>
+<p>WDTAnMD</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>ucWdtamdSlowValue, </p>
+<p>ucWdtamdFastValue</p>
+<p> </p>
+<p>Autosar R4.0: </p>
+<p>Wdg_59_DriverA_SetTriggerCon </p>
+<p>dition</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>Wdg_59_DriverA_GetVersionInfo</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>Wdg_59_DriverATrigger</p>
+<p> </p>
+<p>WDTAnEVAC</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>WDG_59_DRIVERA_RESTART - </p>
+<p>WDG_59_DRIVERA_WDTAREF </p>
+<p>_ADDRESS</p>
+<p> </p>
+<p>WDTAnWDT </p>
+<p>E</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>WDG_59_DRIVERA_RESTART</p>
+<p> </p>
+<p>WDTAnREF</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 6                                                                                                                     Registers Details </b></p>
+<p> </p>
+<p><b>30 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Interaction Between The User And WDG Driver Component </b></p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p> </p>
+<p><b>31 </b></p>
+<p> </p>
+<p><b>Chapter 7 </b></p>
+<p><b>Interaction Between The User And WDG </b></p>
+<p><b> </b></p>
+<p><b>Driver Component</b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>The details of the services supported by the WDG Driver Component to the </p>
+<p>upper layer users are provided in the following sections: </p>
+<p> </p>
+<p> </p>
+<p><b>7.1. </b></p>
+<p><b>Services Provided By WDG Driver Component To the </b></p>
+<p><b>User </b></p>
+<p> </p>
+<p> </p>
+<p>The WDG Driver Component provides the following functions to upper layers: </p>
+<p> </p>
+<p>• </p>
+<p>To Initialize Watchdog Timer </p>
+<p> </p>
+<p>• </p>
+<p>To Set the Mode of the Watchdog Timer </p>
+<p> </p>
+<p>• </p>
+<p>To handle the functionality of calculating the trigger counter value </p>
+<p> </p>
+<p>• </p>
+<p>To Read the WDG Component Version Information. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 7</b></p>
+<p><b>                                              </b></p>
+<p><b>Interaction Between The User And WDG Driver Component </b></p>
+<p> </p>
+<p><b>32 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>WDG Driver Component Header And Source File Description </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p><b>33 </b></p>
+<p> </p>
+<p><b>Chapter 8 </b></p>
+<p><b>WDG Driver Component Header And</b></p>
+<p><b> </b></p>
+<p><b>Source File Description </b></p>
+<p> </p>
+<p> </p>
+<p>This section explains the WDG Driver Component‟s C Source and C Header </p>
+<p>files. These files have to be included in the project application while </p>
+<p>integrating with other modules. </p>
+<p> </p>
+<p>The C header file generated by WDG Driver Generation Tool: </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Cfg.h </p>
+<p> </p>
+<p>The C source file generated by WDG Driver Generation Tool: </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_PBcfg.c </p>
+<p> </p>
+<p> </p>
+<p>The WDG Driver Component C header files: </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA.h </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Debug.h </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Irq.h </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_PBTypes.h </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Private.h </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Ram.h </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Types.h </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Version.h </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_RegReadBack.h </p>
+<p> </p>
+<p>The WDG Driver Component source files: </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA.c </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Irq.c </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Private.c </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Ram.c </p>
+<p> </p>
+<p>• </p>
+<p>Wdg_59_DriverA_Version.c </p>
+<p> </p>
+<p>The port specific C header files: </p>
+<p> </p>
+<p>• </p>
+<p>Compiler.h </p>
+<p> </p>
+<p>• </p>
+<p>Compiler_Cfg.h </p>
+<p> </p>
+<p>• </p>
+<p>MemMap.h </p>
+<p> </p>
+<p>• </p>
+<p>Platform_Types.h </p>
+<p> </p>
+<p>• </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                            WDG Driver Component Header And Source File Description </b></p>
+<p> </p>
+<p><b>34 </b></p>
+<p>The description of the WDG Driver Component files is provided in the table </p>
+<p>below: </p>
+<p> </p>
+<p><b>Table 8-1 </b></p>
+<p><b>Description Of The WDG Driver Component Files </b></p>
+<p> </p>
+<p><b>File</b></p>
+<p> </p>
+<p><b>Details</b></p>
+<p> </p>
+<p>Wdg_59_DriverA_Cfg.h</p>
+<p> </p>
+<p>This file is generated by the WDG Generation Tool for various WDG component </p>
+<p>pre-compile time parameters. Generated macros and the parameters will vary </p>
+<p>with respect to the configuration in the input ARXML file.</p>
+<p> </p>
+<p>Wdg_59_DriverA_PBcfg.c</p>
+<p> </p>
+<p>This file contains post-build configuration data. The structures related to WDG </p>
+<p>Initialization are provided in this file. Data structures will vary with respect to </p>
+<p>parameters configured.</p>
+<p> </p>
+<p>Wdg_59_DriverA.h</p>
+<p> </p>
+<p>This file provides extern declarations for all the WDG Component APIs. This file </p>
+<p>provides service IDs of APIs, DET Error codes and type definitions for </p>
+<p>Watchdog Driver initialization structure. This header file shall be included in </p>
+<p>other modules to use the features of WDG Component.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Debug.h</p>
+<p> </p>
+<p>This file provides Provision of global variables for debugging purpose.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Irq.h</p>
+<p> </p>
+<p>This file contains the macro for the WDG Timer channels. It also contains the </p>
+<p>external declaration for the interrupt functions used by WDG Driver component.</p>
+<p> </p>
+<p>Wdg_59_DriverA_PBTypes.h</p>
+<p> </p>
+<p>This file contains the macros used internally by the WDG Component code and </p>
+<p>the structure declarations related to watchdog control registers.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Private.h</p>
+<p> </p>
+<p>This file contains the declarations of the internally used functions.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Ram.h</p>
+<p> </p>
+<p>This file contains the extern declarations for the global variables that are </p>
+<p>defined in Wdg_59_DriverA_Ram.c file and the version information of the file.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Types.h</p>
+<p> </p>
+<p>This file contains the common macro definitions and the data types required </p>
+<p>internally by the WDG software component.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Version.h</p>
+<p> </p>
+<p>This file contains the macros of AUTOSAR version numbers of all modules that </p>
+<p>are interfaced to WDG.</p>
+<p> </p>
+<p>Wdg_59_DriverA_RegReadBa</p>
+<p>ck.h </p>
+<p>This file contains the extern declarations for the global variables that are </p>
+<p>defined in Wdg_59_DriverA_Ram.c file for read-back functionality. </p>
+<p>Wdg_59_DriverA.c</p>
+<p> </p>
+<p>This file contains the implementation of all APIs.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Irq.c</p>
+<p> </p>
+<p>This file contains the implementation of all the interrupt functions used by WDG </p>
+<p>Driver Component.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Private.c</p>
+<p> </p>
+<p>This file contains the definition of the internal functions that access the </p>
+<p>hardware registers.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Ram.c</p>
+<p> </p>
+<p>This file contains the global variables used by WDG Component.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Version.c</p>
+<p> </p>
+<p>This file contains the code for checking version of all modules that are </p>
+<p>interfaced to WDG.</p>
+<p> </p>
+<p>Compiler.h</p>
+<p> </p>
+<p>Provides compiler specific (non-ANSI) keywords. All mappings of keywords, </p>
+<p>which are not standardized, and/or compiler specific are placed and organized </p>
+<p>in this compiler specific header.</p>
+<p> </p>
+<p>Compiler_Cfg.h</p>
+<p> </p>
+<p>This file contains the memory and pointer classes.</p>
+<p> </p>
+<p>MemMap.h</p>
+<p> </p>
+<p>This file allows to map variables, constants and code of modules to individual </p>
+<p>memory sections. Memory mapping can be modified as per ECU specific </p>
+<p>needs.</p>
+<p> </p>
+<p>Platform_Types.h</p>
+<p> </p>
+<p>This file provides provision for defining platform and compiler dependent types.</p>
+<p> </p>
+<p>rh850_Types.h </p>
+<p>This file provides macros to perform supervisor mode (SV) write enabled </p>
+<p>Register ICxxx and IMR register writing using OR/AND/Direct operation. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generation Tool Guide  </b></p>
+<p><b>Chapter 9 </b></p>
+<p> </p>
+<p><b>35 </b></p>
+<p> </p>
+<p><b>Chapter 9 </b></p>
+<p><b>Generation Tool Guide </b></p>
+<p> </p>
+<p> </p>
+<p>For information on the WDG Driver Component Code Generation Tool, </p>
+<p>please refer “AUTOSAR_WDG_Tool_UserManual.pdf” document. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 9                                                                                                            Generation Tool Guide</b></p>
+<p> </p>
+<p><b>36 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Application Programming Interface  </b></p>
+<p><b> </b></p>
+<p><b>Chapter 10</b></p>
+<p> </p>
+<p><b>37 </b></p>
+<p><b>Chapter 10 </b></p>
+<p><b>Application Programming Interface </b></p>
+<p> </p>
+<p> </p>
+<p>This section explains the Data types and APIs provided by the WDG Driver </p>
+<p>Component to the Upper layers. </p>
+<p> </p>
+<p><b>10.1. </b></p>
+<p><b>Imported Types </b></p>
+<p> </p>
+<p> </p>
+<p>This section explains the Data types imported by the WDG Driver Component </p>
+<p>and lists its dependency on other modules.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.1.1. Standard Types </b></p>
+<p> </p>
+<p>In this section all types included from the Std_Types.h are listed: </p>
+<p> </p>
+<p>• </p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>• </p>
+<p>Std_VersionInfoType </p>
+<p> </p>
+<p> </p>
+<p><b>10.1.2. Other Module Types </b></p>
+<p> </p>
+<p>In this section all types included from the WdgIf_Types.h and Dem.h are listed. </p>
+<p> </p>
+<p>• </p>
+<p>WdgIf_ModeType </p>
+<p> </p>
+<p>• </p>
+<p>WdgIf_Statustype </p>
+<p> </p>
+<p>• </p>
+<p>Dem_EventIdType </p>
+<p> </p>
+<p>• </p>
+<p>Dem_EventStatusType </p>
+<p> </p>
+<p> </p>
+<p><b>10.2. </b></p>
+<p><b>Type Definitions </b></p>
+<p> </p>
+<p> </p>
+<p>This section explains the type definitions of WDG Driver Component </p>
+<p>according to AUTOSAR Specification. </p>
+<p><b>10.2.1. Wdg_59_DriverA_ConfigType </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p> </p>
+<p>Wdg_59_DriverA_ConfigType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Structure</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Element:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Name</b></p>
+<p> </p>
+<p><b>Explanation</b></p>
+<p> </p>
+<p>unit32</p>
+<p> </p>
+<p>ulStartOfDbToc</p>
+<p> </p>
+<p>Database start </p>
+<p>value</p>
+<p> </p>
+<p>uint16</p>
+<p> </p>
+<p>usInitTimerCountValue</p>
+<p> </p>
+<p>Trigger counter </p>
+<p>value</p>
+<p> </p>
+<p>uint16</p>
+<p> </p>
+<p>usSlowTimeValue</p>
+<p> </p>
+<p>SLOW mode </p>
+<p>value of </p>
+<p>WDTAMD </p>
+<p>register</p>
+<p> </p>
+<p>uint16</p>
+<p> </p>
+<p>usFastTimeValue</p>
+<p> </p>
+<p>FAST mode </p>
+<p>value of </p>
+<p>WDTAMD </p>
+<p>register</p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p>ucWdtamdSlowValue</p>
+<p> </p>
+<p>WDTAnMD </p>
+<p>register value for </p>
+<p>the Slow Mode.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 10 </b></p>
+<p><b> </b></p>
+<p><b>Application Programming Interface</b></p>
+<p> </p>
+<p><b>38 </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p> </p>
+<p>Wdg_59_DriverA_ConfigType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Structure</p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p>ucWdtamdFastValue</p>
+<p> </p>
+<p>WDTAnMD </p>
+<p>register value for </p>
+<p>the Fast Mode.</p>
+<p> </p>
+<p>uint16</p>
+<p> </p>
+<p>usDefaultTimeValue</p>
+<p> </p>
+<p>75% time value </p>
+<p>of either slow or </p>
+<p>fast mode in </p>
+<p>milliseconds</p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p>ucWdtamdDefaultValue</p>
+<p> </p>
+<p>Watchdog </p>
+<p>default mode</p>
+<p> </p>
+<p>WdgIf_ModeType</p>
+<p> </p>
+<p>ddWdtamdDefaultMode</p>
+<p> </p>
+<p>Default mode </p>
+<p>value configured </p>
+<p>by the user</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This is the type of the data structure required for initializing the Watchdog Hardware unit.</p>
+<p> </p>
+<p> </p>
+<p><b>10.3. </b></p>
+<p><b> </b></p>
+<p><b>Function Definitions </b></p>
+<p> </p>
+<p>This section explains the APIs provided by the WDG Driver Component. </p>
+<p><b> </b></p>
+<p><b>Table 10-1 </b></p>
+<p><b>APIs provided by the WDG Driver Component </b></p>
+<p> </p>
+<p> </p>
+<p><b>SI.No</b></p>
+<p> </p>
+<p><b>              API’s </b></p>
+<p> </p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Wdg_59_DriverA_Init</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>Wdg_59_DriverA_SetMode</p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p>Wdg_59_DriverA_SetTriggerCondition </p>
+<p>4.</p>
+<p> </p>
+<p>Wdg_59_DriverA_GetVersionInfo </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Development And Production Errors </b></p>
+<p><b> </b></p>
+<p><b> Chapter 11</b></p>
+<p> </p>
+<p><b>39 </b></p>
+<p><b>Chapter 11 </b></p>
+<p><b>Development And Production Errors </b></p>
+<p> </p>
+<p> </p>
+<p>In this section the development errors that are reported by the WDG Driver </p>
+<p>Component are tabulated. The development errors will be reported only when </p>
+<p>the pre compiler option WdgDevErrorDetect is enabled in the configuration. </p>
+<p> </p>
+<p><b>11.1. </b></p>
+<p><b>WDG Driver Component Development Errors </b></p>
+<p> </p>
+<p> </p>
+<p>The following table contains the DET errors that are reported by WDG Driver </p>
+<p>Component. These errors are reported to Development Error Tracer Module </p>
+<p>when the WDG Driver Component APIs are invoked with wrong input </p>
+<p>parameters or without initialization of the driver. </p>
+<p> </p>
+<p> </p>
+<p><b>Table 11-1  DET Errors Of WDG Driver Component </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>1</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>WDG_59_DRIVERA_E_PARAM_CONFIG</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Wdg_59_DriverA_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is called with a configuration set which is not within the allowed </p>
+<p>boundaries.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>WDG_59_DRIVERA_E_PARAM_MODE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Wdg_59_DriverA_SetMode</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is called the Driver is not possible to change the mode.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>WDG_59_DRIVERA_E_DRIVER_STATE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Wdg_59_DriverA_SetMode, Wdg_59_DriverA_Trigger and </p>
+<p>Wdg_59_DriverA_SetTriggerCondition.</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>If the API service is called when the driver state is not in idle state.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>WDG_59_DRIVERA_E_INVALID_DATABASE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Wdg_59_DriverA_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is called with wrong database.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>WDG_59_DRIVERA_E_PARAM_TIMEOUT</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Wdg_59_DriverA_SetTriggerCondition</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service Wdg_59_DriverA_SetTriggerCondition is called with timeout </p>
+<p>value greater maximum timeout value (WdgMaxTimeout).</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>11.2. </b></p>
+<p><b>WDG Driver Component Production Errors </b></p>
+<p> </p>
+<p> </p>
+<p>The following table contains the DEM errors that are reported by WDG </p>
+<p>Component </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 11 </b></p>
+<p><b> </b></p>
+<p><b>Development And Production Errors </b></p>
+<p> </p>
+<p><b>40 </b></p>
+<p><b>Table 11-2  DEM Errors Of WDG Driver Component </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>1</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>WDG_59_DRIVERA_E_DISABLE_REJECTED</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Wdg_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>If error during mode switch failed, the above error is reported to DEM</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>WDG_59_DRIVERA_E_MODE_FAILED</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Wdg_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When switching between the modes is failed above error is reported to DEM.</p>
+<p> </p>
+<p><b>Sl. No. </b></p>
+<p><b>3 </b></p>
+<p>Error Code</p>
+<p> </p>
+<p>WDG_59_DRIVERA_ READBACK_FAILURE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>In Wdg_Init, Wdg_59_DriverA_SetMode and Wdg_59_DriverA_Trigger API read </p>
+<p>back failure report DEM error.</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>Read back failure is caused whenever a register is written and the register is not </p>
+<p>updated with the written value then this error is reported.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Memory Organization </b></p>
+<p><b> </b></p>
+<p><b>Chapter 12</b></p>
+<p> </p>
+<p><b>41 </b></p>
+<p><b>Chapter 12 </b></p>
+<p><b>Memory Organization </b></p>
+<p> </p>
+<p>Following picture depicts a typical memory organization, which must be met for </p>
+<p>proper functioning of WDG Component software. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Figure 12-1  Memory Organization Of WDG Driver Component </b></p>
+<p><b> </b></p>
+<p><b>ROM Section (X1, X2 and X3): </b></p>
+<p> </p>
+<p><b>WDG59_A_PUBLIC_CODE_ROM (X1): </b>API(s) of WDG Driver Component, </p>
+<p>which can be located in code memory. </p>
+<p> </p>
+<p><b>WDG_59_DRIVERA_FAST_CODE_ROM (X2): </b>Internal and ISR functions of </p>
+<p>WDG Driver Component code are placed in this code memory. </p>
+<p> </p>
+<p><b>WDG59_A_CFG_DBTOC_UNSPECIFIED(X3): </b></p>
+<p>This </p>
+<p>section </p>
+<p>consists </p>
+<p>of </p>
+<p>WDG Component  database generated  by  the Watchdog  Driver Generation </p>
+<p>Tool and the constant structures used in AUTOSAR  Renesas WDG Driver </p>
+<p>Component. This can be located in code memory. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>ROM Section </b></p>
+<p><b>WDG Driver Component </b></p>
+<p><b>Library </b></p>
+<p><b>Object </b></p>
+<p><b>es</b></p>
+<p> </p>
+<p><b>RAM </b></p>
+<p><b>ect</b></p>
+<p> </p>
+<p>Global RAM required for WDG functioning. </p>
+<p>Segment Name: </p>
+<p><b>  NOINIT_RAM_UNSPECIFIED</b></p>
+<p> </p>
+<p>Global bit RAM to be initialized by WDG </p>
+<p>Driver.  </p>
+<p>Segment Name:  </p>
+<p><b>NOINIT_RAM_16BIT </b></p>
+<p><b>X1 </b></p>
+<p><b>X2 </b></p>
+<p><b>Y1 </b></p>
+<p><b>Y2 </b></p>
+<p><b>Y3 </b></p>
+<p> </p>
+<p><b>Tool Generated Files </b></p>
+<p>The const  section in the file </p>
+<p>Wdg_59_DriverA_PBCfg.c  is placed in this </p>
+<p>memory.</p>
+<p> </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>WDG59_A_CFG_DBTOC_UNSPECIFIED </b></p>
+<p><b>X3 </b></p>
+<p>WDG Driver code related to internal and ISR </p>
+<p>functions are placed in this memory. </p>
+<p> </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>WDG_59_DRIVERA_FAST_CODE_ROM</b></p>
+<p> </p>
+<p>WDG Driver component APIs are placed in this </p>
+<p>code memory. </p>
+<p>  </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>WDG59_A_PUBLIC_CODE_ROM</b></p>
+<p> </p>
+<p>Global bit RAM to be initialized by WDG </p>
+<p>Driver.  </p>
+<p>Segment Name:   </p>
+<p><b>NOINIT_RAM_32BIT</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 12 </b></p>
+<p><b> </b></p>
+<p><b>Memory Organization</b></p>
+<p> </p>
+<p><b>42 </b></p>
+<p> </p>
+<p><b>RAM Section (Y1, Y2 and Y3): </b></p>
+<p> </p>
+<p><b>NOINIT_RAM_UNSPECIFIED (Y1): </b>This section consists of the global RAM </p>
+<p>variables that are used internally by WDG Component and other software </p>
+<p>components. The specific sections of respective software components will </p>
+<p>be merged into this RAM section accordingly. </p>
+<p> </p>
+<p><b>NOINIT_RAM_16BIT (Y2): </b>This section consists of the global RAM variables </p>
+<p>of 16-bit size that are used internally by WDG Driver Component. This can be </p>
+<p>located in data memory. </p>
+<p> </p>
+<p><b>NOINIT_RAM_32BIT (Y3): </b>This section consists of the global RAM variables </p>
+<p>of 32-bit size that are used internally by WDG Driver Component. This can be </p>
+<p>located in data memory. </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>X1, X2, Y1, Y2 and Y3 pertain to only WDG Component and do not </p>
+<p>include memory occupied by Wdg_59_DriverA_PBCfg.c file generated  </p>
+<p>by Watchdog Driver Generation Tool. </p>
+<p> </p>
+<p>• </p>
+<p>User must ensure that none of the memory areas overlap with each other. </p>
+<p>Even „debug‟ information should not overlap. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information </b></p>
+<p><b>Chapter 13 </b></p>
+<p> </p>
+<p><b>43 </b></p>
+<p><b>Chapter 13 </b></p>
+<p><b>P1M Specific Information </b></p>
+<p> </p>
+<p>P1M supports following devices: </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701304 </p>
+<p></p>
+<p> </p>
+<p>R7F701305 </p>
+<p></p>
+<p> </p>
+<p>R7F701310 </p>
+<p></p>
+<p> </p>
+<p>R7F701311 </p>
+<p></p>
+<p> </p>
+<p>R7F701312 </p>
+<p></p>
+<p> </p>
+<p>R7F701313 </p>
+<p></p>
+<p> </p>
+<p>R7F701314 </p>
+<p></p>
+<p> </p>
+<p>R7F701315 </p>
+<p></p>
+<p> </p>
+<p>R7F701318 </p>
+<p></p>
+<p> </p>
+<p>R7F701319 </p>
+<p></p>
+<p> </p>
+<p>R7F701320 </p>
+<p></p>
+<p> </p>
+<p>R7F701321 </p>
+<p></p>
+<p> </p>
+<p>R7F701322 </p>
+<p></p>
+<p> </p>
+<p>R7F701323 </p>
+<p> </p>
+<p><b>13.1. </b></p>
+<p><b>Interaction Between The User And WDG Driver </b></p>
+<p><b>Component </b></p>
+<p> </p>
+<p> </p>
+<p><b>13.1.1. ISR Function Mapping Interrupt Vector Table </b></p>
+<p> </p>
+<p>The table below provides the list of handler addresses corresponding to the </p>
+<p>hardware unit ISR(s) in WDG Driver Component. The user should configure </p>
+<p>the ISR functions mentioned below: </p>
+<p> </p>
+<p><b>Table 13-1  Interrupt Vector Table </b></p>
+<p> </p>
+<p><b>Interrupt Source</b></p>
+<p> </p>
+<p><b>Name of the ISR Function</b></p>
+<p> </p>
+<p>Autosar R4.0 only </p>
+<p>EI level mask able interrupt  </p>
+<p> </p>
+<p>WDG_59_DRIVERA_TRIGGERFUNCTION_ISR </p>
+<p>WDG_59_DRIVERA_TRIGGERFUNCTION_CAT2_ISR </p>
+<p> </p>
+<p> </p>
+<p><b>13.1.2. Translation Header File </b></p>
+<p> </p>
+<p>P1x_translation.h supports following devices: </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701304 </p>
+<p></p>
+<p> </p>
+<p>R7F701305 </p>
+<p></p>
+<p> </p>
+<p>R7F701310 </p>
+<p></p>
+<p> </p>
+<p>R7F701311 </p>
+<p></p>
+<p> </p>
+<p>R7F701312 </p>
+<p></p>
+<p> </p>
+<p>R7F701313 </p>
+<p></p>
+<p> </p>
+<p>R7F701314 </p>
+<p></p>
+<p> </p>
+<p>R7F701315 </p>
+<p></p>
+<p> </p>
+<p>R7F701318 </p>
+<p></p>
+<p> </p>
+<p>R7F701319 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                                         P1M Specific Information </b></p>
+<p> </p>
+<p><b>44 </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Generic </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                </b></p>
+<p><b> </b></p>
+<p><b>      </b></p>
+<p><b> </b></p>
+<p><b>  Devices </b></p>
+<p></p>
+<p> </p>
+<p>R7F701320 </p>
+<p></p>
+<p> </p>
+<p>R7F701321 </p>
+<p></p>
+<p> </p>
+<p>R7F701322 </p>
+<p></p>
+<p> </p>
+<p>R7F701323 </p>
+<p> </p>
+<p><b>13.1.3. Parameter Definition File </b></p>
+<p>Parameter definition files support information for P1M </p>
+<p><b>Table 13-2  PDF information for P1M </b></p>
+<p><b>PDF files </b></p>
+<p><b>Devices supported </b></p>
+<p>R403_WDG_P1M_04_05_10_to_1</p>
+<p>5_18_to_23 </p>
+<p>701304, 701305, 701310, 701311, 701312, 701313, </p>
+<p>701314, 701315, 701318, 701319, 701320, 701321, </p>
+<p>701322, 701323 </p>
+<p> </p>
+<p> </p>
+<p><b>13.2. </b></p>
+<p><b>Sample Application </b></p>
+<p><b> </b></p>
+<p><b>13.2.1 </b></p>
+<p><b>Sample Application Structure </b></p>
+<p><b> </b></p>
+<p>The Sample Application is provided as reference to the user to understand the </p>
+<p>method in which the WDG APIs can be invoked from the application. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>V850 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Figure 13-1  Overview Of WDG Driver Sample Application </b></p>
+<p> </p>
+<p>The Sample Application of the P1M is available in the path </p>
+<p> </p>
+<p>X1X\P1x\modules\wdg\sample_application </p>
+<p> </p>
+<p>The Sample Application consists of the following folder structure </p>
+<p> </p>
+<p>                                       X1X\P1x\modules\wdg\definition\&lt;AUTOSAR_version&gt;\&lt;SubVariant&gt; </p>
+<p>                                         \ R403_WDG_P1M_04_05_10_to_15_18_to_23.arxml </p>
+<p>                                       X1X\P1x\modules\wdg\sample_application\&lt;SubVariant&gt;\&lt;AUTOSAR_version&gt; </p>
+<p> </p>
+<p>                                                                                        \src\WDG_59_DriverA_PBcfg.c </p>
+<p> </p>
+<p>                                                                                        \inc\WDG_59_DriverA_cfg.h</p>
+<p><b> </b></p>
+<p><b>AUTOSAR TYPES</b></p>
+<p> </p>
+<p><b>COMMON   </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>WDG </b></p>
+<p><b>Sample </b></p>
+<p><b>Application </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>P1x </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>WDG  </b></p>
+<p><b>Sample </b></p>
+<p><b>Application </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>STUB   </b></p>
+<p><b>WdgIf</b></p>
+<p> </p>
+<p><b>STUB   </b></p>
+<p><b> Os</b></p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>STUB  </b></p>
+<p><b> </b></p>
+<p><b>Det </b></p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>STUB   </b></p>
+<p><b> </b></p>
+<p><b>SchM </b></p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>STUB   </b></p>
+<p><b>Dem </b></p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>COMPILER </b></p>
+<p><b> </b></p>
+<p><b>RH850 </b></p>
+<p><b>TYPES </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information  </b></p>
+<p><b>Chapter 13 </b></p>
+<p> </p>
+<p><b>45 </b></p>
+<p>                                                                                   </p>
+<p>                                                                                    \config\App_WDG_P1M_701304_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701304_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701304_Sample.html </p>
+<p>                                                                                    \config\App_WDG_P1M_701305_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701305_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701305_Sample.html </p>
+<p>                                                                                    \config\App_WDG_P1M_701310_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701310_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701310_Sample.html </p>
+<p>                                                                                    \config\App_WDG_P1M_701311_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701311_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701311_Sample.html </p>
+<p>                                                                                    \config\App_WDG_P1M_701312_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701312_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701312_Sample.html </p>
+<p>                                                                                    \config\App_WDG_P1M_701313_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701313_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701313_Sample.html </p>
+<p>                                                                                    \config\App_WDG_P1M_701314_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701314_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701314_Sample.html </p>
+<p>                                                                                    \config\App_WDG_P1M_701315_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701315_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701315_Sample.html  </p>
+<p>                                                                                    \config\App_WDG_P1M_701318_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701318_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701318_Sample.html  </p>
+<p>                                                                                    \config\App_WDG_P1M_701319_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701319_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701319_Sample.html  </p>
+<p>                                                                                    \config\App_WDG_P1M_701320_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701320_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701320_Sample.html  </p>
+<p>                                                                                    \config\App_WDG_P1M_701321_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701321_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701321_Sample.html  </p>
+<p>                                                                                    \config\App_WDG_P1M_701322_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701322_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701322_Sample.html  </p>
+<p>                                                                                    \config\App_WDG_P1M_701323_Sample.one </p>
+<p>                                                                                    \config\App_WDG_P1M_701323_Sample.arxml </p>
+<p>                                                                                    \config\App_WDG_P1M_701323_Sample.html  </p>
+<p> </p>
+<p>In the Sample Application all the WDG APIs are invoked in the following </p>
+<p>sequence </p>
+<p> </p>
+<p>When DriverA (WDTA0) is selected: </p>
+<p> </p>
+<p>• </p>
+<p>The API Wdg_59_DriverA_GetVersionInfo is invoked to get the version of </p>
+<p>the WDG Driver module with a variable of Std_VersionInfoType, after the </p>
+<p>call of this API the passed parameter will get updated with the WDG Driver </p>
+<p>version details. </p>
+<p> </p>
+<p>• </p>
+<p>The API Wdg_59_DriverA_Init is invoked with a valid database address for </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                       P1x Specific Information </b></p>
+<p><b> </b></p>
+<p><b>46 </b></p>
+<p> </p>
+<p>the proper initialization of the WDG Driver, all the WDG Driver control </p>
+<p>registers and RAM variables will get initialized after this API is called. </p>
+<p> </p>
+<p>• </p>
+<p>The API Wdg_59_DriverA_SetMode is invoked with the mode which needs </p>
+<p>to be set, this API changes the mode of the Watchdog. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The API Wdg_59_DriverA_SetTriggerCondition initializes the trigger counter </p>
+<p>global variable with timeout value divided by either usSlowTimeValue or </p>
+<p>usFastTimeValue based on the current mode of Watchdog'. </p>
+<p> </p>
+<p> </p>
+<p><b>13.2.2 </b></p>
+<p><b>Building Sample Application </b></p>
+<p> </p>
+<p><b>13.2.2.1  Configuration Example </b></p>
+<p>This section contains the typical configuration which is used for measuring </p>
+<p>RAM/ROM consumption, stack depth and throughput details. </p>
+<p> </p>
+<p><b>Configuration Details</b>: </p>
+<p>App_WDG_&lt;SubVariant&gt;_&lt;Device_Number&gt;_Sample.html </p>
+<p> </p>
+<p>The &lt;Device Number&gt; indicates the device to be compiled, which can be </p>
+<p>701304, 701305, 701310, 701311, 701312, 701313, 701314, 701315, 701318, </p>
+<p>701319, 701320, 701321, 701322 and 701323. </p>
+<p><b>Remark </b>In this typical configuration, all the conversion modes available for WDG </p>
+<p>Driver Component are configured so that each API‟s throughput analysis could </p>
+<p>be performed. Throughput is measured by toggling a port pin before invoking </p>
+<p>the API and again toggling the same port pin after the execution of the API. </p>
+<p>Following Opbyte setting shall be followed: </p>
+<p> </p>
+<p>If Variable activation code is enabled, Opbyte value = 0x71DF3FEB.  </p>
+<p>If Variable activation code is disabled, Opbyte value = 0x719F3FEB. </p>
+<p>In debug mode unmask the reset using GHS command &quot;target pinmask&quot;. </p>
+<p> </p>
+<p><b>13.2.2.2  Debugging The Sample Application </b></p>
+<p> </p>
+<p>GNU Make utility version 3.81 or above must be installed and available in the </p>
+<p>path as defined by the environment user variable “GNUMAKE” to complete the </p>
+<p>build process using the delivered sample files. </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>Open a Command window and change the current working directory </p>
+<p>to”make”directory present as mentioned in below path: </p>
+<p> </p>
+<p>“X1X\P1x\common_family\make\&lt;Complier&gt;” </p>
+<p> </p>
+<p>Now execute the batch file SampleApp.bat with following parameters </p>
+<p> </p>
+<p> </p>
+<p>SampleApp.bat Wdg &lt; AUTOSAR_version&gt; &lt;Device_Name&gt;     </p>
+<p> </p>
+<p>• </p>
+<p>After this, the tool output files will be generated with the configuration as </p>
+<p>mentioned in App_WDG_&lt;SubVariant&gt;_&lt;Device_Number&gt;_Sample.html </p>
+<p>file available in the path: </p>
+<p>“X1X\P1x\modules\wdg\sample_application\&lt;SubVariant&gt;\&lt;AUTOSAR_ve</p>
+<p>rsion&gt;\config”. </p>
+<p> </p>
+<p>• </p>
+<p>After this, all the object files, map file and the executable file </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information </b></p>
+<p><b>Chapter 13 </b></p>
+<p> </p>
+<p><b>47 </b></p>
+<p>App_WDG_P1M_Sample.out will be available in the output folder </p>
+<p> </p>
+<p>(“X1X\P1x\modules\wdg\sample_application\&lt;SubVariant&gt;\obj\ </p>
+<p>&lt;Complier&gt;”). </p>
+<p>  (Note: For example compiler can be ghs.)  </p>
+<p> </p>
+<p>• </p>
+<p>The executable can be loaded into the debugger and the sample application </p>
+<p>can be executed. </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Executable files with „*.out‟ extension can be downloaded into the target </p>
+<p>hardware with the help of Green Hills debugger. </p>
+<p> </p>
+<p>• </p>
+<p>If any configuration changes (only post-build) are made to the ECU </p>
+<p>Configuration Description files </p>
+<p>“X1X\P1x\modules\wdg\&lt;SubVariant&gt;\&lt;AUTOSAR_version&gt; </p>
+<p>\config\App_WDG_&lt;SubVariant&gt;_&lt;Device_name&gt;_Sample.html” </p>
+<p> </p>
+<p>• </p>
+<p>The database alone can be generated by using the following commands. </p>
+<p>make –f  App_WDG_&lt;SubVariant&gt;_Sample.mak generate_wdg_config </p>
+<p>make –f  App_WDG_&lt;SubVariant&gt;_Sample.mak   </p>
+<p>App_WDG_&lt;SubVariant&gt;_Sample.s37 </p>
+<p> </p>
+<p>• </p>
+<p>After this, a flashable Motorola S-Record file </p>
+<p>App_WDG_&lt;SubVariant&gt;_Sample.s37 is available in the output folder. </p>
+<p> </p>
+<p><b>Notes:</b>  </p>
+<p><b>1. </b></p>
+<p>&lt;Compiler&gt; can be ghs. </p>
+<p> </p>
+<p><b>2. </b></p>
+<p>&lt;Device_name&gt;  can  be  701304,  701305,  701310,  701311,  701312, </p>
+<p>701313,  701314,  701315,  701318,  701319,  701320,  701321,  701322 </p>
+<p>and 701323. </p>
+<p> </p>
+<p><b>3. </b></p>
+<p>&lt;AUTOSAR_version&gt; can be 4.0.3. </p>
+<p> </p>
+<p><b>4. </b></p>
+<p>&lt;SubVariant&gt; can be P1M </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>13.3. </b></p>
+<p><b>Memory and Throughput for R4.0.3 </b></p>
+<p> </p>
+<p> </p>
+<p><b>13.3.1 </b></p>
+<p><b> ROM/RAM Usage </b></p>
+<p>The details of memory usage for the typical configuration provided in Section </p>
+<p>13.2.2.1 <i>Configuration Example </i>are provided in this section. </p>
+<p> </p>
+<p> </p>
+<p><b>Table 13-8  ROM/RAM Details Without DET </b></p>
+<p> </p>
+<p><b>Sl. No</b></p>
+<p> </p>
+<p><b>ROM/R</b></p>
+<p><b>AM</b></p>
+<p> </p>
+<p><b>Segment Name</b></p>
+<p> </p>
+<p><b>Size in   </b></p>
+<p><b>bytes for </b></p>
+<p><b>701312 </b></p>
+<p><b> </b></p>
+<p>1.</p>
+<p> </p>
+<p>ROM</p>
+<p> </p>
+<p>WDG59_A_PUBLIC_CODE_ROM </p>
+<p>WDG_59_DRIVERA_FAST_CODE_ROM </p>
+<p>WDG59_A_CFG_DBTOC_UNSPECIFIED</p>
+<p> </p>
+<p>262 </p>
+<p> </p>
+<p>98 </p>
+<p> </p>
+<p>16</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>RAM</p>
+<p> </p>
+<p>NOINIT_RAM_UNSPECIFIED</p>
+<p> </p>
+<p>5 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                                         P1M Specific Information </b></p>
+<p> </p>
+<p><b>48 </b></p>
+<p> </p>
+<p>The details of memory usage for the typical configuration, with DET enabled </p>
+<p>and all other configurations as provided in 13.2.2.1 <i>Configuration Example </i>are </p>
+<p>provided in this section. </p>
+<p> </p>
+<p><b>Table 13-9  ROM/RAM Details With DET </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl. No</b></p>
+<p> </p>
+<p> </p>
+<p><b>ROM/R</b></p>
+<p><b>AM</b></p>
+<p> </p>
+<p><b>Segment Name</b></p>
+<p> </p>
+<p><b>Size in   </b></p>
+<p><b>bytes for </b></p>
+<p><b>701312 </b></p>
+<p><b> </b></p>
+<p>1.</p>
+<p> </p>
+<p>ROM</p>
+<p> </p>
+<p>WDG59_A_PUBLIC_CODE_ROM </p>
+<p>WDG_59_DRIVERA_FAST_CODE_ROM </p>
+<p>WDG59_A_CFG_DBTOC_UNSPECIFIED</p>
+<p> </p>
+<p>456 </p>
+<p> </p>
+<p>106 </p>
+<p> </p>
+<p>16 </p>
+<p>2.</p>
+<p> </p>
+<p>RAM</p>
+<p> </p>
+<p>NOINIT_RAM_UNSPECIFIED</p>
+<p> </p>
+<p>5 </p>
+<p> </p>
+<p><b>13.3.2 </b></p>
+<p><b>Stack Depth </b></p>
+<p> </p>
+<p>The worst-case stack depth for WDG Driver Component is 12 bytes for the </p>
+<p>typical configuration provided in Section13.2.2.1 <i>Configuration Example</i>.</p>
+<p> </p>
+<p> </p>
+<p><b>13.3.3 </b></p>
+<p><b>Throughput Details </b></p>
+<p> </p>
+<p>The throughput details of the APIs for the configuration mentioned in the </p>
+<p>Section13.2.2.1 <i>Configuration Example </i>are listed here. The clock frequency </p>
+<p>used to measure the throughput is 80MHz for all APIs. </p>
+<p> </p>
+<p><b>Table 13-10 </b></p>
+<p><b>Throughput Details Of The APIs </b></p>
+<p> </p>
+<p><b>Sl. </b></p>
+<p><b>No.</b></p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>Throughput in </b></p>
+<p><b>microsecond </b></p>
+<p><b>for 701312 </b></p>
+<p><b>Remarks</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Wdg_59_DriverA</p>
+<p>_Init</p>
+<p> </p>
+<p>0.587 </p>
+<p> </p>
+<p>Timing is measured with </p>
+<p>default mode as </p>
+<p>WDGIF_SLOW_MODE</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>Wdg_59_DriverA</p>
+<p>_SetMode</p>
+<p> </p>
+<p>0.175 </p>
+<p> </p>
+<p>Timing is  measured  </p>
+<p>with default mode as </p>
+<p>WDGIF_SLOW_MODE</p>
+<p> </p>
+<p>3. </p>
+<p>Wdg_59_Driver</p>
+<p>A_SetTriggerCo</p>
+<p>n dition</p>
+<p> </p>
+<p>0.137 </p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>4.</p>
+<p> </p>
+<p>Wdg_59_DriverA</p>
+<p>_GetVersionInfo</p>
+<p> </p>
+<p>0.12 </p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>5. </p>
+<p>WDG_59_DRIV</p>
+<p>ERA_TRIGGER</p>
+<p>FUNCTION_ISR </p>
+<p> </p>
+<p>13.59 </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Release Details  </b></p>
+<p><b>Chapter 14 </b></p>
+<p> </p>
+<p><b>49 </b></p>
+<p><b>Chapter 14 </b></p>
+<p><b>Release Details</b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>WDG Driver Software R4.0.3  </p>
+<p>Version: 1.0.9 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 14                                                                                                                      Release Details</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>50 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>51 </b></p>
+<p><b>Revision History </b></p>
+<p> </p>
+<p><b>Sl.No</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>18-Oct-2013</p>
+<p> </p>
+<p>2 </p>
+<p>Following changes are made: </p>
+<p>1. In chapter 2,</p>
+<p> </p>
+<p>Reference Documents and Device manual </p>
+<p>version changed. </p>
+<p>2.100 pin Device names are added. </p>
+<p>3. Compiler version and options are changed. </p>
+<p>4. ROM/RAM table is updated for 100 pin device.   </p>
+<p>5. Sample application folder path is updated for 100 pin        </p>
+<p>device. </p>
+<p>1.0.1 </p>
+<p>04-Feb-2014 </p>
+<p>3 </p>
+<p>Following changes are made: </p>
+<p>1. In chapter 2,</p>
+<p> </p>
+<p>Reference Documents and Device manual </p>
+<p>version changed. </p>
+<p>2 .In chapter 13, </p>
+<p>translation header file that supports </p>
+<p>P1M devices are listed. </p>
+<p>3. </p>
+<p>In chapter 13, sample application structure is modified </p>
+<p>according to P1M supporting devices. </p>
+<p>4. In chapter 13, 13.1.2 </p>
+<p>ISR Function Mapping Interrupt </p>
+<p>Vector Table and 13.1.3 Parameter Definition File are </p>
+<p>added. </p>
+<p>5.</p>
+<p> In chapter 13, Throughput details and ROM/RAM Usage </p>
+<p>are added. </p>
+<p>1.0.2 </p>
+<p>26-Sep-2014 </p>
+<p>4. </p>
+<p>Headers are corrected in chaper10 and 11. </p>
+<p>1.0.3 </p>
+<p>21-Nov-2014 </p>
+<p>5. </p>
+<p>Following changes are made: </p>
+<p> </p>
+<p>1. Updated Chapter 4.1 to add notes.  </p>
+<p>2. Updated Chapter 13 to add new device support. </p>
+<p>3. Removed sections for Compiler, Linker and Assembler. </p>
+<p>4. Updated Chapter 13.3 with memory and throughput </p>
+<p>details. </p>
+<p>1.0.4 </p>
+<p>28-Apr-2015 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR MCAL R4.0.3 User's Manual </b></p>
+<p><b>WDG Driver Component Ver.1.0.4 </b></p>
+<p><b>Embedded User’s Manual </b></p>
+<p> </p>
+<p>Publication Date: Rev.0.01, April 28, 2015 </p>
+<p> </p>
+<p> </p>
+<p>Published by: Renesas Electronics Corporation </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES </b></p>
+<p><b>OFFICES</b></p>
+<p> </p>
+<p>http://www.renesas.com</p>
+<p> </p>
+<p>Refer  to </p>
+<p>&quot;http://www.renesas.com/&quot; </p>
+<p>for the latest  and detailed </p>
+<p>information.</p>
+<p> </p>
+<p><b>Renesas  Electronics  America </b></p>
+<p><b>Inc.</b></p>
+<p> </p>
+<p>2880  Scott  Boulevard  Santa  Clara,  CA </p>
+<p>95050-2554, U.S.A. </p>
+<p>Tel:  </p>
+<p>+1-408-588-6000, </p>
+<p>Fax: </p>
+<p>+1-408-588-6130</p>
+<p> </p>
+<p><b>Renesas  Electronics  Canada </b></p>
+<p><b>Limited</b></p>
+<p> </p>
+<p>1101  Nicholson  Road,  Newmarket,  Ontario  L3Y  9C3, </p>
+<p>Canada</p>
+<p> </p>
+<p>Tel: </p>
+<p>+1-905-898-5441, </p>
+<p>Fax: </p>
+<p>+1-905-898-3220</p>
+<p> </p>
+<p><b>Renesas  Electronics  Europe </b></p>
+<p><b>Limited</b></p>
+<p> </p>
+<p>Dukes  Meadow,  Millboard  Road,  Bourne  End, </p>
+<p>Buckinghamshire, </p>
+<p>SL8  5FH, </p>
+<p>U.K </p>
+<p>Tel: </p>
+<p>+44-1628-585-100, </p>
+<p>Fax: </p>
+<p>+44-1628-585-900</p>
+<p> </p>
+<p><b>Renesas  Electronics  Europe </b></p>
+<p><b>GmbH </b></p>
+<p>Arcadiastrasse </p>
+<p>10, 40472  Düsseldorf,  </p>
+<p>Germany </p>
+<p>Tel: </p>
+<p>+49-211-65030, </p>
+<p>Fax: </p>
+<p>+49-211-6503-1327</p>
+<p> </p>
+<p><b>Renesas  Electronics  (China)  Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>7th Floor,  Quantum  Plaza,  No.27  ZhiChunLu  Haidian  District,  Beijing  100083, </p>
+<p>P.R.China</p>
+<p> </p>
+<p>Tel: </p>
+<p>+86-10-8235-1155, </p>
+<p>Fax: </p>
+<p>+86-10-8235-7679</p>
+<p> </p>
+<p><b>Renesas  Electronics  (Shanghai)  Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>Unit  204, 205,  AZIA  Center,  No.1233  Lujiazui  Ring  Rd.,  Pudong  District,  Shanghai  200120, </p>
+<p>China</p>
+<p> </p>
+<p>Tel: </p>
+<p>+86-21-5877-1818, </p>
+<p>Fax: </p>
+<p>+86-21-6887-7858 </p>
+<p>/ </p>
+<p>-7898</p>
+<p> </p>
+<p><b>Renesas  Electronics  Hong  Kong </b></p>
+<p><b>Limited</b></p>
+<p> </p>
+<p>Unit  1601-1613,  16/F.,  Tower  2, Grand  Century  Place,  193  Prince  Edward  Road West,  Mongkok,  Kowloon,  Hong </p>
+<p>Kong</p>
+<p> </p>
+<p>Tel: </p>
+<p>+852-2886-9318, </p>
+<p>Fax:  +852 </p>
+<p>2886-9022/9044</p>
+<p> </p>
+<p><b>Renesas  Electronics  Taiwan  Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>7F, No. 363  Fu Shing  North  Road  Taipei, </p>
+<p>Taiwan</p>
+<p> </p>
+<p>Tel: </p>
+<p>+886-2-8175-9600, </p>
+<p>Fax:  +886 </p>
+<p>2-8175-9670</p>
+<p> </p>
+<p><b>Renesas  Electronics  Singapore  Pte. </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>1 </p>
+<p>harbourFront </p>
+<p>Avenue,  #06-10,  keppel  Bay  Tower,  Singapore  </p>
+<p>098632</p>
+<p> </p>
+<p>Tel: </p>
+<p>+65-6213-0200, </p>
+<p>Fax: </p>
+<p>+65-6278-8001</p>
+<p> </p>
+<p><b>Renesas  Electronics  Malaysia </b></p>
+<p><b>Sdn.Bhd.</b></p>
+<p> </p>
+<p>Unit  906,  Block  B, Menara  Amcorp,  Amcorp  Trade  Centre,  No. 18, Jln Persiaran  Barat,  46050  Petaling  Jaya,  Selangor  Darul  Ehsan, </p>
+<p>Malaysia</p>
+<p> </p>
+<p>Tel: </p>
+<p>+60-3-7955-9390, </p>
+<p>Fax: </p>
+<p>+60-3-7955-9510</p>
+<p> </p>
+<p><b>Renesas  Electronics  Korea  Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>11F.,  Samik  Lavied'  or Bldg.,  720-2 </p>
+<p>Yeoksam-Dong, Kangnam-Ku, </p>
+<p>Seoul  135-080, </p>
+<p>Korea</p>
+<p> </p>
+<p>Tel: </p>
+<p>+82-2-558-3737, </p>
+<p>Fax: </p>
+<p>+82-2-558-5141</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2015 Renesas Electronics Corporation. All rights reserved. </p>
+<p>Colophon 1.0 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3 </p>
+<p> </p>
+<p>User‟s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,1657 @@
+---
+layout: default
+title: UserManual_Startup_with_GMLAN_GENy
+nav_order: 19
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Vector Informatik GmbH, Ingerheimer Str. 24, 70499 Stuttgart </p>
+<p> </p>
+<p> </p>
+<p>Tel. 0711/80670-0, Fax 0711/80670-399, Email can@vector-informatik.de </p>
+<p> </p>
+<p> </p>
+<p>Internet http:\\www.vector-informatik.de </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>  Startup with GMLAN and   </b></p>
+<p><b>  GENy </b></p>
+<p>  User Manual </p>
+<p>    (Your First Steps) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Version 1.0.1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>1 / 32 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors: </b></p>
+<p>Klaus Emmert </p>
+<p><b>Version: </b></p>
+<p>1.0.1 </p>
+<p><b>Status: </b></p>
+<p>in preparation </p>
+<p>(in preparation/completed/inspected/released)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>2 / 32 </p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Klaus Emmert </p>
+<p>2008-03-10 </p>
+<p>1.0 </p>
+<p>Created </p>
+<p>Klaus Emmert </p>
+<p>2011-11-11 </p>
+<p>1.0.1 </p>
+<p>Improved Understandability </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>3 / 32 </p>
+<p><b>Motivation For This Work </b></p>
+<p>You want to read a document and follow its installation hints and as a result the </p>
+<p>software is basically running? Then continue reading this user manual.  </p>
+<p>It  is  a  guide  through  the  installation  of  the  GMLAN  components,  helps  you  to </p>
+<p>configure you application for the needs of GMLAN and gives you precious hints for </p>
+<p>the </p>
+<p>different </p>
+<p>requirements </p>
+<p>an </p>
+<p>ECU </p>
+<p>using </p>
+<p>GMLAN </p>
+<p>has </p>
+<p>to </p>
+<p>fulfill </p>
+<p>(PowerTrain, </p>
+<p>SingleWire CAN…). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>WARNING </b></p>
+<p><b>All  application  code  in  any  of  the  Vector  User  Manuals  are  for  training </b></p>
+<p><b>purposes only. They are slightly tested and designed to understand the basic </b></p>
+<p><b>idea of using a certain component or a set of components. </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>4 / 32 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>About this Document ...................................................................................... 7</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Legend and Explanation of Symbols .................................................. 7</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>What is GMLAN ................................................................................................ 8</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Virtual Networks .............................................................................. 10</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Your ECU ........................................................................................................ 12</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Body Bus ECU ................................................................................. 12</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Infotainment ECU ............................................................................ 13</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>PowerTrain ECU (or Chassis expansion or Powertrain </p>
+<p>expansion) ....................................................................................... 13</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>GMLAN In 6 Steps ......................................................................................... 14</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>STEP 1   Prepare Your Software Project ......................................... 15</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>STEP 2   Configuration Tool GENy and DBC File ............................ 16</p>
+<p> </p>
+<p>4.2.1</p>
+<p> </p>
+<p>Setting of Generation Paths ............................................................. 18</p>
+<p> </p>
+<p>4.2.2</p>
+<p> </p>
+<p>Component Selection ...................................................................... 18</p>
+<p> </p>
+<p>4.2.3</p>
+<p> </p>
+<p>Tree view – A List of all selected components ................................. 18</p>
+<p> </p>
+<p>4.2.4</p>
+<p> </p>
+<p>HW_&lt;microcontroller&gt; ..................................................................... 19</p>
+<p> </p>
+<p>4.2.5</p>
+<p> </p>
+<p>Nm_Gmlan_Gm ............................................................................... 19</p>
+<p> </p>
+<p>4.2.6</p>
+<p> </p>
+<p>Tp_Iso15765.................................................................................... 20</p>
+<p> </p>
+<p>4.2.7</p>
+<p> </p>
+<p>Diagnostics – Diag_CanDesc_KWP ................................................ 20</p>
+<p> </p>
+<p>4.2.8</p>
+<p> </p>
+<p>DrvCan_&lt;microcontroller&gt; ............................................................... 21</p>
+<p> </p>
+<p>4.2.9</p>
+<p> </p>
+<p>Settings are Finished ....................................................................... 23</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>STEP 3   Add Files to Your Application ............................................ 24</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>STEP 4  Adaptations For Your Application ...................................... 24</p>
+<p> </p>
+<p>4.4.1</p>
+<p> </p>
+<p>Includes ........................................................................................... 24</p>
+<p> </p>
+<p>4.4.2</p>
+<p> </p>
+<p>Initialization ...................................................................................... 24</p>
+<p> </p>
+<p>4.4.3</p>
+<p> </p>
+<p>Cyclic calls to keep the components running ................................... 25</p>
+<p> </p>
+<p>4.4.4</p>
+<p> </p>
+<p>Provide Callback functions ............................................................... 25</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>STEP 5  Compile And Link .............................................................. 27</p>
+<p> </p>
+<p>4.6</p>
+<p> </p>
+<p>STEP 6  Test the Software Component ........................................... 27</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Further Information ....................................................................................... 28</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Full CAN Message Transmission with Extended Ids ........................ 28</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Take care when working with VNs ................................................... 28</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Validity of Signals ............................................................................ 29</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Signals assigned to different VNs and located in one message ....... 29</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>5 / 32 </p>
+<p>5.5</p>
+<p> </p>
+<p>Source Learning for Single Wire CAN with Mixed Identifiers (11 </p>
+<p>bit and 29 bit) ................................................................................... 30</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>Activation and deactivation of VNs ................................................... 30</p>
+<p> </p>
+<p>5.6.1</p>
+<p> </p>
+<p>IlNwmActivateVN( channel, VN) ...................................................... 30</p>
+<p> </p>
+<p>5.7</p>
+<p> </p>
+<p>llNwmDeactivateVN ......................................................................... 30</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Index ................................................................................................................. 1</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>6 / 32 </p>
+<p><b>Illustrations </b></p>
+<p>Figure </p>
+<p> </p>
+<p>2-1</p>
+<p> </p>
+<p>GMLAN Layers with standard and optional components ............................ 8</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>2-2</p>
+<p> </p>
+<p>Virtual Networks ....................................................................................... 10</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-1</p>
+<p> </p>
+<p>Setup Dialog ............................................................................................. 16</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-2</p>
+<p> </p>
+<p>Add data base file for a certain bus system, here CAN. ............................ 16</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-3</p>
+<p> </p>
+<p>Channel Setup Window ............................................................................ 17</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-4</p>
+<p> </p>
+<p>Paths To Generate Files to destined folders ............................................. 18</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-5</p>
+<p> </p>
+<p>Component Selection ............................................................................... 18</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-6</p>
+<p> </p>
+<p>Tree View of all selected components ...................................................... 19</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-7</p>
+<p> </p>
+<p>Settings for GMLAN .................................................................................. 20</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-8</p>
+<p> </p>
+<p>Path to the CDD file on the Configuration View of </p>
+<p>Diag_CanDesc_KWP ............................................................................... 21</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-9</p>
+<p> </p>
+<p>Acceptance Filters and Bus timing are channel-dependent settings ......... 21</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-10</p>
+<p> </p>
+<p>CAN Bus Timing Register Setup............................................................... 22</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-11</p>
+<p> </p>
+<p>Success Window containing Information about Generated Files. .............. 23</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-1</p>
+<p> </p>
+<p>Extended CAN Identifier 29bit .................................................................. 28</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-2</p>
+<p> </p>
+<p>Signals of Different VNs in One Message ................................................. 29</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>7 / 32 </p>
+<p>These areas </p>
+<p>to the right of </p>
+<p>the text </p>
+<p>contain brief </p>
+<p>items of </p>
+<p>information </p>
+<p>that will </p>
+<p>facilitate your </p>
+<p>search for </p>
+<p>specific </p>
+<p>topics. </p>
+<p><b>1 </b></p>
+<p><b>About this Document </b></p>
+<p>This  document  gives  you  an  understanding  of  GMLAN.  You  will  receive  general </p>
+<p>information, a step-by-step tutorial to get the Startup with GMLAN running. </p>
+<p><b>1.1 </b></p>
+<p><b>Legend and Explanation of Symbols </b></p>
+<p>You find these symbols at the right side of the document. Use this helpful feature to </p>
+<p>find fast the topics, you need information about. </p>
+<p><b>Symbol </b></p>
+<p><b>Meaning </b></p>
+<p> </p>
+<p>The building bricks mark examples. </p>
+<p> </p>
+<p>You will find key words and information in short sentences in the margin.  This will </p>
+<p>greatly simplify your search for topics. </p>
+<p> </p>
+<p>The footprints will lead you through the steps until you can use the Startup with </p>
+<p>GMLAN. </p>
+<p> </p>
+<p>There is something you should take care about. </p>
+<p> </p>
+<p>Useful and additional information is displayed in areas with this symbol. </p>
+<p> </p>
+<p>This file you are allowed to edit on demand. </p>
+<p> </p>
+<p>This file you must not edit at all.  </p>
+<p> </p>
+<p>This indicates an area dealing with frequently asked questions (FAQ). </p>
+<p> </p>
+<p>Comments </p>
+<p>and </p>
+<p>explanation</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>8 / 32 </p>
+<p><b>2 </b></p>
+<p><b>What is GMLAN </b></p>
+<p><b>GMLAN is CANbedded for GM </b></p>
+<p>GMLAN </p>
+<p>is </p>
+<p>General </p>
+<p>Motors' </p>
+<p>network </p>
+<p>operating </p>
+<p>software, </p>
+<p>which </p>
+<p>is </p>
+<p>supplied </p>
+<p>exclusively by Vector. Vector has great experience with GMLAN from its beginning </p>
+<p>on  since  1999.  Used  by  GM  and  its  subsidiaries  worldwide,  GMLAN  provides  a </p>
+<p>multi-layered network software solution for CAN bus management and access.  </p>
+<p>GMLAN consists of mandatory components and optional components. </p>
+<p>Vector  provides  all  current  GMLAN  software  implementations  and  each  software </p>
+<p>implementation is: </p>
+<p></p>
+<p> </p>
+<p>Microcontroller-specific </p>
+<p></p>
+<p> </p>
+<p>CAN controller-specific </p>
+<p></p>
+<p> </p>
+<p>Compiler-specific </p>
+<p> </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>2-1 GMLAN Layers with standard and optional components </p>
+<p> </p>
+<p> </p>
+<p><b>Mandatory components of GMLAN </b></p>
+<p><b>CAN Driver </b></p>
+<p>The CAN Driver interconnects to the CAN controller, manages CAN transmission </p>
+<p>and  reception,  handles  CAN  initialization,  bit  rate,  sample  point,  SJW  value  and </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>9 / 32 </p>
+<p>filtering.  The  CAN  Driver  interfaces  with  the  GM-specific  network  software  and </p>
+<p>provides a common low-level interface across a variety of CAN controllers. </p>
+<p><b>Interaction Layer </b></p>
+<p>It </p>
+<p>handles </p>
+<p>message </p>
+<p>reception, </p>
+<p>transmission, </p>
+<p>event </p>
+<p>and </p>
+<p>periodic </p>
+<p>messages, </p>
+<p>manages Virtual Network initialization and fault detection (signal faults, VN faults). </p>
+<p><b>Transport Protocol </b></p>
+<p>The Transport Protocol implements the requirements of GMLAN network layer and </p>
+<p>is primarily used for diagnostics. It manages large data transfers using USDT with </p>
+<p>data size up to 4095 bytes. The Transport Protocol is based on ISO 15765. </p>
+<p><b>GMLAN Network Management </b></p>
+<p>It  handles  both  node  and  network  management,  manages  communication  states </p>
+<p>(active, enabled, sleep). It manages node states (power up, sleep, wake up) and </p>
+<p>the virtual networks. It also handles the use of the VNMF message. </p>
+<p><b>Configuration Tool</b> </p>
+<p>It  is  PC-based  and  operates  with  Windows  2000/XP.  The  configuration  tool  is </p>
+<p>delivered with the GMLAN Software Components and is used to scale the software </p>
+<p>down to your specific needs, to optimize the use of ROM / RAM resources and to </p>
+<p>select the GMLAN features that require integration into your ECU. </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The CAN Driver and the Transport Protocol are standard components and are not GM-specific. </p>
+<p>The main difference of the GMLAN software stack in comparison with other OEM-specific stacks </p>
+<p>is the Interaction Layer / GMLAN Network Management and the concepts of the virtual networks. </p>
+<p> </p>
+<p><b>Additional components, optional available: </b></p>
+<p><b>Diagnostics - CANdesc</b> </p>
+<p>  <b>HIGHLY RECOMMENDED by GM!</b> </p>
+<p>This </p>
+<p>is </p>
+<p>a </p>
+<p>functional </p>
+<p>interface </p>
+<p>for </p>
+<p>diagnostic </p>
+<p>services </p>
+<p>based </p>
+<p>upon </p>
+<p>the </p>
+<p>CDD </p>
+<p>diagnostic  data  base  created  by  CANdelaStudio.  It  fulfills  the  requirements  of </p>
+<p>GMW3110, </p>
+<p>V1.5 </p>
+<p>and </p>
+<p>handles </p>
+<p>direct </p>
+<p>processing </p>
+<p>of </p>
+<p>CAN-specific </p>
+<p>diagnostic </p>
+<p>requests (enable/disable normal message transmission), negative responses (e.g. </p>
+<p>service </p>
+<p>not </p>
+<p>available), </p>
+<p>exceptions </p>
+<p>(e.g. </p>
+<p>busy, </p>
+<p>request </p>
+<p>pending) </p>
+<p>and </p>
+<p>address </p>
+<p>handling  (detection  of  response  service  identification).  It  also  supports  UUDT-</p>
+<p>message  transmission.  Testing  of  diagnostic  is  easy  using  CANdito,  CANoe  or </p>
+<p>CANape  </p>
+<p><b>Communication Control Layer CCL </b></p>
+<p>It supports integration of the software components CAN Driver, Interaction Layer, </p>
+<p>Network Management, Transport Protocol and Diagnostics. </p>
+<p>Also it provides an abstraction for different vehicle manufacturers, microcontrollers, </p>
+<p>compiler/linker, </p>
+<p>CAN </p>
+<p>controllers </p>
+<p>/ </p>
+<p>transceivers. </p>
+<p>It </p>
+<p>supports </p>
+<p>a </p>
+<p>global </p>
+<p>debug </p>
+<p>mechanism and is configured via the configuration tool. </p>
+<p><b>Measurement and Calibration (CCP/XCP) </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>10 / 32 </p>
+<p>The  CCP/XCP  is  a  high  performance  CAN-based  monitor  program.  It  supports </p>
+<p>memory read / write and calibration activities and provides data acquisition. It can </p>
+<p>also  be  used  for  flash  programming  and  data  security.  It  works  with  Vector’s </p>
+<p>CANape tool. </p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>Virtual Networks </b></p>
+<p>In general the ECUs form a network where every ECU is a network node.  </p>
+<p>The concept of GMLAN Network Management groups distributed functions into so-</p>
+<p>called Virtual Networks (VNs). </p>
+<p> </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>2-2 Virtual Networks </p>
+<p> </p>
+<p><b>What comes along with this concept? </b></p>
+<p></p>
+<p> </p>
+<p>Each VN is a functional entity of GMLAN. </p>
+<p></p>
+<p> </p>
+<p>The location of a VN or parts of it is independent of the physical partitioning </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>11 / 32 </p>
+<p></p>
+<p> </p>
+<p>The VNs are spread over the different ECUs. An ECU can only go to sleep </p>
+<p>mode, if all VNs inside are asleep.  </p>
+<p></p>
+<p> </p>
+<p>Each VN handles its related signals, the use of the network and may include </p>
+<p>sleep/wakeup. </p>
+<p></p>
+<p> </p>
+<p>Related signals are grouped according to their function </p>
+<p></p>
+<p> </p>
+<p>A message can contain signals of different VNs. There must be a decision </p>
+<p>whether a signal of a VN is valid (VN awake) or not (VN sleeps). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>12 / 32 </p>
+<p><b>3 </b></p>
+<p><b>Your ECU </b></p>
+<p>Before you start with implementing GMLAN Software Components take a look at </p>
+<p>the ECU you have to develop regarding the following questions: </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Is it a <b>Body Bus </b>ECU? With Single Wire CAN and mixed IDs (11bit and 29bit) </p>
+<p>or 11 bit IDs only? Is it a multiple Identity ECU?  </p>
+<p></p>
+<p> </p>
+<p>Is it an <b>Infotainment</b> ECU?  </p>
+<p></p>
+<p> </p>
+<p>Is it a <b>Powertrain</b> ECU?  </p>
+<p>The above mentioned kinds of ECUs and bus systems have many settings in </p>
+<p>common and differ in special settings. </p>
+<p>The following installation description shows typical configurations including the </p>
+<p>differences for the three mentioned cases. </p>
+<p><b>3.1 </b></p>
+<p><b>Body Bus ECU </b></p>
+<p><b>Single Wire CAN Mixed Identifiers (11bit and 29bit) </b></p>
+<p></p>
+<p> </p>
+<p>Typically 33.333 kBaud </p>
+<p></p>
+<p> </p>
+<p>1 wire ( bus communication possible while other ECUs are in sleep mode) </p>
+<p></p>
+<p> </p>
+<p>2 initialization objects predefined: 33.333 kBaud and 83.333 kBaud for flashing </p>
+<p></p>
+<p> </p>
+<p>29 bit application messages </p>
+<p></p>
+<p> </p>
+<p>Source Learning </p>
+<p></p>
+<p> </p>
+<p>Flexible monitoring of receive messages </p>
+<p><b>Single Wire CAN 11 Bit Identifier </b></p>
+<p></p>
+<p> </p>
+<p>Typically 33.333 kBaud </p>
+<p></p>
+<p> </p>
+<p>1 wire ( bus communication possible while other ECUs are in sleep mode) </p>
+<p></p>
+<p> </p>
+<p>2 initialization objects predefined: 33.333 kBaud and 83.333 kBaud for flashing </p>
+<p><b>Multiple ECU on Single Wire CAN </b></p>
+<p></p>
+<p> </p>
+<p>Used for nodes that exist more than once in a car with only a few differences </p>
+<p></p>
+<p> </p>
+<p>At power up the application decides by means of a function call (see below), </p>
+<p>which node should be realized, e.g. left passenger door, or right driver door. </p>
+<p></p>
+<p> </p>
+<p>To reduce the memory consumption messages that are sent exclusively from </p>
+<p>one node can be overlapped with the exclusively sent messages from the other </p>
+<p>nodes. The result of this overlapping is that all these messages share a </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>13 / 32 </p>
+<p>common memory location for the transmit data. This can be configured </p>
+<p>manually in the <b>Send message </b>tab in the Configuration Tool. </p>
+<p><b>3.2 </b></p>
+<p><b>Infotainment ECU </b></p>
+<p></p>
+<p> </p>
+<p>CAN Class C </p>
+<p></p>
+<p> </p>
+<p>125 kBaud </p>
+<p></p>
+<p> </p>
+<p>2 wires </p>
+<p></p>
+<p> </p>
+<p>Able to be woken up </p>
+<p></p>
+<p> </p>
+<p>Mixed IDs </p>
+<p><b>3.3 </b></p>
+<p><b>PowerTrain ECU (or Chassis expansion or Powertrain expansion) </b></p>
+<p></p>
+<p> </p>
+<p>CAN Class C </p>
+<p></p>
+<p> </p>
+<p>500 kBaud </p>
+<p></p>
+<p> </p>
+<p>2 wires </p>
+<p></p>
+<p> </p>
+<p>Clamp 15 with and without follow-up time </p>
+<p></p>
+<p> </p>
+<p>Shared local-input activated VN </p>
+<p></p>
+<p> </p>
+<p>Special bus off recovery time </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>14 / 32 </p>
+<p><b>4 </b></p>
+<p><b>GMLAN In 6 Steps </b></p>
+<p><b>STEP 1 :  PREPARE YOUR SOFTWARE PROJECT</b>  </p>
+<p>Create folders in your application to store the delivered source code components and </p>
+<p>the generated files in. </p>
+<p> </p>
+<p> </p>
+<p><b>STEP 2:  </b></p>
+<p><b>CONFIGURATION TOOL AND DATA BASE FILE  </b></p>
+<p>Read-in the data base files that should be provided from your OEM (DBC file / CDD file </p>
+<p>for diagnostics) in the Configuration Tool and make the configuration settings for the </p>
+<p>CANbedded Software Components. </p>
+<p> </p>
+<p> </p>
+<p><b>STEP 3: </b></p>
+<p><b>ADD FILES TO YOUR APPLICATION</b> </p>
+<p>Add the CANbedded C and H files to your project or makefile. </p>
+<p> </p>
+<p> </p>
+<p><b>STEP 4:  </b></p>
+<p><b>ADAPTATIONS FOR YOUR APPLICATION </b></p>
+<p>Now </p>
+<p>your </p>
+<p>application </p>
+<p>files </p>
+<p>must </p>
+<p>be </p>
+<p>modified </p>
+<p>to </p>
+<p>use </p>
+<p>the </p>
+<p>CANbedded </p>
+<p>Software </p>
+<p>Components (includes, cyclic calls, initialization) and do the call back functions</p>
+<p>. </p>
+<p> </p>
+<p> </p>
+<p><b>STEP 5:  </b></p>
+<p><b>COMPILE AND LINK </b></p>
+<p>Compile  and  link  the  complete  project  and  download  it  to  your  test  hardware  or </p>
+<p>development environment. </p>
+<p> </p>
+<p> </p>
+<p><b>STEP 6:  </b></p>
+<p><b>TEST THE SOFTWARE COMPONENT </b></p>
+<p>Test the software via a suitable test environment. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>15 / 32 </p>
+<p><b>4.1 </b></p>
+<p><b>STEP 1    Prepare Your Software Project </b></p>
+<p>Following  the  GM_Readme  document  you  have  already  installed  the  delivered </p>
+<p>GMLAN  Software  Implementation  package.  To  use  the  GMLAN  components  for </p>
+<p>your application copy the needed component source code into your project folder.  </p>
+<p>Normally these are the following component folders: </p>
+<p> </p>
+<p>This includes the code for the CAN Driver, the Interaction Layer, the Network </p>
+<p>Management (GMLAN) and the Transport Protocol.  </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>For the diagnostic there is an additional software component of Vector Informatik available - </p>
+<p>CANdesc. This component is completely generated; you won’t find any source code in your </p>
+<p>delivery. </p>
+<p> </p>
+<p> </p>
+<p>A folder <b>gendata </b>is optional but recommended to be the target for all the data that </p>
+<p>is generated by the Configuration Tool. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>16 / 32 </p>
+<p><b>4.2 </b></p>
+<p><b>STEP 2    Configuration Tool GENy and DBC File </b></p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>Use the online help of the configuration tool GENy for more information about using GENy and its </p>
+<p>concepts. You additionally find a comparison between GENy and CANgen.  </p>
+<p> </p>
+<p>Start </p>
+<p>the </p>
+<p>Configuration </p>
+<p>Tool </p>
+<p>GENy.exe. </p>
+<p>Select </p>
+<p>pre-configuration </p>
+<p>file, </p>
+<p>microcontroller, derivative and compiler in the first <b>Setup Dialog </b>window.  </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-1 Setup Dialog </p>
+<p>The <b>Preconfiguration </b>selection determines which settings are preset in GENy and </p>
+<p>which settings are not shown at all. This makes configuration for you very easy.  </p>
+<p>There is available:  </p>
+<p></p>
+<p> </p>
+<p>Bodybus </p>
+<p></p>
+<p> </p>
+<p>Infotainment </p>
+<p></p>
+<p> </p>
+<p>Powertrain </p>
+<p> </p>
+<p>Then go on with adding a data base file using the green plus  </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-2 Add data base file for a certain bus system, here CAN. </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The DBC file is designed by the vehicle manufacturer and distributed to all suppliers that develop an </p>
+<p>ECU. Thus every supplier uses the SAME DBC file for one vehicle platform and one bus system </p>
+<p>(powertrain, body CAN etc.) to guarantee a common basis for development. </p>
+<p>The DBC file contains e.g. information about every node in the network, the messages/signals each </p>
+<p>node has to send or to receive. The distribution of the signals among the messages is stored in the </p>
+<p>DBC file, too. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>17 / 32 </p>
+<p>As you will use a </p>
+<p>different data </p>
+<p>base file you will </p>
+<p>get more and </p>
+<p>other data base </p>
+<p>nodes displayed.  </p>
+<p> </p>
+<p>Use the browse button <b>[…] </b>to select your data base file (DBC).  </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-3 Channel Setup Window </p>
+<p> </p>
+<p>The Nodes list shows all available ECUs within the CAN network. Select yours. </p>
+<p> </p>
+<p><b>Caution for Multiple ECUs </b></p>
+<p>Use the &lt;Strg&gt; key to mark more than one ECU in the Nodes </p>
+<p>list box then the Multiple Nodes section will be accessible. </p>
+<p>Confirm with <b>[OK]</b>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>18 / 32 </p>
+<p><b>4.2.1 </b></p>
+<p><b>Setting of Generation Paths  </b></p>
+<p>Open  the  menu <b> Configuration|Generation  Paths… </b> to  set  the  paths  where  the </p>
+<p>Configuration Tool has to generate the files in. Here we use the folder <b>gendata </b>to </p>
+<p>collect all generated files. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-4 Paths To Generate Files to destined folders </p>
+<p>Enter your <b>Root Path for relative directories</b>. Additionally you can add extra path </p>
+<p>extensions  below  the <b> Path </b> column.  Always  make  sure  that  the <b> Resolved  Path </b></p>
+<p>points to the correct path! </p>
+<p><b>4.2.2 </b></p>
+<p><b>Component Selection </b></p>
+<p>Use the Component Selection to choose all components you need for your project. </p>
+<p>The screenshot below shows a possible selection.  </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-5 Component Selection </p>
+<p><b>4.2.3 </b></p>
+<p><b>Tree view – A List of all selected components </b></p>
+<p>All </p>
+<p>components </p>
+<p>selected </p>
+<p>before </p>
+<p>are </p>
+<p>now </p>
+<p>displayed </p>
+<p>in </p>
+<p>the </p>
+<p><b>Tree </b></p>
+<p><b>View </b> below </p>
+<p><b>MyECU|Components</b>.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>19 / 32 </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-6 Tree View of all selected components </p>
+<p>Now  select  the  different  components  to  perform  their  individual  configuration  in </p>
+<p>their <b>Configuration View </b>right besides the <b>Tree View</b>. </p>
+<p><b>4.2.4 </b></p>
+<p><b>HW_&lt;microcontroller&gt;  </b></p>
+<p>This contains the hardware specific CAN driver settings for your controller. Refer to </p>
+<p>the manual TechnicalReference_CANDriver_&lt;hardware&gt;.pdf and to your controller </p>
+<p>manual for more information. </p>
+<p><b>4.2.5 </b></p>
+<p><b>Nm_Gmlan_Gm </b></p>
+<p>These settings are derived from the data base file. For this first start-up you can </p>
+<p>work with the default settings. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>20 / 32 </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-7 Settings for GMLAN </p>
+<p>All necessary settings for the VNs are already done derived from the data base file.  </p>
+<p> </p>
+<p><b>Info </b></p>
+<p>Attributes are<b> </b>defined in the data base to specify the characteristics of a network, an ECU, a </p>
+<p>network node, a message or a signal. These settings are common for all ECUs that are based upon </p>
+<p>this data base file.  </p>
+<p>E.g. the attribute <b>NetworkType </b>can only be modified in the data base file (dbc). It can be set to </p>
+<p><b>PowerTrain </b>or <b>BodyBus </b>and determines whether it is a CAN Class C or a CAN single wire CAN. </p>
+<p> </p>
+<p><b>4.2.6 </b></p>
+<p><b>Tp_Iso15765 </b></p>
+<p>You  need  the  Transport  Protocol  normally  for  diagnostic  purposes  only.  Use  the </p>
+<p>default. </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>For more information about the settings of the transport protocol for your individual </p>
+<p>needs, refer to the TechnicalReference_TPMC.pdf or the UserManual_TP_GM.pdf. </p>
+<p> </p>
+<p><b>4.2.7 </b></p>
+<p><b>Diagnostics – Diag_CanDesc_KWP </b></p>
+<p>If you use diagnostic component select it in the <b>Component Selection </b>view. </p>
+<p> Read-in an appropriate CDD file and use the default settings.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>21 / 32 </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-8 Path to the CDD file on the Configuration View of Diag_CanDesc_KWP </p>
+<p>The CDD file has to be created and edited with the Vector Tool CANdelaStudio. </p>
+<p> </p>
+<p><b>4.2.8 </b></p>
+<p><b>DrvCan_&lt;microcontroller&gt; </b></p>
+<p>There is the access point for two very important setting, the bus timing registers </p>
+<p>and the acceptance registers.  </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-9 Acceptance Filters and Bus timing are channel-dependent settings </p>
+<p>As bus timing register and acceptance register settings are channel-dependant, the </p>
+<p>buttons  to  open  the  appropriate  windows <b> […] </b> can  be  found  in  the  configuration </p>
+<p>view of the channels.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>22 / 32 </p>
+<p> </p>
+<p><b>Bus timing registers </b></p>
+<p>The  values  for  the  bus  timing  registers  are  preset  via  data  base  attributes  and </p>
+<p>should  be  33.333  kBaud  for  Single  Wire  CAN  and  500  kBaud  for  PowerTrain. </p>
+<p>Check those values again.  </p>
+<p>Enter the correct value for the Clock [kHz] of your hardware. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-10 </p>
+<p>CAN Bus Timing Register Setup </p>
+<p><b>Acceptance registers </b></p>
+<p>Per default the acceptance registers are set to be open. <b>Optimize filters… </b>to get a </p>
+<p>minimum of non-relevant messages into your system. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>23 / 32 </p>
+<p><b>4.2.9 </b></p>
+<p><b>Settings are Finished </b></p>
+<p>After the settings are done start the generation process of the tool via the yellow </p>
+<p>flash button. </p>
+<p>Use the views <b>Generated Files </b>and <b>Messages </b>to get information during and after </p>
+<p>the generation process. </p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>4-11 </p>
+<p>Success Window containing Information about Generated Files. </p>
+<p><b>Messages </b></p>
+<p>In the messages view the generation process puts out necessary information like </p>
+<p>what has been done correctly or which errors occurred.  </p>
+<p>GENy  e.g.  checks  whether  all  receive  messages  of  your  ECU  will  pass  the </p>
+<p>acceptance filters.  If not,  a  warning  will  be  displayed,  containing  the message(s) </p>
+<p>that won’t pass the filter.  </p>
+<p><b>Generated Files </b></p>
+<p>This  view  displays  all  generated  files  and  the  path,  where  the  files  have  been </p>
+<p>written to. A good chance to check the correctness of your path settings again.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>24 / 32 </p>
+<p>This is optional </p>
+<p>and only used to </p>
+<p>cut down the </p>
+<p>message set. </p>
+<p>For 29-bit IDs </p>
+<p>only </p>
+<p><b>4.3 </b></p>
+<p><b>STEP 3    Add Files to Your Application </b></p>
+<p>Now you have to add the files of GMLAN Software Components to your application </p>
+<p>files in your project or makefile.  </p>
+<p>This includes </p>
+<p></p>
+<p> </p>
+<p>delivered <b>source code </b>files and (see the list of files in GM_Readme.pdf) </p>
+<p></p>
+<p> </p>
+<p><b>generated </b>files in the <b>gendata </b>folder </p>
+<p> </p>
+<p> </p>
+<p><b>4.4 </b></p>
+<p><b>STEP 4  </b></p>
+<p><b>Adaptations For Your Application </b></p>
+<p>To  use  the  GMLAN  Software  Components  you  have  to  do  a  few  adaptations  to </p>
+<p>your application code.  </p>
+<p><b>4.4.1 </b></p>
+<p><b>Includes </b></p>
+<p>The only file you have to include is </p>
+<p>il_inc.h</p>
+<p>. </p>
+<p><b>#include “il_inc.h”</b></p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>4.4.2 </b></p>
+<p><b>Initialization </b></p>
+<p>/* make sure all interrupts are disabled*/ </p>
+<p><b>CanInitPowerOn();  /*If this initialization is  </b></p>
+<p><b>                     demanded to be done from the NM, you do not have to    </b></p>
+<p><b>                     call it.  </b></p>
+<p><b>                     The selection above can be done in the Generation  </b></p>
+<p><b>                     Tool*/ </b></p>
+<p><b>IlInitPowerOn(); </b></p>
+<p><b>TpInitPowerOn(); </b></p>
+<p><b>DescInitPowerOn();   /*optional, if CANdesc is used*/ </b></p>
+<p> </p>
+<p>/*Enable or Disable <b>RX </b>Messages based on Calibrations*/ </p>
+<p><b>IlSetRxMessageEnable(&lt;Rx_Message_Name&gt;, 0 or 1 for on or off); </b></p>
+<p> </p>
+<p>/*Enable or Disable <b>TX </b>Messages based on Calibrations*/ </p>
+<p><b>IlSetTxMessageEnable(&lt;Rx_Message_Name&gt;, 0 or 1 for on or off); </b></p>
+<p> </p>
+<p><b>IlSetOwnNodeAddress(SWCAN, &lt;srcAddress&gt;); </b></p>
+<p> </p>
+<p>/*Get learnt source IDs from EEPROM (single channel system)*/ </p>
+<p><b>for( index=0; index&lt;kIlNumberOfExtIdRxObjects; index++) </b></p>
+<p><b>{ </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>25 / 32 </p>
+<p><b>  IlSetRxMessageSourceAddress(index, GetBLearnedSourceId(index)); </b></p>
+<p><b>} </b></p>
+<p><b> </b></p>
+<p><b>4.4.3 </b></p>
+<p><b>Cyclic calls to keep the components running </b></p>
+<p>The CAN Driver is the only component that is event triggered and that does not </p>
+<p>need  a  cyclic  call  to  work  properly  (except  for  the  CAN  Driver  used  in  polling </p>
+<p>mode). </p>
+<p>All other components provide a task function that you have to call in the correct call </p>
+<p>cycle that is entered in the Configuration Tool for each component.  </p>
+<p> </p>
+<p>/*Network Management task*/ </p>
+<p><b>IlNwmTask();   </b></p>
+<p><b> </b></p>
+<p>/*Interaction Layer tasks, separated in Tx and Rx*/ </p>
+<p><b>IlRxTask();   </b></p>
+<p><b>IlTxTask(); </b></p>
+<p><b> </b></p>
+<p>/*Transport Protocol tasks, separated in Tx and Rx*/ </p>
+<p><b>TpRxTask(); </b></p>
+<p><b>TpTxTask(); </b></p>
+<p> </p>
+<p>/*Diagnostics task - CANdesc*/</p>
+<p><b> </b></p>
+<p><b>DescTask(); </b></p>
+<p><b> </b></p>
+<p><b>4.4.4 </b></p>
+<p><b>Provide Callback functions </b></p>
+<p>The GMLAN Software Components call the application on internal events. For this </p>
+<p>case  there  are  callback  functions  to  enable  the  application  to  know  about  the </p>
+<p>program  flow  and  to  intervene  if  necessary.  These  callback  functions  must  be </p>
+<p>provided by the application. For the first attempt in most of the cases it is enough to </p>
+<p>provide an empty callback function.  </p>
+<p> </p>
+<p>Callback functions for the Interaction Layer </p>
+<p><b>void  ApplIlNodeCommActiveFailed(  vuint8  srcAddress  ){}  /*for  mixed  IDs  </b></p>
+<p><b>                                                           only*/ </b></p>
+<p><b> </b></p>
+<p><b>void </b></p>
+<p><b>ApplIlRxMsgSrcAddressLearned( </b></p>
+<p><b>IlReceiveHandle </b></p>
+<p><b>ilRxHnd, </b></p>
+<p><b>vuint8 </b></p>
+<p><b>srcAddress ){}   /*for mixed IDs only*/ </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>26 / 32 </p>
+<p><b>void ApplIlNodeCommActiveRecovery( vuint8 srcAddress ){}  /*for mixed IDs  </b></p>
+<p><b>                                                            only*/ </b></p>
+<p><b> </b></p>
+<p><b>void ApplIlSourceAddressLearned( vuint8 srcAddress ){}     /*for mixed IDs  </b></p>
+<p><b>                                                           only*/</b></p>
+<p><b> </b></p>
+<p>Callback functions for the Diagnostics </p>
+<p><b>This depends on the selected diagnostic functions.  </b></p>
+<p><b> </b></p>
+<p>Callback functions for the Network Management </p>
+<p><b>canuint8 ApplNwmSleepConfirmation( NM_CHANNEL_APPLTYPE_ONLY ) </b></p>
+<p><b>{ </b></p>
+<p><b>  return NmSleepOk; </b></p>
+<p><b>} </b></p>
+<p><b> </b></p>
+<p><b>void ApplNwmReinitRequest( NM_CHANNEL_APPLTYPE_FIRST  unsigned char VnNr, </b></p>
+<p><b>unsigned char ReinitRequest ){} </b></p>
+<p><b> </b></p>
+<p><b>void ApplTrcvrNormalMode( NM_CHANNEL_APPLTYPE_ONLY ){} </b></p>
+<p><b> </b></p>
+<p><b>void ApplTrcvrSleepMode( NM_CHANNEL_APPLTYPE_ONLY ){} </b></p>
+<p><b> </b></p>
+<p><b>void ApplTrcvrHighVoltage( NM_CHANNEL_APPLTYPE_ONLY ){} </b></p>
+<p><b> </b></p>
+<p><b>void ApplNwmVnDeactivated( NM_CHANNEL_APPLTYPE_FIRST  unsigned char VnNr </b></p>
+<p><b>){} </b></p>
+<p><b> </b></p>
+<p><b>void  ApplNwmVnActivated(  NM_CHANNEL_APPLTYPE_FIRST    unsigned  char  VnNr </b></p>
+<p><b>){} </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>27 / 32 </p>
+<p><b>4.5 </b></p>
+<p><b>STEP 5  </b></p>
+<p><b>Compile And Link </b></p>
+<p>Now  we  compile  and  link  the  project.  There  should  not  be  any  errors  or  linker </p>
+<p>problems. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.6 </b></p>
+<p><b>STEP 6  </b></p>
+<p><b>Test the Software Component </b></p>
+<p>To test the result download the executable to an appropriate target and test it e.g. </p>
+<p>with CANoe. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>28 / 32 </p>
+<p><b>5 </b></p>
+<p><b>Further Information  </b></p>
+<p><b>5.1 </b></p>
+<p><b>Full CAN Message Transmission with Extended Ids </b></p>
+<p>A  29bit  message  in  GMLAN  is  build-up  as  shown.  The  lower  8  bits  (Source </p>
+<p>Address) are set by the CAN Driver.  </p>
+<p>Priority: </p>
+<p>3 bits</p>
+<p>Parameter ID: </p>
+<p>13 bits</p>
+<p>Reserved: </p>
+<p>5 bits</p>
+<p>Source Address: </p>
+<p>8 bits</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-1 Extended CAN Identifier 29bit </p>
+<p>If the message is a full CAN message the source address will not be written by the </p>
+<p>CAN  Driver  as  the  full  CAN  messages  are  initialized  at  startup.  There  are  two </p>
+<p>strategies dealing with full CAN messages: </p>
+<p></p>
+<p> </p>
+<p>Avoid putting extended ID messages to a full CAN object </p>
+<p></p>
+<p> </p>
+<p>Use a pretransmit function to set the source address for every full CAN </p>
+<p>transmission by hand. The disadvantage is the delay time for calling the </p>
+<p>function and setting the source address. </p>
+<p><b>Info </b></p>
+<p>It would be sufficient to set the source address only once after initialization of the full CAN transmit </p>
+<p>objects. </p>
+<p> </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>Take care when working with VNs </b></p>
+<p><b>Caution </b></p>
+<p>An IlSetEvent for transmitting a corresponding message will be deleted if the ECU is still sleeping. </p>
+<p> </p>
+<p>The  transmission  of  messages  caused  by  an  event  has  to  be  handled  by  the </p>
+<p>application. For this case the application has to perform an </p>
+<p>IlPut</p>
+<p> to put in the new </p>
+<p>value  of  the  signal  and  an </p>
+<p>IlSetEvent</p>
+<p>  to  trigger  the  actual  sending  of  the </p>
+<p>corresponding message. </p>
+<p>A  state  transition  of  the  Interaction  Layer  from  suspended  to  running  mode  will </p>
+<p>reset the settings of the Interaction Layer including all pending </p>
+<p>IlSetEvents</p>
+<p>.  </p>
+<p>A state transition will be performed every time a node wakes up.  </p>
+<p><b>Solution </b></p>
+<p>An </p>
+<p>IlSetEvent</p>
+<p>  should  only  be  performed  if  the  Interaction  Layer  is  in  running </p>
+<p>mode.  Use  the  function   </p>
+<p>IlNwmGetStatus</p>
+<p>  to  check  the  state  of  the  Interaction </p>
+<p>Layer.  </p>
+<p> </p>
+<p><b>If( IlNwmStateNMActive( IlNwmGetStatus() ) ) == 1 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>29 / 32 </p>
+<p><b>{ </b></p>
+<p><b>  IlSetEvent… </b></p>
+<p><b>} </b></p>
+<p><b> </b></p>
+<p>Another  solution  would  be  to  use  the <b> StateOn  flags </b> for  signals.  They  can  be </p>
+<p>activated in the Configuration Tool on the tab <b>Send signals </b>and look like e.g.  </p>
+<p><b>ILGetTxDgnInfStateOn(); </b></p>
+<p>It returns a true value (0x01) if the corresponding VN is active. Then you could set </p>
+<p>your event, too. </p>
+<p> </p>
+<p><b>5.3 </b></p>
+<p><b>Validity of Signals </b></p>
+<p>There are three mechanisms to define a signal to be valid or to be invalid. </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Timeout – message timeout, signal timeout --&gt; flag or function, Configuration </p>
+<p>Tool </p>
+<p></p>
+<p> </p>
+<p>Validity bit in the same message as the signal </p>
+<p></p>
+<p> </p>
+<p>VDA – Virtual device availability </p>
+<p> </p>
+<p>To  find  out  which  signal  is  using  which  of  the  three  mechanisms  refer  to  your </p>
+<p>specification.  </p>
+<p>Before you use the content of a signal do the testing if the signal is valid right now. </p>
+<p> </p>
+<p><b>5.4 </b></p>
+<p><b>Signals assigned to different VNs and located in one message </b></p>
+<p>Lets suppose that a message contains signals that are assigned to different VNs. </p>
+<p>One VN is active the other VN is inactive.  </p>
+<p> </p>
+<p>CAN Message  </p>
+<p>data</p>
+<p>data</p>
+<p>data</p>
+<p>data</p>
+<p>data</p>
+<p>data</p>
+<p>data</p>
+<p>data</p>
+<p>Signal2( <b>VN2</b> )</p>
+<p>Signal1( <b>VN1</b> )</p>
+<p>VN1 is active</p>
+<p>VN2 is inactive</p>
+<p> </p>
+<p>Figure </p>
+<p> </p>
+<p>5-2 Signals of Different VNs in One Message </p>
+<p>As a result the confirmation and indication flags of the Signal2 (inactive VN) could </p>
+<p>be set regardless that the corresponding VN is inactive. Transmission of this signal </p>
+<p>is possible too and an </p>
+<p>IlSetEvent</p>
+<p> will provoke the transmission of the message </p>
+<p>triggered by an inactive VN. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>30 / 32 </p>
+<p>The other ECUs know that the message had been sent by an inactive VN and that </p>
+<p>the corresponding signals are invalid. </p>
+<p><b>Suggestion </b></p>
+<p>You could check before the </p>
+<p>IlSetEvent</p>
+<p> if the corresponding VN is active or not. </p>
+<p> </p>
+<p><b>5.5 </b></p>
+<p><b>Source Learning for Single Wire CAN with Mixed Identifiers (11 bit and </b></p>
+<p><b>29 bit) </b></p>
+<p>The reason for the source learning mechanism is a flexible monitoring of the </p>
+<p>receive messages. </p>
+<p>Received messages are learned and this information is stored in an array by the </p>
+<p>Interaction Layer. The application is informed about new learned entries via </p>
+<p>callback functions  </p>
+<p>( </p>
+<p>ApplIlRxMsgSrcAddressLearned, ApplIlSourceAddressLearned</p>
+<p><b> </b>).  </p>
+<p> </p>
+<p>The application only has to store this array in a non-volatile memory and update </p>
+<p>that array at startup time with the values from the non-volatile memory. </p>
+<p>Refer to TechnicalReference_InteractionLayer_GM.pdf in the chapter “Dealing with </p>
+<p>extended IDs” for more information. </p>
+<p><b>5.6 </b></p>
+<p><b>Activation and deactivation of VNs </b></p>
+<p>The </p>
+<p>Virtual </p>
+<p>Networks </p>
+<p>are </p>
+<p>activated </p>
+<p>or </p>
+<p>deactivated </p>
+<p>either </p>
+<p>by </p>
+<p>the </p>
+<p>network </p>
+<p>management (initially  active) or by the application. This also depends on the VN </p>
+<p>configuration. </p>
+<p>VN configuration:  </p>
+<p></p>
+<p> </p>
+<p>Activator </p>
+<p></p>
+<p> </p>
+<p>Remotely Activated </p>
+<p></p>
+<p> </p>
+<p>Local </p>
+<p></p>
+<p> </p>
+<p>Initially Active </p>
+<p><b>5.6.1 </b></p>
+<p><b>IlNwmActivateVN( channel, VN) </b></p>
+<p>Via  this  function  you  activate  a  virtual  network.  Only  VNs  that  are  configured  as </p>
+<p>activator or local can be manually activated with this function. With it the Interaction </p>
+<p>Layer is activated to send and receive messages/signals. </p>
+<p><b>5.7 </b></p>
+<p><b>llNwmDeactivateVN </b></p>
+<p>Deactivates  the  corresponding  virtual  network  and  stops  Interaction  Layer  from </p>
+<p>transmitting.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Startup with GMLAN </p>
+<p> </p>
+<p></p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.0.1 </p>
+<p> </p>
+<p>based of template version 2.0 </p>
+<p>1 / 32 </p>
+<p><b>6 </b></p>
+<p><b>Index </b></p>
+<p>Acceptance registers .................................. 22 </p>
+<p>Bus timing registers .................................... 22 </p>
+<p>callback functions ....................................... 25 </p>
+<p>CAN Driver .................................................... 8 </p>
+<p>CAN driver (Advanced) ............................... 18 </p>
+<p>CANdesc ..................................................... 15 </p>
+<p>Communication Control Layer CCL .............. 9 </p>
+<p>Compile ....................................................... 27 </p>
+<p>Configuration Tool .... 9, 14, 15, 16, 18, 25, 29 </p>
+<p>Cyclic calls .................................................. 25 </p>
+<p>DBC ............................................................ 16 </p>
+<p>dbc file......................................................... 16 </p>
+<p>Diagnostics - CANdesc ................................. 9 </p>
+<p>gendata ........................................... 15, 18, 24 </p>
+<p>generated files ...................................... 18, 24 </p>
+<p>Generation Paths ........................................ 18 </p>
+<p>GENy .......................................................... 16 </p>
+<p>GM_Readme .............................................. 15 </p>
+<p>GMLAN Network Management ..................... 9 </p>
+<p>GMLAN options .......................................... 19 </p>
+<p>IlSetEvent ....................................... 28, 29, 30 </p>
+<p>Includes....................................................... 24 </p>
+<p>Init registers ................................................ 21 </p>
+<p>Initialization ................................................. 24 </p>
+<p>Interaction Layer ..................................... 9, 25 </p>
+<p>makefile ....................................................... 24 </p>
+<p>Measurement and Calibration (CCP/XCP) ... 9 </p>
+<p>Motivation ...................................................... 3 </p>
+<p>Multiple ECU ......................................... 12, 17 </p>
+<p>Network Management ................................. 26 </p>
+<p>project ......................................................... 24 </p>
+<p>Shared input activated VN .......................... 13 </p>
+<p>Signals ........................................................ 29 </p>
+<p>source code ................................................. 24 </p>
+<p>Source Learning .......................................... 30 </p>
+<p>STEP 1 .................................................. 14, 15 </p>
+<p>STEP 2 .................................................. 14, 16 </p>
+<p>STEP 3 .................................................. 14, 24 </p>
+<p>STEP 4 .................................................. 14, 24 </p>
+<p>STEP 5 .................................................. 14, 27 </p>
+<p>STEP 6 .................................................. 14, 27 </p>
+<p>Symbols ........................................................ 7 </p>
+<p>Test ............................................................. 27 </p>
+<p>TP options ................................................... 20 </p>
+<p>Transport Protocol......................................... 9 </p>
+<p>Validity of Signals ........................................ 29 </p>
+<p>VNs.............................................................. 28 </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

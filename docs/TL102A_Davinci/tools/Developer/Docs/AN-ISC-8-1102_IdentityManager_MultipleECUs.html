@@ -1,0 +1,1406 @@
+---
+layout: default
+title: AN-ISC-8-1102_IdentityManager_MultipleECUs
+nav_order: 7
+parent: Davinci (TL102A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p><b>Identity Manager - Multiple ECUs </b></p>
+<p><b>Version 1.6 </b></p>
+<p><b>2010-09-09 </b></p>
+<p><b>Application Note  AN-ISC-8-1102 </b></p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p>Author(s) </p>
+<p>Christian Weber, Hannes Futter, Marco Wierer </p>
+<p>Restrictions </p>
+<p>Customer confidential - Vector decides </p>
+<p>Abstract </p>
+<p>Configuration of Multiple ECUs with Vector's AUTOSAR BSW stack. </p>
+<p> </p>
+<p> </p>
+<p><i><b>Table of Contents </b></i></p>
+<p> </p>
+<p><b> 1  </b></p>
+<p><i>Copyright © 2010 - Vector Informatik GmbH </i></p>
+<p><b>Contact Information:   www.vector.com  or +49-711-80 670-0 </b></p>
+<p>1.0</p>
+<p> </p>
+<p>Overview ..........................................................................................................................................................1</p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>What is the “Identity Manager” about?..........................................................................................................2</p>
+<p> </p>
+<p>1.1.1</p>
+<p> </p>
+<p>Physical Multiple ECU ................................................................................................................................2</p>
+<p> </p>
+<p>1.1.2</p>
+<p> </p>
+<p>Multiple Configurations ECU.......................................................................................................................3</p>
+<p> </p>
+<p>1.1.3</p>
+<p> </p>
+<p>(Virtual Multiple ECU) .................................................................................................................................3</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Operation principle of Physical Multiple ECUs..............................................................................................3</p>
+<p> </p>
+<p>2.0</p>
+<p> </p>
+<p>Configuring a Multiple ECU .............................................................................................................................4</p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>ECUC creation (without overlay)...................................................................................................................4</p>
+<p> </p>
+<p>2.1.1</p>
+<p> </p>
+<p>What happens in the ECUC?......................................................................................................................5</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>ECUC Creation (with overlay) .......................................................................................................................6</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Overlay Control File.......................................................................................................................................7</p>
+<p> </p>
+<p>2.3.4</p>
+<p> </p>
+<p>Signal overlay .............................................................................................................................................8</p>
+<p> </p>
+<p>2.3.5</p>
+<p> </p>
+<p>Splitting the direction of PDUs....................................................................................................................9</p>
+<p> </p>
+<p>2.3.6</p>
+<p> </p>
+<p>Example ......................................................................................................................................................9</p>
+<p> </p>
+<p>2.4</p>
+<p> </p>
+<p>ECUC creation using DaVinci Project Assistant .........................................................................................11</p>
+<p> </p>
+<p>2.5</p>
+<p> </p>
+<p>Generating the RTE of a Multiple ECU .......................................................................................................11</p>
+<p> </p>
+<p>3.0</p>
+<p> </p>
+<p>Initialization of the BSW.................................................................................................................................11</p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Creation of the logic for identity selection ...................................................................................................12</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Prepare the ECUM configuration ................................................................................................................13</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Provide an user defined ECUM initialization function .................................................................................13</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Where do I find the initialization structures? ...............................................................................................15</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Overview of BSW module initialization........................................................................................................15</p>
+<p> </p>
+<p>4.0</p>
+<p> </p>
+<p>Diagnostics and Multiple ECU Support..........................................................................................................16</p>
+<p> </p>
+<p>5.0</p>
+<p> </p>
+<p>Supported use cases .....................................................................................................................................16</p>
+<p> </p>
+<p>6.0</p>
+<p> </p>
+<p>Restrictions and limitations ............................................................................................................................16</p>
+<p> </p>
+<p>7.0</p>
+<p> </p>
+<p>Additional resources ......................................................................................................................................17</p>
+<p> </p>
+<p>8.0</p>
+<p> </p>
+<p>Contacts .........................................................................................................................................................18</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.0 </b></p>
+<p><b>Overview </b></p>
+<p>This application note explains how to configure and use the “Multiple ECUs” feature in Vector AUTOSAR stacks. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>2 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p><b>1.1 </b></p>
+<p><b>What is the “Identity Manager” about? </b></p>
+<p>With the Identity Manager ECUs can be configured to run in different scenarios without major changes</p>
+<p>1</p>
+<p> in the </p>
+<p>software. The functionality provided by the Identity Manager is not covered by AUTOSAR explicitly. The use cases </p>
+<p>are:  </p>
+<p>•</p>
+<p> </p>
+<p>Physical Multiple ECU </p>
+<p>•</p>
+<p> </p>
+<p>Multiple Configurations ECU </p>
+<p>•</p>
+<p> </p>
+<p>(Virtual Multiple ECU) </p>
+<p> </p>
+<p>This document explains about how to use the Physical Multiple ECU feature. </p>
+<p><b>1.1.1 </b></p>
+<p><b>Physical Multiple ECU </b></p>
+<p>This aspect covers an ECU within a specific car line of an OEM. If there are several (&gt;1) almost identical instances </p>
+<p>of this ECU which are connected to the same vehicle network at the same time, they are called “Physical Multiple” </p>
+<p>ECUs or “Multiple ECUs” in short. </p>
+<p>Examples: Door Module (DM), Seat Module (SEAT), Adaptive Damping System (ADS) … </p>
+<p>In this application note, we’ll use the Door Modules with the following instances as an example: </p>
+<p>•</p>
+<p> </p>
+<p>Front Right DM_FR </p>
+<p>•</p>
+<p> </p>
+<p>Front Left DM_FL </p>
+<p>•</p>
+<p> </p>
+<p>Rear Right DM_RR </p>
+<p>•</p>
+<p> </p>
+<p>Rear Left DM_RL </p>
+<p> </p>
+<p>The physical control units are derived from a common class with respect to the functionality. Hence, all control unit </p>
+<p>instances derived from this class potentially support the same superset of the functional scope. The actual ECU </p>
+<p>instances will be configured according to the position they will have in the network topology when they are built into </p>
+<p>the car. </p>
+<p> According to the configuration there may be  </p>
+<p>•</p>
+<p> </p>
+<p>A different functional scope </p>
+<p>o</p>
+<p> </p>
+<p>E.g. different MMI (man machine interface) for each ECU instance: Mirror control or special window </p>
+<p>control  for  all  windows  only  on  the  Front  Left  Door  Module,  not  on  the  other  modules  (application </p>
+<p>dependent, not covered by this application note) </p>
+<p>•</p>
+<p> </p>
+<p>Different communication properties of the instances: </p>
+<p>o</p>
+<p> </p>
+<p>Own NM message to transmit </p>
+<p>o</p>
+<p> </p>
+<p>Own signals to transmit and to receive </p>
+<p>o</p>
+<p> </p>
+<p>Own messages to receive and to transmit </p>
+<p> </p>
+<p>The System Description of the OEM contains the instances of such Physical Multiple ECU. For each instance, the </p>
+<p>OEM creates a separate ECU Extract of System Description. This set of ECU Extracts is the configuration input of </p>
+<p>the Physical Multiple ECU. </p>
+<p>                                                           </p>
+<p>1</p>
+<p> no major changes means: No changes in the application, but there are changes in the initialization sequence of </p>
+<p>the basic software which are not covered by AUTOSAR </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>3 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p><b>1.1.2 </b></p>
+<p><b>Multiple Configurations ECU </b></p>
+<p>Across multiple car lines of an OEM, the communication behavior considerably differs. However, the Multiple </p>
+<p>Configurations ECU is shared among an OEM’s car lines. Therefore there must be a mechanism for the adaptation </p>
+<p>of this ECU to different environments, i.e. different car lines. </p>
+<p>Note: </p>
+<p>Multiple Configurations ECUs are currently not supported. </p>
+<p><b>1.1.3 </b></p>
+<p><b>(Virtual Multiple ECU) </b></p>
+<p>Virtual Multiple ECUs are control units which are only virtually separate ECUs from a logical point of view but </p>
+<p>residing inside one ECU hardware board. An example for this is a combined radio / gateway control unit. </p>
+<p>Note: </p>
+<p>Virtual Multiple ECUs are currently not supported. </p>
+<p><b>1.2 </b></p>
+<p><b>Operation principle of Physical Multiple ECUs </b></p>
+<p>identity2</p>
+<p>identity1</p>
+<p>identity2</p>
+<p>identity1</p>
+<p>identity2</p>
+<p>identity1</p>
+<p>Com</p>
+<p>PduR</p>
+<p>CanIf</p>
+<p>Can</p>
+<p>Rte</p>
+<p>id1</p>
+<p>id2</p>
+<p>id1</p>
+<p>id2</p>
+<p>id1</p>
+<p>id2</p>
+<p>PDU overlay</p>
+<p>RTE fan out</p>
+<p>IPDU</p>
+<p>IPDU</p>
+<p>IPDU</p>
+<p>IPDU</p>
+<p>IPDU</p>
+<p>ISIGs</p>
+<p>Superset DataElements</p>
+<p>Merged DataElements</p>
+<p>DataElements</p>
+<p>DataElements = System Signals</p>
+<p>Decision: </p>
+<p>IPDU Æ LPDU</p>
+<p>Merged </p>
+<p>ISIGs</p>
+<p>identity2</p>
+<p>identity1</p>
+<p>identity2</p>
+<p>identity1</p>
+<p>identity2</p>
+<p>identity1</p>
+<p>Com</p>
+<p>PduR</p>
+<p>CanIf</p>
+<p>Can</p>
+<p>Rte</p>
+<p>id1</p>
+<p>id1</p>
+<p>id2</p>
+<p>id2</p>
+<p>id1</p>
+<p>id1</p>
+<p>id2</p>
+<p>id2</p>
+<p>id1</p>
+<p>id1</p>
+<p>id2</p>
+<p>id2</p>
+<p>PDU overlay</p>
+<p>PDU overlay</p>
+<p>RTE fan out</p>
+<p>RTE fan out</p>
+<p>IPDU</p>
+<p>IPDU</p>
+<p>IPDU</p>
+<p>IPDU</p>
+<p>IPDU</p>
+<p>ISIGs</p>
+<p>Superset DataElements</p>
+<p>Merged DataElements</p>
+<p>DataElements</p>
+<p>DataElements = System Signals</p>
+<p>Decision: </p>
+<p>IPDU Æ LPDU</p>
+<p>Merged </p>
+<p>ISIGs</p>
+<p> </p>
+<p>Figure 1 – Overview of the Multiple ECU feature, Tx path shown only. </p>
+<p> </p>
+<p>In Figure 1, you see an example of the operation principle of a Multiple ECU. Here, the Tx path is shown. The </p>
+<p>leftmost column displays what happens if you have to configure a Multiple ECU sending out different CAN </p>
+<p>messages and cannot use any kind of optimization because the signals for each identity are different. For each set </p>
+<p>of signals which have to be sent, a separate PDU is created and mapped to a corresponding CAN frame which is </p>
+<p>actually sent out. This situation also applies if you have a PDU which is transmitted in one identity and received via </p>
+<p>a different identity. Then, despite having the same signals on application level, two PDUs are created, one for </p>
+<p>transmission in identity1, a second PDU for reception in identity2. </p>
+<p>However, if you have semantically equivalent signals sent in different CAN messages, there is room for </p>
+<p>optimization. This is shown in the middle column. Semantically equivalent signals can be merged into one common </p>
+<p>PDU, the transmission is done in different CAN frames, but their content is equal.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>4 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p>If the signal layout is not equivalent over the identities, this optimization is not possible (right column of Figure 1). </p>
+<p>Therefore separate PDUs have to be used. Additionally: There may be only one signal on system level which is </p>
+<p>sent in different PDUs as shown in the rightmost column. In this case the RTE provides the fan-out to the Com. </p>
+<p>Vectors implementation of the Multiple ECU feature incorporates overlaying of PDUs as well as RTE fan in/out </p>
+<p>(signal overlay). </p>
+<p><b>2.0 </b></p>
+<p><b>Configuring a Multiple ECU </b></p>
+<p>Before you start with the BSW configuration, you have to create a valid initial active ECU configuration based on a </p>
+<p>collection of all required ECU Extracts of System Configuration. Additionally, the required startup mechanisms in </p>
+<p>the ECUM have to be provided. The State Manager has to recognize which identity is currently active and has to </p>
+<p>decide which initialization sequence it has to select for the current identity. Finally, the BSW can be configured </p>
+<p>based on this ECUC file. </p>
+<p>The PDUR controls the communication behavior in each instance of a Multiple ECU configuration. The PDUR </p>
+<p>implements the reception and transmission behavior as well as the mapping of CANIF PDUs (N-PDUs) to the COM </p>
+<p>PDUs (I-PDUs). If there is no optimization, the transmission and reception behavior is implemented over a </p>
+<p>superset of Rx and Tx messages in the CANIF. According to the active identity, the message is either transmitted </p>
+<p>or received or nothing of this.  </p>
+<p>For the straight forward case, this can be reached by creating different PDUs for each identity. In an optimized </p>
+<p>case, the memory consumption can be reduced by merging redundant PDUs. </p>
+<p><b>2.1 </b></p>
+<p><b>ECUC creation (without overlay) </b></p>
+<p>For each ECU identity, the InitialEcuC generator reads in one ECU Extract of System description – see the figure </p>
+<p>below for an overview of the tool flow: </p>
+<p> </p>
+<p>Initial ECUC</p>
+<p>Generator</p>
+<p>ECUC File</p>
+<p>ECU Extract</p>
+<p>of System</p>
+<p>Configuration</p>
+<p>Description #1</p>
+<p>.</p>
+<p>.</p>
+<p>ECU Extract</p>
+<p>of System</p>
+<p>Configuration</p>
+<p>Description #2</p>
+<p>ECU Extract</p>
+<p>of System</p>
+<p>Configuration</p>
+<p>Description #n</p>
+<p> </p>
+<p>Figure 2 – Creating an ECUC file from Multiple ECU Extracts </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>5 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p>In our example, we have the Door Module ECU with 4 physical Multiple ECUs. </p>
+<p>That means the OEM will provide four different ECU Extracts of System Configuration Description: </p>
+<p>•</p>
+<p> </p>
+<p>DM_FL.arxml  </p>
+<p>•</p>
+<p> </p>
+<p>DM_FR.arxml  </p>
+<p>•</p>
+<p> </p>
+<p>DM_RL.arxml  </p>
+<p>•</p>
+<p> </p>
+<p>DM_RR.arxml </p>
+<p> </p>
+<p>The InitialEcuC generator is able to merge these extracts in one ECUC file which provide the superset for the BSW </p>
+<p>configuration. </p>
+<p>Tool usage: </p>
+<p>GenTool_CsAsrInitialEcuC.exe [–p &lt;PrjName&gt;] –m &lt;EcuExtractOfSd1&gt;…&lt;EcuExtractOfSdN&gt; </p>
+<p>Hint: </p>
+<p>The optional parameter –p &lt;PrjName&gt; gives the name of the resulting configuration/project. The </p>
+<p>name of the resulting configuration and/or project is the first file name given to the generator tool if </p>
+<p>no – p &lt;PrjName&gt; option is given. In our example, the </p>
+<p>PrjName = DM_FRL</p>
+<p>. </p>
+<p>Open a command line prompt and enter: </p>
+<p>GenTool_CsAsrInitialEcuC.exe –p DM_FRL -m DM_FL.arxml DM_FR.arxml DM_RL.arxml </p>
+<p>DM_RR.arxml </p>
+<p> </p>
+<p>A result of the generator run will be: </p>
+<p><b>DM_FRL.ecuc.arxml </b>(active configuration – this one will be iteratively changed during BSW configuration phase </p>
+<p>and enhanced by vendor-specific attributes) </p>
+<p><b>DM_FRL.Initial.ecuc.arxml </b>(initial configuration holding the basic pre-configuration for the BSW) </p>
+<p><b>DM_FRL.ecuc.vdsxml </b>(this is a file which you can load with GENy; it references initial and active configuration. </p>
+<p><b>DM_FRL.Error.txt </b>(describing errors encountered during the conversion) </p>
+<p> </p>
+<p>Note: </p>
+<p>The </p>
+<p>GenTool_CsAsrInitialEcuCMultConfMerge.dll </p>
+<p>must reside in the same directory like </p>
+<p>the ECUC generator dll (</p>
+<p>GenTool_CsAsrInitialEcuCDsIf.dll</p>
+<p>). </p>
+<p><b>2.1.1 </b></p>
+<p><b>What happens in the ECUC? </b></p>
+<p>The ECUC loader creates one network node per identity. Further, it creates a message/PDU list with references to </p>
+<p>the network node. </p>
+<p>The used set of PDUs or signals is a superset of the used PDUs or signals (unique names without duplicates). </p>
+<p>For each identity it creates a so called multiple configuration container in the ECUC file below all basic software </p>
+<p>modules for which a multiple configuration container is defined in their BSWMD files. The multiple configuration </p>
+<p>container incorporates the ECU name as identification. The container for the ECUM holds references to the init </p>
+<p>structures of the modules.  </p>
+<p>The name of the multiple configuration container is composed of  </p>
+<p>&lt;name of the structure in the bswmd/paramdef file&gt;_&lt;EcuShortName&gt; </p>
+<p>The EcuShortName is taken from the ECU Extract of System Configuration. In the door module example, </p>
+<p>ECU short name for the respective multiple configuration containers will be DM_FL, DM_FR, DM_RR, DM_RL. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>6 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p><b>2.2 </b></p>
+<p><b>ECUC Creation (with overlay) </b></p>
+<p>Multiple ECUs typically have some messages that have the same signal layout and contain semantically equal </p>
+<p>signals (only with different names) shared at least by some of the identities (see Figure 1 for an overview of the </p>
+<p>feature</p>
+<p>). </p>
+<p>For this case, a separate PDU is assigned to each semantic group of signals. First, this is not efficient, because </p>
+<p>you maintain several PDUs which have the same semantic and transport the same signals. The memory </p>
+<p>consumption for these PDUs is redundant. Second, the application code or the software component should not </p>
+<p>need to distinguish between the different active identities when handling the contained signals.  </p>
+<p>So the solution is to configure only one common PDU for all identities and use the potential for an optimization </p>
+<p>called PDU overlay (see the middle column of Figure 1). </p>
+<p>The nee</p>
+<p>ded PDU overlay must be configured manually. This means the user has to select the PDUs which can be </p>
+<p>merged together, and has to provide a respective control file in XML (Overlay Control File). </p>
+<p>In the PDUR one such PDU will result in the reception or transmission of a unique L-PDU on interface level. </p>
+<p>The configuration of the PDUR at startup will determine to which Rx or Tx L-PDU the I-PDU will be mapped, i.e. </p>
+<p>which CAN message will be sent with the contents of this I-PDU. </p>
+<p>Precondition:  </p>
+<p>•</p>
+<p> </p>
+<p>Existence of multiple ECU Extracts, one for each identity.  </p>
+<p>•</p>
+<p> </p>
+<p>An overlay control file. </p>
+<p> </p>
+<p>The figure below shows the tool flow for creating an ECUC file with an Overlay Control File: </p>
+<p> </p>
+<p>Initial ECUC</p>
+<p>Generator</p>
+<p>ECUC File</p>
+<p>ECU Extract</p>
+<p>of System</p>
+<p>Configuration</p>
+<p>Description #1</p>
+<p>.</p>
+<p>.</p>
+<p>ECU Extract</p>
+<p>of System</p>
+<p>Configuration</p>
+<p>Description #2</p>
+<p>ECU Extract</p>
+<p>of System</p>
+<p>Configuration</p>
+<p>Description #n</p>
+<p>Overlay</p>
+<p>Control File</p>
+<p> </p>
+<p>Figure 2 – Creating an ECUC file with Overlay Control File </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>7 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p>Tool usage: </p>
+<p>GenTool_CsAsrInitialEcuC.exe [–p &lt;PrjName&gt;] –m [&lt;EcuExtractOfSd1&gt;…&lt;EcuExtractOfSdN&gt;] </p>
+<p>-o &lt;OverlayControlFile&gt; </p>
+<p>Hint: </p>
+<p>The optional parameter –p &lt;PrjName&gt; gives the name of the resulting configuration/project. The </p>
+<p>name of the resulting configuration and/or project is the first file name given to the generator tool if </p>
+<p>no – p &lt;PrjName&gt; option is given. In our example, the </p>
+<p>PrjName = DM_FRL</p>
+<p>. For the PDU overlay </p>
+<p>case, the PrjName can be given in the control file as well. </p>
+<p>Open a command line prompt and enter: </p>
+<p>GenTool_CsAsrInitialEcuC.exe -m DM_FL.arxml DM_FR.arxml DM_RL.arxml DM_RR.arxml -o </p>
+<p>MultiEcuExample.arxml </p>
+<p>You can also omit specifying the multiple ECU Extracts since the ECU Extracts are already referenced in the </p>
+<p>Overlay Control File. The following invocation is equivalent to the one above: </p>
+<p>GenTool_CsAsrInitialEcuC.exe -m -o MultiEcuExample.arxml </p>
+<p><b>2.3 </b></p>
+<p><b>Overlay Control File </b></p>
+<p>An example file is shown at the end of this chapter. Basically you have to define the following: </p>
+<p>•</p>
+<p> </p>
+<p>The source extracts from which you read-in the different identities and a master extract which defines the </p>
+<p>default names of the merged entities. </p>
+<p>•</p>
+<p> </p>
+<p>The instance name for the new ECU </p>
+<p>•</p>
+<p> </p>
+<p>The PDU overlays (must be members of different identities) </p>
+<p>•</p>
+<p> </p>
+<p>The signal overlays (for RTE fan in/out of signals with different PDU layout) </p>
+<p>•</p>
+<p> </p>
+<p>Splitting of PDUs in Rx and Tx direction to explicitly define the overlay: Rx PDUs only, Tx PDUs only or Tx </p>
+<p>and Rx PDU overlay </p>
+<p><b>2.3.1 </b></p>
+<p><b>Specifying the ECU Extracts to be merged </b></p>
+<p>The ECU Extracts of System Configuration Description which shall be merged are specified within the </p>
+<p>&lt;SourceECUExtracts&gt;</p>
+<p> tag. You can specify a set of ECU Extracts (instances) to be merged via the </p>
+<p>&lt;MergingExtract&gt;</p>
+<p> tag and the master ECU Extract via the </p>
+<p>&lt;MasterExtract&gt;</p>
+<p>.  </p>
+<p>Note: </p>
+<p>If an element (signal/PDU) is not present in the master extract, the default name of the element is </p>
+<p>defined by the order of the ECU Extracts in the </p>
+<p>&lt;SourceECUExtracts&gt;</p>
+<p> tag. </p>
+<p> </p>
+<p>See example below for specifying a set of ECU Extracts to be merged:  </p>
+<p>&lt;SourceECUExtracts&gt; </p>
+<p>&lt;MasterExtract&gt; EcuExtractOfSd &lt;/MasterExtract&gt; </p>
+<p>&lt;MergingExtract&gt; EcuExtractOfSd1 &lt;/MergingExtract&gt; </p>
+<p>&lt;MergingExtract&gt; EcuExtractOfSd2 &lt;/MergingExtract&gt; </p>
+<p>&lt;MergingExtract&gt; … &lt;/MergingExtract&gt; </p>
+<p>&lt;/SourceECUExtracts&gt; </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>8 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p><b>2.3.2 </b></p>
+<p><b>Specifying the merged ECU instance name </b></p>
+<p>The ECU instance name of the merged ECU is specified using the </p>
+<p>&lt;NewECUInstanceName&gt;</p>
+<p> tag: </p>
+<p>&lt;NewECUInstanceName&gt; MultiIdEcu &lt;/NewECUInstanceName&gt; </p>
+<p><b>2.3.3 </b></p>
+<p><b>PDU overlay </b></p>
+<p>The PDU overlays are defined inside the </p>
+<p>&lt;OverlayPDUs&gt;</p>
+<p> tag, which contains all definitions for the overlays. The </p>
+<p>overlays consist of equivalent PDU names. The definition which PDUs shall be overlaid (“Rx”, “Tx” or “TxRx”) is </p>
+<p>specified by the </p>
+<p>direction</p>
+<p> parameter within the </p>
+<p>&lt;OverlayingPDUs&gt;</p>
+<p> tag. </p>
+<p>&lt;OverlayPDUs&gt; </p>
+<p>&lt;OverlayingPDUs direction=”Tx”&gt; </p>
+<p>&lt;PDU&gt;PDU1_FL&lt;/PDU&gt; </p>
+<p>&lt;PDU&gt;PDU1_FR&lt;/PDU&gt; </p>
+<p>&lt;PDU&gt; … &lt;/PDU&gt; </p>
+<p>&lt;/OverlayingPDUs&gt; </p>
+<p>&lt;/OverlayPDUs&gt; </p>
+<p>Note: </p>
+<p>For overlaying PDUs, you also have to specify a corresponding signal overlay section in the </p>
+<p>overlay control file (see description below). </p>
+<p><b>2.3.4 </b></p>
+<p><b>Signal overlay </b></p>
+<p>The signal overlays for specifying the RTE fan in/out are defined inside the tag named </p>
+<p>&lt;MatchingSignals&gt;</p>
+<p> </p>
+<p>which contains all signals which shall be overlaid. Like the PDU overlay, the definition which signals shall be </p>
+<p>overlaid (“Rx”, “Tx” or “TxRx”) is given in the </p>
+<p>direction</p>
+<p> parameter of the </p>
+<p>&lt;MatchingSignals&gt;</p>
+<p> tag. </p>
+<p>The name of the overlaid signal is specified by the </p>
+<p>&lt;NewSignalName&gt;</p>
+<p> tag – see example below: </p>
+<p>&lt;MatchingSignals direction=”Rx”&gt; </p>
+<p> </p>
+<p>&lt;Signal&gt;Signal1_FL &lt;/Signal&gt; </p>
+<p> </p>
+<p>&lt;Signal&gt;Signal1_FR&lt;/Signal&gt; </p>
+<p> </p>
+<p>&lt;Signal&gt; … &lt;/Signal&gt; </p>
+<p> </p>
+<p>&lt;NewSignalName&gt;Signal1_XX&lt;/NewSignalName&gt; </p>
+<p>&lt;/MatchingSignals&gt; </p>
+<p> </p>
+<p>Please consider the following constraints when specifying signal overlays: </p>
+<p>•</p>
+<p> </p>
+<p>For  overlaying  signal  groups,  you  have  to  specify  both  the  signal  group  and  each  group  signal  in  the </p>
+<p>&lt;Signal&gt;</p>
+<p> tag. </p>
+<p>•</p>
+<p> </p>
+<p>The &lt;</p>
+<p>MatchingSignals&gt;</p>
+<p> tag is only evaluated by DaVinci Developer. The InitialEcuC Generator doesn’t </p>
+<p>verify the &lt;</p>
+<p>MatchingSignals&gt;</p>
+<p> section. </p>
+<p>•</p>
+<p> </p>
+<p>The name of the resulting signal, specified by the &lt;</p>
+<p>NewSignalName&gt;</p>
+<p> tag shall correspond to the name of </p>
+<p>the  port  prototype  in  the  System  Description  to  enable  DaVinci  Developer  to  automatically  map  these </p>
+<p>signals. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>9 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p><b>2.3.5 </b></p>
+<p><b>Splitting the direction of PDUs </b></p>
+<p>Within the </p>
+<p>&lt;SplitTxRxPDUs&gt;</p>
+<p> tag, you have to provide the PDUs which cannot be overlaid in both communication </p>
+<p>directions: </p>
+<p>&lt;SplitTxRxPDUs&gt; </p>
+<p> </p>
+<p>&lt;PDU&gt;PDU1_FR&lt;/PDU&gt; </p>
+<p> </p>
+<p>&lt;PDU&gt;PDU1_FL&lt;/PDU&gt; </p>
+<p>&lt;/SplitTxRxPDUs&gt; </p>
+<p><b>2.3.6 </b></p>
+<p><b>Example </b></p>
+<p>&lt;DVMultiECUConfiguration xmlns=&quot;http://www.vector-informatik.de/MultiECUSupport&quot; </p>
+<p>xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; </p>
+<p>xsi:schemaLocation=&quot;http://www.vector-informatik.de/MultiECUSupport </p>
+<p>MultiEcuConfig.xsd&quot; version=&quot;1.0&quot;&gt; </p>
+<p>    &lt;SourceECUExtracts&gt; </p>
+<p>        &lt;MasterExtract&gt;DoorECU_FL&lt;/MasterExtract&gt; </p>
+<p>        &lt;MergingExtract&gt;DoorECU_FR&lt;/MergingExtract&gt; </p>
+<p>        &lt;MergingExtract&gt;DoorECU_RL&lt;/MergingExtract&gt; </p>
+<p>        &lt;MergingExtract&gt;DoorECU_RR&lt;/MergingExtract&gt; </p>
+<p>    &lt;/SourceECUExtracts&gt; </p>
+<p>    &lt;NewECUInstanceName&gt;MyMultiDoorECU&lt;/NewECUInstanceName&gt; </p>
+<p>    &lt;OverlayPDUs&gt; </p>
+<p>        &lt;OverlayingPDUs&gt; </p>
+<p>            &lt;PDU&gt;PDU1_FL&lt;/PDU&gt; </p>
+<p>            &lt;PDU&gt;PDU1_FR&lt;/PDU&gt; </p>
+<p>            &lt;PDU&gt;PDU1_RL&lt;/PDU&gt; </p>
+<p>            &lt;PDU&gt;PDU1_RR&lt;/PDU&gt; </p>
+<p>        &lt;/OverlayingPDUs&gt; </p>
+<p>        &lt;OverlayingPDUs direction=&quot;TxRx&quot;&gt; </p>
+<p>            &lt;PDU&gt;PDU2_FL&lt;/PDU&gt; </p>
+<p>            &lt;PDU&gt;PDU2_FR&lt;/PDU&gt; </p>
+<p>        &lt;/OverlayingPDUs&gt; </p>
+<p>        &lt;OverlayingPDUs direction=&quot;Tx&quot;&gt; </p>
+<p>            &lt;PDU&gt;PDU3_FL&lt;/PDU&gt; </p>
+<p>            &lt;PDU&gt;PDU3_FR&lt;/PDU&gt; </p>
+<p>        &lt;/OverlayingPDUs&gt; </p>
+<p>        &lt;OverlayingPDUs direction=&quot;Tx&quot;&gt; </p>
+<p>            &lt;PDU&gt;PDU3_RL&lt;/PDU&gt; </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>10 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p>            &lt;PDU&gt;PDU3_RR&lt;/PDU&gt; </p>
+<p>        &lt;/OverlayingPDUs&gt; </p>
+<p>        &lt;OverlayingPDUs direction=&quot;Rx&quot;&gt; </p>
+<p>            &lt;PDU&gt;PDU3_FR&lt;/PDU&gt; </p>
+<p>            &lt;PDU&gt;PDU3_RR&lt;/PDU&gt; </p>
+<p>        &lt;/OverlayingPDUs&gt; </p>
+<p>        &lt;OverlayingPDUs direction=&quot;Rx&quot;&gt; </p>
+<p>            &lt;PDU&gt;PDU3_FL&lt;/PDU&gt; </p>
+<p>            &lt;PDU&gt;PDU3_RL&lt;/PDU&gt; </p>
+<p>        &lt;/OverlayingPDUs&gt; </p>
+<p>    &lt;/OverlayPDUs&gt; </p>
+<p>    &lt;MatchingSignals&gt; </p>
+<p>        &lt;MatchingSignals direction=&quot;TxRx&quot;&gt; </p>
+<p>            &lt;Signal&gt;Signal1_FL&lt;/Signal&gt; </p>
+<p>            &lt;Signal&gt;Signal1_FR&lt;/Signal&gt; </p>
+<p>            &lt;Signal&gt;Signal1_RL&lt;/Signal&gt; </p>
+<p>            &lt;Signal&gt;Signal1_RR&lt;/Signal&gt; </p>
+<p>            &lt;NewSignalName&gt;Signal1&lt;/NewSignalName&gt; </p>
+<p>        &lt;/MatchingSignals&gt; </p>
+<p>        &lt;MatchingSignals&gt; </p>
+<p>            &lt;Signal&gt;Signal2_FL&lt;/Signal&gt; </p>
+<p>            &lt;NewSignalName&gt;Signal2&lt;/NewSignalName&gt; </p>
+<p>        &lt;/MatchingSignals&gt; </p>
+<p>    &lt;/MatchingSignals&gt; </p>
+<p>    &lt;SplitTxRxPDUs&gt; </p>
+<p>        &lt;PDU&gt;PDU3_FL&lt;/PDU&gt; </p>
+<p>        &lt;PDU&gt;PDU3_FR&lt;/PDU&gt; </p>
+<p>        &lt;PDU&gt;PDU3_RL&lt;/PDU&gt; </p>
+<p>        &lt;PDU&gt;PDU3_RR&lt;/PDU&gt; </p>
+<p>        &lt;PDU&gt;PDU4&lt;/PDU&gt; </p>
+<p>    &lt;/SplitTxRxPDUs&gt; </p>
+<p>&lt;/DVMultiECUConfiguration&gt; </p>
+<p> </p>
+<p>Note: </p>
+<p>There is an XML schema file (MultiEcuConfig.xsd) which is part of the SLP10 delivery that helps </p>
+<p>you to create a valid PDU overlay control file. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>11 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p><b>2.4 </b></p>
+<p><b>ECUC creation using DaVinci Project Assistant </b></p>
+<p>DaVinci Project Assistant supports you in setting up a project based on an existing control file (see  2.3) or on the </p>
+<p>ECU extracts of the different identities. It automatically creates the initial active ECU configuration. </p>
+<p>When specifying the input files for the project, you may select <b>Multiple ECU</b>. You may now either provide the </p>
+<p>existing control file or the ECU extracts and a location for an automatically created control file. This automatically </p>
+<p>created control file will contain the specified ECU extract references. </p>
+<p>Note: </p>
+<p>To define the PDU overlay (see  2.2) you need to manually edit the control file. </p>
+<p> </p>
+<p>Figure 2 – DaVinci Project Assistant Input Files Specification </p>
+<p> </p>
+<p>If you change the control file after having created the project, you may use the update function of the DaVinci </p>
+<p>Project Assistant to reflect your changes. </p>
+<p>Note: </p>
+<p>DaVinci Project Assistant resolves the references to the identities’ extracts given in the control file </p>
+<p>relative to the control file’s location. </p>
+<p><b>2.5 </b></p>
+<p><b>Generating the RTE of a Multiple ECU </b></p>
+<p>To generate the RTE of a Multiple ECU, the different ECU extracts – each containing the description of a single </p>
+<p>identity – need to be merged into a single ECU project representing all identities of the Multiple ECU. The merged </p>
+<p>ECU project (resp. an ECU Extract of System Description created by DaVinci Developer) is compatible to the </p>
+<p>ECUC (see  2.0) and can be used as input for the MICROSAR RTE generator. </p>
+<p>The me</p>
+<p>rged ECU project is created by the DaVinci Project Assistant. Alternatively, you may import an existing </p>
+<p>control file (see  2.3) into a DaVinci Developer workspace using the standard XML import mechanism. This will </p>
+<p>automatically cre</p>
+<p>ate the merged ECU project. </p>
+<p>Note: </p>
+<p>DaVinci Developer resolves the references to the identities’ extracts given in the control file relative </p>
+<p>to the control file’s location. </p>
+<p><b>3.0 </b></p>
+<p><b>Initialization of the BSW </b></p>
+<p>The ECU State Manager (ECUM) implements the support for Multiple ECUs. The scope of this chapter is restricted </p>
+<p>to the characteristic settings for Multiple ECUs in the ECU State Manager only. Further initialization steps </p>
+<p>necessary for AUTOSAR systems are not described here and are assumed to be known. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>12 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p>The BSW initialization procedure in AUTOSAR works the following way: </p>
+<p>•</p>
+<p> </p>
+<p>µC startup code execution (out of AUTOSAR scope). </p>
+<p>•</p>
+<p> </p>
+<p>Call of the </p>
+<p>main()</p>
+<p> function </p>
+<p>Æ</p>
+<p> </p>
+<p>EcuM_Init()</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>EcuM_Init()</p>
+<p> allows for initialization of the BSW modules on low level </p>
+<p>•</p>
+<p> </p>
+<p>EcuM_Init()</p>
+<p> starts the OS, </p>
+<p>EcuM_Init()</p>
+<p> does never return. </p>
+<p>•</p>
+<p> </p>
+<p>Schedule Manager Task starts and calls the </p>
+<p>EcuM_StartupTwo()</p>
+<p> in its task body </p>
+<p>•</p>
+<p> </p>
+<p>EcuM_StartupTwo()</p>
+<p>: calls </p>
+<p>SchM_Init()</p>
+<p> and calls </p>
+<p>DriverInitListTwo</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The initialization for Multiple ECUs takes place in </p>
+<p>DriverInitListTwo</p>
+<p>… </p>
+<p> </p>
+<p>The ECU State Manager (ECUM) itself does not allow different initializations in the </p>
+<p>EcuM_Init()</p>
+<p> function. The </p>
+<p>following ECUM properties will be defined only once and are commonly valid for all identities inside an ECUC for a </p>
+<p>Multiple ECU: </p>
+<p>•</p>
+<p> </p>
+<p>Sleep modes </p>
+<p>•</p>
+<p> </p>
+<p>Wake-up Sources </p>
+<p>•</p>
+<p> </p>
+<p>ECUM Users </p>
+<p>•</p>
+<p> </p>
+<p>COMM channels </p>
+<p>•</p>
+<p> </p>
+<p>TTII successors and divisors </p>
+<p>•</p>
+<p> </p>
+<p>DriverInitLists </p>
+<p> </p>
+<p>The ECU firmware (more precisely: a user defined equivalent to an ECU State Manager initialization list) has to </p>
+<p>decide which identity is presently active and has to call the proper initialization routines for the basic software </p>
+<p>modules.  </p>
+<p>This initialization approach will </p>
+<p>•</p>
+<p> </p>
+<p><b>Not </b>adjust the application logic accordingly. The application implements a superset of all functions and is </p>
+<p>not necessarily aware of different identities. </p>
+<p>•</p>
+<p> </p>
+<p>Set up the corresponding BSW modules correctly. </p>
+<p> </p>
+<p>There is no tool-guided way to configure the ECUM for multiple ECU support. Only a manual solution is possible. </p>
+<p>For this purpose, an initialization function has to be added to the STARTUP II phase of the ECUM. (This is </p>
+<p>because the communication modules implement this feature. Communication modules are typically initialized </p>
+<p>during STARTUP II). This can be accomplished by adding a function call to </p>
+<p>EcuM_Pbcfg.c</p>
+<p> for the ECUM inside </p>
+<p>the configuration tool (for the SLP10, this can be done inside GENy, for other stacks this is DaVinci Configurator </p>
+<p>Pro). The necessary steps are described below. </p>
+<p><b>3.1 </b></p>
+<p><b>Creation of the logic for identity selection </b></p>
+<p>The Multiple ECU support requires a user defined function which determines for which identity the ECU shall start </p>
+<p>up. As described in the paragraph before, this extension has to be built into the STARTUP II. </p>
+<p>Further, we assume that you provide this function in the files  </p>
+<p>EcuM_MultiIdentitySupport.h  </p>
+<p>EcuM_MultiIdentitySupport.c </p>
+<p> </p>
+<p>The function which has to be called in STARTUP II itself may be called  </p>
+<p>EcuM_MultiConfigSelection()</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>13 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p> </p>
+<p>Note:  </p>
+<p>The name of the header and C file are only examples, as well as the signature and function name </p>
+<p>EcuM_MultiConfigSelection()</p>
+<p>. The actual implementation is up to the supplier. </p>
+<p><b>3.2 </b></p>
+<p><b>Prepare the ECUM configuration </b></p>
+<p>Before you can use the Multiple ECU feature, you have to add </p>
+<p>EcuM_MultiIdentitySuport.h</p>
+<p>  to the  </p>
+<p><b>Additional Includes </b>section in the ECUM. </p>
+<p> </p>
+<p>Figure 3 – GENy Configuration for Multiple ECU Feature </p>
+<p> </p>
+<p>Further, you have to create a new entry in the <b>ECUM Driver Init List Two</b>, where </p>
+<p>EcuM_MultiConfigSelection()</p>
+<p> is called. </p>
+<p> </p>
+<p>Figure 4 - GENy Configuration for Init List Two </p>
+<p> </p>
+<p><b>3.3 </b></p>
+<p><b>Provide an user defined ECUM initialization function </b></p>
+<p>An implementation for the MultiConfigSelection initialization function could look like that: </p>
+<p>… </p>
+<p>#include &lt;EcuM_MultiIdentitySupport.h&gt; </p>
+<p>… </p>
+<p>void EcuM_AL_DriverInitTwo () /*  </p>
+<p>{ </p>
+<p>  Dio_Init(); </p>
+<p>  EcuM_MultiConfigSelection(); </p>
+<p>} </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>14 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p>You will need to provide a similar implementation in </p>
+<p>EcuM_MultiIdentitySupport.c</p>
+<p>: </p>
+<p>FUNC(void, ECUM_CODE) EcuM_MultiConfigSelection(void) </p>
+<p>{ </p>
+<p>  channelGroupIdType dioDipSwitch; </p>
+<p> </p>
+<p>  switch (Dio_ReadChannelGroup(&amp;dioDipSwitch))  /* read in DIP switch */ </p>
+<p>  { </p>
+<p>    case MULTI_CONFIG_FL: /* initialization variant for door front left */ </p>
+<p>      Can_Init(NULL_PTR);  </p>
+<p>      CanIf_Init(NULL_PTR); </p>
+<p>      CanSM_Init(); </p>
+<p>      PduR_Init(&amp;PduRGlobalConfig_DM_FL); </p>
+<p>      Com_Init(NULL_PTR); </p>
+<p>      Nm_Init(NULL_PTR); </p>
+<p>      CanNm_Init(&amp;CanNmGlobalConfig_DM_FL); </p>
+<p>      ComM_Init(); </p>
+<p>      CanTp_Init(&amp;CanTpConfigSet_DM_FL); </p>
+<p>      Dcm_Init(&amp;DcmConfigSet_DM_FL); </p>
+<p>      Vmm_Init(); </p>
+<p>      Dem_Init(); </p>
+<p>    break; </p>
+<p>    case MULTI_CONFIG_FR: /* initialization variant for door front right */ </p>
+<p>      Can_Init(NULL_PTR);  </p>
+<p>      CanIf_Init(NULL_PTR); </p>
+<p>      CanSM_Init(); </p>
+<p>      PduR_Init(&amp;PduRGlobalConfig_DM_FR); </p>
+<p>      Com_Init(NULL_PTR); </p>
+<p>      Nm_Init(NULL_PTR); </p>
+<p>      CanNm_Init(&amp;CanNmGlobalConfig_DM_FR); </p>
+<p>      ComM_Init(); </p>
+<p>      CanTp_Init(&amp;CanTpConfigSet_DM_FR); </p>
+<p>      Dcm_Init(&amp;DcmConfigSet_DM_FR); </p>
+<p>      Vmm_Init(); </p>
+<p>      Dem_Init(); </p>
+<p>    break; </p>
+<p>    default:  </p>
+<p>    break; </p>
+<p>  } </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>15 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p>  return; </p>
+<p>}  </p>
+<p> </p>
+<p>Inside each initialization sequence, there have to be instance-specific calls into the basic software init functions like </p>
+<p> </p>
+<p>&lt;BSWM&gt;_Init(&amp;&lt;configSetPtrName&gt;_&lt;EcuShortName&gt;) </p>
+<p>Each module has to provide the instance-specific </p>
+<p>&lt;configSetPtrName&gt;_&lt;EcuShortName&gt; </p>
+<p>in its actual </p>
+<p>configuration obtained by the BSW configuration step performed in GENy. </p>
+<p>The name of the parameter used for the init functions is formed according to the following rule: </p>
+<p>&lt;configSetPtrName&gt; comes from the structure name from bswmd/paramdef file. </p>
+<p>&lt;EcuShortName&gt; is derived of the Ecu Names used in the ECU Extract of System </p>
+<p>Description </p>
+<p>Note: </p>
+<p>You do not have the same scheme for the init functions of all BSW modules, some take no </p>
+<p>arguments some take a mandatory pointer. The following section provides an overview. </p>
+<p><b>3.4 </b></p>
+<p><b>Where do I find the initialization structures? </b></p>
+<p>For each BSW module, you can find the init structures in the generated code. Simply have a look at the following </p>
+<p>files in the \gendata folder: </p>
+<p>&lt;ModuleName&gt;_lcfg.c, &lt;ModuleName&gt;_pbcfg.c, &lt;ModuleName&gt;_cfg.c </p>
+<p><b>3.5 </b></p>
+<p><b>Overview of BSW module initialization </b></p>
+<p>Considering the Multiple ECU feature, the AUTOSAR selectable post build approach is not fully supported.  The </p>
+<p>AUTOSAR selectable post build approach is based on different unique initialization structures which are passed to </p>
+<p>the BSW via an initialization pointer in order to configure it. </p>
+<p>Resource optimization would not be possible if unique initialization structures for each identity were provided. For </p>
+<p>this reason, the AUTOSAR selectable post build initialization mechanism is not applied for all modules. </p>
+<p>For the majority of the modules, only one merged post build configuration/superset of initialization data will be </p>
+<p>created in order to save resources. For the remaining modules <b>DCM, CANTP, CANNM, IPDUM, PDUR, </b>individual </p>
+<p>initialization data sets are supported. </p>
+<p>The following table gives an overview of the configuration pointer usage. </p>
+<p> </p>
+<p>Used init pointer </p>
+<p>BSW </p>
+<p>module </p>
+<p>Not instance specific </p>
+<p>Instance specific </p>
+<p>COMM </p>
+<p>;</p>
+<p> </p>
+<p> </p>
+<p>ECUM </p>
+<p>;</p>
+<p> </p>
+<p> </p>
+<p>VMM </p>
+<p>;</p>
+<p> </p>
+<p> </p>
+<p>COM </p>
+<p>;</p>
+<p> </p>
+<p> </p>
+<p>IPDUM </p>
+<p> </p>
+<p>;</p>
+<p> </p>
+<p>PDUR </p>
+<p> </p>
+<p>;</p>
+<p> </p>
+<p>NM </p>
+<p>;</p>
+<p> </p>
+<p> </p>
+<p>CANNM </p>
+<p> </p>
+<p>;</p>
+<p> </p>
+<p>CANSM </p>
+<p>;</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>16 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p>CANIF </p>
+<p>;</p>
+<p> </p>
+<p> </p>
+<p>CANDRV </p>
+<p>;</p>
+<p> </p>
+<p> </p>
+<p>CANTP </p>
+<p> </p>
+<p>;</p>
+<p> </p>
+<p>DCM </p>
+<p> </p>
+<p>;</p>
+<p> </p>
+<p>DEM </p>
+<p>;</p>
+<p> </p>
+<p> </p>
+<p>Table 1  – Overview of the module configuration for multiple identities </p>
+<p> </p>
+<p><b>4.0 </b></p>
+<p><b>Diagnostics and Multiple ECU Support </b></p>
+<p>The DCM/DEM module, developed by Vector, implements two dynamic configuration modes that allow switching </p>
+<p>among the available configuration sets at runtime (without need to reprogram the ECU). This requires that the </p>
+<p>superset of all variants must be pre-enabled during the software compilation and link process.  </p>
+<p> </p>
+<p>In Multiple ECU mode, DCM allows you to use: </p>
+<p>•</p>
+<p> </p>
+<p>Multiple diagnostic configuration sets – a use case where the ECU always communicates over the same </p>
+<p>connection, but shall implement different functionality depending on some hardware (jumper) setting. </p>
+<p>•</p>
+<p> </p>
+<p>Multiple  communication  configuration  sets  –  typical  use  case  where  the  ECU  shall  have  the  same </p>
+<p>functionality,  but  depending  on  its  location  on  the  network  uses  different  communication  parameters </p>
+<p>(communication message IDs i.e. door ECUs). </p>
+<p>•</p>
+<p> </p>
+<p>Both multiple diagnostic and communication sets. </p>
+<p> </p>
+<p>The combination of diagnostic and communication configuration is configured statically in GENy.  </p>
+<p>The details of Multiple ECUs and diagnostics are described in the Technical Reference for the DCM, chapter 7.6 </p>
+<p>and in the Technical Reference for the DEM, chapter 7.1. </p>
+<p><b>5.0 </b></p>
+<p><b>Supported use cases </b></p>
+<p>Based on the PDU overlay and RTE fan in/out approach, the current implementation of the Multiple ECU supports </p>
+<p>the following use cases: </p>
+<p>•</p>
+<p> </p>
+<p>Overlaying  of  RX/TX  PDUs with  identical  signal  layout,  respective  PDUs with gaps  in  the signal  layout. </p>
+<p>Each signal within the PDU has to have the same length and has to be of the same type: Single signals </p>
+<p>can only be overlaid by single signals, signal groups can only be overlaid by signal groups. </p>
+<p>•</p>
+<p> </p>
+<p>RTE fan in/out of signals which are located in different PDUs. </p>
+<p><b>6.0 </b></p>
+<p><b>Restrictions and limitations </b></p>
+<p>LIN is invariant to the Multiple ECU feature that means it is not actively supported. As a consequence, the same </p>
+<p>LIN network exists in all identities. Multiple ECU support for FlexRay is planned for future releases. </p>
+<p>Please also note the for RTE fan in, the signals to be overlaid have to be located in different PDUs </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>17 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p>If a PDU contains signals for different identities, a wrapper software component needs to be implemented to select </p>
+<p>the according signal based on the current identity – see example below: </p>
+<p> </p>
+<p>Wrapper SWC</p>
+<p>Signal_FL</p>
+<p>Signal_FR</p>
+<p>Signal_RL</p>
+<p>Signal_RR</p>
+<p>SWC</p>
+<p>Signal_XX</p>
+<p>Identity</p>
+<p> </p>
+<p>Figure 4 – Wrapper software component for switching identity specific signals </p>
+<p> </p>
+<p> </p>
+<p><b>7.0 </b></p>
+<p><b>Additional resources </b></p>
+<p>VECTOR TECHNICAL REFERENCES </p>
+<p>MICROSAR DCM Technical Reference (based on ASR 3.0) Version 3.14 </p>
+<p>MICROSAR Diagnostic Event Manager (DEM) Technical Reference Daimler Version 2.2 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Identity Manager - Multiple ECUs</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>18 </b></p>
+<p><i>Application Note  AN-ISC-8-1102 </i></p>
+<p> </p>
+<p> </p>
+<p><b>8.0 </b></p>
+<p><b>Contacts </b></p>
+<p> </p>
+<p> </p>
+<p><b>Germany  </b></p>
+<p><b>and all countries not named below: </b></p>
+<p><b>Vector Informatik GmbH </b></p>
+<p>Ingersheimer Str. 24 </p>
+<p>70499 Stuttgart </p>
+<p>GERMANY </p>
+<p>Phone: +49 711-80670-0 </p>
+<p>Fax: </p>
+<p>+49 711-80670-111 </p>
+<p>E-mail:  info@de.vector.com </p>
+<p> </p>
+<p> </p>
+<p><b>France, Belgium, Luxemburg: </b></p>
+<p><b> </b></p>
+<p><b>Vector France SAS </b></p>
+<p>168 Boulevard Camélinat </p>
+<p>92240 Malakoff  </p>
+<p>FRANCE </p>
+<p>Phone: +33 1 42 31 40 00 </p>
+<p>Fax: </p>
+<p>+33 1 42 31 40 09 </p>
+<p>E-mail:  information@fr.vector.com </p>
+<p> </p>
+<p> </p>
+<p><b>Sweden, Denmark, Norway,  </b></p>
+<p><b>Finland, Iceland: </b></p>
+<p><b>VecScan AB </b></p>
+<p>Theres Svenssons Gata 9 </p>
+<p>41755 Göteborg  </p>
+<p>SWEDEN </p>
+<p>Phone: +46 31 764 76 00 </p>
+<p>Fax: </p>
+<p>+46 31 764 76 19  </p>
+<p>E-mail:  info@se.vector.com </p>
+<p> </p>
+<p> </p>
+<p><b>United Kingdom, Ireland: </b></p>
+<p><b>Vector GB Ltd. </b></p>
+<p>Rhodium </p>
+<p>Central Boulevard </p>
+<p>Blythe Valley Park </p>
+<p>Solihull, Birmingham </p>
+<p>West Midlands B90 8AS </p>
+<p>UNITED KINGDOM </p>
+<p>Phone: +44 121 50681-50 </p>
+<p>E-mail:  info@uk.vector.com </p>
+<p> </p>
+<p>  </p>
+<p><b>China: </b></p>
+<p>Vector Informatik GmbH  </p>
+<p>Shanghai Representative Office </p>
+<p>Suite 605, Tower C,  </p>
+<p>Everbright Convention Center </p>
+<p>No. 70 Caobao Road </p>
+<p>Xuhui District </p>
+<p>Shanghai 200235  </p>
+<p>P.R. CHINA </p>
+<p>Phone: +86 21 - 6432 5353 ext. 0 </p>
+<p>Fax:  </p>
+<p>+86 21 - 6432 5308 </p>
+<p>E-mail: info@vector-china.com </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>India: </b></p>
+<p>Vector Informatik India Private Ltd. </p>
+<p>4/1/1/1 Sutar Icon </p>
+<p>Sus Road </p>
+<p>Pashan </p>
+<p>Pune 411021 </p>
+<p>INDIA </p>
+<p> </p>
+<p>Phone: +91 9673 336575 </p>
+<p>E-mail: info@vector-india.com </p>
+<p> </p>
+<p><b>USA, Canada, Mexico: </b></p>
+<p><b>Vector CANtech, Inc. </b></p>
+<p>39500 Orchard Hill Pl., Ste 550 </p>
+<p>Novi, MI  48375 </p>
+<p>USA </p>
+<p>Phone: +1 248 449 9290 </p>
+<p>Fax: </p>
+<p>+1 248 449 9704 </p>
+<p>E-mail:  info@us.vector.com </p>
+<p> </p>
+<p> </p>
+<p><b>Japan: </b></p>
+<p><b>Vector Japan Co. Ltd. </b></p>
+<p>Seafort Square Center Bld. 18F </p>
+<p>2-3-12, Higashi-shinagawa, </p>
+<p>Shinagawa-ku </p>
+<p>Tokyo 140-0002 </p>
+<p>JAPAN </p>
+<p>Phone: +81 3 5769 7800 </p>
+<p>Fax: </p>
+<p>+81 3 5769 6975 </p>
+<p>E-mail:  info@jp.vector.com </p>
+<p> </p>
+<p> </p>
+<p><b>Korea: </b></p>
+<p><b>Vector Korea IT Inc.</b></p>
+<p><b> </b></p>
+<p>#1406, Mario Tower, </p>
+<p>222-12 Guro-dong, Guro-gu  </p>
+<p>Seoul, 152-848 </p>
+<p>REPUBLIC OF KOREA </p>
+<p>Phone: +82 2 807 0600 </p>
+<p>Fax: </p>
+<p>+82 2 807 0601 </p>
+<p>E-mail:  info@kr.vector.com </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,1378 @@
+---
+layout: default
+title: TechnicalReference_Database_Attributes_GM
+nav_order: 15
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Database Attributes </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>GMLAN 3.1 </p>
+<p>Version 2.02.01 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors </b></p>
+<p>Frank Triem </p>
+<p><b>Versions: </b></p>
+<p>2.02.01 </p>
+<p><b>Status: </b></p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>2 / 21 </p>
+<p><b>1 </b></p>
+<p><b>Document Information </b></p>
+<p><b>1.1 </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Frank Triem </p>
+<p>2007-06-06 </p>
+<p>1.0 </p>
+<p>Creation of document based on “Database </p>
+<p>Attributes GMLAN V3.0”. </p>
+<p>Frank Triem </p>
+<p>2007-06-25 </p>
+<p>1.1 </p>
+<p>Database Attribute </p>
+<p>GenMsgMandatoryToSupervise corrected </p>
+<p>Frank Triem </p>
+<p>2008-01-23 </p>
+<p>2.0 </p>
+<p>Update for configuration tool GENy </p>
+<p>Frank Triem </p>
+<p>2008-02-06 </p>
+<p>2.1 </p>
+<p>Database attributes added </p>
+<p>- Baudrate </p>
+<p>- SamplePointMin </p>
+<p>- SamplePointMax </p>
+<p>- SyncJumpWidthMin </p>
+<p>- SyncJumpWidthMax </p>
+<p>Frank Triem </p>
+<p>2012-10-23 </p>
+<p>2.2 </p>
+<p>Database Attribute NodeSuprvStabilityTime </p>
+<p>added in chapter 3.2 </p>
+<p>Frank Triem </p>
+<p>2013-01-28 </p>
+<p>2.02.01 </p>
+<p>ESCAN00064577: Update GMLAN version </p>
+<p>from GMLAN 3.0 to GMLAN 3.1 </p>
+<p>Table 1-1   History of the Document </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector’s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>3 / 21 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Document Information ................................................................................................. 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>History ............................................................................................................... 2</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 5</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Attribute Definitions for GMLAN V3.0 Databases ....................................................... 6</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Network Attributes .............................................................................................. 6</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Network Attributes for Node Communication Active Message ............ 7</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Network Attributes for Virtual Networks .............................................. 7</p>
+<p> </p>
+<p>3.1.3</p>
+<p> </p>
+<p>Network Attributes for Bit Timing Register setup ................................. 8</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Node Attributes .................................................................................................. 8</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Message Attributes ............................................................................................ 9</p>
+<p> </p>
+<p>3.3.1</p>
+<p> </p>
+<p>Attribute Definitions for Diagnostics .................................................. 10</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Signal Attributes ............................................................................................... 11</p>
+<p> </p>
+<p>3.4.1</p>
+<p> </p>
+<p>VN-Assignment of Signals................................................................ 11</p>
+<p> </p>
+<p>3.4.2</p>
+<p> </p>
+<p>Signal Transmit Model Attributes ...................................................... 11</p>
+<p> </p>
+<p>3.4.3</p>
+<p> </p>
+<p>Signal Supervision Attributes ............................................................ 12</p>
+<p> </p>
+<p>3.4.4</p>
+<p> </p>
+<p>Signal Attributes ............................................................................... 13</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Attribute Settings in Terms of GM Concepts ............................................................ 14</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Signal Transmit Model ..................................................................................... 14</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Message Attributes .......................................................................... 14</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Signal Attributes ............................................................................... 15</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Signal Supervision ........................................................................................... 16</p>
+<p> </p>
+<p>4.2.1</p>
+<p> </p>
+<p>Signal Attributes ............................................................................... 16</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Database Attributes for CANoe Models .................................................................... 17</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Database Attributes not evaluated by GENy ............................................................. 18</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Signal Transmit Model Attributes ...................................................................... 19</p>
+<p> </p>
+<p>6.1.1</p>
+<p> </p>
+<p>Node Mapped Rx-Signal Default Value Attributes ............................ 20</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 21</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>4 / 21 </p>
+<p><b>Tables </b></p>
+<p>Table </p>
+<p> </p>
+<p>1-1 </p>
+<p> </p>
+<p>History of the Document ............................................................................. 2</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>3-1 </p>
+<p> </p>
+<p>Network Attributes ...................................................................................... 7</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>3-2 </p>
+<p> </p>
+<p>Network Attributes for Node Communication Active Message ..................... 7</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>3-3 </p>
+<p> </p>
+<p>Network Attributes for Virtual Networks ....................................................... 7</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>3-4 </p>
+<p> </p>
+<p>Network Attributes for Bit Timing Register setup ......................................... 8</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>3-6 </p>
+<p> </p>
+<p>Node Attributes ........................................................................................... 8</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>3-7 </p>
+<p> </p>
+<p>Message Attributes ..................................................................................... 9</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>3-8 </p>
+<p> </p>
+<p>Attribute Definitions for Diagnostics .......................................................... 10</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>3-9 </p>
+<p> </p>
+<p>VN-Assignment of Signals ........................................................................ 11</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>3-10 </p>
+<p> </p>
+<p>Signal Supervision Attributes .................................................................... 12</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>3-11 </p>
+<p> </p>
+<p>Signal Attributes ........................................................................................ 13</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>4-1 </p>
+<p> </p>
+<p>Message Attributes of Transmit Model ...................................................... 14</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>4-2 </p>
+<p> </p>
+<p>Signal Attributes of Transmit Model ........................................................... 15</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>4-3 </p>
+<p> </p>
+<p>Signal Attributes for Supervision ............................................................... 16</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>4-4 </p>
+<p> </p>
+<p>Signal Attributes for Failsoft Mechanism ................................................... 16</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>5-1 </p>
+<p> </p>
+<p>Database Attributes for CANoe Models ..................................................... 17</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>6-1 </p>
+<p> </p>
+<p>Network attributes not evaluated by GENy ............................................... 19</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>6-2 </p>
+<p> </p>
+<p>Signal Transmit Model attributes not evaluated by GENy ......................... 19</p>
+<p> </p>
+<p>Table </p>
+<p> </p>
+<p>6-3 </p>
+<p> </p>
+<p>Rx-Signal Default attributes not evaluated by GENy ................................. 20</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>5 / 21 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the database attributes that are used by the configuration and </p>
+<p>generation tool GENy for the configuration of the GMLAN Handler. In chapter 3 all possible </p>
+<p>attributes are listed along with a description of how the attributes should be set for use with </p>
+<p>GMLAN. </p>
+<p>A list of database base attributes that can be found in the GM databases, which are not </p>
+<p>used by GENy, can be found in chapter 6. Please note that this is not a complete list of all </p>
+<p>available database attributes. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>This document is valid for GMLAN 3.1 and Nm_Gmlan_Gm version 4.02.00 and higher. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>6 / 21 </p>
+<p><b>3 </b></p>
+<p><b>Attribute Definitions for GMLAN 3.1 Databases </b></p>
+<p><b>3.1 </b></p>
+<p><b>Network Attributes </b></p>
+<p>On the network level the following attributes are evaluated by GENy: </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>Manufacturer </p>
+<p>String </p>
+<p>This is a fixed value and must be set to “<b>GM</b>” </p>
+<p>Default: “<b>GM</b>” </p>
+<p>NmType </p>
+<p>String </p>
+<p>Must be set to “<b>GMLAN</b>” to define the GMLAN </p>
+<p>network management. </p>
+<p>Default: </p>
+<p>“<b>GMLAN</b>” </p>
+<p>NmBaseAddress </p>
+<p>Hexadecimal </p>
+<p>Defines the base address for the VNMF. This </p>
+<p>value is usually set to 0x620 to declare a range of </p>
+<p>0x620-0x63F in the CAN-identifier range for the </p>
+<p>VNMF. </p>
+<p>NmMessageCount </p>
+<p>Integer </p>
+<p>This attribute defines the maximum number of </p>
+<p>nodes on the network. This attribute is used in </p>
+<p>combination with NmBaseAddress and spans a </p>
+<p>range of CAN-identifier within the 11-bit range for </p>
+<p>the VNMF. The value must be given as 2N (e.g. </p>
+<p>16 or 32). </p>
+<p>NetworkType </p>
+<p>String </p>
+<p>Defines the type of the CAN-network. The </p>
+<p>following Network Types are known: </p>
+<p>Possible values: </p>
+<p> </p>
+<p>“Powertrain”, “Bodybus”, “Infotainment” </p>
+<p>GENy uses this attribute in order to configure the </p>
+<p>baud rate. </p>
+<p>VersionNumber </p>
+<p>BCD-coded </p>
+<p>Integer </p>
+<p>This attribute can be used for versioning </p>
+<p>purposes. The value shall be a BCD-coded </p>
+<p>format. Thus, the number 100 is treated as </p>
+<p>Version 1.00, or the value 245 is handled as </p>
+<p>V2.45. This attribute definition is stored in ROM in </p>
+<p>two 8-bit constant values that can be accessed </p>
+<p>globally. Mainly used to retrieve the DB-version </p>
+<p>number by diagnostics. </p>
+<p>The names of the global variables are: </p>
+<p> </p>
+<p><i>kDataDictMainVersion</i>,  </p>
+<p> </p>
+<p><i>kDataDictSubVersion</i>. </p>
+<p>BusOffRecoveryTime </p>
+<p>Integer </p>
+<p>Defines the node recovery time after a BusOff </p>
+<p>event. </p>
+<p>BusWakeUpDelay </p>
+<p>Integer </p>
+<p>Defines the time between a High-Level Voltage </p>
+<p>Wakeup (HLVW) and the activation of Initially-</p>
+<p>Active VNs. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>7 / 21 </p>
+<p>This parameter is also used as a delay time </p>
+<p>between the Activation of shared-local input VNs </p>
+<p>and the actual activation inside the ECU. </p>
+<p>Table 3-1   Network Attributes </p>
+<p><b>3.1.1 </b></p>
+<p><b>Network Attributes for Node Communication Active Message </b></p>
+<p>On  the  network  level  the  following  attributes  are  defined  for  the  Node  Communication </p>
+<p>Active (NCA) Message: </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>NodeStatusMsgID </p>
+<p>Hexadecimal </p>
+<p>Declares the CAN-identifier for the Node-</p>
+<p>Communication-Active (NCA) message. This is a </p>
+<p>message transmitted by a node when using </p>
+<p>Parameter-IDs on the network. The node </p>
+<p>transmits the message with a pre-defined cycle </p>
+<p>time, whenever at least one Virtual Network gets </p>
+<p>active.  </p>
+<p>Note that the last 8 bits of this parameter must be </p>
+<p>0. </p>
+<p>See also: NodeStatusMsgCycleTime  and </p>
+<p>NodeStatusMsgTimeoutTime,  </p>
+<p>(Default: 0x13FFFE00) </p>
+<p>NodeStatusMessageCycleTime  Integer </p>
+<p>Defines the periodic rate for the NCA message. </p>
+<p>Default: 1200 </p>
+<p>Unit: ms </p>
+<p>NodeStatusMsgTimeoutTime </p>
+<p>Integer </p>
+<p>Defines the minimum time a node must receive at </p>
+<p>least one message from a node for a specific </p>
+<p>source address. If at least one virtual network is </p>
+<p>active, but the node receives no messages </p>
+<p>(including NCAs) within this time; all NCA-</p>
+<p>supervised messages and signals are handled by </p>
+<p>supervision failure. </p>
+<p>Default: 3000 </p>
+<p>Unit: ms </p>
+<p>Table 3-2   Network Attributes for Node Communication Active Message </p>
+<p><b>3.1.2 </b></p>
+<p><b>Network Attributes for Virtual Networks </b></p>
+<p>On the network level the following attributes are defined for the Virtual Networks: </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>VN_&lt;&lt;vn-name&gt;&gt; </p>
+<p>Integer </p>
+<p>Range: </p>
+<p>0..55 </p>
+<p>Declares the Virtual Network with the name &lt;&lt;vn-</p>
+<p>name&gt;&gt; (placeholder-name). The integer value </p>
+<p>must be a contiguous and zero based number. </p>
+<p>VNInitAct&lt;&lt;vn-name&gt;&gt; </p>
+<p>Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Defines whether a Virtual Network is declared as </p>
+<p>‘Initially Active’. </p>
+<p>Default: No </p>
+<p>Table 3-3   Network Attributes for Virtual Networks </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>8 / 21 </p>
+<p><b>3.1.3 </b></p>
+<p><b>Network Attributes for Bit Timing Register setup </b></p>
+<p>On  the  network  level  the  following  attributes  are  defined  for  Bit  Timing  Register  (BTR) </p>
+<p>setup. All five database attributes have to be defined in conjunction for GENy. </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>Baudrate </p>
+<p>Integer </p>
+<p>Defines the baud rate for the respective network. </p>
+<p>SamplePointMin </p>
+<p>Integer </p>
+<p>Defines the minimum sample point in [%] for the respective </p>
+<p>network. </p>
+<p>SamplePointMax </p>
+<p>Integer </p>
+<p>Defines the maximum sample point in [%] for the respective </p>
+<p>network. </p>
+<p>SyncJumpWidthMin </p>
+<p>Integer </p>
+<p>Defines the minimum synchronous jump width for the respective </p>
+<p>network. </p>
+<p>SyncJumpWidthMax </p>
+<p>Integer </p>
+<p>Defines the maximum synchronous jump width for the </p>
+<p>respective network. </p>
+<p>Table 3-4   Network Attributes for Bit Timing Register setup </p>
+<p><b>3.2 </b></p>
+<p><b>Node Attributes </b></p>
+<p>On node level the following attributes are evaluated by GENy: </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>ILUsed </p>
+<p>Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Defines whether the Interaction Layer of the </p>
+<p>GMLAN-Handler shall be used or not. </p>
+<p>If the attribute is not set, the IL-Option page will </p>
+<p>not appear in GENy. </p>
+<p>Default: “Yes” </p>
+<p>NmNode </p>
+<p>Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Defines whether the Network Management of the </p>
+<p>GMLAN-Handler shall be used or not. </p>
+<p>If the attribute is not set, the GMLAN-Option page </p>
+<p>will not appear in GENy. </p>
+<p>Default: “Yes” </p>
+<p>VNECU&lt;&lt;vn-name&gt;&gt; </p>
+<p>Enum: </p>
+<p>None </p>
+<p>Activator </p>
+<p>Remoted </p>
+<p>Activator_Remoted </p>
+<p>Shared Local </p>
+<p>Defines the VN-Type for a specific Node for the </p>
+<p>specific VN </p>
+<p>NodeSuprvStabilityTime </p>
+<p>Integer: </p>
+<p>0..65535 </p>
+<p>This attribute defines a delay time in ms between </p>
+<p>activation of a VN and start of supervision of the </p>
+<p>corresponding signals. </p>
+<p>The supervision stability time is used to avoid </p>
+<p>'Loss of Communication' DTCs due to transient </p>
+<p>conditions after VN activation. </p>
+<p>Default: “5000” </p>
+<p>Table 3-5   Node Attributes </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>9 / 21 </p>
+<p><b>3.3 </b></p>
+<p><b>Message Attributes </b></p>
+<p>On message level the following message attributes are evaluated by GENy: </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>GenMsgSendType </p>
+<p>Enum: </p>
+<p>spontanX </p>
+<p>cyclicX </p>
+<p>Defines the send type of a message. It could either </p>
+<p>be defined as periodic or non-periodic. </p>
+<p>Periodic includes both strict periodic and periodic </p>
+<p>with event. Non-periodic is strictly event-based. </p>
+<p>cyclicX = periodic </p>
+<p>spontanX = non-periodic </p>
+<p>GenMsgCycleTime </p>
+<p>Integer </p>
+<p>If the message is defined as periodic, this attribute </p>
+<p>defines the periodic time. </p>
+<p>Unit: ms </p>
+<p>GenMsgDelayTime </p>
+<p>Integer </p>
+<p>Defines the minimum update time of a message. </p>
+<p>The value is given in units of ms. The minimum </p>
+<p>update time is mostly used for mixed send types, </p>
+<p>namely periodic and event send types. </p>
+<p>Unit: ms </p>
+<p>GenMsgStartDelayTime </p>
+<p>Integer </p>
+<p>Defines the start time after VN Activation when </p>
+<p>processing of message events is started (i.e. the </p>
+<p>cyclic transmission of the messages is started). </p>
+<p>Unit: ms </p>
+<p>GenMsgMandatoryToSupervision  Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Defines the default setting after Power-up before </p>
+<p>the Source Learning procedure the functional </p>
+<p>messages with extended IDs has been started. The </p>
+<p>source address of a message is either initialized to </p>
+<p>FF (Yes) or FE (No). Different indications to the </p>
+<p>application are given if a timeout occur for non-</p>
+<p>learned messages. </p>
+<p>GenMsgILSupport </p>
+<p>Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Defines whether a message shall be handled by the </p>
+<p>Interaction Layer. </p>
+<p>Default: “Yes” </p>
+<p>Prio </p>
+<p>Integer </p>
+<p>Range: </p>
+<p>0..7 </p>
+<p>Defines the priority of the functional messages in an </p>
+<p>GM database. These are the first three bits of the </p>
+<p>Extended CAN ID. </p>
+<p>The priority is added to the CAN Identifier, which </p>
+<p>can be found in the database, within GENy in order </p>
+<p>to build the Transmit CAN-identifier as defined for </p>
+<p>GMLAN with Extended CAN-Ids. </p>
+<p>NmMessage </p>
+<p>Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Declares a message as a Network Management </p>
+<p>message. The attribute must be set to ‘Yes’ for all </p>
+<p>Virtual Network Management Frames (VNMF </p>
+<p>messages). </p>
+<p>TpTxIndex </p>
+<p>Integer </p>
+<p>Defines application TP messages. </p>
+<p>Table 3-6   Message Attributes </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>10 / 21 </p>
+<p><b>3.3.1 </b></p>
+<p><b>Attribute Definitions for Diagnostics </b></p>
+<p>The  following  message  attributes  need  to  be  defined  to  assign  CAN-messages  for  the </p>
+<p>Diagnostic communication: </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>DiagState </p>
+<p>Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Defines the AllNodeMessage request message </p>
+<p>wit the CAN-ID 0x101 as the functional </p>
+<p>diagnostic request message. </p>
+<p>This attribute causes the GENy to reduce the </p>
+<p>DLC check to a 1-byte value in order to let </p>
+<p>messages shorter than 8 bytes also pass the </p>
+<p>DLC-check. </p>
+<p>It also forces the Generation Tool to generate a </p>
+<p>specific function call inside the GMLAN-handler. </p>
+<p>DiagRequest </p>
+<p>Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Defines the physical request message from the </p>
+<p>tester to the node for the diagnostic </p>
+<p>communication. Together with the definition of </p>
+<p>DiagResponse, GENy assigns a connection </p>
+<p>within the Transport Layer. </p>
+<p><b>Note </b>that GENy can only manage one pair of </p>
+<p>diagnostic connection. Thus, only one message </p>
+<p>can be defined for DiagRequest for one node. </p>
+<p>DiagResponse </p>
+<p>Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Defines the physical response message from the </p>
+<p>node to the tester for the diagnostic </p>
+<p>communication. Together with the definition of </p>
+<p>DiagRequest, GENy assigns a connection within </p>
+<p>the Transport Layer.  </p>
+<p><b>Note </b>that GENy can only manage one pair of </p>
+<p>connection. Thus, only one message can be </p>
+<p>defined for DiagRequest for one node. </p>
+<p>TpApplType </p>
+<p>String </p>
+<p>Defines the UUDT message of a node. It has to </p>
+<p>be set to “DiagUUDTResponse” for all diagnostic </p>
+<p>UUDT response messages. </p>
+<p>This attribute causes GENy to generate separate </p>
+<p>naming independent macros used by CANdesc. </p>
+<p>It will also generate tables that can potentially </p>
+<p>used by Multiple Identity Modules (MIMs). </p>
+<p>Table 3-7   Attribute Definitions for Diagnostics </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>11 / 21 </p>
+<p><b>3.4 </b></p>
+<p><b>Signal Attributes </b></p>
+<p>On Signal level there are four concepts that need to be defined: </p>
+<p><b>&gt; </b> Assignments of signals to VNs </p>
+<p><b>&gt; </b> Definition of signal transmit models </p>
+<p><b>&gt; </b> Definition of signal supervision methods </p>
+<p><b>&gt; </b> Define default values for signal attributes (valid-failed, supervision failed, VDA/Mask </p>
+<p>signal failed, start-up default value) </p>
+<p><b>3.4.1 </b></p>
+<p><b>VN-Assignment of Signals </b></p>
+<p>VN  assignments  of  signals  are  signal-dependent  and  therefore  defined  at  signal  level. </p>
+<p>Every  signal  can  be  assigned  to  any  or  all  VNs.  Signal  VN  assignments  are  defined </p>
+<p>through the use of VN-specific attributes one per VN per signal. </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>VNSig&lt;VnName&gt; </p>
+<p>Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Declares if a signal is assigned to a VN or not </p>
+<p>Table 3-8   VN-Assignment of Signals </p>
+<p><b>3.4.2 </b></p>
+<p><b>Signal Transmit Model Attributes </b></p>
+<p>Event-based  signal  transmit  criteria  are  defined  at  the  signal  level.  Periodic  transmit </p>
+<p>criteria are defined at the message level and do not appear here. Refer to chapter 4.1.1 </p>
+<p>“Message Attributes”. </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>GenSigSendOnInit </p>
+<p>Enum: </p>
+<p>NotInitialized </p>
+<p>Application </p>
+<p>Handler </p>
+<p>Defines whether a signal (and the message) </p>
+<p>should be transmitted upon: </p>
+<p><b>&gt; </b></p>
+<p>Reception or transmission of an I-VNMF that </p>
+<p>initializes at least one VN that is associated to </p>
+<p>the VN </p>
+<p><b>&gt; </b></p>
+<p>Start of a Shared Local VN, which the </p>
+<p>message is associated to </p>
+<p><b>&gt; </b></p>
+<p>All Initial Messages that are associated to any </p>
+<p>Initially Active VN are transmitted upon </p>
+<p>reception of a HLVW. </p>
+<p>. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>12 / 21 </p>
+<p><b>3.4.3 </b></p>
+<p><b>Signal Supervision Attributes </b></p>
+<p>Signal supervision attributes are node-dependent and therefore defined at the Node-Rx-</p>
+<p>Signal relation instead on the signal itself. A signal can have different supervision criteria in </p>
+<p>different messages and different nodes. </p>
+<p><b>Name </b></p>
+<p><b>Attribute </b></p>
+<p><b>Class </b></p>
+<p><b>Attribute Type </b></p>
+<p><b>Description </b></p>
+<p>GenSigTimeoutTime </p>
+<p>Signal </p>
+<p>Integer </p>
+<p>The attribute defines the timeout time for </p>
+<p>self-supervision or supervised-by-presence. </p>
+<p>If the corresponding message doesn’t come </p>
+<p>in within this time, supervision failure </p>
+<p>indication is done on this message. </p>
+<p>GenSigTimeoutMsg </p>
+<p>Signal </p>
+<p>Hex </p>
+<p>This value defines the CAN-identifier that is </p>
+<p>used for supervision. For self-supervised </p>
+<p>messages, this is the CAN-identifier of the </p>
+<p>same message. This attribute directs to the </p>
+<p>message used for supervision-by-presence. </p>
+<p>GenSigSuprvResp </p>
+<p>Node-</p>
+<p>Mapped </p>
+<p>Rx Signal </p>
+<p>Enum: </p>
+<p>None </p>
+<p>Notify </p>
+<p>Substitute </p>
+<p>NotifySubstitute  </p>
+<p>Defines the strategy concerning substitution </p>
+<p>and notification in case the signal </p>
+<p>supervision has failed. </p>
+<p><b>&gt; </b></p>
+<p>Notify: </p>
+<p>A timeout flag is automatically configured </p>
+<p>for the signal. </p>
+<p><b>&gt; </b></p>
+<p>Substitute: </p>
+<p>The timeout default value defined by </p>
+<p>‘GenSigSuprvRespSubValue’ is </p>
+<p>automatically configured for the signal. </p>
+<p><b>&gt; </b></p>
+<p>NotifySubstitute: </p>
+<p>Both a timeout flag and timeout default </p>
+<p>value are configured automatically for the </p>
+<p>signal. </p>
+<p> </p>
+<p>GenSigSuprvRespSubValue </p>
+<p>Node-</p>
+<p>Mapped </p>
+<p>Rx Signal </p>
+<p>Integer </p>
+<p>Timeout substitution value for failsoft </p>
+<p>mechanism. It is automatically set in case </p>
+<p>‘GenSigSuprvResp’ is defined as </p>
+<p>‘Substitute’ or ‘NotifySubstitute’. </p>
+<p>Table 3-9   Signal Supervision Attributes </p>
+<p> </p>
+<p> </p>
+<p><b>Info </b></p>
+<p><b>Note</b>: Validity signals are identified by the Capital-V at the end of its signal short name. </p>
+<p>The Validity signal must have the same base name as the signal it is assigned to. </p>
+<p> </p>
+<p> </p>
+<p><b>Example </b></p>
+<p>Signal name:  </p>
+<p>SysPwrMode </p>
+<p>Validity signal:  SysPwrModeV </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>13 / 21 </p>
+<p><b>3.4.4 </b></p>
+<p><b>Signal Attributes </b></p>
+<p>The  following  signal  attribute  is  used  in  order  to  define  the  default/initial  behavior  of </p>
+<p>signals.  These  values  are  defined  on  signal  level  and  are  the  same  for  all  nodes  that </p>
+<p>transmit the signal. </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>GenSigStartValue </p>
+<p>Integer </p>
+<p>Default value for a signal used by the GMLAN-</p>
+<p>Handler to initialize the transmit value during </p>
+<p>Power-Up initialization. </p>
+<p>Table 3-10   Signal Attributes </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>14 / 21 </p>
+<p><b>4 </b></p>
+<p><b>Attribute Settings in Terms of GM Concepts </b></p>
+<p>Understanding the attributes and how they affect GENy and the configuration of GMLAN </p>
+<p>can  lead  to  a  simple  mapping  of  attribute  values  to  GM-specific  concepts  on  transmit </p>
+<p>models and signal supervision.  </p>
+<p>Below is an outline of how GM transmit model and signal supervision concepts can drive </p>
+<p>the settings for the attributes involved. </p>
+<p><b>4.1 </b></p>
+<p><b>Signal Transmit Model </b></p>
+<p><b>4.1.1 </b></p>
+<p><b>Message Attributes </b></p>
+<p>As  signals  can  only  be  transmitted  as  part  of  a  message,  all  signals  in  a  message  will </p>
+<p>share the same transmission behavior. The message transmit model must therefore be set </p>
+<p>correctly to ensure all signals contained in the message can be transmitted according to </p>
+<p>their  signal-specific  requirements.  Signal  attributes  define  event-based  transmit  criteria, </p>
+<p>but not periodic transmit criteria. Periodic transmit criteria must be defined at the message </p>
+<p>level. Any message containing a signal that must be transmitted periodically, regardless of </p>
+<p>value, must be marked as periodic. Signal attributes do not contain this information. Signal </p>
+<p>transmission  requirements  must  be  considered  by  the  serial  data  engineer  and  used  to </p>
+<p>determine  if  a  message  must  be  transmitted  periodically.  Periodic  messages  allow  for </p>
+<p>event-based transmission in addition to the regularly scheduled cyclic transmissions. </p>
+<p>For periodic messages, a cycle time must be defined. The cycle time must be equal to the </p>
+<p>shortest transmit cycle time of all signals contained in the message. For signals with both </p>
+<p>slow and fast cycle times, only the slow cycle time should be considered.  </p>
+<p>For periodic messages, a minimum update (or delay) time must be defined. The minimum </p>
+<p>update  time  is  the  least  amount  of  time  that  must  elapse  between  transmissions  of  the </p>
+<p>message. The minimum update time must be equal to the longest minimum update time of </p>
+<p>all signals contained in the message. </p>
+<p><b>Name </b></p>
+<p><b>Value for Transmit Model </b></p>
+<p><b>Strictly Event Driven </b></p>
+<p><b>Periodic </b></p>
+<p><b>Periodic w/Event </b></p>
+<p>GenMsgSendType </p>
+<p>spontanX </p>
+<p>cyclicX </p>
+<p>cyclicX </p>
+<p>GenMsgCycleTime </p>
+<p>N/A </p>
+<p>cycle time in ms </p>
+<p>cycle time in ms </p>
+<p>GenMsgDelayTime </p>
+<p>minimum delay time in </p>
+<p>ms </p>
+<p>N/A </p>
+<p>minimum delay time in ms </p>
+<p>Table 4-1   Message Attributes of Transmit Model </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>15 / 21 </p>
+<p><b>4.1.2 </b></p>
+<p><b>Signal Attributes </b></p>
+<p>Event-based  transmit  criteria  are  defined  at  the  signal  level.  Every  signal  has  its  own </p>
+<p>event-based  transmit  criteria.  The  signal  type  determines  the  valid  and  possible  event-</p>
+<p>based transmit criteria. Signal type is defined by the SignalType attribute. </p>
+<p>Attributes displayed in <i>italic </i>font aren’t used any more. They are listed for documentation </p>
+<p>purpose only. </p>
+<p><b>Name </b></p>
+<p><b>Value for Transmit Model (by Signal Type) </b></p>
+<p><b>SignalType = ENM </b></p>
+<p> </p>
+<p>Any </p>
+<p>None </p>
+<p>GenSigSendType </p>
+<p>OnAnyChange </p>
+<p>NoSigSendType </p>
+<p><b>SignalType = BLN </b></p>
+<p> </p>
+<p>Send on 0-1 </p>
+<p>Send on 1-0 </p>
+<p>Send on Any Change </p>
+<p>None </p>
+<p>GenSigSendType </p>
+<p>OnChangeIfActive </p>
+<p>OnChangeIfActive </p>
+<p>OnAnyChange </p>
+<p>NoSigSendType </p>
+<p>GenSigInactiveValue </p>
+<p>0 </p>
+<p>1 </p>
+<p>N/A </p>
+<p>N/A </p>
+<p><b>SignalType = UNM </b></p>
+<p> </p>
+<p>Send on </p>
+<p>Delta </p>
+<p>On Delta &amp; </p>
+<p>Top </p>
+<p>On Delta &amp; </p>
+<p>Bottom </p>
+<p>On Delta, Top &amp; </p>
+<p>Bottom </p>
+<p>None </p>
+<p>GenSigSendType </p>
+<p>OnDelta </p>
+<p>OnDelta </p>
+<p>OnDelta </p>
+<p>OnDelta </p>
+<p>NoSigSend </p>
+<p>Type </p>
+<p>GenSigDeltaValue </p>
+<p>delta </p>
+<p>value </p>
+<p>delta value </p>
+<p>delta value </p>
+<p>delta value </p>
+<p>N/A </p>
+<p>GenSigSendTopBottom </p>
+<p>None </p>
+<p>SendOnTop </p>
+<p>SendOnBottom </p>
+<p>SendOnTopBotto</p>
+<p>m </p>
+<p>N/A </p>
+<p>Table 4-2   Signal Attributes of Transmit Model </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>16 / 21 </p>
+<p><b>4.2 </b></p>
+<p><b>Signal Supervision </b></p>
+<p><b>4.2.1 </b></p>
+<p><b>Signal Attributes </b></p>
+<p>Signal  supervision  is  defined  at  the  signal  level.    Every  signal  has  its  own  supervision </p>
+<p>criteria. There are two concepts that define signal supervision criteria. One concept is the </p>
+<p>signal supervision method and the other is the response triggered by a supervision failure. </p>
+<p><b>Name </b></p>
+<p><b>Value for Supervision Method </b></p>
+<p><b>Unsuper</b></p>
+<p><b>vised </b></p>
+<p><b>Source </b></p>
+<p><b>Learning </b></p>
+<p><b>Self </b></p>
+<p><b>Supervised </b></p>
+<p><b>(direct) </b></p>
+<p><b>Supervised By </b></p>
+<p><b>Presence </b></p>
+<p><b>(indirect) </b></p>
+<p><b>Supervised </b></p>
+<p><b>By Value </b></p>
+<p>NodeStatusMsgTime</p>
+<p>outTime </p>
+<p>0 </p>
+<p>&gt; 0 </p>
+<p>N/A </p>
+<p>N/A </p>
+<p>N/A </p>
+<p>GenSigTimeoutTime </p>
+<p>0 </p>
+<p>0 </p>
+<p>time in ms </p>
+<p>time in ms </p>
+<p>N/A </p>
+<p>GenSigTimeoutMsg </p>
+<p>0 </p>
+<p>0 </p>
+<p>hex CAN-ID of </p>
+<p>message  </p>
+<p>containing this </p>
+<p>signal </p>
+<p>hex CAN-ID of </p>
+<p>message that </p>
+<p>shall be used for </p>
+<p>supervision </p>
+<p>N/A </p>
+<p>Table 4-3   Signal Attributes for Supervision </p>
+<p><b>Name </b></p>
+<p><b>Value for Supervision Failure Response Type </b></p>
+<p><b>None </b></p>
+<p><b>Notify </b></p>
+<p><b>Application </b></p>
+<p><b>Substitute </b></p>
+<p><b>Value </b></p>
+<p><b>Notify &amp; Substitute </b></p>
+<p>GenSigSuprvResp </p>
+<p>None </p>
+<p>Notify </p>
+<p>Substitute </p>
+<p>NotifySubstitute </p>
+<p>GenSigSuprvRespSubValue </p>
+<p>N/A </p>
+<p>N/A </p>
+<p>raw bus value </p>
+<p>raw bus value </p>
+<p>Table 4-4   Signal Attributes for Failsoft Mechanism </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>17 / 21 </p>
+<p><b>5 </b></p>
+<p><b>Database Attributes for CANoe Models </b></p>
+<p>The following database attributes are used for the configuration of CANoe models. They </p>
+<p>are not used by the configuration tools for the GMLAN Handler: </p>
+<p> </p>
+<p><b>Attribute Name </b></p>
+<p><b>Attribute </b></p>
+<p><b>Class </b></p>
+<p><b>Attribute </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>NodeLayerModules</p>
+<p>1</p>
+<p> </p>
+<p>Node </p>
+<p>String </p>
+<p>This attribute is used by CANoe to load </p>
+<p>NodeLayer DLLs. These DLLs are used to </p>
+<p>provide an advanced interface to CAPL and </p>
+<p>extended functionality of a specific node. </p>
+<p>Typically, the value “GMLAN02.DLL” is </p>
+<p>provided. This DLL extends CANoe to provide </p>
+<p>GMLAN-specific functionalities. Another </p>
+<p>attribute value is “osek_tp.dll”. This DLL </p>
+<p>provides  </p>
+<p>Table 5-1   Database Attributes for CANoe Models </p>
+<p> </p>
+<p> </p>
+<p>                                            </p>
+<p>1</p>
+<p> This attribute is not used for the configuration of the GMLAN-Handler. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>18 / 21 </p>
+<p><b>6 </b></p>
+<p><b>Database Attributes not evaluated by GENy </b></p>
+<p>This chapter contains database attributes, which are defined in GM’s network databases </p>
+<p>but are not evaluated by the configuration and generation tool GENy for configuration of </p>
+<p>the GMLAN-Handler. </p>
+<p> </p>
+<p><b>Attribute Name </b></p>
+<p><b>Attribute </b></p>
+<p><b>Class </b></p>
+<p><b>Attribute Type </b></p>
+<p><b>Description </b></p>
+<p>UseGMParameterIDs </p>
+<p>Network </p>
+<p>Integer </p>
+<p>Defines if the network uses the </p>
+<p>GMLAN parameter ID’s in the </p>
+<p>29-bit architecture. </p>
+<p>1: Network uses Parameter-Ids </p>
+<p>(29-Bit) </p>
+<p>0: Network uses no parameter-</p>
+<p>ID’s (11-Bit) </p>
+<p>SourceID </p>
+<p>Node </p>
+<p>Hexadecimal </p>
+<p>The Source address of a node is </p>
+<p>given as an attribute inside the </p>
+<p>database. There are two </p>
+<p>possibilities to use this attribute: </p>
+<p><b>&gt; </b></p>
+<p>Instead of initialization of the </p>
+<p>Source Address by the </p>
+<p>application, the handler could </p>
+<p>do this in the function IlInit(). </p>
+<p>This would imply, that the </p>
+<p>value is always fixed (MIM-</p>
+<p>modules will be handled </p>
+<p>correctly depending on the </p>
+<p>pre-selection of the </p>
+<p>application, which instant </p>
+<p>should run). </p>
+<p><b>&gt; </b></p>
+<p>The transmit messages </p>
+<p>inside the handler will already </p>
+<p>be pre-set with the Source </p>
+<p>Address given in this </p>
+<p>attribute. </p>
+<p>This would avoid the runtime </p>
+<p>effort of the driver to add the </p>
+<p>source address every time a </p>
+<p>message must be </p>
+<p>transmitted. The dynamic </p>
+<p>setting will only be required </p>
+<p>for MIM’s. </p>
+<p>GenSigVBitResp </p>
+<p>Node-</p>
+<p>Mapped </p>
+<p>Rx Signal </p>
+<p>Enum: </p>
+<p>No </p>
+<p>Yes </p>
+<p>Identifies that a validity signal is </p>
+<p>used for signal integrity. </p>
+<p>GenSigVDAFailResp </p>
+<p>Node-</p>
+<p>Enum: </p>
+<p>Identifies that a VDA signal is </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>19 / 21 </p>
+<p>Mapped </p>
+<p>Rx Signal </p>
+<p>No </p>
+<p>Yes </p>
+<p>used for signal integrity. </p>
+<p>Table 6-1   Network attributes not evaluated by GENy </p>
+<p> </p>
+<p><b>6.1 </b></p>
+<p><b>Signal Transmit Model Attributes </b></p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>SignalType </p>
+<p>String </p>
+<p>Defines the type of the signal: </p>
+<p>“ENM” : Enumeration </p>
+<p>“BLN” : Boolean </p>
+<p>“UNM” : Unsigned Numeric </p>
+<p>GenSigSendType </p>
+<p>Enum:  </p>
+<p>0  not used   </p>
+<p>1  not used   </p>
+<p>2  not used   </p>
+<p>3  not used   </p>
+<p>4  not used   </p>
+<p>5  not used   </p>
+<p>6  not used   </p>
+<p>7  NoSigSendType </p>
+<p>8  not used   </p>
+<p>9  not used   </p>
+<p>10 OnAnyChange </p>
+<p>11 OnChangeIfActive </p>
+<p>12 OnDelta </p>
+<p>Defines the transmit criteria for a signal </p>
+<p>ENM:  </p>
+<p>NoSigSendType or OnAnyChange </p>
+<p>UNM: </p>
+<p>NoSigSendType or OnDelta </p>
+<p>BLN: </p>
+<p>NoSigSendType or OnChangeIfActive or </p>
+<p>OnANyChange </p>
+<p>GenSigInactiveValue </p>
+<p>Integer </p>
+<p>Defines if a signal shall be transmitted if </p>
+<p>changed (SigSendType = OnChangeIfActive). It </p>
+<p>is not send if it reaches the inactive value. </p>
+<p>Used to define the send type 0-to-1 OR 1-to-0. </p>
+<p>GenSigInactiveValue is defined as a raw value </p>
+<p>(for signals of type Boolean only raw values are </p>
+<p>used at all). </p>
+<p>GenSigSendTopBottom </p>
+<p>Enum:  </p>
+<p>None  </p>
+<p>SendOnTop </p>
+<p>SendOnBottom </p>
+<p>SendOnTopBottom </p>
+<p>Defines whether a signal of type UNM needs to </p>
+<p>be sent if the physical value reaches one or all </p>
+<p>of its limits. </p>
+<p>The limits for Top and Bottom are defined in the </p>
+<p>Min and Max values of the database. </p>
+<p>GenSigDeltaValue </p>
+<p>Integer </p>
+<p>This is used with SigSendType “OnDelta”. If the </p>
+<p>most recent value exceeds the value of Delta </p>
+<p>compared to the last value sent via CAN, the </p>
+<p>signal is transmitted again. </p>
+<p>Table 6-2   Signal Transmit Model attributes not evaluated by GENy </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>20 / 21 </p>
+<p><b>6.1.1 </b></p>
+<p><b>Node Mapped Rx-Signal Default Value Attributes </b></p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>GenSigRxStartValue </p>
+<p>String </p>
+<p>Value receivers set signal to at power up. </p>
+<p>Used for documentation and UEF-Export. </p>
+<p>Table 6-3   Rx-Signal Default attributes not evaluated by GENy </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Database Attributes  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.02.01 </p>
+<p>Based on template version 2.8 </p>
+<p>21 / 21 </p>
+<p><b>7 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector-informatik.com </b></p>
+</body>
+</html>
+{% endraw %}

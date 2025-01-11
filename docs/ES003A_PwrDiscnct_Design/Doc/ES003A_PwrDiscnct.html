@@ -1,0 +1,348 @@
+---
+layout: default
+title: ES003A_PwrDiscnct
+nav_order: 1
+parent: Component Design
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b>/ESG Group/FDD Module Requirements/EA4 Specific</b></p>
+<p><b>ES003A_PwrDiscnct</b></p>
+<p>ES003A_PowerDisconnect</p>
+<p>Version: 0.0</p>
+<p>Printed by: Rakesh Prabhakara</p>
+<p>Printed on: Thursday, March 26, 2015</p>
+<p>Generated from DOORS 9.5.1.2</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Contents</b></p>
+<p><b>1</b></p>
+<p><b>1</b></p>
+<p><b>Purpose</b></p>
+<p><b>2</b></p>
+<p><b>2</b></p>
+<p><b>Interface Requirements</b></p>
+<p>2.1</p>
+<p>2</p>
+<p>Definitions</p>
+<p>2.1.1</p>
+<p>2</p>
+<p>Inputs</p>
+<p>2.1.2</p>
+<p>2</p>
+<p>Outputs</p>
+<p>2.1.3</p>
+<p>2</p>
+<p>Internally Defined Terms</p>
+<p><b>3</b></p>
+<p><b>4</b></p>
+<p><b>Requirements</b></p>
+<p>3.1</p>
+<p>4</p>
+<p>Primary Functional Requirements</p>
+<p>3.2</p>
+<p>4</p>
+<p>Hardware Requirements</p>
+<p>3.3</p>
+<p>4</p>
+<p>Software Requirements</p>
+<p>3.3.1</p>
+<p>4</p>
+<p>Special Execution Requirements</p>
+<p>3.3.2</p>
+<p>4</p>
+<p>Functional Requirements</p>
+<p>3.3.2.1</p>
+<p>4</p>
+<p>Sub-Function: Calculate Delta Voltage</p>
+<p>3.3.2.2</p>
+<p>4</p>
+<p>Sub-Function: Power Disconnect Sequence A Control</p>
+<p>3.3.2.3</p>
+<p>5</p>
+<p>Sub-Function: Power Disconnect Sequence B Control</p>
+<p>3.4</p>
+<p>5</p>
+<p>Diagnostic Requirements</p>
+<p>3.4.1</p>
+<p>5</p>
+<p>Power Disconnect Fault for Inverter1 at Init (NTC 0x042)</p>
+<p>3.4.1.1</p>
+<p>5</p>
+<p>Required Debounce Strategy</p>
+<p>3.4.1.2</p>
+<p>5</p>
+<p>Requirements to Perform Diagnostic Test Conditions</p>
+<p>3.4.1.3</p>
+<p>5</p>
+<p>Test Condition Negative Requirements</p>
+<p>3.4.1.4</p>
+<p>5</p>
+<p>Test Condition Positive Requirements</p>
+<p>3.4.2</p>
+<p>5</p>
+<p>Power Disconnect Fault for Inverter2 at Init (NTC 0x4A)</p>
+<p>3.4.2.1</p>
+<p>5</p>
+<p>Required Debounce Strategy</p>
+<p>3.4.2.2</p>
+<p>5</p>
+<p>Requirements to Perform Diagnostic Test Conditions</p>
+<p>3.4.2.3</p>
+<p>6</p>
+<p>Test Condition Negative Requirements</p>
+<p>3.4.2.4</p>
+<p>6</p>
+<p>Test Condition Positive Requirements</p>
+<p>Contents</p>
+<p>ii</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 1 of 6</p>
+<p>Printed Thursday, March 26, 2015</p>
+<p><b>ID</b></p>
+<p>ES003A</p>
+<p>_1</p>
+<p><b>ES003A_PowerDisconnect</b></p>
+<p><b>1 Purpose</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 2 of 6</p>
+<p>Printed Thursday, March 26, 2015</p>
+<p><b>ID</b></p>
+<p>ES003A</p>
+<p>_2</p>
+<p>ES003A</p>
+<p>_5</p>
+<p>ES003A</p>
+<p>_6</p>
+<p>ES003A</p>
+<p>_9</p>
+<p>ES003A</p>
+<p>_10</p>
+<p>ES003A</p>
+<p>_11</p>
+<p>ES003A</p>
+<p>_12</p>
+<p>ES003A</p>
+<p>_13</p>
+<p>ES003A</p>
+<p>_106</p>
+<p>ES003A</p>
+<p>_7</p>
+<p>ES003A</p>
+<p>_20</p>
+<p>ES003A</p>
+<p>_15</p>
+<p>ES003A</p>
+<p>_14</p>
+<p>ES003A</p>
+<p>_8</p>
+<p>ES003A</p>
+<p>_17</p>
+<p><b>ES003A_PowerDisconnect</b></p>
+<p><b>2 Interface Requirements</b></p>
+<p><b>2.1 Definitions</b></p>
+<p><b>2.1.1 Inputs</b></p>
+<p>For the purposes of this document, the input signals are referred to as stated in the following (note each </p>
+<p>input is identified in a separate object for linking purposes to the design):</p>
+<p>Defined terms used in the document shall be in <b>bold text</b>.</p>
+<p><b>BattVltg: </b>ADC Converted representation of Battery Voltage (Upstream of Power Disconnect)</p>
+<p><b>BattVltgSwd1: </b>ADC Converted representation of Switch Voltage from Inverter 1 (Downstream of </p>
+<p>Power Disconnect)</p>
+<p><b>BattVltgSwd2: </b>ADC Converted representation of Switch Voltage from Inverter 2(Downstream of </p>
+<p>Power Disconnect)</p>
+<p><b>ELECGLBPRM_IVTRCNT_CNT_U08: </b>Number of Inverters</p>
+<p><b>StrtUpSt: </b>Comprehensive collection of start-up bits indicating Power Up Sequence Type</p>
+<p><b>2.1.2 Outputs</b></p>
+<p>For the purposes of this document, the input signals are referred to as stated in the following (note each </p>
+<p>input is identified in a separate object for linking purposes to the design):</p>
+<p>Defined terms used in the document shall be in <b>bold text</b>.</p>
+<p><b>PwrDiscnctATestCmpl</b>: Flag Indicating that the sequence A is complete</p>
+<p><b>PwrDiscnctBTestCmpl: </b>Flag Indicating that the sequence B is complete</p>
+<p><b>2.1.3 Internally Defined Terms</b></p>
+<p>For the purposes of this document, the internally defined variables are referred to as stated in the </p>
+<p>following (note each input is identified in a separate object for linking purposes to the design):</p>
+<p>Defined terms used in the document shall be in underlined text.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 3 of 6</p>
+<p>Printed Thursday, March 26, 2015</p>
+<p><b>ID</b></p>
+<p>ES003A</p>
+<p>_21</p>
+<p>ES003A</p>
+<p>_23</p>
+<p>ES003A</p>
+<p>_18</p>
+<p>ES003A</p>
+<p>_22</p>
+<p>ES003A</p>
+<p>_74</p>
+<p>ES003A</p>
+<p>_75</p>
+<p><b>ES003A_PowerDisconnect</b></p>
+<p>DeltaVltg1: This indiactes the difference between <b>BattVltg </b>and <b>BattVltgSwd1.</b></p>
+<p>DeltaVltg2: This indiactes the difference between <b>BattVltg </b>and <b>BattVltgSwd2</b></p>
+<p>PwrDisncntMaxSwdVltg<b>: </b>Field configurable variable that indicates largest voltage at which </p>
+<p><b>BattVltgSwd1 </b>and <b>BattVltgSwd2 </b>saturate (nominally 16V)</p>
+<p>PwrDiscnctOpenThd: Voltage threshold for determining <b>BattVltgSwd1 </b>and <b>BattVltgSwd2 </b>is open</p>
+<p>PwrDiscnctSequenceA<b>: </b>PwrDiscnctSequenceA are the necessary steps performed by this function </p>
+<p>before the power disconnect is allowed to be closed.</p>
+<p>PwrDiscnctSequenceB<b>: </b>PwrDiscnctSequenceB are the necessary steps performed by this function after </p>
+<p>the power disconnect has been closed.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 4 of 6</p>
+<p>Printed Thursday, March 26, 2015</p>
+<p><b>ID</b></p>
+<p>ES003A</p>
+<p>_3</p>
+<p>ES003A</p>
+<p>_25</p>
+<p>ES003A</p>
+<p>_26</p>
+<p>ES003A</p>
+<p>_27</p>
+<p>ES003A</p>
+<p>_48</p>
+<p>ES003A</p>
+<p>_28</p>
+<p>ES003A</p>
+<p>_97</p>
+<p>ES003A</p>
+<p>_98</p>
+<p>ES003A</p>
+<p>_99</p>
+<p>ES003A</p>
+<p>_53</p>
+<p>ES003A</p>
+<p>_56</p>
+<p>ES003A</p>
+<p>_50</p>
+<p>ES003A</p>
+<p>_76</p>
+<p>ES003A</p>
+<p>_46</p>
+<p>ES003A</p>
+<p>_47</p>
+<p><b>ES003A_PowerDisconnect</b></p>
+<p><b>3 Requirements</b></p>
+<p><b>3.1 Primary Functional Requirements</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall verify that the PowerDisconnect is not stuck closed at </p>
+<p>initialization once per Ignition Cycle.</p>
+<p><b>3.2 Hardware Requirements</b></p>
+<p>NONE</p>
+<p><b>3.3 Software Requirements</b></p>
+<p><b>3.3.1 Special Execution Requirements</b></p>
+<p>The &quot;Power Disconnect&quot; function shall provide mechanism to split its startup procedure into pre-close </p>
+<p>(PwrDiscnctSequenceA) and post-close (PwrDiscnctSequenceB). This is necessary because a separate </p>
+<p>function is actually responsible for closing the power disconnect. </p>
+<p>The &quot;Power Disconnect&quot; Function shall provide mechanism for its startup sequences to wait for </p>
+<p><b>StrtUpSt </b>to performs its actions.</p>
+<p><b>3.3.2 Functional Requirements</b></p>
+<p><b>3.3.2.1 Sub-Function: Calculate Delta Voltage</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall  calculate DeltaVltg1 for <b>BattVltgSwd1 </b>as below:</p>
+<p>DeltaVltg1 = Abs(Min(PwrDiscnctMaxSwdVltg, <b>BattVltg</b>) -<b> BattVltgSwd1)</b>;</p>
+<p>The &quot;Power Disconnect&quot; Function shall calculate DeltaVltg2 for <b>BattVltgSwd2 </b>as below:</p>
+<p>DeltaVltg2 = Abs(Min(PwrDiscnctMaxSwdVltg, <b>BattVltg</b>) -<b> BattVltgSwd2)</b>; (Only when  <b>IvtrCnt </b>= </p>
+<p>2)</p>
+<p><b>3.3.2.2 Sub-Function: Power Disconnect Sequence A Control</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall verify if the EPS Primary Disconnect is not stuck closed in </p>
+<p>PwrDiscnctSequenceA.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 5 of 6</p>
+<p>Printed Thursday, March 26, 2015</p>
+<p><b>ID</b></p>
+<p>ES003A</p>
+<p>_87</p>
+<p>ES003A</p>
+<p>_61</p>
+<p>ES003A</p>
+<p>_82</p>
+<p>ES003A</p>
+<p>_88</p>
+<p>ES003A</p>
+<p>_29</p>
+<p>ES003A</p>
+<p>_30</p>
+<p>ES003A</p>
+<p>_32</p>
+<p>ES003A</p>
+<p>_42</p>
+<p>ES003A</p>
+<p>_33</p>
+<p>ES003A</p>
+<p>_86</p>
+<p>ES003A</p>
+<p>_35</p>
+<p>ES003A</p>
+<p>_91</p>
+<p>ES003A</p>
+<p>_36</p>
+<p>ES003A</p>
+<p>_92</p>
+<p>ES003A</p>
+<p>_31</p>
+<p>ES003A</p>
+<p>_37</p>
+<p>ES003A</p>
+<p>_43</p>
+<p>ES003A</p>
+<p>_38</p>
+<p><b>ES003A_PowerDisconnect</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall reach conclusion <b>PwrDiscnctATestCmpl = TRUE  </b>within 10s </p>
+<p>(CBE) under all conditons.</p>
+<p><b>3.3.2.3 Sub-Function: Power Disconnect Sequence B Control</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall perform post-close sequences during PwrDiscnctSequenceB.</p>
+<p>The &quot;Power Disconnect&quot; Function shall reach conclusion for <b>PwrDiscnctBTestCmpl </b>= <b>TRUE </b>within </p>
+<p>10s (CBE) under all conditions. </p>
+<p><b>3.4 Diagnostic Requirements</b></p>
+<p><b>3.4.1 Power Disconnect Fault for Inverter1 at Init (NTC 0x042)</b></p>
+<p><b>3.4.1.1 Required Debounce Strategy</b></p>
+<p>The &quot;Power Diconnect&quot; Function shall use the ISO Based Error Accumulator strategy for NTC 0x042.</p>
+<p><b>3.4.1.2 Requirements to Perform Diagnostic Test Conditions</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall perform the test for NTC 0x42 during PwrDiscnctSequenceA. </p>
+<p><b>3.4.1.3 Test Condition Negative Requirements</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall provide a negative result on the test condition for NTC 0x042.0 </p>
+<p>when DeltaVltg1 <b>&lt; </b>PwrDiscnctOpenThd</p>
+<p><b>3.4.1.4 Test Condition Positive Requirements</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall provide a positve result on the test condition for NTC 0x042 </p>
+<p>when none of the negative result requirements are satisfied.</p>
+<p><b>3.4.2 Power Disconnect Fault for Inverter2 at Init (NTC 0x4A)</b></p>
+<p><b>3.4.2.1 Required Debounce Strategy</b></p>
+<p>The &quot;Power Diconnect&quot; Function shall use the ISO Based Error Accumulator strategy for NTC 0x04A.</p>
+<p><b>3.4.2.2 Requirements to Perform Diagnostic Test Conditions</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 6 of 6</p>
+<p>Printed Thursday, March 26, 2015</p>
+<p><b>ID</b></p>
+<p>ES003A</p>
+<p>_89</p>
+<p>ES003A</p>
+<p>_39</p>
+<p>ES003A</p>
+<p>_93</p>
+<p>ES003A</p>
+<p>_40</p>
+<p>ES003A</p>
+<p>_95</p>
+<p><b>ES003A_PowerDisconnect</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall perform the test NTC 0x4A during PwrDiscnctSequenceA</p>
+<p>when <b>IvtrCnt </b>= 2. </p>
+<p><b>3.4.2.3 Test Condition Negative Requirements</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall provide a negative result on the test condition for NTC </p>
+<p>0x04A.0 when DeltaVltg2 <b>&lt; </b>PwrDiscnctOpenThd</p>
+<p><b>3.4.2.4 Test Condition Positive Requirements</b></p>
+<p>The &quot;Power Disconnect&quot; Function shall provide positve result on the test condition for NTC 0x04A </p>
+<p>none of the negative result requirements are satisfied.</p>
+</body>
+</html>
+{% endraw %}

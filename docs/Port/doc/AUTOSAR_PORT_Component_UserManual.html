@@ -1,0 +1,4617 @@
+---
+layout: default
+title: AUTOSAR_PORT_Component_UserManual
+nav_order: 1
+parent: Port Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3</p>
+<p> </p>
+<p>User’s Manual</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>PORT Driver Component Ver.1.0.5 </p>
+<p> </p>
+<p>Embedded User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target Device: </p>
+<p>RH850\P1x </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev.0.02 Apr 2015</p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>2 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Notice </p>
+<p>1. </p>
+<p>All information included in this document is current as of the date this document is issued. Such information, however, is subject to </p>
+<p>change without any prior notice. Before purchasing or using any Renesas Electronics products listed herein, please confirm the latest </p>
+<p>product information with a Renesas Electronics sales office. Also, please pay regular and careful attention to additional and different </p>
+<p>information to be disclosed by Renesas Electronics such as that disclosed through our website. </p>
+<p>2. </p>
+<p>Renesas Electronics does not assume any liability for infringement of patents, copyrights, or other intellectual property rights of third </p>
+<p>parties by or arising from the use of Renesas Electronics products or technical information described in this document. No license, </p>
+<p>express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p> 3. </p>
+<p>You should not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. </p>
+<p>4. </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples.  You are fully responsible for the incorporation of these circuits, software, and </p>
+<p>information in the design of your equipment.  Renesas Electronics assumes no responsibility for any losses incurred by </p>
+<p>you or third parties arising from the use of these circuits, software, or information. </p>
+<p>5. </p>
+<p>When exporting the products or technology described in this document, you should comply with the applicable export control laws </p>
+<p>and regulations and follow the procedures required by such laws and regulations.  You should not use Renesas Electronics products </p>
+<p>or the technology described in this document for any purpose relating to military applications or use by the military, including but </p>
+<p>not limited to the development of weapons of mass destruction.  Renesas Electronics products and technology may not be used for or </p>
+<p>incorporated into any products or systems whose manufacture, use, or sale is prohibited under any applicable domestic or foreign </p>
+<p>laws or regulations. </p>
+<p>6. </p>
+<p>Renesas Electronics has used reasonable care in preparing the information included in this document, but Renesas Electronics does </p>
+<p>not warrant that such information is error free.  Renesas Electronics assumes no liability whatsoever for any damages incurred by </p>
+<p>you resulting from errors in or omissions from the information included herein. </p>
+<p>7. </p>
+<p>Renesas Electronics products are classified according to the following three quality grades:  &quot;Standard&quot;, &quot;High Quality&quot;, and </p>
+<p>&quot;Specific&quot;.  The recommended applications for each Renesas Electronics product depends on the product's quality grade, as indicated </p>
+<p>below.  You must check the quality grade of each Renesas Electronics product before using it in a particular application.  You may </p>
+<p>not use any Renesas Electronics product for any application categorized as &quot;Specific&quot; without the prior written consent of Renesas </p>
+<p>Electronics.  Further, you may not use any Renesas Electronics product for any application for which it is not intended without the </p>
+<p>prior written consent of Renesas Electronics.  Renesas Electronics shall not be in any way liable for any damages or losses incurred by </p>
+<p>you or third parties arising from the use of any Renesas Electronics product for an application categorized as &quot;Specific&quot; or for which </p>
+<p>the product is not intended where you have failed to obtain the prior written consent of Renesas Electronics.  The quality grade of </p>
+<p>each Renesas Electronics product is &quot;Standard&quot; unless otherwise expressly specified in a Renesas Electronics data sheets or data </p>
+<p>books, etc. </p>
+<p>&quot;Standard&quot;: </p>
+<p>Computers; office equipment; communications equipment; test and measurement equipment; audio and visual </p>
+<p>equipment; home electronic appliances; machine tools; personal electronic equipment; and industrial robots. </p>
+<p>&quot;High Quality&quot;: Transportation equipment (automobiles, trains, ships, etc.); traffic control systems; anti-disaster systems; anti- crime </p>
+<p>systems; safety equipment; and medical equipment not specifically designed for life support. </p>
+<p>&quot;Specific&quot;: </p>
+<p>Aircraft; aerospace equipment; submersible repeaters; nuclear reactor control systems; medical equipment or </p>
+<p>systems for life support (e.g. artificial life support devices or systems), surgical implantations, or healthcare </p>
+<p>intervention (e.g. excision, etc.), and any other applications or purposes that pose a direct threat to human life. </p>
+<p>8. </p>
+<p>You should use the Renesas Electronics products described in this document within the range specified by Renesas Electronics, </p>
+<p>especially with respect to the maximum rating, operating supply voltage range, movement power voltage range, heat radiation </p>
+<p>characteristics, installation and other product characteristics. Renesas Electronics shall have no liability for malfunctions or damages </p>
+<p>arising out of the use of Renesas Electronics products beyond such specified ranges. </p>
+<p>9. </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of its products, semiconductor products have specific </p>
+<p>characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design.  Please be sure to implement safety measures to guard them against </p>
+<p>the possibility of physical injury, and injury or damage caused by fire in the event of the failure of a </p>
+<p>Renesas Electronics product, such as safety design for hardware and software including but not limited to redundancy, fire control </p>
+<p>and malfunction prevention, appropriate treatment for aging degradation or any other appropriate measures.  Because the evaluation </p>
+<p>of microcomputer software alone is very difficult, please evaluate the safety of the final products or system manufactured by you. </p>
+<p>10. </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of </p>
+<p>each Renesas Electronics product.  Please use Renesas Electronics products in compliance with all applicable laws and regulations </p>
+<p>that regulate the inclusion or use of controlled substances, including without limitation, the EU RoHS Directive.  Renesas Electronics </p>
+<p>assumes no liability for damages or losses occurring as a result of your noncompliance with applicable laws and regulations. </p>
+<p>11. </p>
+<p>This document may not be reproduced or duplicated, in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p>12. </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this </p>
+<p>document or Renesas Electronics products, or if you have any other inquiries. </p>
+<p> </p>
+<p>(Note 1)  &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority- owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)  &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics.</p>
+<p> </p>
+<p>3 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>4 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p> </p>
+<p><b>Abbreviation / Acronym </b></p>
+<p><b>Description </b></p>
+<p>ADC </p>
+<p>Analog to Digital Converter </p>
+<p>ANSI </p>
+<p>American National Standards Institute </p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p>ARXML </p>
+<p>AutosaR eXtensible Mark-up Language </p>
+<p>AUTOSAR </p>
+<p>AUTomotive Open System ARchitecture </p>
+<p>BUS </p>
+<p>BUS Network </p>
+<p>BSW </p>
+<p>Basic SoftWare </p>
+<p>CAN </p>
+<p>Controller Area Network </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>DIO </p>
+<p>Digital Input Output </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>EEPROM </p>
+<p>Electrically Erasable Programmable Read-Only Memory </p>
+<p>GNU </p>
+<p>GNU is Not Unix </p>
+<p>GPT </p>
+<p>General Purpose Timer </p>
+<p>HW </p>
+<p>HardWare </p>
+<p>ICU </p>
+<p>Input Capture Unit </p>
+<p>id/ID </p>
+<p>Identifier </p>
+<p>I/O </p>
+<p>Input Output </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>KB </p>
+<p>Kilo Bytes </p>
+<p>LIN </p>
+<p>Local Interconnect Network </p>
+<p>MCAL </p>
+<p>Microcontroller Abstraction Layer </p>
+<p>MCU </p>
+<p>MicroController Unit </p>
+<p>MHz </p>
+<p>Mega Hertz </p>
+<p>NA </p>
+<p>Not Applicable </p>
+<p>OS </p>
+<p>Operating System </p>
+<p>PDF </p>
+<p>Parameter Definition File </p>
+<p>PLL </p>
+<p>Phase Locked Loop </p>
+<p>PWM </p>
+<p>Pulse Width Modulation </p>
+<p>RAM </p>
+<p>Random Access Memory </p>
+<p>ROM </p>
+<p>Read Only Memory </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SCI </p>
+<p>Serial Communication Interface </p>
+<p>SPI </p>
+<p>Serial Peripheral Interface </p>
+<p>SWS </p>
+<p>Software Requirements Specification </p>
+<p>TAU </p>
+<p>Timer Array Unit </p>
+<p>WDT </p>
+<p>Watchdog Timer </p>
+<p><b>5 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p><b>Term </b></p>
+<p><b>Represented by </b></p>
+<p>PORT channel </p>
+<p>Numeric identifier linked to a hardware PORT </p>
+<p>PORT Idle State </p>
+<p>The idle state represents the output state of the PORT channel after the </p>
+<p>call of </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>PORT Output State </p>
+<p>Defines the output state for a PORT signal. It </p>
+<p>could be: High </p>
+<p>                Low </p>
+<p>PORT period </p>
+<p>Defines the period of the PORT signal. </p>
+<p>PORT Polarity </p>
+<p>Defines the starting output state of each PORT channel </p>
+<p>Sl. No. </p>
+<p>Serial Number </p>
+<p><b>6 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Table of Contents </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>Introduction ..................................................................... 11</b></p>
+<p> </p>
+<p><b>1.1.</b></p>
+<p> </p>
+<p><b>Document Overview ................................................................................................................ 13</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>Reference Documents .................................................... 15</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>Integration and Build Process ....................................... 17</b></p>
+<p> </p>
+<p><b>3.1.</b></p>
+<p> </p>
+<p><b>PORT Driver Component Makefile ......................................................................................... 17</b></p>
+<p> </p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p><b>Forethoughts ................................................................... 19</b></p>
+<p> </p>
+<p><b>4.1.</b></p>
+<p> </p>
+<p><b>General...................................................................................................................................... 19</b></p>
+<p> </p>
+<p><b>4.2.</b></p>
+<p> </p>
+<p><b>Preconditions ........................................................................................................................... 19</b></p>
+<p> </p>
+<p><b>4.3.</b></p>
+<p> </p>
+<p><b>User Mode and Supervisor Mode ........................................................................................... 20</b></p>
+<p> </p>
+<p><b>4.4.</b></p>
+<p> </p>
+<p><b>Data Consistency ..................................................................................................................... 20</b></p>
+<p> </p>
+<p><b>4.5.</b></p>
+<p> </p>
+<p><b>Deviation List ........................................................................................................................... 21</b></p>
+<p> </p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p><b>Architecture Details ........................................................ 23</b></p>
+<p> </p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p><b>Registers Details ............................................................. 25</b></p>
+<p> </p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p><b>Interaction Between The User And PORT  Driver </b></p>
+<p><b>Component </b></p>
+<p><b> ......................................................................................... 29</b></p>
+<p> </p>
+<p><b>7.1.</b></p>
+<p> </p>
+<p><b>Services Provided By PORT Driver Component To User .................................................... 29</b></p>
+<p> </p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p><b>PORT Driver Component Header And Source File </b></p>
+<p><b>Description </b></p>
+<p><b> ......................................................................................... 31</b></p>
+<p> </p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p><b>Generation Tool Guide .................................................... 33</b></p>
+<p> </p>
+<p><b>Chapter 10</b></p>
+<p> </p>
+<p><b>Application Programming Interface .............................. 35</b></p>
+<p> </p>
+<p><b>10.1.</b></p>
+<p> </p>
+<p><b>Imported Types ........................................................................................................................ 35</b></p>
+<p> </p>
+<p>10.1.1</p>
+<p> </p>
+<p>Standard Types ....................................................................................................... 35</p>
+<p> </p>
+<p>10.1.2</p>
+<p> </p>
+<p>Other Module Types ................................................................................................ 35</p>
+<p> </p>
+<p><b>10.2.</b></p>
+<p> </p>
+<p><b>Type Definitions ....................................................................................................................... 35</b></p>
+<p> </p>
+<p>10.2.1</p>
+<p> </p>
+<p>Port_ConfigType...................................................................................................... 35</p>
+<p> </p>
+<p>10.2.2</p>
+<p> </p>
+<p>Port_PinType ........................................................................................................... 37</p>
+<p> </p>
+<p>10.2.3</p>
+<p> </p>
+<p>Port_PinDirection Type ........................................................................................... 38</p>
+<p> </p>
+<p>10.2.4</p>
+<p> </p>
+<p>Port_PinModeType .................................................................................................. 38</p>
+<p> </p>
+<p><b>10.3.</b></p>
+<p> </p>
+<p><b>Function Definitions ................................................................................................................ 39</b></p>
+<p> </p>
+<p><b>Chapter 11</b></p>
+<p> </p>
+<p><b>Development And Production Errors ............................ 41</b></p>
+<p> </p>
+<p><b>11.1.</b></p>
+<p> </p>
+<p><b>PORT Driver Component Development Errors ...................................................................... 41</b></p>
+<p> </p>
+<p><b>11.2.</b></p>
+<p> </p>
+<p><b>PORT Driver Component Production Errors ........................................................................ 42</b></p>
+<p> </p>
+<p><b>Chapter 12</b></p>
+<p> </p>
+<p><b>Memory Organization ..................................................... 43</b></p>
+<p> </p>
+<p><b>7 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Chapter 13</b></p>
+<p> </p>
+<p><b>P1M Specific Information ............................................... 45</b></p>
+<p> </p>
+<p><b>13.1.</b></p>
+<p> </p>
+<p><b>Interaction between the User and PORT Driver Component ............................................... 45</b></p>
+<p> </p>
+<p>13.1.1.</p>
+<p> </p>
+<p>Translation Header File ........................................................................................... 45</p>
+<p> </p>
+<p>13.1.1.</p>
+<p> </p>
+<p>Parameter Definition File ......................................................................................... 45</p>
+<p> </p>
+<p>13.1.2.</p>
+<p> </p>
+<p>Services Provided By PORT Driver Component to the User .................................. 46</p>
+<p> </p>
+<p><b>13.2.</b></p>
+<p> </p>
+<p><b>Sample Application ................................................................................................................. 46</b></p>
+<p> </p>
+<p>13.2.1.</p>
+<p> </p>
+<p>Sample Application Structure .................................................................................. 46</p>
+<p> </p>
+<p>13.2.2.</p>
+<p> </p>
+<p>Building Sample Application .................................................................................... 49</p>
+<p> </p>
+<p>13.3.2.1.</p>
+<p> </p>
+<p>Configuration Example ............................................................................ 49</p>
+<p> </p>
+<p>13.3.2.2.</p>
+<p> </p>
+<p>Debugging the Sample Application ......................................................... 49</p>
+<p> </p>
+<p><b>13.3.</b></p>
+<p> </p>
+<p><b>Memory and Throughput ........................................................................................................ 50</b></p>
+<p> </p>
+<p>13.3.1.</p>
+<p> </p>
+<p>ROM/RAM Usage .................................................................................................... 50</p>
+<p> </p>
+<p>13.3.2.</p>
+<p> </p>
+<p>Stack Depth ............................................................................................................. 51</p>
+<p> </p>
+<p>13.3.3.</p>
+<p> </p>
+<p>Throughput Details .................................................................................................. 51</p>
+<p> </p>
+<p><b>Chapter 14</b></p>
+<p> </p>
+<p><b>Release Details ................................................................ 53</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>8 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>List of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 1-1</p>
+<p> </p>
+<p>System Overview Of AUTOSAR Architecture .......................................................... 11</p>
+<p> </p>
+<p>Figure 1-2</p>
+<p> </p>
+<p>System Overview Of The PORT Driver In AUTOSAR MCAL Layer .......................... 12</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>PORT Driver Architecture.......................................................................................... 23</p>
+<p> </p>
+<p>Figure 12-1</p>
+<p> </p>
+<p>PORT Driver Component Memory Organization ....................................................... 43</p>
+<p> </p>
+<p>Figure 13-1</p>
+<p> </p>
+<p>Overview of PORT Driver Sample Application ......................................................... 46</p>
+<p> </p>
+<p> </p>
+<p><b>List of Tables </b></p>
+<p><b> </b></p>
+<p>Table 4-1</p>
+<p> </p>
+<p>Supervisor mode and User mode details .................................................................. 20</p>
+<p> </p>
+<p>Table 4-2</p>
+<p> </p>
+<p>PORT Driver Deviation List ....................................................................................... 21</p>
+<p> </p>
+<p>Table 6-1</p>
+<p> </p>
+<p>Register Details ......................................................................................................... 25</p>
+<p> </p>
+<p>Table 8-1</p>
+<p> </p>
+<p>Description of the PORT Driver Component Files .................................................... 32</p>
+<p> </p>
+<p>Table 10-1</p>
+<p> </p>
+<p>Function Definitions ................................................................................................... 39</p>
+<p> </p>
+<p>Table 11-1</p>
+<p> </p>
+<p>DET Errors of PORT Driver Component ................................................................... 41</p>
+<p> </p>
+<p>Table 11-2</p>
+<p> </p>
+<p>DEM Errors of PORT Driver Component .................................................................. 42</p>
+<p> </p>
+<p>Table 13-1</p>
+<p> </p>
+<p>PDF information for P1M .......................................................................................... 45</p>
+<p> </p>
+<p>Table 13-2</p>
+<p> </p>
+<p>ROM/RAM Details without DET ................................................................................ 50</p>
+<p> </p>
+<p>Table 13-3</p>
+<p> </p>
+<p>ROM/RAM Details with DET ..................................................................................... 51</p>
+<p> </p>
+<p>Table 13-4 </p>
+<p> </p>
+<p>Throughput Details of the APIs.................................................................................. 51</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>9 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>10 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   Introduction    </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                  Chapter 1 </b></p>
+<p> </p>
+<p><b>Chapter 1 </b></p>
+<p><b>Introduction </b></p>
+<p> </p>
+<p>The purpose of this document is to describe the information related to </p>
+<p>PORT Driver Component for Renesas P1x microcontrollers. </p>
+<p> </p>
+<p>This document shall be used as reference by the users of PORT Driver </p>
+<p>Component for P1M Device. The information specific to P1M Device </p>
+<p>channel mapping, ISR handler, compiler, linker, assembler, integration </p>
+<p>and build process for application along with the memory consumption and </p>
+<p>throughput information are provided. </p>
+<p>The users of PORT Driver Component shall use this document as </p>
+<p>reference. This document describes the common features of PORT Driver </p>
+<p>Component. </p>
+<p>This document is intended for the developers of ECU software using </p>
+<p>Application Programming Interfaces provided by AUTOSAR. The PORT Driver </p>
+<p>Component provides the following services: </p>
+<p> </p>
+<p>• PORT Driver Component initialization </p>
+<p> </p>
+<p>• De-initialization </p>
+<p> </p>
+<p>• Reading the internal state of PORT Output signal </p>
+<p> </p>
+<p>• Setting the PORT Output to Idle state </p>
+<p> </p>
+<p>• Disabling/Enabling the PORT signal edge notification </p>
+<p> </p>
+<p>• Synchronous start between the TAU units </p>
+<p> </p>
+<p>The following diagram shows the system overview of the AUTOSAR </p>
+<p>Architecture. The PORT Driver initializes all the channels that are required </p>
+<p>for producing PORT outputs. </p>
+<p> </p>
+<p>                                      </p>
+<p> </p>
+<p>Application Layer</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR RTE</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>System  Services</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>On board Device Abstraction</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>                                                                                           PORT Dr</b></p>
+<p><b>i</b></p>
+<p><b>ver</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Microcontroller</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 1-1 </b></p>
+<p><b>System Overview Of AUTOSAR Architecture </b></p>
+<p> </p>
+<p>The PORT Driver Component comprises of two sections that is, </p>
+<p>embedded software and the configuration tool to achieve scalability and </p>
+<p>configurability. The PORT Driver Component Code Generation Tool is a </p>
+<p>command line tool that accepts ECU configuration description files as </p>
+<p>input and generates C Source and C Header files. The configuration </p>
+<p>description is an ARXML file that contains information about the </p>
+<p><b>11 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Introduction</b></p>
+<p> </p>
+<p> </p>
+<p>PWM Driver </p>
+<p>ICU Driver </p>
+<p>FlexRay Driver </p>
+<p>CAN Driver </p>
+<p>LIN Driver </p>
+<p>SP HandlerDriver </p>
+<p>internal EEPROM Driver </p>
+<p>internal Flash Driver </p>
+<p>external Flash Driver </p>
+<p>EEPRO </p>
+<p>M </p>
+<p>Flash </p>
+<p><b> </b></p>
+<p><b>Micro-  </b></p>
+<p><b>Controller </b></p>
+<p>RAM Tes  </p>
+<p>Core Test </p>
+<p>MCU Driver </p>
+<p>Watchdog Driver </p>
+<p>GPT Driver </p>
+<p><b>PORT Dr ver </b></p>
+<p>DIO Driver </p>
+<p>ADC Driver </p>
+<p>configuration for PORT channels. The tool generates Port_Cfg.h and </p>
+<p>Port_PBcfg.c files. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The Figure in the following page depicts the PORT Driver as part of layered </p>
+<p>AUTOSAR MCAL Layer: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Microcontroller Drivers  </p>
+<p>Memory Drivers </p>
+<p>          Communication Drivers                                  I/O Drivers </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Figure 1-2 </b></p>
+<p><b>System Overview Of The PORT Driver In AUTOSAR MCAL Layer </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>DIO </p>
+<p>LIN or  </p>
+<p>SCI</p>
+<p> </p>
+<p>CAN </p>
+<p>SPI </p>
+<p>Ext.Bus </p>
+<p>PWM </p>
+<p>WDT </p>
+<p>ICU </p>
+<p>GPT </p>
+<p>MC Power </p>
+<p>&amp; Clock </p>
+<p>Unit </p>
+<p>ADC </p>
+<p><b>12 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   Introduction    </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                  Chapter 1 </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>1.1. </b></p>
+<p><b>Document Overview </b></p>
+<p> </p>
+<p> </p>
+<p>The document has been segmented for easy reference. The table below </p>
+<p>provides user with an overview of the contents of each section: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Section</b></p>
+<p> </p>
+<p><b>Contents</b></p>
+<p> </p>
+<p>Section 1 (Introduction)</p>
+<p> </p>
+<p>This section provides an introduction and overview of PORT Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 2 (Reference Documents)</p>
+<p> </p>
+<p>This section lists the documents referred for developing this document.</p>
+<p> </p>
+<p>Section 3 (Integration And Build </p>
+<p>Process)</p>
+<p> </p>
+<p>This section explains the folder structure for PORT Driver Component </p>
+<p>along with a sample application.</p>
+<p> </p>
+<p>Section 4 (Forethoughts)</p>
+<p> </p>
+<p>This section provides brief information about the PORT Driver </p>
+<p>Component, the preconditions that should be known to the user before it </p>
+<p>is used, data consistency details and deviation list.</p>
+<p> </p>
+<p>Section 5 (Architecture Details)</p>
+<p> </p>
+<p>This section describes the layered architectural details of the PORT </p>
+<p>Driver Component.</p>
+<p> </p>
+<p>Section 6 (Register Details)</p>
+<p> </p>
+<p>This section describes the register details of PORT Driver Component.</p>
+<p> </p>
+<p>Section 7 (Interaction Between </p>
+<p>The User And PORT Driver </p>
+<p>Component)</p>
+<p> </p>
+<p>This section describes interaction of the PORT Driver Component with </p>
+<p>the upper layers.</p>
+<p> </p>
+<p>Section 8 (PORT Driver </p>
+<p>Component Header And Source </p>
+<p>File Description)</p>
+<p> </p>
+<p>This section provides information about the PORT Driver Component </p>
+<p>source files is mentioned. This section also contains the brief note on the </p>
+<p>tool generated output file.</p>
+<p> </p>
+<p>Section 9 (Generation Tool Guide)</p>
+<p> </p>
+<p>This section provides information on the PORT Driver Component Code </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 10 (Application </p>
+<p>Programming Interface)</p>
+<p> </p>
+<p>This section mentions all the APIs provided by the PORT Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 11 (Development And </p>
+<p>Production Errors)</p>
+<p> </p>
+<p>This section lists the DET and DEM errors.</p>
+<p> </p>
+<p>Section 12 (Memory </p>
+<p>Organization)</p>
+<p> </p>
+<p>This section provides the typical memory organization, which must be </p>
+<p>met for proper functioning of component.</p>
+<p> </p>
+<p>Section 13 (P1M Specific </p>
+<p>Information)</p>
+<p> </p>
+<p>This section describes the P1M specific information like channel </p>
+<p>mapping, the details of the P1M Sample Application and it’s folder </p>
+<p>structure and the information about RAM/ROM usage, stack depth </p>
+<p>and throughput details.</p>
+<p> </p>
+<p>Section 14 (Release Details)</p>
+<p> </p>
+<p>This section provides release details with version name and base </p>
+<p>version.</p>
+<p> </p>
+<p><b>13 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Introduction</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>14 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Reference Documents </b></p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 2 </b></p>
+<p><b>Reference Documents </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Title</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p> AUTOSAR_SWS_PortDriver.pdf </p>
+<p>  3.2.0</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>AUTOSAR BUGZILLA (http://www.autosar.org/bugzilla) </p>
+<p>Note: AUTOSAR BUGZILLA is a database, which contains concerns raised </p>
+<p>against information present in AUTOSAR Specifications.</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p>  r01uh0436ej0070_rh850p1x.pdf </p>
+<p>  0.70</p>
+<p> </p>
+<p>4. </p>
+<p>AUTOSAR_SWS_CompilerAbstraction.pdf </p>
+<p>  2.2.0 </p>
+<p> 5. </p>
+<p>AUTOSAR_SWS_MemoryMapping.pdf </p>
+<p>  1.2.1 </p>
+<p>6. </p>
+<p>AUTOSAR_SWS_PlatformTypes.pdf </p>
+<p>  2.5.0 </p>
+<p>7. </p>
+<p>AUTOSAR_BSW_MakefileInterface.pdf </p>
+<p>  0.3 </p>
+<p> </p>
+<p> </p>
+<p><b>15 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 2                                                                                                             Reference Documents </b></p>
+<p> </p>
+<p> </p>
+<p><b>16 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration And Build Process </b></p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 3 </b></p>
+<p><b>Integration and Build Process </b></p>
+<p> </p>
+<p>In this section the folder structure of the PORT Driver Component is </p>
+<p>explained. Description of the Makefiles along with samples is provided in this </p>
+<p>section. </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>The details about the C Source and C Header files that are generated by the </p>
+<p>PORT Driver Generation Tool are mentioned in the </p>
+<p>“AUTOSAR_PORT_Tool_UserManual.pdf”. </p>
+<p> </p>
+<p><b>3.1. </b></p>
+<p><b>PORT Driver Component Makefile </b></p>
+<p> </p>
+<p>The Makefile provided with the PORT Driver Component consists of the GNU </p>
+<p>Make compatible script to build the PORT Driver Component in case of any </p>
+<p>change in the configuration. This can be used in the upper level Makefile (of </p>
+<p>the application) to link and build the final application executable. </p>
+<p> </p>
+<p><b>3.1.1. </b></p>
+<p><b>Folder Structure </b></p>
+<p> </p>
+<p>The files are organized in the following folders: </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Trailing slash ‘\’ at the end indicates a folder </p>
+<p> </p>
+<p>X1X\common_platform\modules\port\src </p>
+<p>\Port.c </p>
+<p>\Port_Ram.c </p>
+<p>\Port_Version.c </p>
+<p> </p>
+<p>X1X\common_platform\modules\port\include </p>
+<p>\Port.h </p>
+<p>\Port_PBTypes.h </p>
+<p>\Port_Ram.h </p>
+<p>\Port_Version.h </p>
+<p>\Port_Debug.h </p>
+<p>\Port_Types.h </p>
+<p> </p>
+<p>X1X\P1x\modules\port\sample_application\&lt;SubVariant&gt;\make\&lt;Compiler&gt; </p>
+<p>\App_PORT_P1M_Sample.mak </p>
+<p> </p>
+<p>X1X\P1x\modules\port\sample_application\&lt;SubVariant&gt;\obj\&lt;Complier&gt; </p>
+<p> </p>
+<p>X1X\common_platform\modules\port\generator\Port_X1x.exe </p>
+<p> </p>
+<p>X1X\P1x\common_family\generator </p>
+<p>\Sample_Application_P1x.trxml </p>
+<p>\P1x_translation.h </p>
+<p> </p>
+<p>X1X\P1x\modules\port\user_manual </p>
+<p>(User manuals will be available in this folder) </p>
+<p> </p>
+<p>X1X\P1x\modules\port\generator </p>
+<p>\R403_PORT_P1x_BSWMDT.arxml </p>
+<p> </p>
+<p>                           Note:    1. &lt;Complier&gt; can be ghs. </p>
+<p>                                 2. &lt;AUTOSAR_version&gt; should be 4.0.3. </p>
+<p>                                       3. &lt;SubVariant&gt; can be P1M. </p>
+<p> </p>
+<p> </p>
+<p><b>17 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 3                                                                                               Integration And Build Process </b></p>
+<p> </p>
+<p><b>18 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Forethoughts  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>      Chapter 4</b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b>Forethoughts </b></p>
+<p> </p>
+<p><b>4.1. </b></p>
+<p><b>General </b></p>
+<p> </p>
+<p>Following information will aid the user to use the PORT Driver Component </p>
+<p>software efficiently: </p>
+<p> </p>
+<p>• </p>
+<p>The PORT Driver Component does not enable or disable the ECU or </p>
+<p>Microcontroller power supply. The upper layer should handle this </p>
+<p>operation. </p>
+<p>• </p>
+<p>Start-up code is not implemented by the PORT Driver Component. </p>
+<p>• </p>
+<p>PORT Driver Component does not implement any callback </p>
+<p>notification functions. </p>
+<p>• </p>
+<p>PORT Driver Component does not implement any scheduled functions. </p>
+<p>• </p>
+<p>The PORT Driver Component is restricted to Post Build only. </p>
+<p>• </p>
+<p>The authorization of the user for calling the software triggering of a </p>
+<p>hardware reset is not checked in the PORT Driver Component. This will </p>
+<p>be the responsibility of the upper layer. </p>
+<p>• </p>
+<p>The PORT Driver Component supports setting of Analog and Digital </p>
+<p>Noise Elimination. To figure out the different port filter arrangements the </p>
+<p>device User Manual should be taken as reference. If no configuration of a </p>
+<p>certain port filter is done within this Port Module, the device specific </p>
+<p>default settings will take effect on this filter. </p>
+<p>• </p>
+<p>The value of unused pins in Port registers is undefined. </p>
+<p>• </p>
+<p>All development errors will be reported to DET by using the </p>
+<p>API Det_ReportError provided by DET. </p>
+<p>• </p>
+<p>All production errors will be reported to DEM by using the </p>
+<p>API Dem_ReportErrorStatus provided by DEM. </p>
+<p>• </p>
+<p>The PORT Driver does not have the API support to read the status of </p>
+<p>Port pins or Port registers. Hence PORT Driver will not support ‘Read </p>
+<p>back’ feature. </p>
+<p>• </p>
+<p>The file Interrupt_VectorTable.c provided is just a Demo and not all </p>
+<p>interrupts will be mapped in this file. So the user has to update the </p>
+<p>Interrupt_VectorTable.c as per his configuration. </p>
+<p> </p>
+<p><b>4.2. </b></p>
+<p><b>Preconditions </b></p>
+<p> </p>
+<p>Following preconditions have to be adhered by the user, for proper </p>
+<p>functioning of the PORT Driver Component: </p>
+<p> </p>
+<p>• </p>
+<p>The Port_PBcfg.c and Port_Cfg.h files generated by the PORT Driver </p>
+<p>Component Code Generation Tool must be compiled and linked along with </p>
+<p>PORT Driver Component source files. </p>
+<p>• </p>
+<p>The application has to be rebuilt, if there is any change in the Port_Cfg.h </p>
+<p>file generated by the PORT Driver Component Generation Tool. </p>
+<p>• </p>
+<p>File Port_PBcfg.c generated for single configuration set or multiple </p>
+<p>configuration sets using PORT Driver Component Code Generation Tool </p>
+<p>should be compiled and linked independently. </p>
+<p>• </p>
+<p>Symbolic names for all Port Pins are generated in Port_Cfg.h file which </p>
+<p>can be used as parameters for passing to PORT Driver Component APIs. </p>
+<p>• </p>
+<p>The PORT Driver Component needs to be initialized for all Port Pins </p>
+<p>before doing any operation on Port Pins. The Port_Init () API shall also be </p>
+<p>called after a reset in order to reconfigure the Port Pins of the </p>
+<p>microcontroller. If PORT Driver Component is not initialized properly, the </p>
+<p>behavior of Port Pins may be undetermined. </p>
+<p>• </p>
+<p>The user should ensure that PORT Driver Component API requests are </p>
+<p>invoked with correct input arguments. </p>
+<p>• </p>
+<p>The other modules depending on PORT Driver Component should ensure </p>
+<p>that the PORT Driver Component initialization is successful before doing </p>
+<p><b>19 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 4                                                                                                                          Forethoughts</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>any operation on Port Pins. </p>
+<p>• </p>
+<p>Input parameters are validated only when the static configuration </p>
+<p>parameter PORT_DEV_ERROR_DETECT is enabled. Application should </p>
+<p>ensure that the right parameters are passed while invoking the APIs when </p>
+<p>PORT_DEV_ERROR_DETECT is disabled. </p>
+<p>• </p>
+<p>Values for production code Event Id’s should be assigned externally by the </p>
+<p>configuration of the DEM. </p>
+<p>• </p>
+<p>A mismatch in the version numbers of header and the source files will </p>
+<p>result in a compilation error. User should ensure that the correct versions </p>
+<p>of the header and the source files are used. </p>
+<p>• </p>
+<p>The PORT Driver Component APIs, except Port_GetVersionInfo API, </p>
+<p>which are intended to operate on Port Pins shall be called only after PORT </p>
+<p>Driver Component is initialized by invoking Port_Init() API. Otherwise Port </p>
+<p>Pin functions will exhibit undefined behavior. </p>
+<p>• </p>
+<p>All Port Pins and their functions should be configured by the Port </p>
+<p>configuration tool. It is the User/Integrator responsibility to ensure that the </p>
+<p>same Port/Port Pin is not being accessed/configured in parallel by different </p>
+<p>entities in the same system. </p>
+<p> </p>
+<p><b>4.3. </b></p>
+<p><b>User Mode and Supervisor Mode </b></p>
+<p> </p>
+<p>The below table specifies the APIs which can run in user mode, supervisor </p>
+<p>mode or both modes:  </p>
+<p> </p>
+<p><b>   </b></p>
+<p><b>Table 4-1 </b></p>
+<p><b>Supervisor mode and User mode details </b></p>
+<p><b> </b></p>
+<p><b>Sl.No</b></p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>User Mode</b></p>
+<p> </p>
+<p><b>Supervisor mode</b></p>
+<p> </p>
+<p><b>Known limitation in </b></p>
+<p><b>User mode </b></p>
+<p>1 </p>
+<p>Port_Init </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>2 </p>
+<p>Port_SetPinDirection </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>3 </p>
+<p>Port_RefreshPortDirection </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>4 </p>
+<p>Port_SetPinMode </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>5 </p>
+<p>Port_SetToDioMode </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>6 </p>
+<p>Port_SetToAlternateMode </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p> </p>
+<p><b>4.4. </b></p>
+<p><b>Data Consistency </b></p>
+<p> </p>
+<p>To support the re-entrance and interrupt services, the AUTOSAR PORT </p>
+<p>component will ensure the data consistency while accessing its own RAM </p>
+<p>storage or hardware registers. The PORT component will use </p>
+<p>SchM_Enter_Port_&lt;Exclusive Area&gt; and SchM_Exit_Port_&lt;Exclusive Area&gt; </p>
+<p>functions. The SchM_Enter_Port_&lt;Exclusive Area&gt; function is called before </p>
+<p>the data needs to be protected and SchM_Exit_Port_&lt;Exclusive </p>
+<p>Area&gt;function is called after the data is accessed. </p>
+<p> </p>
+<p>The following exclusive areas along with scheduler services are used to </p>
+<p>provide data integrity for shared resources: </p>
+<p>• </p>
+<p>SET_PIN_MODE_PROTECTION </p>
+<p> </p>
+<p>The functions SchM_Enter_Port_&lt;Exclusive Area&gt; and </p>
+<p>SchM_Exit_Port_&lt;Exclusive Area&gt; can be disabled by disabling the </p>
+<p>configuration parameter ‘PortCriticalSectionProtection’. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>20 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Forethoughts  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>      Chapter 4</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.5. </b></p>
+<p><b>Deviation List </b></p>
+<p>                                  </p>
+<p><b>                                Table 4-2 </b></p>
+<p><b>PORT Driver Deviation List </b></p>
+<p><b> </b></p>
+<p><b>Sl. No. </b></p>
+<p><b>Description </b></p>
+<p><b>AUTOSAR </b></p>
+<p><b>Bugzilla </b></p>
+<p>1.</p>
+<p> </p>
+<p>The Port Pin specific containers (PortPin0, PortPin1, PortPin2 and so on …) are </p>
+<p>added as sub containers of PortGroup&lt;n&gt; containers, having the parameters </p>
+<p>‘PortPinDirection’, ‘PortPinDirectionChangeable’, ‘PortPinLevelValue’ and </p>
+<p>‘PortPinInitialMode’ are added. AUTOSAR specified container ‘PortPin’ and all </p>
+<p>its parameters are considered as unused.</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>PortPinMode configuration parameter is not used for implementation as all </p>
+<p>possible modes of a pin can be used in the Port_SetPinMode function.</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>3.  </p>
+<p>The Port_GetVersionInfo API is implemented as macro without DET error  </p>
+<p>  PORT_E_PARAM_POINTER  </p>
+<p> </p>
+<p> -</p>
+<p> </p>
+<p>4. </p>
+<p>[ecuc_sws_2108] requirement is not applicable to port module since </p>
+<p>implementation of PORT module is vendor specific. </p>
+<p> -</p>
+<p> </p>
+<p>5.  </p>
+<p>Digital Noise Filter to calculate time delay for following scenarios is not </p>
+<p>implemented in PORT driver. </p>
+<p>a. When digital filter output signal is input for alternative function </p>
+<p>b. When an event output signal of the digital filter is used as an interrupt </p>
+<p> - </p>
+<p><b>21 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 4 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Forethoughts      </b></p>
+<p> </p>
+<p> </p>
+<p><b>22 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   Architecture Details                                                                                                              Chapter 5 </b></p>
+<p> </p>
+<p><b>Chapter 5 </b></p>
+<p><b>Architecture Details </b></p>
+<p> </p>
+<p>The PORT Driver Component accesses the microcontroller Port Pins that are </p>
+<p>located in the On-Chip hardware. The basic architecture of the PORT Driver </p>
+<p>Component is illustrated below: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Figure 5-1 </b></p>
+<p><b>PORT Driver Architecture </b></p>
+<p> </p>
+<p>The PORT Driver Component consists of the following sub modules based on </p>
+<p>the functionality: </p>
+<p> </p>
+<p>• </p>
+<p>Port Initialization. </p>
+<p>• </p>
+<p>Port Direction Refreshing. </p>
+<p>• </p>
+<p>Port Pin Direction Switching. </p>
+<p>• </p>
+<p>Port Pin Mode Change. </p>
+<p> </p>
+<p><b>Port Initialization </b></p>
+<p> </p>
+<p>This sub module provides the Port initialization functionality by providing the </p>
+<p>Port_Init() API. This API should be invoked before the usage of any other APIs </p>
+<p>of PORT Driver Component. Port Initialization includes initializing Port Pin </p>
+<p>mode, Port Pin direction, Port Pin Level value, Port Pin driven value (Normal / </p>
+<p>Open Drain), Activation of internal pull-ups and Port Filter configuration. </p>
+<p><b> </b></p>
+<p><b>Port Direction Refreshing </b></p>
+<p> </p>
+<p>This sub module provides the Port Direction Refreshing functionality by </p>
+<p>providing the Port_RefreshPortDirection() API. In this functionality the PORT </p>
+<p>Driver Component refreshes the direction of all configured Port Pins except </p>
+<p>those Port Pins that are configured as ‘Port Pin Direction Changeable during </p>
+<p>runtime’. </p>
+<p> </p>
+<p>In this functionality only Direction of Port Pins is refreshed. </p>
+<p><b> </b></p>
+<p><b>Port Pin Direction Switching </b></p>
+<p> </p>
+<p>This sub module provides the Port Direction switching functionality at run time </p>
+<p>by providing the Port_SetPinDirection() API. In this functionality the PORT </p>
+<p>driver Component allows the user to change the direction of Port Pins during </p>
+<p>runtime. </p>
+<p> </p>
+<p><b>Port Pin Mode changing </b></p>
+<p> </p>
+<p>This sub module provides the Port Mode change functionality at run time by </p>
+<p>providing the Port_SetPinMode() API. In this functionality the PORT driver </p>
+<p>Component allows the user to change the mode of Port Pins during runtime. </p>
+<p> </p>
+<p>This sub module provides the Port Mode change functionality at run time by </p>
+<p>Initialization </p>
+<p>Direction Refreshing</p>
+<p> </p>
+<p>Direction Switching</p>
+<p> </p>
+<p>Runtime Mode Change </p>
+<p><b>23 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 5 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>  Architecture Details </b></p>
+<p> </p>
+<p>providing the Port_SetToDioMode() API. In this functionality the PORT </p>
+<p>driver Component allows the user to change the mode of Port Pin to DIO </p>
+<p>mode during runtime. </p>
+<p> </p>
+<p>This sub module provides the Port Mode change functionality at run time by </p>
+<p>providing the Port_SetToAlternateMode() API. In this functionality the PORT </p>
+<p>driver Component allows the user to change the mode of Port Pin to alternate </p>
+<p>mode during runtime. </p>
+<p><b>24 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   Registers Details                                                                                                              Chapter 6 </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 6 </b></p>
+<p><b>Registers Details </b></p>
+<p> </p>
+<p>This section describes the register details of PORT Driver Component. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Table 6-1 </b></p>
+<p><b>Register Details </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Registers</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Config Parameter</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Macro/Variable</b></p>
+<p> </p>
+<p>   </p>
+<p>  Port_Init </p>
+<p><b>- </b></p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Port_SetPinDirection</p>
+<p> </p>
+<p>32 bit</p>
+<p> </p>
+<p>PSRn</p>
+<p> </p>
+<p>PortPinLevelValue</p>
+<p> </p>
+<p>usChangeableConfi</p>
+<p>gV </p>
+<p>al </p>
+<p>32 bit</p>
+<p> </p>
+<p>PMSRn </p>
+<p>-</p>
+<p> </p>
+<p>usOrMask </p>
+<p>16 bit</p>
+<p> </p>
+<p>PFCEn </p>
+<p>-</p>
+<p> </p>
+<p>usOrMask </p>
+<p>16 bit</p>
+<p> </p>
+<p>PFCn </p>
+<p>-</p>
+<p> </p>
+<p>usOrMask </p>
+<p>16 bit</p>
+<p> </p>
+<p>PFCAEn </p>
+<p>-</p>
+<p> </p>
+<p>usOrMask </p>
+<p>32 bit</p>
+<p> </p>
+<p>PMCSRn </p>
+<p>-</p>
+<p> </p>
+<p>usOrMask </p>
+<p>16 bit </p>
+<p>PINVn </p>
+<p>PortOutputLevelInversi</p>
+<p>on </p>
+<p>usPortinversionVal </p>
+<p>Port_RefreshPortDirect </p>
+<p>ion</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>- </p>
+<p>Port_SetPinMode </p>
+<p>32 bit </p>
+<p>PSRn </p>
+<p>PortPinLevelValue </p>
+<p>usInitModeRegVal </p>
+<p>32 bit </p>
+<p>PMSRn </p>
+<p>- </p>
+<p>usOrMask </p>
+<p>16 bit </p>
+<p>PFCEn </p>
+<p>- </p>
+<p>usOrMask </p>
+<p>16 bit </p>
+<p>PFCn </p>
+<p>- </p>
+<p>usOrMask </p>
+<p>16 bit </p>
+<p>PFCAEn </p>
+<p>- </p>
+<p>usOrMask </p>
+<p>32 bit </p>
+<p>PMCSRn </p>
+<p>- </p>
+<p>usOrMask </p>
+<p>16 bit </p>
+<p>PIPCn </p>
+<p>- </p>
+<p>usOrMask </p>
+<p> Port_SearchMode </p>
+<p> ChangeablePin </p>
+<p>- </p>
+<p>- </p>
+<p>-  </p>
+<p>- </p>
+<p>Port_InitConfig </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>32 bit</p>
+<p> </p>
+<p>PSRn </p>
+<p>PortPinLevelValue </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>PISn </p>
+<p>PortInputSelection </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>PIBCn </p>
+<p>PortInputBufferControl </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>PIPCn </p>
+<p>PortIpControl </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>PUn </p>
+<p>PullUpOption </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>PDn </p>
+<p>PullDownOption </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>PBDCn </p>
+<p>PortBiDirectionControl </p>
+<p>usInitModeRegVal </p>
+<p>32 bit</p>
+<p> </p>
+<p>PODCn </p>
+<p>PortOpenDrainControl </p>
+<p>usInitModeRegVal </p>
+<p>32 bit</p>
+<p> </p>
+<p>PDSCn </p>
+<p>PortDriveStrengthCont</p>
+<p>rol </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>PFCEn </p>
+<p>PortPinInitialMode</p>
+<p> </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>PFCn </p>
+<p>PortPinInitialMode</p>
+<p> </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>PFCAEn </p>
+<p>PortPinInitialMode</p>
+<p> </p>
+<p>usInitModeRegVal </p>
+<p>16 bit </p>
+<p>PINVn </p>
+<p>PortOutputLevelInversi</p>
+<p>on </p>
+<p>usInitModeRegVal </p>
+<p>16 bit </p>
+<p>PODCEn </p>
+<p>PortOpenDrainControl</p>
+<p>Expansion </p>
+<p>usInitModeRegVal </p>
+<p><b>25 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 6 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>     Registers Details </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Registers</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Config Parameter</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Macro/Variable</b></p>
+<p> </p>
+<p>16 bit </p>
+<p>PUCCn </p>
+<p>PortUnlimitedCurrentC</p>
+<p>ontrol </p>
+<p>usInitModeRegVal </p>
+<p>32 bit</p>
+<p> </p>
+<p>PMSRn </p>
+<p>PortPinDirection </p>
+<p>usInitModeRegVal </p>
+<p>32 bit</p>
+<p> </p>
+<p>PMCSRn </p>
+<p>PortPinInitialMode </p>
+<p>usInitModeRegVal </p>
+<p>8 bit</p>
+<p> </p>
+<p>PPROTSn </p>
+<p>-</p>
+<p> </p>
+<p>PORT_ONE </p>
+<p>32 bit</p>
+<p> </p>
+<p>PPCMDn </p>
+<p>-</p>
+<p> </p>
+<p>PORT_WRITE_ER</p>
+<p>RO R_CLEAR_VAL </p>
+<p>32 bit</p>
+<p> </p>
+<p>PWSn </p>
+<p>-</p>
+<p> </p>
+<p>PORT_IOHOLD_S</p>
+<p>ET </p>
+<p>32 bit</p>
+<p> </p>
+<p>JPSRn </p>
+<p>PortPinLevelValue </p>
+<p>usInitModeRegVal </p>
+<p>8 bit</p>
+<p> </p>
+<p>JPISn </p>
+<p>PortInputSelection </p>
+<p>usInitModeRegVal </p>
+<p>8 bit</p>
+<p> </p>
+<p>JPIBCn </p>
+<p>PortInputBufferControl </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>JPIPCn </p>
+<p>PortIpControl </p>
+<p>usInitModeRegVal </p>
+<p>8 bit</p>
+<p> </p>
+<p>JPUn </p>
+<p>PullUpOption </p>
+<p>usInitModeRegVal </p>
+<p>8 bit</p>
+<p> </p>
+<p>JPDn </p>
+<p>PullDownOption </p>
+<p>usInitModeRegVal </p>
+<p>8 bit</p>
+<p> </p>
+<p>JPBDCn </p>
+<p>PortBiDirectionControl </p>
+<p>usInitModeRegVal </p>
+<p>32 bit</p>
+<p> </p>
+<p>JPODCn </p>
+<p>PortOpenDrainControl </p>
+<p>usInitModeRegVal </p>
+<p>32 bit</p>
+<p> </p>
+<p>JPDSCn </p>
+<p>PortDriveStrengthCont</p>
+<p>rol </p>
+<p>usInitModeRegVal </p>
+<p>8 bit</p>
+<p> </p>
+<p>JPFCEn </p>
+<p>PortPinInitialMode </p>
+<p>usInitModeRegVal </p>
+<p>8 bit</p>
+<p> </p>
+<p>JPFCn </p>
+<p>PortPinInitialMode </p>
+<p>usInitModeRegVal </p>
+<p>32 bit</p>
+<p> </p>
+<p>JPMCSRn </p>
+<p>PortPinInitialMode </p>
+<p>usInitModeRegVal </p>
+<p>32 bit</p>
+<p> </p>
+<p>JPMSRn </p>
+<p>PortPinDirection </p>
+<p>usInitModeRegVal </p>
+<p>32 bit </p>
+<p>JPPROTS </p>
+<p>- </p>
+<p>PORT_ONE </p>
+<p>16 bit </p>
+<p>JPODCEn </p>
+<p>PortOpenDrainControl</p>
+<p>Expansion </p>
+<p>usInitModeRegVal </p>
+<p>16 bit</p>
+<p> </p>
+<p>JPUCCn </p>
+<p>PortUnlimitedCurrentC</p>
+<p>ontrol </p>
+<p>usInitModeRegVal </p>
+<p>Port_RefreshPortIntern </p>
+<p>al</p>
+<p> </p>
+<p>32 bit</p>
+<p> </p>
+<p>PMSRn </p>
+<p>-</p>
+<p> </p>
+<p>ulMaskAndConfigV</p>
+<p>alue </p>
+<p>32 bit</p>
+<p> </p>
+<p>JPMSRn </p>
+<p>-</p>
+<p> </p>
+<p>ulMaskAndConfigV</p>
+<p>alue </p>
+<p>Port_GetVersionInfo</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>Port_GetVersionInf</p>
+<p>o </p>
+<p>Port_SetToDioMode</p>
+<p> </p>
+<p>32 bit</p>
+<p> </p>
+<p>PMCSRn </p>
+<p>-</p>
+<p> </p>
+<p>usOrMask </p>
+<p>Port_SetToAlternateMo </p>
+<p>de</p>
+<p> </p>
+<p>32 bit</p>
+<p> </p>
+<p>PMCSRn </p>
+<p>-</p>
+<p> </p>
+<p>usOrMask </p>
+<p>Port_SetToDioOrAltMo </p>
+<p>de</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>- </p>
+<p>Port_SearchDirChange</p>
+<p>ablePin </p>
+<p>-</p>
+<p> </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>- </p>
+<p>Port_FilterConfig </p>
+<p>8 bit </p>
+<p>DNFAnCTL </p>
+<p>    PortSameLevelSamples </p>
+<p>ucDNFACTL </p>
+<p>    PortDigitalFilterEnable </p>
+<p>    PortSamplingClockFre </p>
+<p>    Quency </p>
+<p><b>26 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   Registers Details                                                                                                              Chapter 6 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Registers</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Config Parameter</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Macro/Variable</b></p>
+<p> </p>
+<p> </p>
+<p>8 bit </p>
+<p>FCLAnCTL </p>
+<p>       PortAnalogFilterBypass </p>
+<p>ucFCLACTL </p>
+<p> PortEdgeOrLevelControl </p>
+<p>16 bit </p>
+<p>DNFAnEN </p>
+<p>PortDigitalFilterEnable </p>
+<p>     Input </p>
+<p>usDNFAEN </p>
+<p>32 bit </p>
+<p>DNFCKSnC </p>
+<p>     PortClockSource </p>
+<p>ulDNFCKS </p>
+<p>8 bit </p>
+<p>DNFP02nED</p>
+<p>Cm </p>
+<p>PortDigitalFilterEnableI</p>
+<p>nput </p>
+<p>ucDNFEDC </p>
+<p>PortEdgeDetectControl </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>27 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 6 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>     Registers Details </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>28 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Interaction Between The User And PORT Driver Component </b></p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 7 </b></p>
+<p><b>Interaction Between The User And PORT </b></p>
+<p><b> </b></p>
+<p><b>Driver Component </b></p>
+<p> </p>
+<p>The details of the services supported by the PORT Driver Component to the </p>
+<p>upper layers users and the mapping of the channels to the hardware units is </p>
+<p>provided in the following sections: </p>
+<p> </p>
+<p><b>7.1.  Services Provided By PORT Driver Component To </b></p>
+<p><b>User </b></p>
+<p> </p>
+<p>The PORT Driver provides following functionalities to the upper layers: </p>
+<p>• </p>
+<p>To initialize the PORT channels through channel configuration. </p>
+<p>• </p>
+<p>To De-initialize the PORT channels. </p>
+<p>• </p>
+<p>To set the PORT channel output to its configured idle state. </p>
+<p>• </p>
+<p>To read the output state of a PORT channel. </p>
+<p>• </p>
+<p>To read the version information of the PORT module. </p>
+<p>• </p>
+<p>To support the diagnostic functionality for PORT channel. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>29 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 7                                            Interaction Between The User And PORT Driver Component </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>30 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>PORT Driver Component Header And Source File Description </b></p>
+<p><b>Chapter 8 </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 8 </b></p>
+<p><b>PORT Driver Component Header And</b></p>
+<p><b> </b></p>
+<p><b>Source File Description </b></p>
+<p> </p>
+<p>This section explains the PORT Driver Component’s C Source and C Header </p>
+<p>files. These files have to be included in the project application while </p>
+<p>integrating with other modules. </p>
+<p> </p>
+<p>The C header file generated by PORT Driver Generation Tool: </p>
+<p>• </p>
+<p>Port_Cfg.h </p>
+<p> </p>
+<p>The C source file generated by PORT Driver Generation Tool: </p>
+<p>• </p>
+<p>Port_PBcfg.c </p>
+<p> </p>
+<p>The PORT Driver Component C header files: </p>
+<p>• </p>
+<p>Port.h </p>
+<p>• </p>
+<p>Port_PBTypes.h </p>
+<p>• </p>
+<p>Port_Ram.h </p>
+<p>• </p>
+<p>Port_Version.h </p>
+<p>• </p>
+<p>Port_Debug.h </p>
+<p>• </p>
+<p>Port_Types.h </p>
+<p> </p>
+<p> </p>
+<p>The PORT Driver Component source files: </p>
+<p>• </p>
+<p>Port.c </p>
+<p>• </p>
+<p>Port_Ram.c </p>
+<p>• </p>
+<p>Port_Version.c </p>
+<p> </p>
+<p>The port specific C header files: </p>
+<p>• </p>
+<p>Compiler.h </p>
+<p>• </p>
+<p>Compiler_Cfg.h </p>
+<p>• </p>
+<p>MemMap.h </p>
+<p>• </p>
+<p>Platform_Types.h</p>
+<p><b>31 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 8  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>          PORT Driver Component Header And Source File Description</b></p>
+<p> </p>
+<p> </p>
+<p>      The description of the PORT Driver Component files is provided in the table below: </p>
+<p> </p>
+<p><b>Table 8-1 </b></p>
+<p><b>Description of the PORT Driver Component Files </b></p>
+<p> </p>
+<p><b>File</b></p>
+<p> </p>
+<p><b>Details</b></p>
+<p> </p>
+<p>Port_Cfg.h</p>
+<p> </p>
+<p>This file contains various PORT Driver Pre-compile time parameters, macro </p>
+<p>definitions for the ISRs, channel notifications used by PORT Driver, PORT channel </p>
+<p>handles.</p>
+<p> </p>
+<p>Port_PBcfg.c</p>
+<p> </p>
+<p>This file contains the post-build configuration data. The structures related to PORT </p>
+<p>initialization, PORT Timer channel configuration and the timer related structures are </p>
+<p>also provided in this file.</p>
+<p> </p>
+<p>Port.h</p>
+<p> </p>
+<p>This file provides extern declarations for all the PORT Driver Component APIs. This </p>
+<p>file provides service Ids of APIs, DET Error codes and type definitions for Port </p>
+<p>initialization structure. This header file shall be included in other modules to use the </p>
+<p>features of PORT Driver Component.</p>
+<p> </p>
+<p>Port_PBTypes.h</p>
+<p> </p>
+<p>This file contains the data structures related to Port initialization, Port Refresh, </p>
+<p>Direction changeable Pins at run time and Mode Changeable at run time.</p>
+<p> </p>
+<p>Port_Types.h</p>
+<p> </p>
+<p>This file provides data structure and type definitions for initialization of MCU Driver.</p>
+<p> </p>
+<p>Port_Debug.h</p>
+<p> </p>
+<p> This file is used for version check. </p>
+<p>Port_Ram.h</p>
+<p> </p>
+<p>This file contains the extern declarations for the global variables defined in </p>
+<p>Port_Ram.c file.</p>
+<p> </p>
+<p>Port_Version.h</p>
+<p> </p>
+<p>This file contains the macros of AUTOSAR version numbers of all modules that are </p>
+<p>interfaced to PORT Driver.</p>
+<p> </p>
+<p>Port.c</p>
+<p> </p>
+<p>This file contains the implementation of all APIs.</p>
+<p> </p>
+<p>Port_Ram.c</p>
+<p> </p>
+<p>This file contains the global variables used by PORT Driver Component.</p>
+<p> </p>
+<p>Port_Version.c</p>
+<p> </p>
+<p>This file contains the code for checking version of all modules that are interfaced to </p>
+<p>PORT Driver.</p>
+<p> </p>
+<p>Compiler.h</p>
+<p> </p>
+<p>Provides compiler specific (non-ANSI) keywords. All mappings of keywords, which </p>
+<p>are not standardized, and/or compiler specific are placed and organized in this </p>
+<p>compiler specific header.</p>
+<p> </p>
+<p>Compiler_Cfg.h</p>
+<p> </p>
+<p>This file contains the memory and pointer classes.</p>
+<p> </p>
+<p>MemMap.h</p>
+<p> </p>
+<p>This file allows to map variables, constants and code of modules to individual </p>
+<p>memory sections. Memory mapping can be modified as per ECU specific needs.</p>
+<p> </p>
+<p>Platform_Types.h</p>
+<p> </p>
+<p>This file provides provision for defining platform and compiler dependent types.</p>
+<p> </p>
+<p><b>32 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generation Tool Guide </b></p>
+<p><b>Chapter 9 </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 9 </b></p>
+<p><b>Generation Tool Guide </b></p>
+<p> </p>
+<p>For more information on the PORT Driver Component Generation Tool, </p>
+<p>please refer “AUTOSAR_PORT_Tool_UserManual.pdf”. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>33 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 9                                                                                                          Generation Tool Guide</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>34 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Application Programming Interface   </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    Chapter 10 </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 10 </b></p>
+<p><b>Application Programming Interface </b></p>
+<p> </p>
+<p>This section explains the Data types and APIs provided by the PORT Driver </p>
+<p>Component to the Upper layers. </p>
+<p> </p>
+<p><b>10.1. Imported Types </b></p>
+<p> </p>
+<p>This section explains the Data types imported by the PORT Driver </p>
+<p>Component and lists its dependency on other modules. </p>
+<p> </p>
+<p><b>10.1.1 Standard Types </b></p>
+<p> </p>
+<p>In this section all types included from the Std_Types.h are listed: </p>
+<p>Std_VersionInfoType</p>
+<p> </p>
+<p> </p>
+<p><b>10.1.2 Other Module Types </b></p>
+<p> </p>
+<p>In this chapter all types included from the Dem_types.h are listed:  </p>
+<p>Dem_EventIdType</p>
+<p> </p>
+<p> </p>
+<p><b>10.2. Type Definitions </b></p>
+<p> </p>
+<p>This section explains the type definitions of PORT Driver Component </p>
+<p>according to AUTOSAR Specification. </p>
+<p><b>10.2.1 Port_ConfigType </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Port_ConfigType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>struct</p>
+<p> </p>
+<p>  </p>
+<p><b>Element:</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Name</b></p>
+<p> </p>
+<p><b>Explanation</b></p>
+<p> </p>
+<p>uint32</p>
+<p> </p>
+<p>ulStartOfDbToc</p>
+<p> </p>
+<p>Database start </p>
+<p>value.</p>
+<p> </p>
+<p>Port_Regs</p>
+<p> </p>
+<p>pPortNumRegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of </p>
+<p>Numeric port </p>
+<p>registers </p>
+<p>configuration.</p>
+<p> </p>
+<p>Port_FuncCtrlRegs</p>
+<p> </p>
+<p>pPortNumFuncCtrlRegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of the </p>
+<p>Numeric function </p>
+<p>control registers </p>
+<p>configuration.</p>
+<p> </p>
+<p>Port_PMSRRegs</p>
+<p> </p>
+<p>pPortNumPMSRRegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of the </p>
+<p>Numeric PMSR </p>
+<p>registers </p>
+<p>configuration.</p>
+<p> </p>
+<p>Port_Regs</p>
+<p> </p>
+<p>pPortAlphaRegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of the </p>
+<p>Alphabetic port </p>
+<p>registers </p>
+<p>configuration.</p>
+<p> </p>
+<p><b>35 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 10                                                                                   Application Programming Interface </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Port_ConfigType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>struct</p>
+<p> </p>
+<p>Port_FuncCtrlRegs</p>
+<p> </p>
+<p>pPortAlphaFuncCtrlRegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of </p>
+<p>Alphabetic </p>
+<p>function control </p>
+<p>registers </p>
+<p>configuration.</p>
+<p> </p>
+<p> </p>
+<p>Port_PMSRRegs</p>
+<p> </p>
+<p>pPortAlphaPMSRRegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of the </p>
+<p>Alphabetic </p>
+<p>PMSR registers </p>
+<p>configuration.</p>
+<p> </p>
+<p>Port_Regs</p>
+<p> </p>
+<p>pPortJRegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of JTAG </p>
+<p>port registers </p>
+<p>configuration</p>
+<p> </p>
+<p>Port_FuncCtrlRegs</p>
+<p> </p>
+<p>pPortJFuncCtrlRegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of JTAG </p>
+<p>function control </p>
+<p>registers </p>
+<p>configuration</p>
+<p> </p>
+<p>Port_PMSRRegs</p>
+<p> </p>
+<p>pPortJPMSRRegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of JTAG </p>
+<p>PMSR registers </p>
+<p>configuration.</p>
+<p> </p>
+<p>Port_PinsDirChangeable</p>
+<p> </p>
+<p>pPinDirChangeable</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of </p>
+<p>runtime direction </p>
+<p>changeable pins </p>
+<p>structure.</p>
+<p> </p>
+<p>Port_PinModeChangeableGroups</p>
+<p> </p>
+<p>pPinModeChangeableGrou </p>
+<p>ps</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of </p>
+<p>runtime mode </p>
+<p>changeable pin </p>
+<p>group details </p>
+<p>structure.</p>
+<p> </p>
+<p>Port_PinDioAltChangeableDetails</p>
+<p> </p>
+<p>pPinDioAltModeDetails</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of run </p>
+<p>time mode </p>
+<p>changeable pins </p>
+<p>structure.</p>
+<p> </p>
+<p>Port_PinModeChangeableDetails</p>
+<p> </p>
+<p>pPinModeChangeableDetai </p>
+<p>ls</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>address of run </p>
+<p>time mode </p>
+<p>changeable pins </p>
+<p>structure.</p>
+<p> </p>
+<p>Port_DNFARegs</p>
+<p> </p>
+<p>pPortDNFARegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>DNFA registers </p>
+<p>structure.</p>
+<p> </p>
+<p>Port_FCLARegs</p>
+<p> </p>
+<p>pPortFCLARegs</p>
+<p> </p>
+<p>Pointer to the </p>
+<p>FCLA registers </p>
+<p>structure.</p>
+<p> </p>
+<p>Port_EDCRegs</p>
+<p> </p>
+<p>pPortEDCRegs</p>
+<p> </p>
+<p> Pointer to the </p>
+<p> EDC registers </p>
+<p>structure</p>
+<p> </p>
+<p><b>36 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Application Programming Interface   </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    Chapter 10 </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Port_ConfigType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>struct</p>
+<p> </p>
+<p>Port_DNFCKSRegs </p>
+<p>pPortDNFCKSRegs </p>
+<p>Pointer to the </p>
+<p> DNFCKS    </p>
+<p>registers </p>
+<p>structure </p>
+<p>uint8</p>
+<p> </p>
+<p>ucNoOfPinsDirChangeable</p>
+<p> </p>
+<p>Total number of </p>
+<p>Pins configured </p>
+<p>for Direction </p>
+<p>Changeable at </p>
+<p>run time</p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p>ucNoOfPinsModeChangea </p>
+<p>ble</p>
+<p> </p>
+<p>Total number of </p>
+<p>Pins configured </p>
+<p>for mode </p>
+<p>Changeable at </p>
+<p>run time</p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p>ucNoOfPinsDioAltModeCha </p>
+<p>ngeable</p>
+<p> </p>
+<p>Total number of </p>
+<p>Pins configured </p>
+<p>for mode </p>
+<p>Changeable at </p>
+<p>run time</p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p>ucNoOfDNFARegs</p>
+<p> </p>
+<p>The total number </p>
+<p>of DNFA noise </p>
+<p>elimination </p>
+<p>registers </p>
+<p> </p>
+<p>uint8 </p>
+<p>ucNoOfEDCRegs </p>
+<p>The total number </p>
+<p>of EDC registers </p>
+<p>uint8</p>
+<p> </p>
+<p>ucNoOfFCLARegs</p>
+<p> </p>
+<p>The total number </p>
+<p>of FCLA noise </p>
+<p>elimination </p>
+<p>registers</p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p>ucNoOfNumRestoredRegs</p>
+<p> </p>
+<p>The total number </p>
+<p>of Numeric </p>
+<p>Restored </p>
+<p>registers</p>
+<p> </p>
+<p> uint8</p>
+<p> </p>
+<p>ucNoOfAlphaRestoredRegs</p>
+<p> </p>
+<p>The total number </p>
+<p>of Alphabetic </p>
+<p>Restored </p>
+<p>registers</p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p>  ucNoOfAnalogRestoredRe </p>
+<p>gs</p>
+<p> </p>
+<p>The total number </p>
+<p>of Analog </p>
+<p>Restored </p>
+<p>registers</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Description:</p>
+<p> </p>
+<p>This is the type of the external data structure containing the initialization data for the </p>
+<p>PORT Driver Component. </p>
+<p>The user shall use the symbolic names defined in the PORT Driver Configuration Tool. </p>
+<p>The configuration of each Port Pin is Microcontroller specific.</p>
+<p> </p>
+<p> </p>
+<p><b>10.2.2 Port_PinType </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Port_PinType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint16</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 65535</p>
+<p> </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>The user shall use the symbolic names defined in the PORT Driver Configuration Tool. </p>
+<p>The configuration of each Port Pin is Microcontroller specific.</p>
+<p> </p>
+<p><b>37 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 10                                                                                   Application Programming Interface </b></p>
+<p> </p>
+<p><b>10.2.3 Port_PinDirection Type </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Port_PinDirectionlType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Enumeration</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>PORT_PIN_OUT</p>
+<p> </p>
+<p>Output Direction</p>
+<p> </p>
+<p>PORT_PIN_IN</p>
+<p> </p>
+<p>Input Direction</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>These are the possible directions; a port pin can have for both input and output.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.2.4 Port_PinModeType </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Port_PinModeType </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint8 </p>
+<p><b>Range: </b></p>
+<p>PIPC=0</p>
+<p> </p>
+<p>0</p>
+<p> </p>
+<p>PORT_DIO_OUT</p>
+<p> </p>
+<p>(Port_PinModeType)0x00 </p>
+<p>1</p>
+<p> </p>
+<p>PORT_DIO_IN</p>
+<p> </p>
+<p>(Port_PinModeType)0x01 </p>
+<p>2</p>
+<p> </p>
+<p>APP_ALT1_OUT</p>
+<p> </p>
+<p>(Port_PinModeType)0x02 </p>
+<p>3</p>
+<p> </p>
+<p>APP_ALT1_IN</p>
+<p> </p>
+<p>(Port_PinModeType)0x03 </p>
+<p>4</p>
+<p> </p>
+<p>APP_ALT2_OUT</p>
+<p> </p>
+<p>(Port_PinModeType)0x04 </p>
+<p>5</p>
+<p> </p>
+<p>APP_ALT2_IN</p>
+<p> </p>
+<p>(Port_PinModeType)0x05 </p>
+<p>6</p>
+<p> </p>
+<p>APP_ALT3_OUT</p>
+<p> </p>
+<p>(Port_PinModeType)0x06 </p>
+<p>7</p>
+<p> </p>
+<p>APP_ALT3_IN</p>
+<p> </p>
+<p>(Port_PinModeType)0x07 </p>
+<p>8</p>
+<p> </p>
+<p>APP_ALT4_OUT</p>
+<p> </p>
+<p>(Port_PinModeType)0x08 </p>
+<p>9</p>
+<p> </p>
+<p>APP_ALT4_IN</p>
+<p> </p>
+<p>(Port_PinModeType)0x09 </p>
+<p>A </p>
+<p>APP_ALT5_OUT </p>
+<p>(Port_PinModeType)0x0A </p>
+<p>B </p>
+<p>APP_ALT5_IN </p>
+<p>(Port_PinModeType)0x0B </p>
+<p>C </p>
+<p>APP_ALT6_OUT</p>
+<p> </p>
+<p>(Port_PinModeType)0x0C </p>
+<p>D </p>
+<p>APP_ALT6_IN</p>
+<p> </p>
+<p>(Port_PinModeType)0x0D </p>
+<p>E </p>
+<p>APP_ALT7_OUT </p>
+<p>(Port_PinModeType)0x0E </p>
+<p>F </p>
+<p>APP_ALT7_IN </p>
+<p>(Port_PinModeType)0x0F </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>PIPC=1</p>
+<p> </p>
+<p>0 </p>
+<p>APP_ALT1_OUT_SET_PIPC </p>
+<p>(Port_PinModeType)0x82 </p>
+<p>1 </p>
+<p>APP_ALT1_IN_SET_PIPC </p>
+<p>(Port_PinModeType)0x83 </p>
+<p>2 </p>
+<p>APP_ALT2_OUT_SET_PIPC </p>
+<p>(Port_PinModeType)0x84 </p>
+<p>3 </p>
+<p>APP_ALT2_IN_SET_PIPC </p>
+<p>(Port_PinModeType)0x85 </p>
+<p>4 </p>
+<p>APP_ALT3_OUT_SET_PIPC </p>
+<p>(Port_PinModeType)0x86 </p>
+<p>5 </p>
+<p>APP_ALT3_IN_SET_PIPC </p>
+<p>(Port_PinModeType)0x87 </p>
+<p>6 </p>
+<p>APP_ALT4_OUT_SET_PIPC </p>
+<p>(Port_PinModeType)0x88 </p>
+<p>7 </p>
+<p>APP_ALT4_IN_SET_PIPC </p>
+<p>(Port_PinModeType)0x89 </p>
+<p>8 </p>
+<p>APP_ALT5_OUT_SET_PIPC </p>
+<p>(Port_PinModeType)0x8A </p>
+<p>9 </p>
+<p>APP_ALT5_IN_SET_PIPC </p>
+<p>(Port_PinModeType)0x8B </p>
+<p>A </p>
+<p>APP_ALT6_OUT_SET_PIPC </p>
+<p>(Port_PinModeType)0x8C </p>
+<p>B </p>
+<p>APP_ALT6_IN_SET_PIPC </p>
+<p>(Port_PinModeType)0x8D </p>
+<p>C </p>
+<p>APP_ALT7_OUT_SET_PIPC </p>
+<p>(Port_PinModeType)0x8E </p>
+<p><b>38 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Application Programming Interface   </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    Chapter 10 </b></p>
+<p> </p>
+<p>D </p>
+<p>APP_ALT7_IN_SET_PIPC </p>
+<p>(Port_PinModeType)0x8F </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>These  are  the  possible  modes;  a  port  pin  can  have  for  both  input  and </p>
+<p>output. </p>
+<p> </p>
+<p><b>10.3. Function Definitions </b></p>
+<p> </p>
+<p><b>Table 10-1 </b></p>
+<p><b>Function Definitions </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>SI.No</b></p>
+<p> </p>
+<p><b>API’s </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>API’s specific</b></p>
+<p> </p>
+<p>1</p>
+<p> </p>
+<p>Port_Init</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>2</p>
+<p> </p>
+<p>Port_SetPInDirection</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>3</p>
+<p> </p>
+<p>Port_RefreshPortDirection</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>4</p>
+<p> </p>
+<p>Port_SetPinMode</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>5</p>
+<p> </p>
+<p>Port_GetVersionInfo</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>6</p>
+<p> </p>
+<p>Port_SetToDioMode</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>7</p>
+<p> </p>
+<p>Port_SetToAlternateMode</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>8 </p>
+<p>Port_SetPinDefaultDirection </p>
+<p>-</p>
+<p> </p>
+<p>9 </p>
+<p>Port_SetPinDefaultMode </p>
+<p>-</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>39 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 10                                                                                   Application Programming Interface </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>40 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>   </p>
+<p><b>Development And Production Errors </b></p>
+<p><b>                                                                      Chapter 11 </b></p>
+<p> </p>
+<p><b>Chapter 11 </b></p>
+<p><b>Development And Production Errors </b></p>
+<p> </p>
+<p>In this section the development and production errors that are reported by the </p>
+<p>PORT Driver Component are tabulated. The development errors will be </p>
+<p>reported only when the pre compiler option PORT_DEV_ERROR_DETECT is </p>
+<p>enabled in the configuration. </p>
+<p> </p>
+<p><b>11.1. </b></p>
+<p><b>PORT Driver Component Development Errors </b></p>
+<p> </p>
+<p>The following table contains the DET errors that are reported by PORT Driver </p>
+<p>Component. These errors are reported to Development Error Tracer Module </p>
+<p>when the PORT Driver Component APIs are invoked with wrong input </p>
+<p>parameters or without initialization of the driver. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Table 11-1 </b></p>
+<p><b>DET Errors of PORT Driver Component </b></p>
+<p><b> </b></p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>1</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>PORT_E_PARAM_CONFIG</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Port_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>API is invoked with NULL Pointer</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>PORT_E_INVALID_DATABASE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Port_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>Invalid database is found</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>PORT_E_UNINIT</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Port_RefreshPortDirection, Port_SetPinDirection, Port_SetPinMode, </p>
+<p>Port_SetToDioMode, Port_SetToAlternateMode</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>APIs are invoked without the initialization of the PORT Driver Component.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>PORT_E_PARAM_PIN</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Port_SetPinMode, Port_SetPinDirection, Port_SetToDioMode, </p>
+<p>Port_SetToAlternateMode</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>API is invoked with invalid Pin</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>PORT_E_PARAM_INVALID_MODE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Port_SetPinMode</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>API is invoked with invalid mode</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>PORT_E_DIRECTION_UNCHANGEABLE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Port_SetPinDirection</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>API is invoked with Pin which is not configured as ‘Direction Changeable during run </p>
+<p>time’.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>PORT_E_MODE_UNCHANGEABLE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Port_SetPinMode, Port_SetToDioMode, Port_SetToAlternateMode</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>API is invoked with Pin which is not configured as ‘Mode Changeable during run time’.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>41 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>   </p>
+<p><b>Chapter 11  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Development And Production Errors </b></p>
+<p> </p>
+<p> </p>
+<p><b>11.2. </b></p>
+<p><b>PORT Driver Component Production Errors </b></p>
+<p> </p>
+<p>The following table contains the DEM errors that are reported by PORT </p>
+<p>software component. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Table 11-2 </b></p>
+<p><b>DEM Errors of PORT Driver Component </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>1</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>PORT_E_WRITE_TIMEOUT_FAILURE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Port_Init ,Port_SetPinDirection</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When writing to a write-protected register fails.</p>
+<p> </p>
+<p><b>42 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Memory Organization </b></p>
+<p><b>Chapter 12</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Chapter 12 </b></p>
+<p><b>Memory Organization </b></p>
+<p> </p>
+<p>Following picture depicts a typical memory organization, which must be met </p>
+<p>for proper functioning of PORT Driver Component software. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ROM Section </b></p>
+<p> </p>
+<p> </p>
+<p><b>PORT Driver Component </b></p>
+<p><b>Library / Object Files</b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>RAM Section </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Port Driver </p>
+<p>code related </p>
+<p>to API’s are placed in </p>
+<p>this memory. </p>
+<p>X1</p>
+<p> </p>
+<p>   Segment Name: </p>
+<p><b>   PORT_PUBLIC_CODE_ROM </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Global </p>
+<p>RAM </p>
+<p>of </p>
+<p>unspecific size </p>
+<p>required for Port </p>
+<p>Driver functioning. </p>
+<p> </p>
+<p>Y1</p>
+<p> </p>
+<p>   Segment Name: </p>
+<p><b>   NOINIT_RAM_UNSPECIFIED </b></p>
+<p> </p>
+<p>Port Driver </p>
+<p>code related </p>
+<p>to Internal Functions </p>
+<p>are </p>
+<p>placed </p>
+<p>in this memory </p>
+<p>X2</p>
+<p> </p>
+<p>Segment Name: </p>
+<p><b>PORT_PRIVATE_CODE_ROM </b></p>
+<p>Global 1-bit </p>
+<p>RAM </p>
+<p>to be initialized by start-up </p>
+<p>code. </p>
+<p>Segment Name: </p>
+<p>Y2</p>
+<p> </p>
+<p><b>RAM_1BIT </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>        </p>
+<p>      </p>
+<p><b>Tool Generated Files</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The </p>
+<p>const section in the file </p>
+<p>Port_PBcfg.c </p>
+<p>is </p>
+<p>placed in this memory. </p>
+<p> </p>
+<p>Segment Name: </p>
+<p>X3 </p>
+<p><b>PORT_CFG_DBTOC_UNSPECIFIED</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The </p>
+<p>const section in the file </p>
+<p>Port_PBcfg.c </p>
+<p>is </p>
+<p>placed in this memory. </p>
+<p> </p>
+<p>X4</p>
+<p> </p>
+<p>Segment Name: </p>
+<p><b>PORT_CFG_DATA_UNSPECIFIED </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Figure 12-1 </b></p>
+<p><b>PORT Driver Component Memory Organization</b></p>
+<p><b>43 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>  </p>
+<p><b>Chapter 12                                                                                                              Memory Organization</b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>ROM Section (X1, X2, X3 and X4):</b></p>
+<p> </p>
+<p> </p>
+<p><b>PORT_PUBLIC_CODE_ROM (X1): </b>API(s) of PORT Driver Component, </p>
+<p>which can be located in code memory. </p>
+<p> </p>
+<p><b>PORT_PRIVATE_CODE_ROM (X2): </b>Internal functions of PORT Driver </p>
+<p>Component code that can be located in code memory. </p>
+<p> </p>
+<p><b>PORT_CFG_DBTOC_UNSPECIFIED (X3): </b>This section consists of PORT </p>
+<p>Driver Component database table of contents generated by the PORT Driver </p>
+<p>Component Generation Tool. This can be located in code memory. </p>
+<p> </p>
+<p><b>PORT_CFG_DATA_UNSPECIFIED (X4): </b>This section consists of PORT </p>
+<p>Driver Component constant configuration structures. This can be located in </p>
+<p>code memory. </p>
+<p> </p>
+<p><b>RAM Section (Y1 and Y2): </b></p>
+<p> </p>
+<p><b>NOINIT_RAM_UNSPECIFIED (Y1): </b>This section consists of the global RAM  </p>
+<p>variables that are used internally by PORT Driver Component. This can be </p>
+<p>located in data memory. </p>
+<p> </p>
+<p> <b>RAM_1BIT (Y2): </b>This section consists of the global RAM variables of 1-bit </p>
+<p>size that are used internally by PORT Driver Component. This can be located </p>
+<p>in data memory. </p>
+<p> </p>
+<p><b>44 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> P1M Specific Information </b></p>
+<p><b>Chapter 13</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 13 </b></p>
+<p><b>P1M Specific Information </b></p>
+<p> </p>
+<p>P1M supports following devices: </p>
+<p>•</p>
+<p> </p>
+<p>R7F701304</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701305</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701310</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701311</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701312</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701313</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701314</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701315</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701318</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701319</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701320</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701321</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701322</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701323</p>
+<p> </p>
+<p> </p>
+<p><b>13.1. </b></p>
+<p><b>Interaction between the User and PORT Driver            </b></p>
+<p><b>Component </b></p>
+<p> </p>
+<p>The details of the services supported by the PORT Driver Component to the </p>
+<p>upper layers users and the mapping of the channels to the hardware units is </p>
+<p>provided in the following sections: </p>
+<p> </p>
+<p><b>13.1.1. </b></p>
+<p><b>Translation Header File </b></p>
+<p> </p>
+<p>The translation header file supports following devices: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701304</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701305</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701310</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701311</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701312</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701313</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701314</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701315</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701318</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701319</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701320</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701321</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701322</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701323</p>
+<p> </p>
+<p><b>13.1.1. </b></p>
+<p><b>Parameter Definition File </b></p>
+<p>Parameter definition files support information for P1M </p>
+<p><b>Table 13-1  PDF information for P1M </b></p>
+<p> </p>
+<p><b>PDF Files</b></p>
+<p> </p>
+<p><b>Devices Supported</b></p>
+<p> </p>
+<p>R403_PORT_P1M_04_05 </p>
+<p>701304, 701305</p>
+<p> </p>
+<p>R403_PORT_P1M_10_11_14_15 </p>
+<p>701310, 701311, 701314, 701315</p>
+<p> </p>
+<p><b>45 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                       P1M Specific Information</b></p>
+<p><b> </b></p>
+<p> </p>
+<p>R403_PORT_P1M_12_13 </p>
+<p>701312, 701313</p>
+<p> </p>
+<p>R403_PORT_P1M_18_19_22_23 </p>
+<p>701318, 701319, 701322, 701323</p>
+<p> </p>
+<p>R403_PORT_P1M_20_21 </p>
+<p>701320, 701321</p>
+<p> </p>
+<p> </p>
+<p><b>13.1.2. </b></p>
+<p><b>Services Provided By PORT Driver Component to the User </b></p>
+<p> </p>
+<p>The PORT Driver Component provides the following functionalities to the </p>
+<p>upper layers or users: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To initialize the Port and set according Port filter functions. </p>
+<p>•</p>
+<p> </p>
+<p>To refresh the direction of Port. </p>
+<p>•</p>
+<p> </p>
+<p>To switch the Port pin direction at run time. </p>
+<p>•</p>
+<p> </p>
+<p>To change the mode of a Port pin at run time. </p>
+<p>•</p>
+<p> </p>
+<p>To read the PORT Driver Component version information. </p>
+<p> </p>
+<p><b>13.2. </b></p>
+<p><b>Sample Application </b></p>
+<p> </p>
+<p><b>13.2.1. </b></p>
+<p><b>Sample Application Structure </b></p>
+<p> </p>
+<p>The  Sample  Application  is  provided  as  reference  to  the  user  to  understand </p>
+<p>the method in which the PORT APIs can be invoked from the application. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Figure 13-1 </b></p>
+<p><b>Overview of PORT Driver Sample Application </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The Sample Application of the P1M is available in the path </p>
+<p> </p>
+<p>X1X\P1x\modules\port\sample_application </p>
+<p> </p>
+<p>The Sample Application consists of the following folder structure: </p>
+<p>P1x PO R T </p>
+<p>Sample </p>
+<p>application </p>
+<p>STUB </p>
+<p>DEM </p>
+<p>AUTOSAR TYPES </p>
+<p>COMPILER </p>
+<p>RH850 TYPES </p>
+<p>STUB </p>
+<p>DET </p>
+<p>STUB </p>
+<p>SchM </p>
+<p><b>Generic </b></p>
+<p><b>Devices </b></p>
+<p><b>46 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> P1M Specific Information </b></p>
+<p><b>Chapter 13</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>X1X\P1x\modules\port\definition\&lt;AUTOSAR_version&gt;\&lt;SubVariant&gt;\ </p>
+<p> R403_PORT_P1M_04_05.arxml </p>
+<p>                                          R403_PORT_P1M_10_11_14_15.arxml </p>
+<p>                                          R403_PORT_P1M_12_13.arxml </p>
+<p>                                          R403_PORT_P1M_18_19_22_23.arxml </p>
+<p>                                          R403_PORT_P1M_20_21.arxml </p>
+<p><b> </b></p>
+<p>X1X\P1x\modules\port\sample_application\&lt;SubVariant&gt;\  </p>
+<p>                                                                   &lt;AUTOSAR_version&gt;\ </p>
+<p>\src\Port_PBcfg.c </p>
+<p>\include\Port_Cfg.h </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701304_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701304_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701304_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701305_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701305_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701305_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701310_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701310_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701310_Sample.one </p>
+<p> </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701311_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701311_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701311_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701312_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701312_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701312_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701313_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701313_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701313_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701314_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701314_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701314_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701315_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701315_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701315_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701318_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701318_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701318_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701319_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701319_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701319_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701320_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701320_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701320_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701321_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701321_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701321_Sample.one </p>
+<p><b>47 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                       P1M Specific Information</b></p>
+<p><b> </b></p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701322_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701322_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701322_Sample.one </p>
+<p> </p>
+<p>                                                                    \config\App_PORT_P1M_701323_Sample.arxml </p>
+<p>                                                                    \config\App_PORT_P1M_701323_Sample.html </p>
+<p>                                                                    \config\App_PORT_P1M_701323_Sample.one </p>
+<p> </p>
+<p>In the Sample Application all the PORT APIs are invoked in the following </p>
+<p>sequence: </p>
+<p> </p>
+<p>• </p>
+<p>Port_GetVersionInfo: The  API  Port_GetVersionInfo is  invoked  to  get  the </p>
+<p>version of the PORT Driver module with a variable of Std_VersionInfoType </p>
+<p>after the call of this API the past parameter will get updated with the PORT </p>
+<p>Driver version details. </p>
+<p> </p>
+<p>• </p>
+<p>Port_RefreshPortDirection: The API refreshes the direction  of all ports to </p>
+<p>the  configured  direction.  It  excludes  those  port  pins  from  refreshing  that </p>
+<p>are  configured  as  ‘pin  direction  changeable  during  runtime’  by  invoking </p>
+<p>internal API Port_RefreshPortInternal(). </p>
+<p> </p>
+<p>• </p>
+<p>Port_SetPinMode: This service sets the Port Pin mode during runtime. </p>
+<p> </p>
+<p>• </p>
+<p>Port_SetToDioMode: This function  used  to set the mode  of a  port  pin to </p>
+<p>DIO mode during runtime. </p>
+<p> </p>
+<p>• </p>
+<p>Port_SearchModeChangeablePin: This function searches the given PIN Id </p>
+<p>in  the  existing  list  of  PIN  IDs  which  are  mode  changeable  in  run  time </p>
+<p>through Binary Search algorithm. </p>
+<p> </p>
+<p>• </p>
+<p>Port_Init: The API Port_Init is invoked with a valid database address for the </p>
+<p>proper  initialization  of  the  PORT  Driver,  all  the  PORT  Driver  control </p>
+<p>registers and RAM variables will get initialized after this API is called. </p>
+<p> </p>
+<p>• </p>
+<p>The  API  Port_GetOutputState  is  invoked  to  get  the  channel  output  state </p>
+<p>and provides the service to read the internal state of a PORT output signal </p>
+<p>of a channel. </p>
+<p> </p>
+<p>• </p>
+<p>Port_InitConfig:  This  function  initializes  all  ports  and  port  pins  with  the </p>
+<p>configuration set pointed by ConfigPtr. </p>
+<p> </p>
+<p>• </p>
+<p>Port_FilterConfig:  This  Function  used  to  initialize  all  the  registers  of filter </p>
+<p>configuration. </p>
+<p> </p>
+<p>• </p>
+<p>Port_SearchDirChangeablePin: This function searches the given PIN Id in </p>
+<p>the  existing  list  of  PIN  Id’s  which  are  direction  changeable  in  run  time </p>
+<p>through Binary Search algorithm. </p>
+<p> </p>
+<p>• </p>
+<p>Port_RefreshPortInternal: The API refreshes the direction of all ports to the </p>
+<p>configured  direction.  It  excludes  those  port  pins  from  refreshing  that  are </p>
+<p>configured as ‘pin direction changeable during runtime. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>48 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> P1M Specific Information </b></p>
+<p><b>Chapter 13</b></p>
+<p> </p>
+<p> </p>
+<p><b>13.2.2. </b></p>
+<p><b>Building Sample Application </b></p>
+<p> </p>
+<p><b>13.3.2.1. Configuration Example </b></p>
+<p> </p>
+<p>This section contains the typical configuration which is used for measuring </p>
+<p>RAM/ROM consumption, stack depth and throughput details. </p>
+<p> </p>
+<p><b>Configuration Details</b>: App_PORT_P1M_701310_Sample.html </p>
+<p> </p>
+<p><b>13.3.2.2. Debugging the Sample Application </b></p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>GNU Make utility version 3.81 or above must be installed and available in the </p>
+<p>path  as  defined  by  the  environment  user  variable  “GNUMAKE”  to  complete </p>
+<p>the build process using the delivered sample files. </p>
+<p> </p>
+<p>Open a Command window and change the current working directory to “make” </p>
+<p>directory present as mentioned in below path: </p>
+<p> </p>
+<p> “X1X\P1x\common_family\make\&lt;Compiler&gt;” </p>
+<p> </p>
+<p>Now execute the batch file SampleApp.bat with following parameters: </p>
+<p> </p>
+<p>SampleApp.bat Port 4.0.3 &lt;Device_name&gt; </p>
+<p> </p>
+<p>• </p>
+<p>After this, the tool output files will be generated with the configuration </p>
+<p>as mentioned in App_PORT_P1M_701310_Sample.html file available </p>
+<p>in the path: </p>
+<p> </p>
+<p>“X1X\P1x\modules\port\sample_application\&lt;SubVariant&gt;\&lt;AUTOSAR_ve</p>
+<p>rsion&gt;\config\App_PORT_P1M_701310_Sample.html” </p>
+<p> </p>
+<p>• </p>
+<p>After this, all the object files, map file and the executable file </p>
+<p>App_PORT_P1M_Sample.out will be available in the output folder: </p>
+<p>(“X1X\P1x\modules\port\sample_application\&lt;SubVariant&gt; </p>
+<p>\obj\&lt;Compiler&gt;”) </p>
+<p> </p>
+<p>• </p>
+<p>The executable can be loaded into the debugger and the sample application </p>
+<p>can be executed. </p>
+<p> </p>
+<p>• </p>
+<p>The initialization function initializes all ports and port pins with the </p>
+<p>configuration set pointed by ConfigPtr by invoking internal API </p>
+<p>Port_InitConfig(). This function should be called first in order to initialize the </p>
+<p>port for use otherwise no operation can occur on the MCU ports and port </p>
+<p>pins. This function is also called after reset, in order to reconfigure the ports </p>
+<p>and port pins of the MCU. </p>
+<p> </p>
+<p>• </p>
+<p>Port Set Pin Mode: This API will change the pin mode to the requested </p>
+<p>mode. </p>
+<p> </p>
+<p>• </p>
+<p>Port_SetToDioMode: This API will set the mode of a pin to DIO mode. </p>
+<p> </p>
+<p>• </p>
+<p>Port_SetToAlternateMode: This API will set the mode of a port pin to </p>
+<p>Alternate mode. </p>
+<p> </p>
+<p>• </p>
+<p>Port SetPinDirection: This API will change the direction of the pin to the </p>
+<p>requested direction. </p>
+<p> </p>
+<p>• </p>
+<p>Port RefreshPortDirection: This API will refresh all the port pins to the </p>
+<p>configured value except the pins that are configured as pin direction </p>
+<p><b>49 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                       P1M Specific Information</b></p>
+<p><b> </b></p>
+<p> </p>
+<p>changeable during runtime. </p>
+<p> </p>
+<p>Note: The &lt;Device_name&gt; indicates the device to be compiled, which can be </p>
+<p>701304 or  701305 or 701310 or 701311 or 701312 or 701313 or 701314 </p>
+<p>or 701315 or 701318 or 701319 or 701320 or 701321 or  701322 or </p>
+<p>701323 . </p>
+<p><b> </b></p>
+<p><b>Remark </b></p>
+<p>Executable files with ‘*.out’ extension can be downloaded into the target </p>
+<p>hardware with the help of Green Hills debugger. </p>
+<p> </p>
+<p>• </p>
+<p>If any configuration changes (only post-build) are made to the ECU </p>
+<p>Configuration Description files </p>
+<p> </p>
+<p>“X1X\P1x\modules\port\sample_application\&lt;SubVariant&gt; </p>
+<p>\&lt;AUTOSAR_version&gt;\config\App_PORT_P1M_701310_Sample.arxml” </p>
+<p> </p>
+<p>• </p>
+<p>The database alone can be generated by using the following commands. </p>
+<p>make –f App_PORT_P1M_Sample.mak generate_port_config </p>
+<p>make –f App_PORT_P1M_Sample.mak App_PORT_P1M_Sample.s37 </p>
+<p>• </p>
+<p>After this, a flash able Motorola S-Record file </p>
+<p>App_PORT_P1M_Sample.s37 is available in the output folder. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>13.3. </b></p>
+<p><b>Memory and Throughput  </b></p>
+<p> </p>
+<p><b>13.3.1. </b></p>
+<p><b>ROM/RAM Usage </b></p>
+<p> </p>
+<p>The details of memory usage for the typical configuration, with DET disabled </p>
+<p>as provided in Section 13.3.2.1 <i>Configuration Example </i>are provided in this </p>
+<p>section. </p>
+<p> </p>
+<p><b>                                    Table 13-2 </b></p>
+<p><b>ROM/RAM Details without DET </b></p>
+<p><b> </b></p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>ROM/RAM</b></p>
+<p> </p>
+<p><b>Segment Name</b></p>
+<p> </p>
+<p><b>Size in bytes for </b></p>
+<p><b>701312</b></p>
+<p> </p>
+<p><b>Size in bytes for </b></p>
+<p><b>701310</b></p>
+<p> </p>
+<p>1</p>
+<p> </p>
+<p>ROM</p>
+<p> </p>
+<p>PORT_PUBLIC_CODE_ROM </p>
+<p>PORT_PRIVATE_CODE_ROM </p>
+<p>PORT_CFG_DATA_UNSPECIFIED </p>
+<p>PORT_CFG_DBTOC_UNSPECIFIED</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p> </p>
+<p>- </p>
+<p> </p>
+<p>- </p>
+<p>    1278 </p>
+<p> </p>
+<p>2142 </p>
+<p> </p>
+<p>548 </p>
+<p> </p>
+<p>48 </p>
+<p>2</p>
+<p> </p>
+<p>RAM</p>
+<p> </p>
+<p>RAM_1BIT </p>
+<p> </p>
+<p>NOINIT_RAM_UNSPECIFIED</p>
+<p> </p>
+<p>- </p>
+<p> </p>
+<p>- </p>
+<p>0 </p>
+<p> </p>
+<p>4 </p>
+<p> </p>
+<p> </p>
+<p>The details of memory usage for the typical configuration, with DET enabled </p>
+<p>and  all  other configurations as  provided in  13.3.2.1 <i> Configuration Example </i></p>
+<p>are provided in this section. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>50 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> P1M Specific Information </b></p>
+<p><b>Chapter 13</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>                                        Table 13-3 </b></p>
+<p><b>ROM/RAM Details with DET </b></p>
+<p><b> </b></p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>ROM/RAM</b></p>
+<p> </p>
+<p><b>Segment Name</b></p>
+<p> </p>
+<p><b>Size in bytes </b></p>
+<p><b>for 701312</b></p>
+<p> </p>
+<p><b>Size in bytes </b></p>
+<p><b>for 701310</b></p>
+<p> </p>
+<p>1</p>
+<p> </p>
+<p>ROM</p>
+<p> </p>
+<p>PORT_PUBLIC_CODE_ROM </p>
+<p>PORT_PRIVATE_CODE_ROM </p>
+<p>PORT_CFG_DATA_UNSPECIFIED </p>
+<p>PORT_CFG_DBTOC_UNSPECIFIED</p>
+<p> </p>
+<p>- </p>
+<p> </p>
+<p>- </p>
+<p> </p>
+<p>- </p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>1828 </p>
+<p> </p>
+<p>2166 </p>
+<p> </p>
+<p>532 </p>
+<p> </p>
+<p>48 </p>
+<p>2</p>
+<p> </p>
+<p>RAM</p>
+<p> </p>
+<p>RAM_1BIT </p>
+<p> </p>
+<p>NOINIT_RAM_UNSPECIFIED</p>
+<p> </p>
+<p>- </p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>1 </p>
+<p> </p>
+<p>4 </p>
+<p> </p>
+<p> </p>
+<p><b>13.3.2. </b></p>
+<p><b>Stack Depth </b></p>
+<p> </p>
+<p>The  worst-case  stack  depth  for  PORT  Driver  Component  for  the  typical </p>
+<p>configuration provided in Section 13.3.2.1 is 92 bytes. </p>
+<p> </p>
+<p><b>13.3.3. </b></p>
+<p><b>Throughput Details </b></p>
+<p> </p>
+<p>The  throughput details  of  the  APIs  for  the  configuration mentioned  in  the </p>
+<p>Section 13.3.2.1 <i>Configuration Example </i>will be provided in the next release. </p>
+<p>The clock frequency used to measure the throughput is 80 MHz for all APIs. </p>
+<p> </p>
+<p><b>                                        Table 13-4  </b></p>
+<p><b>Throughput Details of the APIs </b></p>
+<p><b> </b></p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>Throughput in </b></p>
+<p><b>microseconds </b></p>
+<p><b>for 701310</b></p>
+<p> </p>
+<p><b>Throughput in </b></p>
+<p><b>microseconds </b></p>
+<p><b>for 701312 </b></p>
+<p><b>Remarks</b></p>
+<p> </p>
+<p>1</p>
+<p> </p>
+<p>Port_Init</p>
+<p> </p>
+<p>45.9 </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>2</p>
+<p> </p>
+<p>Port_RefreshPortDirection</p>
+<p> </p>
+<p>2.52 </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>3</p>
+<p> </p>
+<p>Port_SetPindirection</p>
+<p> </p>
+<p>3.24 </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>4</p>
+<p> </p>
+<p>Port_GetVersionInfo</p>
+<p> </p>
+<p>0.45 </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>5</p>
+<p> </p>
+<p>Port_SetPinMode</p>
+<p> </p>
+<p>3.69 </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>6</p>
+<p> </p>
+<p>Port_SetToDioMode</p>
+<p> </p>
+<p>1.98 </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>7</p>
+<p> </p>
+<p>Port_SetToAlternateMode</p>
+<p> </p>
+<p>1.62 </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>8 </p>
+<p>Port_SetPinDefaultDirection </p>
+<p>1.8 </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>9 </p>
+<p>Port_SetPinDefaultMode </p>
+<p>3.15 </p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>51 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                       P1M Specific Information</b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>52 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Release Details </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                 Chapter 14 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> Chapter 14 </b></p>
+<p><b>Release Details </b></p>
+<p> </p>
+<p><b>PORT Driver Software </b></p>
+<p> </p>
+<p>Version: 1.5.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>53 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 14  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                       Release Details </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>54 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Revision History </b></p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>9-Oct-2013</p>
+<p> </p>
+<p>2. </p>
+<p>Following changes are made: </p>
+<p>1. Sample application is regenerated for the change in parameter </p>
+<p>definition file. </p>
+<p>2. Section 10.2.4 is updated for Port_PinModeType. </p>
+<p>1.0.1 </p>
+<p>21-Nov-2013 </p>
+<p>3.  </p>
+<p> </p>
+<p>Following changes are made: </p>
+<p>1. </p>
+<p>Chapter 2 is updated for referenced documents version. </p>
+<p>2. </p>
+<p>Section 13.1.1 is updated for adding the device names.  </p>
+<p>3. </p>
+<p>Section 13.2 is updated for compiler, assembler and linker </p>
+<p>details.  </p>
+<p>4. </p>
+<p>Section 13.3 is updated to add parameter definition file and </p>
+<p>sample application configuration files for all P1M devices.  </p>
+<p>5. </p>
+<p>Chapter 14 is updated for PORT driver component version </p>
+<p>information. </p>
+<p>1.0.2 </p>
+<p>31-Jan-2014 </p>
+<p>4.  </p>
+<p>Following changes are made: </p>
+<p>1. </p>
+<p>Chapter 2 is updated for referenced documents version. </p>
+<p>2. </p>
+<p>Section 13.1.1 is updated for adding the device names.  </p>
+<p>3. </p>
+<p>Section 13.2 is updated for compiler, assembler and linker </p>
+<p>details.  </p>
+<p>4. </p>
+<p>Section 13.3 is updated to add parameter definition file and </p>
+<p>sample application configuration files for all P1M devices.  </p>
+<p>5. </p>
+<p>Chapter 14 is updated for PORT driver component version </p>
+<p>information. </p>
+<p>6. </p>
+<p>Deviation list is updated to add PORT_E_PARAM_POINTER </p>
+<p>error foe Port_GetVersioInfo API and AUTOSAR requirement.  </p>
+<p>7. </p>
+<p>Memory and Throughput details are updated. </p>
+<p>8. </p>
+<p>Section 10.2.1 is updated to add new structure element. </p>
+<p>1.0.3 </p>
+<p>03-Sep-2014 </p>
+<p>5.  </p>
+<p>Following changes are made: </p>
+<p>1. Section 13.4.3 updated for Throughput details. </p>
+<p>2. Page alignment is updated. </p>
+<p>3. Table of contents updated. </p>
+<p>1.0.4 </p>
+<p>05-Sep-2014 </p>
+<p>6. </p>
+<p>  Following changes are made: </p>
+<p>1. </p>
+<p>Section 1.1 Document Overview is updated. </p>
+<p>2. </p>
+<p>Chapter 2 Reference documents are updated for version </p>
+<p>change. </p>
+<p>3. </p>
+<p>Chapter 4 is updated for information regarding Interrupt vector </p>
+<p>table. </p>
+<p>4. </p>
+<p>Chapter 6 Port_SetPinMode is updated. </p>
+<p>5. </p>
+<p>Section 10.2.4  Port_PinModeType is updated. </p>
+<p>6. </p>
+<p>Section 13.1.1 is updated for adding new devices.  </p>
+<p>7. </p>
+<p>Section 13.2 Compiler, Linker and Assembler section is </p>
+<p>removed.  </p>
+<p>8. </p>
+<p>Section 13.2 is updated for parameter definition file and sample </p>
+<p>application configuration files of all P1M devices.  </p>
+<p>9. </p>
+<p>Section 13.3 Memory and Throughput details are updated. </p>
+<p> </p>
+<p> </p>
+<p>1.0.5 </p>
+<p>29-Apr-2015 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>55 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR MCAL R4.0.3 User's Manual </b></p>
+<p><b>PORT Driver Component Ver.1.0.5 </b></p>
+<p><b>Embedded User’s Manual </b></p>
+<p> </p>
+<p>Publication Date: Rev.0.02, April 29, 2015</p>
+<p> </p>
+<p> </p>
+<p>Published by: Renesas Electronics Corporation </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES </b></p>
+<p><b>OFFICES</b></p>
+<p> </p>
+<p>http://www.renesas.com</p>
+<p> </p>
+<p>Refer  to </p>
+<p>&quot;http://www.renesas.com/&quot; </p>
+<p>for the latest  and detailed </p>
+<p>information.</p>
+<p> </p>
+<p><b>Renesas  Electronics  America </b></p>
+<p><b>Inc.</b></p>
+<p> </p>
+<p>2880  Scott  Boulevard  Santa  Clara,  CA </p>
+<p>95050-2554, U.S.A. </p>
+<p>Tel:  </p>
+<p>+1-408-588-6000, </p>
+<p>Fax: </p>
+<p>+1-408-588-6130</p>
+<p> </p>
+<p><b>Renesas  Electronics  Canada </b></p>
+<p><b>Limited</b></p>
+<p> </p>
+<p>1101  Nicholson  Road,  Newmarket,  Ontario  L3Y  9C3, </p>
+<p>Canada</p>
+<p> </p>
+<p>Tel: </p>
+<p>+1-905-898-5441, </p>
+<p>Fax: </p>
+<p>+1-905-898-3220</p>
+<p> </p>
+<p><b>Renesas  Electronics  Europe </b></p>
+<p><b>Limited</b></p>
+<p> </p>
+<p>Dukes  Meadow,  Millboard  Road,  Bourne  End, </p>
+<p>Buckinghamshire, </p>
+<p>SL8  5FH, </p>
+<p>U.K </p>
+<p>Tel: </p>
+<p>+44-1628-585-100, </p>
+<p>Fax: </p>
+<p>+44-1628-585-900</p>
+<p> </p>
+<p><b>Renesas  Electronics  Europe </b></p>
+<p><b>GmbH </b></p>
+<p>Arcadiastrasse </p>
+<p>10, 40472  Düsseldorf,  </p>
+<p>Germany </p>
+<p>Tel: </p>
+<p>+49-211-65030, </p>
+<p>Fax: </p>
+<p>+49-211-6503-1327</p>
+<p> </p>
+<p><b>Renesas  Electronics  (China)  Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>7th Floor,  Quantum  Plaza,  No.27  ZhiChunLu  Haidian  District,  Beijing  100083, </p>
+<p>P.R.China</p>
+<p> </p>
+<p>Tel: </p>
+<p>+86-10-8235-1155, </p>
+<p>Fax: </p>
+<p>+86-10-8235-7679</p>
+<p> </p>
+<p><b>Renesas  Electronics  (Shanghai)  Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>Unit  204, 205,  AZIA  Center,  No.1233  Lujiazui  Ring  Rd.,  Pudong  District,  Shanghai  200120, </p>
+<p>China</p>
+<p> </p>
+<p>Tel: </p>
+<p>+86-21-5877-1818, </p>
+<p>Fax: </p>
+<p>+86-21-6887-7858 </p>
+<p>/ </p>
+<p>-7898</p>
+<p> </p>
+<p><b>Renesas  Electronics  Hong  Kong </b></p>
+<p><b>Limited</b></p>
+<p> </p>
+<p>Unit  1601-1613,  16/F.,  Tower  2, Grand  Century  Place,  193  Prince  Edward  Road West,  Mongkok,  Kowloon,  Hong </p>
+<p>Kong</p>
+<p> </p>
+<p>Tel: </p>
+<p>+852-2886-9318, </p>
+<p>Fax:  +852 </p>
+<p>2886-9022/9044</p>
+<p> </p>
+<p><b>Renesas  Electronics  Taiwan  Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>7F, No. 363  Fu Shing  North  Road  Taipei, </p>
+<p>Taiwan</p>
+<p> </p>
+<p>Tel: </p>
+<p>+886-2-8175-9600, </p>
+<p>Fax:  +886 </p>
+<p>2-8175-9670</p>
+<p> </p>
+<p><b>Renesas  Electronics  Singapore  Pte. </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>1 </p>
+<p>harbourFront </p>
+<p>Avenue,  #06-10,  keppel  Bay  Tower,  Singapore  </p>
+<p>098632</p>
+<p> </p>
+<p>Tel: </p>
+<p>+65-6213-0200, </p>
+<p>Fax: </p>
+<p>+65-6278-8001</p>
+<p> </p>
+<p><b>Renesas  Electronics  Malaysia </b></p>
+<p><b>Sdn.Bhd.</b></p>
+<p> </p>
+<p>Unit  906,  Block  B, Menara  Amcorp,  Amcorp  Trade  Centre,  No. 18, Jln Persiaran  Barat,  46050  Petaling  Jaya,  Selangor  Darul  Ehsan, </p>
+<p>Malaysia</p>
+<p> </p>
+<p>Tel: </p>
+<p>+60-3-7955-9390, </p>
+<p>Fax: </p>
+<p>+60-3-7955-9510</p>
+<p> </p>
+<p><b>Renesas  Electronics  Korea  Co., </b></p>
+<p><b>Ltd.</b></p>
+<p> </p>
+<p>11F.,  Samik  Lavied'  or Bldg.,  720-2 </p>
+<p>Yeoksam-Dong, Kangnam-Ku, </p>
+<p>Seoul  135-080, </p>
+<p>Korea</p>
+<p> </p>
+<p>Tel: </p>
+<p>+82-2-558-3737, </p>
+<p>Fax: </p>
+<p>+82-2-558-5141</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2015 Renesas Electronics Corporation. All rights reserved. </p>
+<p>Colophon 1.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3 </p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

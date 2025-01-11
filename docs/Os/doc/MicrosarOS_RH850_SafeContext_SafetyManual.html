@@ -1,0 +1,5207 @@
+---
+layout: default
+title: MicrosarOS_RH850_SafeContext_SafetyManual
+nav_order: 1
+parent: OS
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 1 / 80 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR OS SafeContext </b></p>
+<p>Safety Manual </p>
+<p> </p>
+<p>RH850 with Green Hills Compiler </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Senol Cendere, Yohan Humbert </p>
+<p>Version </p>
+<p>1.05 </p>
+<p>Status </p>
+<p>Released </p>
+<p>Document ID </p>
+<p>OS03.00124.10 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 2 / 80 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Senol Cendere  </p>
+<p>2014-02-17 </p>
+<p>1.00 </p>
+<p>Creation for RH850 </p>
+<p>Senol Cendere </p>
+<p>2014-02-26 </p>
+<p>1.01 </p>
+<p>Updated the Requirement IDs </p>
+<p>Senol Cendere </p>
+<p>2014-05-09 </p>
+<p>1.02 </p>
+<p>Adaption for RH850 P1M </p>
+<p>Senol Cendere </p>
+<p>2014-08-18 </p>
+<p>1.03 </p>
+<p>Reworked after Safety Manual Review </p>
+<p>Senol Cendere </p>
+<p>2014-09-22 </p>
+<p>1.04 </p>
+<p>Added reference for Renesas Electronics RH850/P1M  </p>
+<p>Safety Application Note </p>
+<p>Removed CPU derivative specification  </p>
+<p>Removed compiler options (both are specified in safety </p>
+<p>case) </p>
+<p>Yohan Humbert </p>
+<p>2014-12-03 </p>
+<p>1.05 </p>
+<p>Added level support </p>
+<p>[END OF HISTORY]</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 3 / 80 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 4 / 80 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR Operating System Specification</p>
+<p>1</p>
+<p> </p>
+<p>3.x - </p>
+<p>4.x </p>
+<p>[2] </p>
+<p> </p>
+<p> </p>
+<p>OSEK/VDX Operating System Specification</p>
+<p>2</p>
+<p> </p>
+<p>2.2.3 </p>
+<p>[3] </p>
+<p> </p>
+<p>Vector Informatik GmbH </p>
+<p>User manual of Vector MICROSAR OS </p>
+<p>TechnicalReference_Microsar_Os.pdf </p>
+<p>6.03 </p>
+<p>[4] </p>
+<p> </p>
+<p>Vector Informatik GmbH </p>
+<p>User manual of Vector MICROSAR OS RH850,  </p>
+<p>hardware specific part </p>
+<p>TechnicalReference_MICROSAROS_RH850_S</p>
+<p>afeContext.pdf </p>
+<p>1.04 </p>
+<p>[5] </p>
+<p> </p>
+<p> </p>
+<p>International Organization for Standardization, </p>
+<p>Draft International Standard ISO/DIS 26262 </p>
+<p>Road Vehicles - Functional Safety (all parts), </p>
+<p>2009 </p>
+<p> </p>
+<p>[6] </p>
+<p> </p>
+<p>Renesas Electronics </p>
+<p>V850E3v5 Architecture Specifications </p>
+<p>(4</p>
+<p>th</p>
+<p> edition) </p>
+<p>[7] </p>
+<p> </p>
+<p>Renesas Electronics  </p>
+<p> </p>
+<p>RH850 G3M User’s Manual: Software </p>
+<p>r01us0042ej0020_rh850g3m.pdf </p>
+<p>Rev. 0.10 </p>
+<p>Oct. 2012 </p>
+<p>[8] </p>
+<p> </p>
+<p>Renesas Electronics </p>
+<p>RH850/P1x Group User’s Manual: Hardware </p>
+<p>r01uh0436ej0041_rh850p1x.pdf </p>
+<p>Rev. 0.60 </p>
+<p>Jul. 2014 </p>
+<p>[9] </p>
+<p> </p>
+<p>Green Hills Software </p>
+<p>MULTI: Building Applications for Embedded </p>
+<p>V850 and RH850 build_v800.pdf </p>
+<p>PubID: </p>
+<p>build_v800-</p>
+<p>472243 </p>
+<p>Date: </p>
+<p>September 12, </p>
+<p>2012 </p>
+<p>[10]  </p>
+<p>Vector Informatik GmbH </p>
+<p>Vector MICROSAR OS SafeContext Concept </p>
+<p>1.03 </p>
+<p>[11]  </p>
+<p>Renesas Electronics </p>
+<p>RH850/P1M Safety Application Note </p>
+<p>Rev.0.20 </p>
+<p>September 1, </p>
+<p>2014 </p>
+<p>                                            </p>
+<p>1</p>
+<p> This document is available in PDF-format on the Internet at the Autosar homepage: </p>
+<p>http://www.Autosar.org</p>
+<p> </p>
+<p>2</p>
+<p> This document is available in PDF-format on the Internet at the OSEK/VDX homepage: </p>
+<p>http://www.osek-vdx.org</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 5 / 80 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Purpose ......................................................................................................................... 9</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Safety Element out of Context (SEooC) ............................................................. 9</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Standards and Legal requirements .................................................................... 9</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Concept ....................................................................................................................... 10</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>SafeContext Is One Part of a Whole ................................................................ 10</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Safety Goal ...................................................................................................... 10</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Safety Requirements ....................................................................................... 10</p>
+<p> </p>
+<p>2.4</p>
+<p> </p>
+<p>SafeContext Functionality ................................................................................ 11</p>
+<p> </p>
+<p>2.4.1</p>
+<p> </p>
+<p>Safety Part ....................................................................................... 13</p>
+<p> </p>
+<p>2.4.2</p>
+<p> </p>
+<p>Detailed List of Functionality ............................................................ 15</p>
+<p> </p>
+<p>2.4.2.1</p>
+<p> </p>
+<p>Safety ............................................................................ 15</p>
+<p> </p>
+<p>2.4.2.2</p>
+<p> </p>
+<p>Silent ............................................................................. 16</p>
+<p> </p>
+<p>2.4.2.3</p>
+<p> </p>
+<p>Not provided .................................................................. 17</p>
+<p> </p>
+<p>2.5</p>
+<p> </p>
+<p>Safe State ........................................................................................................ 19</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Overview of Requirements to the OS User ............................................................... 20</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>General SafeContext Assumptions ........................................................................... 22</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Context Definition............................................................................................. 23</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>OS Source Checksum ................................................................................................ 24</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Patching the Configuration Block ............................................................................. 26</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Using ElfConverter ........................................................................................... 26</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Using ConfigBlockCRCPatch ........................................................................... 27</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>General Configuration Guidelines ............................................................................. 28</b></p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Review General Part of Configuration Block ............................................................ 30</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>How to Read Back the Configuration ............................................................... 30</p>
+<p> </p>
+<p>8.1.1</p>
+<p> </p>
+<p>Using HexConverter ......................................................................... 31</p>
+<p> </p>
+<p>8.1.2</p>
+<p> </p>
+<p>Using ConfigViewer .......................................................................... 31</p>
+<p> </p>
+<p>8.2</p>
+<p> </p>
+<p>General Configuration Information ................................................................... 32</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Review Generated Code ............................................................................................. 33</b></p>
+<p> </p>
+<p>9.1</p>
+<p> </p>
+<p>Manual Reviews .............................................................................................. 33</p>
+<p> </p>
+<p>9.1.1</p>
+<p> </p>
+<p>Review generated file tcb.h .............................................................. 33</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 6 / 80 </p>
+<p><b>10</b></p>
+<p> </p>
+<p><b>Qualifying Silent OS Part ........................................................................................... 34</b></p>
+<p> </p>
+<p>10.1</p>
+<p> </p>
+<p>Using MICROSAR Safe Silence Verifier (MSSV) ............................................. 34</p>
+<p> </p>
+<p><b>11</b></p>
+<p> </p>
+<p><b>Review User Software ................................................................................................ 36</b></p>
+<p> </p>
+<p><b>12</b></p>
+<p> </p>
+<p><b>Hardware Specific Part ............................................................................................... 39</b></p>
+<p> </p>
+<p>12.1</p>
+<p> </p>
+<p>Interrupt Vector Table ....................................................................................... 42</p>
+<p> </p>
+<p>12.1.1</p>
+<p> </p>
+<p>Header Include Section .................................................................... 42</p>
+<p> </p>
+<p>12.1.2</p>
+<p> </p>
+<p>Core Exception Vector Table ............................................................ 43</p>
+<p> </p>
+<p>12.1.3</p>
+<p> </p>
+<p>EIINT Vector Table ........................................................................... 44</p>
+<p> </p>
+<p>12.1.4</p>
+<p> </p>
+<p>CAT2 ISR Wrappers ......................................................................... 45</p>
+<p> </p>
+<p>12.2</p>
+<p> </p>
+<p>Configuration Block .......................................................................................... 46</p>
+<p> </p>
+<p>12.2.1</p>
+<p> </p>
+<p>How to read back the ConfigBlock ................................................... 46</p>
+<p> </p>
+<p>12.2.2</p>
+<p> </p>
+<p>Additional Information ...................................................................... 47</p>
+<p> </p>
+<p>12.2.3</p>
+<p> </p>
+<p>How to start the review ..................................................................... 48</p>
+<p> </p>
+<p>12.2.3.1</p>
+<p> </p>
+<p>Indexes of applications, task , ISRs, trusted and non-</p>
+<p>trusted functions ............................................................ 49</p>
+<p> </p>
+<p>12.2.3.2</p>
+<p> </p>
+<p>Review against User’s Design ....................................... 49</p>
+<p> </p>
+<p>12.2.4</p>
+<p> </p>
+<p>How to review the general information (block 0) ............................... 50</p>
+<p> </p>
+<p>12.2.5</p>
+<p> </p>
+<p>How to review the task start addresses (block 1) ............................. 52</p>
+<p> </p>
+<p>12.2.6</p>
+<p> </p>
+<p>How to review the task trusted information (block 2) ........................ 53</p>
+<p> </p>
+<p>12.2.7</p>
+<p> </p>
+<p>How to review the task preemptive information (block 3) .................. 54</p>
+<p> </p>
+<p>12.2.8</p>
+<p> </p>
+<p>How to review the task stack start and end addresses (block 4 and </p>
+<p>5) ..................................................................................................... 55</p>
+<p> </p>
+<p>12.2.9</p>
+<p> </p>
+<p>How to review the task ownership information (block 6) ................... 56</p>
+<p> </p>
+<p>12.2.10</p>
+<p> </p>
+<p>How to review the category 2 ISR start addresses (block 7) ............. 57</p>
+<p> </p>
+<p>12.2.11</p>
+<p> </p>
+<p>How to review the CAT2 ISR trusted information (block 8) ............... 58</p>
+<p> </p>
+<p>12.2.12</p>
+<p> </p>
+<p>How to review the CAT2 ISR nested information (block 9) ............... 59</p>
+<p> </p>
+<p>12.2.13</p>
+<p> </p>
+<p>How to review CAT2 ISR stack start and end addresses (block 10 </p>
+<p>and 11) ............................................................................................. 60</p>
+<p> </p>
+<p>12.2.14</p>
+<p> </p>
+<p>How to review the CAT2 ISR ownership information (block 12) ........ 62</p>
+<p> </p>
+<p>12.2.15</p>
+<p> </p>
+<p>How to review the trusted functions start addresses (block 13) ........ 63</p>
+<p> </p>
+<p>12.2.16</p>
+<p> </p>
+<p>How to review the non-trusted functions start addresses (block 14) . 64</p>
+<p> </p>
+<p>12.2.17</p>
+<p> </p>
+<p>How to review the non-trusted functions ownership information </p>
+<p>(block 15) ......................................................................................... 65</p>
+<p> </p>
+<p>12.2.18</p>
+<p> </p>
+<p>How to review the application dynamic MPU settings (block 16) ...... 66</p>
+<p> </p>
+<p>12.2.19</p>
+<p> </p>
+<p>How to review the interrupt channel index (block 17) ....................... 67</p>
+<p> </p>
+<p>12.2.20</p>
+<p> </p>
+<p>How to review the ISR interrupt priority level (block 18) ................... 68</p>
+<p> </p>
+<p>12.2.21</p>
+<p> </p>
+<p>How to review the peripheral regions configuration (block 19) .......... 69</p>
+<p> </p>
+<p>12.2.22</p>
+<p> </p>
+<p>How to review the static MPU regions configuration (block 20) ........ 70</p>
+<p> </p>
+<p>12.2.23</p>
+<p> </p>
+<p>How to review the application trusted information (block 21) ............ 71</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 7 / 80 </p>
+<p>12.2.24</p>
+<p> </p>
+<p>How to review the core control block address information (block </p>
+<p>22) ................................................................................................... 72</p>
+<p> </p>
+<p>12.3</p>
+<p> </p>
+<p>Linker Memory Sections ................................................................................... 73</p>
+<p> </p>
+<p>12.4</p>
+<p> </p>
+<p>Linker Include Files .......................................................................................... 75</p>
+<p> </p>
+<p>12.4.1</p>
+<p> </p>
+<p>Review File osdata.dld ..................................................................... 75</p>
+<p> </p>
+<p>12.4.2</p>
+<p> </p>
+<p>Review File ossdata.dld ................................................................... 76</p>
+<p> </p>
+<p>12.4.3</p>
+<p> </p>
+<p>Review File osstacks.dld .................................................................. 77</p>
+<p> </p>
+<p>12.4.4</p>
+<p> </p>
+<p>Review File osrom.dld ...................................................................... 78</p>
+<p> </p>
+<p>12.4.5</p>
+<p> </p>
+<p>Review File ostdata.dld .................................................................... 78</p>
+<p> </p>
+<p>12.5</p>
+<p> </p>
+<p>Stack Size Configuration .................................................................................. 79</p>
+<p> </p>
+<p>12.6</p>
+<p> </p>
+<p>Stack Monitoring .............................................................................................. 79</p>
+<p> </p>
+<p>12.7</p>
+<p> </p>
+<p>Usage of MPU Regions.................................................................................... 80</p>
+<p> </p>
+<p>12.8</p>
+<p> </p>
+<p>Usage of Peripheral Interrupt API ..................................................................... 80</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 8 / 80 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>Quality Levels of SafeContext Functionalities ........................................... 12</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Stored and active contexts ........................................................................ 14</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Strategy for safety configuration ............................................................... 21</p>
+<p> </p>
+<p>Figure 7-1</p>
+<p> </p>
+<p>Linking example ........................................................................................ 29</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 2-1 </p>
+<p> </p>
+<p>Safety Functionality .................................................................................. 15</p>
+<p> </p>
+<p>Table 2-2 </p>
+<p> </p>
+<p>Silent Functionality.................................................................................... 16</p>
+<p> </p>
+<p>Table 2-3 </p>
+<p> </p>
+<p>Functionality – Not provided ..................................................................... 17</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>General SafeContext Assumptions ........................................................... 23</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>ElfConverter parameters ........................................................................... 26</p>
+<p> </p>
+<p>Table 8-1 </p>
+<p> </p>
+<p>HexConverter parameters......................................................................... 31</p>
+<p> </p>
+<p>Table 8-2 </p>
+<p> </p>
+<p>ConfigViewer parameters ......................................................................... 31</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 9 / 80 </p>
+<p><b>1 </b></p>
+<p><b>Purpose </b></p>
+<p><b>1.1 </b></p>
+<p><b>Safety Element out of Context (SEooC) </b></p>
+<p>MICROSAR OS SafeContext is a Safety Element out of Context (SEooC). It is developed </p>
+<p>based  on  assumptions  on  the  intended functionality,  use  and  context,  including  external </p>
+<p>interfaces. To have a complete safety case, the validity of these assumptions has to be </p>
+<p>checked in the context of the actual item after integration of the SEooC. </p>
+<p>The application conditions for SEooC provide the assumptions made on the requirements </p>
+<p>(including safety requirements) that are placed on the SEooC by higher levels of design </p>
+<p>and also on the design external to the SEooC and the assumed safety requirements and </p>
+<p>assumptions related to the design of the SEooC. </p>
+<p>Information  given  by  this  document  helps  to  check  whether  the  SEooC  fulfills  the  item </p>
+<p>requirements,  or  whether  a  change  to  the  SEooC  is  necessary  in  accordance  with  the </p>
+<p>requirements of ISO 26262. </p>
+<p><b>1.2 </b></p>
+<p><b>Standards and Legal requirements </b></p>
+<p>Standards followed by the development of MICROSAR OS SafeContext: </p>
+<p><b>&gt; </b></p>
+<p>ISO 26262</p>
+<p>3</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>OSEK OS</p>
+<p>4</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>AUTOSAR OS</p>
+<p>5</p>
+<p> </p>
+<p> </p>
+<p>                                            </p>
+<p>3</p>
+<p> International Standard ISO 26262 Road Vehicles - Functional Safety (all parts), 2011 </p>
+<p>4</p>
+<p> OSEK/VDX Operating System, v2.2.3 </p>
+<p>5</p>
+<p> AUTOSAR Specification of Operating  System </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 10 / 80 </p>
+<p><b>2 </b></p>
+<p><b>Concept </b></p>
+<p>This  chapter  provides  a  description  of  the  assumed  safety  requirements  and  the  main </p>
+<p>concept. </p>
+<p><b>2.1 </b></p>
+<p><b>SafeContext Is One Part of a Whole </b></p>
+<p>SafeContext  is part  of  Vector SafeExecution.  SafeExecution  consists  of  SafeContext  for </p>
+<p>prevention from corrupted data and SafeWatchdog for supervision of timing behavior. This </p>
+<p>document covers SafeContext only. [SPMF92:0050] </p>
+<p><b>2.2 </b></p>
+<p><b>Safety Goal </b></p>
+<p>The safety goal is to ensure context integrity for all safety critical parts. Whenever a safety </p>
+<p>critical  code  is  executed,  it  is  guaranteed  that  the  code  is  executed  with  the  correct </p>
+<p>context. After pre-emption or interruption, execution is resumed with the correct context. </p>
+<p>The  integrity  of  the  memory  is  ensured  by  usage  of  hardware  (e.g.  MPU)  and  software </p>
+<p>measures. </p>
+<p><b>2.3 </b></p>
+<p><b>Safety Requirements </b></p>
+<p>To  achieve  this  safety  goal,  the  following  assumed  safety  requirements  are  provided  by </p>
+<p>SafeContext: </p>
+<p><b>ASA_OS_1: </b> Non-trusted  software  must  be  prevented  from  overwriting  data  of  safety </p>
+<p>relevant software. </p>
+<p><b>ASA_OS_2: </b>A <i>runtime context </i>(Task, Hook, (Non-)Trusted-Function and ISR) must not be </p>
+<p>destroyed by a switch (to another runtime context). </p>
+<p><b>ASA_OS_3: </b> A  runtime  context  shall  be  set  up  according  to  compiler  and  processor </p>
+<p>specifications. </p>
+<p><b>ASA_OS_4: </b></p>
+<p>Services  to  prevent </p>
+<p>data  inconsistencies </p>
+<p>by  racing  conditions  shall  be </p>
+<p>provided. </p>
+<p><b>ASA_OS_5: </b>The OS never writes to unintended memory locations. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 11 / 80 </p>
+<p> </p>
+<p><b>2.4 </b></p>
+<p><b>SafeContext Functionality </b></p>
+<p>MICROSAR OS SafeContext implements the AUTOSAR OS and OSEK OS standards of a </p>
+<p>real-time operating system with some restrictions. </p>
+<p>The functionality provided by MICROSAR OS is task switching, interrupt handling, memory </p>
+<p>protection handling, timer services and others. SafeContext provides an efficient solution </p>
+<p>also in respect of safety. Therefore the OSEK/AUTOSAR OS functionality is divided into 3 </p>
+<p>groups: </p>
+<p>1. </p>
+<p>Functionality implemented according ISO 26262 to achieve ASIL. </p>
+<p>2. </p>
+<p>Functionality implemented according to “Silent” principle to prevent from safety data </p>
+<p>overwritten by OS code. </p>
+<p>3. </p>
+<p>Functionality </p>
+<p>which </p>
+<p>is </p>
+<p>not </p>
+<p>supported </p>
+<p>in </p>
+<p>SafeContext. </p>
+<p>It </p>
+<p>is </p>
+<p>assumed </p>
+<p>that </p>
+<p>this </p>
+<p>functionality is not needed by a safety related ECU or it can be reached by other </p>
+<p>existing means. </p>
+<p> </p>
+<p>This chapter describes which of the groups certain functionality falls into. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Basic Knowledge </b></p>
+<p>The idea of “Silent” code is not to disturb other software by means of unintended </p>
+<p>memory writes. To provide high performance, this is not achieved by a hardware </p>
+<p>protection mechanism (which would require MPU reconfiguration for each API call) but </p>
+<p>by analysis of the OS code. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 12 / 80 </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>Quality Levels of SafeContext Functionalities </p>
+<p>AUTOSAR OS is a statically configured operating system. The configuration uses </p>
+<p>configuration editors and code generators to configure the OS. To ease the safety </p>
+<p>development the configuration is divided into two parts. </p>
+<p>1. </p>
+<p>Configuration of Safety relevant functionality. The configuration is stored in the ECU </p>
+<p>in a separate configuration block. </p>
+<p>2. </p>
+<p>Configuration  of  silent  functionality:  This  configuration  is  generated  and  compiled </p>
+<p>into the OS code. </p>
+<p>Additionally  some  safety  relevant  configuration  parameters  are  generated  and  compiled </p>
+<p>into  the  OS  code.  Those  have  to  be  reviewed  by  the  user  according  the  rules  in  this </p>
+<p>document. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Dispatcher</p>
+<p>MPU management</p>
+<p>Interrupt management</p>
+<p>Configuration (ASIL)</p>
+<p>ASIL</p>
+<p>Resource management</p>
+<p>Scheduler</p>
+<p>Task management</p>
+<p>Alarm management</p>
+<p>Event management</p>
+<p>Configuration (QM)</p>
+<p>Silent</p>
+<p>OS</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 13 / 80 </p>
+<p> </p>
+<p> </p>
+<p><b>2.4.1  Safety Part </b></p>
+<p>SafeContext provides the following functionality safely: </p>
+<p>1. </p>
+<p>context switching </p>
+<p>2. </p>
+<p>MPU management </p>
+<p>3. </p>
+<p>Interrupt API </p>
+<p>4. </p>
+<p>no unintended overwriting of memory </p>
+<p> </p>
+<p>The <i>context </i>is defined as: </p>
+<p><b>&gt; </b></p>
+<p>The set of registers, which is used by the compiler </p>
+<p><b>&gt; </b></p>
+<p>The stack pointer </p>
+<p><b>&gt; </b></p>
+<p>CPU mode (including interrupt state and privilege mode) </p>
+<p><b>&gt; </b></p>
+<p>Memory Access Rights </p>
+<p> </p>
+<p>Explanations: </p>
+<p><b>&gt; </b></p>
+<p>A context switch occurs in several situations. These are: Task start/switch, ISR </p>
+<p>entry/exit, call of OS services, call of (Non-)Trusted Functions and Hook routines. </p>
+<p>Conclusions: </p>
+<p><b>&gt; </b></p>
+<p>If a user program is executed, it will always be executed with the correct context </p>
+<p><b>&gt; </b></p>
+<p>After interruptions it is guaranteed that execution is resumed with the correct context </p>
+<p><b>&gt; </b></p>
+<p>Freedom from interference with respect to memory will be achieved by using memory </p>
+<p>protection hardware (e.g. MPU) for non-trusted code. </p>
+<p><b>&gt; </b></p>
+<p>Data inconsistency due to race conditions can be prevented by using the interrupt </p>
+<p>API. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Other OS functionality follows the silent principle. For example the sequence of task </p>
+<p>executions (scheduling) including the Task pre-emption is provided on QM level. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 14 / 80 </p>
+<p>The  operating  system  provides  safe  switching  of  memory  access  rights  during  context </p>
+<p>switches to ensure that non-trusted code does not modify data of other OS-Applications (if </p>
+<p>not explicitly allowed). In addition the OS interrupts Tasks or ISRs to execute higher priority </p>
+<p>ISRs. By switching to another context the correct context is set up. By switching back to an </p>
+<p>interrupted Task or ISR, the correct and unchanged context is restored. To avoid change of </p>
+<p>a saved context of an interrupted or waiting task, memory protecting hardware is used. </p>
+<p>All points in the OS where context switches are performed or are necessary to perform are </p>
+<p>identified and developed according the safety standard. </p>
+<p>At each point in time only one context is active. All other contexts are saved and protected </p>
+<p>by hardware against accidental alterations. </p>
+<p> </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Stored and active contexts </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>time </p>
+<p>now </p>
+<p><b>inactive </b></p>
+<p><b>inactive </b></p>
+<p><b>active </b></p>
+<p><b>inactive </b></p>
+<p><b>inactive </b></p>
+<p><b>inactive </b></p>
+<p><b>Register </b></p>
+<p><b>Context </b></p>
+<p><b>Stack </b></p>
+<p><b>Register </b></p>
+<p><b>Context </b></p>
+<p><b>Stack </b></p>
+<p><b>Register </b></p>
+<p><b>Context </b></p>
+<p><b>Stack </b></p>
+<p><b>Register </b></p>
+<p><b>Context </b></p>
+<p><b>Stack </b></p>
+<p><b>Register </b></p>
+<p><b>Context </b></p>
+<p><b>Stack </b></p>
+<p><b>Register </b></p>
+<p><b>Context </b></p>
+<p><b>Stack </b></p>
+<p><b>MPU Protection </b></p>
+<p><b>MPU Protection </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 15 / 80 </p>
+<p><b>2.4.2  Detailed List of Functionality </b></p>
+<p><b>2.4.2.1  Safety </b></p>
+<p>The following OS services and there functionality is developed according to ASIL. </p>
+<p><b>Class </b></p>
+<p><b>Description </b></p>
+<p>OS Service APIs </p>
+<p>StartOS </p>
+<p>osInitialize </p>
+<p>osInitINTC </p>
+<p>ShutdownOS</p>
+<p> </p>
+<p>DisableAllInterrupts </p>
+<p>EnableAllInterrupts  </p>
+<p>SuspendAllInterrupts </p>
+<p>ResumeAllInterrupts </p>
+<p>SuspendOSInterrupts </p>
+<p>ResumeOSInterrupts</p>
+<p> </p>
+<p>CallTrustedFunction</p>
+<p> </p>
+<p>CallNonTrustedFunction </p>
+<p>osReadPeripheral8 </p>
+<p>osReadPeripheral16 </p>
+<p>osReadPeripheral32 </p>
+<p>osWritePeripheral8 </p>
+<p>osWritePeripheral16 </p>
+<p>osWritePeripheral32 </p>
+<p>osModifyPeripheral8 </p>
+<p>osModifyPeripheral16 </p>
+<p>osModifyPeripheral32</p>
+<p> </p>
+<p>osCheckMPUAccess </p>
+<p>osGetConfigBlockVersion </p>
+<p>GetApplicationID </p>
+<p>GetISRID  </p>
+<p>GetTaskID  </p>
+<p>osGetStackUsage </p>
+<p>osGetSystemStackUsage </p>
+<p>osGetISRStackUsage </p>
+<p>OS System Hooks </p>
+<p>StartupHook </p>
+<p>ErrorHook </p>
+<p>ProtectionHook </p>
+<p>ShutdownHook </p>
+<p>Table 2-1  </p>
+<p>Safety Functionality </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 16 / 80 </p>
+<p><b>2.4.2.2  Silent </b></p>
+<p>The  following  API  functions  are  developed  according  to  Silent  principle.  SafeContext </p>
+<p>ensures that they do not violate the assumed safety goal mentioned. Exceptions may be </p>
+<p>possible, if one of these features has been explicitly ordered as safety relevant. Read the </p>
+<p>hardware specific part of this document if so. </p>
+<p><b>Class </b></p>
+<p><b>Description </b></p>
+<p>OS service API </p>
+<p>ActivateTask  </p>
+<p>TerminateTask </p>
+<p>ChainTask </p>
+<p>Schedule </p>
+<p>GetTaskState </p>
+<p>GetResource</p>
+<p> </p>
+<p>ReleaseResource</p>
+<p> </p>
+<p>SetEvent  </p>
+<p>ClearEvent  </p>
+<p>GetEvent  </p>
+<p>WaitEvent  </p>
+<p>GetAlarm  </p>
+<p>SetRelAlarm  </p>
+<p>SetAbsAlarm  </p>
+<p>CancelAlarm  </p>
+<p>GetActiveApplicationMode </p>
+<p>CheckObjectAccess  </p>
+<p>CheckObjectOwnership  </p>
+<p>StartScheduleTableRel </p>
+<p>StartScheduleTableAbs  </p>
+<p>StopScheduleTable  </p>
+<p>NextScheduleTable  </p>
+<p>GetScheduleTableStatus  </p>
+<p>IncrementCounter </p>
+<p>GetElapsedValue/GetElapsedCounterValue </p>
+<p>GetCounterValue</p>
+<p>  </p>
+<p>Timer handling </p>
+<p>The handling of timer hardware is realized as QM software. </p>
+<p>Scheduling </p>
+<p>The correct sequence of processing application programs is realized with </p>
+<p>QM-Software (priority handling, including Resources). </p>
+<p>ORTI </p>
+<p>ORTI is only supported in Silent part of the OS. </p>
+<p>Table 2-2  </p>
+<p>Silent Functionality </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 17 / 80 </p>
+<p><b>2.4.2.3  Not provided </b></p>
+<p>The  features  listed  in  the  following  table  are  not  supported  in  SafeContext  per  default. </p>
+<p>Exceptions may be possible, if one of these features has been explicitly ordered. Read the </p>
+<p>hardware specific part of this document if so. </p>
+<p><b>Class </b></p>
+<p><b>Description </b></p>
+<p>OS service API </p>
+<p>TerminateApplication </p>
+<p>CheckISRMemoryAccess </p>
+<p>CheckTaskMemoryAccess </p>
+<p><b>&gt; </b></p>
+<p>For ShutdownOS the AUTOSAR OS requirement OS054 is not </p>
+<p>supported, i.e. non-trusted OS-Applications may successfully call </p>
+<p>ShutdownOS. </p>
+<p>StartScheduleTableSynchron </p>
+<p>SyncScheduleTable  </p>
+<p>SetScheduleTableAsync</p>
+<p> </p>
+<p>COM </p>
+<p>OSEK COM inter task communication with messages is not supported </p>
+<p>Interrupt resources </p>
+<p>Resources are only available at task level. </p>
+<p>Protection Reaction </p>
+<p>The only allowed protection reaction in the </p>
+<p>ProtectionHook</p>
+<p> is </p>
+<p>PRO_SHUTDOWN</p>
+<p>. Other reactions will be interpreted as </p>
+<p>PRO_SHUTDOWN</p>
+<p>.  </p>
+<p>[SPMF92:0020] </p>
+<p>Killing </p>
+<p>Forcible terminating Tasks or Applications is not supported. </p>
+<p>OS Hooks </p>
+<p>PreTaskHook</p>
+<p> (only for debugging!)</p>
+<p> </p>
+<p>PostTaskHook </p>
+<p>(only for debugging!)</p>
+<p> </p>
+<p>ISRHook </p>
+<p>PreAlarmHook </p>
+<p>OS Application </p>
+<p>specific Hooks </p>
+<p>StartupHook&lt;ApplName&gt; </p>
+<p>ErrorHook&lt;ApplName&gt; </p>
+<p>ShutdownHook&lt;ApplName&gt; </p>
+<p>Address Parameter </p>
+<p>Check </p>
+<p>In case API functions with out-parameters are called with illegal address, </p>
+<p>they do not return with the error code E_OS_ILLEGAL_ADDRESS as </p>
+<p>required by the AUTOSAR specification. Instead the out parameter is </p>
+<p>written with the access rights of the caller, which may lead to a memory </p>
+<p>protection violation in case the given pointer is invalid.  </p>
+<p>Stack optimization </p>
+<p>Single stack model is not supported. </p>
+<p>Internal Resources </p>
+<p>Internal Resources are not supported. </p>
+<p>Configuration </p>
+<p>Aspects </p>
+<p>The following hooks must be enabled: </p>
+<p>StartupHook </p>
+<p>ErrorHook </p>
+<p>ShutdownHook </p>
+<p>ProtectionHook</p>
+<p> </p>
+<p>Only </p>
+<p>SCALABILITYCLASS SC3</p>
+<p> or </p>
+<p>SC4</p>
+<p> is supported. Memory protection </p>
+<p>must be active. </p>
+<p>STACKMONITORING</p>
+<p> must be enabled. </p>
+<p>OSInternalChecks</p>
+<p> must be configured to </p>
+<p>Additional</p>
+<p>.</p>
+<p> </p>
+<p>ORTIVersion = 2.0</p>
+<p> is not supported. </p>
+<p>ErrorInfoLevel = Modulenames</p>
+<p> is not supported.</p>
+<p> </p>
+<p>Table 2-3  </p>
+<p>Functionality – Not provided </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 18 / 80 </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 19 / 80 </p>
+<p><b>2.5 </b></p>
+<p><b>Safe State </b></p>
+<p>The  safe  state  in  SafeContext  is  shutdown  (endless  loop  with  interrupts  disabled).  The </p>
+<p>safe  state  is entered  whenever  the  OS  detects  a  violation  of  its  safety  goal  or  even  an </p>
+<p>attempt. </p>
+<p>Before </p>
+<p>the </p>
+<p>safe </p>
+<p>state </p>
+<p>is </p>
+<p>entered, </p>
+<p>the </p>
+<p>ShutdownHook</p>
+<p> </p>
+<p>is </p>
+<p>called. </p>
+<p>The </p>
+<p>ShutdownHook</p>
+<p> may contain user code which is necessary to reach the defined safe state </p>
+<p>of the system. This might lead to a reset in combination with a watchdog.  </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 20 / 80 </p>
+<p><b>3 </b></p>
+<p><b>Overview of Requirements to the OS User </b></p>
+<p>For  integration  of  the  SafeContext  into  a  particular  context,  the  user  has  the  following </p>
+<p>requirements to be fulfilled. They can be seen as steps to integrate the SEooC in the ECU </p>
+<p>without harming the assumed safety goal.  </p>
+<p>The top level requirements are listed in the following table. They are considered in more </p>
+<p>detail later. If all sub-requirements are checked, you can check the according top level </p>
+<p>requirement too. </p>
+<p> </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p>Check that all assumptions made by SafeContext are valid  </p>
+<p>(see chapter “General SafeContext Assumptions”) </p>
+<p> </p>
+<p>Check code integrity of the used OS sources </p>
+<p>(see chapter “OS Source Checksum”) </p>
+<p> </p>
+<p>Add CRC into the configuration block after linkage </p>
+<p>(see chapter “Patching the Configuration Block”) </p>
+<p> </p>
+<p>Check general configuration guidelines </p>
+<p>(see chapter “General Configuration Guidelines”) </p>
+<p> </p>
+<p>Review the safety relevant configuration data </p>
+<p>(see chapter “Review General Part of Configuration Block”) </p>
+<p> </p>
+<p>Review the generated code  </p>
+<p>(see chapter “Review Generated Code”) </p>
+<p> </p>
+<p>Review your software  </p>
+<p>(see chapter “Review User Software”) </p>
+<p> </p>
+<p>Execute MICROSAR Safe Silence Verifier (MSSV) on silent OS part </p>
+<p>(see chapter “Qualifying Silent OS Part”) </p>
+<p> </p>
+<p>Check specific requirements to the user </p>
+<p>(see chapter “Hardware Specific Part”) </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>All requirements listed in this document must be checked and fulfilled by the user! </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 21 / 80 </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Strategy for safety configuration </p>
+<p>OS Configuration </p>
+<p>(OIL or ECUC) </p>
+<p>OS Generator</p>
+<p> </p>
+<p>Generated OS </p>
+<p>Sources</p>
+<p> </p>
+<p>Configuration in </p>
+<p>XML</p>
+<p> </p>
+<p>Static OS </p>
+<p>Sources</p>
+<p> </p>
+<p>Compiling + </p>
+<p>Linking</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Application </p>
+<p>Sources</p>
+<p> </p>
+<p>Executable</p>
+<p> </p>
+<p><b>ECU</b></p>
+<p> </p>
+<p>Patching the </p>
+<p>Configuration Block</p>
+<p> </p>
+<p>Executable </p>
+<p> </p>
+<p>  </p>
+<p>ConfigBlock </p>
+<p>Intermediate </p>
+<p>Format</p>
+<p> </p>
+<p>Read Back </p>
+<p>ConfigBlock </p>
+<p>OS Source </p>
+<p>Checksum</p>
+<p> </p>
+<p>In Human </p>
+<p>Readable </p>
+<p>ConfigBlock</p>
+<p> </p>
+<p>Qualify generated </p>
+<p>Sources</p>
+<p> </p>
+<p>(</p>
+<p>MSSV</p>
+<p>)</p>
+<p> </p>
+<p>Verify ConfigBlock</p>
+<p> </p>
+<p>User Review</p>
+<p> </p>
+<p>Review User </p>
+<p>Software</p>
+<p> </p>
+<p>Flashing</p>
+<p> </p>
+<p>Read Back</p>
+<p> </p>
+<p>Hex File</p>
+<p> </p>
+<p>Hex Converter</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 22 / 80 </p>
+<p><b>4 </b></p>
+<p><b>General SafeContext Assumptions </b></p>
+<p>All  assumptions  must  be  checked  to  be  true.  Assumptions  concerning  the  focus  of </p>
+<p>SafeContext are  given  by  the  safety  goals and  related  safety  requirements  described  in </p>
+<p>the safety case. Assumptions about the environment are described in this chapter. </p>
+<p> </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p><i>Know the SafeContext concept </i></p>
+<p>The system safety concept must not rely on OS functionality developed according to </p>
+<p>the Silent principle. A complete list of API functions and the guarantees they give is </p>
+<p>provided in chapter “Detailed List of Functionality”. [SPMF92:0075] </p>
+<p> </p>
+<p><i>Know your memory configuration  </i></p>
+<p>Setup of memory sections must be planned by the system designer. Whether or not </p>
+<p>the planned setup is configured correctly must be verified by reading the configuration </p>
+<p>back from the ECU and reviewing it against system design and hardware manuals. </p>
+<p> </p>
+<p><i>Know the OS specifications </i></p>
+<p>The user shall read the OS specifications for OSEK OS and AUTOSAR OS. </p>
+<p> </p>
+<p><i>Know how to use the OS </i></p>
+<p>The user shall read the OS manuals: </p>
+<p><b>&gt; </b></p>
+<p>General Technical Reference Manual </p>
+<p><b>&gt; </b></p>
+<p>Specific Technical Reference Manual </p>
+<p>Versions are listed in the delivered safety case. </p>
+<p> </p>
+<p><i>Correctness of processor  </i></p>
+<p>The  processor  provides its functionality  with  sufficient  safety,  so  that the OS  needs </p>
+<p>not take care about potential hardware failure. This might be assured by usage of a </p>
+<p>lockstep processor. </p>
+<p> </p>
+<p><i>Correctness of memory </i></p>
+<p>The memory works with sufficient safety, so that the OS needs not to take care about </p>
+<p>potential hardware failure. </p>
+<p> </p>
+<p><i>Correctness of MPU </i></p>
+<p>The  MPU  provides  its  functionality  with  sufficient  safety,  so  that  the  OS  needs  not </p>
+<p>take care about potential hardware failure. </p>
+<p>The  OS  provides  an API  (</p>
+<p>osCheckMPUAccess</p>
+<p>)  which  can  be  used  by the  user to </p>
+<p>check the MPU. </p>
+<p> </p>
+<p><i>Correctness of hardware manuals </i></p>
+<p>The Hardware manuals and the compiler manuals are sufficiently reliable, so that the </p>
+<p>OS  needs  not  take  care  about  potential  deviations  between  hardware  functionality </p>
+<p>and its description in the manuals. </p>
+<p>Versions of the used hardware manuals are listed in the delivered safety case. </p>
+<p>[SPMF92:0017] </p>
+<p> </p>
+<p><i>Correctness of compiler tool chain </i></p>
+<p>SafeContext assumes that the compiler, assembler and linker generate code with the </p>
+<p>required safety level. </p>
+<p> </p>
+<p><i>Correctness of compiler version and options </i></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 23 / 80 </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p>The used compiler version and options are identical to them which are used during </p>
+<p>development. </p>
+<p>Used compiler version and options are listed in the delivered safety case. </p>
+<p><i>Code integrity </i></p>
+<p>The source code and generated configuration of MICROSAR OS SafeContext is </p>
+<p>compiled, linked and downloaded to the ECU correctly and not modified afterwards. </p>
+<p>[SPMF92:0043] </p>
+<p> </p>
+<p><i>Context definition </i></p>
+<p>The user shall not rely on registers, which are not part of the context of the OS. </p>
+<p> The context definition is listed in chapter 4.1 </p>
+<p> </p>
+<p><i>Hardware handled by the OS shall not be manipulated by user code </i></p>
+<p>User code shall not handle hardware which is handled by the OS. This may include: </p>
+<p><b>&gt; </b></p>
+<p>Interrupt Controller [SPMF92:0083] </p>
+<p><b>&gt; </b></p>
+<p>MPU [SPMF92:0085] </p>
+<p><b>&gt; </b></p>
+<p>Timer </p>
+<p> </p>
+<p><i>Don't manipulate short addressing base registers </i></p>
+<p>Do not manipulate registers which are used by the compiler for relative addressing of </p>
+<p>code or data. [SPMF92:0084] </p>
+<p> </p>
+<p>Table 4-1  </p>
+<p>General SafeContext Assumptions </p>
+<p><b>4.1 </b></p>
+<p><b>Context Definition </b></p>
+<p>The context which is used by the OS consists of the following registers: </p>
+<p><b>Register </b></p>
+<p><b>Size in Byte </b></p>
+<p>R1 </p>
+<p>4 </p>
+<p>R2 </p>
+<p>4 </p>
+<p>R4 </p>
+<p>R5 </p>
+<p>… </p>
+<p>R30 </p>
+<p>R31 </p>
+<p>28 * 4 = 112 </p>
+<p>EIPC </p>
+<p>4 </p>
+<p>EIPSW </p>
+<p>4 </p>
+<p>CTPC </p>
+<p>4 </p>
+<p>CTPSW </p>
+<p>4 </p>
+<p>MPLA0 </p>
+<p>4 </p>
+<p>MPUA0 </p>
+<p>4 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 24 / 80 </p>
+<p><b>5 </b></p>
+<p><b>OS Source Checksum </b></p>
+<p>The OS is delivered as source code. To assure that source code files are not altered after </p>
+<p>the testing and release a checksum is calculated. The user shall calculate the checksum to </p>
+<p>verify the correctness of the source code he is using. [SPMF92:0042] </p>
+<p>A checksum calculation program (CCodeSafe.exe) is provided to the user. It is called with </p>
+<p>the following argument: </p>
+<p> CCodeSafe &lt;config.ini&gt; </p>
+<p> </p>
+<p>This tool calculates a CRC32 checksum over a given list of files given in </p>
+<p>&lt;config.ini&gt;</p>
+<p>. </p>
+<p> </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p>Use the delivered source files from Vector! Do not use changed copies in a productive </p>
+<p>system! Also consider header include order of the compiler. </p>
+<p> </p>
+<p>The </p>
+<p>&lt;config.ini&gt;</p>
+<p> shall contain the OS sources listed in the safety case. </p>
+<p> </p>
+<p>The calculated checksum returned by </p>
+<p>CCodeSafe</p>
+<p> is identical to the checksum given </p>
+<p>in the safety case. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 25 / 80 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>An example for a </p>
+<p>&lt;config.ini&gt;</p>
+<p> file: </p>
+<p># src directory: </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\atosappl.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\atostime.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osek.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekasm.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekalrm.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekerr.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekevnt.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekrsrc.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\oseksched.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekstart.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osektask.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osektime.c </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osSysCallTable.c </p>
+<p> </p>
+<p># include directory: </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\Os.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\Os_cfg.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osek.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekasrt.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekcov.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekerr.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekext.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osekasm.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\oseksched.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\emptymac.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\testmac1.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\vrm.h </p>
+<p>&lt;INSTALLATION_DIRECTORY&gt;\BSW\Os\osSysCallTable.dld </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 26 / 80 </p>
+<p><b>6 </b></p>
+<p><b>Patching the Configuration Block </b></p>
+<p>Configuration  information  which  is  relevant  to  reach  the  safety  goal  is  stored  in  a  data </p>
+<p>structure  called  the  configuration  block.  The  integrity  of  this  information  is  checked  in </p>
+<p>StartOS</p>
+<p> using a CRC checksum. </p>
+<p>The CRC must be calculated after compiling and linking the application. There are two </p>
+<p>programs provided to calculate and apply the CRC to the binary file: </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>ElfConverter </p>
+<p>For patching the CRC into an ELF file and optionally create an </p>
+<p>intermediate file for reading back the configuration block. </p>
+<p><b>&gt; </b></p>
+<p>ConfigBlockCRCPatch </p>
+<p>For patching the CRC into an Intel Hex or Motorola SREC file. </p>
+<p> </p>
+<p>The following steps are necessary to patch the configuration block: </p>
+<p> </p>
+<p>1. </p>
+<p>Compile and link your application </p>
+<p>2. </p>
+<p>Run CRC patch software </p>
+<p>3. </p>
+<p>Write modified executable into flash memory </p>
+<p> </p>
+<p> </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p>Check  that  CRC  is  non-zero.  If  so,  change  user  configuration  version  to  avoid  zero </p>
+<p>CRC. [SPMF92:0071] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>6.1 </b></p>
+<p><b>Using ElfConverter </b></p>
+<p>The program </p>
+<p>ElfConverter.exe</p>
+<p> is called with the following parameters: </p>
+<p>ElfConverter &lt;ELF File&gt; &lt;ConfigBlock Symbol&gt; --out &lt;Intermediate File&gt; </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Parameter </b></p>
+<p><b>Description </b></p>
+<p>--out &lt;file&gt;       </p>
+<p>Dump the configuration block in intermediate format </p>
+<p>--patch_crc       </p>
+<p>Calculate the configuration block's CRC and write it into the ELF file </p>
+<p>--print_header    </p>
+<p>Print ELF header </p>
+<p>--print_sections    </p>
+<p>Print ELF sections </p>
+<p>--print_symbols    </p>
+<p>Print ELF symbols </p>
+<p>--print_hexdump </p>
+<p>Print a hex dump of the configuration block </p>
+<p>--help </p>
+<p>Show help </p>
+<p>Table 6-1  </p>
+<p>ElfConverter parameters </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 27 / 80 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>Patching the configuration block in ELF file </p>
+<p>testappl.out</p>
+<p>: </p>
+<p>ElfConverter.exe testappl.out _osConfigBlock --out testcfg.hex </p>
+<p>--patch_crc </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>6.2 </b></p>
+<p><b>Using ConfigBlockCRCPatch </b></p>
+<p>The program </p>
+<p>ConfigBlockCRCPatch.exe</p>
+<p> is called with the following parameters: </p>
+<p>ConfigBlockCRCPatch &lt;HEX File&gt; &lt;Output file&gt; &lt;ConfigBlock Address&gt; </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>Example (convert ELF file prj.out into prj.hex with modified CRC): </p>
+<p>ConfigBlockCRCPatch prj.out prj.hex 0x00800000</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The address of the configuration block may be taken from symbol </p>
+<p>osConfigBlock</p>
+<p> in the </p>
+<p>linker generated map file. [SPMF92:0016] </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 28 / 80 </p>
+<p><b>7 </b></p>
+<p><b>General Configuration Guidelines </b></p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p><i>Non-ASIL user code shall be part of Non-Trusted Applications </i></p>
+<p>All non-ASIL user code must be executed by Non-Trusted Applications with no write </p>
+<p>access  to  safety  relevant  data  (including  stacks)  and  no  read  or  write  access  to </p>
+<p>safety relevant peripherals. [SPMF92:02.0034] </p>
+<p> </p>
+<p><i>ASIL user code shall not violate the SafeContext safety goal </i></p>
+<p>All user code, which has access to safety relevant data (including stacks, and OS </p>
+<p>data) or peripherals, must be implemented on ASIL level. This code shall never </p>
+<p>violate the safety goals of SafeContext. [SPMF92:0011] </p>
+<p>Code which typically has access to safety relevant data (depending on user </p>
+<p>configuration): </p>
+<p><b>&gt; </b></p>
+<p>Trusted Functions [SPMF92:0080] [SPMF92:03.0008] </p>
+<p><b>&gt; </b></p>
+<p>Trusted Tasks </p>
+<p><b>&gt; </b></p>
+<p>Trusted ISRs </p>
+<p><b>&gt; </b></p>
+<p>System Hooks </p>
+<p><b>&gt; </b></p>
+<p>StartupHook [SPMF92:0040] [SPMF92:03.0007] </p>
+<p><b>&gt; </b></p>
+<p>ErrorHook [SPMF92:0012] [SPMF92:03.0006] </p>
+<p><b>&gt; </b></p>
+<p>ProtectionHook [SPMF92:0009] [SPMF92:03.0005] </p>
+<p><b>&gt; </b></p>
+<p>ShutdownHook [SPMF92:0013] [SPMF92:03.0009] </p>
+<p><b>&gt; </b></p>
+<p>Reset handler / Startup Code [SPMF92:0005] [SPMF92:03.0001] </p>
+<p><b>&gt; </b></p>
+<p>Exception Handlers [SPMF92:0087] </p>
+<p><b>&gt; </b></p>
+<p>Category 1 ISRs [SPMF92:0054] [SPMF92:03.0004] </p>
+<p> </p>
+<p><i>Alignment of data sections </i></p>
+<p>All data sections shall be linked with MPU alignment granularity (e.g. 32 bytes). See </p>
+<p>the </p>
+<p>controller’s </p>
+<p>reference </p>
+<p>manual </p>
+<p>to </p>
+<p>know </p>
+<p>what </p>
+<p>your </p>
+<p>MPU </p>
+<p>granularity </p>
+<p>is. </p>
+<p>[SPMF92:0065] </p>
+<p> </p>
+<p><i>Consider category 1 ISRs </i></p>
+<p>Category 1 ISRs are completely transparent to the OS. The OS does not perform </p>
+<p>stack switching for category 1 ISRs! Consider this during configuration of stack </p>
+<p>sizes. [SPMF92:0086] </p>
+<p> </p>
+<p><i>NMIs shall be category 1 ISRs </i></p>
+<p>Non-maskable Interrupts (NMI) shall be configured to be category 1 ISRs. </p>
+<p>[SPMF92:0053] [SPMF92:03.0002] </p>
+<p> </p>
+<p><i>Link global safety data considering stack growing direction </i></p>
+<p>Link global safety data (all OS data and at least ASIL relevant application data) so </p>
+<p>that it cannot be corrupted by stack overflows (see Figure “Linking example” below </p>
+<p>for an example). [SPMF92:0091] </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 29 / 80 </p>
+<p> </p>
+<p>Figure 7-1 </p>
+<p>Linking example </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 30 / 80 </p>
+<p><b>8 </b></p>
+<p><b>Review General Part of Configuration Block </b></p>
+<p>The configuration of MICROSAR OS SafeContext is generated into C-code. The generator </p>
+<p>itself </p>
+<p>has </p>
+<p>not </p>
+<p>been </p>
+<p>developed </p>
+<p>in </p>
+<p>accordance </p>
+<p>to </p>
+<p>ASIL. </p>
+<p>Therefore, </p>
+<p>the </p>
+<p>generated </p>
+<p>configuration  information  needs  to  be  reviewed.  The  safety  relevant  configuration  is </p>
+<p>generated </p>
+<p>into </p>
+<p>a </p>
+<p>structure </p>
+<p>called </p>
+<p>configuration </p>
+<p>block </p>
+<p>(or </p>
+<p>ConfigBlock). </p>
+<p>This </p>
+<p>chapter </p>
+<p>describes  how  to  review  this ConfigBlock. As  the  ConfigBlock  is  simply  a  constant  data </p>
+<p>structure in the flash memory of an ECU, humans will have difficulties to read it. Therefore, </p>
+<p>the configuration viewer is able to transform the ECU internal representation into a human </p>
+<p>readable  format.  The  process  of  reading  the  ConfigBlock  and  transforming  it  into  the </p>
+<p>human readable format is described in the following subchapter. [SPMF92:0038] </p>
+<p>The setup of the memory protecting hardware depends on the correct configuration of the </p>
+<p>OS.  All  configuration  parameters,  which  are  necessary  to  ensure  the  safety  goal,  are </p>
+<p>stored in a contiguous memory block (configuration block). The configuration block can be </p>
+<p>located  to  a  fix  address  and  can  be  read  back  from  the  ECU,  e.g.  by  XCP  or  a  debug </p>
+<p>interface. [SPMF92:0034]  </p>
+<p>The configuration block is secured by a 16 bit CRC. The way how the configuration block </p>
+<p>is read back does not need to be safe. The configuration block is translated into a human </p>
+<p>readable format to allow a review against the intended configuration. </p>
+<p><b>8.1 </b></p>
+<p><b>How to Read Back the Configuration </b></p>
+<p>The configuration is read back in two steps: </p>
+<p>1. </p>
+<p>Create intermediate ConfigBlock file format, by either using  </p>
+<p><b>&gt; </b></p>
+<p>ElfConverter</p>
+<p> with parameter </p>
+<p>–out</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Or read back the ECU binary and convert it into the intermediate format (using the </p>
+<p>HexConverter</p>
+<p>) </p>
+<p>2. </p>
+<p>Conversion of the intermediate format into human readable output (using the </p>
+<p>ConfigViewer</p>
+<p>) </p>
+<p>The  configuration  block  format  is  platform  dependent.  Also  this </p>
+<p>information  may  be </p>
+<p>retrieved in different ways, e.g. as the HEX output of the linker or as an upload from the </p>
+<p>ECU via a protocol like XCP. As this may result in various file formats a conversion into an </p>
+<p>intermediate format is required. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 31 / 80 </p>
+<p> </p>
+<p><b>8.1.1  Using HexConverter </b></p>
+<p>The program </p>
+<p>HexConverter.exe</p>
+<p> is called with the following parameters: </p>
+<p>HexConverter –i &lt;Input File&gt; -o &lt;Output File&gt; -b &lt;Base Address&gt;  </p>
+<p>-s &lt;ConfigBlock Size&gt;</p>
+<p> </p>
+<p> </p>
+<p>All parameters are mandatory. </p>
+<p><b>Parameter </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>-i </p>
+<p>Input File Path &amp; Name </p>
+<p>File containing the HEX data produced by the linker </p>
+<p>-o </p>
+<p>Output File Path &amp; Name </p>
+<p>File with intermediate format generated by </p>
+<p>HexConverter </p>
+<p>-b </p>
+<p>Base Address </p>
+<p>Base address of the configuration block as defined in </p>
+<p>the linker map file. </p>
+<p>It is the address of the symbol ‘osConfigBlock’. </p>
+<p>Value has to be given as HEX (e.g. 0x8001f000). </p>
+<p>-s </p>
+<p>0xFFFF </p>
+<p>This value must be at least the size of the configuration </p>
+<p>block in byte. Bigger values are also allowed. </p>
+<p>E.g. this value can be set to 0xFFFF </p>
+<p>Table 8-1  </p>
+<p>HexConverter parameters </p>
+<p> </p>
+<p><b>8.1.2  Using ConfigViewer </b></p>
+<p>The program </p>
+<p>ConfigViewer.exe</p>
+<p> is called with the following parameters: </p>
+<p>ConfigViewer –i &lt;Input File&gt; -o &lt;Output File&gt; -c &lt;XML File&gt; </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>-i </p>
+<p>Input File Path &amp; Name </p>
+<p>File containing the intermediate data produced by the </p>
+<p>HexConverter  </p>
+<p>-o </p>
+<p>Output File Path &amp; Name </p>
+<p>File with human readable configuration  description </p>
+<p>generated by ConfigViewer </p>
+<p>-c </p>
+<p>XML-ConfigFile </p>
+<p>XML file, generated by the OS generator describing the </p>
+<p>OS configuration </p>
+<p>Table 8-2  </p>
+<p>ConfigViewer parameters </p>
+<p>The configuration viewer expects the intermediate format to contain nothing else than the  </p>
+<p>configuration block. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 32 / 80 </p>
+<p><b>8.2 </b></p>
+<p><b>General Configuration Information </b></p>
+<p>The following  subchapters concentrate  on  the  output of  the  configuration  viewer and  on </p>
+<p>the  rules  to  review  it. The  configuration  viewer and  the format  converters  are  described </p>
+<p>separately. </p>
+<p>To minimize variants in code, the OS generator introduces dummies for each OS  object </p>
+<p>type. These dummies can be identified by the prefix “osSystem” and are handled the same </p>
+<p>way like other OS objects. None of these objects is active at runtime. </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p>Check that the listed configuration block address and length is correct and matches </p>
+<p>the map file. </p>
+<p> </p>
+<p>Check that the listed configuration block format is 2.00 </p>
+<p> </p>
+<p>Check </p>
+<p>that </p>
+<p>the </p>
+<p>listed </p>
+<p>version </p>
+<p>of </p>
+<p>MICROSAR </p>
+<p>OS </p>
+<p>SafeContext </p>
+<p>matches </p>
+<p>your </p>
+<p>delivered version. </p>
+<p> </p>
+<p>If you are using the user configuration  version, check that the listed one matches </p>
+<p>your configured value. </p>
+<p> </p>
+<p>Check that the listed number of OS objects matches your configuration. (Consider </p>
+<p>that dummy OS objects are generated, to minimize variants in the OS code.) </p>
+<p> </p>
+<p>Check  number  of  listed  OS  objects  matches  the  elements  in  the  sub  containers. </p>
+<p>[SPMF92:0074] </p>
+<p> </p>
+<p>Check that the listed specific stack start and end addresses match your </p>
+<p>configuration. (The stack end addresses in the configuration block point to the first </p>
+<p>address outside the stack.) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 33 / 80 </p>
+<p><b>9 </b></p>
+<p><b>Review Generated Code </b></p>
+<p>MICROSAR OS is a massively configurable software component. As a result, the analysis </p>
+<p>of the OS modules cannot be completely performed until the user’s configuration data is </p>
+<p>available.  The  user  shall  use  MICROSAR  Safe  Silence  Verifier  (MSSV)  to  qualify  the </p>
+<p>generated part of the OS, which depends on user’s configuration. MSSV is a Vector tool, </p>
+<p>which performs checks of potential dangerous code constructs. [SPMF92:0049] For more </p>
+<p>information about MSSV see the Technical Reference Manual of MSSV</p>
+<p>6</p>
+<p>. </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p>The user must not modify a generated module configuration code file manually </p>
+<p>unless explicitly required by the technical reference manual or explicitly direction </p>
+<p>formulated by Vector. </p>
+<p> </p>
+<p>All generated files of a software project shall be generated based on the same </p>
+<p>configuration. Generated files of several configurations must not be mixed up unless </p>
+<p>explicitly allowed by Vector. </p>
+<p> </p>
+<p>The user shall apply steps for qualifying the generated sources on the final </p>
+<p>configuration which is used for the production. If the configuration changes, source </p>
+<p>qualification steps shall be reapplied. </p>
+<p> </p>
+<p> </p>
+<p><b>9.1 </b></p>
+<p><b>Manual Reviews </b></p>
+<p>Some generated code parts currently cannot be checked automatically. Therefore the user </p>
+<p>has to check them manually. </p>
+<p> </p>
+<p><b>9.1.1  Review generated file tcb.h </b></p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p>If interrupt level support is supported in your delivery, you shall review the system </p>
+<p>level (</p>
+<p>osdSystemLevel</p>
+<p>) to be the maximum of all category 2 ISR priorities and </p>
+<p>osdSystemLevelMask </p>
+<p>to be the corresponding value, which has to be stored in </p>
+<p>PMR register to mask (disable) all category 2 interrupts.</p>
+<p> </p>
+<p> [SPMF92:02.0019] </p>
+<p>[SPMF92:04.0017]  [SPMF92:02.0033] </p>
+<p>#define osdSystemLevel &lt;MAXIMUM_OF_ALL_CAT2_ISR_PRIORITIES&gt; </p>
+<p>#define osdSystemLevelMask &lt;PMR_VALUE_MASK_ALL_CAT2_ISR&gt; </p>
+<p> </p>
+<p> </p>
+<p>Check that osdExceptionDetails is defined = 1  </p>
+<p>#define osdExceptionDetails 1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>                                            </p>
+<p>6</p>
+<p> TechnicalReference_MSSV.pdf, v1.3 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 34 / 80 </p>
+<p><b>10 </b></p>
+<p><b>Qualifying Silent OS Part </b></p>
+<p>MICROSAR OS is a massively configurable software component. As a result, the analysis </p>
+<p>of the OS modules cannot be completely performed until the user’s configuration data is </p>
+<p>available.  The  user  shall  use  MICROSAR  Safe  Silence  Verifier  (MSSV)  to  qualify  the </p>
+<p>generated part of the OS, which dependent on user’s configuration. MSSV is a Vector tool, </p>
+<p>which performs checks of potential dangerous code constructs inside BSW modules which </p>
+<p>depend on user configuration data. [SPMF92:0049] For more information about MSSV see </p>
+<p>the Technical Reference Manual of MSSV</p>
+<p>7</p>
+<p>. [SPMF92:0088] </p>
+<p> </p>
+<p><b>10.1 </b></p>
+<p><b>Using MICROSAR Safe Silence Verifier (MSSV) </b></p>
+<p>The following chapter tells how you shall apply MSSV on the OS sources.  </p>
+<p>MSSV is called with the following parameters: </p>
+<p>MSSV.exe --inputDir &lt;PATH_TO_TCB&gt; --inputDir &lt;PATH_TO_OS_INCLUDE&gt;  </p>
+<p>--reportFile &lt;REPORT.html&gt;  --define osdNOASM </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>Description </b></p>
+<p>&lt;PATH_TO_TCB&gt;</p>
+<p> </p>
+<p>Path to generated OS files (typically contained in the </p>
+<p>tcb</p>
+<p> folder). </p>
+<p>&lt;PATH_TO_OS_INCLUDE&gt; </p>
+<p>Path to OS header files (typically contained in the implementation </p>
+<p>folder). </p>
+<p>&lt;REPORT.html&gt; </p>
+<p>File name which shall be used to save the MSSV report. </p>
+<p>--define osdNOASM </p>
+<p>Disable assembler parts. </p>
+<p> </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p>The MICROSAR Safe Silence Verifier shall only be executed on Windows XP SP3+ </p>
+<p>(32Bit) or Windows 7 (32Bit or 64Bit). </p>
+<p> </p>
+<p>The user must not modify the MICROSAR Safe Silence Verifier report. </p>
+<p> </p>
+<p>The user shall verify that the used OS sources are checked by verifying the names </p>
+<p>and paths of the modules within the report. </p>
+<p> </p>
+<p>The user shall verify that the evaluated report matches to the execution of the </p>
+<p>MICROSAR Safe Silence Verifier by verifying the name, creation date and time, </p>
+<p>path and folder of the report. </p>
+<p> </p>
+<p>Check that MSSV returns with no errors, no warnings and the final verdict of the </p>
+<p>report is “pass”. If MSSV did not pass contact OS support. [SPMF92:0088] </p>
+<p> </p>
+<p> </p>
+<p>                                            </p>
+<p>7</p>
+<p> TechnicalReference_MSSV.pdf, v1.3 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 35 / 80 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>An example for qualifying generated OS sources: </p>
+<p>MSSV.exe -i &quot;tcb&quot; -i&quot;..\..\include&quot; --define osdNOASM </p>
+<p>The output of MSSV should look like: </p>
+<p>note: MICROSAR Safe Silence Verifier Version 1.01.02 </p>
+<p>note: Copyright (C) 2012-2013 Vector Informatik GmbH </p>
+<p>note: License &lt;CBD0900253&gt; VDO AUTOMOTIVE AG </p>
+<p> </p>
+<p>note: MSSV.exe started at 09:39:55 2014-02-19 </p>
+<p>… </p>
+<p>note: MSSV.exe finished at 09:39:57 2014-02-19 </p>
+<p>note: 0 Errors </p>
+<p>note: 0 Warnings </p>
+<p>note: the final verdict of the report is 'pass'</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 36 / 80 </p>
+<p><b>11 </b></p>
+<p><b>Review User Software </b></p>
+<p>Some  code  parts  run  in  supervisor  mode  without  any  memory  protection  active  or  with </p>
+<p>high memory access granted. Therefore, freedom from interference is not guaranteed by </p>
+<p>the OS and the hardware. Trusted software has to guarantee freedom from interference on </p>
+<p>its  own.  The  application  programmer  typically  knows  best,  what  is  to  do  in  order  to </p>
+<p>guarantee  freedom  from  interference.  Anyhow,  there  are  few  additional  points  to  be </p>
+<p>covered when an OS is used. </p>
+<p>The  following  requirements  shall  generally  be  fulfilled  by  trusted  software  (also  valid  for </p>
+<p>software which runs in supervisor mode or with access to safety relevant memory areas): </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p><i>OS code coverage shall be disabled </i></p>
+<p>Check </p>
+<p>that </p>
+<p>osdEnableCoverage</p>
+<p> </p>
+<p>is </p>
+<p>not </p>
+<p>defined </p>
+<p>when </p>
+<p>you </p>
+<p>compile </p>
+<p>the </p>
+<p>OS. </p>
+<p>[SPMF92:0077] </p>
+<p> </p>
+<p><i>FPU usage shall be disabled </i></p>
+<p>Check that osdRH850_FPU is <b>not </b>defined via compiler option –DosdRH850_FPU </p>
+<p>Check that osdRH850_FPU is only defined in file osekext.h </p>
+<p> </p>
+<p><i>Unhandled exception details shall be enabled </i></p>
+<p>Check that osdExceptionDetails is defined = 1 (see tcb.h) </p>
+<p>Check that OS attribute EnumeratedUnhandledISRs is set TRUE </p>
+<p> </p>
+<p><i>No usage of system call instructions in the user software </i></p>
+<p>Any system call causes the CPU to change into supervisor mode. Therefore, the </p>
+<p>application (trusted and non-trusted parts) shall not use system calls directly. </p>
+<p>Instead, system calls shall only be used by using OS APIs. </p>
+<p> </p>
+<p><i>User header usrostyp.h </i></p>
+<p>If trusted functions are configured, ensure that </p>
+<p>usrostyp.h</p>
+<p> does not endanger </p>
+<p>SafeContext safety requirements. </p>
+<p> </p>
+<p><i>Enabling interrupts where it is not allowed </i></p>
+<p>Interrupts  shall  not  be  enabled  by  the  application  where  Category  2  ISRs  are </p>
+<p>disabled by default (e.g. in Hooks). This applies not to ISRs. In ISRs it is allowed to </p>
+<p>enable interrupts. [SPMF92:0066] </p>
+<p> </p>
+<p><i>Use only documented APIs </i></p>
+<p>Trusted  software  shall  only  call  documented  API  functions,  which  are  listed  in </p>
+<p>chapter “Detailed List of Functionality”. [SPMF92:0068] </p>
+<p> </p>
+<p><i>Stack usage measurement is not exact </i></p>
+<p>Stack </p>
+<p>usage </p>
+<p>measurement </p>
+<p>is </p>
+<p>implemented </p>
+<p>by </p>
+<p>counting </p>
+<p>magic </p>
+<p>patterns </p>
+<p>(</p>
+<p>osdStackCheckPattern</p>
+<p>)  on  the  stack  which  have  been  written  there  during </p>
+<p>startup. The returned value may not be correct, if the magic pattern did not change </p>
+<p>(e.g. the user application uses the same value). [SPMF92:0072] </p>
+<p> </p>
+<p><i>Usage of osCheckMPUAccess API </i></p>
+<p>If  you  are  using the </p>
+<p>osCheckMPUAccess</p>
+<p> API, the  destination  address parameter </p>
+<p>shall  point  to  an  address,  where  reading  and  writing  does  not  produce  other </p>
+<p>exceptions than MPU exceptions. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 37 / 80 </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p><i>Usage of osCheckMPUAccess API </i></p>
+<p>If you are using the </p>
+<p>osCheckMPUAccess</p>
+<p> API, Check that the API function is only </p>
+<p>called  with  addresses  which,  reading  and  writing  does  not  have  any  side  effects </p>
+<p>(e.g. potentially not true for peripheral registers). [SPMF92:02.0017]. </p>
+<p> </p>
+<p><i>If you have write access to stacks, stack overflows cannot be detected by hardware </i></p>
+<p>The OS cannot safely detect stack overflows in software which has write access to </p>
+<p>all stacks. If write access to all stacks is really needed (e.g. for RAM checking), the </p>
+<p>user </p>
+<p>has </p>
+<p>to </p>
+<p>ensure </p>
+<p>that </p>
+<p>the </p>
+<p>software </p>
+<p>does </p>
+<p>not </p>
+<p>produce </p>
+<p>a </p>
+<p>stack </p>
+<p>overflow! </p>
+<p>[SPMF92:0078] </p>
+<p> </p>
+<p><i>APIs in exception handlers </i></p>
+<p>Exception handlers must not call any OS API function beside: </p>
+<p><b>&gt; </b></p>
+<p>DisableAllInterrupts </p>
+<p><b>&gt; </b></p>
+<p>EnableAllInterrupts </p>
+<p><b>&gt; </b></p>
+<p>SuspendAllInterrupts </p>
+<p><b>&gt; </b></p>
+<p>ResumeAllInterrupts </p>
+<p><b>&gt; </b></p>
+<p>SuspendOSInterrupts</p>
+<p><i> </i></p>
+<p><b>&gt; </b></p>
+<p>ResumeOSInterrupts</p>
+<p><i> </i></p>
+<p>[SPMF92:0067] </p>
+<p> </p>
+<p><i>Category 1 ISRs shall be transparent </i></p>
+<p>All  ISRs  of  category  1  must  be  implemented  such  that  they  are  transparent  with </p>
+<p>respect  to  the  processor  state  for  the  code  they  interrupt.  This  includes  core </p>
+<p>registers, MPU settings and the current interrupt priority. </p>
+<p> </p>
+<p><i>APIs in category 1 ISRs </i></p>
+<p>Category 1 ISRs shall not call any OS API function beside: </p>
+<p><b>&gt; </b></p>
+<p>DisableAllInterrupts </p>
+<p><b>&gt; </b></p>
+<p>EnableAllInterrupts </p>
+<p><b>&gt; </b></p>
+<p>SuspendAllInterrupts </p>
+<p><b>&gt; </b></p>
+<p>ResumeAllInterrupts </p>
+<p> [SPMF92:0067] [SPMF92:02.0018] </p>
+<p> </p>
+<p><i>Check out-parameters in Trusted Functions </i></p>
+<p>Trusted functions which get a pointer shall check the pointer address to be in an </p>
+<p>expected range before they write to the pointer address. This shall prevent </p>
+<p>overwriting of safety relevant data when writing to the pointer address. </p>
+<p>[SPMF92:0001] </p>
+<p> </p>
+<p><i>Check caller in Trusted Functions </i></p>
+<p>Trusted functions shall validate whether they are called by an authorized caller only. </p>
+<p>This may be done by using the API function </p>
+<p>GetApplicationID</p>
+<p>. </p>
+<p>[SPMF92:0047] </p>
+<p> </p>
+<p><i>No (Non-)Trusted Functions in Hooks </i></p>
+<p>Hook routines shall not call any trusted function or non-trusted function. </p>
+<p> </p>
+<p><i>No APIs in NMIs </i></p>
+<p>Non-maskable interrupts shall not use any OS APIs.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 38 / 80 </p>
+<p><b>Description of requirements to the OS user </b></p>
+<p><b>Fulfilled </b></p>
+<p>[SPMF92:0019], [SPMF92:0067] </p>
+<p><i>Using Interrupt API before calling StartOS </i></p>
+<p>If the user needs to use the interrupt API before he calls </p>
+<p>StartOS</p>
+<p>, he shall call </p>
+<p>osInitialize</p>
+<p> and </p>
+<p>osInitINTC</p>
+<p>.  </p>
+<p>After calling these functions interrupt API works only for the straight forward case. </p>
+<p>OS error handling and MPU won’t be initialized, so the OS won’t be able to handle </p>
+<p>any user errors or detect stack overflows. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 39 / 80 </p>
+<p><b>12 </b></p>
+<p><b>Hardware Specific Part </b></p>
+<p>For RH850 SafeContext the following safety relevant requirements must be checked by the user: </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>All assembly code (outside the SafeContext) shall be reviewed, not to change the content </p>
+<p>of registers of R4 and R5 after StartOS is called  [SPMF92:04.0001]. Check in list files that </p>
+<p>only the startup module and the OS modules do modify registers R4 and R5. </p>
+<p></p>
+<p> </p>
+<p>The user has to review that each ISR is called at least once (coverage of application). The </p>
+<p>tests shall cover the activation of all ISRs and verify that the correct ISR was started. This </p>
+<p>measure  shall  prevent  the  activation  of  wrong ISRs  because  of  a mix  up  in the  interrupt </p>
+<p>vector table [SPMF92:0008]. </p>
+<p></p>
+<p> </p>
+<p>The user has to review the configuration by means of the ConfigBlock in accordance  to the </p>
+<p>review rules which are defined in chapter 12.2 [SPMF92:0014],[SPMF92:05.0008]. </p>
+<p></p>
+<p> </p>
+<p>The user has to review that all libraries fit to the used compiler options. All used libraries </p>
+<p>need  to  be  checked  for  using  the  correct  compiler  options  (e.g.  SDA  usage  need  to  be </p>
+<p>identical to the specified options for the OS) [SPMF92:0010]. </p>
+<p></p>
+<p> </p>
+<p>The  PreTaskHook  and  the  PostTaskHook  must  not  be  used  in  safety  code  which  is </p>
+<p>released for serial production. Pre/PostTaskHook shall only be used for debugging or test </p>
+<p>purposes. </p>
+<p>Absence </p>
+<p>of </p>
+<p>Pre/PostTaskHook </p>
+<p>must </p>
+<p>be </p>
+<p>reviewed </p>
+<p>in </p>
+<p>generated </p>
+<p>file </p>
+<p>tcb.h: </p>
+<p>[SPMF92:02.0022],[SPMF92:02.0023],[SPMF92:05.0011] </p>
+<p>The user must check that the following defines are set in the generated file tcb.h: </p>
+<p><b>#define osdPreTaskHook 0 </b></p>
+<p><b>#define osdPostTaskHook 0 </b></p>
+<p></p>
+<p> </p>
+<p>The  complete  config  block  content  must  be  reviewed  by  the  means  of  the  BackReader </p>
+<p>[SPMF92:04.0002], [SPMF92:04.0006]. </p>
+<p></p>
+<p> </p>
+<p>The address value of the application specific linker symbols for MPU region start and end </p>
+<p>address  must  be  checked  that  between  them  only  the  corresponding  application  data </p>
+<p>sections are mapped [SPMF92:04.0004], [SPMF92:04.0010], [SPMF92:04.0011]. </p>
+<p></p>
+<p> </p>
+<p>The </p>
+<p>address </p>
+<p>value </p>
+<p>of </p>
+<p>the </p>
+<p>linker </p>
+<p>symbols </p>
+<p>_osGlobalShared_StartAddr </p>
+<p>and </p>
+<p>_osGlobalShared_EndAddr  must  be  checked  that  between  them  only  the  global  shared  </p>
+<p>data sections are mapped [SPMF92:04.0013]. </p>
+<p></p>
+<p> </p>
+<p>The CPU must run in supervisor mode when StartOS is called [SPMF92:04.0007]. </p>
+<p></p>
+<p> </p>
+<p>The </p>
+<p>application </p>
+<p>shall </p>
+<p>check </p>
+<p>the </p>
+<p>config </p>
+<p>block </p>
+<p>version </p>
+<p>by </p>
+<p>using </p>
+<p>OS </p>
+<p>API </p>
+<p>function </p>
+<p>osGetConfigBlockVersion [SPMF92:0045],[SPMF92:05.0010]. </p>
+<p></p>
+<p> </p>
+<p>The user has to review that all task stacks, all ISR stacks and the system stack have 4 Byte </p>
+<p>alignment [SPMF92:04.0008]. </p>
+<p></p>
+<p> </p>
+<p>The user has to review the generated linker include files osdata.dld, osrom.dld, ossdata.dld </p>
+<p>osstacks.dld and ostdata.dld if they are used for serial production [SPMF92:04.0014]. See </p>
+<p>chapter 12.4. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 40 / 80 </p>
+<p></p>
+<p> </p>
+<p>The user has to review that coverage is disabled [SPMF92:04.0015]. osdEnableCoverage </p>
+<p>shall  not  be  defined  in  header  and  source  files  and  it  shall  not  be  defined  via  compiler </p>
+<p>option –DosdEnableCoverage. </p>
+<p></p>
+<p> </p>
+<p>The  user  has  to  consider  DMA  controller  usage.  The  RH850  P1M  series  incorporates  a </p>
+<p>DMA controller (DMAC). The DMA controller has direct access to the data bus. Therefore </p>
+<p>DMA access to memory is not  controlled  by  MPU  protection.  This  must  be  considered  </p>
+<p>especially  for  safety  OS systems if any DMA access is wanted. [SPMF92:01.0002] </p>
+<p></p>
+<p> </p>
+<p>The user has to review that osInitialize and osInitINTC are called before StartOS is called if </p>
+<p>OS interrupt API functions or OS peripheral interrupt API functions are used before StartOS </p>
+<p>[SPMF92:0058], [SPMF92:0070]. </p>
+<p></p>
+<p> </p>
+<p>Interrupt priority level ceiling is not supported by MICROSAR OS RH850 SafeContext. The </p>
+<p>user  has  to  check  that  before  StartOS  is  called  the  interrupt  priority  mask  register  PMR </p>
+<p>must </p>
+<p>have </p>
+<p>the </p>
+<p>value </p>
+<p>0x00000000 </p>
+<p>and </p>
+<p>it </p>
+<p>shall </p>
+<p>not </p>
+<p>be </p>
+<p>changed </p>
+<p>after </p>
+<p>StartOS. </p>
+<p>[SPMF92:0059],[SPMF92:0060]. This is not checked by RH850 SafeContext. </p>
+<p></p>
+<p> </p>
+<p>The  user  has  to  review  that  all  generated  files  belong  together  [SPMF92:0064].  Each </p>
+<p>generated header and source file must start with the following comment block: </p>
+<p><i><b>/* file: &lt;file_path&gt;&lt;file_name&gt; */ </b></i></p>
+<p><i><b>/* automatically generated by genRH850SCTX.exe, Version: 6.11 */ </b></i></p>
+<p><i><b>/* from: &lt;configuration_file_name&gt; */ </b></i></p>
+<p><i><b>/* Generation time: &lt;date&gt; &lt;time&gt; &lt;year&gt; */ </b></i></p>
+<p><i><b>/* &lt;license_and_licensee_information&gt; */ </b></i></p>
+<p><i><b>/* Implementation: RenesasRH850_P1M */ </b></i></p>
+<p><i><b>/* Version of general code: 6.16 */ </b></i></p>
+<p><i><b>/* Dcf-file semantic version: 2.00 */ </b></i></p>
+<p><i><b>/* Dcf-file content version: 2.01 */ </b></i></p>
+<p><i><b> </b></i></p>
+<p></p>
+<p> </p>
+<p>The user has to review that all generated files are compiled and linked [SPMF92:0064]: </p>
+<p>-  intvect.c </p>
+<p>-  osConfigBlock.c </p>
+<p>-  osStacks.c </p>
+<p>-  tcb.c </p>
+<p>-  trustfct.c </p>
+<p></p>
+<p> </p>
+<p>The  user  has  to  check  that  the  application  does  not  modify  interrupt  controller  registers </p>
+<p>EBASE, INTBP, INTCFG, SCBP and SCCFG after StartOS is called [SPMF92:0069]. </p>
+<p></p>
+<p> </p>
+<p>The  application  shall  not  modify  any  register  in  interrupt  controller  unit  INTC  by  own </p>
+<p>functions  or  routines  after  StartOS  is  called.  The  application  shall  only  use  the  OS API </p>
+<p>functions for changing registers in unit INTC. [SPMF92:0083] </p>
+<p></p>
+<p> </p>
+<p>The  user  has  to  check  validity  and  type  of  the  reference  parameter  when  calling  the </p>
+<p>following OS API functions [SPMF92:05.0001]: </p>
+<p>-  GetTaskID </p>
+<p>-  GetTaskState </p>
+<p>-  GetEvent </p>
+<p>-  GetAlarm </p>
+<p>-  GetScheduleTableStatus </p>
+<p>-  GetCounterValue </p>
+<p>-  GetElapsedValue/GetElapsedCounterValue </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 41 / 80 </p>
+<p></p>
+<p> </p>
+<p>The </p>
+<p>user </p>
+<p>has </p>
+<p>to </p>
+<p>review </p>
+<p>that </p>
+<p>the </p>
+<p>size </p>
+<p>of </p>
+<p>array </p>
+<p>oskAlarmHeaps </p>
+<p>is </p>
+<p>same </p>
+<p>as  </p>
+<p>osdNumberOfCounters </p>
+<p>and </p>
+<p>that </p>
+<p>each </p>
+<p>entry </p>
+<p>of </p>
+<p>the </p>
+<p>array </p>
+<p>looks </p>
+<p>like   </p>
+<p>[SPMF92:05.0002],[SPMF92:05.0004]: </p>
+<p><b>  { </b></p>
+<p><b>    os&lt;CounterName&gt;Heap, </b></p>
+<p><b>    &amp;osAlarmHeapCount[&lt;CounterName&gt;] </b></p>
+<p><b>  }, </b></p>
+<p></p>
+<p> </p>
+<p>The user has to review that the values of the counter defines are an adjoining set from zero </p>
+<p>to osdNumberOfCounters-1 in the generated file tcbpost.h [SPMF92:05.0003]: </p>
+<p>example </p>
+<p>tcb.h: </p>
+<p><b>#define osdNumberOfCounters 8 </b></p>
+<p>tcbpost.h: </p>
+<p><b>#define &lt;CounterName0&gt; ((CounterType) 0) </b></p>
+<p><b>#define &lt;CounterName1&gt; ((CounterType) 1) </b></p>
+<p><b>#define &lt;CounterName2&gt; ((CounterType) 2) </b></p>
+<p><b>... </b></p>
+<p><b>#define &lt;CounterName7&gt; ((CounterType) 7) </b></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>The user has to review that the size of the heap arrays  os&lt;CounterName&gt;Heap[ ]  must be </p>
+<p>equal to 1 plus the number of alarms that are related to the counter &lt;CounterName&gt; plus </p>
+<p>the </p>
+<p>number </p>
+<p>of </p>
+<p>schedule </p>
+<p>tables </p>
+<p>that </p>
+<p>are </p>
+<p>related </p>
+<p>to </p>
+<p>the </p>
+<p>counter </p>
+<p>&lt;CounterName&gt;. </p>
+<p>[SPMF92:05.0005] </p>
+<p></p>
+<p> </p>
+<p>The user has to review that the first parameter of all calls of osSysSetEvent in tcb.c is a </p>
+<p>task identifier which must be defined in tcbpost.h and that the value of the define is smaller </p>
+<p>than osdNumberOfExtendedTasks. [SPMF92:05.0006] </p>
+<p></p>
+<p> </p>
+<p>The  user  has  to  review  that  all  calls  of  osWorkHeap  in  Timer  ISR  look  like  followed: </p>
+<p>[SPMF92:05.0007] </p>
+<p><b>osWorkHeap(&amp;oskAlarmHeaps[&lt;CounterDefineName&gt;], &lt;CounterDefineName&gt;); </b></p>
+<p></p>
+<p> </p>
+<p>The user has to review that the parameter of each call of osSysActivateTask in tcb.c is a </p>
+<p>task identifier which must be defined in tcbpost.h [SPMF92:05.0009].  </p>
+<p></p>
+<p> </p>
+<p>The user has to review  that the values of the task defines are adjoining set from zero to </p>
+<p>osdNumberOfAllTasks-1 in the generated file tcbpost.h [SPMF92:05.0010].  </p>
+<p></p>
+<p> </p>
+<p>The </p>
+<p>user </p>
+<p>has </p>
+<p>to </p>
+<p>review </p>
+<p>that </p>
+<p>the </p>
+<p>size </p>
+<p>of </p>
+<p>the </p>
+<p>task </p>
+<p>activation </p>
+<p>arrays </p>
+<p>osQTaskActivation_&lt;index&gt; which are listed in oskQActivationQueues is the same value as  </p>
+<p>oskQMaxActivations+1 [SPMF92:05.0012]. </p>
+<p></p>
+<p> </p>
+<p>The user has to review that the values of the Alarm defines are adjoining set from zero to </p>
+<p>osdNumberOfAlarms-1 in the generated file tcbpost.h [SPMF92:05.0013]. </p>
+<p></p>
+<p> </p>
+<p>The </p>
+<p>user </p>
+<p>has </p>
+<p>to </p>
+<p>review </p>
+<p>that </p>
+<p>the </p>
+<p>array </p>
+<p>oskAlarmCounterRef[] </p>
+<p>contains </p>
+<p>exactly </p>
+<p>osdNumberOfAlarms  elements  and  that  each  element  contains  the  index  of  the  counter </p>
+<p>related to that alarm [SPMF92:05.0014]. </p>
+<p></p>
+<p> </p>
+<p>The  user  has  to  review  that  the  PMR  register  is  not  manipulated  by  his  code </p>
+<p>[SPMF92:04.0018]</p>
+<p>. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 42 / 80 </p>
+<p><b>12.1 </b></p>
+<p><b>Interrupt Vector Table </b></p>
+<p>Basically the interrupt vector tables must be provided by the application. An example vector table is </p>
+<p>generated into file intvect.c. This file is generated by QM software and must not be used directly as </p>
+<p>ASIL code. It must be reviewed carefully for compliance to the description below because the code </p>
+<p>which is called by the interrupt vector table runs automatically in supervisor mode and therefore </p>
+<p>this </p>
+<p>code </p>
+<p>must </p>
+<p>be </p>
+<p>developed </p>
+<p>according </p>
+<p>to  ASIL </p>
+<p>level </p>
+<p>[SPMF92:0004], </p>
+<p>[SPMF92:02.0020], </p>
+<p>[SPMF92:02.0021], [SPMF92:04.0012]. </p>
+<p>The file intvect.c consists of the following parts: </p>
+<p></p>
+<p> </p>
+<p>Header Include Section </p>
+<p></p>
+<p> </p>
+<p>Core Exception Vector Table </p>
+<p></p>
+<p> </p>
+<p>EIINT Vector Table </p>
+<p></p>
+<p> </p>
+<p>CAT2 ISR Wrappers </p>
+<p>The following subchapters describe these parts and do intentionally not describe any comments. </p>
+<p><b>12.1.1 Header Include Section </b></p>
+<p>This part of the code must be exactly like: </p>
+<p><b>#if defined USE_QUOTE_INCLUDES </b></p>
+<p><b> #include &quot;vrm.h&quot; </b></p>
+<p><b>#else </b></p>
+<p><b> #include &lt;vrm.h&gt; </b></p>
+<p><b>#endif </b></p>
+<p><b>#define osdVrmGenMajRelNum 6 </b></p>
+<p><b>#define osdVrmGenMinRelNum 11 </b></p>
+<p><b>#if defined USE_QUOTE_INCLUDES </b></p>
+<p><b> #include &quot;vrm.h&quot; </b></p>
+<p><b>#else </b></p>
+<p><b> #include &lt;vrm.h&gt; </b></p>
+<p><b>#endif </b></p>
+<p><b> </b></p>
+<p><b>#if defined USE_QUOTE_INCLUDES </b></p>
+<p><b>#include &quot;Os.h&quot; </b></p>
+<p><b>#else </b></p>
+<p><b>#include &lt;Os.h&gt; </b></p>
+<p><b>#endif </b></p>
+<p><b> </b></p>
+<p><b>#if defined USE_QUOTE_INCLUDES </b></p>
+<p><b>#include &quot;osekext.h&quot; </b></p>
+<p><b>#else </b></p>
+<p><b>#include &lt;osekext.h&gt; </b></p>
+<p><b>#endif </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 43 / 80 </p>
+<p><b>12.1.2 Core Exception Vector Table </b></p>
+<p>The core exception vector table section starts exactly with the following lines: </p>
+<p><b>#pragma asm </b></p>
+<p><b>.align 512 </b></p>
+<p><b>.section ”.osExceptionVectortable”, ax </b></p>
+<p><b>.globl _osExceptionVectorTable </b></p>
+<p><b>_osExceptionVectorTable: </b></p>
+<p> </p>
+<p>That part is followed by 32 vector table entries: </p>
+<p><b>.offset </b></p>
+<p><b>&lt;offset_addr&gt; </b></p>
+<p><b>.globl  </b></p>
+<p><b>_osCoreException_&lt;offset_addr&gt; </b></p>
+<p><b>_osCoreException_&lt;offset_addr&gt;: </b></p>
+<p><b> </b></p>
+<p><b>jr </b></p>
+<p><b> </b></p>
+<p><b> &lt;handler_function&gt; </b></p>
+<p> </p>
+<p>&lt;offset_addr&gt; is the hexadecimal address offset for each exception interrupt vector.  </p>
+<p>The valid range is 0x0000, 0x0010, 0x0020 ... 0x01F0 </p>
+<p> </p>
+<p>&lt;handler_function&gt; is the name of the function which is called when an exception occurs.  </p>
+<p>If no handler function is configured then osUnhandledCoreException is called. </p>
+<p>The sequence of vector table entries starts at vector address 0x0000, increases in steps of 0x0010 </p>
+<p>and ends with vector address 0x01F0. </p>
+<p> </p>
+<p>The core exception vector table section ends exactly  with the following lines:</p>
+<p> </p>
+<p><b>.globl _osExceptionVectorTableEnd </b></p>
+<p><b>_osExceptionVectorTableEnd: </b></p>
+<p><b>#pragma endasm </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 44 / 80 </p>
+<p><b>12.1.3 EIINT Vector Table </b></p>
+<p>The EIINT vector table section starts exactly with the following lines: </p>
+<p><b>#pragma asm </b></p>
+<p><b>.align 512 </b></p>
+<p><b>.section ”.osEIINTVectortable”, ax </b></p>
+<p><b>.globl _osEIINTVectorTable </b></p>
+<p><b>_osEIINTVectorTable: </b></p>
+<p> </p>
+<p>For each unused interrupt source the following table entry must be generated: </p>
+<p><b>.word </b></p>
+<p><b> _osUnhandledEIINT_&lt;index&gt; </b></p>
+<p>&lt;index&gt; is the channel index of the corresponding interrupt source. The valid range is 0 ... 383. </p>
+<p> </p>
+<p>For each interrupt source used as category 1 ISR the following table entry must be generated: </p>
+<p><b>.word </b></p>
+<p><b> _&lt;cat1_EIINT_handler&gt; </b></p>
+<p>&lt;cat1_EIINT_handler&gt; is the name of the application specific EIINT handler which is called when </p>
+<p>an interrupt on the corresponding source occurs. </p>
+<p> </p>
+<p>For each interrupt source used as category 2 ISR the following table entry must be generated: </p>
+<p><b>.word </b></p>
+<p><b> _&lt;cat2_EIINT_handler&gt;_CAT2 </b></p>
+<p>&lt;cat2_EIINT_handler&gt; is the name of the OS ISR wrapper which is called when an interrupt on the </p>
+<p>corresponding source occurs. The CAT2 ISR wrapper section is described in the next chapter. </p>
+<p> </p>
+<p>The EIINT vector table section ends exactly with the following lines: </p>
+<p><b>.globl _osExceptionVectorTableEnd </b></p>
+<p><b>_osExceptionVectorTableEnd: </b></p>
+<p><b>#pragma endasm </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 45 / 80 </p>
+<p><b>12.1.4 CAT2 ISR Wrappers </b></p>
+<p>The category 2 ISR wrapper section starts exactly with the following line: </p>
+<p><b>#pragma ghs section text=&quot;.os_text&quot; </b></p>
+<p> </p>
+<p>Each category 2 ISR handler must be generated exactly like the following line [SPMF92:0044]: </p>
+<p><b>osCAT2ISR(&lt;ISR_Function_Name&gt;, &lt;ISR_Priority_Level&gt;) </b></p>
+<p>This macro is defined in osek.h. It defines the CAT2 ISR prologue for each interrupt priority level. </p>
+<p>&lt;ISR_Function_Name&gt; is the unique name of the ISR function. This must be the same name as </p>
+<p>used in the EIINT vector table at the corresponding channel index position with postfix _CAT2. </p>
+<p>&lt;ISR_Priority_Level&gt; </p>
+<p>is </p>
+<p>the </p>
+<p>value </p>
+<p>of </p>
+<p>the </p>
+<p>interrupt </p>
+<p>priority </p>
+<p>level </p>
+<p>which </p>
+<p>is </p>
+<p>configured </p>
+<p>for </p>
+<p>the </p>
+<p>corresponding ISR. The valid range of &lt;ISR_Priority_Level&gt; is 0 ... 15 </p>
+<p> </p>
+<p>The category 2 ISR wrapper section ends exactly with the following line: </p>
+<p><b>#pragma ghs section text=default </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 46 / 80 </p>
+<p><b>12.2 </b></p>
+<p><b>Configuration Block </b></p>
+<p>This chapter defines the rules to review and interpret the entries of the configuration block.  </p>
+<p>The configuration of MICROSAR OS RH850 SafeContext is generated into C-Code. The generator </p>
+<p>itself  has  not  been  developed  in  accordance  to  safety  requirements.  Therefore,  the  generated </p>
+<p>configuration information needs to be reviewed. The safety relevant configuration is generated into </p>
+<p>a  structure  called  ConfigBlock.  This  chapter  describes  how  to  review  the  ConfigBlock.  As  the </p>
+<p>ConfigBlock is simply a constant structure in the memory of an ECU, users will have difficulties to </p>
+<p>read it. Therefore, the configuration viewer is able to transform the ECU internal representation into </p>
+<p>a user readable format. The process of reading the ConfigBlock and transforming it into the user </p>
+<p>readable format is described in the following subchapter. </p>
+<p> </p>
+<p><b>12.2.1 How to read back the ConfigBlock </b></p>
+<p>The ConfigBlock is internal information of a program to control an ECU. It might be available in </p>
+<p>different formats. Therefore it is difficult to provide one single configuration viewer program to read </p>
+<p>the information and transform it into a human readable format. </p>
+<p>So the configuration viewer is a console application which reads configuration information from a </p>
+<p>proprietary intermediate file and writes it into a text file. Different reader programs are available to </p>
+<p>transform  the  ConfigBlock  from  standard  formats  into  the  intermediate  format.  In  addition,  the </p>
+<p>intermediate  format  is  quite  simple,  so  it  may  also  be  produced  by  manual  adaptation  of  a </p>
+<p>debugger output (hex dump) with any text editor. </p>
+<p>The </p>
+<p>configuration </p>
+<p>viewer </p>
+<p>expects </p>
+<p>the </p>
+<p>intermediate </p>
+<p>format </p>
+<p>to  contain </p>
+<p>nothing </p>
+<p>else </p>
+<p>than </p>
+<p>the </p>
+<p>ConfigBlock. Therefore, the transformation programs need the information, where the ConfigBlock </p>
+<p>is located. That information is passed to the transformation program by means of the parameter ‘–</p>
+<p>b’. </p>
+<p>The address of the ConfigBlock is easily taken out of the linker map file. It is the address of the </p>
+<p>constant <i>osConfigBlock </i>[SPMF92:0016]. </p>
+<p>The following subchapters concentrate on the output of the configuration viewer and on the rules to </p>
+<p>review it. The configuration viewer and the format converters are described separately. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 47 / 80 </p>
+<p><b>12.2.2 Additional Information </b></p>
+<p>The  operating  system  and  therefore  also  the  ConfigBlock  typically  use  indexes  instead  of  the </p>
+<p>names of tasks, ISRs, applications and so on. Each index value is related to exactly one object in </p>
+<p>the  configuration  of  the  OS.  However,  the  relation  to  the  configured  object  is  typically  not  so </p>
+<p>obvious. </p>
+<p>Therefore,  the  configuration  viewer  provides  the  possibility  to  add  the  names  of  configuration </p>
+<p>objects to its output. That information is taken from the so called XML config-file. The OS-generator </p>
+<p>produces this file together with the source files it generates. </p>
+<p>The  configuration  viewer  outputs  the  object  names  in  case  a  parameter  is  set  to  use  the </p>
+<p>information from the XML config-file. All information taken from the XML config-file is represented </p>
+<p>between ‘(‘ and ‘)’ to mark it as unsafe additional information. </p>
+<p>The reviewer of the ConfigBlock has the possibility to make use of the information taken from the </p>
+<p>XML  config-file  or  to  skip  that  information  completely.  The  review  rules  in  the  chapters  below </p>
+<p>describe for both cases how the review shall be performed. The examples of configuration viewer </p>
+<p>output below always contain the information from XML config-file. </p>
+<p>Although the information taken from the XML config-file (information in parentheses) is unsafe, the </p>
+<p>relation  between  index  and  name  of  an  object  is  guaranteed  to  be  fix.  This  means,  once  the </p>
+<p>configuration  viewer  has  read  in  the  object  names from  the XML  config-file,  it  always  translates </p>
+<p>each certain index to the exact same object name. So the relation between object index and object </p>
+<p>name  needs  to  be  reviewed  only  once  and  can  be  seen  as  reliable  everywhere  else  in  the </p>
+<p>configuration viewer output. </p>
+<p>The review rules below already contain rules to validate the information taken from XML config-file, </p>
+<p>so that information can safely be used although it is taken from an unsafe source. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 48 / 80 </p>
+<p><b>12.2.3 How to start the review </b></p>
+<p>The configuration viewer starts the output with something like [SPMF92:0063]: </p>
+<p><b>OS Configuration Viewer V3.00 (General) V1.02 (HW Specific) (Apr 24 2014 15:42:59) </b></p>
+<p><b>(c) 2013 Vector Informatik GmbH </b></p>
+<p><b> </b></p>
+<p><b>Started at:Tue May 13 16:23:24 2014 </b></p>
+<p><b> </b></p>
+<p><b>Remark: Text between '(' and ')' shall be treated as unsafe additional information</b></p>
+<p> </p>
+<p> </p>
+<p><b>=================================================== </b></p>
+<p><b>Start of Config Block                   0x00002000   </b></p>
+<p><b>Length                                  588          </b></p>
+<p><b>CRC                                     0x9622       </b></p>
+<p><b>Config Block Format Version             02.00        </b></p>
+<p><b>MICROSAR OS RH850  SafeContext Version  06.05        </b></p>
+<p><b>User Config Version                     2         </b></p>
+<p><b>=================================================== </b></p>
+<p><b> </b></p>
+<p>The user should start with some consistency checks like: </p>
+<p></p>
+<p> </p>
+<p>Is the date (Started at) equal to the date/time when the configuration viewer was started </p>
+<p></p>
+<p> </p>
+<p>Do the start address (Start of configuration block), length (Length) and CRC fit to the </p>
+<p>configuration block which shall be reviewed </p>
+<p></p>
+<p> </p>
+<p>Check  that  the  listed  version  of  MICROSAR  OS  RH850 SafeContext  matches  your </p>
+<p>delivered version. </p>
+<p></p>
+<p> </p>
+<p>Review that the user config version represents the number which was configured by means </p>
+<p>of the configuration attribute UserConfigurationVersion [SPMF92:0045]. </p>
+<p></p>
+<p> </p>
+<p>Is the output complete (see below)? </p>
+<p> </p>
+<p>The output is complete when it ends on: </p>
+<p><b>======================================================= </b></p>
+<p><b>          End of configuration block reached            </b></p>
+<p><b>======================================================= </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 49 / 80 </p>
+<p><b>12.2.3.1 Indexes of applications, task , ISRs, trusted and non-trusted functions </b></p>
+<p><b> </b></p>
+<p>Check indexes of listed applications: </p>
+<p>The indexes must begin with 0 </p>
+<p>The indexes must be consecutive. Gaps are not allowed </p>
+<p>The indexes must end at &lt;Number of applications&gt;-1 </p>
+<p> </p>
+<p>Check indexes of listed tasks: </p>
+<p>The indexes must begin with 0 </p>
+<p>The indexes must be consecutive. Gaps are not allowed </p>
+<p>The indexes must end at &lt;Number of tasks&gt;-1 </p>
+<p> </p>
+<p>Check indexes of listed category 2 ISRs: </p>
+<p>The indexes must begin with 0 </p>
+<p>The indexes must be consecutive. Gaps are not allowed </p>
+<p>The indexes must end at &lt;Number of category 2 ISRs&gt; - 1 </p>
+<p> </p>
+<p>Check indexes of listed trusted functions: </p>
+<p>The indexes must begin with 0 </p>
+<p>The indexes must be consecutive. Gaps are not allowed </p>
+<p>The indexes must end at &lt;Number of trusted functions&gt; - 1 </p>
+<p> </p>
+<p>Check indexes of listed non-trusted functions: </p>
+<p>The indexes must begin with 0 </p>
+<p>The indexes must be consecutive. Gaps are not allowed </p>
+<p>The indexes must end at &lt;Number of non-trusted functions&gt; - 1 </p>
+<p> </p>
+<p>Note: The table items in the configuration viewer output may not be sorted by index.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>12.2.3.2 Review against User’s Design </b></p>
+<p>The  chapters  below  describe,  how  the  configuration  viewer  output  can  be  reviewed  against  the </p>
+<p>OS-configuration. However, the review shall be performed against the user’s design of the system.  </p>
+<p>The reason is that OS developers can only describe, where the respective information can be </p>
+<p>found in the configuration but have only limited knowledge about the system design. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 50 / 80 </p>
+<p><b>12.2.4 How to review the general information (block 0) </b></p>
+<p>The configuration viewer generates the general information as followed [SPMF92:0063]: </p>
+<p><b>0. General Information </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b>Property                         Value       Checked?  </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b>Number of Tasks                  4             [  ]    </b></p>
+<p><b>Number of Cat2 ISRs              3             [  ]    </b></p>
+<p><b>Number of All ISRs               4             [  ]    </b></p>
+<p><b>Number of Trusted Functions      1             [  ]    </b></p>
+<p><b>Number of Non-Trusted Functions  0             [  ]    </b></p>
+<p><b>Number of Applications           3             [  ]    </b></p>
+<p><b>Number of Peripheral Regions     0             [  ]    </b></p>
+<p><b>Stack Usage Measurement          Yes           [  ]    </b></p>
+<p><b>Number of MPU Regions            12            [  ]    </b></p>
+<p><b>Number of Dynamic MPU Regions    2             [  ]    </b></p>
+<p><b>Number of Static MPU Regions     4             [  ]    </b></p>
+<p><b>Number of Available Cores        1             [  ]    </b></p>
+<p><b>System Stack Start-Address       0xfedf04b0    [  ]    </b></p>
+<p><b>System Stack End-Address         0xfedf0640    [  ]    </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Count the number of configured tasks and compare it against the number of tasks </p>
+<p>presented by the configuration viewer in the part about general information </p>
+<p></p>
+<p> </p>
+<p>Check the number of Cat2 ISRs: </p>
+<p>o</p>
+<p> </p>
+<p>Count the number of configured ISRs with CATEGORY = 2 and compare it against </p>
+<p>the number of Cat2 ISRs presented by the configuration viewer in the part about </p>
+<p>general information. </p>
+<p>o</p>
+<p> </p>
+<p>Consider that the OS internally uses a further Cat2 ISR for alarm and schedule table </p>
+<p>handling. That ISR is only available in case at least one alarm or a schedule table </p>
+<p>has been configured that uses the system timer. </p>
+<p></p>
+<p> </p>
+<p>Check the number of all ISRs: </p>
+<p>o</p>
+<p> </p>
+<p>Count the number of configured EIINT ISRs with CATEGORY = 1 and 2 and </p>
+<p>compare it against the number of all ISRs presented by the configuration viewer in </p>
+<p>the part about general information. </p>
+<p></p>
+<p> </p>
+<p>Count the number of configured trusted functions and compare it against the number of </p>
+<p>trusted functions presented by the configuration viewer in the part about general </p>
+<p>information. Trusted function configurations may be found in the configuration of any OS-</p>
+<p>applications with TRUSTED = TRUE. </p>
+<p></p>
+<p> </p>
+<p>Count the number of configured non-trusted functions and compare it against the number of </p>
+<p>non-trusted functions presented by the configuration viewer in the part about general </p>
+<p>information. Non-trusted function configurations may be found in the configuration of any </p>
+<p>OS-applications with TRUSTED = FALSE. </p>
+<p></p>
+<p> </p>
+<p>Count the number of configured OS-applications and compare it against the number of OS-</p>
+<p>applications presented by the configuration viewer in the chapter about general information. </p>
+<p></p>
+<p> </p>
+<p>Count the number of peripheral regions configured over all non-trusted applications and </p>
+<p>compare it against the number of peripheral regions presented by the configuration viewer. </p>
+<p></p>
+<p> </p>
+<p>Compare the configuration of stack usage measurement against the respective output of </p>
+<p>the configuration viewer in the chapter about general information. The configuration of stack </p>
+<p>usage measurement is found in the general configuration of the OS. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 51 / 80 </p>
+<p></p>
+<p> </p>
+<p>Check the number of MPU regions which are provided by the used CPU derivative. </p>
+<p></p>
+<p> </p>
+<p>Check the number of dynamic MPU regions which must be same as the number of MPU </p>
+<p>regions configured in the application with most dynamic MPU regions. </p>
+<p></p>
+<p> </p>
+<p>Check the number of static MPU regions configured for the OS. </p>
+<p></p>
+<p> </p>
+<p>Check the number of CPU cores which are provided by the used CPU derivative. </p>
+<p></p>
+<p> </p>
+<p>Review of system stack addresses  [SPMF92:0056],[SPMF92:04.0003]: </p>
+<p>o</p>
+<p> </p>
+<p>Compare the system stack start address in the configuration viewer output against </p>
+<p>the label  <i>_osSystemStack_StartAddr </i>in the linker map-file.  </p>
+<p>o</p>
+<p> </p>
+<p>Compare the system stack end address in the configuration viewer output against </p>
+<p>the label <i>_osSystemStack_EndAddr </i>in the linker map-file. </p>
+<p>o</p>
+<p> </p>
+<p>Check that both labels are 4 Byte aligned [SPMF92:04.0002]. This prevents that any </p>
+<p>data of other sections is accessible by the same MPU region. </p>
+<p>o</p>
+<p> </p>
+<p>Check that only the array variable osSystemStack is located between the labels </p>
+<p>described above.  </p>
+<p>o</p>
+<p> </p>
+<p>Check the difference between the system stack start- and end-address against the </p>
+<p>designed (and therefore also configured) system stack size. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 52 / 80 </p>
+<p><b>12.2.5 How to review the task start addresses (block 1) </b></p>
+<p>The configuration viewer generates the task start addresses as followed [SPMF92:0063]: </p>
+<p><b>1. Task start addresses: </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b>Task-ID  Task-Name               Value       Checked?   </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b>0        (eTask1)                0x000030cc    [  ]     </b></p>
+<p><b>1        (osSystemExtendedTask)  0x000059a2    [  ]     </b></p>
+<p><b>2        (bTask1)                0x00003052    [  ]     </b></p>
+<p><b>3        (osSystemBasicTask)     0x000059a0    [  ]     </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check  the  linker-map-file  of  the  project  for  a  function  called </p>
+<p>&lt;TaskName&gt;func</p>
+<p>.  This </p>
+<p>function must be linked to the address value as specified in the configuration viewer output </p>
+<p>[SPMF92:02.0025].</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 53 / 80 </p>
+<p><b>12.2.6 How to review the task trusted information (block 2) </b></p>
+<p>The configuration viewer generates the task trusted information as followed: </p>
+<p>[SPMF92:0061],[SPMF92:0063], [SPMF92:02.0027] </p>
+<p><b>2. Task trustedness information: </b></p>
+<p><b>------------------------------------------------------- </b></p>
+<p><b>Task-ID  Task-Name               Value        Checked?  </b></p>
+<p><b>------------------------------------------------------- </b></p>
+<p><b>0        (eTask1)                non-trusted    [  ]    </b></p>
+<p><b>1        (osSystemExtendedTask)  trusted        [  ]    </b></p>
+<p><b>2        (bTask1)                non-trusted    [  ]    </b></p>
+<p><b>3        (osSystemBasicTask)     trusted        [  ]    </b></p>
+<p><b>------------------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check for each task, that the setting of the attribute TRUSTED of the owner application fits </p>
+<p>to the value of the task trustedness information. In case the owner application has the </p>
+<p>configuration TRUSTED=TRUE, the task must be trusted. In case the owner application </p>
+<p>has the configuration TRUSTED=FALSE, the task must be non-trusted. </p>
+<p></p>
+<p> </p>
+<p>osSystemExtendedTask and osSystemBasicTask must always be trusted. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 54 / 80 </p>
+<p><b>12.2.7 How to review the task preemptive information (block 3) </b></p>
+<p>The configuration viewer generates the task preemptive information as followed [SPMF92:0063]: </p>
+<p><b>3. Task preemptiveness information: </b></p>
+<p><b>------------------------------------------------------------- </b></p>
+<p><b>Task-ID  Task-Name               Value              Checked?  </b></p>
+<p><b>------------------------------------------------------------- </b></p>
+<p><b>0        (eTask1)                fully-preemptible    [  ]    </b></p>
+<p><b>1        (osSystemExtendedTask)  fully-preemptible    [  ]    </b></p>
+<p><b>2        (bTask1)                fully-preemptible    [  ]    </b></p>
+<p><b>3        (osSystemBasicTask)     non-preemptible      [  ]    </b></p>
+<p><b>------------------------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Take the task name (as printed) and check whether this respective task preemptive setting </p>
+<p>was really configured as printed. If preemptive is printed here, the task configuration must </p>
+<p>contain SCHEDULE = FULL, if non-preemptive is printed here, the task configuration must </p>
+<p>contain SCHEDULE=NON. The OS generator assures that each task has the attribute </p>
+<p>SCHEDULE exactly once with possible values FULL or NON. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 55 / 80 </p>
+<p><b>12.2.8 How to review the task stack start and end addresses (block 4 and 5) </b></p>
+<p>The configuration viewer generates the task stack start addresses as followed [SPMF92:0063]: </p>
+<p><b>4. Task stack lower boundary addresses: </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b>Task-ID  Task-Name               Value       Checked?  </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b>0        (eTask1)                0xfedf0640    [  ]    </b></p>
+<p><b>1        (osSystemExtendedTask)  0x00000010    [  ]    </b></p>
+<p><b>2        (bTask1)                0xfedf07d0    [  ]    </b></p>
+<p><b>3        (osSystemBasicTask)     0x00000010    [  ]    </b></p>
+<p><b>------------------------------------------------------</b></p>
+<p> </p>
+<p> </p>
+<p>The configuration viewer generates the task stack end addresses as followed: </p>
+<p><b>5. Task stack upper boundary addresses: </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b>Task-ID  Task-Name               Value       Checked?  </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b>0        (eTask1)                0xfedf07d0    [  ]    </b></p>
+<p><b>1        (osSystemExtendedTask)  0x00000000    [  ]    </b></p>
+<p><b>2        (bTask1)                0xfedf0960    [  ]    </b></p>
+<p><b>3        (osSystemBasicTask)     0x00000000    [  ]    </b></p>
+<p><b>------------------------------------------------------ </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this [SPMF92:0056]: </p>
+<p></p>
+<p> </p>
+<p>Check that the difference between stack start and stack end address fits to the configured </p>
+<p>size of the task stack </p>
+<p></p>
+<p> </p>
+<p>Check that the stacks do not overlap </p>
+<p></p>
+<p> </p>
+<p>Compare printed address value of each stack with the address given in the linker map file. </p>
+<p></p>
+<p> </p>
+<p>Check that all task stack sizes are a multiple of 4 Bytes [SPMF92:04.0008]. This prevents </p>
+<p>that any data of another section is accessible in the same MPU region. </p>
+<p></p>
+<p> </p>
+<p>Check that each defined address region (task stack start address, task stack end address) </p>
+<p>only covers exactly one array variable named osTaskStack&lt;StackIndex&gt;. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 56 / 80 </p>
+<p><b>12.2.9 How to review the task ownership information (block 6) </b></p>
+<p>The configuration viewer generates the task ownership information as followed [SPMF92:0063]: </p>
+<p><b>6. Task to application mapping: </b></p>
+<p><b>------------------------------------------------------------------------------- </b></p>
+<p><b>Task-ID  Task-Name               Appl-ID  Appl-Name                   Checked?  </b></p>
+<p><b>------------------------------------------------------------------------------- </b></p>
+<p><b>0        (eTask1)                2        (xyzAppl)                     [  ]    </b></p>
+<p><b>1        (osSystemExtendedTask)  1        (osSystemApplicationCore0)    [  ]    </b></p>
+<p><b>2        (bTask1)                2        (xyzAppl)                     [  ]    </b></p>
+<p><b>3        (osSystemBasicTask)     1        (osSystemApplicationCore0)    [  ]    </b></p>
+<p><b>------------------------------------------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this [SPMF92:0062]: </p>
+<p></p>
+<p> </p>
+<p>The configuration of each application contains a list of the tasks which it owns. Check for </p>
+<p>each of the named applications that it owns exactly those tasks listed in the configuration </p>
+<p>viewer output. The OS generator assures that each task has exactly one owner application. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 57 / 80 </p>
+<p><b>12.2.10 </b></p>
+<p><b>How to review the category 2 ISR start addresses (block 7) </b></p>
+<p>The configuration viewer generates category 2 ISR start addresses as followed [SPMF92:0063]: </p>
+<p><b>7. Category 2 ISR function start address: </b></p>
+<p><b>------------------------------------------------- </b></p>
+<p><b>ISR-ID  ISR-Name            Value       Checked?  </b></p>
+<p><b>------------------------------------------------- </b></p>
+<p><b>0       (ISR1)              0x000030f4    [  ]    </b></p>
+<p><b>1       (osSystemCat2ISR)   0x000059a4    [  ]    </b></p>
+<p><b>2       (osTimerInterrupt)  0x00009b9c    [  ]    </b></p>
+<p><b>------------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check the linker map file of the project for symbol _&lt;ISRName&gt;func. This ISR function </p>
+<p>must be linked to the address value as specified in the configuration viewer output </p>
+<p>[SPMF92:02.0026].  </p>
+<p></p>
+<p> </p>
+<p>In case the ISR has a configured SpecialFunctionName, search for the symbol </p>
+<p>_&lt;SpecialFunctionName&gt;func instead, which is located at the address, shown in the </p>
+<p>configuration block. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 58 / 80 </p>
+<p><b>12.2.11 </b></p>
+<p><b>How to review the CAT2 ISR trusted information (block 8) </b></p>
+<p>The </p>
+<p>configuration </p>
+<p>viewer </p>
+<p>generates </p>
+<p>CAT2 </p>
+<p>ISR </p>
+<p>trusted </p>
+<p>information </p>
+<p>as </p>
+<p>followed: </p>
+<p>[SPMF92:0061],[SPMF92:0063], [SPMF92:02.0027] </p>
+<p><b>8. Category 2 ISR trustedness: </b></p>
+<p><b>-------------------------------------------------- </b></p>
+<p><b>ISR-ID  ISR-Name            Value        Checked?  </b></p>
+<p><b>-------------------------------------------------- </b></p>
+<p><b>0       (ISR1)              non-trusted    [  ]    </b></p>
+<p><b>1       (osSystemCat2ISR)   trusted        [  ]    </b></p>
+<p><b>2       (osTimerInterrupt)  trusted        [  ]    </b></p>
+<p><b>-------------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check for each cat2 ISR, that the setting of the attribute TRUSTED of the owner application </p>
+<p>fits to the value of the ISR trusted information. In case the owner application has the </p>
+<p>configuration TRUSTED=TRUE, the ISR must be trusted. In case the owner application has </p>
+<p>the configuration TRUSTED=FALSE, the ISR must be non-trusted. The trustedness of the </p>
+<p>system timer ISR osTimerInterrupt cannot be configured and is always a trusted ISR. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 59 / 80 </p>
+<p><b>12.2.12 </b></p>
+<p><b>How to review the CAT2 ISR nested information (block 9) </b></p>
+<p>The configuration viewer generates the CAT2 ISR nested information as followed [SPMF92:0063]: </p>
+<p><b>9. Category 2 ISR nesting: </b></p>
+<p><b>------------------------------------------------- </b></p>
+<p><b>ISR-ID  ISR-Name            Value       Checked?  </b></p>
+<p><b>------------------------------------------------- </b></p>
+<p><b>0       (ISR1)              nested        [  ]    </b></p>
+<p><b>1       (osSystemCat2ISR)   non-nested    [  ]    </b></p>
+<p><b>2       (osTimerInterrupt)  nested        [  ]    </b></p>
+<p><b>------------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check for each cat2 ISR, that the setting of the attribute EnableNesting fits to the value of </p>
+<p>the ISR nested information [SPMF92:02.0031]. In case the cat2 ISR has the configuration </p>
+<p>EnableNesting =TRUE, the ISR must be nested. In case the cat2 ISR has the configuration </p>
+<p>EnableNesting =FALSE, the ISR must be not nested. This setting for the system timer ISR </p>
+<p>osTimerInterrupt is configured via OS attribute SystemTimerNestable. Check that the </p>
+<p>setting of attribute SystemTimerNestable fits to the ISR nested information of ISR </p>
+<p>osTimerInterrupt. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 60 / 80 </p>
+<p><b>12.2.13 </b></p>
+<p><b>How to review CAT2 ISR stack start and end addresses (block 10 and 11) </b></p>
+<p>The </p>
+<p>configuration </p>
+<p>viewer </p>
+<p>generates </p>
+<p>the </p>
+<p>CAT2 </p>
+<p>ISR </p>
+<p>stack </p>
+<p>start </p>
+<p>addresses </p>
+<p>as </p>
+<p>followed </p>
+<p>[SPMF92:0063]: </p>
+<p><b>10. Category 2 ISR stack start address: </b></p>
+<p><b>---------------------------- </b></p>
+<p><b>Level  Value       Checked?   </b></p>
+<p><b>---------------------------- </b></p>
+<p><b>0      0x00000000    [  ]     </b></p>
+<p><b>1      0x00000000    [  ]     </b></p>
+<p><b>2      0x00000000    [  ]     </b></p>
+<p><b>3      0x00000000    [  ]     </b></p>
+<p><b>4      0x00000000    [  ]     </b></p>
+<p><b>5      0x00000000    [  ]     </b></p>
+<p><b>6      0x00000000    [  ]     </b></p>
+<p><b>7      0x00000000    [  ]     </b></p>
+<p><b>8      0x00000000    [  ]     </b></p>
+<p><b>9      0x00000000    [  ]     </b></p>
+<p><b>10     0xfedf0000    [  ]     </b></p>
+<p><b>11     0x00000000    [  ]     </b></p>
+<p><b>12     0xfedf0320    [  ]     </b></p>
+<p><b>13     0x00000000    [  ]     </b></p>
+<p><b>14     0x00000000    [  ]     </b></p>
+<p><b>15     0x00000000    [  ]     </b></p>
+<p><b>---------------------------- </b></p>
+<p><b> </b></p>
+<p>The </p>
+<p>configuration </p>
+<p>viewer </p>
+<p>generates </p>
+<p>the </p>
+<p>CAT2 </p>
+<p>ISR </p>
+<p>stack </p>
+<p>end </p>
+<p>addresses </p>
+<p>as </p>
+<p>followed </p>
+<p>[SPMF92:0063]: </p>
+<p><b>11. Category 2 ISR stack end address: </b></p>
+<p><b>---------------------------- </b></p>
+<p><b>Level  Value       Checked?   </b></p>
+<p><b>---------------------------- </b></p>
+<p><b>0      0x00000000    [  ]     </b></p>
+<p><b>1      0x00000000    [  ]     </b></p>
+<p><b>2      0x00000000    [  ]     </b></p>
+<p><b>3      0x00000000    [  ]     </b></p>
+<p><b>4      0x00000000    [  ]     </b></p>
+<p><b>5      0x00000000    [  ]     </b></p>
+<p><b>6      0x00000000    [  ]     </b></p>
+<p><b>7      0x00000000    [  ]     </b></p>
+<p><b>8      0x00000000    [  ]     </b></p>
+<p><b>9      0x00000000    [  ]     </b></p>
+<p><b>10     0xfedf0320    [  ]     </b></p>
+<p><b>11     0x00000000    [  ]     </b></p>
+<p><b>12     0xfedf04b0    [  ]     </b></p>
+<p><b>13     0x00000000    [  ]     </b></p>
+<p><b>14     0x00000000    [  ]     </b></p>
+<p><b>15     0x00000000    [  ]     </b></p>
+<p><b>---------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this [SPMF92:0056]: </p>
+<p></p>
+<p> </p>
+<p>Check that the difference between stack start and stack end address fits to the configured </p>
+<p>size of the ISR stack </p>
+<p></p>
+<p> </p>
+<p>Check that the stacks do not overlap </p>
+<p></p>
+<p> </p>
+<p>Compare printed address value of each stack with the address given in the linker map file. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 61 / 80 </p>
+<p></p>
+<p> </p>
+<p>Check that all ISR stack sizes are a multiple of 4 Bytes [SPMF92:04.0008]. This prevents </p>
+<p>that any data of another section is accessible in the same MPU region. </p>
+<p></p>
+<p> </p>
+<p>Check that each defined address region (ISR stack start address, ISR stack end address) </p>
+<p>only covers exactly one array variable named osIntStackLevel&lt;PriorityLevel&gt;. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 62 / 80 </p>
+<p><b>12.2.14 </b></p>
+<p><b>How to review the CAT2 ISR ownership information (block 12) </b></p>
+<p>The </p>
+<p>configuration </p>
+<p>viewer </p>
+<p>generates </p>
+<p>the </p>
+<p>CAT2 </p>
+<p>ISR </p>
+<p>ownership </p>
+<p>information </p>
+<p>as </p>
+<p>followed </p>
+<p>[SPMF92:0063]: </p>
+<p><b>12. Category 2 ISR to application assignment: </b></p>
+<p><b>-------------------------------------------------------------------------- </b></p>
+<p><b>ISR-ID  ISR-Name            Appl-ID  Appl-Name                   Checked?   </b></p>
+<p><b>-------------------------------------------------------------------------- </b></p>
+<p><b>0       (ISR1)              2        (xyzAppl)                     [  ]     </b></p>
+<p><b>1       (osSystemCat2ISR)   1        (osSystemApplicationCore0)    [  ]     </b></p>
+<p><b>2       (osTimerInterrupt)  1        (osSystemApplicationCore0)    [  ]     </b></p>
+<p><b>-------------------------------------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>The configuration of each application contains a list of the cat2 ISRs which it owns. Check </p>
+<p>for each of the named applications that it owns exactly those ISRs listed in the configuration </p>
+<p>viewer output [SPMF92:02.0028]. The OS generator assures that each ISR has exactly one </p>
+<p>owner application. The owner of the ISR osTimerInterrupt is the OS itself.  </p>
+<p></p>
+<p> </p>
+<p>Check that category 1 ISRs are not listed in the configuration block. [SPMF92:0055] </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 63 / 80 </p>
+<p><b>12.2.15 </b></p>
+<p><b>How to review the trusted functions start addresses (block 13) </b></p>
+<p>The configuration viewer generates trusted functions start addresses as followed [SPMF92:0063]: </p>
+<p><b>13. Trusted function start address: </b></p>
+<p><b>---------------------------------------------------------- </b></p>
+<p><b>Tfunc-ID  Tfunc-Name                 Value       Checked?  </b></p>
+<p><b>---------------------------------------------------------- </b></p>
+<p><b>0         (StartTestStep)            0x000039d8    [  ]    </b></p>
+<p><b>1         (GetTestStep)              0x000039aa    [  ]    </b></p>
+<p><b>2         (SetCheckPoint)            0x000039c2    [  ]    </b></p>
+<p><b>3         (TF1)                      0x00003006    [  ]    </b></p>
+<p><b>4         (TriggerISR1)              0x000039ee    [  ]    </b></p>
+<p><b>5         (TriggerISR2)              0x00003a06    [  ]    </b></p>
+<p><b>6         (osSystemTrustedFunction)  0x00005982    [  ]    </b></p>
+<p><b>---------------------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check the linker map file of the project for symbol TRUSTED_&lt;FuncName&gt;. This function </p>
+<p>must be linked to the address value as specified in the configuration viewer output </p>
+<p>[SPMF92:0048],[SPMF92:0057]. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 64 / 80 </p>
+<p><b>12.2.16 </b></p>
+<p><b>How to review the non-trusted functions start addresses (block 14) </b></p>
+<p>The </p>
+<p>configuration </p>
+<p>viewer </p>
+<p>generates </p>
+<p>non-trusted </p>
+<p>functions </p>
+<p>start </p>
+<p>addresses </p>
+<p>as </p>
+<p>followed </p>
+<p>[SPMF92:0063]: </p>
+<p><b>14. Non-trusted function start address: </b></p>
+<p><b>----------------------------------------- </b></p>
+<p><b>NTfunc-ID NTfunc-Name Value      Checked?  </b></p>
+<p><b>----------------------------------------- </b></p>
+<p><b>0         (NTF1)      0x00002e6a   [ ]     </b></p>
+<p><b>1         (NTF2)      0x00003de0   [ ]     </b></p>
+<p><b>----------------------------------------- </b></p>
+<p> </p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check  the  linker  map  file  of  the  project  for  symbol  NONTRUSTED_&lt;FuncName&gt;.  This </p>
+<p>function must be linked to the address value as specified in the configuration viewer output </p>
+<p> </p>
+<p>[SPMF92:02.0024].  </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 65 / 80 </p>
+<p><b>12.2.17 </b></p>
+<p><b>How to review the non-trusted functions ownership information (block 15) </b></p>
+<p>The </p>
+<p>configuration </p>
+<p>viewer </p>
+<p>generates </p>
+<p>the </p>
+<p>non-trusted </p>
+<p>functions </p>
+<p>ownership </p>
+<p>as </p>
+<p>followed </p>
+<p>[SPMF92:0063]: </p>
+<p><b>15. Non-trusted function to application assignment: </b></p>
+<p><b>-------------------------------------------------------- </b></p>
+<p><b>NTfunc-ID NTfunc-Name Appl-ID Appl-Name         Checked?  </b></p>
+<p><b>-------------------------------------------------------- </b></p>
+<p><b>0         (NTF1)      1       (NonTrustedApplA)   [ ]    </b></p>
+<p><b>1         (NTF2)      2       (NonTrustedApplB)   [ ]  </b></p>
+<p><b>-------------------------------------------------------- </b></p>
+<p> </p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>The configuration of each application contains a list of the functions which it owns. Check </p>
+<p>for each of the named applications that it owns exactly those functions listed in the </p>
+<p>configuration viewer output [SPMF92:02.0029]. The OS generator assures that each </p>
+<p>function has exactly one owner application. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 66 / 80 </p>
+<p><b>12.2.18 </b></p>
+<p><b>How to review the application dynamic MPU settings (block 16) </b></p>
+<p>It is necessary to refer the Renesas Electronics user’s manual architecture [6] for exactly </p>
+<p>understanding of the Memory Protection Unit (MPU). </p>
+<p>The configuration viewer generates the dynamic MPU settings as followed [SPMF92:0063]: </p>
+<p><b>16. Application MPU configuration (dynamic): </b></p>
+<p><b>------------------------------------------------------------------------------ </b></p>
+<p><b>Appl-ID  Appl-Name                   Region  Start-Addr  End-Addr    Checked?  </b></p>
+<p><b>------------------------------------------------------------------------------ </b></p>
+<p><b>0        (AppTrusted)                1       0x00000010  0x00000000    [  ]    </b></p>
+<p><b>                                     2       0x00000010  0x00000000    [  ]    </b></p>
+<p><b>------------------------------------------------------------------------------ </b></p>
+<p><b>1        (NonTrustedApplA)           1       0xffe50000  0xffe5fffc    [  ]    </b></p>
+<p><b>                                     2       0xfedf0a80  0xfedf0a7f    [  ]    </b></p>
+<p><b>------------------------------------------------------------------------------ </b></p>
+<p><b>2        (NonTrustedApplB)           1       0xffe50000  0xffe5fffc    [  ]    </b></p>
+<p><b>                                     2       0xfedf0a80  0xfedf0b7f    [  ]    </b></p>
+<p><b>------------------------------------------------------------------------------ </b></p>
+<p><b>3        (TraceAppl)                 1       0x00000010  0x00000000    [  ]    </b></p>
+<p><b>                                     2       0x00000010  0x00000000    [  ]    </b></p>
+<p><b>------------------------------------------------------------------------------ </b></p>
+<p><b>4        (osSystemApplicationCore0)  1       0x00000010  0x00000000    [  ]    </b></p>
+<p><b>                                     2       0x00000010  0x00000000    [  ]    </b></p>
+<p><b>------------------------------------------------------------------------------ </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this </p>
+<p> </p>
+<p>[SPMF92:0052],[SPMF92:04.0003],[SPMF92:04.0005]: </p>
+<p></p>
+<p> </p>
+<p>Each application must have the same number of rows. </p>
+<p></p>
+<p> </p>
+<p>The number of rows for each application must be same as shown in the output of </p>
+<p>configuration block 0: Number of Dynamic MPU Regions  </p>
+<p></p>
+<p> </p>
+<p>Trusted applications must always have Start-Addr = 0x00000010 </p>
+<p></p>
+<p> </p>
+<p>Trusted applications must always have End-Addr = 0x00000000 </p>
+<p></p>
+<p> </p>
+<p>Unused MPU regions in non-trusted applications must have Start-Addr = 0x00000010 </p>
+<p></p>
+<p> </p>
+<p>Unused MPU regions in non-trusted applications must have End-Addr = 0x00000000 </p>
+<p></p>
+<p> </p>
+<p>Check that values of Start-Addr and End-Addr in row of non-trusted applications are same </p>
+<p>as configured in the applications settings </p>
+<p></p>
+<p> </p>
+<p>Check that used MPU regions in non-trusted applications have Start-Addr value smaller </p>
+<p>than the End-Addr value </p>
+<p></p>
+<p> </p>
+<p>Check that all trusted and non-trusted applications are listed. </p>
+<p></p>
+<p> </p>
+<p>Check that all Start-Addr values are aligned to 4 Byte boundary [SPMF92:04.0009] </p>
+<p></p>
+<p> </p>
+<p>Check that all End-Addr values point to the last valid byte in the specified area. </p>
+<p></p>
+<p> </p>
+<p>Overlapping of memory regions is not allowed [SPMF92:04.0010]. </p>
+<p></p>
+<p> </p>
+<p>The next region after the end address must be aligned at to a 4 Byte boundary. </p>
+<p></p>
+<p> </p>
+<p>Compare  Start-Addr of non-trusted applications that the address value fits to address of </p>
+<p>the application specific linker symbol used in configuration settings</p>
+<p> </p>
+<p>[SPMF92:0052]  </p>
+<p></p>
+<p> </p>
+<p>Compare  End-Addr of non-trusted applications that the address value fits to address of the </p>
+<p>application specific linker symbol used in configuration settings</p>
+<p> </p>
+<p>[SPMF92:0052]  </p>
+<p></p>
+<p> </p>
+<p>If a linker section for application data memory region is empty then the end address is </p>
+<p>below the start address. The start or end address may then overlap with other linker </p>
+<p>sections. This can be ignored because it does not harm the MPU functionality. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 67 / 80 </p>
+<p><b>12.2.19 </b></p>
+<p><b>How to review the interrupt channel index (block 17) </b></p>
+<p>The configuration viewer generates the interrupt channel index for CAT1 and CAT2 ISRs as </p>
+<p>followed [SPMF92:0063]: </p>
+<p> </p>
+<p><b>17. Category 2 ISR interrupt channel index: </b></p>
+<p><b>---------------------------------------------- </b></p>
+<p><b>ISR-ID  ISR-Name            Channel  Checked?  </b></p>
+<p><b>---------------------------------------------- </b></p>
+<p><b>0       (ISR1)              137        [  ]    </b></p>
+<p><b>1       (osSystemCat2ISR)   0          [  ]    </b></p>
+<p><b>2       (osTimerInterrupt)  74         [  ]    </b></p>
+<p><b>3       (TestTimer1)        134        [  ]    </b></p>
+<p><b>---------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check for each cat1 and cat2 ISR that the number is corresponding to the default priority </p>
+<p>number listed in the hardware user manual of the used processor derivative (look for </p>
+<p>symbol EIINT&lt;Number&gt;). </p>
+<p></p>
+<p> </p>
+<p>Check that the biggest listed number is not greater than 383. </p>
+<p></p>
+<p> </p>
+<p>Channel index of ISR osSystemCat2ISR can be ignored because it is not used at all. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 68 / 80 </p>
+<p><b>12.2.20 </b></p>
+<p><b>How to review the ISR interrupt priority level (block 18) </b></p>
+<p>The configuration viewer generates the interrupt priority level for CAT1 and CAT2 ISRs as followed </p>
+<p>[SPMF92:0063]: </p>
+<p> </p>
+<p><b>18. Category 2 ISR priority level: </b></p>
+<p><b>----------------------------------------------- </b></p>
+<p><b>ISR-ID  ISR-Name            Priority  Checked?  </b></p>
+<p><b>----------------------------------------------- </b></p>
+<p><b>0       (ISR1)              10          [  ]    </b></p>
+<p><b>1       (osSystemCat2ISR)   128         [  ]    </b></p>
+<p><b>2       (osTimerInterrupt)  12          [  ]    </b></p>
+<p><b>3       (TestTimer1)        7           [  ]    </b></p>
+<p><b>----------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this [SPMF92:02.0032]: </p>
+<p></p>
+<p> </p>
+<p>Check for each category 1 and category 2 ISR that the setting of the attribute </p>
+<p>InterruptPriority fits to the value of the printed ISR information “Priority” from configuration </p>
+<p>viewer. </p>
+<p></p>
+<p> </p>
+<p>Interrupt priority level of osSystemCat2ISR can be ignored because it is not used at all. The </p>
+<p>priority value must always be 128. </p>
+<p>   </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 69 / 80 </p>
+<p><b>12.2.21 </b></p>
+<p><b>How to review the peripheral regions configuration (block 19) </b></p>
+<p>The configuration viewer generates the application peripheral regions as followed [SPMF92:0063]: </p>
+<p> </p>
+<p><b>19. Peripheral Regions Configuration: </b></p>
+<p><b>----------------------------------------------------- </b></p>
+<p><b>Region  Appl-Mask   Start-Addr  End-Addr    Checked?  </b></p>
+<p><b>----------------------------------------------------- </b></p>
+<p><b>0       0x00000005  0xfede0000  0xfede1fff    [  ]    </b></p>
+<p><b>1       0x0000000c  0xfede4000  0xfede4fff    [  ]    </b></p>
+<p><b>----------------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check that the listed peripheral region access rights match your configuration </p>
+<p>[SPMF92:02.0030] </p>
+<p></p>
+<p> </p>
+<p>Check for each row that Appl-Mask fits to the accessing applications. Each bit which is set </p>
+<p>means that the corresponding application has access rights to this region. E.g. if bit 0 is set </p>
+<p>then application with ID=0 has permission to access the region, if bit 1 is set then </p>
+<p>application with ID=1 has permission to access the region etc. </p>
+<p></p>
+<p> </p>
+<p>Check that the listed peripheral region start and end addresses matches your configuration </p>
+<p>[SPMF92:02.0030] </p>
+<p></p>
+<p> </p>
+<p>Check for each row that Start-Addr fits to the start address value of the configured </p>
+<p>peripheral region. Start-Addr must point to the first valid byte in the region. </p>
+<p></p>
+<p> </p>
+<p>Check for each row that End-Addr fits to the end address value of the configured peripheral </p>
+<p>region. End-Addr must point to the last valid byte in the region. </p>
+<p></p>
+<p> </p>
+<p>Check that the peripheral region index starts with 0 </p>
+<p></p>
+<p> </p>
+<p>Check that the peripheral region index is consecutive with no gaps </p>
+<p></p>
+<p> </p>
+<p>Check that the peripheral region belongs to the printed application. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 70 / 80 </p>
+<p><b>12.2.22 </b></p>
+<p><b>How to review the static MPU regions configuration (block 20) </b></p>
+<p>The configuration viewer generates the static MPU regions configuration as followed: </p>
+<p> </p>
+<p><b>20. MPU configuration (static): </b></p>
+<p><b>----------------------------------------------------- </b></p>
+<p><b>Region  Start-Addr  End-Addr    Attributes  Checked?  </b></p>
+<p><b>----------------------------------------------------- </b></p>
+<p><b>1       0x00000010  0x00000000  0x000000db    [  ]    </b></p>
+<p><b>2       0x00000010  0x00000000  0x000000db    [  ]    </b></p>
+<p><b>3       0x00000000  0x000ffffc  0x000000fd    [  ]    </b></p>
+<p><b>4       0xff000000  0xfffffffc  0x000000d8    [  ]    </b></p>
+<p><b>5       0xfedf0960  0xfee00000  0x000000d9    [  ]    </b></p>
+<p><b>6       0xfedf0000  0xfedf0960  0x000000c9    [  ]    </b></p>
+<p><b>7       0x00000000  0x00000000  0x00000000    [  ]    </b></p>
+<p><b>8       0x00000000  0x00000000  0x00000000    [  ]    </b></p>
+<p><b>9       0x00000000  0x00000000  0x00000000    [  ]    </b></p>
+<p><b>10      0x00000000  0x00000000  0x00000000    [  ]    </b></p>
+<p><b>11      0x00000000  0x00000000  0x00000000    [  ]    </b></p>
+<p><b>----------------------------------------------------- </b></p>
+<p><b> </b></p>
+<p>Start-Addr are the values which are written to MPU registers MPLAn </p>
+<p>End-Addr are the values which are written to MPU registers MPUAn </p>
+<p>Attributes are the values which are written to MPU registers MPATn</p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check that all regions 1 … 11 are listed. </p>
+<p></p>
+<p> </p>
+<p>If Start-Addr=0x00000010, End-Addr=0x00000000 and Attributes=0x000000db then the </p>
+<p>MPU region is used dynamic, i.e. it is reprogrammed when the context is switched. </p>
+<p></p>
+<p> </p>
+<p>If Start-Addr=0x00000000, End-Addr=0x00000000 and Attributes=0x00000000 then the </p>
+<p>MPU region is not used at all. </p>
+<p></p>
+<p> </p>
+<p>All other regions are user specific MPU region settings. </p>
+<p></p>
+<p> </p>
+<p>Check the user specific MPU region settings that Start-Addr, End-Addr and Attributes fit to </p>
+<p>the corresponding configurations. </p>
+<p></p>
+<p> </p>
+<p>Check each user specific MPU region setting that Start-Addr is lower than End-Addr.  </p>
+<p></p>
+<p> </p>
+<p>Check each user specific MPU region setting that Attributes contains correct application ID. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 71 / 80 </p>
+<p><b>12.2.23 </b></p>
+<p><b>How to review the application trusted information (block 21) </b></p>
+<p>The configuration viewer generates the application trusted information as followed:  </p>
+<p><b>21. Application trustedness information: </b></p>
+<p><b>----------------------------------------------------------- </b></p>
+<p><b>Appl-ID  Appl-Name                   Value        Checked?  </b></p>
+<p><b>----------------------------------------------------------- </b></p>
+<p><b>0        (NTAppl)                    non-trusted    [  ]    </b></p>
+<p><b>1        (abcAppl)                   trusted        [  ]    </b></p>
+<p><b>2        (osSystemApplicationCore0)  trusted        [  ]    </b></p>
+<p><b>3        (xyzAppl)                   non-trusted    [  ]    </b></p>
+<p><b>----------------------------------------------------------- </b></p>
+<p> </p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check for each application, that the setting of the attribute TRUSTED fits to the value of the </p>
+<p>application trustedness information. </p>
+<p></p>
+<p> </p>
+<p>If the application has attribute TRUSTED=TRUE, then Value must be trusted. </p>
+<p></p>
+<p> </p>
+<p>If application has attribute TRUSTED=FALSE, then Value must be non-trusted. </p>
+<p></p>
+<p> </p>
+<p>OS system application osSystemApplicationCore0 must always be trusted. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 72 / 80 </p>
+<p><b>12.2.24 </b></p>
+<p><b>How to review the core control block address information (block 22) </b></p>
+<p>The configuration viewer generates the core control block information as followed:  </p>
+<p><b>22. Core control block address: </b></p>
+<p><b>------------------------------ </b></p>
+<p><b>Core-ID  Address     Checked?   </b></p>
+<p><b>------------------------------ </b></p>
+<p><b>0        0xfedf0c40    [  ]     </b></p>
+<p><b>------------------------------ </b></p>
+<p><b> </b></p>
+<p>The review shall be performed like this: </p>
+<p></p>
+<p> </p>
+<p>Check that Address value is the same value for linker symbol _osCtrlVarsCore0 in the </p>
+<p>project map file which is generated by the linker. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 73 / 80 </p>
+<p><b>12.3 </b></p>
+<p><b>Linker Memory Sections </b></p>
+<p>The OS uses specific memory section names for the linker. Check that these section names are </p>
+<p>used in the linker file and check that they are used in the assigned area. </p>
+<p>The OS uses the linker memory section names described in the following table: </p>
+<p><b>Section Name and Type </b></p>
+<p><b>Description and Link Requirements </b></p>
+<p>.osExceptionVectorTable </p>
+<p>section type .text </p>
+<p>Contains the core exception vector table. It is generated into </p>
+<p>file intvect.c </p>
+<p>.osEIINTVectorTable </p>
+<p>section type .text </p>
+<p>Contains the EIINT exception vector table. It is generated into </p>
+<p>file intvect.c </p>
+<p>.os_text </p>
+<p>section type .text </p>
+<p>Contains the interrupt handler for category 2 ISRs. It is </p>
+<p>generated into file intvect.c </p>
+<p>Must be linked to program code section. </p>
+<p>.os_text </p>
+<p>section type .text </p>
+<p>Contains all OS program code, except those which must be </p>
+<p>placed in special sections (e.g. vector table). </p>
+<p>Must be linked to program code section. </p>
+<p>.os_rodata </p>
+<p>section type .rodata </p>
+<p>Contains the OS constant data, except those which must be </p>
+<p>placed in special sections (e.g. configuration block </p>
+<p>osConfigBlock). </p>
+<p>Must be linked to constant data section. </p>
+<p>.os_rosdata </p>
+<p>section type .rosdata </p>
+<p>Contains all OS constants which are placed in ROSDA area, </p>
+<p>except those which must be placed in special sections (e.g. </p>
+<p>configuration block osConfigBlock). </p>
+<p>Must be linked to the constant data in ROSDA section </p>
+<p>.osConfigBlock_rodata </p>
+<p>section type .rodata </p>
+<p>Contains the configuration block if SDA optimization is </p>
+<p>disabled. </p>
+<p>Must be linked to constant data section. </p>
+<p>.osConfigBlock_rosdata </p>
+<p>section type .rosdata </p>
+<p>Contains the configuration block if SDA optimization is enabled </p>
+<p>Must be linked to constant data in ROSDA section. </p>
+<p>.os_bss </p>
+<p>section type .bss </p>
+<p>Contains the uninitialized OS variables </p>
+<p>Optional initialized to zero by system startup code. </p>
+<p>Must be linked to the data section. </p>
+<p>.os_data </p>
+<p>section type .data </p>
+<p>Contains the initialized OS variables which must be copied </p>
+<p>from ROM to RAM by system startup code.  </p>
+<p>Must be linked to the data section. This section must be empty! </p>
+<p>.os_sbss </p>
+<p>section type .sbss </p>
+<p>Contains uninitialized OS variables which are placed in SDA </p>
+<p>area if SDA optimization is enabled. </p>
+<p>Optional initialized to zero by system startup code. </p>
+<p>Must be linked to the SDA section. </p>
+<p>.os_sdata </p>
+<p>section type .sdata </p>
+<p>Contains initialized OS variables which are placed in SDA area </p>
+<p>if SDA optimization is enabled. </p>
+<p>Must be linked to the SDA section. This section must be empty! </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 74 / 80 </p>
+<p><b>Section Name and Type </b></p>
+<p><b>Description and Link Requirements </b></p>
+<p>.osTaskStack&lt;TaskIndex&gt; </p>
+<p>section type .bss </p>
+<p>Contains the uninitialized task specific stack. </p>
+<p>Must be linked to the data section. </p>
+<p>.osSystemStack </p>
+<p>section type .bss </p>
+<p>Contains the uninitialized OS system stack. </p>
+<p>Must be linked to the data section. </p>
+<p>.osIntStackLevel&lt;Priority&gt; </p>
+<p>section type .bss </p>
+<p>Contains the uninitialized ISR specific stack. </p>
+<p>Must be linked to the data section. </p>
+<p>.osAppl_&lt;ApplName&gt;_bss </p>
+<p>section type .bss </p>
+<p>Contains uninitialized application data. </p>
+<p>Optional initialized to zero by system startup code. </p>
+<p>Must be linked to the data section. </p>
+<p>.osAppl_&lt;ApplName&gt;_sbss </p>
+<p>section type .sbss </p>
+<p>Contains uninitialized application data in SDA area if SDA </p>
+<p>optimization is enabled. </p>
+<p>Optional initialized to zero by system startup code. </p>
+<p>Must be linked to SDA section. </p>
+<p>.osAppl_&lt;ApplName&gt;_data </p>
+<p>section type .data </p>
+<p>Contains initialized application data. </p>
+<p>Must be linked to data section. </p>
+<p>.osAppl_&lt;ApplName&gt;_sdata </p>
+<p>section type .sdata </p>
+<p>Contains initialized application data in SDA area if SDA </p>
+<p>optimization is enabled. </p>
+<p>Must be linked to SDA section. </p>
+<p>.osGlobalShared_bss </p>
+<p>section type .bss </p>
+<p>Contains uninitialized global shared data. </p>
+<p>Optional initialized to zero by system startup code. </p>
+<p>Must be linked to data section. </p>
+<p>.osGlobalShared_sbss </p>
+<p>section type .sbss </p>
+<p>Contains uninitialized shared data in SDA area if SDA </p>
+<p>optimization is enabled. </p>
+<p>Optional initialized to zero by system startup code. </p>
+<p>Must be linked to SDA section. </p>
+<p>.osGlobalShared_data </p>
+<p>section type .data </p>
+<p>Contains initialized shared global data. </p>
+<p>Must be linked to data section. </p>
+<p>.osGlobalShared_sdata </p>
+<p>section type .sdata </p>
+<p>Contains initialized shared data in SDA area if SDA </p>
+<p>optimization is enabled. </p>
+<p>Must be linked to SDA section. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 75 / 80 </p>
+<p><b>12.4 </b></p>
+<p><b>Linker Include Files </b></p>
+<p>The generated linker include files shall be reviewed if they are used for serial production.  </p>
+<p> </p>
+<p><b>12.4.1 Review File osdata.dld </b></p>
+<p>File osdata.dld contains mapping of section types .bss and .data for trusted applications. </p>
+<p> </p>
+<p>For each trusted application the generated lines must look like: </p>
+<p><b>/* trusted application &lt;ApplName&gt; */ </b></p>
+<p><b>.osAppl_&lt;ApplName&gt;_bss   align(4) :&gt;. </b></p>
+<p><b>.osAppl_&lt;ApplName&gt;_data  align(4) :&gt;. </b></p>
+<p><b> </b></p>
+<p>The linker include file ends with the section mapping for OS data which must look like: </p>
+<p><b>.os_bss    align(4) :&gt;. </b></p>
+<p><b>.os_data   align(4) :&gt;. </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 76 / 80 </p>
+<p><b>12.4.2 Review File ossdata.dld </b></p>
+<p> </p>
+<p>The generated example file ossdata.dld contains the mapping of section types .sbss and </p>
+<p>.sdata for trusted and non-trusted applications. </p>
+<p>For non-trusted applications it also contains the mapping of section types .bss and .data.  </p>
+<p>This is necessary due to optimization for MPU region settings. </p>
+<p> </p>
+<p>For each trusted application the generated lines must look like: </p>
+<p><b>/* trusted application &lt;ApplName&gt; */ </b></p>
+<p><b>.osAppl_&lt;ApplName&gt;_sbss        align(4) :&gt;. </b></p>
+<p><b>.osAppl_&lt;ApplName&gt;_sdata       align(4) :&gt;. </b></p>
+<p><b> </b></p>
+<p>For each non-trusted application the generated lines must look like: </p>
+<p><b>/* non-trusted application &lt;ApplName&gt; */ </b></p>
+<p><b>.osAppl_&lt;ApplName&gt;_bss         align(4) :&gt;. </b></p>
+<p><b>.osAppl_&lt;ApplName&gt;_data        align(4) :&gt;. </b></p>
+<p><b>.osAppl_&lt;ApplName&gt;_sbss        align(4) :&gt;. </b></p>
+<p><b>.osAppl_&lt;ApplName&gt;_sdata       align(4) :&gt;. </b></p>
+<p><b>_&lt;Appl_Section_StartAddr&gt; = addr(.osAppl_&lt;ApplName&gt;_bss); </b></p>
+<p><b>_&lt;Appl_Section_EndAddr&gt;   = endaddr(.osAppl_&lt;ApplName&gt;_sdata)-1; </b></p>
+<p><b> </b></p>
+<p>After the mapping of the application sections the mapping for OS SDA sections must be </p>
+<p>generated like the following lines: </p>
+<p><b>.os_sbss    align(4) :&gt;. </b></p>
+<p><b>.os_sdata   align(4) :&gt;. </b></p>
+<p><b> </b></p>
+<p>After the mapping of the OS SDA sections the mapping for global shared sections must be </p>
+<p>generated like the following lines: </p>
+<p><b>.osGlobalShared_sbss    align(4) :&gt;. </b></p>
+<p><b>.osGlobalShared_sdata   align(4) :&gt;. </b></p>
+<p><b>.osGlobalShared_bss     align(4) :&gt;. </b></p>
+<p><b>.osGlobalShared_data    align(4) :&gt;. </b></p>
+<p><b>_osGlobalShared_StartAddr = addr(.osGlobalShared_sbss); </b></p>
+<p><b>_osGlobalShared_EndAddr   = endaddr(.osGlobalShared_data)-1; </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 77 / 80 </p>
+<p><b>12.4.3 Review File osstacks.dld </b></p>
+<p>File osstacks.dld contains mapping of all stack sections. </p>
+<p> </p>
+<p>Each stack section mapping for used interrupt priority levels must look like: </p>
+<p><b>.osIntStackLevel&lt;PrioLevel&gt; align(4) :&gt;. </b></p>
+<p><b>_osIntStackLevel&lt;PrioLevel&gt;_StartAddr = addr(.osIntStackLevel&lt;PrioLevel&gt;); </b></p>
+<p><b>_osIntStackLevel&lt;PrioLevel&gt;_EndAddr = endaddr(.osIntStackLevel&lt;PrioLevel&gt;); </b></p>
+<p> </p>
+<p>&lt;PrioLevel&gt; is the interrupt priority level 0 … 15 </p>
+<p> </p>
+<p>The mapping for the system stack section must look like: </p>
+<p><b>.osSystemStack align(4)  :&gt;. </b></p>
+<p><b>_osSystemStack_StartAddr = addr(.osSystemStack); </b></p>
+<p><b>_osSystemStack_EndAddr = endaddr(.osSystemStack); </b></p>
+<p><b> </b></p>
+<p>The system stack section is followed by the OS task stack sections which must look like: </p>
+<p> </p>
+<p><b>.osTaskStackosSystemApplicationCore00 align(4) :&gt;. </b></p>
+<p><b>_osTaskStackosSystemApplicationCore00_StartAddr = </b></p>
+<p><b>  addr(.osTaskStackosSystemApplicationCore00); </b></p>
+<p><b>_osTaskStackosSystemApplicationCore00_EndAddr = </b></p>
+<p><b>endaddr(.osTaskStackosSystemApplicationCore00); </b></p>
+<p><b> </b></p>
+<p><b>.osTaskStackosSystemApplicationCore01 align(4) :&gt;. </b></p>
+<p><b>_osTaskStackosSystemApplicationCore01_StartAddr = </b></p>
+<p><b>addr(.osTaskStackosSystemApplicationCore01); </b></p>
+<p><b>_osTaskStackosSystemApplicationCore01_EndAddr = </b></p>
+<p><b>endaddr(.osTaskStackosSystemApplicationCore01); </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The OS task stack sections are followed by the application task stack sections. </p>
+<p>Each application task stack section mapping must look like: </p>
+<p><b>.osTaskStack&lt;applname&gt;&lt;index&gt;  align(4)  :&gt;. </b></p>
+<p><b>_osTaskStack&lt;applname&gt;&lt;index&gt;_StartAddr = addr(.osTaskStack&lt;applname&gt;&lt;index&gt;); </b></p>
+<p><b>_osTaskStack&lt;applname&gt;&lt;index&gt;_EndAddr = endaddr(.osTaskStack&lt;applname&gt;&lt;index&gt;); </b></p>
+<p><b> </b></p>
+<p>&lt;applname&gt; is the name of the owner application </p>
+<p>&lt;index&gt; is the index number of the task stack: 0 … number of tasks per application </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 78 / 80 </p>
+<p><b>12.4.4 Review File osrom.dld </b></p>
+<p>File osrom.dld contains the sections used for initialized variables.  </p>
+<p> </p>
+<p>For each application which has data to be initialized during startup code the following lines must be </p>
+<p>generated: </p>
+<p><b>.ROM_osAppl_&lt;ApplName&gt;_data   ROM(.osAppl_&lt;ApplName&gt;_data)  :&gt;. </b></p>
+<p><b>.ROM_osAppl_&lt;ApplName&gt;_sdata  ROM(.osAppl_&lt;ApplName&gt;_sdata) :&gt;. </b></p>
+<p><b>.ROM_osAppl_&lt;ApplName&gt;_tdata  ROM(.osAppl_&lt;ApplName&gt;_tdata) :&gt;. </b></p>
+<p><b> </b></p>
+<p>File osrom.dld ends with the global shared initialized data sections which must look like: </p>
+<p><b>.ROM_GlobalShared_data   ROM(.osGlobalShared_data)  :&gt;. </b></p>
+<p><b>.ROM_GlobalShared_sdata  ROM(.osGlobalShared_sdata) :&gt;. </b></p>
+<p><b>.ROM_GlobalShared_tdata  ROM(.osGlobalShared_tdata) :&gt;. </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>12.4.5 Review File ostdata.dld </b></p>
+<p>File ostada.dld contains the mapping for application data in TDA section. </p>
+<p> </p>
+<p>For each application which has data in TDA section the following line must be generated: </p>
+<p><b>.osAppl_&lt;ApplName&gt;_tdata  align(4) MAX_SIZE(0x0100) :&gt;. </b></p>
+<p> </p>
+<p>File ostdata.dld ends with the mapping for global shared data in TDA section which must look like: </p>
+<p><b>.osGlobalShared_tdata  align(4) MAX_SIZE(0x0100) :&gt;. </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 79 / 80 </p>
+<p><b>12.5 </b></p>
+<p><b>Stack Size Configuration </b></p>
+<p>The size of task stacks, ISR stacks and the system stack is configured by the user. The application </p>
+<p>code  must  not  use  more  stack  then  configured.  Before  trusted  or  non-trusted  application  code </p>
+<p>(tasks,  ISRs,  trusted  and  non-trusted  functions)  is  executed  the  OS  always  reprogramms  MPU </p>
+<p>region 0 in order to protect the stack memory areas. </p>
+<p>The following table provides an overview of the stacks and which code parts need to be considered </p>
+<p>for the analysis of the required stack sizes. </p>
+<p><b>Stack </b></p>
+<p><b>Usage </b></p>
+<p>System Stack </p>
+<p>StartupHook </p>
+<p>ErrorHook </p>
+<p>ProtectionHook [SPMF92:0082] </p>
+<p>ShutdownHook [SPMF92:0081] </p>
+<p>Task Stacks </p>
+<p>the corresponding task function and its call tree </p>
+<p>ISRs of category 1 (when interrupting a task) </p>
+<p>ErrorHook </p>
+<p>Storing a context (144 Byte) </p>
+<p>ISR Stacks </p>
+<p>the corresponding category 2 ISR function and its call tree </p>
+<p>ISRs of category 1 (when interrupting an ISR) </p>
+<p>ErrorHook </p>
+<p>Storing a context (144 Byte) </p>
+<p> </p>
+<p>If  no  static  analysis  for  the  stack  requirement  is  made,  the  stack  usage  may  be  measured  by </p>
+<p>means </p>
+<p>of </p>
+<p>the </p>
+<p>API </p>
+<p>functions </p>
+<p>osGetStackUsage, </p>
+<p>osGetISRStackUsage </p>
+<p>and </p>
+<p>osGetSystemStackUsage,  when  StackUsageMeasurement  is  configured.  Measurement  has  to </p>
+<p>consider  the  maximum  stack  usage  of  the  code  under  measure.  It  has  to  be  ensured,  that  all </p>
+<p>directly and indirectly called functions are executed and use the maximum possible stack. </p>
+<p>Stack  Usage  measurement  is  implemented  by  filling  the  stack  with  a  pattern  on  startup  and </p>
+<p>counting the number of continuous patterns which have not been overwritten with another value. </p>
+<p>This may lead to a too small measured value in case the function under measure uses this pattern </p>
+<p>as value on its stack. </p>
+<p>As the hardware allows to enable interrupts even in non-trusted code, any non-trusted ISR may </p>
+<p>enable  nesting.  Therefore,  the  user  shall  expect  that  interrupt  nesting  can  always  occur  when </p>
+<p>defining the system stack size [SPMF92:0089]. </p>
+<p>The </p>
+<p>stack </p>
+<p>usage </p>
+<p>must </p>
+<p>be </p>
+<p>measured </p>
+<p>after </p>
+<p>the </p>
+<p>maximum </p>
+<p>call </p>
+<p>depth </p>
+<p>has </p>
+<p>been </p>
+<p>reached </p>
+<p>[SPMF92:0090]. </p>
+<p><b>12.6 </b></p>
+<p><b>Stack Monitoring </b></p>
+<p>The stack memory area is write protected via MPU region 0. Trusted and non-trusted applications </p>
+<p>and the OS cannot write to stack areas which belong to other applications. </p>
+<p>This  hardware  based  stack  monitoring  does  not  detect  all  stack  errors  [SPMF92:0076].  Stack </p>
+<p>overflow </p>
+<p>cannot </p>
+<p>be </p>
+<p>detected </p>
+<p>if </p>
+<p>the </p>
+<p>task </p>
+<p>or </p>
+<p>ISR </p>
+<p>stack </p>
+<p>is </p>
+<p>mapped </p>
+<p>immediately </p>
+<p>after </p>
+<p>the </p>
+<p>corresponding application data or global shared section. Stack underflow cannot be detected if the </p>
+<p>task  or  ISR  stack  is  mapped  immediately  before  the  corresponding  application  data  or  global </p>
+<p>shared section. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Manual MICROSAR OS SafeContext </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.05 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> 80 / 80 </p>
+<p><b>12.7 </b></p>
+<p><b>Usage of MPU Regions </b></p>
+<p>MPU region 0 is always used for stack area protection. It is always reprogrammed when </p>
+<p>the context is switched. Therefore MPU region 0 cannot be configured by the user.  </p>
+<p>Each MPU region 1 … 11 can be configured for static or dynamic usage: </p>
+<p></p>
+<p> </p>
+<p>If a MPU region is configured for static usage, then it is initialized in StartOS and not </p>
+<p>changed any more. For static MPU regions the user must specify the access attributes. </p>
+<p></p>
+<p> </p>
+<p>If a MPU region is configured for dynamic usage, then it is initialized in StartOS and not </p>
+<p>always reprogrammed when the context is switched. The access attributes for dynamic </p>
+<p>MU regions are configured by the OS. </p>
+<p>All stack sections must be mapped to a consecutive memory area. A static MPU region </p>
+<p>must be configured for this memory area so that trusted and non-trusted application have </p>
+<p>only read access to it. That means in supervisor and in user mode only reading is possible. </p>
+<p>Write access to dedicated stack is achieved at runtime via reprogrammed MPU region 0 </p>
+<p>when a task or ISR is started. </p>
+<p>A static MPU region must be configured for the applications data area so that in supervisor </p>
+<p>mode read and write is possible and in user mode only reading is possible. Write access to </p>
+<p>the dedicated application data area is achieved via dynamic MPU region which must be </p>
+<p>configured for each non-trusted application.  </p>
+<p>A static MPU region must be configured for the code and const area (i.e. ROM/FLASH) so </p>
+<p>that in supervisor mode (trusted applications) read, write and execute is possible and in </p>
+<p>user mode (non-trusted applications) only read and execute is possible in that area. </p>
+<p> </p>
+<p><b>12.8 </b></p>
+<p><b>Usage of Peripheral Interrupt API </b></p>
+<p>The OS provides functions which allow write access to EI level interrupt control registers </p>
+<p>EICn and to EI level interrupt mask registers IMRn in user mode. Non-trusted applications </p>
+<p>can enable or disable peripheral interrupt sources by means of this functions. Call of the </p>
+<p>OS peripheral interrupt API functions must be checked in every application that only valid </p>
+<p>interrupt sources are modified [SPMF92:04.0016].  </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

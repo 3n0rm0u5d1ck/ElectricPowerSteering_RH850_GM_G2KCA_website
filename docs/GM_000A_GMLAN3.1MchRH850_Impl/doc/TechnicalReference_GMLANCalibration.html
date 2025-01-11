@@ -1,0 +1,1450 @@
+---
+layout: default
+title: TechnicalReference_GMLANCalibration
+nav_order: 16
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>GMLAN 3.1 </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Calibration with GENy </p>
+<p>Version 2.01.01 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors </b></p>
+<p>Gunnar Meiss, Markus Schwarz, Jason Wolbers, Heiko </p>
+<p>Hübler, Frank Triem, Marco Pfalzgraf </p>
+<p><b>Versions: </b></p>
+<p>2.01.01 </p>
+<p><b>Status: </b></p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>2 / 24 </p>
+<p><b>1 </b></p>
+<p><b>Document Information </b></p>
+<p><b>1.1 </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Gunnar Meiss </p>
+<p>2007-04-13 </p>
+<p>1.0 </p>
+<p>Creation </p>
+<p>Gunnar Meiss </p>
+<p>2008-01-16 </p>
+<p>2.0 </p>
+<p>Added GENy Support </p>
+<p>Markus Schwarz </p>
+<p>2009-03-26 </p>
+<p>2.00.01 </p>
+<p>Corrected generation rules for </p>
+<p>nmVNMFStartSendCalCnt </p>
+<p>Jason Wolbers </p>
+<p>2012-03-27 </p>
+<p>2.00.02 </p>
+<p>Added descriptions for </p>
+<p>IlVnRxMessageEnabled, </p>
+<p>IlVnTxMessageEnabled </p>
+<p>Fixed Init Message description </p>
+<p>Heiko Hübler, </p>
+<p>Marco Pfalzgraf, </p>
+<p>Frank Triem </p>
+<p>2012-10-27 </p>
+<p>2.01.00 </p>
+<p>Added description for Rx Timeout Time </p>
+<p>Chapter 3 added </p>
+<p>Added descriptions for ‘Sleep Transition Time’, </p>
+<p>‘Supervision Stability Time’, ‘Max No Sleep </p>
+<p>Confirmation’ </p>
+<p>Frank Triem </p>
+<p>2013-01-28 </p>
+<p>2.01.01 </p>
+<p>ESCAN00064578: Update GMLAN version </p>
+<p>from GMLAN 3.0 to GMLAN 3.1 </p>
+<p>Table 1-1  </p>
+<p>History of the Document </p>
+<p><b>1.2 </b></p>
+<p><b>Reference Documents </b></p>
+<p><b>Index </b></p>
+<p><b>Document </b></p>
+<p>[1] </p>
+<p>Vector’s Interaction Layer User Manual </p>
+<p>[2] </p>
+<p>Vector’s Interaction Layer Technical Reference for GENy </p>
+<p>[3] </p>
+<p>Vector’s Interaction Layer Technical Reference for GM </p>
+<p>[4] </p>
+<p>Vector’s Network Management Technical Reference </p>
+<p>Table 1-2  </p>
+<p>References Documents </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector’s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>3 / 24 </p>
+<p><b>Contents </b></p>
+<p>3.1.1</p>
+<p> </p>
+<p>What is new?................................................................................................... 6</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>What has changed? ........................................................................................ 6</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>What is new?................................................................................................... 6</p>
+<p> </p>
+<p>3.2.2</p>
+<p> </p>
+<p>What has changed? ........................................................................................ 6</p>
+<p> </p>
+<p>5.1.1</p>
+<p> </p>
+<p>Message Delay Time ....................................................................................... 9</p>
+<p> </p>
+<p>5.1.2</p>
+<p> </p>
+<p>Minimum Update Time .................................................................................... 9</p>
+<p> </p>
+<p>5.1.3</p>
+<p> </p>
+<p>Periodic Rate................................................................................................. 10</p>
+<p> </p>
+<p>5.1.4</p>
+<p> </p>
+<p>Fast Periodic Rate ......................................................................................... 10</p>
+<p> </p>
+<p>5.1.5</p>
+<p> </p>
+<p>Init Message .................................................................................................. 10</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>Rx Timeout Time ........................................................................................... 11</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Initial Transmit Value ..................................................................................... 12</p>
+<p> </p>
+<p>5.3.1.1</p>
+<p> </p>
+<p>GENy Configuration ...................................................................................... 13</p>
+<p> </p>
+<p>5.3.1.2</p>
+<p> </p>
+<p>Initial Default Values of Transmit Signals ....................................................... 13</p>
+<p> </p>
+<p>5.3.1.3</p>
+<p> </p>
+<p>Start and Stop Default Values of Transmit Signals ......................................... 14</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>4 / 24 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>Signal layout of the example message .......................................................... 12</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>GENy configuration of the ‚Tx Signals’ view  with the example message’s </p>
+<p>signals ........................................................................................................... 13</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>“BusOff Recovery Time” configuration in GENy ............................................. 16</p>
+<p> </p>
+<p>Figure 6-2</p>
+<p> </p>
+<p>“Init Delay Time” configuration in GENy ......................................................... 17</p>
+<p> </p>
+<p>Figure 6-3</p>
+<p> </p>
+<p>&quot;Sleep Transition Time&quot; configuration in GENy .............................................. 18</p>
+<p> </p>
+<p>Figure 6-4</p>
+<p> </p>
+<p>&quot;Supervision Stability Time&quot; configuration in GENy ........................................ 19</p>
+<p> </p>
+<p>Figure 6-5</p>
+<p> </p>
+<p>&quot;Max No Sleep Confirmation&quot; configuration in GENy ..................................... 20</p>
+<p> </p>
+<p> </p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>History of the Document .................................................................................. 2</p>
+<p> </p>
+<p>Table 1-2 </p>
+<p> </p>
+<p>References Documents ................................................................................... 2</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>5 / 24 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This  document  describes  the  calibration  (post  build  configuration)  parameters  of  the </p>
+<p>GMLAN Handler that is configured with GENy. It does not describe the process how the </p>
+<p>calibration of the GMLAN Handler is carried out. </p>
+<p> </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>This document is valid for GMLAN 3.1 </p>
+<p></p>
+<p> Il_Vector_Gm version 1.01.00 and higher </p>
+<p></p>
+<p> Nm_Gmlan_Gm version 4.03.00 and higher </p>
+<p>Changes to previous module version can be found in chapter 3. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>6 / 24 </p>
+<p><b>3 </b></p>
+<p><b>Module History </b></p>
+<p>This chapter describes the calibration implementation of the Vector Interaction Layer and </p>
+<p>Network Management for General Motors in GENy. </p>
+<p><b>3.1 </b></p>
+<p><b>Il_Vector_Gm Version 1.01.00 </b></p>
+<p><b>3.1.1 </b></p>
+<p><b>What is new? </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The Rx Timeout Time for each message is calibrated (chapter 5.2.1). </p>
+<p><b>3.1.2 </b></p>
+<p><b>What has changed? </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>There are no changes in this version. </p>
+<p><b>3.2 </b></p>
+<p><b>Nm_Gmlan_Gm Version 4.03.00 </b></p>
+<p><b>3.2.1 </b></p>
+<p><b>What is new? </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>New calibrateable values for ‘Sleep Transition Time’, ‘Supervision Stability Time’ and </p>
+<p>‘Max No Sleep Confirmation’ (chapters 6.5, 6.6 and 6.7). </p>
+<p><b>3.2.2 </b></p>
+<p><b>What has changed? </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>There are no changes in this version. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>7 / 24 </p>
+<p><b>4 </b></p>
+<p><b>GMLAN Handler Calibration </b></p>
+<p>The  calibration  of  the  GMLAN  Handler  is  done  by  modification  of  the  post  build  time </p>
+<p>configuration parameters (constant variables and tables) that can be found in </p>
+<p>gmlcal.c</p>
+<p>. </p>
+<p> </p>
+<p>The following chapter describes in detail the configuration parameters (constant variables </p>
+<p>and tables) of the generated file </p>
+<p>gmlcal.c</p>
+<p>. </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>If the calculated Table Values have a remainder, the value has to be rounded depending </p>
+<p>on your needs.</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>8 / 24 </p>
+<p><b>5 </b></p>
+<p><b>Il_Vector_Gm : Interaction Layer </b></p>
+<p>This chapter describes the calibration capabilities of the Interaction Layer. </p>
+<p><b>5.1 </b></p>
+<p><b>Transmit Messages </b></p>
+<p>The GMLAN Handler provides the ability to enable and disable the transmit process for </p>
+<p>each transmitted functional message with the function </p>
+<p>IlSetTxMessageEnable(..)</p>
+<p>.  </p>
+<p>The default for this calibration is ‘enabled’. </p>
+<p>This  can  also  be  calibrated  directly  using  the  table </p>
+<p>IlVnTxMessageEnabled[]</p>
+<p>.  Note </p>
+<p>that  using  the  function </p>
+<p>IlSetTxMessageEnable</p>
+<p>  has  the  same  effect  as  modifying </p>
+<p>IlVnTxMessageEnabled[]</p>
+<p>, so it is not necessary to both calibrate the table and call the </p>
+<p>function.  The  table  is  a  bit-packed  field  where  each  bit  represents  one  IL  transmit </p>
+<p>message.  If  the  bit  is  a  1,  the  message  is  calibrated  on  and  can  be  sent  whenever  a </p>
+<p>relevant VN is active; if the bit is a 0, the message is calibrated off and will never be sent </p>
+<p>by  the  IL  at  runtime  regardless  of  VN  activity.  The  IL  messages  are  ordered  least </p>
+<p>significant bit to most significant bit in each byte. The first byte contains IL messages 7-0, </p>
+<p>the </p>
+<p>second </p>
+<p>byte </p>
+<p>15-8, </p>
+<p>and </p>
+<p>so </p>
+<p>on. </p>
+<p>For </p>
+<p>example, </p>
+<p>consider </p>
+<p>a </p>
+<p>single </p>
+<p>CAN </p>
+<p>channel </p>
+<p>configuration with 10 IL messages: </p>
+<p>{0xFF, 0x03}</p>
+<p> – All 10 IL messages are calibrated on </p>
+<p>{0xFE, 0x03}</p>
+<p> – IL message 0 is calibrated off </p>
+<p>{0x7F, 0x03}</p>
+<p> – IL message 7 is calibrated off </p>
+<p>{0xFF, 0x01}</p>
+<p> – IL message 9 is calibrated off </p>
+<p> </p>
+<p>When </p>
+<p>a </p>
+<p>configuration </p>
+<p>contains </p>
+<p>more </p>
+<p>than </p>
+<p>one </p>
+<p>CAN </p>
+<p>channel, </p>
+<p>a </p>
+<p>new </p>
+<p>byte </p>
+<p>in </p>
+<p>IlVnTxMessageEnabled</p>
+<p> is started to represent the IL messages for the next channel. </p>
+<p>The remaining bits in the byte for the previous channel are skipped and have no meaning. </p>
+<p>For  example,  consider  a  configuration  with  10  IL  messages  on  channel  0  and  12  IL </p>
+<p>messages on channel 1: </p>
+<p>{0xFF, 0x03, 0xFF, 0x0F}</p>
+<p> – All 22 IL messages are calibrated on </p>
+<p>{0xFF, 0x03, 0xFE, 0x0F}</p>
+<p> – IL message 10 (the first IL message on channel 1) is </p>
+<p>calibrated off </p>
+<p>{0xFF, 0x03, 0x7F, 0x0F}</p>
+<p> – IL message 17 (the eighth IL message on channel 1) is </p>
+<p>calibrated off </p>
+<p> </p>
+<p>The numbering of the IL messages can be found at the top of the generated file </p>
+<p>il_par.h</p>
+<p> </p>
+<p>in  the  format </p>
+<p>#define IlTxMsgHnd&lt;message name&gt; &lt;number&gt;</p>
+<p>.  Non-IL  messages </p>
+<p>(VNMF, HLVW, diagnostics, etc.) cannot be calibrated using this method. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>9 / 24 </p>
+<p><b>5.1.1 </b></p>
+<p><b>Message Delay Time </b></p>
+<p>The start delay time for each transmit message (Interaction Layer Tx Handle) is configured </p>
+<p>in the table </p>
+<p>IlTxStartCycles[]</p>
+<p>. </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>GenMsgStartDelayTime </p>
+<p>The start delay time of a message in ms. </p>
+<p>This is also the corresponding database attribute. </p>
+<p>kIlTxCycleTime </p>
+<p>The call cycle time of the </p>
+<p>IlTxTask</p>
+<p> of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the corresponding IL Tx handle. </p>
+<p> </p>
+<p>The Formula for the Value Calculation is: </p>
+<p><i>TableValue</i></p>
+<p><i>Time</i></p>
+<p><i>kIlTxCycle</i></p>
+<p><i>tDelayTime</i></p>
+<p><i>GenMsgStar</i></p>
+<p>=</p>
+<p>+</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>1</p>
+<p> </p>
+<p>If the following condition matches, the value 0 has to be used for the IL Tx handle. </p>
+<p>0</p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p><i>Time</i></p>
+<p><i>kIlTxCycle</i></p>
+<p><i>tDelayTime</i></p>
+<p><i>GenMsgStar</i></p>
+<p> </p>
+<p><b>5.1.2 </b></p>
+<p><b>Minimum Update Time </b></p>
+<p>The  minimum  update  time  for  each  transmit  message  (Interaction  Layer  Tx  Handle)  is </p>
+<p>configured in the table </p>
+<p>IlTxUpdateCycles[]</p>
+<p>. </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>GenMsgDelayTime </p>
+<p>The delay time of a message in ms. </p>
+<p>This is also the corresponding database attribute. </p>
+<p>kIlTxCycleTime </p>
+<p>The call cycle time of the </p>
+<p>IlTxTask </p>
+<p>of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent IL Tx handle. </p>
+<p> </p>
+<p>The Formula for the Value Calculation is: </p>
+<p><i>TableValue</i></p>
+<p><i>Time</i></p>
+<p><i>kIlTxCycle</i></p>
+<p><i>yTime</i></p>
+<p><i>GenMsgDela</i></p>
+<p>=</p>
+<p>+</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>1</p>
+<p> </p>
+<p>If the following condition matches, the value 0 has to be used for the IL Tx handle. </p>
+<p>0</p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p><i>Time</i></p>
+<p><i>kIlTxCycle</i></p>
+<p><i>yTime</i></p>
+<p><i>GenMsgDela</i></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>10 / 24 </p>
+<p><b>5.1.3 </b></p>
+<p><b>Periodic Rate </b></p>
+<p>The periodic rate for each transmit message (Interaction Layer Tx Handle) is configured in </p>
+<p>the table </p>
+<p>IlTxCyclicCycles[]</p>
+<p>. </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>GenMsgCycleTime </p>
+<p>The cycle time of a cyclic message in ms. </p>
+<p>This is also the corresponding database attribute. </p>
+<p>kIlTxCycleTime </p>
+<p>The call cycle time of the </p>
+<p>IlTxTask</p>
+<p> of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent IL Tx handle. </p>
+<p> </p>
+<p>The Formula for the Value Calculation is: </p>
+<p><i>TableValue</i></p>
+<p><i>Time</i></p>
+<p><i>kIlTxCycle</i></p>
+<p><i>eTime</i></p>
+<p><i>GenMsgCycl</i></p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p> </p>
+<p> </p>
+<p><b>5.1.4 </b></p>
+<p><b>Fast Periodic Rate </b></p>
+<p>The </p>
+<p>fast </p>
+<p>periodic </p>
+<p>rate </p>
+<p>for </p>
+<p>each </p>
+<p>transmit </p>
+<p>message </p>
+<p>(Interaction </p>
+<p>Layer </p>
+<p>Tx </p>
+<p>Handle) </p>
+<p>is </p>
+<p>configured in the table </p>
+<p>IlTxEventCycles[]</p>
+<p>. </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>GenMsgCycleTimeFast </p>
+<p>The fast cycle time of a message in ms. </p>
+<p>This is also the corresponding database attribute. </p>
+<p>kIlTxCycleTime </p>
+<p>The call cycle time of the </p>
+<p>IlTxTask</p>
+<p> of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent IL Tx handle. </p>
+<p> </p>
+<p>The Formula for the Value Calculation is: </p>
+<p><i>TableValue</i></p>
+<p><i>Time</i></p>
+<p><i>kIlTxCycle</i></p>
+<p><i>eTimeFast</i></p>
+<p><i>GenMsgCycl</i></p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p> </p>
+<p> </p>
+<p><b>5.1.5 </b></p>
+<p><b>Init Message </b></p>
+<p>The  Init  Messages  are  enabled/disabled  in  the  table </p>
+<p>IlVnTxSendOnInit[]</p>
+<p>. The  table </p>
+<p>contains one bit for each transmit message (Interaction Layer Tx Handle): </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>0: The transmit message is not an Init Message </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>1: The transmit message is an Init Message </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The layout of the table follows the same pattern as </p>
+<p>IlVnTxMessageEnabled[]</p>
+<p> for </p>
+<p>transmit messages.  Please see section 4.1 for a description and examples. </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>The implementation of the table has changed between CANGen and GENy. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>11 / 24 </p>
+<p>Any  message  that  is  transmitted  via  the  Interaction  Layer  (usually  all  messages  with </p>
+<p>extended  IDs)  can  be  configured  as  Init  Messages.  These  messages  are  transmitted </p>
+<p>according to the configured transmission type ‘cyclic’, ‘on event’ or ‘cyclic and on event’. </p>
+<p>The Init Messages are additional transmitted upon: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Reception or transmission of an I-VNMF that initializes at least one VN that is </p>
+<p>associated to the VN </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Start of a Shared Local VN, which the message is associated to </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>All Initial Messages that are associated to any Initially Active VN are transmitted upon </p>
+<p>reception of a HLVW. </p>
+<p>The transmission of the Init Message is delayed according to the calibrated message delay </p>
+<p>time. Refer to 5.1.1. </p>
+<p><b>5.2 </b></p>
+<p><b>Receive Messages </b></p>
+<p>The  GMLAN  Handler  provides  the  ability  to  enable  and  disable  the  receive  process  for </p>
+<p>each received functional message with the function </p>
+<p>IlSetRxMessageEnable(..)</p>
+<p>.  </p>
+<p>The default for this calibration is ‘enabled’. </p>
+<p>This  can  also  be  calibrated  directly  using  the  table </p>
+<p>IlVnRxMessageEnabled[]</p>
+<p>.  Note </p>
+<p>that  using  the  function </p>
+<p>IlSetRxMessageEnable</p>
+<p>  has  the  same  effect  as  modifying </p>
+<p>IlVnRxMessageEnabled[]</p>
+<p>, so it is not necessary to both calibrate the table and call the </p>
+<p>function.  The layout of the table follows the same pattern as </p>
+<p>IlVnTxMessageEnabled[]</p>
+<p> </p>
+<p>for transmit messages. Please see section 4.1 for a description and examples. </p>
+<p><b>5.2.1 </b></p>
+<p><b>Rx Timeout Time </b></p>
+<p>The Rx Timeout Time for each message is configured in the table </p>
+<p>IlRxTimeoutTbl[]</p>
+<p>. </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>GenSigTimeoutTime_&lt;ECU&gt; </p>
+<p>Timeout time of a message in ms. </p>
+<p>This is also the corresponding database attribute. </p>
+<p>kIlRxCycleTime </p>
+<p>The call cycle time of the </p>
+<p>IlRxTask</p>
+<p> of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent IL Rx handle. </p>
+<p> </p>
+<p>The Formula for the Value Calculation is: </p>
+<p><i>TableValue</i></p>
+<p><i>Time</i></p>
+<p><i>kIlRxCycle</i></p>
+<p><i>outTime</i></p>
+<p><i>GenSigTime</i></p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>12 / 24 </p>
+<p><b>5.3 </b></p>
+<p><b>Transmit Signals </b></p>
+<p><b>5.3.1 </b></p>
+<p><b>Initial Transmit Value </b></p>
+<p>This chapter describes the configuration of Tx signal default values that are set are set in </p>
+<p>the Interaction Layer state transitions </p>
+<p>IlInit</p>
+<p> / </p>
+<p>IlTxStart</p>
+<p> / </p>
+<p>IlTxStop</p>
+<p>. </p>
+<p>The following message layout is used as example in the following chapters. </p>
+<p> </p>
+<p>Figure 5-1 </p>
+<p>Signal layout of the example message </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>13 / 24 </p>
+<p><b>5.3.1.1 </b></p>
+<p><b>GENy Configuration </b></p>
+<p>In  order  to  have  the  calibration  (post  build)  capability  of  default  values  for  all  transmit </p>
+<p>signals the ‘Init default’, ‘Start default’ and ‘Stop default’ have to be activated in GENy as </p>
+<p>shown in the following figures. </p>
+<p> </p>
+<p>Figure 5-2 </p>
+<p>GENy configuration of the ‚Tx Signals’ view  with the example message’s signals </p>
+<p><b>5.3.1.2 </b></p>
+<p><b>Initial Default Values of Transmit Signals </b></p>
+<p>The </p>
+<p>generated </p>
+<p>file </p>
+<p>gmlcal.c</p>
+<p> </p>
+<p>contains </p>
+<p>for </p>
+<p>each </p>
+<p>transmit </p>
+<p>message </p>
+<p>a </p>
+<p>table </p>
+<p>named </p>
+<p>&lt;</p>
+<p><i>MessageName</i></p>
+<p>&gt;</p>
+<p>IlTxDefaultInitValue</p>
+<p> with the data type </p>
+<p>vuint8 []</p>
+<p>. </p>
+<p> </p>
+<p>The size of the table depends on the length of the data of the corresponding message that </p>
+<p>is relevant for your node. The table contains the default values of the message. </p>
+<p> </p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>The SignalA is located in the first byte of the array. The signal starts in bit 4 and ends in </p>
+<p>bit 7 as shown in Figure 5-1. </p>
+<p>If for example </p>
+<p>the default value for the SignalA in the Intel format is 1 and for the SignalB </p>
+<p>and SignalC is 0, the table would contain the following values: </p>
+<p> </p>
+<p>GMLCAL_MEMROM0 GMLCAL_MEMROM1 vuint8 GMLCAL_MEMROM2 </p>
+<p>MessageIlTxDefaultInitValue[] = { </p>
+<p>   0x10 </p>
+<p>  ,0x00 </p>
+<p>};</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The byte order (Little Endian / Big Endian) has to be taken in account when setting up </p>
+<p>the default values for the signals. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>14 / 24 </p>
+<p><b>5.3.1.3 </b></p>
+<p><b>Start and Stop Default Values of Transmit Signals </b></p>
+<p>The </p>
+<p>generated </p>
+<p>file </p>
+<p>gmlcal.c</p>
+<p> </p>
+<p>contains </p>
+<p>for </p>
+<p>each </p>
+<p>transmit </p>
+<p>message </p>
+<p>a </p>
+<p>table </p>
+<p>named </p>
+<p>&lt;</p>
+<p><i>MessageName</i></p>
+<p>&gt;</p>
+<p>IlTxDefaultStartMask</p>
+<p> </p>
+<p>for </p>
+<p>the </p>
+<p>IlTxStart</p>
+<p> </p>
+<p>transition </p>
+<p>and </p>
+<p>&lt;</p>
+<p><i>MessageName</i></p>
+<p>&gt;</p>
+<p>IlTxDefaultStopMask</p>
+<p> for the </p>
+<p>IlTxStop</p>
+<p> transition with the data type </p>
+<p>vuint8 []</p>
+<p>.  </p>
+<p>The size of these tables depends on the length of the data of the corresponding message </p>
+<p>that  is  relevant  for  your  node.  These  tables  contain  masks  that  are  applied  on  the </p>
+<p>corresponding default value of the table &lt;</p>
+<p><i>MessageName</i></p>
+<p>&gt;</p>
+<p>IlTxDefaultInitValue</p>
+<p>. </p>
+<p>The mask table contains a ‘set bit’ at each bit position, where the default value is applied. </p>
+<p> </p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>If for example the default value for the SignalA shall be set at </p>
+<p>IlTxStart</p>
+<p> and not for </p>
+<p>SignalB and SignalC, the table would contain the following values: </p>
+<p> </p>
+<p>GMLCAL_MEMROM0 GMLCAL_MEMROM1 vuint8 GMLCAL_MEMROM2 </p>
+<p>MessageIlTxDefaultStartMask[] = { </p>
+<p>   0xF0 </p>
+<p>  ,0x00 </p>
+<p>};</p>
+<p> </p>
+<p> </p>
+<p><b>5.4 </b></p>
+<p><b>Receive Signals </b></p>
+<p>Receive signal calibration is not supported by the GMLAN Handler. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>15 / 24 </p>
+<p><b>6 </b></p>
+<p><b>Nm_Gmlan_Gm : Network Management </b></p>
+<p>This chapter describes the calibration capabilities of the Network Management. </p>
+<p><b>6.1 </b></p>
+<p><b>nmVNMFStartSendCalCnt (Bus Wakeup Delay Time) </b></p>
+<p>This  is  the  time  between  transmission  of  a  HLVW  message  and  a  VNMF-Init  message </p>
+<p>when activating a Virtual Network. Also known as the Bus Wakeup Delay Time. Time is </p>
+<p>measured in multiples of the Nm Cycle Time. Default value is 100ms. </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>BusWakeupDelayTime </p>
+<p>Delay time in ms. </p>
+<p>NM_CYCLETIME </p>
+<p>The call cycle time of the IlNwmTask of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent NM channel. </p>
+<p> </p>
+<p><i>TableValue</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>yTime</i></p>
+<p><i>NmInitDela</i></p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>−</p>
+<p>+</p>
+<p>_</p>
+<p>1</p>
+<p>_</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>For a single channel configuration, there is only a constant generated. </p>
+<p>For a multi channel configuration there will be an array generated which will have </p>
+<p>as much entries as CAN channels are configured. The first entry is used for the </p>
+<p>first CAN channel, the second for the second CAN channel and so on.  </p>
+<p> </p>
+<p><b>6.2 </b></p>
+<p><b>nmVNMFSendTimeCalCnt (VMNMF Periodic rate) </b></p>
+<p>Time between sending continue VNMFs. Time is measured as multiples of the Nm Cycle </p>
+<p>Time. Default value is 3000ms if the attribute GenMsgCycleTime for this VNMF message </p>
+<p>is not set to a different value in the database. </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>VNMFPeriodicRate </p>
+<p>Cycle of the VNMF message time in ms. </p>
+<p>NM_CYCLETIME </p>
+<p>The call cycle time of the IlNwmTask of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent NM channel. </p>
+<p> </p>
+<p><i>TableValue</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>icRate</i></p>
+<p><i>VNMFPeriod</i></p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>−</p>
+<p>+</p>
+<p>_</p>
+<p>1</p>
+<p>_</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>16 / 24 </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>For a single channel configuration, there is only a constant generated. </p>
+<p>For a multi channel configuration there will be an array generated which will have </p>
+<p>as much entries as CAN channels are configured. The first entry is used for the </p>
+<p>first CAN channel, the second for the second CAN channel and so on.  </p>
+<p> </p>
+<p><b>6.3 </b></p>
+<p><b>nmBusoffRecoveryTimeCalCnt (BusOff Recovery Delay Time) </b></p>
+<p>The ‘BusOff recovery Delay Time’ is the time to wait after a BUS-OFF event to reset the </p>
+<p>CAN controller and attempt recovery. The time is measured as multiples of the Nm Cycle </p>
+<p>Time. The value corresponds to the “BusOff Recovery Time” field in the channel properties </p>
+<p>of GENy. </p>
+<p> </p>
+<p>Figure 6-1 </p>
+<p>“BusOff Recovery Time” configuration in GENy </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>BusOffRecoveryDelayTime </p>
+<p>Delay time in ms for Bus-Off recovery. </p>
+<p>NM_CYCLETIME </p>
+<p>The call cycle time of the IlNwmTask of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent NM channel. </p>
+<p> </p>
+<p><i>TableValue</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>me</i></p>
+<p><i>eryDelayTi</i></p>
+<p><i>BusOff</i></p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>−</p>
+<p>+</p>
+<p>_</p>
+<p>1</p>
+<p>_</p>
+<p>cov</p>
+<p>Re</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>For a single channel configuration, there is only a constant generated. </p>
+<p>For a multi channel configuration there will be an array generated which will have </p>
+<p>as much entries as CAN channels are configured. The first entry is used for the </p>
+<p>first CAN channel, the second for the second CAN channel and so on.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>17 / 24 </p>
+<p><b>6.4 </b></p>
+<p><b>nmInitDelayTimeCalCnt (Init Delay Time) </b></p>
+<p>For initially-active Virtual Networks, the ‘Init DelayTime’ defines the time between reception </p>
+<p>of  a  HLVW  message  and  transmission  of  Node  Communication Active  (NCA),  periodic, </p>
+<p>and send on-init messages. The time is measured as multiples of the Nm Cycle Time. The </p>
+<p>value corresponds to the “Init Delay Time” field in the channel properties of GENy. </p>
+<p> </p>
+<p>Figure 6-2 </p>
+<p>“Init Delay Time” configuration in GENy </p>
+<p> </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>NmInitDelayTime </p>
+<p>Delay time in ms. </p>
+<p>NM_CYCLETIME </p>
+<p>The call cycle time of the IlNwmTask of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent NM channel. </p>
+<p> </p>
+<p><i>TableValue</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>yTime</i></p>
+<p><i>NmInitDela</i></p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>−</p>
+<p>+</p>
+<p>_</p>
+<p>1</p>
+<p>_</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>For a single channel configuration, there is only a constant generated. </p>
+<p>For a multi channel configuration there will be an array generated which will have </p>
+<p>as much entries as CAN channels are configured. The first entry is used for the </p>
+<p>first CAN channel, the second for the second CAN channel and so on.  </p>
+<p> </p>
+<p><b>6.5 </b></p>
+<p><b>nmSleepTransitionDelayTimeCalCnt (Sleep Transition Time) </b></p>
+<p>The ‘Sleep Transition Time’ defines an extra delay time between CAN driver initialization </p>
+<p>and setting the transceiver into sleep mode during shut down. This extra time gap between </p>
+<p>CanInit()</p>
+<p> and </p>
+<p>ApplTrcvrSleepMode()</p>
+<p>provides additional protection against missing </p>
+<p>of wake-up messages (HLVW). </p>
+<p>The  total  time  is  calculated  by  adding  the  'Bus  Wakeup  Delay  Time'  (chapter  6.1)  and </p>
+<p>'Sleep Transition Time' (this value). Note: The total time must not exceed 4 seconds! </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>18 / 24 </p>
+<p>The value corresponds to the “Init Delay Time” field in the channel properties of GENy. The </p>
+<p>default value is 50ms. </p>
+<p> </p>
+<p>Figure 6-3 </p>
+<p>&quot;Sleep Transition Time&quot; configuration in GENy </p>
+<p> </p>
+<p>Time is measured as multiples of the Nm Cycle Time. </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>NmSleepTransitionTime </p>
+<p>Delay time in ms. </p>
+<p>NM_CYCLETIME </p>
+<p>The call cycle time of the IlNwmTask of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent NM channel. </p>
+<p> </p>
+<p><i>TableValue</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>e</i></p>
+<p><i>nsitionTim</i></p>
+<p><i>NmSleepTra</i></p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>−</p>
+<p>+</p>
+<p>_</p>
+<p>1</p>
+<p>_</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>For a single channel configuration, there is only a constant generated. </p>
+<p>For a multi channel configuration there will be an array generated which will have </p>
+<p>as much entries as CAN channels are configured. The first entry is used for the </p>
+<p>first CAN channel, the second for the second CAN channel and so on.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>19 / 24 </p>
+<p><b>6.6 </b></p>
+<p><b>nmSupervisionStabilityTimeCalCnt (Supervision Stability Time) </b></p>
+<p>The ‘Supervision Stability Time’ defines a delay time between activation of a VN and start </p>
+<p>of Rx supervision of the corresponding signals. It is used to avoid 'Loss of Communication' </p>
+<p>DTCs due to transient conditions after VN activation. </p>
+<p>The value corresponds to the “Init Delay Time” field in the channel properties of GENy. It is </p>
+<p>derived by the dbc attribute 'NodeSuprvStabilityTime'. If attribute does not exist, a default </p>
+<p>value of 5000ms is used. </p>
+<p> </p>
+<p>Figure 6-4 </p>
+<p>&quot;Supervision Stability Time&quot; configuration in GENy </p>
+<p> </p>
+<p>Time is measured as multiples of the Nm Cycle Time. </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>NmSuprvStabilityTime </p>
+<p>Delay time in ms. </p>
+<p>NM_CYCLETIME </p>
+<p>The call cycle time of the IlNwmTask of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent NM channel. </p>
+<p> </p>
+<p><i>TableValue</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>bilityTime</i></p>
+<p><i>NmSuprvSta</i></p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>−</p>
+<p>+</p>
+<p>_</p>
+<p>1</p>
+<p>_</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>For a single channel configuration, there is only a constant generated. </p>
+<p>For a multi channel configuration there will be an array generated which will have </p>
+<p>as much entries as CAN channels are configured. The first entry is used for the </p>
+<p>first CAN channel, the second for the second CAN channel and so on.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>20 / 24 </p>
+<p><b>6.7 </b></p>
+<p><b>nmMaxApplShutDownDenyCnt (Max No Sleep Confirmation) </b></p>
+<p>This value is only used if ‘Fault Detection and Mitigation’ and ‘Sleep Confirmation’ are both </p>
+<p>enabled in GENy. </p>
+<p>The value defines a threshold for number of times the application may deny the transition </p>
+<p>to sleep mode within </p>
+<p>ApplNwmSleepConfirmation()</p>
+<p>. For detailed description of Fault </p>
+<p>Detection and Mitigation Algorithm see chapter 3.11 in [4]. </p>
+<p>The value corresponds to the “Max No Sleep Confirmation” field in the channel properties </p>
+<p>of GENy. The default value is 5. </p>
+<p> </p>
+<p>Figure 6-5 </p>
+<p>&quot;Max No Sleep Confirmation&quot; configuration in GENy </p>
+<p> </p>
+<p>The value is generated directly as defined in GENy. </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>For a single channel configuration, there is only a constant generated. </p>
+<p>For a multi channel configuration there will be an array generated which will have </p>
+<p>as much entries as CAN channels are configured. The first entry is used for the </p>
+<p>first CAN channel, the second for the second CAN channel and so on.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>21 / 24 </p>
+<p><b>6.8 </b></p>
+<p><b>GMLANNodeStatusTimeoutTimeCalCnt </b></p>
+<p><b>(Node </b></p>
+<p><b>Communication </b></p>
+<p><b>Active </b></p>
+<p><b>Frame </b></p>
+<p><b>Timeout) </b></p>
+<p>The timeout for incoming Node Communication Active (NCA) messages is configured with </p>
+<p>kGMLANNodeStatusTimeoutTimeCalCnt</p>
+<p>.  Failure  to  receive  a  NCA  message  in  this </p>
+<p>period indicates that a node has failed. Time is measured as multiples of the Nm Cycle </p>
+<p>Time. The value corresponds to the value of the NodeStatusMsgTimeoutTime attribute in </p>
+<p>the database. </p>
+<p><b>Symbol </b></p>
+<p><b>Description </b></p>
+<p>NodeStatusMsgTimeoutTime </p>
+<p>Timeout time in ms. </p>
+<p>NM_CYCLETIME </p>
+<p>The call cycle time of the </p>
+<p>IlNwmTask</p>
+<p> of the dependent </p>
+<p>channel in ms. </p>
+<p>TableValue </p>
+<p>The value in the table for the dependent NM channel. </p>
+<p> </p>
+<p><i>TableValue</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>CYCLETIME</i></p>
+<p><i>NM</i></p>
+<p><i>Time</i></p>
+<p><i>MsgTimeout</i></p>
+<p><i>NoteStatus</i></p>
+<p>=</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>−</p>
+<p>+</p>
+<p>_</p>
+<p>1</p>
+<p>_</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>For a single channel configuration, there is only a constant generated. </p>
+<p>For a multi channel configuration there will be an array generated which will have </p>
+<p>as much entries as CAN channels are configured. The first entry is used for the </p>
+<p>first CAN channel, the second for the second CAN channel and so on.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>22 / 24 </p>
+<p><b>7 </b></p>
+<p><b>Memory Definition file: MemDef.h </b></p>
+<p>In order to allow calibration of the GMLAN Handler without modification of the generated </p>
+<p>configuration  files  all  calibration  parameters  are  located  in  the  same  file  (</p>
+<p>gmlcal.c</p>
+<p>). </p>
+<p>Since the calibration parameters are stored in non-volatile memory (flash or EEPROM) the </p>
+<p>possibility of linking/locating these parameters in a separate memory section is provided. </p>
+<p>There are mechanisms in order to support various compilers: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Memory Mapping via pre-processor directives (</p>
+<p>#pragma</p>
+<p>) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Linking of tables with memory qualifiers </p>
+<p>If necessary both mechanism may be combined. </p>
+<p><b>7.1 </b></p>
+<p><b>Memory Mapping </b></p>
+<p>The memory mapping with pre-processor directives is done with the definition of sections </p>
+<p>that are embraced with a start definition that is followed by MemDef.h and a stop definition </p>
+<p>that is followed by MemDef.h. By adding </p>
+<p>#pragma</p>
+<p> definitions at the beginning and end of </p>
+<p>a  section  the  parameters  (tables)  in-between  may  be  linked  in  to  a  defined  memory </p>
+<p>section. </p>
+<p> </p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>The following code shows a partial extract of gmlcal.c and a the mapping of the </p>
+<p>calibration parameters to the section </p>
+<p>CALIBRATION</p>
+<p>: </p>
+<p>gmlcal.c: </p>
+<p>#define GMLCAL_START_SEC_CONST </p>
+<p>#include &quot;MemDef.h&quot; </p>
+<p> </p>
+<p>GMLCAL_MEMROM0 GMLCAL_MEMROM1 canuint16 GMLCAL_MEMROM2 </p>
+<p>nmBusoffRecoverTimeCalCnt = (NM_BUSOFF_RECOVER_TIME + NM_CYCLETIME-</p>
+<p>1)/NM_CYCLETIME; </p>
+<p> </p>
+<p>#define GMLCAL_STOP_SEC_CONST </p>
+<p>#include &quot;MemDef.h&quot; </p>
+<p> </p>
+<p>MemDef.h: </p>
+<p>/* Definition of section for calibration parameters. */ </p>
+<p>#if defined ( GMLCAL_START_SEC_CONST ) </p>
+<p>#undef GMLCAL_START_SEC_CONST </p>
+<p>#pragma section .CALIBRATION </p>
+<p>#endif </p>
+<p> </p>
+<p>/* Definition of section for default parameters. */ </p>
+<p>#if defined ( GMLCAL_STOP_SEC_CONST ) </p>
+<p>#undef GMLCAL_STOP_SEC_CONST </p>
+<p>#pragma section .DEFAULT </p>
+<p>#endif </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>23 / 24 </p>
+<p><b>7.2 </b></p>
+<p><b>Memory Qualifiers </b></p>
+<p>Separate memory qualifiers are used for all calibration parameters instead of the GMLAN </p>
+<p>Handler’s  Standard  memory  qualifiers  in  order  to  support  linking  these  parameters  to  a </p>
+<p>separate  memory  section.  These  memory  qualifiers  have  to  be  adapted  to  the  user’s </p>
+<p>needs.  </p>
+<p>The </p>
+<p>following </p>
+<p>table </p>
+<p>provides </p>
+<p>a </p>
+<p>list </p>
+<p>of </p>
+<p>these </p>
+<p>memory </p>
+<p>qualifiers </p>
+<p>that </p>
+<p>are </p>
+<p>defined </p>
+<p>in </p>
+<p>MemDef.h. </p>
+<p><b>Memory Qualifier </b></p>
+<p><b>Default definition </b></p>
+<p>GMLCAL_MEMROM0 </p>
+<p>V_MEMROM0</p>
+<p> </p>
+<p>GMLCAL_MEMROM1 </p>
+<p>V_MEMROM1</p>
+<p> </p>
+<p>GMLCAL_MEMROM2 </p>
+<p>V_MEMROM2 </p>
+<p>(usually defined to</p>
+<p> const</p>
+<p>)</p>
+<p> </p>
+<p>GMLCAL_MEMROM3 </p>
+<p>V_MEMROM3</p>
+<p> </p>
+<p>The memory qualifiers defined in MemDef.h are exclusive used in gmlcal.c and gmlcal.h </p>
+<p>The following example shows how the memory qualifiers are used in gmlcal.c. </p>
+<p> </p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>The following example shows how the memory qualifiers are used in gmlcal.c / gmlcal.h: </p>
+<p><b>GMLCAL_MEMROM0 </b>extern <b>GMLCAL_MEMROM1 </b>canuint16 <b>GMLCAL_MEMROM2 </b></p>
+<p>nmBusoffRecoverTimeCalCnt; </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference GMLAN 3.1  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.01 </p>
+<p>based on template version 2.7 </p>
+<p>24 / 24 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

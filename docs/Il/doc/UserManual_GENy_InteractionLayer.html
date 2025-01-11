@@ -1,0 +1,1959 @@
+---
+layout: default
+title: UserManual_GENy_InteractionLayer
+nav_order: 5
+parent: Interaction Layer
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p>Vector Informatik GmbH, Ingerheimer Str. 24, 70499 Stuttgart </p>
+<p>Tel. 0711/80670-0, Fax 0711/80670-399, Email can@vector-informatik.de </p>
+<p>Internet http:\\www.vector-informatik.de </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Interaction Layer </b></p>
+<p><b>with GENy </b></p>
+<p>User Manual </p>
+<p>(Your First Steps) </p>
+<p> </p>
+<p> </p>
+<p>Version 1.03.01 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>1 / 35 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors: </b></p>
+<p>Klaus Emmert </p>
+<p><b>Version: </b></p>
+<p>1.03.01 </p>
+<p><b>Status: </b></p>
+<p>released </p>
+<p>(in preparation/completed/inspected/released)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>2 / 35 </p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Klaus Emmert </p>
+<p>2004-04-29 </p>
+<p>1.00 </p>
+<p>Converted from Version 0.8 to </p>
+<p>new User Manual Layout.  </p>
+<p>Klaus Emmert </p>
+<p>2004-05-17 </p>
+<p>1.1 </p>
+<p>Usage of vstdlib added </p>
+<p>(started with </p>
+<p>IL version 1.83)</p>
+<p> </p>
+<p>Klaus Emmert </p>
+<p>2005-06-24 </p>
+<p>1.02 </p>
+<p>GENy added as new </p>
+<p>Configuration Tool. </p>
+<p>Gunnar Meiss </p>
+<p>2007-05-16 </p>
+<p>1.03 </p>
+<p>ESCAN00020395 </p>
+<p>Gunnar Meiss </p>
+<p>2007-07-12 </p>
+<p>1.03.01 </p>
+<p>ESCAN00021408 Update </p>
+<p>Contents </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>3 / 35 </p>
+<p><b>Motivation For This Work </b></p>
+<p>What is a signal?  </p>
+<p>A Signal is an abstract container for information. It can hold physical values, states </p>
+<p>or  commandos.  Signals  can  concern  the  complete  vehicle  or  only  some  control </p>
+<p>units.  </p>
+<p>Using the Interaction Layer you do not have to take care about the transmission or </p>
+<p>reception of signal or the data consistency. If you need the content of a signal, just </p>
+<p>read it, if a value changed, just write it. All the rest is done by the Interaction Layer. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>WARNING </b></p>
+<p><b>All </b></p>
+<p><b>application </b></p>
+<p><b>code </b></p>
+<p><b>in </b></p>
+<p><b>any </b></p>
+<p><b>of </b></p>
+<p><b>the </b></p>
+<p><b>Vector </b></p>
+<p><b>User </b></p>
+<p><b>Manuals </b></p>
+<p><b>is </b></p>
+<p><b>for </b></p>
+<p><b>training </b></p>
+<p><b>purposes only. They are slightly tested and designed to understand the basic </b></p>
+<p><b>idea of using a certain component or a set of components. </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>4 / 35 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Welcome to the Interaction Layer User Manual............................................. 7</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Beginners with the Interaction Layer start here?................................ 7</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>For Advanced Users.......................................................................... 7</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Special topics .................................................................................... 7</p>
+<p> </p>
+<p>1.4</p>
+<p> </p>
+<p>Additional Documents dealing with the Interaction Layer ................... 7</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>About This Document ..................................................................................... 8</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>How This Documentation Is Set-Up ................................................... 8</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Legend and Explanation of Symbols.................................................. 9</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Interaction Layer – An Overall View ............................................................. 10</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Transmission problems.................................................................... 10</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>What is left to do for transmission.................................................... 10</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Reception problems......................................................................... 11</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>What is left to do for Reception........................................................ 11</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Tools And Files................................................................................ 11</p>
+<p> </p>
+<p>3.3.1</p>
+<p> </p>
+<p>The data base file (DBC file)............................................................ 11</p>
+<p> </p>
+<p>3.3.2</p>
+<p> </p>
+<p>Configuration Tool ........................................................................... 12</p>
+<p> </p>
+<p>3.3.3</p>
+<p> </p>
+<p>Generation Process with CANbedded Software Component ........... 12</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>What Is the Vector Interaction Layer................................................ 14</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>What The Interaction Layer Does .................................................... 14</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>This Component – A More Detailed View..................................................... 15</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Files to form the Interaction Layer.................................................... 15</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Fix files that form the Interaction Layer ............................................ 15</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Generated files that must not be changed, too................................. 15</p>
+<p> </p>
+<p>4.1.2.1</p>
+<p> </p>
+<p>Configuration Tool GENy................................................................. 15</p>
+<p> </p>
+<p>4.1.3</p>
+<p> </p>
+<p>Configurable files............................................................................. 15</p>
+<p> </p>
+<p>4.1.4</p>
+<p> </p>
+<p>il.c .................................................................................................... 15</p>
+<p> </p>
+<p>4.1.5</p>
+<p> </p>
+<p>il_def. h............................................................................................ 15</p>
+<p> </p>
+<p>4.1.6</p>
+<p> </p>
+<p>Il_par.c............................................................................................. 15</p>
+<p> </p>
+<p>4.1.7</p>
+<p> </p>
+<p>il_par.h............................................................................................. 15</p>
+<p> </p>
+<p>4.1.8</p>
+<p> </p>
+<p>il_cfg.h ............................................................................................. 16</p>
+<p> </p>
+<p>4.1.9</p>
+<p> </p>
+<p>il_inc.h ............................................................................................. 16</p>
+<p> </p>
+<p>4.1.9.1</p>
+<p> </p>
+<p>Vstdlib.c / vstdlib.h........................................................................... 16</p>
+<p> </p>
+<p>4.1.10</p>
+<p> </p>
+<p>Includes when using GENy.............................................................. 16</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Handling of the Interaction Layer ..................................................... 16</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>A Basically Running Interaction Layer In 7 Steps....................................... 18</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>5 / 35 </p>
+<p>5.1</p>
+<p> </p>
+<p>STEP 1  Unpack the delivery ........................................................... 19</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>STEP 2  Configuration Tool and DBC File ....................................... 20</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>Working with the Configuration Tool GENy...................................... 21</p>
+<p> </p>
+<p>5.2.1.1</p>
+<p> </p>
+<p>Project Setup in GENy..................................................................... 21</p>
+<p> </p>
+<p>5.2.1.2</p>
+<p> </p>
+<p>Interaction Layer Settings in GENy.................................................. 21</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>STEP 3  Generate Files................................................................... 23</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>STEP 4  Add Files to Your Application............................................. 24</p>
+<p> </p>
+<p>5.4.1</p>
+<p> </p>
+<p>Using GENy..................................................................................... 24</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>STEP 5 Adaptations For Your Application ....................................... 25</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>STEP 6 Compile And Link ............................................................... 28</p>
+<p> </p>
+<p>5.7</p>
+<p> </p>
+<p>STEP 7 Test the Software Component ............................................ 28</p>
+<p> </p>
+<p>5.7.1</p>
+<p> </p>
+<p>Built-up of the test environment ....................................................... 28</p>
+<p> </p>
+<p>5.7.2</p>
+<p> </p>
+<p>Test of Interaction Layer .................................................................. 29</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Further Information ....................................................................................... 31</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>States of the Interaction Layer ......................................................... 31</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Debugging of Interaction Layer........................................................ 31</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Where to get the generated names for the macros and </p>
+<p>functions .......................................................................................... 32</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>Usage of flags and functions............................................................ 32</p>
+<p> </p>
+<p>6.5</p>
+<p> </p>
+<p>Data Consistency ............................................................................ 33</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Index ................................................................................................................. 1</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>6 / 35 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Transmission Problems ............................................................................ 10</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Reception Problems ................................................................................. 11</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Generation Process For Vector CANbedded Software Components ........ 13</p>
+<p> </p>
+<p>Figure 3-4</p>
+<p> </p>
+<p>Overview CAN Driver, Interaction Layer and Application .......................... 14</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Including Vector Interaction Layer ............................................................ 16</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>Generation Information............................................................................. 23</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>The test environment................................................................................ 28</p>
+<p> </p>
+<p>Figure 5-3</p>
+<p> </p>
+<p>How to get an data base into CANoe........................................................ 29</p>
+<p> </p>
+<p>Figure 5-4</p>
+<p> </p>
+<p>Configure menu and Real adjustment....................................................... 29</p>
+<p> </p>
+<p>Figure 5-5</p>
+<p> </p>
+<p>A trace of the example application with timeout occurring......................... 29</p>
+<p> </p>
+<p>Figure 5-6</p>
+<p> </p>
+<p>Insert a generator block to send the message 201 all 10ms ..................... 30</p>
+<p> </p>
+<p>Figure 5-7</p>
+<p> </p>
+<p>A trace without timeout ............................................................................. 30</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>The State machine of the Interaction Layer .............................................. 31</p>
+<p> </p>
+<p>Figure 6-2</p>
+<p> </p>
+<p>Debug options for Interaction Layer.......................................................... 31</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>7 / 35 </p>
+<p>Chapter 2 </p>
+<p>Chapter 3.4 </p>
+<p>Chapter 4 </p>
+<p>Chapter 5 </p>
+<p>Chapter 6.1 </p>
+<p>Chapter 6.3 </p>
+<p>Chapter 0 </p>
+<p><b>1 </b></p>
+<p><b>Welcome to the Interaction Layer User Manual </b></p>
+<p><b>1.1 </b></p>
+<p><b>Beginners with the Interaction Layer start here?  </b></p>
+<p>You need some information about this document?   </p>
+<p>What is the Interaction Layer? </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.2 </b></p>
+<p><b>For Advanced Users  </b></p>
+<p>Start reading here. </p>
+<p>7 Steps for Interaction Layer integration. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.3 </b></p>
+<p><b>Special topics  </b></p>
+<p>States of the Interaction Layer </p>
+<p>Generated Names for macros and functions ?  </p>
+<p>Flags and Functions  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.4 </b></p>
+<p><b>Additional Documents dealing with the Interaction Layer </b></p>
+<p>TechnicalReference_InteractionLayer </p>
+<p>OEM-specific Documentation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>8 / 35 </p>
+<p><b>2 </b></p>
+<p><b>About This Document </b></p>
+<p>This  document  gives  you  an  understanding  of  the  Interaction  Layer.  You  will </p>
+<p>receive  general  information,  a  step-by-step  tutorial  to  get  the  Interaction  Layer </p>
+<p>running and to use its functionalities. </p>
+<p><b>2.1 </b></p>
+<p><b>How This Documentation Is Set-Up </b></p>
+<p><b>Chapter </b></p>
+<p><b>Content </b></p>
+<p><b>Chapter 1 </b></p>
+<p>The welcome page is to navigate in the document. The main parts of the document </p>
+<p>can be accessed from here via hyperlinks. </p>
+<p><b>Chapter 2 </b></p>
+<p>It contains some formal information about this document, an explanation of legends </p>
+<p>and symbols. </p>
+<p><b>Chapter 3 </b></p>
+<p>In this chapter you get a brief introduction in this Interaction Layer and its tasks. </p>
+<p><b>Chapter 4 </b></p>
+<p>Here you find some more insight in the Interaction Layer. </p>
+<p><b>Chapter 5 </b></p>
+<p>Here  are  the  7  Steps  for  you  to  integrate  the  Interaction  Layer,  how  to  do  the </p>
+<p>necessary settings in the Configuration Tool and how to connect the Interaction Layer </p>
+<p>with your application. </p>
+<p><b>Chapter 6 </b></p>
+<p>This chapter provides you with some further information. </p>
+<p><b>Chapter 7 </b></p>
+<p>In this last chapter there is a list of experiences with the Interaction Layer. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>9 / 35 </p>
+<p>These areas </p>
+<p>to the right of </p>
+<p>the text </p>
+<p>contain brief </p>
+<p>items of </p>
+<p>information </p>
+<p>that will </p>
+<p>facilitate your </p>
+<p>search for </p>
+<p>specific </p>
+<p>topics. </p>
+<p><b>2.2 </b></p>
+<p><b>Legend and Explanation of Symbols </b></p>
+<p>You  find  these  symbols  at  the  right  side  of  the  document.  They  indicate  special </p>
+<p>areas in the text. Here is a list of their meaning. </p>
+<p><b>Symbol </b></p>
+<p><b>Meaning </b></p>
+<p> </p>
+<p>The building bricks mark examples. </p>
+<p> </p>
+<p>You will find key words and information in short sentences in the margin. This will </p>
+<p>greatly simplify your search for topics. </p>
+<p> </p>
+<p>The footprints will lead you through the steps until you can use the described </p>
+<p>Interaction Layer. </p>
+<p> </p>
+<p>There is something you should take care about. </p>
+<p> </p>
+<p>Useful and additional information is displayed in areas with this symbol. </p>
+<p> </p>
+<p>This file you are allowed to edit on demand. </p>
+<p> </p>
+<p>This file you must not edit at all.  </p>
+<p> </p>
+<p>This indicates an area dealing with frequently asked questions (FAQ). </p>
+<p>  </p>
+<p>Comments </p>
+<p>and </p>
+<p>explanation</p>
+<p>s </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>10 / 35 </p>
+<p>The names of the </p>
+<p>macros are </p>
+<p>derived from the </p>
+<p>signal names in </p>
+<p>the database with </p>
+<p>a pre- and a </p>
+<p>postfix. You can </p>
+<p>change the </p>
+<p>default pre- and </p>
+<p>suffixes in the </p>
+<p>Configuration </p>
+<p>Tool. </p>
+<p>Signal access </p>
+<p>can be a macros </p>
+<p>or a function. This </p>
+<p>depends on the </p>
+<p>signal length, its </p>
+<p>location in the </p>
+<p>message and the </p>
+<p>transmission </p>
+<p>mode.  </p>
+<p>The Configuraion </p>
+<p>Tool always </p>
+<p>generated the </p>
+<p>best way to </p>
+<p>access a signal.   </p>
+<p><b>3 </b></p>
+<p><b>Interaction Layer – An Overall View </b></p>
+<p>One  of  the  important  tasks  in  programming  ECUs  for  modern  vehicles  is  the </p>
+<p>handling  of  timers  for  actions  like  sending  messages  or  monitoring  incoming </p>
+<p>messages. In  some  cases  this  can  become  quite  complex  and  could  be  a  lot  of </p>
+<p>programming work to do.  </p>
+<p>   </p>
+<p><b>3.1 </b></p>
+<p><b>Transmission problems </b></p>
+<p> </p>
+<p>ABS</p>
+<p>Dashboard</p>
+<p><b>What</b></p>
+<p><b>When</b></p>
+<p><b>Notification</b></p>
+<p><b>Timeout</b></p>
+<p><b>&amp; Defaults</b></p>
+<p><b>How </b></p>
+<p><b>Often</b></p>
+<p><b>Data consistency</b></p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Transmission Problems </p>
+<p> </p>
+<p>The picture above mentions things to remember when transmitting data. You surely </p>
+<p>know these kinds of problems. </p>
+<p>The Interaction Layer handles the classic problems with transmission and reception </p>
+<p>for you. The information which signal or message should be sent in which timing, </p>
+<p>which signal triggers a timeout flag when it is not received any more and further </p>
+<p>information  is  stored  in  the  data  base  (DBC  file,  use  CANdb++  for  editing  DBC </p>
+<p>data) and realized by the Interaction Layer. </p>
+<p> </p>
+<p><b>3.1.1 </b></p>
+<p><b>What is left to do for transmission </b></p>
+<p>Regarding the transmission, you just have to fill the signal memory locations (use </p>
+<p>generated signal/message access macros or functions) with the current values, the </p>
+<p>transmission itself is done by the Interaction Layer.   </p>
+<p>As you access the signals via macros or functions, the data consistency is granted.  </p>
+<p>The Interaction Layer notifies the application in case of important events, such as a </p>
+<p>successful transmission of a signal (confirmation) or a timeout when a signal has </p>
+<p>not been received.   </p>
+<p><b>Caution</b></p>
+<p><b> </b></p>
+<p>Signal access macros or functions are always <b>unsigned integer </b>values !!!</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>11 / 35 </p>
+<p>The names of the </p>
+<p>macros are </p>
+<p>derived from the </p>
+<p>signal names in </p>
+<p>the database with </p>
+<p>a pre- and a </p>
+<p>suffix. You can </p>
+<p>change the </p>
+<p>default pre- and </p>
+<p>suffixes in the </p>
+<p>Configuration </p>
+<p>Tool  tab Names. </p>
+<p>There is the same </p>
+<p>DBC-file per bus </p>
+<p>system (high </p>
+<p>speed, low </p>
+<p>speed, etc) for all </p>
+<p>suppliers to </p>
+<p>guarantee a </p>
+<p>common basis for </p>
+<p>development. </p>
+<p><b>3.2 </b></p>
+<p><b>Reception problems </b></p>
+<p> </p>
+<p>ABS</p>
+<p>Dashboard</p>
+<p><b>Data </b></p>
+<p><b>Consistency</b></p>
+<p><b>Timeout</b></p>
+<p><b>&amp; Defaults</b></p>
+<p><b>Notification</b></p>
+<p><b>New Data?</b></p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>Reception Problems </p>
+<p> </p>
+<p>The picture above mentions things to remember when receiving data. You surely </p>
+<p>know these kinds of problems. </p>
+<p> </p>
+<p><b>3.2.1 </b></p>
+<p><b>What is left to do for Reception </b></p>
+<p>Access the received data via the generated macros or functions any time you need </p>
+<p>the information. The macros and functions guarantee the data consistency.  </p>
+<p>Events are signaled to the application via flags (polling) or functions. </p>
+<p>You  may  react  on  the  indications  for  reception,  changed  values  or  timeout.  This </p>
+<p>depends on the demands of your application. </p>
+<p>The Interaction Layer will free you from handling the data transmission and reception </p>
+<p>as far  as  possible. This  job  is  shifted to  the  data  base  engineer  who  develops  the </p>
+<p>DBC file. </p>
+<p> </p>
+<p><b>Caution</b></p>
+<p><b> </b></p>
+<p>Signal access macros are always <b>unsigned integer </b>values!</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.3 </b></p>
+<p><b>Tools And Files </b></p>
+<p><b>3.3.1 </b></p>
+<p><b>The data base file (DBC file) </b></p>
+<p>The DBC file normally is designed by the vehicle manufacturer and distributed to all </p>
+<p>suppliers that develop an ECU.   </p>
+<p>For  the  Interaction  Layer  it  contains  attributes  and  the  information  about  the </p>
+<p>transmission  modes  of  the  signals  (and  messages)  and  e.g.  the  cycle  times.  It </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>12 / 35 </p>
+<p>contains  all  information  that  is  necessary  for  transmitting  and  receiving  signals, </p>
+<p>which signal should be time monitored etc. </p>
+<p>Every  supplier  uses  the  SAME  DBC  file  for  one  type  of  vehicle  to  guarantee  a </p>
+<p>common basis for development.  </p>
+<p> </p>
+<p><b>3.3.2 </b></p>
+<p><b>Configuration Tool </b></p>
+<p>The  Configuration  Tool  is  a  PC-Tool.  It  is  used  to  configure  the  CANbedded </p>
+<p>components to the application’s needs. The Configuration Tool generates files that </p>
+<p>you have to include in your application.  </p>
+<p>For the Vector Interaction Layer many of the settings are done in the DBC file (see </p>
+<p>above) and many setting can be done in the Configuration Tool. For each signal </p>
+<p>flags,  default  values,  access  macros  or  functions  and  callback  functions  can  be </p>
+<p>switched to on or off separately.  </p>
+<p>   </p>
+<p><b>3.3.3 </b></p>
+<p><b>Generation Process with CANbedded Software Component </b></p>
+<p>The Configuration Tool generates files that contain the configuration and the signal </p>
+<p>interface of the CANbedded Software Components. In connection with the source </p>
+<p>code  of  each  component,  CANbedded  can  be  compiled  and  linked  (see  Figure </p>
+<p>3-3). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>13 / 35 </p>
+<p> </p>
+<p> </p>
+<p>Application</p>
+<p>Specific</p>
+<p>Data</p>
+<p>Configuration</p>
+<p>Signal</p>
+<p>Interface</p>
+<p>CANbedded</p>
+<p>Software</p>
+<p>Components</p>
+<p>Application</p>
+<p>Parameters</p>
+<p>Configuration Tool</p>
+<p>Executable</p>
+<p>Generation</p>
+<p>Includes</p>
+<p>Compiler, Linker</p>
+<p>Header</p>
+<p>Source</p>
+<p>CANdesc</p>
+<p>Network</p>
+<p>Database</p>
+<p>CANdela </p>
+<p>Database</p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>Generation Process For Vector CANbedded Software Components </p>
+<p>The standard </p>
+<p>generation </p>
+<p>process for </p>
+<p>Vectors Software </p>
+<p>Components. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>14 / 35 </p>
+<p><b>3.4 </b></p>
+<p><b>What Is the Vector Interaction Layer </b></p>
+<p><i>os</i>CAN</p>
+<p>CAN Driver</p>
+<p>CAN Bus</p>
+<p>Interaction </p>
+<p>Layer</p>
+<p>Interaction </p>
+<p>Layer</p>
+<p>Application</p>
+<p>CAN Controller</p>
+<p>Transceiver</p>
+<p>CAN Controller</p>
+<p>Transceiver</p>
+<p> </p>
+<p>Figure 3-4 </p>
+<p>Overview CAN Driver, Interaction Layer and Application </p>
+<p> </p>
+<p>As you see the Interaction Layer is a higher layer than the CAN Driver and uses </p>
+<p>the services of the physical layer for transmission and reception.  </p>
+<p><b>3.5 </b></p>
+<p><b>What The Interaction Layer Does </b></p>
+<p>The Vector Interaction Layer is responsible for transmission and reception of CAN </p>
+<p>messages according their transmission modes, timeout monitoring and setting of </p>
+<p>default values. It provides a signal interface to the application. </p>
+<p>Therefore  the  programming  effort  for  transmission  and  reception  of  signals  is </p>
+<p>reduced on some settings on the DBC and in the Configuration Tool and the basic </p>
+<p>implementation of the Vector Interaction Layer Component.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>15 / 35 </p>
+<p><b>4 </b></p>
+<p><b>This Component – A More Detailed View </b></p>
+<p><b>4.1 </b></p>
+<p><b>Files to form the Interaction Layer </b></p>
+<p>The Interaction Layer consists of 3 sorts of files.   </p>
+<p><b>4.1.1 </b></p>
+<p><b>Fix files that form the Interaction Layer </b></p>
+<p></p>
+<p> </p>
+<p>il.c </p>
+<p></p>
+<p> </p>
+<p>il_def.h </p>
+<p><b>4.1.2 </b></p>
+<p><b>Generated files that must not be changed, too </b></p>
+<p><b>4.1.2.1 </b></p>
+<p><b>Configuration Tool GENy </b></p>
+<p></p>
+<p> </p>
+<p>Il_par.c </p>
+<p></p>
+<p> </p>
+<p>Il_par.h </p>
+<p></p>
+<p> </p>
+<p>Il_cfg.h </p>
+<p> </p>
+<p><b>4.1.3 </b></p>
+<p><b>Configurable files </b></p>
+<p></p>
+<p> </p>
+<p>il_inc.h or  </p>
+<p><b>_</b></p>
+<p>il_inc.h </p>
+<p>(the underscore means, this file has to be adapted by you)</p>
+<p> </p>
+<p><b>4.1.4 </b></p>
+<p><b>il.c  </b></p>
+<p>This file contains the code for the Interaction Layer.  </p>
+<p>You must not change this file at all.   </p>
+<p><b>4.1.5 </b></p>
+<p><b>il_def. h  </b></p>
+<p>The file il_def.h is the header file of the Interaction Layer.  </p>
+<p>You must not change this file at all.  </p>
+<p><b>4.1.6 </b></p>
+<p><b>Il_par.c </b></p>
+<p>Generated file for the Interaction Layer parameters. </p>
+<p>You must not change this file at all.   </p>
+<p><b>4.1.7 </b></p>
+<p><b>il_par.h  </b></p>
+<p>Generated header for the Interaction Layer parameters. </p>
+<p>You must not change this file at all.   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>16 / 35 </p>
+<p>Normally the </p>
+<p>Interrupts are </p>
+<p>disabled after </p>
+<p>reset, but this is </p>
+<p>not granted for </p>
+<p>any hardware </p>
+<p>platform.  </p>
+<p>Make sure the </p>
+<p>interrupts are </p>
+<p>disabled.  </p>
+<p>DO <b>NOT </b>USE </p>
+<p>THE FUNCTION </p>
+<p>CanInteruptDisable </p>
+<p>here. </p>
+<p><b>4.1.8 </b></p>
+<p><b>il_cfg.h  </b></p>
+<p>This is the configuration file of the Interaction Layer. It contains the configuration </p>
+<p>switches according to your selections in the Configuration Tool.  </p>
+<p>Do not change this file.  You will loose the changes after the next generation process.  </p>
+<p><b>4.1.9 </b></p>
+<p><b>il_inc.h  </b></p>
+<p>INC stands for include. Here you can add includes you need.  Use the delivered </p>
+<p>standard  il_inc.h  for  this  first  attempt  and  look  at  the  default  includes  as  an </p>
+<p>example.  </p>
+<p>It is very important that you do NOT change the including order given in this header. </p>
+<p> </p>
+<p>Include this file (as you did it with can_inc.h) in every c file where you need CAN </p>
+<p>functionality. Il_inc.h “replaces” can_inc.h if you use the Interaction Layer. </p>
+<p> </p>
+<p><b>4.1.9.1 </b></p>
+<p><b>Vstdlib.c / vstdlib.h </b></p>
+<p>You have to include the Vector standard library beginning with version 1.83 of the </p>
+<p>Interaction Layer.  </p>
+<p><b>4.1.10 Includes when using GENy </b></p>
+<p>To  use  the  Vector  Interaction  Layer,  only  the  file  il_inc.h  must  be  included  in  all </p>
+<p>application components that want to use Interaction Layer functionality. </p>
+<p>Application.c</p>
+<p>il_inc.h</p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Including Vector Interaction Layer </p>
+<p><b>4.2 </b></p>
+<p><b>Handling of the Interaction Layer </b></p>
+<p>The  Interaction  Layer  has  to  be  added  to  the  application  and  initialized </p>
+<p><b>directly</b></p>
+<p> </p>
+<p>after the initialization of the CAN Driver. Take care that the interrupts are disabled </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>17 / 35 </p>
+<p>while  initialization  of  the  components.  Additionally  the  functions  IlRxTask()  and </p>
+<p>IlTxTask() </p>
+<p>have </p>
+<p>to  be </p>
+<p>called </p>
+<p>cyclically </p>
+<p>within </p>
+<p>the </p>
+<p>cycle </p>
+<p>time  adjusted </p>
+<p>in </p>
+<p>the </p>
+<p>Configuration Tool (IL options/Timings IL Vector Channel X). </p>
+<p>It is very important for the correct function of the Interaction Layer that the timing you </p>
+<p>entered in the Configuration Tool and the cycle you call the IlRxTask() and IlTxTask() </p>
+<p>are the same. This is the basis for the timing of the Vector Interaction Layer. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>18 / 35 </p>
+<p><b>5 </b></p>
+<p><b>A Basically Running Interaction Layer In 7 Steps </b></p>
+<p><b>STEP 1 :</b></p>
+<p>  </p>
+<p><b>UNPACK THE DELIVERY</b></p>
+<p>  </p>
+<p>Follow the install shield wizard to unpack the CANbedded Software Components and </p>
+<p>the Configuration Tool. </p>
+<p><b>STEP 2:  </b></p>
+<p><b>CONFIGURATION TOOL AND DBC FILE  </b></p>
+<p>Read-in the DBC file in the Configuration Tool and make the configuration settings for </p>
+<p>the CANbedded Software Components. </p>
+<p><b>STEP 3:</b></p>
+<p> </p>
+<p><b>GENERATE FILES  </b></p>
+<p>Generate the files in the appropriate folders. </p>
+<p><b>STEP 4:  </b></p>
+<p><b>ADD FILES TO YOUR APPLICATION </b></p>
+<p>Add the CANbedded C and H files to your project or makefile. </p>
+<p><b>STEP 5:  </b></p>
+<p><b>ADAPTATIONS FOR YOUR APPLICATION </b></p>
+<p>Now </p>
+<p>your </p>
+<p>application </p>
+<p>files </p>
+<p>must </p>
+<p>be </p>
+<p>modified </p>
+<p>to </p>
+<p>use </p>
+<p>the </p>
+<p>CANbedded </p>
+<p>Software </p>
+<p>Components (includes, cyclic calls, initialization) and do the call back functions</p>
+<p>. </p>
+<p><b>STEP 6:  </b></p>
+<p><b>COMPILE AND LINK </b></p>
+<p>Compile  and  link  the  complete  project  and  download  it  to  your  test  hardware  or </p>
+<p>development environment. </p>
+<p><b>STEP 7:  </b></p>
+<p><b>TEST THE SOFTWARE COMPONENT </b></p>
+<p>Test the software via a suitable test environment. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>19 / 35 </p>
+<p>The Configuration </p>
+<p>Tool generates </p>
+<p>files for  your </p>
+<p>application. It is </p>
+<p>the connection </p>
+<p>between your </p>
+<p>hardware and </p>
+<p>settings, the </p>
+<p>requirements of </p>
+<p>your vehicle </p>
+<p>manufacturer and </p>
+<p>the other ECUs, </p>
+<p>your ECU has to </p>
+<p>communicate </p>
+<p>with. </p>
+<p><b>5.1 </b></p>
+<p><b>STEP 1  Unpack the delivery  </b></p>
+<p>The </p>
+<p>delivery </p>
+<p>of </p>
+<p>CANbedded </p>
+<p>Software </p>
+<p>Components </p>
+<p>normally </p>
+<p>comprises </p>
+<p>the </p>
+<p>Configuration Tool and the source code of the software components.  </p>
+<p>You only have to start the  </p>
+<p><b>Setup.exe  </b></p>
+<p>and to follow the install shield wizard. </p>
+<p>We recommend creating a shortcut to the Configuration Tool.  </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>20 / 35 </p>
+<p>You can safe </p>
+<p>much time when </p>
+<p>you start changes </p>
+<p>after verifying the </p>
+<p>functionality of </p>
+<p>the hardware and </p>
+<p>software you use </p>
+<p>as basis for </p>
+<p>changes. </p>
+<p>For more </p>
+<p>information about </p>
+<p>how to starup </p>
+<p>with GENy refer </p>
+<p>to the GENy </p>
+<p>online help. </p>
+<p><b>5.2 </b></p>
+<p><b>STEP 2  Configuration Tool and DBC File </b></p>
+<p>We recommend for the integration of the Vector Interaction Layer to have a already </p>
+<p>running </p>
+<p>application </p>
+<p>with </p>
+<p>already </p>
+<p>working </p>
+<p>bus </p>
+<p>communication </p>
+<p>(CAN </p>
+<p>Driver </p>
+<p>is </p>
+<p>integrated and running).  </p>
+<p>Normally the adjustments in the DBC file are done by the data base engineer. To </p>
+<p>be able to use the Interaction Layer the data base attributes and the corresponding </p>
+<p>timings have to be set properly.   </p>
+<p>For  the  following  steps  we  used  a  very  simple  DBC  file  with  only  one  receive </p>
+<p>message and two transmit messages.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>21 / 35 </p>
+<p><b>5.2.1 </b></p>
+<p><b>Working with the Configuration Tool GENy </b></p>
+<p>Open the Configuration Tool GENy,  </p>
+<p><b>5.2.1.1 </b></p>
+<p><b>Project Setup in GENy </b></p>
+<p> create a new configuration and fill-out the </p>
+<p><b>Setup Dialog</b></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Pre-configuration file </p>
+<p></p>
+<p> </p>
+<p>Microcontroller </p>
+<p></p>
+<p> </p>
+<p>Derivative </p>
+<p></p>
+<p> </p>
+<p>Compiler </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Select the bus system (here CAN) and fill-out the </p>
+<p><b>Channel Setup </b></p>
+<p>window </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Browse </p>
+<p>for </p>
+<p>your </p>
+<p><b>Database </b></p>
+<p>file </p>
+<p>and  select  your  ECU  out  of  the </p>
+<p><b>Database Nodes</b></p>
+<p> list. </p>
+<p> </p>
+<p> </p>
+<p>Select the </p>
+<p><b>Software Components</b></p>
+<p> Hw_xxx (in </p>
+<p>this  example  it  is  the  HC12),  the  CAN  Driver </p>
+<p>(DrvCan_Hw12MscanIdx) </p>
+<p>and </p>
+<p>with </p>
+<p>Il_Vector </p>
+<p>the Interaction Layer. </p>
+<p> </p>
+<p> </p>
+<p>Set </p>
+<p>the </p>
+<p><b>Generation </b></p>
+<p><b>Paths </b></p>
+<p>(&lt;Shift&gt; +&lt;F7&gt;) correctly.  </p>
+<p> </p>
+<p> </p>
+<p><b>5.2.1.2 </b></p>
+<p><b>Interaction Layer Settings in GENy </b></p>
+<p>For this example we want to monitor the reception of the </p>
+<p>Signal_2</p>
+<p>. If this signal is </p>
+<p>not received over an adjustable (in the DBC file – use CANdb++ editor) period of </p>
+<p>time, a timeout occurs.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>22 / 35 </p>
+<p>There are two ways your application can be notified of a timeout,  </p>
+<p></p>
+<p> </p>
+<p>via a </p>
+<p><b>flag</b></p>
+<p> or </p>
+<p></p>
+<p> </p>
+<p>a </p>
+<p><b>function</b></p>
+<p>.  </p>
+<p>In this example we use a function for notification.  </p>
+<p>Open </p>
+<p>the </p>
+<p><b>Configuration </b></p>
+<p><b>Options</b></p>
+<p> </p>
+<p>for </p>
+<p><b>Signal_2</b></p>
+<p> </p>
+<p>via </p>
+<p>clicking </p>
+<p>Signal_2 </p>
+<p>in </p>
+<p>the </p>
+<p>navigation view. Add a timeout function by clicking the </p>
+<p><b>Add</b></p>
+<p> button and entering a </p>
+<p>name or working with the default as shown.  </p>
+<p> </p>
+<p>Figure 5-1 Activate the Timeout Monitoring of Signal_2 </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>23 / 35 </p>
+<p><b>5.3 </b></p>
+<p><b>STEP 3  Generate Files </b></p>
+<p> </p>
+<p> </p>
+<p>Click on the button </p>
+<p> to start the generation process for GENy. </p>
+<p> </p>
+<p>Figure 5-1 </p>
+<p>Generation Information </p>
+<p>The results of the Generation Process are shown in the two views at the bottom of </p>
+<p>GENy.  </p>
+<p><b>Generated Files </b></p>
+<p>This is a list with all file that GENy has generated and the folder information.  </p>
+<p><b>Messages </b></p>
+<p>Here the information that occurs during the generation process. Take care of this </p>
+<p>information  after  any  generation  process.  Important  generation  error  information </p>
+<p>could be displayed there as you see in the example above. </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>24 / 35 </p>
+<p><b>5.4 </b></p>
+<p><b>STEP 4  Add Files to Your Application </b></p>
+<p> </p>
+<p> </p>
+<p><b>5.4.1 </b></p>
+<p><b>Using GENy </b></p>
+<p>Copy the core files for the Interaction Layer out of the delivery in the directory you </p>
+<p>reserved for. </p>
+<p>Add those new files together with the generated ones (see Figure 5-1) to the file list </p>
+<p>of you compiler or makefile.  </p>
+<p>If you want to apply changes you have done in the Configuration Tool, you must start </p>
+<p>the generation process again.  Remember compiling afterwards.  </p>
+<p> </p>
+<p>Starting with IL implementation </p>
+<p><b>version 1.83</b></p>
+<p> the IL uses the Vector standard library </p>
+<p><b>vstdlib</b></p>
+<p> for memory copy and clear routines to avoid calls to the C standard library. </p>
+<p>Therefore  it  is  required  in  that  case  to </p>
+<p><b>link</b></p>
+<p>  the  file </p>
+<p><b>vstdlib.c</b></p>
+<p>  to  the  project.  The </p>
+<p>v_def.h includes the corresponding header. </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>25 / 35 </p>
+<p><b>It is forbidden to </b></p>
+<p><b>use any CAN </b></p>
+<p><b>functionality </b></p>
+<p><b>before </b></p>
+<p><b>CanInitPowerOn </b></p>
+<p><b>!!! </b></p>
+<p><b>5.5 </b></p>
+<p><b>STEP 5 Adaptations For Your Application </b></p>
+<p><b>Using CANgen and GENy </b></p>
+<p>To be able to compile and link, you have to do a few further adaptations in your </p>
+<p>application. </p>
+<p>This  is  the  example  you  know  from  the  CAN  Driver.  For  a  first  test,  this  simple </p>
+<p>application  without  any  function  except  for  calling  the  Interaction  Layer  Tasks </p>
+<p>IlRxTask() and IlTxTask() cyclically, is enough.  </p>
+<p>In  the  following  example  application  only  the  modifications  are  explained  and </p>
+<p>emphasized. </p>
+<p> </p>
+<p> </p>
+<p><b>Example for </b></p>
+<p><b>HC12</b></p>
+<p><b>: </b></p>
+<p><b> </b></p>
+<p>/* Includes*********************************************************/ </p>
+<p><b>#include &quot;can_inc. h&quot; </b></p>
+<p><b>#include &quot;yourecu. h&quot; </b></p>
+<p><b>#inlcude”il_inc.h”;    /*  with  this  include,  the  other  two  will  be </b></p>
+<p><b>                      included too.*/ </b></p>
+<p> </p>
+<p>unsigned char timerelapsed; </p>
+<p>/*the  function  IlRxTask()  and  IlTxTask() </p>
+<p>must not be called in interrupt context.  So </p>
+<p>this flag is used as an indicator, that a </p>
+<p>timer  interrupt  occurred  and  is  polled  in </p>
+<p>the application. */ </p>
+<p> </p>
+<p>/*Function prototypes **********************************************/ </p>
+<p>void enableInterrupts( void ); </p>
+<p>void hardwareInit( void ); </p>
+<p> </p>
+<p>/*Main Function ****************************************************/ </p>
+<p>void main(void) </p>
+<p>{ </p>
+<p>/*make  sure  that  the  interrupts  are  disabled  or  disable  interrupts </p>
+<p>here.*/ </p>
+<p>  hardwareInit(); </p>
+<p> </p>
+<p>  CanInitPowerOn();  </p>
+<p><b>  IlInitPowerOn(); /*To use the Interaction Layer you have </b></p>
+<p><b>                       to do the initialization first. </b></p>
+<p><b>                    For the case your module does not know </b></p>
+<p><b>                    this function, use IlInit(); */ </b></p>
+<p> </p>
+<p>timerelapsed = 0; /* timerelapsed = 0x00 </p>
+<p></p>
+<p>no interrupt occurred </p>
+<p>                        timerelapsed = 0xff </p>
+<p></p>
+<p>   interrupt occurred </p>
+<p><b>   </b></p>
+<p>  enableInterrupts(); </p>
+<p><b>  IlRxStart(); </b></p>
+<p><b>  IlTxStart(); </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>26 / 35 </p>
+<p> </p>
+<p>  for(;;) </p>
+<p>  {     </p>
+<p>    <b>/* call of IlRxTask() and IlTxTask() if timerelapsed = 0xff*/ </b></p>
+<p><b>    if( timerelapsed == 0xff) </b></p>
+<p><b>    { </b></p>
+<p><b>        timerelapsed = 0;       /*clear the flag to call NmTask() </b></p>
+<p><b>                               only once after a timer interrupt*/ </b></p>
+<p><b>        IlRxTask();               /*cyclic call for interaction layer*/ </b></p>
+<p><b>        IlTxTask();                 </b></p>
+<p><b>    } </b></p>
+<p>  }  </p>
+<p>} </p>
+<p> </p>
+<p>void ApplCanBusOff( void ) </p>
+<p>{ </p>
+<p>  ; </p>
+<p>} </p>
+<p> </p>
+<p>void ApplCanWakeUp( void ) </p>
+<p>{ </p>
+<p>  /*Call-Back  function  at  the  transition  from  SleepMode  to  sleep  </p>
+<p>    indication recommended*/ </p>
+<p>} </p>
+<p> </p>
+<p>void enableInterrupts( void ) </p>
+<p>{ </p>
+<p>  CLI(); </p>
+<p>} </p>
+<p> </p>
+<p> </p>
+<p><b>/*This is the function called in case of a timeout of the message_2 that </b></p>
+<p><b>should be received cyclically*/ </b></p>
+<p><b> </b></p>
+<p><b>void ApplSignal_2SigTimeout( void ) </b></p>
+<p><b>{ </b></p>
+<p><b>   </b></p>
+<p><b>  IlPutTxMissingSignal(0x3d); </b></p>
+<p><b>                                      /*Trigger  to  send  this  message  in  case </b></p>
+<p><b>                               of  a  timeout.  Both  names  are  defined </b></p>
+<p><b>                               in the YourECU.h.*/ </b></p>
+<p><b>} </b></p>
+<p><b> </b></p>
+<p>void hardwareInit( void ) </p>
+<p>{ </p>
+<p>  /* </p>
+<p>  Do your hardware specific initializations here.  </p>
+<p>  Remember your TRANSCEIVER </p>
+<p>  */ </p>
+<p>} </p>
+<p> </p>
+<p>@interrupt void irq_dummy0(void) </p>
+<p>{ </p>
+<p>  for( ;; );    /*all </p>
+<p>other </p>
+<p>interrupts </p>
+<p>except </p>
+<p>the </p>
+<p>CAN  </p>
+<p>                         Interrupts are routed to this function.*/ </p>
+<p>} </p>
+<p> </p>
+<p><b>/*This is the interrupt function of the timer interrupt.  The timer will </b></p>
+<p><b>be reset and the timerelapsed indicates the occurrence of an interrupt </b></p>
+<p><b>for the application (see code above). */ </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>27 / 35 </p>
+<p><b> </b></p>
+<p><b>@interrupt void irq_timer0(void) </b></p>
+<p><b>{ </b></p>
+<p><b>  /*reload timer*/ </b></p>
+<p><b>  timerelapsed = 0xff; </b></p>
+<p><b>} </b></p>
+<p> </p>
+<p> </p>
+<p>You also have to do modifications in the interrupt vector table. The occurrence of a </p>
+<p>timer interrupt has to lead to the timer interrupt function. In this example you see </p>
+<p>that the vector for the timer0 interrupt is added </p>
+<p>. </p>
+<p><b>Example for </b></p>
+<p><b>HC12</b></p>
+<p><b>: </b></p>
+<p> </p>
+<p>const functptr vectab[] = {        // @0xFFC4 start address of table </p>
+<p>    <b>CanTxInterrupt,                // $FFC4    CAN transmit </b></p>
+<p><b>    CanRxInterrupt,                // $FFC6    CAN receive </b></p>
+<p><b>    CanErrorInterrupt,             // $FFC8    CAN error </b></p>
+<p>    irq_dummy0,                    // reserved </p>
+<p>    irq_dummy0,                    // </p>
+<p>    irq_dummy0,                    // </p>
+<p>    <b>CanWakeUpInterrupt,            // $FFD0 CAN wake-up </b></p>
+<p>    irq_dummy0,                    //ATD </p>
+<p>    irq_dummy0,                    //SCI 2 </p>
+<p>    irq_dummy0,                    //SPI </p>
+<p>    irq_dummy0,                    //SPI </p>
+<p>    irq_dummy0,                    //Pulse acc input </p>
+<p>    irq_dummy0,                    //Pulse acc overf </p>
+<p>    irq_dummy0,                    //Timer overf </p>
+<p>    irq_dummy0,                    //Timer channel 7 </p>
+<p>    irq_dummy0,                    //Timer channel 6 </p>
+<p>    irq_dummy0,                    //Timer channel 5 </p>
+<p>    irq_dummy0,                    //Timer channel 4 </p>
+<p>    irq_dummy0,                    //Timer channel 3 </p>
+<p>    irq_dummy0,                    //Timer channel 2 </p>
+<p>    irq_dummy0,                    //Timer channel 1 </p>
+<p>    <b>irq_timer0,                    //Timer channel 0 </b></p>
+<p>    irq_dummy0,                    //Real time </p>
+<p>    irq_dummy0,                    //IRQ </p>
+<p>    irq_dummy0,                    //XIRQ </p>
+<p>    irq_dummy0,                    //SWI </p>
+<p>    irq_dummy0,                    //illegal </p>
+<p>    irq_dummy0,                    //cop fail </p>
+<p>    irq_dummy0,                    //clock fail </p>
+<p>    <b>_stext                         //RESET </b></p>
+<p>    }; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>28 / 35 </p>
+<p><b>5.6 </b></p>
+<p><b>STEP 6 Compile And Link </b></p>
+<p>Now start your compiler by calling the </p>
+<p><b>makefile</b></p>
+<p> or just clicking the start button, this </p>
+<p>depends on your development tool chain.   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<p> </p>
+<p><b>5.7 </b></p>
+<p><b>STEP 7 Test the Software Component </b></p>
+<p>You  remember  the  testing  method  from  the  CAN  Driver?  To  test  the  Interaction </p>
+<p>Layer we use the same test environment with a few modifications. </p>
+<p><b>5.7.1 </b></p>
+<p><b>Built-up of the test environment </b></p>
+<p> </p>
+<p>Figure 5-2 </p>
+<p>The test environment </p>
+<p> </p>
+<p>The network will consist of 2 nodes, a real one (YourECU) and the simulated one, </p>
+<p>the TestNode (as named in the data base).   </p>
+<p>Open your CANoe or CANalyzer.  </p>
+<p>The next step is to </p>
+<p><b>Associate</b></p>
+<p> a new </p>
+<p><b>database</b></p>
+<p>, the same data base (DBC file) </p>
+<p>you use for your application.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>29 / 35 </p>
+<p> </p>
+<p>Figure 5-3 </p>
+<p>How to get an data base into CANoe  </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-4 </p>
+<p>Configure menu and Real adjustment </p>
+<p>Make sure that the CANoe mode is switched to REAL and you have chosen the same </p>
+<p>baud rate as in your real node YourECU.  </p>
+<p><b>5.7.2 </b></p>
+<p><b>Test of Interaction Layer </b></p>
+<p>Now  start  your  Application on the  hardware  platform and  the  CANoe/CANalyzer.  </p>
+<p>Now  you  should  see  the  cyclic  message  sent  via  the  Interaction  Layer,  the </p>
+<p>Message_1</p>
+<p>.  Additionally  you  see  the </p>
+<p>Timeout_Message</p>
+<p>,  because  the  cyclic </p>
+<p>message from CANoe is not being sent. </p>
+<p> </p>
+<p>Figure 5-5 </p>
+<p>A trace of the example application with timeout occurring  </p>
+<p><b>!!! CONGRATULATIONS !!! </b></p>
+<p>The Interaction Layer is basically working. </p>
+<p>Now try to prevent the timeout from occurring. Insert a generator block and send </p>
+<p>the message with the ID 201 (Message_2) e.g. in a cycle of e.g. 10ms. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>30 / 35 </p>
+<p> </p>
+<p>Figure 5-6 </p>
+<p>Insert a generator block to send the message 201 all 10ms </p>
+<p>Restart  the  application  and  CANoe  and  the  Timeout_Message  will  not  occur </p>
+<p>anymore.  </p>
+<p> </p>
+<p>Figure 5-7 </p>
+<p>A trace without timeout </p>
+<p>This is working, too? You have implemented the Interaction Layer correctly for the </p>
+<p>first time. Now you can go on. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Back to 9 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>31 / 35 </p>
+<p><b>6 </b></p>
+<p><b>Further Information  </b></p>
+<p>Now the Interaction Layer is basically working. To get a deeper understanding of </p>
+<p>this module continue with this chapter. A very detailed description of the API you </p>
+<p>find in the Technical Reference of the Interaction Layer. </p>
+<p><b>6.1 </b></p>
+<p><b>States of the Interaction Layer </b></p>
+<p>The following figure shows the state machine of the Interaction Layer. There are </p>
+<p>two identical state machines, one for transmission (</p>
+<p><b>Tx</b></p>
+<p>) and one for reception (</p>
+<p><b>Rx</b></p>
+<p>).  </p>
+<p>uninit</p>
+<p>PowerOn</p>
+<p>uninit</p>
+<p>PowerOn</p>
+<p><b>running</b></p>
+<p>Start</p>
+<p></p>
+<p><b>running</b></p>
+<p>Start</p>
+<p></p>
+<p>Stop</p>
+<p></p>
+<p>Stop</p>
+<p></p>
+<p>Release</p>
+<p></p>
+<p>Release</p>
+<p></p>
+<p><b>waiting</b></p>
+<p>Wait</p>
+<p></p>
+<p><b>waiting</b></p>
+<p>Wait</p>
+<p></p>
+<p><b>suspended</b></p>
+<p>Init</p>
+<p></p>
+<p><b>suspended</b></p>
+<p>Init</p>
+<p></p>
+<p>void </p>
+<p><b>Il</b></p>
+<p>Init( void );</p>
+<p></p>
+<p>void </p>
+<p><b>Il</b></p>
+<p>Init( void );</p>
+<p></p>
+<p>void </p>
+<p><b>IlRx</b></p>
+<p>Start( void );</p>
+<p>void </p>
+<p><b>IlTx</b></p>
+<p>Start( void );</p>
+<p></p>
+<p>void </p>
+<p><b>IlRx</b></p>
+<p>Start( void );</p>
+<p>void </p>
+<p><b>IlTx</b></p>
+<p>Start( void );</p>
+<p></p>
+<p>void </p>
+<p><b>IlRx</b></p>
+<p>Wait( void );</p>
+<p>void </p>
+<p><b>IlTx</b></p>
+<p>Wait( void );</p>
+<p></p>
+<p>void </p>
+<p><b>IlRx</b></p>
+<p>Wait( void );</p>
+<p>void </p>
+<p><b>IlTx</b></p>
+<p>Wait( void );</p>
+<p></p>
+<p>void </p>
+<p><b>IlRx</b></p>
+<p>Release( void );</p>
+<p>void </p>
+<p><b>IlTx</b></p>
+<p>Release( void );</p>
+<p></p>
+<p>void </p>
+<p><b>IlRx</b></p>
+<p>Release( void );</p>
+<p>void </p>
+<p><b>IlTx</b></p>
+<p>Release( void );</p>
+<p></p>
+<p>void </p>
+<p><b>IlRx</b></p>
+<p>Stop( void );</p>
+<p>void </p>
+<p><b>IlTx</b></p>
+<p>Stop( void );</p>
+<p></p>
+<p>void </p>
+<p><b>IlRx</b></p>
+<p>Stop( void );</p>
+<p>void </p>
+<p><b>IlTx</b></p>
+<p>Stop( void );</p>
+<p></p>
+<p></p>
+<p>Stop</p>
+<p></p>
+<p>Stop</p>
+<p> </p>
+<p>Figure 6-1 </p>
+<p>The State machine of the Interaction Layer </p>
+<p>Use  the functions  to  switch  the  states  of the  Interaction  Layer  to  your  demands. </p>
+<p>This becomes very important using the Interaction Layer together with a Network </p>
+<p>Management.  </p>
+<p><b>6.2 </b></p>
+<p><b>Debugging of Interaction Layer </b></p>
+<p>Using the Interaction Layer you can select two main debug options.  </p>
+<p> </p>
+<p>Figure 6-2 </p>
+<p>Debug options for Interaction Layer </p>
+<p> </p>
+<p>The argument check for the IL functions is used to check the arguments passed to </p>
+<p>functions of the Interaction Layer. If an error was detected, the return value of the </p>
+<p>functions  will  contain  an  error  code.  More  about  this  feature  see  the  Technical </p>
+<p>Reference Interaction Layer. </p>
+<p>The assertions you should use only during the development process.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>32 / 35 </p>
+<p>To avoid errors </p>
+<p>occurring from </p>
+<p>false writing a </p>
+<p>recommend to </p>
+<p>copy and paste </p>
+<p>the name from </p>
+<p>the file </p>
+<p>YourECU.h and </p>
+<p>ilpar.h. </p>
+<p>You can use only </p>
+<p>the flag, only the </p>
+<p>function or both </p>
+<p>combined. This is </p>
+<p>up to your </p>
+<p>application. </p>
+<p>All assertions branch to the function  </p>
+<p><b>void ApplIlFatalError( ErrorCode ); </b></p>
+<p>where you can analyse the cause of the assertion. </p>
+<p> </p>
+<p><b>6.3 </b></p>
+<p><b>Where to get the generated names for the macros and functions </b></p>
+<p>You know the situation, the files are generated and now you start to develop your </p>
+<p>application. What is the name of the generated macros for the indication function? </p>
+<p>What is the correct writing of the callback function? You know the signal name and </p>
+<p>your pre- and postfixes but: </p>
+<p> </p>
+<p><b>Using GENy </b></p>
+<p>all this information you get out of the generated file:  </p>
+<p><b>ilpar.h. </b></p>
+<p> </p>
+<p><b>6.4 </b></p>
+<p><b>Usage of flags and functions </b></p>
+<p>The Interaction Layer is signal oriented. So all flags and functions notify events that </p>
+<p>have </p>
+<p>to </p>
+<p>do </p>
+<p>with </p>
+<p>signals. </p>
+<p>There </p>
+<p>are </p>
+<p>flags </p>
+<p>and </p>
+<p>functions </p>
+<p>for </p>
+<p>reception </p>
+<p>and </p>
+<p>transmission. See first all flags and functions concerning the reception of data. </p>
+<p><b>Indication Flag </b></p>
+<p><b>Indication Function </b></p>
+<p>Indicates the reception of a signal </p>
+<p><b>FirstValue Flag </b></p>
+<p>Can be used to indicate the reception of the signal since the last </p>
+<p>reset of this flag or of the Interaction Layer </p>
+<p><b>DataChanged Flag </b></p>
+<p>Indicates a changed signal </p>
+<p><b>Timeout Flag </b></p>
+<p><b>Timeout Function </b></p>
+<p>Indicates a missing reception of a signal for the adjusted time. </p>
+<p> </p>
+<p>to confirm the transmission there is one flag and one function.  </p>
+<p><b>Confirmation Flag </b></p>
+<p><b>Confirmation Function </b></p>
+<p>Shows that the message containing the signal has been </p>
+<p>acknowledged by another node.  </p>
+<p>This acknowledge is sent when at least one ECU has receive the </p>
+<p>message. The acknowledge triggers a transmit interrupt. Within </p>
+<p>this interrupt the flag is set and the confirmation function is called.  </p>
+<p> </p>
+<p>The confirmation guarantees that the message containing the regarded signal has </p>
+<p>been sent.  </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>33 / 35 </p>
+<p><b>6.5 </b></p>
+<p><b>Data Consistency </b></p>
+<p>A very important part is the knowledge about data consistency and the situations </p>
+<p>you have to take care for it.  </p>
+<p>Refer to the chapter dealing with the data consistency in the Technical Reference </p>
+<p>of the Interaction Layer.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  Interaction Layer </p>
+<p> </p>
+<p></p>
+<p>2007, Vector Informatik GmbH </p>
+<p> </p>
+<p>Version: 1.03.01 </p>
+<p> </p>
+<p>based on template version 1.8 </p>
+<p>1 / 35 </p>
+<p><b>7 </b></p>
+<p><b>Index </b></p>
+<p>Bootloader .................................................... 9 </p>
+<p>clock............................................................ 27 </p>
+<p>compile........................................................ 25 </p>
+<p>Compile....................................................... 28 </p>
+<p>confirmation ................................................ 10 </p>
+<p>dbc-file ........................................................ 11 </p>
+<p>Example................................................ 25, 27 </p>
+<p>generation process ............................... 16, 24 </p>
+<p>Generation Process.................................... 12 </p>
+<p>Generation Tool .......................................... 16 </p>
+<p>il.c................................................................ 15 </p>
+<p>Il.c ............................................................... 15 </p>
+<p>il_cfg.h......................................................... 16 </p>
+<p>il_def. h ....................................................... 15 </p>
+<p>il_def.h ........................................................ 15 </p>
+<p>il_inc.h ......................................................... 16 </p>
+<p>Il_inc.h......................................................... 15 </p>
+<p>ilpar.c........................................................... 15 </p>
+<p>IlRxTask ................................................ 17, 26 </p>
+<p>IlTxTask................................................. 17, 26 </p>
+<p>Include......................................................... 16 </p>
+<p>link............................................................... 25 </p>
+<p>Link.............................................................. 28 </p>
+<p>makefile....................................................... 28 </p>
+<p>Motivation...................................................... 3 </p>
+<p>reception ...................3, 10, 11, 14, 21, 31, 32 </p>
+<p>Reception .............................................. 11, 32 </p>
+<p>Test ............................................................. 28 </p>
+<p>transmission....................3, 10, 11, 14, 31, 32 </p>
+<p>vstdlib .......................................................... 24 </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

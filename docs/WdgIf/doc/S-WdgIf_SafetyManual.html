@@ -1,0 +1,5160 @@
+---
+layout: default
+title: S-WdgIf_SafetyManual
+nav_order: 3
+parent: Watchdog Interface
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p><b>TTTech Automotive GmbH </b></p>
+<p>Schoenbrunner Str. 7, A-1040 Vienna, Austria, Tel. + 43 1 585 34 34-0, Fax +43 1 585 34 34-90, office@tttech-automotive.com</p>
+<p> </p>
+<p> </p>
+<p>No  part  of  the  document  may  be  reproduced  or  transmitted  in  any  form  or  by  any  means,  electronic or  mechanical,  for  any  purpose,  without  the  written  permission of  TTTech </p>
+<p>Automotive GmbH. Company or product names mentioned in this document may be trademarks or registered trademarks of their respective companies. TTTech Automotive GmbH </p>
+<p>undertakes no further obligation in relation to this document. </p>
+<p> </p>
+<p>© 2014, TTTech Automotive GmbH. All rights reserved.                                                                                                                                                Subject to changes and corrections </p>
+<p><b>TTTech Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b> </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>Safe Watchdog Interface </b></p>
+<p>Safety Manual </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Author: </b></p>
+<p>TTTech Automotive GmbH </p>
+<p><b>Security: </b></p>
+<p>Company Confidential </p>
+<p><b>Document number: </b></p>
+<p>D-SAFEX-S-70-005 </p>
+<p><b>Version: </b></p>
+<p>1.8.9 </p>
+<p><b>Date: </b></p>
+<p>22.05.2014 </p>
+<p><b>Status: </b></p>
+<p>ALM_Published </p>
+<p><b>MKS ID: </b></p>
+<p>232906 </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 1 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>Revision History </b></p>
+<p>30.05.2012 V1.0.0 Creation (based on MKS 185841) </p>
+<p>27.06.2012 V1.1.0 Reviewed. Some information still open. </p>
+<p>03.07.2012 V1.2.0 Added config generation and verification process </p>
+<p>05.07.2012 V1.3.0 Added requirements from ETA and Check against System Specification </p>
+<p>06.07.2012 V1.3.1 Ready for Release 1.8.2 </p>
+<p>13.08.2012 V1.3.2 Feedback from Hella-Audit, some texts more precise </p>
+<p>10.09.2012 V1.3.3 Added chapter &quot;S-WdgIf Generator - Verification&quot;. </p>
+<p>13.09.2012 V1.3.4 Dissolved ETA section. Corrected review findings. </p>
+<p>15.09.2012 V1.3.5 Safe Watchdog Interface ASIL Release </p>
+<p>17.09.2012 V1.8.1 issue48784 (new version) </p>
+<p>06.11.2012 V1.8.2 updated according to WdgIf_GetTickCounter() (issue49948) </p>
+<p>07.11.2012 V1.8.3 updated after review (issue49948) </p>
+<p>03.04.2014 V1.8.4 Update after customer review, changes summarised in the issue52277 </p>
+<p>24.04.2014 V1.8.5 Updated parts related to AS driver compatibility (issue62032:msg467581, issue59785) </p>
+<p>Updated 240758: parameter WdgIfUseAutosarDrvApi </p>
+<p>Updated 260205: added vendor ID (WD driver function names) </p>
+<p>Added 555654: parameter WDGIF_USE_AUTOSAR_DRV_API </p>
+<p>Updated 289398: API differences (WDGIF_USE_AUTOSAR_DRV_API) </p>
+<p>Updated 234584, 235159, 283153: API compatibility </p>
+<p>(WDGIF_USE_AUTOSAR_DRV_API) </p>
+<p>Added 556326, changed 289394, 289398, 289412, 289455: Description of the &lt;drv&gt; </p>
+<p>shortcut </p>
+<p>Changed 233039, 234584, 235159, 283153: added <i>vendor-id </i>string </p>
+<p>08.05.2014 V1.8.6 Updated according to the review remarks (issue62032:msg469458, </p>
+<p>issue62032:msg469460) </p>
+<p>12.05.2014 V1.8.7 Updated according to the review remarks (issue62032:msg472152) </p>
+<p>14.05.2014 V1.8.8 Updated according to the review remarks (issue62032:msg473209) </p>
+<p>22.05.2014 V1.8.9 Language Review (issue63157) </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 2 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>Table of Contents </b></p>
+<p>1</p>
+<p> </p>
+<p>Introduction .................................................................................................................................................. 6</p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Purpose of this Document ................................................................................................................... 6</p>
+<p> </p>
+<p>1.1.1</p>
+<p> </p>
+<p>Target Audience and Responsibilities ......................................................................................... 6</p>
+<p> </p>
+<p>1.1.2</p>
+<p> </p>
+<p>Structure of this Document .......................................................................................................... 7</p>
+<p> </p>
+<p>2</p>
+<p> </p>
+<p>Terms .......................................................................................................................................................... 9</p>
+<p> </p>
+<p>3</p>
+<p> </p>
+<p>Notations ................................................................................................................................................... 10</p>
+<p> </p>
+<p>4</p>
+<p> </p>
+<p>Abbreviations ............................................................................................................................................. 11</p>
+<p> </p>
+<p>5</p>
+<p> </p>
+<p>Safe Watchdog Interface Overview ........................................................................................................... 12</p>
+<p> </p>
+<p>6</p>
+<p> </p>
+<p>System Assumptions ................................................................................................................................. 13</p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Assumptions in this Document .......................................................................................................... 13</p>
+<p> </p>
+<p>7</p>
+<p> </p>
+<p>S-WdgIf Function Requirements ............................................................................................................... 14</p>
+<p> </p>
+<p>8</p>
+<p> </p>
+<p>S-WdgIf Configuration ............................................................................................................................... 15</p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Configuration Check-List ................................................................................................................... 15</p>
+<p> </p>
+<p>8.1.1</p>
+<p> </p>
+<p>General Requirements ............................................................................................................... 15</p>
+<p> </p>
+<p>8.1.2</p>
+<p> </p>
+<p>Compiler Settings ....................................................................................................................... 16</p>
+<p> </p>
+<p>8.1.3</p>
+<p> </p>
+<p>Post Build Configuration and Application Settings .................................................................... 16</p>
+<p> </p>
+<p>9</p>
+<p> </p>
+<p>S-WdgIf Configuration Generator .............................................................................................................. 18</p>
+<p> </p>
+<p>9.1</p>
+<p> </p>
+<p>S-WdgIf Generator - Installation ........................................................................................................ 18</p>
+<p> </p>
+<p>9.2</p>
+<p> </p>
+<p>S-WdgIf Generator - Application ....................................................................................................... 18</p>
+<p> </p>
+<p>9.3</p>
+<p> </p>
+<p>S-WdgIf Generator - Verification ....................................................................................................... 19</p>
+<p> </p>
+<p>9.3.1</p>
+<p> </p>
+<p>Check of WdgIf_Cfg_Features.h ............................................................................................... 19</p>
+<p> </p>
+<p>9.3.2</p>
+<p> </p>
+<p>Check of WdgIf_Lcfg.h ............................................................................................................... 20</p>
+<p> </p>
+<p>9.3.3</p>
+<p> </p>
+<p>Check of WdgIf_Lcfg.c ............................................................................................................... 20</p>
+<p> </p>
+<p>10</p>
+<p> </p>
+<p>Safe Watchdog Interface ........................................................................................................................... 23</p>
+<p> </p>
+<p>10.1</p>
+<p> </p>
+<p>API Specification............................................................................................................................ 23</p>
+<p> </p>
+<p>10.1.1</p>
+<p> </p>
+<p>Expected Interface ..................................................................................................................... 24</p>
+<p> </p>
+<p>10.1.1.1</p>
+<p> </p>
+<p>Implementation of Wrapper Function Appl_Det_ReportError () ...................................... 25</p>
+<p> </p>
+<p>10.1.2</p>
+<p> </p>
+<p>Imported Types and Definitions ................................................................................................. 26</p>
+<p> </p>
+<p>10.1.3</p>
+<p> </p>
+<p>Error Handling ............................................................................................................................ 27</p>
+<p> </p>
+<p>10.1.3.1</p>
+<p> </p>
+<p>DET Errors ....................................................................................................................... 27</p>
+<p> </p>
+<p>10.1.3.2</p>
+<p> </p>
+<p>Return Values .................................................................................................................. 28</p>
+<p> </p>
+<p>10.2</p>
+<p> </p>
+<p>Functional Specification ................................................................................................................. 28</p>
+<p> </p>
+<p>10.3</p>
+<p> </p>
+<p>S-WdgIf Configuration ................................................................................................................... 29</p>
+<p> </p>
+<p>10.4</p>
+<p> </p>
+<p>File Structure ................................................................................................................................. 29</p>
+<p> </p>
+<p>10.5</p>
+<p> </p>
+<p>S-WdgIf Integration ........................................................................................................................ 30</p>
+<p> </p>
+<p>10.5.1</p>
+<p> </p>
+<p>Import from AUTOSAR Definitions into S-WdgIf ....................................................................... 30</p>
+<p> </p>
+<p>10.5.2</p>
+<p> </p>
+<p>Memory Mapping ....................................................................................................................... 32</p>
+<p> </p>
+<p>10.5.3</p>
+<p> </p>
+<p>S-WdgIf Files ............................................................................................................................. 33</p>
+<p> </p>
+<p>10.5.4</p>
+<p> </p>
+<p>Compilation and Linkage ........................................................................................................... 33</p>
+<p> </p>
+<p>10.5.5</p>
+<p> </p>
+<p>S-WdgM Stack Requirements.................................................................................................... 34</p>
+<p> </p>
+<p>10.6</p>
+<p> </p>
+<p>S-WdgIf Application ....................................................................................................................... 35</p>
+<p> </p>
+<p>10.6.1</p>
+<p> </p>
+<p>S-WdgIf API Functions ............................................................................................................... 36</p>
+<p> </p>
+<p>10.6.2</p>
+<p> </p>
+<p>Memory Access ......................................................................................................................... 37</p>
+<p> </p>
+<p>10.6.3</p>
+<p> </p>
+<p>Concurrent Function Calls ......................................................................................................... 37</p>
+<p> </p>
+<p>11</p>
+<p> </p>
+<p>Safety Lifecycle Tailoring .......................................................................................................................... 39</p>
+<p> </p>
+<p>12</p>
+<p> </p>
+<p>Qualification ............................................................................................................................................... 41</p>
+<p> </p>
+<p>13</p>
+<p> </p>
+<p>Resource Requirements ............................................................................................................................ 43</p>
+<p> </p>
+<p>14</p>
+<p> </p>
+<p>Constraints and known Problems .............................................................................................................. 44</p>
+<p> </p>
+<p>15</p>
+<p> </p>
+<p>References ................................................................................................................................................ 45</p>
+<p> </p>
+<p>15.1</p>
+<p> </p>
+<p>Internal Documents ....................................................................................................................... 47</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 3 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 4 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>552152</p>
+<p> </p>
+<p><b>LEGAL DISCLAIMER </b></p>
+<p>THE INFORMATION GIVEN IN THIS SAFETY MANUAL IS GIVEN AS SUPPORT FOR THE </p>
+<p>INTEGRATION OF THE TTTECH SAFETY MODULE INTO A SYSTEM ONLY AND SHALL NOT BE </p>
+<p>REGARDED AS ANY DESCRIPTION OR WARRANTY OF A CERTAIN FUNCTIONALITY, CONDITION </p>
+<p>OR QUALITY OF THE TTTECH SAFETY MODULE. THE RECIPIENT OF THIS SAFETY MANUAL MUST </p>
+<p>VERIFY ANY FUNCTION DESCRIBED HEREIN IN THE REAL APPLICATION. </p>
+<p> </p>
+<p>TTTECH PROVIDES THE SAFETY MANUAL FOR THE SAFETY MODULE &quot;AS IS&quot; AND WITH ALL </p>
+<p>FAULTS AND HEREBY DISCLAIMS ALL WARRANTIES OF ANY KIND, EITHER EXPRESSED OR </p>
+<p>IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY </p>
+<p>AND FITNESS FOR A PARTICULAR PURPOSE, ACCURACY OR COMPLETENESS, OR OF RESULTS </p>
+<p>TO THE EXTENT PERMITTED BY APPLICABLE LAW. THE ENTIRE RISK, AS TO THE QUALITY, USE </p>
+<p>OR PERFORMANCE OF THE SAFETY MANUAL, REMAINS WITH THE RECIPIENT. TO THE MAXIMUM </p>
+<p>EXTENT PERMITTED BY APPLICABLE LAW TTTECH SHALL IN NO EVENT BE LIABLE FOR ANY </p>
+<p>SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING BUT </p>
+<p>NOT LIMITED TO LOSS OF DATA, DATA BEING RENDERED INACCURATE, BUSINESS </p>
+<p>INTERRUPTION OR ANY OTHER PECUNIARY OR OTHER LOSS WHATSOEVER) ARISING OUT OF </p>
+<p>THE USE OR INABILITY TO USE THE SAFETY MANUAL, EVEN IF TTTECH HAS BEEN ADVISED OF </p>
+<p>THE POSSIBILITY OF SUCH DAMAGES. </p>
+<p> </p>
+<p>TTTECH MAKES NO WARRANTY OF ITS PRODUCTS, INCLUDING BUT NOT LIMITED TO THE </p>
+<p>IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE AND </p>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW DISCLAIMS ALL LIABILITIES OR </p>
+<p>DAMAGES RESULTING FROM OR ARISING OUT OF THE APPLICATION OR USE OF THESE </p>
+<p>PRODUCTS. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>552151</p>
+<p> </p>
+<p><b>Legal Notice </b></p>
+<p>The information contained in this safety manual does not affect or change any General Terms and </p>
+<p>Conditions of TTTech and/or any agreements existing between TTTech and the recipient regarding the </p>
+<p>product concerned. </p>
+<p> </p>
+<p>The reader acknowledges that this safety manual may not be reproduced, stored in a retrieval system, </p>
+<p>transmitted, changed, or translated, in whole or in part, without the express written consent of TTTech. </p>
+<p> </p>
+<p>The reader acknowledges that any and all of the copyrights, trademarks, trade names, patents (whether </p>
+<p>registrable or not) and other intellectual property rights embodied in or in connection with this safety manual </p>
+<p>are and will remain the sole property of TTTech or the respective right holder. Nothing contained in this </p>
+<p>legal notice, the safety manual or in any TTTech web site shall be construed as conferring to the recipient </p>
+<p>any license under any intellectual property rights, whether explicit, by estoppel, implication, or otherwise. </p>
+<p> </p>
+<p>This safety manual and respective products are subject to change. </p>
+<p> </p>
+<p>The product is only allowed to be used in the scope as described in section &quot;System Assumptions&quot;. Please </p>
+<p>note that based on the current state of the arts in science it is impossible to develop software that is bug-</p>
+<p>free in all applications. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 5 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>552153</p>
+<p> </p>
+<p><b>We Listen to Your Comments </b></p>
+<p>If there is any information in this document that is wrong, unclear or missing? </p>
+<p>Your feedback will help us to continuously improve the quality of this document. Please contact TTTech </p>
+<p>Automotive GmbH support if you have questions, change requests or suggestions for improvement related </p>
+<p>to the Safety Module or documentation. The TTTech Automotive GmbH support can be reached via the </p>
+<p>following e-mail address: support@tttech.com.   </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 6 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p><b>1.1 </b></p>
+<p><b>Purpose of this Document </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233001</p>
+<p> </p>
+<p>This document is the Software Safety Manual for the software component Safe Watchdog Interface (S-</p>
+<p>WdgIf). The S-WdgIf was developed by TTTech as an SEooC according to ISO 26262 (2011) for use in </p>
+<p>safety related items up to ASIL D (see [ISO26262]). This document contains the requirements that have to </p>
+<p>be satisfied to integrate and apply the S-WdgIf into a safety-related item. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233003</p>
+<p> </p>
+<p>The S-WdgIf is a part of the S-WdgM Stack. It contains also a S-WdgIf Configuration Generator to generate </p>
+<p>configuration dependent S-WdgIf code. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233005</p>
+<p> </p>
+<p>This document contains the requirements that have to be met to: </p>
+<p></p>
+<p> </p>
+<p>install the S-WdgIf Generator, </p>
+<p></p>
+<p> </p>
+<p>generate the S-WdgIf code with the S-WdgIf Configuration Generator, </p>
+<p></p>
+<p> </p>
+<p>integrate the S-WdgIf code into an AUTOSAR system, and </p>
+<p></p>
+<p> </p>
+<p>to apply the S-WdgIf within an AUTOSAR system. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233019</p>
+<p> </p>
+<p>Note: This document just describes requirements for the S-WdgIf. This document does not provide a full </p>
+<p>description of how to create a safe system. For example, this document is not concerned with hardware </p>
+<p>architectural metrics that may have an influence on software running on this hardware. These </p>
+<p>considerations are not specific to the S-WdgIf and are thus beyond the scope of this manual. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>559910</p>
+<p> </p>
+<p>The S-WdgIf was developed according to AUTOSAR version 3.1.4 [AS_WDGIF_SWS_3_1] and AUTOSAR </p>
+<p>version 4.0.1 [AS_WDGIF_SWS]. The S-WdgIf is compatible with both AUTOSAR versions but not fully </p>
+<p>compliant. For the deviations see [TT_WDGIF_UM]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>1.1.1  Target Audience and Responsibilities </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233007</p>
+<p> </p>
+<p>The requirements are intended for the (system) integrator, who is responsible for the generation of the S-</p>
+<p>WdgIf configuration, the integration of the S-WdgIf in(to) a safety-related item and its application. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233009 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall be an expert in the area of functional safety with deep knowledge of ISO 26262 (see </p>
+<p>[ISO26262]). Moreover, the integrator needs to know: </p>
+<p></p>
+<p> </p>
+<p>the AUTOSAR architecture, </p>
+<p></p>
+<p> </p>
+<p>the ANSI C programing language, and </p>
+<p></p>
+<p> </p>
+<p>the S-WdgIf User Manual [TT_WDGIF_UM]). </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 7 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233011</p>
+<p> </p>
+<p>The integrator shall ensure that all requirements defined in this Safety Manual are fulfilled in the integrated </p>
+<p>item. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233013 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall also follow the instructions in: </p>
+<p></p>
+<p> </p>
+<p>the Safety Manual for the S-WdgM (see [TT_WDGM_SM]) and </p>
+<p></p>
+<p> </p>
+<p>the Safety Manual for the used S-Wdg drivers (see the driver specific Safety Manual. Examples can be </p>
+<p>found in section &quot;References&quot; at the end of this document) which describe the other parts of the S-</p>
+<p>WdgM Stack. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>1.1.2  Structure of this Document </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233017</p>
+<p> </p>
+<p>Requirements are explicitly marked as &quot;Requirement&quot; in this document. All requirements described in this </p>
+<p>document shall be considered by the integrator. Explanatory text that does not represent an explicit </p>
+<p>requirement is marked as &quot;Comment&quot;. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554241</p>
+<p> </p>
+<p>Note: Document items of the type &quot;Comment&quot; do not represent explicit action items for the integrator, </p>
+<p>however, the integrator is advised to ensure that there are no contradictions between the comment and the </p>
+<p>intended S-WdgIf usage. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554243</p>
+<p> </p>
+<p>Comments related to a requirement are placed below the related requirement. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554242</p>
+<p> </p>
+<p>Note: Requirements in this document shall be treated either as safety related or need not be treated as </p>
+<p>safety related, depending on the S-WdgIf use case: </p>
+<p></p>
+<p> </p>
+<p>If the S-WdgIf is used to monitor a safety related application then for each used S-WdgIf functionality all </p>
+<p>corresponding requirements shall be treated as safety related. </p>
+<p></p>
+<p> </p>
+<p>If the S-WdgIf is used to monitor a QM application then the SM requirements need not be treated as </p>
+<p>safety related. </p>
+<p>  </p>
+<p>As a consequence, the field &quot;Safety relevant&quot; for each requirement is always empty. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 8 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554244</p>
+<p> </p>
+<p>The list shows some keywords used in requirements and their explanation: </p>
+<p>  </p>
+<p><b>Key Word  </b></p>
+<p><b>Description   </b></p>
+<p>must, shall, required, is responsible for, is the </p>
+<p>responsibility of </p>
+<p>Requirement is mandatory. </p>
+<p>shall not </p>
+<p>Requirement is a prohibition. </p>
+<p><b>table 1  </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 9 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>2 </b></p>
+<p><b>Terms </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260274</p>
+<p> </p>
+<p> </p>
+<p>Configuration Tool </p>
+<p>A tool (like DaVinci Configurator Pro) that creates a Safe </p>
+<p>Watchdog Interface configuration. </p>
+<p>Error Escalation </p>
+<p>The escalation of a detected fault to the Watchdog by a </p>
+<p>Watchdog reset or omittance of the Watchdog trigger. </p>
+<p>Safe Watchdog Driver </p>
+<p>  </p>
+<p>The lower and hardware dependent software layer of the S-</p>
+<p>WdgM Stack. It controls the Watchdog device. </p>
+<p>Safe Watchdog Interface   </p>
+<p>The middle and hardware independent software layer of the S-</p>
+<p>WdgM Stack. </p>
+<p>Safe Watchdog Interface </p>
+<p>Configuration  </p>
+<p>The part of the S-WdgIf code that is generated by the S-WdgIf </p>
+<p>Generator from an ECU description file. </p>
+<p>Safe Watchdog Interface </p>
+<p>Configuration Generator  </p>
+<p>A tool from TTTech that generates the S-WdgIf Configuration out </p>
+<p>of an ECU description file. In this document the name is </p>
+<p>abbreviated to &quot;S-WdgIf Generator&quot;. The tool is part of the S-</p>
+<p>WdgIf package. </p>
+<p>Safe Watchdog Manager </p>
+<p>The upper and hardware independent software layer of the S-</p>
+<p>WdgM Stack. It communicates with the application through RTE. </p>
+<p>Safe Watchdog Manager Stack </p>
+<p>The stack comprises the S-WdgM, the Safe Watchdog Interface </p>
+<p>and the Safe Watchdog driver(s). </p>
+<p>System </p>
+<p>A set of elements that relates at least a sensor, a controller and </p>
+<p>an actuator with one another (see [ISO26262], part1). In this </p>
+<p>document, the MCU is part of the system. </p>
+<p>Watchdog (device) </p>
+<p>A Watchdog device is the hardware that provides the watchdog </p>
+<p>function. It can be an internal watchdog (on the MCU) or an </p>
+<p>external device. </p>
+<p>WD Mode </p>
+<p>The &quot;WD Mode&quot; defines the period timeout. It is set with </p>
+<p>WdgIf_SetMode () and can be &quot;slow&quot;, &quot;fast&quot; or &quot;off&quot; (WD </p>
+<p>disabled). Do not confuse with &quot;WD Trigger Mode&quot;.  </p>
+<p>WD Trigger Mode  </p>
+<p>The &quot;WD Trigger Mode&quot; defines the WD trigger window (start and </p>
+<p>length) together with the &quot;WD Mode&quot;. It is set with </p>
+<p>WdgM_SetMode (). </p>
+<p><b>table 2  </b></p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 10 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>3 </b></p>
+<p><b>Notations </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233039</p>
+<p> </p>
+<p> </p>
+<p><b>Notation </b></p>
+<p><b>Description  </b></p>
+<p><i>text </i></p>
+<p>Italic text is a placeholder for a name or text pattern. E.g.: In Wdg_<i>infix</i>_Init (), the text <i>infix </i>is a </p>
+<p>placeholder for the actual name of the used WD driver. </p>
+<p><i>infix </i></p>
+<p>A placeholder with this name is interpreted as follows:  </p>
+<p></p>
+<p> </p>
+<p>In case of an AUTOSAR 3.1 environment, the placeholder <i>infix </i>stands for the name of </p>
+<p>the configured WD device. </p>
+<p></p>
+<p> </p>
+<p>In case of an AUTOSAR 4.0 environment, the placeholder <i>infix </i>stands for the pattern </p>
+<p><i>vendor-id_device-name</i>, where <i>vendor-id </i>is the ID of the vendor of the WD driver and </p>
+<p><i>device-name </i>is the name of the configured WD device.  </p>
+<p><b>table 3  </b></p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 11 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>4 </b></p>
+<p><b>Abbreviations </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233047</p>
+<p> </p>
+<p> </p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p>ASIL </p>
+<p>Automotive Safety Integrity Level </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basic Software (AUTOSAR term) </p>
+<p>DEM  </p>
+<p>Diagnostic Event Manager  </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>ECU </p>
+<p>Engine Control Unit  </p>
+<p>ISO </p>
+<p>International Organization for Standardization </p>
+<p>MCU </p>
+<p>Microcontroller Unit  </p>
+<p>MPU  </p>
+<p>Memory Protection Unit. Usually this is part of the Microcontroller.  </p>
+<p>MemMap </p>
+<p>Memory Mapping (for Memory Management) </p>
+<p>QM </p>
+<p>Quality Managed (Software) </p>
+<p>SM  </p>
+<p>Safety Manual </p>
+<p>SPI </p>
+<p>Serial Peripheral Interface (Module)  </p>
+<p>S-Wdg </p>
+<p>Safe Watchdog Driver (from TTTech)  </p>
+<p>S-WdgM </p>
+<p>Safe Watchdog Manager (from TTTech)  </p>
+<p>S-WdgIf  </p>
+<p>Safe Watchdog Interface (from TTTech)  </p>
+<p>S-WdgM Stack </p>
+<p>The &quot;S-WdgM Stack&quot; comprises the S-WdgM, the S-WdgIf and the used Safe </p>
+<p>Watchdog driver(s). </p>
+<p>WD </p>
+<p>Watchdog  </p>
+<p>WdgM </p>
+<p>Watchdog Manager according to the AUTOSAR 4.0 specification </p>
+<p>WdgIf  </p>
+<p>Watchdog Interface according to the AUTOSAR 4.0 specification  </p>
+<p><b>table 4  </b></p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 12 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>5 </b></p>
+<p><b>Safe Watchdog Interface Overview </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233043</p>
+<p> </p>
+<p>For an overview of and more details about </p>
+<p></p>
+<p> </p>
+<p>the S-WdgIf, </p>
+<p></p>
+<p> </p>
+<p>the other S-WdgM Stack components, and </p>
+<p></p>
+<p> </p>
+<p>the S-WdgIf Generator </p>
+<p>see the according user manuals and Safety Manuals: </p>
+<p></p>
+<p> </p>
+<p>for the S-WdgM: [TT_WDGM_UM], [TT_WDGM_SM], </p>
+<p></p>
+<p> </p>
+<p>for the S-WdgIf: [TT_WDGIF_UM] and this document, or </p>
+<p></p>
+<p> </p>
+<p>for the S-Wdg drivers: the according Safety Manual. </p>
+<p>  </p>
+<p>See section &quot;References&quot; at the end of this document.  </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 13 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>6 </b></p>
+<p><b>System Assumptions </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>270643</p>
+<p> </p>
+<p>The system assumptions are a subset of the S-WdgM system assumptions (see [TT_WDGM_SM]). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>559912</p>
+<p> </p>
+<p>The S-WdgIf is designed for integration into an AUTOSAR 3.1.4 and 4.0.1 system. However, it is not </p>
+<p>restricted to these AUTOSAR versions. The software module can also be integrated into other versions of </p>
+<p>AUTOSAR and other system SW architectures, provided that the integration related requirements listed in </p>
+<p>the Safety Manual are met. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>6.1 </b></p>
+<p><b>Assumptions in this Document </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>282959</p>
+<p> </p>
+<p>The following requirements and comments are placed in the according context in this document. They may </p>
+<p>be interpreted as system assumptions or not - depending on the circumstances the system is developed </p>
+<p>and applied: </p>
+<p>  </p>
+<p> <b>Requirement  </b></p>
+<p><b> Description </b></p>
+<p>260213, 234568, 235165, 237306  </p>
+<p>Quality level degradation by external interfaces to 3rd </p>
+<p>party modules. *1). </p>
+<p>260213 </p>
+<p>Quality level degradation by external interfaces to S-</p>
+<p>WdgM Stack modules *2). </p>
+<p>236022 </p>
+<p>S-WdgIf functionality affected by other SW.  </p>
+<p>260197, 260217, 236258, 236382 </p>
+<p>WD driver and WD device.  </p>
+<p>236356 </p>
+<p>Memory sections, access rights. </p>
+<p>236044, 237369, 236430, 236434  </p>
+<p>Memory corruption. </p>
+<p>260205 </p>
+<p>External Interfaces. </p>
+<p><b>table 5  </b></p>
+<p>  </p>
+<p>*1) The 3rd party modules are not part of the S-WdgM Stack. </p>
+<p>*2) The external interfaces between S-WdgM, S-WdgIf and S-Wdg do not have to be verified if: </p>
+<p></p>
+<p> </p>
+<p>the modules are part of the same S-WdgM Stack release, </p>
+<p></p>
+<p> </p>
+<p>the modules are not altered by the integrator, and </p>
+<p></p>
+<p> </p>
+<p>the modules are integration tested by TTTech. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 14 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>7 </b></p>
+<p><b>S-WdgIf Function Requirements </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>270650</p>
+<p> </p>
+<p>For the system requirements that the S-WdgM Stack fulfills, see[TT_WDGM_SM]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 15 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>8 </b></p>
+<p><b>S-WdgIf Configuration </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233053</p>
+<p> </p>
+<p>The S-WdgIf Configuration is the part of the S-WdgIf code that is generated with the S-WdgIf Generator out </p>
+<p>of a given ECU description file. </p>
+<p>This section lists the safety requirements for the creation of a S-WdgIf Configuration. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233055</p>
+<p> </p>
+<p>For a description of </p>
+<p></p>
+<p> </p>
+<p>the configuration fields in the ECU description file and </p>
+<p></p>
+<p> </p>
+<p>how to create S-WdgIf code out of the ECU description file </p>
+<p>see [TT_WDGIF_UM]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>8.1 </b></p>
+<p><b>Configuration Check-List </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>233059</p>
+<p> </p>
+<p>The S-WdgIf Generator performs basic checks on the ECU description file when it generates the S-WdgIf </p>
+<p>Configuration. </p>
+<p>The following list provides instructions for manual checks of safety relevant configuration values that cannot </p>
+<p>be performed by the S-WdgIf Generator. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>8.1.1  General Requirements </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234105 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall set the configuration parameters according to the project specification. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>552162 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The ECU description file that serves as input for the generation of the S-WdgIf Configuration files shall </p>
+<p>comply to the AUTOSAR schema defined in comment 559910 above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554249</p>
+<p> </p>
+<p>Note: These are the AUTOSAR versions for which the S-WdgIf was developed and tested. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554878</p>
+<p> </p>
+<p>The AUTOSAR version used for S-WdgIf integration tests is defined in [TT_WDGS_ITR]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 16 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>8.1.2  Compiler Settings </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>240758 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__264807,__MKSID__264811,__MKSID__55284</p>
+<p>3 </p>
+<p>The following fields in the ECU description file shall be &quot;true&quot; if the according feature shall be enabled, </p>
+<p>otherwise &quot;false&quot;: </p>
+<p>  </p>
+<p><b>Field </b></p>
+<p><b>Feature </b></p>
+<p>WdgIfVersionInfoApi   </p>
+<p>Enable Version API. </p>
+<p>WdgIfDevErrorDetect  </p>
+<p>Enable Development error detection. </p>
+<p>WdgIfUseAutosarDrvApi </p>
+<p>Enable AUTOSAR compatible WD driver API. </p>
+<p><b>table 6  </b></p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>240769 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>If an internal HW tick counter is used, then the field WdgIfInternalTickCounterRef shall be defined such that </p>
+<p>is refers to a WD driver, otherwise the field WdgIfInternalTickCounterRef is omitted. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>240773</p>
+<p> </p>
+<p>If WdgIfInternalTickCounterRef is a S-WdgIf information and refers to a WD driver, the driver must </p>
+<p></p>
+<p> </p>
+<p>support an internal tick counter and </p>
+<p></p>
+<p> </p>
+<p>its parameter WdgInternalTickCounter must be &quot;true&quot;. </p>
+<p>  </p>
+<p>This is checked automatically by the S-WdgIf Configuration Generator. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>8.1.3  Post Build Configuration and Application Settings </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>240764</p>
+<p> </p>
+<p>This section provides a check list for the various aspects and configuration fields that must be considered </p>
+<p>for post build configuration of the S-WdgIf. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>240766</p>
+<p> </p>
+<p>For further information on configuration fields see [TT_WDGIF_UM]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260197 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall make sure that the configuration has </p>
+<p></p>
+<p> </p>
+<p>only one WD driver and </p>
+<p></p>
+<p> </p>
+<p>only one WD device for the driver </p>
+<p>defined. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 17 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>242221</p>
+<p> </p>
+<p>The current implementation of the S-WdgM Stack supports only one WD device per WD driver. If configured </p>
+<p>so, the S-WdgIf Generator yields an error message. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260225</p>
+<p> </p>
+<p>As a consequence, the device index that is passed to the WD driver functions is always 0. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260199 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall ensure that the names of the WD driver functions in the generated S-WdgIf </p>
+<p>configuration match the actual names of the functions in the WD driver. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260205 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>In case a Watchdog Driver is used that is not implemented by TTTech, the integrator shall make sure that </p>
+<p>the WD driver supports the following functions: </p>
+<p></p>
+<p> </p>
+<p>Wdg_<i>infix</i>_SetMode () and </p>
+<p></p>
+<p> </p>
+<p>Wdg_<i>infix</i>_SetTriggerWindow () or Wdg_<i>infix</i>_SetTriggerCondition (). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260201</p>
+<p> </p>
+<p>The S-WdgIf Generator fills the placeholder (<i>infix</i>) automatically. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260217 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>If an internal HW tick counter is configured (i.e. WdgIfInternalTickCounterRef is defined), </p>
+<p>then the integrator shall make sure that the WD driver supports the function Wdg_<i>infix</i>_GetTickCounter (). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260213 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>In case a Watchdog Driver is used that is not implemented by TTTech, the integrator shall verify that the </p>
+<p>functions that are offered by the WD driver (listed in section &quot;Expected Interface&quot;, Comment 234584) and </p>
+<p>called from the S-WdgIf do not degrade the quality level of the S-WdgIf below the required quality level. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 18 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>9 </b></p>
+<p><b>S-WdgIf Configuration Generator </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234331</p>
+<p> </p>
+<p>This section lists the safety requirements for the installation and application of the S-WdgIf Generator. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234333</p>
+<p> </p>
+<p>For information on how to use the S-WdgIf Generator, see [TT_WDGIF_UM]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234335</p>
+<p> </p>
+<p>Note: the S-WdgIf Generator is <b>not </b>ASIL-D and iIts output cannot be trusted. The generated files must be </p>
+<p>verified manually as described in &quot;S-WdgIf Generator - Verification&quot;. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>9.1 </b></p>
+<p><b>S-WdgIf Generator - Installation </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234339 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>If the S-WdgIf Generator is installed and used on a different OS than Windows 7 with Service Pack 1, the </p>
+<p>integrator is responsible for ensuring that the change of the underlying OS does not affect the behavior and </p>
+<p>output of the S-WdgIf Generator. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234341</p>
+<p> </p>
+<p>The S-WdgIf Generator has been tested on Windows 7 with Service Pack 1. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>9.2 </b></p>
+<p><b>S-WdgIf Generator - Application </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234345 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The selected output path for the generated S-WdgIf code (runtime argument &quot;OUTPUT-DIRECTORY&quot;) shall </p>
+<p>be empty before the S-WdgIf Generator is started. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234347</p>
+<p> </p>
+<p>If the output path is not empty, code from previous generation runs may be accidentally integrated into the </p>
+<p>AUTOSAR system. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>263318</p>
+<p> </p>
+<p>The names of the generated files are listed on standard error (stdout). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234349 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>If the S-WdgIf Generator aborts the generation process with an error, the (partially) generated output files </p>
+<p>shall not be used in an AUTOSAR system. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 19 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234351</p>
+<p> </p>
+<p>Error messages start with &quot;Error&quot; and they are displayed on standard error (stderr). </p>
+<p>If successful, the S-WdgIf Generator returns error level 0, otherwise an error level higher than 0 is returned. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234353 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>If the S-WdgIf Generator displays a warning message, the integrator shall ensure that the cause of the </p>
+<p>warning does not invalidate the generated S-WdgIf Configuration. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234355</p>
+<p> </p>
+<p>Warning messages start with &quot;Warning&quot; and are displayed on standard error (stderr). </p>
+<p>If successful (although with a warning), the S-WdgIf Generator returns error level 0, otherwise an error level </p>
+<p>higher than 0 is returned. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234359</p>
+<p> </p>
+<p>TTTech provides a sample demonstration configuration with four supervised entities. The files may be used </p>
+<p>by the integrator, but they are intended for demonstration only. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234361</p>
+<p> </p>
+<p>The S-WdgIf Generator is not configurable. The S-WdgIf Generator process is controlled by the input </p>
+<p>arguments only. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>9.3 </b></p>
+<p><b>S-WdgIf Generator - Verification </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289334</p>
+<p> </p>
+<p>This section describes how to verify the generated files manually. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289342 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__297368 </p>
+<p>Check that the set of generated files is complete. It consists of: </p>
+<p></p>
+<p> </p>
+<p>WdgIf_Cfg_Features.h, </p>
+<p></p>
+<p> </p>
+<p>WdgIf_Lcfg.h, and </p>
+<p></p>
+<p> </p>
+<p>WdgIf_Lcfg.c. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>9.3.1  Check of WdgIf_Cfg_Features.h </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289346 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__264811 </p>
+<p>If - and only if - WdgIfVersionInfoApi in the ECU Description file is &quot;true&quot;, </p>
+<p>then WDGIF_VERSION_INFO_API shall be set STD_ON, otherwise STD_OFF. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 20 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>555654 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p>__MKSID__552843 </p>
+<p>Related To': </p>
+<p> </p>
+<p>If - and only if - WdgIfUseAutosarDrvApi in the ECU Description file is &quot;true&quot;, </p>
+<p>then WDGIF_USE_AUTOSAR_DRV_API shall be set STD_ON, otherwise STD_OFF. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289352 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__264807 </p>
+<p>If - and only if - WdgIfDevErrorDetect in the ECU Description file is &quot;true&quot;, </p>
+<p>then WDGIF_DEV_ERROR_DETECT shall be set STD_ON, otherwise STD_OFF. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289356 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__264814 </p>
+<p>If - and only if - an internal tick counter is referenced with WdgIfInternalTickCounterRef in the ECU </p>
+<p>Description file, </p>
+<p>then WDGIF_INTERNAL_TICK_COUNTER shall be set STD_ON, otherwise STD_OFF. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>9.3.2  Check of WdgIf_Lcfg.h </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289360 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__297372 </p>
+<p>The file shall contain a pre processor command as follows: </p>
+<p>  </p>
+<p>#define WDGIF_NUMBER_OF_WATCHDOGS 1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289362</p>
+<p> </p>
+<p>In the current version of the S-WdgIf, the number of used watchdogs is restricted to one. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>9.3.3  Check of WdgIf_Lcfg.c </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289388 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The header file named &quot;Wdg_<i>infix</i>.h&quot; shall be included. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289390</p>
+<p> </p>
+<p>In the current version of the S-WdgIf, the number of used WD drivers is restricted to one. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289392 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The file &quot;WdgIf_Lcfg.h&quot; shall be included. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 21 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289394 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__58842 </p>
+<p>The following structures shall be defined: </p>
+<p></p>
+<p> </p>
+<p>&quot;WdgIf_InterfaceFunctionsType <i>infix</i>_functions&quot;, </p>
+<p></p>
+<p> </p>
+<p>&quot;WdgIf_InterfaceFunctionsPerWdgDeviceType WdgIf_FunctionsPerWdg </p>
+<p>[WDGIF_NUMBER_OF_WATCHDOGS]&quot; (an array of structures), and </p>
+<p></p>
+<p> </p>
+<p>&quot;WdgIf_InterfaceType WdgIf_Interface&quot;. </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289406 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The structures listed in 289394 above shall be memory mapped to </p>
+<p>WDGIF_START_SEC_CONST_UNSPECIFIED. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289398 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__55578,__MKSID__55580 </p>
+<p>The structure &quot;<i>infix</i>_functions&quot; shall contain the following field values (and in this order): </p>
+<p></p>
+<p> </p>
+<p>&quot;Wdg_<i>infix</i>_SetMode&quot; and </p>
+<p></p>
+<p> </p>
+<p>&quot;Wdg_<i>infix</i>_SetTriggerWindow&quot; if WDGIF_USE_AUTOSAR_DRV_API is set to STD_OFF and </p>
+<p>&quot;Wdg_<i>infix</i>_SetTriggerCondition&quot; if WDGIF_USE_AUTOSAR_DRV_API is set to STD_ON. </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289410</p>
+<p> </p>
+<p>The fields refer to the functions of the used WD driver to set the WD trigger. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289412 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__297362,__MKSID__297324 </p>
+<p>The array WdgIf_FunctionsPerWdg shall contain a single array item with the following field values (in this </p>
+<p>order): </p>
+<p></p>
+<p> </p>
+<p>&quot;&amp;<i>infix</i>_functions&quot; and </p>
+<p></p>
+<p> </p>
+<p>&quot;0&quot;. </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289414</p>
+<p> </p>
+<p>The value 0 refers to the position of each WD (starting with 0) assigned to the WD driver referred to by <i>infix</i>. </p>
+<p>There is only one WD configurable for a driver. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>289455 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__55582,__MKSID__297312,__MKSID__239282 </p>
+<p>The structure WdgIf_Interface shall contain the following field values: </p>
+<p></p>
+<p> </p>
+<p>&quot;WDGIF_NUMBER_OF_WATCHDOGS&quot;, </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 22 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p></p>
+<p> </p>
+<p>&quot;WdgIf_FunctionsPerWdg&quot;, and </p>
+<p></p>
+<p> </p>
+<p>&quot;Wdg_<i>infix</i>_GetTickCounter&quot; if - and only if - WDGIF_INTERNAL_TICK_COUNTER is set to STD_ON. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 23 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>10 Safe Watchdog Interface </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234556</p>
+<p> </p>
+<p>This section lists the safety requirements for the integration and application of the S-WdgIf code in/into an </p>
+<p>AUTOSAR system. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.1 API Specification </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234560</p>
+<p> </p>
+<p>This section describes the imported types and definitions and the expected interface. It also describes </p>
+<p>safety related aspects of types, definitions and functions implemented in the S-WdgIf. </p>
+<p>Some types, definitions and interfaces depend on the used S-WdgIf Configuration. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234562</p>
+<p> </p>
+<p>For more information see [TT_WDGIF_UM]. </p>
+<p>For more information about types, definitions and functions implemented in the S-Wdg drivers, see the </p>
+<p>Safety Manuals of the drivers. Safety Manuals and User Manuals of the drivers tested by TTTech can be </p>
+<p>found in section &quot;References&quot; at the end of this document. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234564</p>
+<p> </p>
+<p>For further requirements related to imported types, definitions and interfaces, see section &quot;S-WdgIf </p>
+<p>Integration&quot; below. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234566</p>
+<p> </p>
+<p>The integrator is responsible for the correct import of the types and definitions that are listed in section </p>
+<p>&quot;Imported Types and Definitions&quot; below. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234570 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for the correct application of the interface functions. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234572 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for ensuring that all external functions that are called from within the S-WdgIf </p>
+<p>code are imported from the correct versions of AUTOSAR. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>559643</p>
+<p> </p>
+<p>For the supported AUTOSAR versions, see comment 559910 above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>546265</p>
+<p> </p>
+<p>The external functions are defined in section &quot;Expected Interface&quot; below. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 24 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234574 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The inclusion of AUTOSAR files or any other files different from S-WdgIf files shall not redefine any </p>
+<p>identifier that is defined in the S-WdgIf code. E.g., redefinitions with #define macros. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234568 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall verify that no external interface of the S-WdgIf listed in this section degrades the quality </p>
+<p>level of the S-WdgIf below the required quality level. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>559038</p>
+<p> </p>
+<p>The external interfaces are defined in section &quot;Expected Interface&quot; below. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234576</p>
+<p> </p>
+<p>For example, if an external function of quality level ASIL C is called by the S-WdgIf, it degrades the quality </p>
+<p>level of the S-WdgIf to ASIL C (if no precautions were taken), although the required quality level is ASIL D. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.1.1 </b></p>
+<p><b>Expected Interface </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234580</p>
+<p> </p>
+<p>This section lists the external functions that are called by the S-WdgIf. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234582</p>
+<p> </p>
+<p>For an overview of functions that are called by the S-WdgIf see [TT_WDGIF_UM]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234584</p>
+<p> </p>
+<p>The following functions of the WD driver in the lower layer are called: </p>
+<p>  </p>
+<p><b>Function  </b></p>
+<p><b>Module   </b></p>
+<p>Wdg_<i>infix</i>_SetMode () *) </p>
+<p>WD Driver </p>
+<p>Wdg_<i>infix</i>_SetTriggerWindow () </p>
+<p>or Wdg_<i>infix</i>_SetTriggerCondition() **) ***) </p>
+<p>WD Driver </p>
+<p><b>table 7  </b></p>
+<p>  </p>
+<p>*) If the function WdgIf_SetMode () is called with parameter DeviceIndex=<i>i</i>, then it calls the function that is </p>
+<p>configured for the <i>i</i>-th WD - referred to by <i>infix </i>- in the S-WdgIf configuration for the configuration field </p>
+<p>Wdg_<i>infix</i>_SetMode. </p>
+<p>  </p>
+<p>**) If the function WdgIf_SetTriggerWindow () or WdgIf_SetTriggerCondition () is called with parameter </p>
+<p>DeviceIndex=<i>i</i>, then it calls the function that is configured for the <i>i</i>-th WD - referred to by <i>infix </i>- in the S-</p>
+<p>WdgIf configuration for the configuration field Wdg_<i>infix</i>_SetTriggerWindow. </p>
+<p>  </p>
+<p>***) If the configuration parameter WdgIfUseAutosarApi is set to &quot;true&quot;, then the S-WdgIf expects the WD </p>
+<p>driver to provide the function Wdg_<i>infix</i>_SetTriggerWindow () (which is the AUTOSAR API compatibility </p>
+<p>mode). Otherwise, the S-WdgIf expects the WD driver to provide the function </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 25 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>Wdg_<i>infix</i>_SetTriggerCondition () (which is the TTTech API compatibility mode). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235159</p>
+<p> </p>
+<p>Some functions are called by the S-WdgIf depending on the compiler switches as listed here: </p>
+<p> </p>
+<p><b>Compiler Switch  </b></p>
+<p><b>Function   </b></p>
+<p><b> Module </b></p>
+<p>WDGIF_DEV_ERROR_DETECT is </p>
+<p>set to STD_ON </p>
+<p>Appl_Det_ReportError () *) </p>
+<p>DET </p>
+<p>WDGIF_INTERNAL_TICK_COUNTE</p>
+<p>R is set to STD_ON </p>
+<p>Wdg_<i>infix</i>_GetTickCounter () **) </p>
+<p>WD Driver </p>
+<p>WDGIF_USE_AUTOSAR_DRV_API </p>
+<p>If set to STD_ON, then Wdg_<i>infix</i>_SetTriggerWindow () </p>
+<p>is called, otherwise Wdg_<i>infix</i>_SetTriggerCondition () is </p>
+<p>called ***) </p>
+<p>WD Driver </p>
+<p><b>table 8  </b></p>
+<p> </p>
+<p>*) This is a wrapper function. See section &quot;Implementation of Wrapper Function Appl_Det_ReportError ()&quot; </p>
+<p>below for information. </p>
+<p> </p>
+<p>**) If the function WdgIf_GetTickCounter () is called with WDGIF_INTERNAL_TICK_COUNTER set to </p>
+<p>STD_ON, then it calls the function that is configured in the S-WdgIf configuration for the configuration field </p>
+<p>Wdg_<i>infix</i>_GetTickCounter. </p>
+<p>  </p>
+<p>***) WDGIF_USE_AUTOSAR_DRV_API is set to STD_ON for the AUTOSAR compatibility mode and set to </p>
+<p>STD_OFF for the TTTech compatibility mode. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.1.1.1 </b></p>
+<p><b>Implementation of Wrapper Function Appl_Det_ReportError () </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>238269</p>
+<p> </p>
+<p>The function Det_ReportError () may not meet the required quality level and need to be wrapped so that </p>
+<p>freedom from interference with the S-WdgIf is guaranted. The according wrapper function is called </p>
+<p>Appl_Dem_ReportError (). The S-WdgIf calls the function Appl_Dem_ReportError () instead of </p>
+<p>Dem_ReportError (). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260666</p>
+<p> </p>
+<p>Note: Det_ReportError () is only called if WDGIF_DEV_ERROR_DETECT is set to STD_ON. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260664 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The wrapper function Appl_Det_ReportError () shall be declared in a separate header-file named </p>
+<p>Appl_Det.h. This header file shall include Det.h for the wrapped AUTOSAR function. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235165 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall verify that a call of this function does not degrade the S-WdgIf below the required </p>
+<p>quality level. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 26 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235862</p>
+<p> </p>
+<p>For this reason, the integrator is advised to revise the necessity of the expected interfaces. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.1.2 </b></p>
+<p><b>Imported Types and Definitions </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235866</p>
+<p> </p>
+<p>This section lists the types and definitions that are imported by the S-WdgIf. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235886</p>
+<p> </p>
+<p>The following types and definitions are imported from Platform_Types.h and used: </p>
+<p><b>Types: </b></p>
+<p>uint8 </p>
+<p>uint16 </p>
+<p>uint32 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235888</p>
+<p> </p>
+<p>The following types and definitions are imported from Std_Types.h and used: </p>
+<p><b>Types: </b></p>
+<p>Std_VersionInfoType (only if WDGIF_VERSION_INFO_API is set to STD_ON) </p>
+<p>Std_ReturnType </p>
+<p><b>Definitions: </b></p>
+<p>STD_ON </p>
+<p>STD_OFF </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235890</p>
+<p> </p>
+<p>The following definitions are imported from &quot;Compiler.h&quot; and used: </p>
+<p><b>Definitions: </b></p>
+<p>AUTOMATIC </p>
+<p>FUNC </p>
+<p>NULL_PTR </p>
+<p>P2CONST </p>
+<p>P2FUNC </p>
+<p>P2VAR </p>
+<p>VAR </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235892</p>
+<p> </p>
+<p>The following definitions are imported from &quot;Compiler_Cfg.h&quot; and used: </p>
+<p>WDGIF_APPL_DATA </p>
+<p>WDGIF_CODE </p>
+<p>WDGIF_CONST </p>
+<p>WDGIF_APPL_CONST </p>
+<p>WDGIF_VAR </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235894</p>
+<p> </p>
+<p>The following definitions are imported from &quot;MemMap.h&quot; and used: </p>
+<p>In WdgIf.c: </p>
+<p>WDGIF_START_SEC_CODE </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 27 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>WDGIF_STOP_SEC_CODE </p>
+<p>In WdgIf_Lcfg.c: </p>
+<p>WDGIF_START_SEC_CONST_UNSPECIFIED </p>
+<p>WDGIF_STOP_SEC_CONST_UNSPECIFIED </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.1.3 </b></p>
+<p><b>Error Handling </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235916</p>
+<p> </p>
+<p>This section describes the error codes that are set by the S-WdgIf (using the DET mechanism) and the </p>
+<p>return values from S-WdgIf API functions.. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.1.3.1 </b></p>
+<p><b>DET Errors </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235920</p>
+<p> </p>
+<p>DET Errors are intended to support the development of an application. During software development, the </p>
+<p>compiler directive WDGIF_DEV_ERROR_DETECT is usually set to STD_ON. Once the software is safe </p>
+<p>enough so that no further DET error can occur, the option is deactivated. For safety reasons the DET errors </p>
+<p>that are returned by the S-WdgIf are listed here. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235896</p>
+<p> </p>
+<p>If the compiler switch WDGIF_DEV_ERROR_DETECT is set to STD_ON, then the S-WdgIf reports the </p>
+<p>following development errors using the function Appl_Det_ReportError (): </p>
+<p> </p>
+<p><b>DET Error </b></p>
+<p><b> Code </b></p>
+<p><b> Description  </b></p>
+<p>WDGIF_E_PARAM_DEVICE  0x01  </p>
+<p>A WD device is referenced that is not defined in the S-WdgIf </p>
+<p>configuration. *) </p>
+<p>WDGIF_E_PARAM_PTR  </p>
+<p>0x02  </p>
+<p>WdgIf_GetVersionInfo () is called with NULL-pointer as </p>
+<p>parameter. </p>
+<p><b>table 9  </b></p>
+<p> </p>
+<p>*) Possible reasons are: </p>
+<p></p>
+<p> </p>
+<p>the pointer to the WdgIf configuration is NULL, </p>
+<p></p>
+<p> </p>
+<p>the device index is higher than the number of WDs in the WdgIf configuration, and </p>
+<p></p>
+<p> </p>
+<p>the pointer to the referenced WD function is NULL. </p>
+<p>  </p>
+<p>The DET errors are defined in WdgIf.h. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235868</p>
+<p> </p>
+<p>The definition WDGIF_E_PARAM_DEVICE is an AUTOSAR definition (see [AS_WDGIF_SWS]). </p>
+<p>The definition WDGIF_E_PARAM_PTR is TTTech specific. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235932 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for making sure that - once the compiler switch </p>
+<p>WDGIF_DEV_ERROR_DETECT is set to STD_OFF - no error relevant to DET can occur. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 28 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.1.3.2 </b></p>
+<p><b>Return Values </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235936</p>
+<p> </p>
+<p>The following functions return E_NOT_OK in case an error occured: </p>
+<p> </p>
+<p><b>Function  </b></p>
+<p><b>Comment  </b></p>
+<p>WdgIf_SetMode () </p>
+<p>DET error WDGIF_E_PARAM_DEVICE was reported or </p>
+<p>the called function Wdg_<i>infix</i>_SetMode () of the WD driver returned </p>
+<p>E_NOT_OK. </p>
+<p>WdgIf_SetTriggerCondition () </p>
+<p>DET error WDGIF_E_PARAM_DEVICE was reported or </p>
+<p>the called function Wdg_<i>infix</i>_SetTriggerWindow () of the WD driver </p>
+<p>returned E_NOT_OK. </p>
+<p>WdgIf_SetTriggerWindow () </p>
+<p>DET error WDGIF_E_PARAM_DEVICE was reported or </p>
+<p>the called function Wdg_<i>infix</i>_SetTriggerWindow () of the WD driver </p>
+<p>returned E_NOT_OK. </p>
+<p><b>table 10  </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>235938</p>
+<p> </p>
+<p>The return codes are handled by the S-WdgIf function that calls one of the functions above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.2 Functional Specification </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>283401</p>
+<p> </p>
+<p>A detailed functional specification of the S-WdgIf module is provided in [TT_WDGIF_UDD]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236022 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for ensuring that the S-WdgIf functionality is not unintentionally affected by </p>
+<p>other software (especially the AUTOSAR SW). This is, e.g., manipulation of local variables of S-WdgIf </p>
+<p>functions. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>287742</p>
+<p> </p>
+<p>This includes: </p>
+<p></p>
+<p> </p>
+<p>memory corruption (see section &quot;S-WdgIf Application&quot; below), </p>
+<p></p>
+<p> </p>
+<p>source code modifications, and </p>
+<p></p>
+<p> </p>
+<p>API function calls with wrong parameters. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 29 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p><b>10.3 S-WdgIf Configuration </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236026</p>
+<p> </p>
+<p>The S-WdgIf has two kinds of configuration: </p>
+<p></p>
+<p> </p>
+<p>pre-processor options and </p>
+<p></p>
+<p> </p>
+<p>link-time configuration data. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236032</p>
+<p> </p>
+<p>The pre-processor options are generated out of an ECU configuration using the S-WdgIf Generator (coded </p>
+<p>in the generated file WdgIf_Cfg_Features.h). </p>
+<p>They activate or deactivate certain S-WdgIf features and cannot be altered during runtime. </p>
+<p>See section &quot;S-WdgIf Configuration Generator&quot; in this document for details on the S-WdgIf Generator and </p>
+<p>its application. </p>
+<p>See [TT_WDGIF_UM] for details on the pre-processor options. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236034</p>
+<p> </p>
+<p>The link-time configuration data is also generated out of the ECU configuration using the S-WdgIf Generator </p>
+<p>(coded in the generated files WdgIf_Lcfg.h and WdgIf_Lcfg.c). </p>
+<p>The link-time configuration defines the used WD devices with links to the device specific functions and </p>
+<p>cannot be altered during runtime. </p>
+<p>See section &quot;S-WdgIf Configuration Generator&quot; above for details on the S-WdgIf Generator and its </p>
+<p>application. </p>
+<p>See [TT_WDGIF_UM] for more information about on the link-time configuration data. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236042</p>
+<p> </p>
+<p>The integrator is responsible for generation and verification of configuration data as depicted in section &quot;S-</p>
+<p>WdgIf Configuration Generator&quot; above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236044 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall guarantee that the configuration data is not altered, e.g. through erroneous HW. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236046</p>
+<p> </p>
+<p>This can be realized - for example - with ECC ROM/FLASH checks, cyclical ROM/FLASH checks, and start </p>
+<p>up ROM/FLASH checks. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.4 File Structure </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236055</p>
+<p> </p>
+<p>For information about the S-WdgIf file structure see [TT_WDGIF_UM]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236057</p>
+<p> </p>
+<p>The following table shows the files that are only included when the according compiler directive is set to </p>
+<p>STD_ON: </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 30 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p><b>Include File  </b></p>
+<p><b>Compiler Directive   </b></p>
+<p>Det.h  </p>
+<p>WDGIF_DEV_ERROR_DETECT  </p>
+<p><b>table 11  </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236061</p>
+<p> </p>
+<p>See also the requirement 234574 for File inclusion. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.5 S-WdgIf Integration </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236065</p>
+<p> </p>
+<p>This section describes how to integrate the S-WdgIf into a safety-relevant system. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236240 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>It is the responsibility of the integrator to demonstrate that the generated S-WdgIf configuration is sufficient </p>
+<p>for the considered system. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236256 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for a correct integration of the S-WdgIf code on the system level as described </p>
+<p>in this section. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236258 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall verify that the chosen WD device(s), which is internal or external, meets the system's </p>
+<p>safety requirements. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236260</p>
+<p> </p>
+<p>For single oscillator MCU's (where the watchdog clock is derived from the CPU main clock) it is </p>
+<p>recommended to use an external watchdog device with its own oscillator as well. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.5.1 </b></p>
+<p><b>Import from AUTOSAR Definitions into S-WdgIf </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236264 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for the correct implementation of all types and definitions that are imported </p>
+<p>from AUTOSAR header files and used by the S-WdgIf code according to AUTOSAR specifications. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 31 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554231</p>
+<p> </p>
+<p>See also section &quot;Imported Types and Definitions&quot; above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236266 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for providing the AUTOSAR header files for the import of the AUTOSAR types </p>
+<p>and definitions. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236268</p>
+<p> </p>
+<p>For a list of imported AUTOSAR types and definitions and the related header files, see section &quot;Imported </p>
+<p>Types and Definitions&quot; above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236270 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The inclusion of AUTOSAR header files into the S-WdgIf code shall not redefine any identifier that is </p>
+<p>defined within the S-WdgIf code. This prohibits, for example, redefinitions with #define macros. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236272 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for providing the correct code of used AUTOSAR functions. That is, correct in </p>
+<p>version and functionality. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236274</p>
+<p> </p>
+<p>For a list of used AUTOSAR functions, see section &quot;Expected Interface&quot; above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236276 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>It is the responsibility of the integrator to provide a file Std_Types.h according to the comments in section </p>
+<p>&quot;Imported Types and Definitions&quot; above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236278 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>It is the responsibility of the integrator to provide a file Platform_Types.h according to the comments in </p>
+<p>section &quot;Imported Types and Definitions&quot; above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236280 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>It is the responsibility of the integrator to provide a file Compiler.h and a file Compiler_Cfg.h according to the </p>
+<p>comments in section &quot;Imported Types and Definitions&quot; above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 32 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236282</p>
+<p> </p>
+<p>Note: Some other integrated products provide their own contents for Compiler_Cfg.h. They need to be </p>
+<p>merged into the file Compiler_Cfg.h of the system. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236284 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>It is the responsibility of the integrator to provide a file MemMap.h according to the AUTOSAR </p>
+<p>specifications. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236600</p>
+<p> </p>
+<p>In contrast to the S-WdgM, there is no configuration dependent memory management. All memory </p>
+<p>management definitions for the S-WdgIf are located in MemMap.h. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236286</p>
+<p> </p>
+<p>Note: Some other integrated products provide their own contents for MemMap.h. They need to be merged </p>
+<p>into the file Memmap.h file for the system. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236290</p>
+<p> </p>
+<p>TTTech provides example files for </p>
+<p></p>
+<p> </p>
+<p>MemMap.h (which includes the files WdgM_MemMap.h or WdgM_OSMemMap.h, and </p>
+<p>Wdg_MemMap.h) and </p>
+<p></p>
+<p> </p>
+<p>demo_MemMap.h (with the memory mapping definitions of the complete S-WdgM Stack). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>561554</p>
+<p> </p>
+<p>The file WdgM_MemMap.h is used in AUTOSAR 3.1 enviroments.  </p>
+<p>The file WdgM_OSMemMap.h is used in AUTOSAR 4.0 enviroments. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.5.2 </b></p>
+<p><b>Memory Mapping </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236350</p>
+<p> </p>
+<p>This section lists the requirements for the memory mapping of the S-WdgIf data and code (including the </p>
+<p>generated S-WdgIf code). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236762 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for the inclusion of the correct MemMap.h file into the S-WdgIf code. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236356 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for the correct assignment of S-WdgIf data and code (including the generated </p>
+<p>S-WdgIf code) to the various memory sections according to the memory mapping keywords provided by the </p>
+<p>S-WdgIf. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 33 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236612</p>
+<p> </p>
+<p>For the memory sections that are supported by the S-WdgIf see comment 235894 in section &quot;Imported </p>
+<p>Types and Definitions&quot; above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.5.3 </b></p>
+<p><b>S-WdgIf Files </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236360 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p>__MKSID__297368 </p>
+<p>The integrator shall ensure that only </p>
+<p></p>
+<p> </p>
+<p>files of a single delivered package and </p>
+<p></p>
+<p> </p>
+<p>files generated with tools of this package </p>
+<p>are installed. </p>
+<p> </p>
+<p>These are the files: </p>
+<p></p>
+<p> </p>
+<p>WdgIf_Cfg_Features.h (generated), </p>
+<p></p>
+<p> </p>
+<p>WdgIf_Lcfg.h (generated), </p>
+<p></p>
+<p> </p>
+<p>WdgIf_Lcfg.c (generated), </p>
+<p></p>
+<p> </p>
+<p>WdgIf_Cfg.h, </p>
+<p></p>
+<p> </p>
+<p>WdgIf_Types.h, </p>
+<p></p>
+<p> </p>
+<p>WdgIf.h, and </p>
+<p></p>
+<p> </p>
+<p>WdgIf.c. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.5.4 </b></p>
+<p><b>Compilation and Linkage </b></p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236366 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for compilation of the S-WdgIf code with a compiler that is compliant to ANSI </p>
+<p>ISO/IEC 9899:1990. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236370</p>
+<p> </p>
+<p>The generated code is compliant to ANSI ISO/IEC 9899:1990. It is also known as &quot;ANSI C (C89)&quot; and &quot;ISO </p>
+<p>C (C90)&quot;. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236374 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for compilation and linkage of the S-WdgIf into the AUTOSAR system in </p>
+<p>accordance with the system requirements. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236378 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall guarantee that the compiled and linked target binary is correctly loaded into the target </p>
+<p>system. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 34 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>- </p>
+<p><b>10.5.5 </b></p>
+<p><b>S-WdgM Stack Requirements </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>555505</p>
+<p> </p>
+<p>This section lists the requirements for the S-WdgM Stack that must be met for safe functioning of the S-</p>
+<p>WdgIf. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236382 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall make sure that the S-WdgIf communicates with </p>
+<p></p>
+<p> </p>
+<p>an internal WD device (MCU inside) or </p>
+<p></p>
+<p> </p>
+<p>an external WD device. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>558045</p>
+<p> </p>
+<p>The communication between the S-WdgIf and the WD driver can be tested with negative integration tests. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236384</p>
+<p> </p>
+<p>For ASIL C and D systems, it is recommended to use an external WD device with independent time based </p>
+<p>clock, reset circuit and power path. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236386</p>
+<p> </p>
+<p>See </p>
+<p></p>
+<p> </p>
+<p>ISO 26262 (see [ISO26262], part 6, section 7.4.14, table 4/1d) and </p>
+<p></p>
+<p> </p>
+<p>Microcontroller manufacturer recommendation(see e.g. [TI_SPNU511_UM] section 5.3.6). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>237306 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall verify that the communication path to the external WD does not degrade the quality </p>
+<p>level below the required quality level. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554234</p>
+<p> </p>
+<p>The requirement 237306 above is only relevant when an external WD is used. </p>
+<p>Note: The communication path to the external WD could be e.g. a SPI driver. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>237369 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall guarantee that the S-WdgIf program code - including configuration code - can not be </p>
+<p>corrupted. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554832</p>
+<p> </p>
+<p>This can be realized - for example - with ECC ROM/FLASH checks, cyclical ROM/FLASH checks, and start </p>
+<p>up ROM/FLASH checks. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 35 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>10.6 S-WdgIf Application </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236760</p>
+<p> </p>
+<p>In contrast to the S-WdgM, the S-WdgIf API functions are not called from application level. </p>
+<p>Except WdgIf_GetVersionInfo (), all S-WdgIf functions are called by the S-WdgM. </p>
+<p>However, there are a few requirements to be considered on system level. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>261300</p>
+<p> </p>
+<p>The S-WdgIf does not alter data that is passed through from or to the S-WdgM. </p>
+<p>Only the contents of the variable whose address is passed as parameter to WdgIf_GetVersionInfo () is </p>
+<p>altered. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236428 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for correct handling and escalation of errors detected by the S-WdgIf code via </p>
+<p>DET monitoring. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236756</p>
+<p> </p>
+<p>Returned error codes are handled by the caller of the function that returns a DET error. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236430 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The data that is used by the S-WdgIf, especially the S-WdgIf Configuration data, shall not be modified by </p>
+<p>any other SW of the system. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236432 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>It shall be considered that the S-WdgIf code has no mechanism for detecting and/or correcting the following </p>
+<p>errors: </p>
+<p></p>
+<p> </p>
+<p>corruption of the S-WdgIf memory for constants, </p>
+<p></p>
+<p> </p>
+<p>corruption of the S-WdgIf code memory, and </p>
+<p></p>
+<p> </p>
+<p>corruption of the S-WdgIf local RAM memory (i.e. the local variables placed on the stack). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236434 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall guarantee that the address spaces that are listed in the requirement above and for </p>
+<p>which the S-WdgIf offers no mechanism for error detection and error correction can not be corrupted. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236438</p>
+<p> </p>
+<p>If a mechanism for detecting/correcting of such manipulations is implemented in the application level or </p>
+<p>system level, then it should also cover the S-WdgIf code. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 36 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>10.6.1 </b></p>
+<p><b>S-WdgIf API Functions </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>262246</p>
+<p> </p>
+<p>There are no function specific requirements for the S-WdgIf API functions, except WdgIf_GetVersionInfo (). </p>
+<p>However, some requirements concern all functions need to be met. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>262301</p>
+<p> </p>
+<p>The considered API functions/macros are: </p>
+<p></p>
+<p> </p>
+<p>WdgIf_Setmode (), </p>
+<p></p>
+<p> </p>
+<p>WdgIf_SetTriggerCondition (), </p>
+<p></p>
+<p> </p>
+<p>WdgIf_SetTriggerWindow (), </p>
+<p></p>
+<p> </p>
+<p>WdgIf_GetTickCounter (), and </p>
+<p></p>
+<p> </p>
+<p>WdgIf_GetVersionInfo () (macro).   </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>262242 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>It is the responsibility of the integrator to verify the correctness of parameters passed to the S-WdgIf API </p>
+<p>functions. Especially, that parameters are not modified when passed from S-WdgM API functions to S-</p>
+<p>WdgIf API functions . </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>262243 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>Some S-WdgIf API functions have a pointer to data as argument. The integrator is responsible that this data </p>
+<p>is not modified by code other than the S-WdgM. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>262244</p>
+<p> </p>
+<p>This concerns WdgIf_GetVersionInfo (). </p>
+<p>Note: A wrong pointer could cause data corruption inside of the module that calls this macro. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>262247 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for correct error escalation if a S-WdgIf API function returns E_NOT_OK. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>262248</p>
+<p> </p>
+<p>For the list of functions hat return E_NOT_OK, see comment 235936 in subsection &quot;Return Values&quot; in </p>
+<p>section &quot;Error Handling&quot; above. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>262238 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall retrieve the current version of the S-WdgIf using WdgIf_GetVersionInfo () only. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>262240</p>
+<p> </p>
+<p>WdgIf_GetVersionInfo () is only available if WDGIF_VERSION_INFO_API is set to STD_ON. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 37 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>265954 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p>__MKSID__263878 </p>
+<p>Related To': </p>
+<p> </p>
+<p>WdgIf_GetVersionInfo () shall be called with a correct pointer (e.g. use a pointer of type </p>
+<p>Std_VersionInfoType without a type cast). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.6.2 </b></p>
+<p><b>Memory Access </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>236784</p>
+<p> </p>
+<p>The S-WdgIf does not access the hardware registers directly. The hardware could be accessed by calls of </p>
+<p>the S-Wdg driver functions. The access of registers by the S-Wdg driver is platform and implementation </p>
+<p>dependent and &quot;supervisor&quot; or &quot;privileged&quot; MCU mode may be necessary. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p><b>10.6.3 </b></p>
+<p><b>Concurrent Function Calls </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>283153</p>
+<p> </p>
+<p>The following table shows which functions may run concurrently: </p>
+<p> </p>
+<p><b>figure 1  </b></p>
+<p>  </p>
+<p>HW </p>
+<p>The interruption is HW dependent and only allowed if interruption of the corresponding WD driver </p>
+<p>function is allowed. The corresponding function is: </p>
+<p></p>
+<p> </p>
+<p>for WdgIf_SetMode (): Wdg_<i>infix</i>_SetMode (), </p>
+<p></p>
+<p> </p>
+<p>for WdgIf_SetTriggerCondition (): Wdg_<i>infix</i>_SetTriggerWindow () or </p>
+<p>Wdg_<i>infix</i>_SetTriggerCondition () (depending on the AUTOSAR version) </p>
+<p></p>
+<p> </p>
+<p>for WdgIf_SetTriggerWindow (): Wdg_<i>infix</i>_SetTriggerWindow () or </p>
+<p>Wdg_<i>infix</i>_SetTriggerCondition () (depending on the AUTOSAR version) </p>
+<p></p>
+<p> </p>
+<p>for WdgIf_GetTickCounter (): Wdg_<i>infix</i>_GetTickCounter () </p>
+<p>  </p>
+<p>Y </p>
+<p>Interruption is allowed </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 38 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>Y(ptr)  </p>
+<p>Interruption is allowed only if the pointers, given as an output parameter to the function, are </p>
+<p>different  </p>
+<p>Y(reg)  </p>
+<p>Interruption is allowed only if the function Wdg_<i>infix</i>_GetTickCounter () is implemented as a pure </p>
+<p>HW register read. </p>
+<p><b>table 12  </b></p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 39 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>11 Safety Lifecycle Tailoring </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234297</p>
+<p> </p>
+<p>This section describes which phases of the S-WdgIf product safety lifecycle according to [ISO26262] were </p>
+<p>executed by TTTech during the development and which phases have to be executed by the integrator. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234299</p>
+<p> </p>
+<p>The S-WdgIf is a software unit representing a safety element out of context (SEooC) according to </p>
+<p>[ISO26262], part 10. The SW requirements of the S-WdgIf are based on [AS_WDGIF_SWS] and </p>
+<p>[TT_WDGIF_SRD] with deviations listed in [TT_WDGIF_UM]. The architectural design is documented in </p>
+<p>[TT_WDGIF_UDD]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234301</p>
+<p> </p>
+<p>The following ISO 26262 phases were executed by TTTech: </p>
+<p></p>
+<p> </p>
+<p>3-7 (Hazard analysis and risk assessment *)), </p>
+<p></p>
+<p> </p>
+<p>3-8 (Functional Safety Concept *)), </p>
+<p></p>
+<p> </p>
+<p>4-6 (Technical Safety Concept *)), </p>
+<p></p>
+<p> </p>
+<p>4-7 (System Design *)), </p>
+<p></p>
+<p> </p>
+<p>6-5 (Initiation of product development at SW level), </p>
+<p></p>
+<p> </p>
+<p>6-8 (Software unit design and implementation), and </p>
+<p></p>
+<p> </p>
+<p>6-9 (Software unit tests). </p>
+<p> </p>
+<p>*) As far as related to the S-WdgIf as SEooC. </p>
+<p> </p>
+<p>All other ISO phases were not executed by TTTech and they are the responsibility of the integrator. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234303 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for the execution of ISO 26262 phase 6-6 (Specification of SW safety </p>
+<p>requirements) to identify the system's SW safety requirements. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234305 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for the execution of ISO 26262 phase 6-7 (SW architectural design) that </p>
+<p>covers S-WdgIf code. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234311</p>
+<p> </p>
+<p>The S-WdgIf code does not impose any special restrictions on the SW architecture design except for the </p>
+<p>requirements in this document. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234313 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for the execution of ISO 26262, part 6, clause 8.4.5, b) to verify that the </p>
+<p>software unit design of the S-WdgIf is complete with respect to the software safety requirements and the </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 40 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>software architecture through traceability </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234315 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for the execution of ISO/DIS 26262 phase 6-10 (SW integration and testing) to </p>
+<p>verify that S-WdgIf code is correctly integrated into the system. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234319 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for the execution of phase ISO/DIS 26262 6-11 (Verification of SW safety </p>
+<p>requirements) to verify the safety requirements that are related to the S-WdgIf code. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 41 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>12 Qualification </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234207</p>
+<p> </p>
+<p>The S-WdgIf has been developed according to the requirements in [ISO26262] as specified in section </p>
+<p>&quot;Safety Lifecycle Tailoring&quot; above. It can be integrated in systems up to ASIL D, provided that all </p>
+<p>requirements in this document are fulfilled. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234209</p>
+<p> </p>
+<p>The hardware dependent qualification data for the S-WdgIf for each platform can be found in the S-Wdg </p>
+<p>drivers' Safety Manuals. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234211</p>
+<p> </p>
+<p>The S-WdgM Stack Safety Case [TT_WDGS_SC] lists all S-WdgIf qualification documents. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234213</p>
+<p> </p>
+<p>The S-WdgIf unit tests are specified in [TT_WDGIF_UTS]. </p>
+<p>The S-WdgIf tests of the unit test framework are specified in [TT_WDGS_UTS]. </p>
+<p>The integration tests of the S-WdgM Stack are specified in [TT_WDGS_ITS]. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>260894</p>
+<p> </p>
+<p>The environments and S-WdgIf Configurations of integration tests that have been conducted by TTTech </p>
+<p>can be found in the Safety Manual of the various S-Wdg drivers (e.g. [TT_WDGDR_<i>platform</i>_SM], where </p>
+<p><i>platform </i>is the used platform. See also section &quot;References&quot; at the end of the document). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234215 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator is responsible for the qualification of the S-WdgIf code for the used environment. This means </p>
+<p>that the S-WdgIf code must be integration tested against this environment. </p>
+<p> </p>
+<p>The environment comprises: </p>
+<p></p>
+<p> </p>
+<p>the target CPU, </p>
+<p></p>
+<p> </p>
+<p>the compiler and linker, </p>
+<p></p>
+<p> </p>
+<p>the compiler and linker settings, </p>
+<p></p>
+<p> </p>
+<p>S-WdgIf pre-compile configurations, and </p>
+<p></p>
+<p> </p>
+<p>the used WDs and WD drivers. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234217 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p> </p>
+<p>Related To': </p>
+<p> </p>
+<p>If the S-WdgIf is used in an environment that differs in any way from the environment it has been tested with </p>
+<p>(according to [TT_WDGS_ITS] and [TT_WDGIF_UTS]), then the integrator shall analyze the consequences </p>
+<p>of the differences and conduct corresponding tests (see [ISO26262] part 6, clause 9, in particular </p>
+<p>[ISO26262] clause 9.4.6). </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 42 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234219</p>
+<p> </p>
+<p>TTTech offers qualification of the S-WdgIf for customer-specific configurations. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Requirement </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>265956 </p>
+<p>Label: </p>
+<p> </p>
+<p>Safety relevant: </p>
+<p> </p>
+<p>Related To: </p>
+<p>__MKSID__263827,_</p>
+<p>_MKSID__263846,__</p>
+<p>MKSID__263860 </p>
+<p>Related To': </p>
+<p> </p>
+<p>The integrator shall run integration tests with the generated configurations for S-WdgM and S-WdgIf. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 43 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>13 Resource Requirements </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234197</p>
+<p> </p>
+<p>The memory consumption and runtime consumption of the S-WdgIf depends on the chosen HW, which </p>
+<p>itself is chosen by the used S-Wdg driver. </p>
+<p>The resource requirements of the complete S-WdgM Stack can be found in the Safety Manual of the </p>
+<p>according S-Wdg driver. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 44 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>14 Constraints and known Problems </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>290609</p>
+<p> </p>
+<p>For known problems see the Release Notes document delivered with this software module. </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 45 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>15 References </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234117</p>
+<p> </p>
+<p>[ISO26262] ISO26262, Internation Standard, Road vehicles- Functional safety, First edition 2011-11-15 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234119</p>
+<p> </p>
+<p>[TT_WDGM_SM] TTTech Automotive GmbH, Safe Watchdog Manager - Safety Manual, D-SAFEX-S-70-</p>
+<p>001 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234121</p>
+<p> </p>
+<p>[TT_WDGDR_MPC56xx_SM] TTTech Automotive GmbH, Safe Watchdog Driver for MPC56xx - Safety </p>
+<p>Manual, D-MSP-M-70-022 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554844</p>
+<p> </p>
+<p>[TT_WDGDR_SAFETCORE_SM] TTTech Automotive GmbH, Safe Watchdog Driver for TriCore and </p>
+<p>SafeTcore - Safety Manual, D-SAFEX-S-70-013 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234125</p>
+<p> </p>
+<p>[TT_WDGDR_TMS570LS3x_SM] TTTech Automotive GmbH, Safe Watchdog Driver for TMS570LS3x - </p>
+<p>Safety Manual, D-SAFEX-S-70-015 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234123</p>
+<p> </p>
+<p>[TT_WDGDR_V850E2PJ4_SM] TTTech Automotive GmbH, Safe Watchdog Driver for V850E2PJ4 - Safety </p>
+<p>Manual, D-SAFEX-S-70-029 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554842</p>
+<p> </p>
+<p>[TT_WDGDR_TMS570LS_TPS65381_SM] TTTech Automotive GmbH, Safe Watchdog Driver for </p>
+<p>TMS570LS_TPS65381 - Safety Manual, </p>
+<p>D-SAFEX-S-70-038 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554840</p>
+<p> </p>
+<p>[TT_WDGDR_MPC5643L_ATA5021_SM] TTTech Automotive GmbH, Safe Watchdog Driver for </p>
+<p>MPC5643L_ATA5021 - Safety Manual, D-SAFEX-S-70-049 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234127</p>
+<p> </p>
+<p>[TT_WDGS_SC] TTTech Automotive GmbH, Safe Watchdog Manager Stack - Safety Case, D-SAFEX-IN-</p>
+<p>70-001 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234129</p>
+<p> </p>
+<p>[TT_WDGM_UM] TTTech Automotive GmbH, Safe Watchdog Manager - User Manual, D-MSP-M-70-001 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234131</p>
+<p> </p>
+<p>[TT_WDGIF_UM] TTTech Automotive GmbH, Safe Watchdog Interface - User Manual, D-MSP-M-70-006 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 46 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234133</p>
+<p> </p>
+<p>[TT_WDGDR_MPC56xx_UM] TTTech Automotive Gmbh, Safe Watchdog Driver (MPC56xx) - User Manual, </p>
+<p>D-MSP-M-70-008 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234135</p>
+<p> </p>
+<p>[TT_WDGDR_SAFETCORE_UM] Safe Watchdog Driver (SafeTcore) - User Manual, D-MSP-M-70-007 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234137</p>
+<p> </p>
+<p>[TT_WDGDR_TMS570LS3x_UM] TTTech Automotive GbmH, Safe Watchdog Driver (TMS570LS3x) - User </p>
+<p>Manual, D-MSP-M-70-010 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234143</p>
+<p> </p>
+<p>[AS_WDGM_SWS] AUTOSAR, Specification of Watchdog Manager, Version 2.0.0, Release 4.0, Revision 1 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234145</p>
+<p> </p>
+<p>[AS_WDGIF_SWS] AUTOSAR, Specification of Watchdog Interface, Version 2.3.0, Release 4.0, Revision 1 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>559938</p>
+<p> </p>
+<p>[AS_WDGIF_SWS_3_1] AUTOSAR, Specification of Watchdog Interface, Version 2.2.2, Release 3.1, </p>
+<p>Revision 1 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234147</p>
+<p> </p>
+<p>[AS_WDGDR_SWS] AUTOSAR, Specification of Watchdog Driver, Version 2.3.0, Release 4.0, Revision 1 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>237766</p>
+<p> </p>
+<p>[AS_RTE_SWS] AUTOSAR, Specification of RTE, Version 3.0.0, Release 4.0, Revision 1 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234149</p>
+<p> </p>
+<p>[AS_STDTYP_SWS] AUTOSAR, Specification of Standard Types, Version 1.3.0, Release 4.0, Revision 1 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234151</p>
+<p> </p>
+<p>[AS_COMABS_SWS] AUTOSAR, Specification of Compiler Abstraction, Version 3.0.0, Release 4.0, </p>
+<p>Revision 1 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234153</p>
+<p> </p>
+<p>[AS_PLTFM_SWS] AUTOSAR, Specification of Platform Types, Version 2.3.0, Release 4.0, Revision 1 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234155</p>
+<p> </p>
+<p>[AS_MEM_SWS] AUTOSAR, Specification of Memory Mapping, Version 1.2.0, Release 4.0, Revision 1 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>234177</p>
+<p> </p>
+<p>[TI_SPNU511_UM] Texas Instruments, Safety Manual for TMS570LS31x/21x and RM48x Hercules™ </p>
+<p>ARM® Safety Critical Microcontrollers - User's Guide, Literature Number: SPNU511A, February 2012 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Project Name: </b>Safe Watchdog Interface </p>
+<p><b>Version: </b>1.8.9</p>
+<p>  </p>
+<p><b>Doc. Name: </b>Safety Manual</p>
+<p> </p>
+<p><b>Doc. No: </b>D-SAFEX-S-70-005</p>
+<p> </p>
+<p>Page 47 </p>
+<p><b>Date: </b>26.05.2014 </p>
+<p><b>Author: </b>TTTech Automotive GmbH </p>
+<p><b>© TTTech  Automotive GmbH </b></p>
+<p><b>TTTech  Automotive GmbH Confidential and Proprietary Information </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>15.1 Internal Documents </b></p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>283409</p>
+<p> </p>
+<p>The following referenced documents are internal TTTech Automotive GmbH document. For inspection, </p>
+<p>please contact TTTech Automotive GmbH: </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>283417</p>
+<p> </p>
+<p>[TT_WDGIF_ETA] TTTech Automotive GmbH, Safe Watchdog Interface - Event Tree Analysis, D-SAFEX-</p>
+<p>S-70-012 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>283419</p>
+<p> </p>
+<p>[TT_WDGIF_SRD] ] TTTech Automotive GmbH, Safe Watchdog Interface - Software Requirements </p>
+<p>Document, D-SAFEX-S-70-002 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>283421</p>
+<p> </p>
+<p>[TT_WDGIF_UDD] TTTech Automotive GmbH, Safe Watchdog Interface - Unit Design Document, D-</p>
+<p>SAFEX-D-70-001 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>283423</p>
+<p> </p>
+<p>[TT_WDGIF_UTS] TTTech Automotive Gmbh, Safe Watchdog Interface - Unit Test Specification, D-</p>
+<p>SAFEX-V-70-002 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>283427</p>
+<p> </p>
+<p>[TT_WDGS_UTS] TTTech Automotive Gmbh, Safe Watchdog Manager Stack - Unit Test Specification - </p>
+<p>Test Framework, D-SAFEX-V-70-008 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>283425</p>
+<p> </p>
+<p>[TT_WDGS_ITS] TTTech Automotive GmbH, Safe Watchdog Manager Stack - Integration Test </p>
+<p>Specification, D-SAFEX-V-01-001 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+<p>Category: </p>
+<p>Comment </p>
+<p>Keywords: </p>
+<p> </p>
+<p>ID: </p>
+<p>554880</p>
+<p> </p>
+<p>[TT_WDGS_ITR] TTTech Automotive GmbH, Safe Watchdog Manager Stack - Integration Test Report, D-</p>
+<p>SAFEX-V-01-002 </p>
+<p> </p>
+<p> </p>
+<p>- </p>
+</body>
+</html>
+{% endraw %}

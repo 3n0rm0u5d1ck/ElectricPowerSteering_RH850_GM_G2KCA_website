@@ -1,0 +1,5403 @@
+---
+layout: default
+title: AUTOSAR_SPI_Component_UserManual
+nav_order: 1
+parent: SPI Handler Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3</p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SPI Driver Component Ver.1.0.6 </p>
+<p>Embedded User’s Manual</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target Device: </p>
+<p>RH850/P1x </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev.0.02 Apr 2015</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>2 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Notice </p>
+<p>1. </p>
+<p>All information included in this document is current as of the date this document is issued. Such information, however, is subject to </p>
+<p>change without any prior notice. Before purchasing or using any Renesas Electronics products listed herein, please confirm the latest </p>
+<p>product information with a Renesas Electronics sales office. Also, please pay regular and careful attention to additional and different </p>
+<p>information to be disclosed by Renesas Electronics such as that disclosed through our website. </p>
+<p>2. </p>
+<p>Renesas Electronics does not assume any liability for infringement of patents, copyrights, or other intellectual property rights of third </p>
+<p>parties by or arising from the use of Renesas Electronics products or technical information described in this document. No license, </p>
+<p>express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p> 3. </p>
+<p>You should not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. </p>
+<p>4. </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples.  You are fully responsible for the incorporation of these circuits, software, and </p>
+<p>information in the design of your equipment.  Renesas Electronics assumes no responsibility for any losses incurred by </p>
+<p>you or third parties arising from the use of these circuits, software, or information. </p>
+<p>5. </p>
+<p>When exporting the products or technology described in this document, you should comply with the applicable export control laws </p>
+<p>and regulations and follow the procedures required by such laws and regulations.  You should not use Renesas Electronics products </p>
+<p>or the technology described in this document for any purpose relating to military applications or use by the military, including but </p>
+<p>not limited to the development of weapons of mass destruction.  Renesas Electronics products and technology may not be used for or </p>
+<p>incorporated into any products or systems whose manufacture, use, or sale is prohibited under any applicable domestic or foreign </p>
+<p>laws or regulations. </p>
+<p>6. </p>
+<p>Renesas Electronics has used reasonable care in preparing the information included in this document, but Renesas Electronics does </p>
+<p>not warrant that such information is error free.  Renesas Electronics assumes no liability whatsoever for any damages incurred by </p>
+<p>you resulting from errors in or omissions from the information included herein. </p>
+<p>7. </p>
+<p>Renesas Electronics products are classified according to the following three quality grades:  &quot;Standard&quot;, &quot;High Quality&quot;, and </p>
+<p>&quot;Specific&quot;.  The recommended applications for each Renesas Electronics product depends on the product's quality grade, as indicated </p>
+<p>below.  You must check the quality grade of each Renesas Electronics product before using it in a particular application.  You may </p>
+<p>not use any Renesas Electronics product for any application categorized as &quot;Specific&quot; without the prior written consent of Renesas </p>
+<p>Electronics.  Further, you may not use any Renesas Electronics product for any application for which it is not intended without the </p>
+<p>prior written consent of Renesas Electronics.  Renesas Electronics shall not be in any way liable for any damages or losses incurred by </p>
+<p>you or third parties arising from the use of any Renesas Electronics product for an application categorized as &quot;Specific&quot; or for which </p>
+<p>the product is not intended where you have failed to obtain the prior written consent of Renesas Electronics.  The quality grade of </p>
+<p>each Renesas Electronics product is &quot;Standard&quot; unless otherwise expressly specified in a Renesas Electronics data sheets or data </p>
+<p>books, etc. </p>
+<p>&quot;Standard&quot;: </p>
+<p>Computers; office equipment; communications equipment; test and measurement equipment; audio and visual </p>
+<p>equipment; home electronic appliances; machine tools; personal electronic equipment; and industrial robots. </p>
+<p>&quot;High Quality&quot;: Transportation equipment (automobiles, trains, ships, etc.); traffic control systems; anti-disaster systems; anti- crime </p>
+<p>systems; safety equipment; and medical equipment not specifically designed for life support. </p>
+<p>&quot;Specific&quot;: </p>
+<p>Aircraft; aerospace equipment; submersible repeaters; nuclear reactor control systems; medical equipment or </p>
+<p>systems for life support (e.g. artificial life support devices or systems), surgical implantations, or healthcare </p>
+<p>intervention (e.g. excision, etc.), and any other applications or purposes that pose a direct threat to human life. </p>
+<p>8. </p>
+<p>You should use the Renesas Electronics products described in this document within the range specified by Renesas Electronics, </p>
+<p>especially with respect to the maximum rating, operating supply voltage range, movement power voltage range, heat radiation </p>
+<p>characteristics, installation and other product characteristics. Renesas Electronics shall have no liability for malfunctions or damages </p>
+<p>arising out of the use of Renesas Electronics products beyond such specified ranges. </p>
+<p>9. </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of its products, semiconductor products have specific </p>
+<p>characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design.  Please be sure to implement safety measures to guard them against </p>
+<p>the possibility of physical injury, and injury or damage caused by fire in the event of the failure of a </p>
+<p>Renesas Electronics product, such as safety design for hardware and software including but not limited to redundancy, fire control </p>
+<p>and malfunction prevention, appropriate treatment for aging degradation or any other appropriate measures.  Because the evaluation </p>
+<p>of microcomputer software alone is very difficult, please evaluate the safety of the final products or system manufactured by you. </p>
+<p>10. </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of </p>
+<p>each Renesas Electronics product.  Please use Renesas Electronics products in compliance with all applicable laws and regulations </p>
+<p>that regulate the inclusion or use of controlled substances, including without limitation, the EU RoHS Directive.  Renesas Electronics </p>
+<p>assumes no liability for damages or losses occurring as a result of your noncompliance with applicable laws and regulations. </p>
+<p> 11. </p>
+<p>This document may not be reproduced or duplicated, in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p>12. </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this </p>
+<p>document or Renesas Electronics products, or if you have any other inquiries. </p>
+<p> </p>
+<p>(Note 1)  &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority- owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)  &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics</p>
+<p>. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>3 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>4 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p> </p>
+<p><b>Abbreviation / Acronym </b></p>
+<p><b>Description </b></p>
+<p>ANSI </p>
+<p>American National Standards Institute </p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p>ARXML/arxml </p>
+<p>AutosaR eXtensible Mark-up Language </p>
+<p>ASIC </p>
+<p>Application Specific Integration Circuit </p>
+<p>AUTOSAR </p>
+<p>AUTomotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basic SoftWare </p>
+<p>CPU </p>
+<p>Central Processing Unit </p>
+<p>CS </p>
+<p>Chip Select </p>
+<p>CSIH/CSIG </p>
+<p>Enhanced Queued Clocked Serial Interface. </p>
+<p>DEM/Dem </p>
+<p>Diagnostic Event Manager </p>
+<p>DET/Det </p>
+<p>Development Error Tracer </p>
+<p>DMA </p>
+<p>Direct Memory Access </p>
+<p>EB </p>
+<p>External Buffer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>EDL </p>
+<p>Extended Data Length </p>
+<p>EEPROM </p>
+<p>Electrically Erasable Programmable Read-Only Memory </p>
+<p>FIFO </p>
+<p>First In First Out </p>
+<p>GNU </p>
+<p>GNU’s Not Unix </p>
+<p>GPT </p>
+<p>General Purpose Timer </p>
+<p>HW </p>
+<p>HardWare </p>
+<p>IB </p>
+<p>Internal Buffer </p>
+<p>Id </p>
+<p>Identifier </p>
+<p>I/O </p>
+<p>Input/Output </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>KB </p>
+<p>Kilo byte </p>
+<p>MCAL </p>
+<p>Microcontroller Abstraction Layer </p>
+<p>MHz </p>
+<p>Mega Hertz </p>
+<p>MCU </p>
+<p>Microcontroller unit </p>
+<p>NA </p>
+<p>Not Applicable </p>
+<p>PLL </p>
+<p>Phase Locked Loop </p>
+<p>RAM </p>
+<p>Random Access Memory </p>
+<p>ROM </p>
+<p>Read Only Memory </p>
+<p>RTE </p>
+<p>Run Time Environment </p>
+<p>SPI </p>
+<p>Serial Peripheral Interface </p>
+<p>µs </p>
+<p>Micro Seconds </p>
+<p>5 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b> </b></p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p><b>Term</b></p>
+<p> </p>
+<p><b>Represented by</b></p>
+<p> </p>
+<p>Sl. No.</p>
+<p> </p>
+<p>Serial Number</p>
+<p> </p>
+<p>6 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Table Of Contents </b></p>
+<p> </p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>Introduction ....................................................................... 11</b></p>
+<p> </p>
+<p><b>1.1.</b></p>
+<p> </p>
+<p><b>Document Overview ................................................................................................................ 13</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>Reference Documents ...................................................... 15</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>Integration And Build Process ......................................... 17</b></p>
+<p> </p>
+<p><b>3.1.</b></p>
+<p> </p>
+<p><b>SPI Driver Component Makefile ............................................................................................. 17</b></p>
+<p> </p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p><b>Forethoughts ..................................................................... 19</b></p>
+<p> </p>
+<p><b>4.1.</b></p>
+<p> </p>
+<p><b>General...................................................................................................................................... 19</b></p>
+<p> </p>
+<p><b>4.2.</b></p>
+<p> </p>
+<p><b>Preconditions ........................................................................................................................... 24</b></p>
+<p> </p>
+<p><b>4.3.</b></p>
+<p> </p>
+<p><b>User Mode and Supervisor Mode ........................................................................................... 25</b></p>
+<p> </p>
+<p><b>4.4.</b></p>
+<p> </p>
+<p><b>Memory modes ........................................................................................................................ 26</b></p>
+<p> </p>
+<p><b>4.5.</b></p>
+<p> </p>
+<p><b>Data Consistency ..................................................................................................................... 26</b></p>
+<p> </p>
+<p><b>4.6.</b></p>
+<p> </p>
+<p><b>Deviation List ........................................................................................................................... 26</b></p>
+<p> </p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p><b>Architecture Details .......................................................... 29</b></p>
+<p> </p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p><b>Registers Details ............................................................... 33</b></p>
+<p> </p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p><b>Interaction Between The User And SPI Driver Component </b></p>
+<p><b> </b></p>
+<p><b> ............................................................................................ 37</b></p>
+<p> </p>
+<p><b>7.1.</b></p>
+<p> </p>
+<p><b>Services Provided By SPI Driver Component To The User................................................. 37</b></p>
+<p> </p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p><b>SPI Driver Component Header And Source File </b></p>
+<p><b>Description  ............................................................................................ 39</b></p>
+<p> </p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p><b>Generation Tool Guide ...................................................... 43</b></p>
+<p> </p>
+<p><b>Chapter 10</b></p>
+<p> </p>
+<p><b>Application Programming Interface ................................. 45</b></p>
+<p> </p>
+<p><b>10.1.</b></p>
+<p> </p>
+<p><b>Imported Types ........................................................................................................................ 45</b></p>
+<p> </p>
+<p>10.1.1.</p>
+<p> </p>
+<p>Standard Types .......................................................................................................... 45</p>
+<p> </p>
+<p>10.1.2.</p>
+<p> </p>
+<p>Other Module Types ................................................................................................... 45</p>
+<p> </p>
+<p><b>10.2.</b></p>
+<p> </p>
+<p><b>Type Definitions ....................................................................................................................... 45</b></p>
+<p> </p>
+<p>10.2.1.</p>
+<p> </p>
+<p>Spi_ConfigType ........................................................................................................... 45</p>
+<p> </p>
+<p>10.2.2.</p>
+<p> </p>
+<p>Spi_StatusType .......................................................................................................... 45</p>
+<p> </p>
+<p>10.2.3.</p>
+<p> </p>
+<p>Spi_JobResultType..................................................................................................... 46</p>
+<p> </p>
+<p>10.2.4.</p>
+<p> </p>
+<p>Spi_SeqResultType .................................................................................................... 46</p>
+<p> </p>
+<p>10.2.5.</p>
+<p> </p>
+<p>Spi_DataType ............................................................................................................. 46</p>
+<p> </p>
+<p>10.2.6.</p>
+<p> </p>
+<p>Spi_NumberOfDataType ............................................................................................ 46</p>
+<p> </p>
+<p>10.2.7.</p>
+<p> </p>
+<p>Spi_ChannelType ....................................................................................................... 47</p>
+<p> </p>
+<p>10.2.8.</p>
+<p> </p>
+<p>Spi_JobType ............................................................................................................... 47</p>
+<p> </p>
+<p>10.2.9.</p>
+<p> </p>
+<p>Spi_SequenceType .................................................................................................... 47</p>
+<p> </p>
+<p>7 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>10.2.10.</p>
+<p> </p>
+<p>Spi_HWUnitType ........................................................................................................ 47</p>
+<p> </p>
+<p>10.2.11.</p>
+<p> </p>
+<p>Spi_AsyncModeType .................................................................................................. 47</p>
+<p> </p>
+<p><b>10.3.</b></p>
+<p> </p>
+<p><b>Function Definitions ................................................................................................................ 48</b></p>
+<p> </p>
+<p><b>Chapter 11</b></p>
+<p> </p>
+<p><b>Development And Production Errors .............................. 49</b></p>
+<p> </p>
+<p><b>11.1.</b></p>
+<p> </p>
+<p><b>SPI Driver Component Development Errors ......................................................................... 49</b></p>
+<p> </p>
+<p><b>11.2.</b></p>
+<p> </p>
+<p><b>SPI Driver Component Production Errors............................................................................. 50</b></p>
+<p> </p>
+<p><b>Chapter 12</b></p>
+<p> </p>
+<p><b>Memory Organization ....................................................... 51</b></p>
+<p> </p>
+<p><b>Chapter 13</b></p>
+<p> </p>
+<p><b>P1M Specific Information ................................................. 53</b></p>
+<p> </p>
+<p><b>13.1.</b></p>
+<p> </p>
+<p><b>Interaction Between The User And SPI Driver Component ................................................. 53</b></p>
+<p> </p>
+<p>13.1.1.</p>
+<p> </p>
+<p>Translation Header File .............................................................................................. 53</p>
+<p> </p>
+<p>13.1.2.</p>
+<p> </p>
+<p>Parameter Definition File ............................................................................................ 53</p>
+<p> </p>
+<p>13.1.3.</p>
+<p> </p>
+<p>ISR Function ............................................................................................................... 54</p>
+<p> </p>
+<p><b>13.2.</b></p>
+<p> </p>
+<p><b>Sample Application ................................................................................................................. 55</b></p>
+<p> </p>
+<p>13.3.1.</p>
+<p> </p>
+<p>Sample Application Structure ..................................................................................... 56</p>
+<p> </p>
+<p>13.3.2.</p>
+<p> </p>
+<p>Building Sample Application ....................................................................................... 57</p>
+<p> </p>
+<p>13.3.2.1.</p>
+<p> </p>
+<p>Configuration Example ............................................................................. 57</p>
+<p> </p>
+<p>13.3.2.2.</p>
+<p> </p>
+<p>Debugging The Sample Application ......................................................... 57</p>
+<p> </p>
+<p><b>13.3.</b></p>
+<p> </p>
+<p><b>Memory And Throughput ........................................................................................................ 59</b></p>
+<p> </p>
+<p>13.4.1.</p>
+<p> </p>
+<p>ROM/RAM Usage ....................................................................................................... 59</p>
+<p> </p>
+<p>13.4.2.</p>
+<p> </p>
+<p>Stack Depth ................................................................................................................ 60</p>
+<p> </p>
+<p>13.4.3.</p>
+<p> </p>
+<p>Throughput Details ..................................................................................................... 60</p>
+<p> </p>
+<p><b>Chapter 14</b></p>
+<p> </p>
+<p><b>Release Details .................................................................. 61</b></p>
+<p> </p>
+<p>8 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>List Of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 1-1</p>
+<p> </p>
+<p>System Overview Of AUTOSAR Architecture ....................................................... 11</p>
+<p> </p>
+<p>Figure 1-2</p>
+<p> </p>
+<p>System Overview Of The SPI Driver In AUTOSAR MCAL Layer .......................... 12</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p>                </p>
+<p>Chip select behavior when SpiCSInactiveAfterlastdata is False and                     </p>
+<p>SpiCsIdleEnforcement is True ............................................................................... 21</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p>                </p>
+<p>Chip select behavior when SpiCSInactiveAfterlastdata is True and     </p>
+<p>SpiCsIdleEnforcement is True ............................................................................... 21</p>
+<p> </p>
+<p>Figure 4-3</p>
+<p>                </p>
+<p>Chip select behavior when SpiCSInactiveAfterlastdata is True and  </p>
+<p>SpiCsIdleEnforcement is False .............................................................................. 21</p>
+<p> </p>
+<p>Figure 4-4</p>
+<p>                </p>
+<p>Chip select behavior when SpiCSInactiveAfterlastdata is False and     </p>
+<p>SpiCsIdleEnforcement is False .............................................................................. 22</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>SPI Driver Architecture .......................................................................................... 29</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>Component Overview Of SPI Driver Component .................................................. 30</p>
+<p> </p>
+<p>Figure 12-1</p>
+<p> </p>
+<p>SPI Driver Component Driver Organization ........................................................... 51</p>
+<p> </p>
+<p>Figure 13-1</p>
+<p> </p>
+<p>Overview Of SPI Driver Sample Application .......................................................... 56</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>List Of Tables </b></p>
+<p><b> </b></p>
+<p>Table 4-1</p>
+<p> </p>
+<p>Table for Chip Select behavior .............................................................................. 20</p>
+<p> </p>
+<p>Table 4-2</p>
+<p> </p>
+<p>List of parameters in Channel container that are linked to the registers. .............. 23</p>
+<p> </p>
+<p>Table 4-3</p>
+<p> </p>
+<p>List of parameters in Job container that are linked to the registers. ...................... 23</p>
+<p> </p>
+<p>Table 4-4</p>
+<p> </p>
+<p>List of parameters in External Device container that are linked to the registers. .. 24</p>
+<p> </p>
+<p>Table 4-5               User Mode and Supervisory Mode ......................................................................... 25</p>
+<p> </p>
+<p>Table 4-6</p>
+<p> </p>
+<p>HW unit and Memory Mode Selection ................................................................... 26</p>
+<p> </p>
+<p>Table 4-7</p>
+<p> </p>
+<p>SPI Driver Deviation List ............................................................................................... 26</p>
+<p> </p>
+<p>Table 6-1  </p>
+<p> </p>
+<p>Register Details .......................................................................................................... 33</p>
+<p> </p>
+<p>Table 8-1</p>
+<p> </p>
+<p>Description Of The SPI Driver Component Files ............................................................... 40</p>
+<p> </p>
+<p>Table 10-1                      The APIs provided by the SPI Driver Component .............................................................. 48</p>
+<p> </p>
+<p>Table 11-1                      DET Errors Of SPI Driver Component ............................................................................ 49</p>
+<p> </p>
+<p>Table 11-2                      DEM Errors Of SPI Driver Component ............................................................................ 50</p>
+<p> </p>
+<p>Table 13-1</p>
+<p> </p>
+<p>PDF information for P1M ....................................................................................... 53</p>
+<p> </p>
+<p>Table 13-2</p>
+<p> </p>
+<p>Interrupt Handler .................................................................................................... 54</p>
+<p> </p>
+<p>Table 13-7</p>
+<p> </p>
+<p>ROM/RAM Details without DET .................................................................................... 59</p>
+<p> </p>
+<p>Table 13-8</p>
+<p> </p>
+<p>ROM/RAM Details with DET ........................................................................................ 59</p>
+<p> </p>
+<p>Table 13-9</p>
+<p> </p>
+<p>Throughput Details Of The APIs .................................................................................... 60</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>9 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>10 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction                                                                                                                             Chapter 1 </b></p>
+<p> </p>
+<p><b>Chapter 1 </b></p>
+<p><b>Introduction </b></p>
+<p> </p>
+<p> </p>
+<p>The purpose of this document is to describe the information related to SPI </p>
+<p>Driver Component for Renesas P1x microcontrollers. </p>
+<p> </p>
+<p>This document shall be used as reference by the users of SPI Driver </p>
+<p>Component. The system overview of complete AUTOSAR architecture is </p>
+<p>shown in the below Figure: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Application Layer </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR  RTE</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>System Services </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>On board Device Abstraction </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SPI Driver </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Microcontroller </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 1-1 </b></p>
+<p><b>System Overview Of AUTOSAR Architecture </b></p>
+<p> </p>
+<p>The SPI Driver is part of the Microcontroller Abstraction Layer (MCAL), the </p>
+<p>lowest layer of Basic Software in the AUTOSAR environment. </p>
+<p>11 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1                                                                                                                             Introduction                                                                                                                              </b></p>
+<p> </p>
+<p>PORT </p>
+<p> </p>
+<p> </p>
+<p>DIO </p>
+<p> </p>
+<p> </p>
+<p>ADC </p>
+<p> </p>
+<p>PWM </p>
+<p> </p>
+<p> </p>
+<p>ICU </p>
+<p> </p>
+<p>FlexRay </p>
+<p> </p>
+<p> </p>
+<p>CAN </p>
+<p> </p>
+<p>LIN </p>
+<p> </p>
+<p><b>SPI Handler </b></p>
+<p> </p>
+<p> </p>
+<p>internal EEPROM </p>
+<p> </p>
+<p>internal Flash </p>
+<p> </p>
+<p> </p>
+<p>external Flash </p>
+<p> </p>
+<p>RAM </p>
+<p> </p>
+<p>Core </p>
+<p> </p>
+<p>MCU </p>
+<p> </p>
+<p>Watchdog </p>
+<p> </p>
+<p>GPT </p>
+<p> </p>
+<p>LIN </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Ext. </p>
+<p> </p>
+<p>Power </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The Figure in the following page depicts the SPI Driver as part of layered </p>
+<p>AUTOSAR MCAL Layer:</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>M icrocont roller Drivers </p>
+<p>Me mo r y Drivers </p>
+<p>Communication  Drivers </p>
+<p>I/O  Drivers </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Micro - </b></p>
+<p><b>Controller </b></p>
+<p> </p>
+<p> </p>
+<p><b>Figure 1-2 </b></p>
+<p><b>System Overview Of The SPI Driver In AUTOSAR MCAL Layer </b></p>
+<p> </p>
+<p> </p>
+<p>The SPI Driver Component comprises Embedded software and the </p>
+<p>Configuration Tool to achieve scalability and configurability. </p>
+<p> </p>
+<p>The SPI Driver component code Generation Tool is a command line tool that accepts ECU </p>
+<p>configuration description files as input and generates source and header files. The </p>
+<p>configuration description is an ARXML file that contains information about the configuration for </p>
+<p>SPI Driver. The tool generates the Spi_PBcfg.c, Spi_Lcfg.c, Spi_Cfg.h and Spi_Cbk.h. </p>
+<p> </p>
+<p>The SPI driver provides services for reading from and writing to devices connected </p>
+<p>through SPI buses. It provides access to SPI communication to several users (For </p>
+<p>example, EEPROM, I/O ASICs). It also provides the required mechanism to configure the </p>
+<p>on-chip SPI peripheral. </p>
+<p>12 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction                                                                                                                             Chapter 1 </b></p>
+<p> </p>
+<p><b>1.1. </b></p>
+<p><b>Document Overview </b></p>
+<p> </p>
+<p> </p>
+<p>The document has been segmented for easy reference. The table below </p>
+<p>provides user with an overview of the contents of each section: </p>
+<p> </p>
+<p> </p>
+<p><b>Section</b></p>
+<p> </p>
+<p><b>Contents</b></p>
+<p> </p>
+<p>Section 1 (Introduction)</p>
+<p> </p>
+<p>This section provides an introduction and overview of SPI Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 2 (Reference Documents)</p>
+<p> </p>
+<p>This section lists the documents referred for developing this document.</p>
+<p> </p>
+<p>Section 3 (Integration And Build </p>
+<p>Process)</p>
+<p> </p>
+<p>This section explains the folder structure, Makefile structure for SPI </p>
+<p>Driver Component. This section also explains about the Makefile </p>
+<p>descriptions, Integration of SPI Driver Component with other </p>
+<p>components, building the SPI Driver Component along with a sample </p>
+<p>application.</p>
+<p> </p>
+<p>Section 4 (Forethoughts)</p>
+<p> </p>
+<p>This section provides brief information about the SPI Driver Component, </p>
+<p>the preconditions that should be known to the user before it is used, </p>
+<p>memory modes, data consistency details, deviation list and Support For </p>
+<p>Different Interrupt Categories.</p>
+<p> </p>
+<p>Section 5 (Architecture Details)</p>
+<p> </p>
+<p>This section describes the layered architectural details of the SPI Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 6 (Register Details)</p>
+<p> </p>
+<p>This section describes the register details of SPI Driver Component.</p>
+<p> </p>
+<p>Section 7 (Interaction Between </p>
+<p>User And SPI Driver Component)</p>
+<p> </p>
+<p>This section describes interaction of the SPI Driver Component with the </p>
+<p>upper layers.</p>
+<p> </p>
+<p>Section 8 (SPI Driver Component </p>
+<p>Header And Source File </p>
+<p>Description)</p>
+<p> </p>
+<p>This section provides information about the SPI Driver Component </p>
+<p>source files is mentioned. This section also contains the brief note on the </p>
+<p>tool generated output file.</p>
+<p> </p>
+<p>Section 9 (Generation Tool Guide)</p>
+<p> </p>
+<p>This section provides information on the SPI Driver Component Code </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 10 (Application </p>
+<p>Programming Interface)</p>
+<p> </p>
+<p>This section explains all the APIs provided by the SPI Driver Component.</p>
+<p> </p>
+<p>Section 11 (Development And </p>
+<p>Production Errors)</p>
+<p> </p>
+<p>This section lists the DET and DEM errors.</p>
+<p> </p>
+<p>Section 12 (Memory </p>
+<p>Organization)</p>
+<p> </p>
+<p>This section provides the typical memory organization, which must be </p>
+<p>met for proper functioning of component.</p>
+<p> </p>
+<p>Section 13(P1M </p>
+<p>Specific information)</p>
+<p> </p>
+<p>This section provides P1M specific information also the information </p>
+<p>about linker compiler and sample application.</p>
+<p> </p>
+<p>Section 14 (Release Details)</p>
+<p> </p>
+<p>This section provides release details with version name and base </p>
+<p>version.</p>
+<p> </p>
+<p>13 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1                                                                                                                             Introduction                                                                                                                              </b></p>
+<p> </p>
+<p> </p>
+<p>14 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Reference Documents </b></p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 2 </b></p>
+<p><b>Reference Documents </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Title</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p>1. </p>
+<p>Autosar R4.0 </p>
+<p>AUTOSAR_SWS_SPIHandlerDriver.pdf </p>
+<p>3.2.0 </p>
+<p>2. </p>
+<p>AUTOSAR BUGZILLA (http://www.autosar.org/bugzilla) </p>
+<p>Note: AUTOSAR BUGZILLA is a database, which contains concerns raised </p>
+<p>against information present in AUTOSAR Specifications. </p>
+<p>- </p>
+<p>3. </p>
+<p>r01uh0436ej0070_rh850p1x.pdf </p>
+<p>0.70 </p>
+<p>4. </p>
+<p>Autosar R4.0 </p>
+<p>AUTOSAR_SWS_CompilerAbstraction.pdf </p>
+<p>3.2.0 </p>
+<p>5. </p>
+<p>Autosar R4.0 </p>
+<p>AUTOSAR_SWS_MemoryMapping.pdf </p>
+<p>1.4.0 </p>
+<p>6. </p>
+<p>Autosar R4.0 </p>
+<p>AUTOSAR_SWS_PlatformTypes.pdf </p>
+<p>2.5.0 </p>
+<p>7. </p>
+<p>Autosar R4.0 </p>
+<p>AUTOSAR_BSW_MakefileInterface.pdf </p>
+<p>0.3 </p>
+<p>15 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 2                                                                                                             Reference Documents </b></p>
+<p> </p>
+<p>16 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration And Build Process </b></p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 3 </b></p>
+<p><b>Integration And Build Process </b></p>
+<p> </p>
+<p> </p>
+<p>In this section the folder structure of the SPI Driver Component is explained. </p>
+<p>Description of the Makefiles along with samples is provided in this section. </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>The details about the C Source and Header files that are generated by the </p>
+<p>SPI Driver Generation Tool are mentioned in the </p>
+<p>“AUTOSAR_SPI_Tool_UserManual.pdf”. </p>
+<p> </p>
+<p><b>3.1. </b></p>
+<p><b>SPI Driver Component Makefile </b></p>
+<p> </p>
+<p> </p>
+<p>The Makefile provided with the SPI Driver Component consists of the GNU </p>
+<p>Make compatible script to build the SPI Driver Component in case of any </p>
+<p>change in the configuration. This can be used in the upper level Makefile (of </p>
+<p>the application) to link and build the final application executable. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.1. </b></p>
+<p><b>Folder Structure </b></p>
+<p> </p>
+<p>The files are organized in the following folders: </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Trailing slash ‘\’ at the end indicates a folder </p>
+<p> </p>
+<p>X1X\common_platform\modules\spi\src\ Spi_Driver.c </p>
+<p> </p>
+<p>\ Spi.c </p>
+<p> </p>
+<p>\ Spi_Scheduler.c </p>
+<p> </p>
+<p>\Spi_Irq.c </p>
+<p> </p>
+<p>\Spi_Ram.c </p>
+<p> </p>
+<p>\Spi_Version.c </p>
+<p> </p>
+<p> </p>
+<p>X1X\common_platform\modules\spi\include\Spi_Driver.h </p>
+<p> </p>
+<p>\Spi.h </p>
+<p>  </p>
+<p>\Spi_Scheduler.h </p>
+<p> </p>
+<p>\Spi_Irq.h </p>
+<p> </p>
+<p>\Spi_LTTypes.h </p>
+<p> </p>
+<p>\Spi_PBTypes.h </p>
+<p> </p>
+<p>\Spi_Ram.h </p>
+<p> </p>
+<p>\Spi_Version.h </p>
+<p> </p>
+<p>\Spi_Types.h </p>
+<p> </p>
+<p> </p>
+<p>X1X\P1x\modules\spi\Sample_application\&lt;SubVariant&gt;\make\&lt;Compiler&gt; </p>
+<p>                                                                  </p>
+<p>\App_SPI_P1M_Sample.mak </p>
+<p> </p>
+<p>17 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 3 </b></p>
+<p><b> </b></p>
+<p><b>Integration And Build Process </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>X1X\P1x\modules\spi\Sample_application\&lt;SubVariant&gt;\obj\ &lt;compiler&gt; </p>
+<p> </p>
+<p>X1X\common_platform\modules\spi\generator\Spi_X1x.exe </p>
+<p> </p>
+<p>X1X\P1x\common_family\generator </p>
+<p>\Sample_Application_P1x.trxml </p>
+<p>\P1x_translation.h </p>
+<p> </p>
+<p>X1X\P1x\modules\spi\generator </p>
+<p>\R403_SPI_P1x_BSWMDT.arxml </p>
+<p> </p>
+<p> </p>
+<p>X1X\P1x\modules\spi\user_manual </p>
+<p> </p>
+<p>(User manuals will be available in this folder) </p>
+<p> </p>
+<p><b>Notes:</b> </p>
+<p><b>1. </b></p>
+<p>&lt;Compiler&gt; can be ghs. </p>
+<p> </p>
+<p><b>2. </b></p>
+<p>&lt;SubVariant&gt; can be P1M. </p>
+<p> </p>
+<p><b>3. </b></p>
+<p>&lt;AUTOSAR_version&gt; can be 4.0.3. </p>
+<p> </p>
+<p> </p>
+<p>18 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Forethoughts </b></p>
+<p><b> </b></p>
+<p><b>  Chapter 4</b></p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b>Forethoughts </b></p>
+<p> </p>
+<p> </p>
+<p><b>4.1. </b></p>
+<p><b>General </b></p>
+<p> </p>
+<p>Following information will aid the user to use the SPI Driver Component </p>
+<p>software efficiently: </p>
+<p> </p>
+<p>• </p>
+<p>SPI Driver component does not take care of setting the registers which </p>
+<p>configure clock, prescaler and PLL. </p>
+<p> </p>
+<p>• </p>
+<p>SPI Driver component handles only the Master mode. </p>
+<p> </p>
+<p>• </p>
+<p>SPI Driver component supports full-duplex mode. </p>
+<p> </p>
+<p>• </p>
+<p>The chip select is implemented using the microcontroller pins and it is </p>
+<p>configurable. </p>
+<p> </p>
+<p>• </p>
+<p>The required initialization of the port pins configured for chip select has to </p>
+<p>be performed by the Port Driver Component. </p>
+<p> </p>
+<p>• </p>
+<p>The microcontroller pins used for chip select is directly accessed by the </p>
+<p>SPI Driver component without using the APIs of DIO module. </p>
+<p> </p>
+<p>• </p>
+<p>Maximum number of channels and sequences configurable is 256 and job </p>
+<p>is 65536. </p>
+<p> </p>
+<p>• </p>
+<p>The scope is restricted to post-build with multiple configuration sets. </p>
+<p> </p>
+<p>• </p>
+<p>The identifiers for channels, jobs and sequences entered by the user </p>
+<p>should start from 0 and should be continuous. </p>
+<p> </p>
+<p>• </p>
+<p>The width of the transmitted data unit is configurable and the valid values </p>
+<p>are 8 bits to 32 bits. </p>
+<p> </p>
+<p>• </p>
+<p>The number of channels, jobs and sequences should be same across </p>
+<p>multiple configuration sets. </p>
+<p> </p>
+<p>• </p>
+<p>The channels, jobs and sequences cannot be deleted or added at post-</p>
+<p>build time. </p>
+<p> </p>
+<p>• </p>
+<p>The SPI hardware unit cannot be deleted or added at post–build time. But, </p>
+<p>the reassignment of the SPI hardware units to different jobs is possible at </p>
+<p>post-build time. </p>
+<p> </p>
+<p>• </p>
+<p>The DMA unit cannot be deleted or added at post–build time. But, the </p>
+<p>reassignment of DMA units to the SPI hardware units is possible at post- </p>
+<p>build time. </p>
+<p> </p>
+<p>• </p>
+<p>When the level of scalable functionality is configured as 2, then two SPI </p>
+<p>buses using separate hardware units are required. In this case, the SPI </p>
+<p>bus dedicated for synchronous transmission is configurable. </p>
+<p> </p>
+<p>• </p>
+<p>When the level of scalable functionality is configured as 2, two modes of </p>
+<p>asynchronous communication using polling or interrupt mechanism are </p>
+<p>possible. These modes are selectable during execution time. </p>
+<p> </p>
+<p>• </p>
+<p>When the level of scalable functionality is configured as 1 or 2, If interrupt </p>
+<p>mechanism is selected during execution time, the transmission and </p>
+<p>reception will be performed using the on-chip DMA unit only if the DMA </p>
+<p>mode is enabled through the configuration. </p>
+<p> </p>
+<p>• </p>
+<p>The LEVEL 2 SPI Handler is specified for microcontrollers that have to </p>
+<p>provide at least two SPI busses using separated hardware units. Otherwise, </p>
+<p>using this level of functionality makes no sense. </p>
+<p>19 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 4                                                                                                                            Forethoughts </b></p>
+<p>• </p>
+<p>When Level Delivered is 0 and 2, the memory mode configured for jobs </p>
+<p>linked for the synchronous sequence shall be always Direct Access Mode </p>
+<p>only. </p>
+<p> </p>
+<p>• </p>
+<p>If user configures 32 bit IB and EB channels and additionally configures </p>
+<p>DMA in direct access mode there will be a generator error message. </p>
+<p> </p>
+<p>• </p>
+<p>When the SPI driver is configured in Level 2 (SpiLevelDelivered) and the </p>
+<p>DMA is also configured (SpiDmaMode), then the asynchronous mode </p>
+<p>needs to be set for interrupt mode using the API Spi_SetAsyncMode. </p>
+<p> </p>
+<p>• </p>
+<p>The SPI DMA type is specified by the parameter SPI_DMA_TYPE_USED. </p>
+<p> </p>
+<p><b>Note: </b>The DMA will work whenever the DMA access for the LOCAL RAM, </p>
+<p>which is having PE guard protection is enabled (this can be done by </p>
+<p>configuring the PE guard registers.) </p>
+<p> </p>
+<p>• </p>
+<p>Direct Access mode can be effectively used in case of sequence having </p>
+<p>channels and buffers of significantly different properties. </p>
+<p> </p>
+<p>• </p>
+<p>Double Buffer mode can be effectively used in case of sequence having </p>
+<p>more number of jobs, channels and buffers with same hardware properties </p>
+<p>for continuous transmission of data. For double buffer mode only usage of </p>
+<p>internal buffers is allowed. FIFO mode can be effectively used at the time of </p>
+<p>transmit/receive of large amount of data. FIFO mode can also be used in </p>
+<p>case of sequence having lesser number of jobs and having more channels </p>
+<p>and buffers. </p>
+<p>• </p>
+<p>In case size of buffers is more than the hardware buffer size i.e. 128 words, </p>
+<p>an interrupt will occur after every 128 words are transmitted where the </p>
+<p>hardware buffer will be loaded with the remaining buffers to be transmitted. </p>
+<p> </p>
+<p>• </p>
+<p>In a particular configurations where CSIH HW units are configured, Spi_Init </p>
+<p>function must be called before Port_Init function. </p>
+<p> </p>
+<p>• </p>
+<p>Only if &quot;SpiCsInactive&quot; parameter is set to &quot;true&quot;, the PWR bit in CSI </p>
+<p>hardware will be cleared for that hardware unit, so setting &quot;false&quot; value can </p>
+<p>lead to unnecessary power consumption. </p>
+<p> </p>
+<p>• </p>
+<p>When “SpiCsIdleEnforcement” is set to true for the jobs configured for CSIH </p>
+<p>Hw units, the value configured for &quot;SpiCsInactive&quot; will not have any impact </p>
+<p>in actual Chip Select behavior&quot;. </p>
+<p> </p>
+<p>• </p>
+<p>The parameter &quot;SpiCsIdleEnforcement&quot; influences the behavior of idle level </p>
+<p>of the chip select during data transfer and after the transmission of a job. </p>
+<p> </p>
+<p>• </p>
+<p>When the parameter 'SpiCsIdleEnforcement' is configured as false, the </p>
+<p>corresponding chip select is deactivated before every channel transmission </p>
+<p>and stays active after transmission until another job with different CS is </p>
+<p>transmitted. </p>
+<p> </p>
+<p>• </p>
+<p>When the parameter 'SpiCsIdleEnforcement' is configured as true, the chip </p>
+<p>select is deactivated after job transmission. An idle phase of CS is inserted </p>
+<p>between transmissions of two data buffers. The duration of idle state of the </p>
+<p>chip select between the channels transmissions will be less than duration of </p>
+<p>idle state of the chip select between single data of each channel. </p>
+<p>• </p>
+<p>In CSIG,CS is active during the whole job transmission independently of </p>
+<p>data and is set to inactive state after job is finished. </p>
+<p> </p>
+<p><b>Table 4-1 </b></p>
+<p><b>Table for Chip Select behavior </b></p>
+<p>Figure </p>
+<p>SpiCSInactiveAfterlastdata </p>
+<p>SpiCsIdleEnforcement </p>
+<p>4-1 </p>
+<p>FALSE </p>
+<p>TRUE </p>
+<p>4-2 </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>4-3 </p>
+<p>TRUE </p>
+<p>FALSE </p>
+<p>4-4 </p>
+<p>FALSE </p>
+<p>FALSE </p>
+<p>20 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Forethoughts </b></p>
+<p><b> </b></p>
+<p><b>  Chapter 4</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note: </b>In the below figures, the signal represented in Yellow is the clock signal </p>
+<p>and the Blue signal is the chip select signal.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-1 </b></p>
+<p><b>Chip select behavior when SpiCSInactiveAfterlastdata is False and </b></p>
+<p><b>SpiCsIdleEnforcement is True </b></p>
+<p><b> </b></p>
+<p><b>Note: </b>If ‘SpiCsIdleEnforcement’ is TRUE, Chip select will get deactivated after </p>
+<p>transmission is over, even if ‘SpiCSInactiveAfterlastdata’ is configured as </p>
+<p>FALSE.</p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Figure 4-2 </b></p>
+<p><b>Chip select behavior when SpiCSInactiveAfterlastdata is True and </b></p>
+<p><b>SpiCsIdleEnforcement is True </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-3 </b></p>
+<p><b>Chip select behavior when SpiCSInactiveAfterlastdata is True and </b></p>
+<p><b>SpiCsIdleEnforcement is False  </b></p>
+<p><b>Note:</b></p>
+<p> </p>
+<p>21 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 4                                                                                                                            Forethoughts </b></p>
+<p><b>1.</b> The expected CS behavior may not be observed at high baud rates in case </p>
+<p>of Asynchronous transmission using Direct Access Mode, due to general </p>
+<p>limitation of the serial controllers. </p>
+<p><b>2.</b> CS state can be held for Asynchronous transmission by using buffer modes </p>
+<p>like FIFO. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Figure 4-4 </b></p>
+<p><b>Chip select behavior when SpiCSInactiveAfterlastdata is False and </b></p>
+<p><b>SpiCsIdleEnforcement is False </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>This information is valid only for DIRECT ACCES MODE. </p>
+<p> </p>
+<p>• </p>
+<p>For availability of Data Consistency Check on the port pins, please refer </p>
+<p>respective microcontroller user manual. </p>
+<p> </p>
+<p>• </p>
+<p>Sequences assigned to a hardware channel (CSIHx) which is configured to </p>
+<p>work with transmit only memory mode can be an interruptible or non- </p>
+<p>interruptible sequence (specified by the parameter </p>
+<p>SpiInterruptibleSequence). However, even if the sequence is non- </p>
+<p>interruptible, it can still be interrupted by CPU-controlled high priority </p>
+<p>communication functionality. I.e. the parameter SpiInterruptibleSequence </p>
+<p>is valid only for software interruption. </p>
+<p> </p>
+<p>• </p>
+<p>Each of the high priority sequences shall refer to a unique chip select line. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>        These lines shall not be referred by any of the low priority sequences too. </p>
+<p> </p>
+<p>• </p>
+<p>In order to support DEEPSTOP functionality without resetting the </p>
+<p>microcontroller, the re initialization of the Driver using Spi_Init API is </p>
+<p>supported. To achieve this functionality the </p>
+<p>'SPI_E_ALREADY_INITIALIZED' Det error check is to be suppressed </p>
+<p>using ‘SpiAlreadyInitDetCheck’ parameter when DET is enabled. When </p>
+<p>DET is disabled there is no impact of “SpiAlreadyInitDetCheck” parameter. </p>
+<p> </p>
+<p>• </p>
+<p>In a Hardware channel which has sequences working with transmit only </p>
+<p>mode and is of high priority, if there is a request for transmission of high </p>
+<p>priority sequence, then it will interrupt an ongoing sequence with transmit </p>
+<p>only mode if the sequence is non-interruptible. </p>
+<p>• </p>
+<p>When the sequence is getting transmitted with transmit only mode, if there </p>
+<p>is a request for high priority sequence, the ongoing sequence will be </p>
+<p>interrupted after the ongoing job is finished and memory mode will switch </p>
+<p>from transmit only mode to direct access mode automatically for high </p>
+<p>priority sequence transmission and after its completion, the interrupted </p>
+<p>sequence will resume transmission in transmit only mode.  </p>
+<p> </p>
+<p>• </p>
+<p>MCTL1, MCTL2 and CSIHnMRWP0 registers are allowed to be accessed </p>
+<p>when there is an ongoing communication only when PWR is set. </p>
+<p> </p>
+<p>22 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Forethoughts </b></p>
+<p><b> </b></p>
+<p><b>  Chapter 4</b></p>
+<p> </p>
+<p>• </p>
+<p>Manual transmission is possible only in Direct Access and FIFO modes. </p>
+<p>However user has to implement his own ISRs for SPI. In case he wants to </p>
+<p>use Renesas SPI driver transmission in parallel, he has to call Renesas SPI </p>
+<p>ISRs functions from his custom ISRs (e.g. use different interrupt category </p>
+<p>mode). </p>
+<p> </p>
+<p>• </p>
+<p>The file Interrupt_VectorTable.c provided is just a Demo and not all </p>
+<p>interrupts will be mapped in this file. So the user has to update the </p>
+<p>Interrupt_VectorTable.c as per his configuration. </p>
+<p> </p>
+<p>• </p>
+<p>The notifications should be called from user’s complex driver ISRs </p>
+<p> </p>
+<p>• </p>
+<p>High values for parameter ‘SpiCsHoldTiming’should not be used with </p>
+<p>Synchronous Transmit function but if it is used, user should make sure </p>
+<p>that next consecutive SPI action happens after CS hold time expired. </p>
+<p> </p>
+<p>• </p>
+<p>The parameter SpiTimeOut generates a scalar value that decides the </p>
+<p>number of times a loop will be executed while polling. If exceeded the loop </p>
+<p>breaks reporting a production error. </p>
+<p> </p>
+<p>This information is valid only for Static Configuration </p>
+<p> </p>
+<p>• </p>
+<p>The parameter SpiPersistentHWConfiguration decides whether Hardware </p>
+<p>configuration is static or dynamic. This is applicable for both CSIG and </p>
+<p>CSIH and both Synchronous and Asynchronous communication and all </p>
+<p>memory modes.  </p>
+<p>• </p>
+<p>If SpiPersistentHWConfiguration is “True”, then HW configuration is static </p>
+<p>(configuration is performed in the function Spi_Init ()function and not during </p>
+<p>each transmission. </p>
+<p> </p>
+<p>• </p>
+<p>Static Configuration, allows the user to manually start transmission without </p>
+<p>invoking SPI module APIs after Spi driver was initialized. </p>
+<p> </p>
+<p>• </p>
+<p>In Static configuration, all parameters in channel/job/external devices </p>
+<p>containers linked to a hardware unit should be same. Refer Table 4-2, 4-3 </p>
+<p>and 4-4 for the list of parameters </p>
+<p><b> </b></p>
+<p><b>Table 4-2 </b></p>
+<p><b>List of parameters in Channel container that are linked </b></p>
+<p><b>to the registers. </b></p>
+<p> </p>
+<p><b>Parameter in </b></p>
+<p><b>channel container</b></p>
+<p> </p>
+<p><b>Registers </b></p>
+<p><b>linked</b></p>
+<p> </p>
+<p><b>CSIH-CSIG</b></p>
+<p> </p>
+<p>SpiDataWidth</p>
+<p> </p>
+<p>CSIHnCFGx.CSIHnDLSx</p>
+<p> </p>
+<p>CSIHnCFGx0.CSIHnDLS[3: </p>
+<p>0]</p>
+<p> </p>
+<p>SpiTransferStart</p>
+<p> </p>
+<p>CSIHnCFGx.CSIHnDIRx</p>
+<p> </p>
+<p>CSIHnCFGx0.CSIHnDLS[3: </p>
+<p>0]</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Table 4-3 </b></p>
+<p><b>List of parameters in Job container that are linked </b></p>
+<p><b>to the registers. </b></p>
+<p> </p>
+<p><b>Parameter in job </b></p>
+<p><b>container</b></p>
+<p> </p>
+<p><b>Registers </b></p>
+<p><b>linked</b></p>
+<p> </p>
+<p><b>CSIH-CSIG</b></p>
+<p> </p>
+<p>SpiPortPinSelect</p>
+<p> </p>
+<p>CSIHnTXOW.CSIHnCSx </p>
+<p>CSIHnCTL1.CSIHnCSx</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>23 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 4                                                                                                                            Forethoughts </b></p>
+<p><b>Table 4-4 </b></p>
+<p><b>List of parameters in External Device container </b></p>
+<p><b>that are linked to the registers. </b></p>
+<p><b>Parameter in </b></p>
+<p><b>channel container</b></p>
+<p> </p>
+<p><b>Registers </b></p>
+<p><b>linked</b></p>
+<p> </p>
+<p><b>CSIH </b></p>
+<p><b> CSIG </b></p>
+<p>SpiCsPolarity</p>
+<p><b>  </b></p>
+<p>CSIHnCTL1.CSIHnCSx </p>
+<p>- </p>
+<p>SpiCsInactive </p>
+<p>CSIHnCTL1.CSIHnCSRI </p>
+<p>- </p>
+<p>SpiCsIdleEnforcem</p>
+<p>ent  </p>
+<p>CSIHnCFGx.CSIHnIDLx </p>
+<p>- </p>
+<p>SpiCsIdleTiming  </p>
+<p>CSIHnCFGx.CSIHnIDx[2:0</p>
+<p>] </p>
+<p>- </p>
+<p>SpiCsHoldTiming </p>
+<p>CSIHnCFGx.CSIHnHDx[3:</p>
+<p>0] </p>
+<p>- </p>
+<p>SpiCsInterDataDel</p>
+<p>ay </p>
+<p>CSIHnCFGx.CSIHnINx[3:0</p>
+<p>] </p>
+<p>- </p>
+<p>SpiCsSetupTime  </p>
+<p>CSIHnCFGx.CSIHnSPx[3:</p>
+<p>0] </p>
+<p>- </p>
+<p>SpiDataShiftEdge </p>
+<p>CSIHnCFGx.CSIHnDAPx </p>
+<p>CSIGnCFG0.CSIGnDAP </p>
+<p>SpiShiftClockIdleL</p>
+<p>evel  </p>
+<p>CSIHnCTL1.CSIHnCKR </p>
+<p>CSIGnCTL1.CSIGnCKR </p>
+<p>SpiBaudrateConfig</p>
+<p>uration </p>
+<p>CSIHnBRSy.CSIH0BRS[1</p>
+<p>1:0]  </p>
+<p>CSIGnCTL2.CSIGnBRS </p>
+<p>SpiBaudrateRegist</p>
+<p>erSelect </p>
+<p>CSIHnCFGx.CSIHnBRSS</p>
+<p>x[11:0] </p>
+<p>- </p>
+<p>SpiInputClockSele</p>
+<p>ct  </p>
+<p>CSIHnCTL2.CSIHnPRS[2:</p>
+<p>0]  </p>
+<p>CSIGnCTL2.CSIGnPRS[2:0</p>
+<p>] </p>
+<p>SpiInterruptDelayM</p>
+<p>ode </p>
+<p>CSIHnCTL1.CSIHnSIT </p>
+<p>CSIGnCTL1.CSIGnSLIT </p>
+<p>SpiParitySelection </p>
+<p>CSIHnCFGx.CSIHnPSx[1:</p>
+<p>0] </p>
+<p>CSIGnCFG0.CSIGnPS[1:0] </p>
+<p>SpiFifoTimeOut  </p>
+<p>CSIHnMCTL0.CSIHnTO[4:</p>
+<p>0] </p>
+<p>- </p>
+<p>SpiBroadcastingPri</p>
+<p>ority  </p>
+<p>CSIHnCFGx.CSIHnRCBx </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<p><b>4.2. </b></p>
+<p><b>Preconditions </b></p>
+<p> </p>
+<p>Following preconditions have to be adhered by the user, for proper </p>
+<p>functioning of the SPI Driver Component: </p>
+<p> </p>
+<p>• </p>
+<p>The Spi_Lcfg.c, Spi_PBcfg.c, Spi_Cbk.h and Spi_Cfg.h files generated by </p>
+<p>the SPI Driver Component Code Generation Tool must be compiled and </p>
+<p>linked along with SPI Driver Component source files. </p>
+<p> </p>
+<p>• </p>
+<p>The application has to be rebuilt, if there is any change in the Spi_Lcfg.c, </p>
+<p>Spi_PBcfg.c, Spi_Cbk.h and Spi_Cfg.h files generated by the SPI Driver </p>
+<p>Component Generation Tool. </p>
+<p> </p>
+<p>• </p>
+<p>File Spi_PBcfg.c generated for single configuration set or multiple </p>
+<p>configuration sets using SPI Driver Component Generation Tool can be </p>
+<p>compiled and linked independently. </p>
+<p> </p>
+<p>24 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Forethoughts </b></p>
+<p><b> </b></p>
+<p><b>  Chapter 4</b></p>
+<p> </p>
+<p>• </p>
+<p>The authorization of the user for calling the software triggering of a </p>
+<p>hardware reset is not checked in the SPI Driver. This is the responsibility of </p>
+<p>the upper layer. </p>
+<p> </p>
+<p>• </p>
+<p>The SPI Driver Component needs to be initialized before accepting any </p>
+<p>request. The API Spi_Init should be invoked to initialize SPI Driver </p>
+<p>Component. </p>
+<p> </p>
+<p>• </p>
+<p>The  user  should  ensure  that  SPI  Driver  Component  API  requests  are </p>
+<p>invoked  in  the  correct  and  expected  sequence  and  with  correct  input </p>
+<p>arguments. </p>
+<p> </p>
+<p>• </p>
+<p>Input parameters are validated only when the static configuration </p>
+<p>parameter SPI_DEV_ERROR_DETECT is enabled. Application should </p>
+<p>ensure that the right parameters are passed while invoking the APIs when </p>
+<p>SPI_DEV_ERROR_DETECT is disabled. </p>
+<p> </p>
+<p>• </p>
+<p>A mismatch in the version numbers of header and the source files results </p>
+<p>in  compilation  error.  User  should  ensure  that  the  correct  versions  of  the </p>
+<p>header and the source files are used. </p>
+<p> </p>
+<p>• </p>
+<p>The ISR functions and the corresponding handler addresses are provided </p>
+<p>in Table ISR Handler Addresses. User should ensure that Interrupt Vector </p>
+<p>table configuration is done as per the information provided in the table. </p>
+<p> </p>
+<p>• </p>
+<p>Within the callback notification functions only following APIs are allowed. </p>
+<p> </p>
+<p>Spi_ReadIB Spi_WriteIB </p>
+<p>Spi_SetupEB </p>
+<p>Spi_GetJobResult </p>
+<p>Spi_GetSequenceResult </p>
+<p>Spi_GetHWUnitStatus </p>
+<p>Spi_Cancel </p>
+<p>All other SPI Handler/Driver API calls are not allowed. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.3. </b></p>
+<p><b>User Mode and Supervisor Mode </b></p>
+<p> </p>
+<p>The below table specifies the APIs which can run in user mode, supervisor </p>
+<p>mode or both modes: </p>
+<p> </p>
+<p><b>Table 4-5 User Mode and Supervisory Mode </b></p>
+<p> </p>
+<p>  </p>
+<p>Sl. </p>
+<p>No. </p>
+<p>  </p>
+<p>API name </p>
+<p>Interrupt mode </p>
+<p>Polling mode </p>
+<p>user </p>
+<p>mode  </p>
+<p>supervi</p>
+<p>sor </p>
+<p>mode </p>
+<p>user </p>
+<p>mode </p>
+<p>superviso</p>
+<p>r mode </p>
+<p>1. </p>
+<p>Spi_Init </p>
+<p>   - </p>
+<p>x </p>
+<p>   - </p>
+<p>x </p>
+<p>2. </p>
+<p>Spi_DeInit </p>
+<p>- </p>
+<p>x </p>
+<p>- </p>
+<p>x </p>
+<p>3. </p>
+<p>Spi_WriteIB </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>4. </p>
+<p>Spi_AsyncTransmit </p>
+<p> </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>5. </p>
+<p>Spi_ReadIB </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>6. </p>
+<p>Spi_SetupEB </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>7. </p>
+<p>Spi_GetStatus </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>25 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 4                                                                                                                            Forethoughts </b></p>
+<p>  </p>
+<p>Sl. </p>
+<p>No. </p>
+<p>  </p>
+<p>API name </p>
+<p>Interrupt mode </p>
+<p>Polling mode </p>
+<p>8. </p>
+<p>Spi_GetJobResult </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>9. </p>
+<p>Spi_GetSequenceResult </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>10. </p>
+<p>Spi_GetVersionInfo </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>11. </p>
+<p>Spi_SyncTransmit </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>12. </p>
+<p>Spi_Cancel </p>
+<p>- </p>
+<p>x </p>
+<p>- </p>
+<p>x </p>
+<p>13. </p>
+<p>Spi_SetAsyncMode </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>x </p>
+<p>14. </p>
+<p>Spi_MainFunction_Handling </p>
+<p>- </p>
+<p>x </p>
+<p>- </p>
+<p>x </p>
+<p>15. </p>
+<p>Spi_GetHWUnitStatus </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p>x </p>
+<p> </p>
+<p><b>4.4. </b></p>
+<p><b>Memory modes </b></p>
+<p> </p>
+<p>The SPI Driver will use different memory modes depending on the HW units </p>
+<p>selected. If the HW unit configured is CSIG then only direct access mode has </p>
+<p>to be configured. If the HW unit configured is CSIH then any of the following </p>
+<p>four modes can be configured. </p>
+<p><b>Table 4-6 </b></p>
+<p><b>HW unit and Memory Mode Selection </b></p>
+<p><b> </b></p>
+<p><b>HW unit</b></p>
+<p> </p>
+<p><b>Memory mode</b></p>
+<p> </p>
+<p>CSIG0</p>
+<p> </p>
+<p>Direct Access Mode</p>
+<p> </p>
+<p>CSIH(0-3)</p>
+<p> </p>
+<p>Direct Access Mode </p>
+<p>FIFO Mode </p>
+<p>Dual Buffer mode </p>
+<p>Transmit Only Mode</p>
+<p> </p>
+<p> </p>
+<p><b>4.5. </b></p>
+<p><b>Data Consistency </b></p>
+<p> </p>
+<p>To support the re-entrance and interrupt services, the AUTOSAR SPI </p>
+<p>component will ensure the data consistency while accessing its own RAM </p>
+<p>storage or hardware registers. The SPI component will use </p>
+<p>SchM_Enter_Spi_&lt;Exclusive Area&gt; and SchM_Exit_Spi_&lt;Exclusive Area&gt; </p>
+<p>functions. The SchM_Enter_Spi_&lt;Exclusive Area&gt; function is called before </p>
+<p>the data needs to be protected and SchM_Exit_Spi_&lt;Exclusive Area&gt; </p>
+<p>function is called after the data is accessed. </p>
+<p> </p>
+<p>The following exclusive area along with scheduler services is used to provide </p>
+<p>data integrity for shared resources: </p>
+<p> </p>
+<p>• </p>
+<p>CHIP_SELECT_PROTECTION </p>
+<p> </p>
+<p>• </p>
+<p>RAM_DATA_PROTECTION </p>
+<p> </p>
+<p>The functions SchM_Enter_Spi_&lt;Exclusive Area&gt; and </p>
+<p>SchM_Exit_Spi_&lt;Exclusive Area&gt; can be disabled by disabling the </p>
+<p>configuration parameter 'Spi_CriticalSectionProtection'. The flowchart will </p>
+<p>indicate the flow with the pre-compile option 'Spi_CriticalSectionProtection' </p>
+<p>enabled. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.6. </b></p>
+<p><b>Deviation List </b></p>
+<p><b>Table 4-7 </b></p>
+<p><b>SPI Driver Deviation List </b></p>
+<p> </p>
+<p><b>Sl. No. </b></p>
+<p><b>Description </b></p>
+<p><b>AUTOSAR Bugzilla </b></p>
+<p>26 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Forethoughts </b></p>
+<p><b> </b></p>
+<p><b>  Chapter 4</b></p>
+<p> </p>
+<p><b>Sl. No. </b></p>
+<p><b>Description </b></p>
+<p><b>AUTOSAR Bugzilla </b></p>
+<p>1. </p>
+<p>The parameter </p>
+<p>&quot;SpiHwUnitSynchronous&quot; is moved </p>
+<p>to SpiJob container from </p>
+<p>SpiChannel container. </p>
+<p>48763 </p>
+<p>2. </p>
+<p>The total number of SPI Hardware </p>
+<p>Units is published as </p>
+<p>“SPI_MAX_HW_UNIT”. </p>
+<p>24328 </p>
+<p>3. </p>
+<p>The parameter “SPI_BAUDRATE” </p>
+<p>is not used since the value </p>
+<p>configured for this parameter </p>
+<p>cannot be mapped directly to the </p>
+<p>register value. Hence, a parameter </p>
+<p>”SpiBaudrateSelection” is used to </p>
+<p>select input frequency source. </p>
+<p>- </p>
+<p>4. </p>
+<p>The parameter 'SpiTimeClk2Cs' is </p>
+<p>not used since the value of this </p>
+<p>parameter is configured as count </p>
+<p>value. Hence, the parameter </p>
+<p>'SpiClk2CsCount' is provided to </p>
+<p>configure the wait loop count to add </p>
+<p>delay between clock and chip </p>
+<p>select. </p>
+<p>- </p>
+<p>5. </p>
+<p>Type of the parameter SpiHwUnit is </p>
+<p>ENUMERATION-PARAM-DEF with </p>
+<p>a list of all possible hardware units. </p>
+<p>- </p>
+<p>6. </p>
+<p>The inclusion or deletion of the </p>
+<p>hardware units will not be possible </p>
+<p>in the post-build time. But the </p>
+<p>reassignment of configured HW </p>
+<p>unit for different jobs is possible. </p>
+<p>- </p>
+<p>7. </p>
+<p>Type of the parameter SpiCs is </p>
+<p>ENUMERATION-PARAM-DEF with </p>
+<p>a list of all possible port lines. </p>
+<p>- </p>
+<p>8. </p>
+<p>If the parameter &quot;DataBufferPtr&quot; </p>
+<p>passed through the API </p>
+<p>“Spi_ReadIB” is null pointer, then </p>
+<p>the error </p>
+<p>SPI_E_PARAM_POINTER will be </p>
+<p>reported to DET. </p>
+<p>- </p>
+<p>9. </p>
+<p>The channel parameters </p>
+<p>“SpiChannelType”, “SpiIbNBuffers” </p>
+<p>and “SpiEbMaxLength” are pre- </p>
+<p>compile time parameters. </p>
+<p>- </p>
+<p>10. </p>
+<p>A queue will be implemented and </p>
+<p>maintained if there are more than </p>
+<p>one sequence is requested for </p>
+<p>transmission. The length of the </p>
+<p>queue will be number of configured </p>
+<p>jobs minus 1. </p>
+<p>- </p>
+<p>11. </p>
+<p>If a sequence is requested for </p>
+<p>transmission while already one </p>
+<p>uninterruptible sequence is on- </p>
+<p>going, the requested sequence will </p>
+<p>be put on queue. </p>
+<p>- </p>
+<p>27 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 4                                                                                                                            Forethoughts </b></p>
+<p><b>Sl. No. </b></p>
+<p><b>Description </b></p>
+<p><b>AUTOSAR Bugzilla </b></p>
+<p>12. </p>
+<p>The upper and lower multiplicity of </p>
+<p>the parameter ‘SpiCsIdentifier’ is ‘1’ </p>
+<p>i.e. </p>
+<p>mandatory </p>
+<p>and </p>
+<p>the </p>
+<p>default </p>
+<p>value is NULL. The upper and </p>
+<p>lower multiplicity of the parameter </p>
+<p>‘SpiEnableCS’ is ‘1’ i.e. mandatory </p>
+<p>and the default value is false. </p>
+<p>- </p>
+<p>13. </p>
+<p>The parameters SpiMaxChannel, </p>
+<p>SpiMaxJob and SpiMaxSequence </p>
+<p>in SpiDriverConfiguration is made </p>
+<p>as mandatory in the Parameter </p>
+<p>Definition File of SPI Driver </p>
+<p>Component. </p>
+<p>- </p>
+<p>14. </p>
+<p>Notification related functions and </p>
+<p>parameters configuration class </p>
+<p>are changed from Link time to </p>
+<p>Post Build,  vice versa Spi_ </p>
+<p>Lcfg.c and Spi<i>_</i>Pbcfg.c files </p>
+<p>structures are updated. </p>
+<p>- </p>
+<p>15. </p>
+<p>The API Spi_GetVersionInfo is </p>
+<p>implemented as macro without </p>
+<p>DET error </p>
+<p>SPI_E_PARAM_POINTER. </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>28 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Architecture Details                                                                                                                    Chapter 5 </b></p>
+<p><b>Chapter 5 </b></p>
+<p><b>Architecture Details </b></p>
+<p> </p>
+<p> </p>
+<p>To minimize the effort and to optimize the reuse of developed software on </p>
+<p>different platforms, the SPI driver is split as High Level Driver and Low Level </p>
+<p>Driver. The SPI Driver architecture is shown in the following figure: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Figure 5-1 </b></p>
+<p><b>SPI Driver Architecture </b></p>
+<p> </p>
+<p>The  High  Level  Driver  exports  the  AUTOSAR  API  towards  upper  modules </p>
+<p>and it will be designed to allow the compilation for different platforms without </p>
+<p>or  only  slight  modifications,  i.e.  that  no  reference  to  specific  microcontroller </p>
+<p>features or registers will appear in the High Level Driver. All these references </p>
+<p>are  moved  inside  a  µC  specific  Low  Level  Driver.  The  Low  Level  Driver </p>
+<p>interface extends the High Level Driver types and methods in order to adapt it </p>
+<p>to the specific target microcontroller. </p>
+<p> </p>
+<p><b>SPI Driver component: </b></p>
+<p> </p>
+<p>The SPI Driver provides services for reading and writing to devices connected </p>
+<p>via SPI busses. It provides access to SPI communication to several users like </p>
+<p>EEPROM, Watchdog, I/O ASICs. It also provides the required mechanism to </p>
+<p>configure the on chip SPI peripheral. </p>
+<p> </p>
+<p>The SPI Driver component is divided into the following sub modules based on </p>
+<p>the functionality required: </p>
+<p> </p>
+<p>• </p>
+<p>Initialization and De-initialization </p>
+<p> </p>
+<p>• </p>
+<p>Buffer Management </p>
+<p> </p>
+<p>• </p>
+<p>Communication </p>
+<p> </p>
+<p>• </p>
+<p>Status information </p>
+<p><b>SPI User </b></p>
+<p><b>SPI High-level Driver </b></p>
+<p><b> (Microcontroller Independent) </b></p>
+<p><b>SPI Low Level Driver</b></p>
+<p> </p>
+<p><b>   MICROCONTROLLER</b></p>
+<p> </p>
+<p><b>CSIH </b></p>
+<p><b>CSIG</b></p>
+<p> </p>
+<p>29 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Architecture Details                                                                                                                </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b> us </b></p>
+<p> </p>
+<p><b>Version </b></p>
+<p> </p>
+<p><b>SPI Driver </b></p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>Module version information </p>
+<p> </p>
+<p>The basic architecture of the SPI Driver component is illustrated in the </p>
+<p>following Figure: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AP PL I C AT IO N  L A Y ER </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SP I  H ig h  Le v e l Dr ive r </b></p>
+<p> </p>
+<p> </p>
+<p>S</p>
+<p>etting of </p>
+<p>HW  </p>
+<p>register  </p>
+<p>Disabling  </p>
+<p>the </p>
+<p>interrupts </p>
+<p> </p>
+<p>De - </p>
+<p>initialization </p>
+<p>of SPI HW </p>
+<p>units </p>
+<p> </p>
+<p>Transmit and </p>
+<p>receive the jobs </p>
+<p> and channels </p>
+<p>Sequen </p>
+<p>ce and </p>
+<p>job </p>
+<p>notifica </p>
+<p>tion </p>
+<p> </p>
+<p>Return the </p>
+<p>status of </p>
+<p>module, job,  </p>
+<p>sequence </p>
+<p> </p>
+<p><b>SP I  L ow  Le v e l Dr ive r </b></p>
+<p> </p>
+<p> </p>
+<p><b>Figure 5-2 </b></p>
+<p><b>Component Overview Of SPI Driver Component </b></p>
+<p> </p>
+<p><b>SPI Driver Initialization and De-Initialization module </b></p>
+<p> </p>
+<p>This  module  initializes  and  de-Initializes  the  SPI  driver.  It  provides  the </p>
+<p>Spi_Init() and Spi_DeInit() APIs. The Spi_Init() API should be invoked before </p>
+<p>the usage of any other APIs of Watchdog Driver Module.Spi-Init should be </p>
+<p>called prior to Port_Init. De-initialization function puts all microcontroller SPI </p>
+<p>peripherals in the same state such as Power On Reset. </p>
+<p> </p>
+<p><b>Buffer Managemen</b>t  </p>
+<p> </p>
+<p>This module provides the services for reading and writing the internal buffers </p>
+<p>and  setting  up  the  external  buffer.  The  type  of  buffer  for  each  channel  is </p>
+<p>configurable as either internal or external </p>
+<p> </p>
+<p>The APIs related to this module are Spi_WriteIB(), Spi_ReadIB() and </p>
+<p>Spi_SetupEB(). </p>
+<p> </p>
+<p><b>Communication </b></p>
+<p> </p>
+<p>This module provides the services for the transmission of data on the SPI bus </p>
+<p>both synchronously and asynchronously, cancelling the ongoing transmission </p>
+<p>and setting the asynchronous transfer mode. </p>
+<p> </p>
+<p>The </p>
+<p>synchronous </p>
+<p>mode </p>
+<p>is </p>
+<p>based </p>
+<p>on </p>
+<p>polling </p>
+<p>mechanism. </p>
+<p>But </p>
+<p>for </p>
+<p>the </p>
+<p>asynchronous  mode,  the  possible  mechanisms  are  Polling  and  Interrupt </p>
+<p>mode.  One  of  these  modes  is  selectable  during  execution  by  one  of  the </p>
+<p>services provided by this sub-module. </p>
+<p> </p>
+<p>The </p>
+<p>APIs </p>
+<p>related </p>
+<p>to </p>
+<p>this </p>
+<p>module </p>
+<p>are </p>
+<p>Spi_SyncTransmit(), </p>
+<p>Spi_AsyncTransmit(), Spi_SetAsyncMode() and Spi_Cancel(). </p>
+<p>30 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Architecture Details                                                                                                                Chapter 5</b></p>
+<p> </p>
+<p><b> </b></p>
+<p>                                        <b>Status Information </b></p>
+<p> </p>
+<p>This module provides the services for getting the status of the SPI Driver and </p>
+<p>hardware  unit.  It  also  provides  the  services  for  getting  the  result  of  the </p>
+<p>specified job and specified sequence. </p>
+<p> </p>
+<p>The </p>
+<p>APIs </p>
+<p>related </p>
+<p>to </p>
+<p>this </p>
+<p>module </p>
+<p>are </p>
+<p>Spi_GetStatus(), </p>
+<p>Spi_GetHWUnitStatus(), Spi_GetJobResult() and Spi_GetSequenceResult(). </p>
+<p> </p>
+<p><b>Module Version Information </b></p>
+<p> </p>
+<p>This module provides APIs for reading module Id, vendor Id and vendor </p>
+<p>specific version numbers. </p>
+<p> </p>
+<p>The API related to this module is Spi_GetVersionInfo(). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>31 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Architecture Details                                                                                                                </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>32 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Registers Details </b></p>
+<p><b>Chapter 6 </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 6 </b></p>
+<p><b>Registers Details </b></p>
+<p> </p>
+<p>This section describes the register details of SPI Driver Component. </p>
+<p> </p>
+<p><b>Table 6-1   </b></p>
+<p><b>Register Details </b></p>
+<p> </p>
+<p> </p>
+<p><b>API Name </b></p>
+<p> </p>
+<p><b>Registers </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p><b>Macro/Variable </b></p>
+<p>Spi_Init </p>
+<p>CSIGnCTL0 </p>
+<p>SpiMemoryModeSelection </p>
+<p> </p>
+<p>SPI_ZERO </p>
+<p>CSIHnCTL0 </p>
+<p>SPI_ZERO </p>
+<p> DCSTCn </p>
+<p>- </p>
+<p>SPI_DMA_STR_CLEAR </p>
+<p>DCENn </p>
+<p>- </p>
+<p>SPI_DMA_DCEN_DISABLE </p>
+<p>DSAn </p>
+<p>SpiDma </p>
+<p>LpDmaConfig-&gt;ulTxRxRegAddress </p>
+<p>DTCTn </p>
+<p>SpiTxDmaChannel/ </p>
+<p>SpiRxDmaChannel </p>
+<p>SPI_DMA_8BIT_TX_SETTINGS </p>
+<p>SPI_DMA_16BIT_TX_SETTINGS </p>
+<p>SPI_DMA_32BIT_TX_SETTINGS </p>
+<p>SPI_DMA_8BIT_RX_SETTINGS </p>
+<p>SPI_DMA_16BIT_RX_SETTINGS </p>
+<p>SPI_DMA_32BIT_RX_SETTINGS </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>DDAn </p>
+<p>SpiDma </p>
+<p>LpDmaConfig-&gt;ulTxRxRegAddress </p>
+<p>DTSn </p>
+<p>SpiTxDmaChannel/ </p>
+<p>SpiRxDmaChannel </p>
+<p>SPI_DMA_DISABLE </p>
+<p>DTFRn </p>
+<p>SpiTxDmaChannel/ </p>
+<p>SpiRxDmaChannel </p>
+<p>LpDmaConfig-&gt;usDmaDtfrRegValue </p>
+<p>CSIGnCTL1 </p>
+<p>SpiCsInactiveAfterLastData, </p>
+<p>SpiDataWidth </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHnCTL1 </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHTIJC </p>
+<p>- </p>
+<p>LpIntCntlAddress </p>
+<p>ICCSIGnIR </p>
+<p>SpiHwUnitSelection </p>
+<p>and </p>
+<p>SpiMemoryModeSelection</p>
+<p> </p>
+<p>Spi_GstHWUnitInfo[LddHWUnit].usR</p>
+<p>xImrMask </p>
+<p>ICCSIGnIC </p>
+<p>Spi_GstHWUnitInfo[LddHWUnit].pTxI</p>
+<p>mrAddress </p>
+<p>ICCSIGnIRE </p>
+<p>Spi_GstHWUnitInfo[LddHWUnit].pErr</p>
+<p>orImrAddress </p>
+<p>ICCSIHnIR </p>
+<p>Spi_GstHWUnitInfo[LddHWUnit].usR</p>
+<p>xImrMask </p>
+<p>ICCSIHnIC </p>
+<p>Spi_GstHWUnitInfo[LddHWUnit].pTxI</p>
+<p>mrAddress </p>
+<p>ICCSIHnIJC </p>
+<p>LpHWUnitInfo-&gt;usTxCancelImrMask </p>
+<p>ICCSIHnIRE </p>
+<p>Spi_GstHWUnitInfo[LddHWUnit].pErr</p>
+<p>orImrAddress </p>
+<p>CSIHnTX0W </p>
+<p>- </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>SELCSIHDMA </p>
+<p>- </p>
+<p>SPI_SELCSIHDMA_REG_VAL </p>
+<p>Spi_DeInit </p>
+<p>CSIGnCTL0 </p>
+<p>SpiMemoryModeSelection </p>
+<p> </p>
+<p>SPI_ZERO </p>
+<p>CSIHnCTL0 </p>
+<p>SPI_ZERO </p>
+<p>DCENn </p>
+<p>- </p>
+<p>SPI_DMA_DCEN_DISABLE </p>
+<p>DTFRRQCn </p>
+<p>- </p>
+<p>SPI_DMA_DRQ_CLEAR </p>
+<p>DCSTCn </p>
+<p>- </p>
+<p>SPI_DMA_STR_CLEAR </p>
+<p>Spi_WriteIB </p>
+<p>CSIHnMRWP0 </p>
+<p>- </p>
+<p>ulRegData </p>
+<p>CSIHnTX0W </p>
+<p>- </p>
+<p>ulRegData </p>
+<p>Spi_AsyncTransmit </p>
+<p>CSIHnMCTL0 </p>
+<p>- </p>
+<p>LpJobConfig-&gt;usMCtl0Value </p>
+<p>33 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 6                                                                                                                                        Registers Details </b></p>
+<p> </p>
+<p> </p>
+<p><b>API Name </b></p>
+<p> </p>
+<p><b>Registers </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p><b>Macro/Variable </b></p>
+<p> </p>
+<p> </p>
+<p>CSIGnCFG0 </p>
+<p>- </p>
+<p>LpJobConfig-&gt;ulConfigRegValue </p>
+<p>CSIGnCTL0 </p>
+<p>SpiMemoryModeSelection </p>
+<p>SPI_RESET_PWR </p>
+<p>SPI_SET_DIRECT_ACCESS </p>
+<p>SPI_SET_MEMORY_ACCESS </p>
+<p>CSIHnCTL0 </p>
+<p>SPI_RESET_PWR </p>
+<p>SPI_SET_DIRECT_ACCESS </p>
+<p>SPI_SET_MEMORY_ACCESS </p>
+<p>CSIGnSTCR0 </p>
+<p>- </p>
+<p>SPI_CLR_STS_FLAGS </p>
+<p>CSIHnSTCR0 </p>
+<p>- </p>
+<p>SPI_CLR_STS_FLAGS </p>
+<p>CSIGnCTL1 </p>
+<p>SpiCsInactiveAfterLastData, </p>
+<p>SpiDataWidth </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>LpJobConfig-&gt;ulMainCtl1Value </p>
+<p>SPI_SET_SLIT </p>
+<p>CSIHnCTL1 </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>LpJobConfig-&gt;ulMainCtl1Value </p>
+<p>SPI_SET_SLIT </p>
+<p>DCSTCn </p>
+<p>- </p>
+<p>SPI_DMA_STR_CLEAR </p>
+<p>DCENn </p>
+<p>- </p>
+<p>SPI_DMA_DCEN_DISABLE </p>
+<p>DTCTn </p>
+<p>- </p>
+<p>SPI_DMA_FIXED_TX_SETTINGS </p>
+<p>SPI_DMA_INV_TX_SETTINGS </p>
+<p>LddNoOfBuffers </p>
+<p>SPI_DMA_STR_REQ </p>
+<p>SPI_DMA_ONCE </p>
+<p>SPI_DMA_FIXED_RX_SETTINGS </p>
+<p>SPI_DMA_INV_RX_SETTINGS </p>
+<p>SPI_DMA_ONCE </p>
+<p>DSAn </p>
+<p>- </p>
+<p>(uint32)LpTxData </p>
+<p>DTFRn </p>
+<p>- </p>
+<p>(uint32)SPI_ZERO </p>
+<p>(uint32)(LpDmaConfig-&gt; </p>
+<p>usDmaDtfrRegValue </p>
+<p>DCSTSn </p>
+<p>- </p>
+<p>SPI_DMA_STR </p>
+<p>DTCn </p>
+<p>- </p>
+<p>SPI_ONE </p>
+<p>DTFRRQCn </p>
+<p>- </p>
+<p>SPI_DMA_DRQ_CLEAR </p>
+<p>DCENn </p>
+<p>- </p>
+<p>SPI_DMA_DCEN_ENABLE </p>
+<p>DDAn </p>
+<p>- </p>
+<p>(uint32)(&amp;Spi_GddDmaRxData) </p>
+<p>DTFRn </p>
+<p>- </p>
+<p>SPI_ZERO </p>
+<p>CSIGnCTL2 </p>
+<p>SpiBaudrateRegisterSelect </p>
+<p>LpJobConfig-&gt;usCtl2Value </p>
+<p>CSIHnCTL2 </p>
+<p>SpiFifoTimeOut </p>
+<p>LpJobConfig-&gt;usCtl2Value </p>
+<p>CSIHnCFG </p>
+<p>SpiCsIdleTiming, </p>
+<p>SpiCsHoldTiming,</p>
+<p> </p>
+<p>SpiCsInterDataDelay, </p>
+<p>SpiCsSetupTime, </p>
+<p>SpiCsIdleEnforcement</p>
+<p> </p>
+<p> </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIGnCFG0 </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHnCFG0 </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHnMCTL1 </p>
+<p>- </p>
+<p>SPI_ZERO </p>
+<p>CSIHnMCTL2 </p>
+<p>- </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHTX0W </p>
+<p>- </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHnCFG </p>
+<p>SpiCsIdleTiming, </p>
+<p>SpiCsHoldTiming,</p>
+<p> </p>
+<p>SpiCsInterDataDelay, </p>
+<p>SpiCsSetupTime, </p>
+<p>SpiCsIdleEnforcement</p>
+<p> </p>
+<p> </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>34 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Registers Details </b></p>
+<p><b>Chapter 6 </b></p>
+<p> </p>
+<p> </p>
+<p><b>API Name </b></p>
+<p> </p>
+<p><b>Registers </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p><b>Macro/Variable </b></p>
+<p>CSIGnTX0W </p>
+<p>- </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHnBRS[0] </p>
+<p>SpiBaudrateConfiguration </p>
+<p>LpCsihOsBaseAddr-&gt;usCSIHBRS[0] </p>
+<p>CSIHnBRS[1] </p>
+<p>- </p>
+<p>LpCsihOsBaseAddr-&gt;usCSIHBRS[1] </p>
+<p>CSIHnBRS[2] </p>
+<p>- </p>
+<p>LpCsihOsBaseAddr-&gt;usCSIHBRS[2] </p>
+<p>CSIHnBRS[3] </p>
+<p>- </p>
+<p>LpCsihOsBaseAddr-&gt;usCSIHBRS[3] </p>
+<p>Spi_ReadIB </p>
+<p>CSIHnRX0W </p>
+<p>- </p>
+<p>LunDataAccess2.ulRegData </p>
+<p>CSIHnRX0H </p>
+<p>- </p>
+<p>LunDataAccess2.usRegData5[1] </p>
+<p>CSIHnMRWP0 </p>
+<p>- </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHRX0H </p>
+<p>- </p>
+<p>LunDataAccess2.usRegData5[0] </p>
+<p>Spi_SetupEB </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Spi_GetStatus </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Spi_GetJobResult </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Spi_GetSequenceRes</p>
+<p>ult </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Spi_SyncTransmit </p>
+<p>CSIHnMCTL0 </p>
+<p>- </p>
+<p>- </p>
+<p>CSIGnCTL0 </p>
+<p>- </p>
+<p>LpJobConfig-&gt;usMCtl0Value </p>
+<p>CSIHnCTL0 </p>
+<p>- </p>
+<p>SPI_RESET_PWR </p>
+<p>CSIGnCTL0 </p>
+<p>- </p>
+<p>SPI_RESET_PWR </p>
+<p>CSIHnCTL0 </p>
+<p>- </p>
+<p>SPI_SET_DIRECT_ACCESS </p>
+<p>CSIGnCTL0 </p>
+<p>- </p>
+<p>SPI_SET_DIRECT_ACCESS </p>
+<p>CSIHnCTL0 </p>
+<p>- </p>
+<p>SPI_SET_PWR </p>
+<p>CSIGnTX0W </p>
+<p>- </p>
+<p>SPI_SET_PWR </p>
+<p>CSIHnRX0H </p>
+<p>- </p>
+<p>LunDataAccess3.ulRegData </p>
+<p>CSIHnRX0H </p>
+<p>- </p>
+<p>LunDataAccess3.ulRegData </p>
+<p>CSIGnCFG0 </p>
+<p>- </p>
+<p>Spi_GusDataAccess </p>
+<p>CSIGnCFG0 </p>
+<p>- </p>
+<p>LddData </p>
+<p>CSIGnCFG0 </p>
+<p>- </p>
+<p>LpJobConfig-&gt;ulConfigRegValue </p>
+<p>CSIGnCTL0 </p>
+<p>- </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHnCTL0 </p>
+<p>- </p>
+<p>SPI_ZERO </p>
+<p>CSIGnCFG0 </p>
+<p>- </p>
+<p>LddData </p>
+<p>CSIGnCFG0 </p>
+<p>- </p>
+<p>LpJobConfig-&gt;ulConfigRegValue </p>
+<p>CSIGnCTL0 </p>
+<p>- </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHnCTL0 </p>
+<p>- </p>
+<p>SPI_ZERO </p>
+<p>CSIGnSTR0 </p>
+<p>- </p>
+<p>SPI_ZERO </p>
+<p>CSIHnSTR0 </p>
+<p>- </p>
+<p>SPI_HW_BUSY </p>
+<p>CSIGnSTR0 </p>
+<p>- </p>
+<p>SPI_HW_BUSY </p>
+<p>CSIHnSTR0 </p>
+<p>- </p>
+<p>SPI_ZERO </p>
+<p>CSIGnSTCR0 </p>
+<p>- </p>
+<p>SPI_ZERO </p>
+<p>CSIHnSTCR0 </p>
+<p>- </p>
+<p>SPI_CLR_STS_FLAGS </p>
+<p>CSIGnCTL1 </p>
+<p>- </p>
+<p>SPI_CLR_STS_FLAGS </p>
+<p>CSIHnCTL1 </p>
+<p>SpiCsInactiveAfterLastData, </p>
+<p>SpiDataWidth </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIGnCTL2 </p>
+<p>SpiBaudrateRegisterSelect </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHnCTL2 </p>
+<p>SpiFifoTimeOut </p>
+<p>LpJobConfig-&gt;usCtl2Value </p>
+<p>35 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 6                                                                                                                                        Registers Details </b></p>
+<p> </p>
+<p> </p>
+<p><b>API Name </b></p>
+<p> </p>
+<p><b>Registers </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p> </p>
+<p><b>Macro/Variable </b></p>
+<p>CSIHnTX0W </p>
+<p>- </p>
+<p>LpJobConfig-&gt;usCtl2Value </p>
+<p>CSIHnTX0W </p>
+<p>- </p>
+<p>LunDataAccess3.ulRegData </p>
+<p>CSIHnCFG </p>
+<p>SpiCsIdleTiming, </p>
+<p>SpiCsHoldTiming,</p>
+<p> </p>
+<p>SpiCsInterDataDelay, </p>
+<p>SpiCsSetupTime, </p>
+<p>SpiCsIdleEnforcement</p>
+<p> </p>
+<p> </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIHnCFG </p>
+<p>LpJobConfig-&gt;ulConfigRegValue </p>
+<p>CSIGnTX0W </p>
+<p>- </p>
+<p>LunDataAccess1.ulRegData </p>
+<p>CSIGnRX0 </p>
+<p>- </p>
+<p>Spi_GusDataAccess </p>
+<p>CSIGnRX0 </p>
+<p>- </p>
+<p>LddData </p>
+<p>CSIGnRX0 </p>
+<p>- </p>
+<p>LunDataAccess2.usRegData5[1] </p>
+<p>CSIGnRX0 </p>
+<p>- </p>
+<p>LunDataAccess2.usRegData5[0] </p>
+<p>CSIHnBRS[0] </p>
+<p>SpiBaudrateConfiguration </p>
+<p>LpCsihOsBaseAddr-&gt;usCSIHBRS[0] </p>
+<p>CSIHnBRS[1] </p>
+<p>LpCsihOsBaseAddr-&gt;usCSIHBRS[1] </p>
+<p>CSIHnBRS[2] </p>
+<p>LpCsihOsBaseAddr-&gt;usCSIHBRS[2] </p>
+<p>CSIHnBRS[3] </p>
+<p>LpCsihOsBaseAddr-&gt;usCSIHBRS[3] </p>
+<p>Spi_GetHWUnitStatus  CSIGnSTR0 </p>
+<p>- </p>
+<p>SPI_CSIG_CSIH_BUSY </p>
+<p>CSIHnSTR0 </p>
+<p>- </p>
+<p>SPI_CSIG_CSIH_BUSY </p>
+<p>Spi_Cancel </p>
+<p>CSIGnCTL0 </p>
+<p>- </p>
+<p>SPI_ZERO </p>
+<p>CSIHnCTL0 </p>
+<p>- </p>
+<p>SPI_ZERO </p>
+<p>CSIGnCTL0 </p>
+<p>- </p>
+<p>SPI_SET_JOBE </p>
+<p>CSIHnCTL0 </p>
+<p>- </p>
+<p>SPI_SET_JOBE </p>
+<p>CSIHTIJC </p>
+<p>- </p>
+<p>LpHWUnitInfo-&gt;ucTxCancelImrMask </p>
+<p>Spi_SetAsyncMode </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Spi_MainFunction_Ha</p>
+<p>ndling </p>
+<p>CSIGnCTL0 </p>
+<p>- </p>
+<p>SPI_SET_PWR </p>
+<p>CSIHnCTL0 </p>
+<p>- </p>
+<p>SPI_SET_PWR </p>
+<p>CSIGTIR </p>
+<p>- </p>
+<p>SPI_CLR_INT_REQ </p>
+<p>CSIGTIC </p>
+<p>- </p>
+<p>SPI_CLR_INT_REQ </p>
+<p>Spi_GetVersionInfo </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<p>36 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Interaction Between The User And SPI Driver Component </b></p>
+<p><b>Chapter 7 </b></p>
+<p> </p>
+<p><b>Chapter 7 </b></p>
+<p><b>Interaction Between The User And SPI </b></p>
+<p><b>Driver Component  </b></p>
+<p> </p>
+<p>The details of the services supported by the SPI Driver Component to </p>
+<p>the  upper  layers  users  and  the  mapping  of  the  channels  to  the  hardware </p>
+<p>units is provided in the following sections: </p>
+<p> </p>
+<p><b>7.1.  Services Provided By SPI Driver Component To The </b></p>
+<p><b>User </b></p>
+<p> </p>
+<p> </p>
+<p>The SPI Driver Component provides the following functions to upper layer: - </p>
+<p> </p>
+<p>• </p>
+<p>To provide the required mechanism to configure the on-chip SPI peripheral. </p>
+<p> </p>
+<p>• </p>
+<p>To initialize and de-initialize the SPI driver. </p>
+<p> </p>
+<p>• </p>
+<p>To read and write to devices connected through SPI buses. </p>
+<p> </p>
+<p>• </p>
+<p>To provide the transmission of data on the SPI bus both synchronously and </p>
+<p>asynchronously. </p>
+<p> </p>
+<p>• </p>
+<p>To cancel an ongoing transmission. </p>
+<p> </p>
+<p>• </p>
+<p>To set the asynchronous transfer mode. </p>
+<p> </p>
+<p>• </p>
+<p>To get the status of the SPI Driver and hardware unit. </p>
+<p> </p>
+<p>• </p>
+<p>To get the result of the specified job and specified sequence. </p>
+<p> </p>
+<p>• </p>
+<p>To provide access to SPI communication to several users(for example, </p>
+<p>EEPROM, I/O ASICs). </p>
+<p>• </p>
+<p>To read the SPI Driver Component version information. </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>37 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 7                                                      Interaction Between The User And SPI Driver Component </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>38 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>SPI Driver Component Header And Source File Description </b></p>
+<p><b>Chapter 8 </b></p>
+<p> </p>
+<p><b>Chapter 8 </b></p>
+<p><b>SPI Driver Component Header And </b></p>
+<p><b>Source File Description </b></p>
+<p> </p>
+<p>This section explains the SPI Driver Component’s source and header </p>
+<p>files. </p>
+<p>These </p>
+<p>files </p>
+<p>have </p>
+<p>to </p>
+<p>be </p>
+<p>included </p>
+<p>in </p>
+<p>the </p>
+<p>project </p>
+<p>application </p>
+<p>while </p>
+<p>integrating with other modules. </p>
+<p> </p>
+<p>The C header file generated by SPI Driver Generation Tool: </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Cfg.h </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Cbk.h </p>
+<p> </p>
+<p>The C source file generated by SPI Driver Generation Tool: </p>
+<p> </p>
+<p>• </p>
+<p>Spi_PBcfg.c </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Lcfg.c </p>
+<p> </p>
+<p>The SPI Driver Component C header files: </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Driver.h </p>
+<p> </p>
+<p>• </p>
+<p>Spi_PBTypes.h </p>
+<p> </p>
+<p>• </p>
+<p>Spi_LTTypes.h </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Ram.h </p>
+<p> </p>
+<p>• </p>
+<p>Spi.h </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Irq.h </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Scheduler.h </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Version.h </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Types.h </p>
+<p> </p>
+<p>The SPI Driver Component C source files: </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Driver.c </p>
+<p> </p>
+<p>• </p>
+<p>Spi.c </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Irq.c </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Ram.c </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Scheduler.c </p>
+<p> </p>
+<p>• </p>
+<p>Spi_Version.c </p>
+<p> </p>
+<p>The SPI Driver specific header files: </p>
+<p> </p>
+<p>• </p>
+<p>Compiler.h </p>
+<p> </p>
+<p>• </p>
+<p>Compiler_Cfg.h </p>
+<p> </p>
+<p>• </p>
+<p>MemMap.h </p>
+<p>• </p>
+<p>Platform_Types.h </p>
+<p>• </p>
+<p>rh850_Types.h  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>39 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                     SPI Driver Component Header And Source File Description </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The description of the SPI Driver Component files is provided in the table </p>
+<p>below: </p>
+<p><b>Table 8-1 </b></p>
+<p><b>Description Of The SPI Driver Component Files </b></p>
+<p> </p>
+<p><b>File</b></p>
+<p> </p>
+<p><b>Details</b></p>
+<p> </p>
+<p>Spi_Cfg.h</p>
+<p> </p>
+<p>This file is generated by the SPI Driver Component Code Generation Tool for various </p>
+<p>SPI Driver component pre-compile time parameters. This file contains macro </p>
+<p>definitions for the configuration elements and exclusive areas for data protection. The </p>
+<p>macros and the parameters generated will vary with respect to the configuration in </p>
+<p>the input XML file.</p>
+<p> </p>
+<p> </p>
+<p>Spi_Cbk.h</p>
+<p> </p>
+<p>This file is generated by the SPI Driver Component Code Generation Tool for </p>
+<p>provision of function prototype Declarations for SPI callback Notification Functions.</p>
+<p> </p>
+<p>Spi_PBcfg.c</p>
+<p> </p>
+<p>This file contains post-build configuration data. The structures related to channel </p>
+<p>configuration, job configuration and sequence configuration are provided in this file. </p>
+<p>Data structures will vary with respect to parameters configured.</p>
+<p> </p>
+<p>Spi_Lcfg.c</p>
+<p> </p>
+<p>This file contains provision of SPI Link time Parameters. The structures related to </p>
+<p>hardware registers are provided in this file. Data structures will vary with respect to </p>
+<p>parameters configured.</p>
+<p> </p>
+<p>Spi_Driver.h</p>
+<p> </p>
+<p>This file contains the Function Prototypes that are defined in Spi_Driver.c file.</p>
+<p> </p>
+<p>Spi_PBTypes.h</p>
+<p> </p>
+<p>This file contains the data structure definitions of the channel configuration, job </p>
+<p>configuration and sequence configuration</p>
+<p> </p>
+<p>Spi_LTTypes.h</p>
+<p> </p>
+<p>This file contains the data structure definitions of CSIG and CSIH hardware registers, </p>
+<p>Interrupt control registers, DMA hardware registers, Hardware unit information, DMA </p>
+<p>unit information, storing current status of SPI communication, channel for the link </p>
+<p>time parameters, function pointer for Callback notification function for Jobs, </p>
+<p>processing sequence, storing external buffer attributes, Scheduler and DMA </p>
+<p>Address.</p>
+<p> </p>
+<p>Spi_Ram.h</p>
+<p> </p>
+<p>This file contains the extern declarations for the global variables that are defined in </p>
+<p>Spi_Ram.c file and the version information of the file.</p>
+<p> </p>
+<p>Spi.h</p>
+<p> </p>
+<p>This file provides extern declarations for all the SPI Driver Component APIs. This file </p>
+<p>provides service Ids of APIs, DET Error codes and type definitions for SPI Driver </p>
+<p>initialization structure. This header file shall be included in other modules to use the </p>
+<p>features of SPI Driver Component.</p>
+<p> </p>
+<p>Spi_Irq.h</p>
+<p> </p>
+<p>This file contains the function prototypes that are defined in Spi_Irq.c file.</p>
+<p> </p>
+<p>Spi_Scheduler.h</p>
+<p> </p>
+<p>This file contains the function prototypes that are defined in Spi_Scheduler.c file.</p>
+<p> </p>
+<p>Spi_Types.h</p>
+<p> </p>
+<p>This file contains the common macro definitions and the data types required internally </p>
+<p>by the SPI software component.</p>
+<p> </p>
+<p>Spi_Version.h</p>
+<p> </p>
+<p>This file contains the definitions of AUTOSAR version numbers of all modules that </p>
+<p>are interfaced to SPI Driver.</p>
+<p> </p>
+<p>Spi_Driver.c</p>
+<p> </p>
+<p>This file contains the SPI Low Level Driver code.</p>
+<p> </p>
+<p>Spi.c</p>
+<p> </p>
+<p>This file contains the implementation of all APIs.</p>
+<p> </p>
+<p>Spi_Irq.c</p>
+<p> </p>
+<p>This file contains the ISR functions for SPI Driver Component.</p>
+<p> </p>
+<p>Spi_Ram.c</p>
+<p> </p>
+<p>This file contains the global variables used by SPI Driver Component.</p>
+<p> </p>
+<p>Spi_Scheduler.c</p>
+<p> </p>
+<p>This file contains the SPI Scheduler code. This contains function to schedule the </p>
+<p>sequences according to the priority of the jobs.</p>
+<p> </p>
+<p>Spi_Version.c</p>
+<p> </p>
+<p>This file contains the code for checking version of all modules that are interfaced to </p>
+<p>SPI Driver.</p>
+<p> </p>
+<p>Compiler.h</p>
+<p> </p>
+<p>This file Provides compiler specific (non-ANSI) keywords. All mappings of keywords, </p>
+<p>which are not standardized, and/or compiler specific are placed and organized in this </p>
+<p>compiler specific header.</p>
+<p> </p>
+<p>Compiler_Cfg.h</p>
+<p> </p>
+<p>This file contains the memory and pointer classes.</p>
+<p> </p>
+<p>40 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>SPI Driver Component Header And Source File Description </b></p>
+<p><b>Chapter 8 </b></p>
+<p> </p>
+<p><b>File</b></p>
+<p> </p>
+<p><b>Details</b></p>
+<p> </p>
+<p>MemMap.h</p>
+<p> </p>
+<p>This file allows to map variables, constants and code of modules to individual </p>
+<p>memory sections. Memory mapping can be modified as per ECU specific needs.</p>
+<p> </p>
+<p>Platform_Types.h</p>
+<p> </p>
+<p>This file provides provision for defining platform and compiler dependent types.</p>
+<p> </p>
+<p>rh850_Types.h  </p>
+<p> </p>
+<p> This file provides macros to perform supervisor mode (SV) write enabled Register    </p>
+<p> ICxxx and IMR register writing using OR/AND/Direct operation  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>41 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                     SPI Driver Component Header And Source File Description </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>42 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Generation Tool Guide </b></p>
+<p><b>Chapter 9 </b></p>
+<p> </p>
+<p><b>Chapter 9 </b></p>
+<p><b>Generation Tool Guide </b></p>
+<p> </p>
+<p>For  information  on  the  SPI  Driver  Component  Code  Generation  Tool, </p>
+<p>please refer “AUTOSAR_SPI_Tool_UserManual.pdf” document. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>43 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 9                                                                                                                              Generation Tool Guide </b></p>
+<p> </p>
+<p> </p>
+<p>44 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Application Programming Interface                                                                                    Chapter 10 </b></p>
+<p> </p>
+<p><b>Chapter 10 </b></p>
+<p><b>Application Programming Interface </b></p>
+<p> </p>
+<p>This </p>
+<p>section </p>
+<p>explains </p>
+<p>the </p>
+<p>Data </p>
+<p>types </p>
+<p>and </p>
+<p>APIs </p>
+<p>provided </p>
+<p>by </p>
+<p>the </p>
+<p>SPI </p>
+<p>Driver </p>
+<p>Component to the Upper layers. </p>
+<p> </p>
+<p><b>10.1. </b></p>
+<p><b>Imported Types </b></p>
+<p> </p>
+<p>This section explains the Data types imported by the SPI Driver Component and </p>
+<p>lists its dependency on other modules. </p>
+<p> </p>
+<p><b>10.1.1. </b></p>
+<p><b>Standard Types </b></p>
+<p> </p>
+<p>In this section all types included from the Std_Types.h are listed: </p>
+<p> </p>
+<p>• </p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>• </p>
+<p>Std_VersionInfoType </p>
+<p> </p>
+<p><b>10.1.2. </b></p>
+<p><b>Other Module Types </b></p>
+<p> </p>
+<p>In this chapter all types included from the Dem_types.h are listed: </p>
+<p> </p>
+<p>• </p>
+<p>Dem_EventIdType </p>
+<p> </p>
+<p>• </p>
+<p>Dem_EventStatusType </p>
+<p> </p>
+<p> </p>
+<p><b>10.2. </b></p>
+<p><b>Type Definitions </b></p>
+<p> </p>
+<p>This  section  explains  the  type  definitions  of  SPI  Driver  Component </p>
+<p>according to AUTOSAR Specification. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Spi_ConfigType </b></p>
+<p><b>10.2.1.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_ConfigType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Structure</p>
+<p> </p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>Implementation Specific</p>
+<p> </p>
+<p>The   contents   of   the   initialization  data </p>
+<p>structure are SPI specific</p>
+<p> </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This type of the external data structure shall contain the initialization data for the SPI </p>
+<p>driver/Handler</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Spi_StatusType </b></p>
+<p><b>10.2.2.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_StatusType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Enumeration</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>SPI_UNINIT</p>
+<p> </p>
+<p>The SPI Handler/Driver is not initialized or not </p>
+<p>usable</p>
+<p> </p>
+<p>SPI_IDLE</p>
+<p> </p>
+<p>The SPI Handler/Driver is not currently </p>
+<p>transmitting any job</p>
+<p> </p>
+<p>SPI_BUSY</p>
+<p> </p>
+<p>The SPI Handler/Driver is performing a SPI </p>
+<p>job(transmit)</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This type defines a range of specific status for SPI Handler/driver</p>
+<p> </p>
+<p> </p>
+<p>45 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 10                                                                                   Application Programming Interface </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Spi_JobResultType </b></p>
+<p><b>10.2.3.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_JobResultType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Enumeration</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>SPI_JOB_OK</p>
+<p> </p>
+<p>The last transmission of the job has been </p>
+<p>finished successfully</p>
+<p> </p>
+<p>SPI_JOB_PENDING</p>
+<p> </p>
+<p>The SPI Handler/Driver is performing a SPI </p>
+<p>Job. The meaning of this status is equal to </p>
+<p>SPI_BUSY</p>
+<p> </p>
+<p>SPI_JOB_FAILED</p>
+<p> </p>
+<p>The last transmission of the job has failed</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This type defines a range of specific jobs status for SPI Handler/driver</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Spi_SeqResultType </b></p>
+<p><b>10.2.4.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_SeqResultType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Enumeration</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>SPI_SEQ_OK</p>
+<p> </p>
+<p>The last transmission of the Sequence has </p>
+<p>been finished successfully</p>
+<p> </p>
+<p>SPI_SEQ_PENDING</p>
+<p> </p>
+<p>The SPI Handler/Driver is performing a SPI </p>
+<p>Sequence The meaning of this status is equal </p>
+<p>to SPI_BUSY</p>
+<p> </p>
+<p>SPI_SEQ_FAILED</p>
+<p> </p>
+<p>The last transmission of the Sequence has </p>
+<p>failed</p>
+<p> </p>
+<p>SPI_SEQ_CANCELLED</p>
+<p> </p>
+<p>The last transmission of the Sequence has </p>
+<p>been cancelled by user.</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This type defines a range of specific sequences status for SPI Handler/driver</p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p><b> </b></p>
+<p><b>Spi_DataType </b></p>
+<p><b>10.2.5.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_DataType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint8,uint16,uint32</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 255, 0 to 65535, </p>
+<p>0 to 4294967296.</p>
+<p> </p>
+<p>This is implementation specific but not all values </p>
+<p>may be valid within the type This type shall be </p>
+<p>chosen in order to have the most efficient </p>
+<p>implementation on a specific microcontroller </p>
+<p>platform</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Type of application data buffer elements</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Spi_NumberOfDataType </b></p>
+<p><b>10.2.6.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_NumberOfDataType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint16</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 65535</p>
+<p> </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Type for defining the number of data elements of the type Spi_DataType to send and/or </p>
+<p>receive by channel</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>46 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Application Programming Interface                                                                                    Chapter 10 </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Spi_ChannelType </b></p>
+<p><b>10.2.7.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_ChannelType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 255</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Specifies the identification(Id) for a channel</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Spi_JobType </b></p>
+<p><b>10.2.8.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_JobType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint16</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 65535</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Specifies the identification(Id) for a Job</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Spi_SequenceType </b></p>
+<p><b>10.2.9.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_SequenceType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 255</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Specifies the identification(Id) for a sequence of Jobs</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Spi_HWUnitType </b></p>
+<p><b>10.2.10.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_HWUnitType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 255</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Specifies the identification(Id) for a SPI Hardware microcontroller peripheral(unit)</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Spi_AsyncModeType </b></p>
+<p><b>10.2.11.</b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Spi_AsyncModeType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Enumeration</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>SPI_POLLING_MODE</p>
+<p> </p>
+<p>The asynchronous mechanism is ensured by </p>
+<p>polling, so interrupts related to SPI busses </p>
+<p>handled asynchronously are disabled</p>
+<p> </p>
+<p>SPI_INTERRUPT_MODE</p>
+<p> </p>
+<p>Streaming access mode</p>
+<p> </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Specifies the asynchronous mechanism mode for SPI busses handled asynchronously </p>
+<p>in LEVEL2.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>47 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 10                                                                                   Application Programming Interface </b></p>
+<p><b> </b></p>
+<p><b>10.3. </b></p>
+<p><b>Function Definitions </b></p>
+<p><b>Table 10-1 The APIs provided by the SPI Driver Component </b></p>
+<p> </p>
+<p><b>SI. No </b></p>
+<p><b>API’s </b></p>
+<p><b> </b></p>
+<p><b>API’s specific </b></p>
+<p>1. </p>
+<p>Spi_Init </p>
+<p>- </p>
+<p>2. </p>
+<p>Spi_DeInit </p>
+<p>- </p>
+<p>3. </p>
+<p>Spi_WriteIB </p>
+<p>- </p>
+<p>4. </p>
+<p>Spi_AsyncTransmit </p>
+<p>- </p>
+<p>5. </p>
+<p>Spi_ReadIB </p>
+<p>- </p>
+<p>6. </p>
+<p>Spi_SetupEB </p>
+<p>- </p>
+<p>7. </p>
+<p>Spi_GetStatus </p>
+<p>- </p>
+<p>8. </p>
+<p>Spi_GetJobResult </p>
+<p>- </p>
+<p>9. </p>
+<p>Spi_GetSequenceResult </p>
+<p>- </p>
+<p>10. </p>
+<p>Spi_GetVersionInfo </p>
+<p>- </p>
+<p>11. </p>
+<p>Spi_SyncTransmit </p>
+<p>- </p>
+<p>12. </p>
+<p>Spi_Cancel </p>
+<p>- </p>
+<p>13. </p>
+<p>Spi_SetAsyncMode </p>
+<p>- </p>
+<p>14. </p>
+<p>Spi_MainFuncnction_Handling </p>
+<p>- </p>
+<p>15. </p>
+<p>Spi_GetHWUnitStatus </p>
+<p>-</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>48 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Development And Production Errors </b></p>
+<p><b>Chapter 11</b></p>
+<p> </p>
+<p><b>Chapter 11 </b></p>
+<p><b>Development And Production Errors </b></p>
+<p> </p>
+<p>In this section the development errors that are reported by the SPI Driver Component </p>
+<p>are tabulated. The development errors will be reported only when the pre compiler option </p>
+<p>SpiDevErrorDetect is enabled in the configuration. The production code errors are not </p>
+<p>supported by SPI Driver Component. </p>
+<p> </p>
+<p><b>11.1. </b></p>
+<p><b>SPI Driver Component Development Errors </b></p>
+<p> </p>
+<p>The following table contains the DET errors that are reported by SPI Driver </p>
+<p>Component. These errors are reported to Development Error Tracer Module when the SPI </p>
+<p>Driver Component APIs are invoked with wrong input parameters or without initialization of </p>
+<p>the driver. </p>
+<p> </p>
+<p><b>Table 11-1 DET Errors Of SPI Driver Component </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>1</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_PARAM_CHANNEL</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_WriteIB, SpiReadIB and Spi_SetupEB</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is invoked with invalid channel Id and if incorrect type of channel </p>
+<p>(IB or EB) is used with services.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_PARAM_JOB</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_GetJobResult</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is invoked with invalid job Id.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_PARAM_SEQ</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_AsyncTransmit, Spi_GetSequenceResult, Spi_SyncTransmit and Spi_Cancel</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is invoked with invalid sequence Id.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_PARAM_LENGTH</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_SetupEB</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is invoked with length greater than the configured length.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_PARAM_UNIT</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_GetHWUnitStatus</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is invoked with invalid hardware unit Id.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_SEQ_PENDING</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_AsyncTransmit</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is invoked in a wrong sequence.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_SEQ_IN_PROCESS</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_SyncTransmit</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is invoked at wrong time.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_ALREADY_INITIALIZED</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API Spi_Init is invoked when the SPI driver is already initialized.</p>
+<p> </p>
+<p>49 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 11                                                                                   Development And Production Errors </b></p>
+<p><b> </b></p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_INVALID_DATABASE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is invoked with invalid pointer.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>10</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_UNINIT</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_Init, Spi_DeInit, Spi_AsyncTransmit, Spi_Cancel, Spi_GetHWUnitStatus, </p>
+<p>Spi_GetJobResult, Spi_GetSequenceResult, Spi_WriteIB, Spi_ReadIB, Spi_SetupEB, </p>
+<p>Spi_SyncTransmit and Spi_SetAsyncMode</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the APIs are invoked without the initialization of  SPI Driver Component.</p>
+<p> </p>
+<p><b>Sl. No. </b></p>
+<p><b>11 </b></p>
+<p>Error Code </p>
+<p>SPI_E_PARAM_POINTER </p>
+<p>Related API(s) </p>
+<p>  Spi_ReadIB </p>
+<p>Source of Error </p>
+<p> When the API service is invoked with null pointer. </p>
+<p> Note: This error code (SPI_E_PARAM_POINTER) is applicable for  Autosar R4.0 </p>
+<p>only. </p>
+<p><b>Sl. No. </b></p>
+<p><b>12 </b></p>
+<p>Error Code </p>
+<p>SPI_E_PARAM_CONFIG </p>
+<p>Related API(s) </p>
+<p>Spi_Init </p>
+<p>Source of Error </p>
+<p>When the API invoked with null config pointer. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>11.2. </b></p>
+<p><b>SPI Driver Component Production Errors </b></p>
+<p> </p>
+<p>In this section the DEM errors identified in the SPI Driver Component are listed. SPI Driver </p>
+<p>Component reports these errors to DEM by invoking Dem_ReportErrorStatus API. This API is </p>
+<p>invoked, when the processing of the given API request fails. </p>
+<p><b>Table 11-2   DEM Errors Of SPI Driver Component </b></p>
+<p><b> </b></p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>1</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_HARDWARE_ERROR</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_SyncTransmit and Spi_AsyncTransmit</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When an overrun occurs when the next reception starts without performing a CPU </p>
+<p>read of the value of the receive buffer, upon completion of the receive operation.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>SPI_E_DATA_TX_TIMEOUT_FAILURE </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Spi_SyncTransmit </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When Hardware data transmit timeout error is detected, This error will be reported to </p>
+<p>DEM </p>
+<p>50 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Memory Organization </b></p>
+<p><b>Chapter 12</b></p>
+<p> </p>
+<p><b>Chapter 12 </b></p>
+<p><b>Memory Organization </b></p>
+<p> </p>
+<p>Following picture depicts a typical memory organization, which must be </p>
+<p>met for proper functioning of SPI Driver Component software. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>Figure 12-1  SPI Driver Component Driver Organization </b></p>
+<p><b>ROM Section </b></p>
+<p><b>SPI Driver Component </b></p>
+<p><b>Library </b></p>
+<p><b>Object </b></p>
+<p><b>es</b></p>
+<p> </p>
+<p><b>RAM </b></p>
+<p><b>ect</b></p>
+<p> </p>
+<p><b>X1 </b></p>
+<p><b>X2 </b></p>
+<p><b>Y1 </b></p>
+<p><b>Y2 </b></p>
+<p><b>Y3</b></p>
+<p> </p>
+<p> </p>
+<p><b>Tool Generated Files </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p><b>X4 </b></p>
+<p><b>X5</b></p>
+<p> </p>
+<p><b>X6</b></p>
+<p> </p>
+<p><b>Y4</b></p>
+<p> </p>
+<p>SPI Driver code related to APIs are </p>
+<p>placed in this memory.  </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>SPI_PUBLIC_CODE_ROM</b></p>
+<p> </p>
+<p>SPI Driver code related to internal </p>
+<p>functions are placed in this memory </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>SPI_PRIVATE_CODE_ROM  </b></p>
+<p>Global RAM of unspecific size </p>
+<p>required for SPI Driver functioning. </p>
+<p> </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>NOINIT_RAM_UNSPECIFIED</b></p>
+<p> </p>
+<p>Global 1- bit RAM initialized by </p>
+<p>start-Up code. </p>
+<p> </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>RAM_UNSPECIFIED </b></p>
+<p> </p>
+<p>Global 1-bit RAM to be initialized </p>
+<p>by SPI Driver </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>NOINIT_RAM_1BIT</b></p>
+<p> </p>
+<p>The const section (for SPI configuration </p>
+<p>structure of Type “Spi_ConfigType”) in </p>
+<p>the file Spi_PBcfg.c is placed in this </p>
+<p>memory. </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>SPI_CFG_DBTOC_UNSPECIFIED</b></p>
+<p> </p>
+<p> </p>
+<p>The const section (other than SP I </p>
+<p>Configuration structure) in the file </p>
+<p>Spi_PBcfg.c is placed in this memory.  </p>
+<p> </p>
+<p>Segment name: </p>
+<p><b>SPI_CFG_DATA_UNSPECIFIED</b></p>
+<p> </p>
+<p>The const section in the file Spi_Lcfg.c, </p>
+<p>is placed in this memory. </p>
+<p> </p>
+<p> </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>CONST_ROM_UNSPECIFIED</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Global 8- bit R AM initialized by SPI D </p>
+<p>river. </p>
+<p> </p>
+<p> </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>NOIN IT _ RA M _8 BIT </b></p>
+<p> </p>
+<p>SPI Driver code related to ISR functions </p>
+<p>are placed in this memory </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>SPI_FAST_CODE_ROM</b></p>
+<p> </p>
+<p><b>X3</b></p>
+<p> </p>
+<p>Global 16 -bit RAM initialized by SPI </p>
+<p>Driver. </p>
+<p> </p>
+<p> </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>NOINIT_RAM_16 BIT </b></p>
+<p>Global RAM of unspecific size required </p>
+<p>for SPI Driver  functioning. The </p>
+<p>Generation tool allocates this RAM. </p>
+<p>                                 </p>
+<p>                                                                                            </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>SPI_CFG_RAM_UNSPECIFIED </b></p>
+<p> </p>
+<p><b>Y5</b></p>
+<p> </p>
+<p>51 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   Chapter 12                                                                   </b></p>
+<p><b> </b></p>
+<p><b>Memory Organization</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>ROM Section (X1, X2, X3,X4,X5 and X6): </b></p>
+<p><b>SPI_PUBLIC_CODE_ROM (X1): </b>API(s) of SPI Driver Component, which can </p>
+<p>be located in code memory. </p>
+<p> </p>
+<p><b>SPI_PRIVATE_CODE_ROM </b></p>
+<p><b>(X2): </b></p>
+<p>Internal </p>
+<p>functions </p>
+<p>of </p>
+<p>SPI </p>
+<p>Driver </p>
+<p>Component code that can be located in code memory. </p>
+<p> </p>
+<p><b>                                         SPI_FAST_CODE_ROM(X3): </b>SPI Driver code related to ISR  </p>
+<p>functions are placed in this memory Segment Name </p>
+<p> </p>
+<p><b>SPI_CFG_DBTOC_UNSPECIFIED (X4): </b>This section consists of SPI Driver </p>
+<p>Component </p>
+<p>database </p>
+<p>table </p>
+<p>of </p>
+<p>contents </p>
+<p>generated </p>
+<p>by </p>
+<p>the </p>
+<p>SPI </p>
+<p>Driver </p>
+<p>Component Generation Tool. This can be located in code memory. </p>
+<p> </p>
+<p><b>SPI_CFG_DATA_UNSPECIFIED </b></p>
+<p><b>(X5): </b></p>
+<p>This </p>
+<p>section </p>
+<p>consists </p>
+<p>of </p>
+<p>SPI </p>
+<p>Driver Component constant configuration structures. This can be located </p>
+<p>in code memory. </p>
+<p> </p>
+<p><b>CONST_ROM_UNSPECIFIED (X6): </b>This section consists of SPI Driver </p>
+<p>Component constant structures used for function pointers in SPI Driver </p>
+<p>Component. This can be located in code memory. </p>
+<p> </p>
+<p><b>RAM Section (Y1, Y2, Y3, Y4, Y5 and Y6): </b></p>
+<p> </p>
+<p><b>NOINIT_RAM_UNSPECIFIED (Y1): </b>This section consists of the global RAM </p>
+<p>variables  that  are  used  internally  by  SPI  Driver  Component.  This  can  be </p>
+<p>located in data memory. </p>
+<p> </p>
+<p><b>RAM_UNSPECIFIED (Y2): </b>This section consists of the global RAM variables </p>
+<p>of 1-bit size that are initialized  by start-up code  and  used internally by  SPI </p>
+<p>Driver Component. This can be located in data memory. </p>
+<p> </p>
+<p><b>RAM_1BIT (Y3): </b>This section consists of the global RAM variables of 1-bit size </p>
+<p>that </p>
+<p>are </p>
+<p>initialized </p>
+<p>by </p>
+<p>start-up </p>
+<p>code </p>
+<p>and </p>
+<p>used </p>
+<p>internally </p>
+<p>by </p>
+<p>SPI </p>
+<p>Driver </p>
+<p>Component. The specific sections of respective software components will be </p>
+<p>merged into this RAM section accordingly. </p>
+<p> </p>
+<p><b>NOINIT_RAM_8BIT (Y4): </b>This section consists of the global RAM variables of </p>
+<p>8-bit size that are used internally by SPI Driver Component. This can be </p>
+<p>located in data memory. </p>
+<p> </p>
+<p><b>NOINIT_RAM_16BIT (Y5): </b>This section consists of the global RAM variables </p>
+<p>of 16-bit size that are used internally by SPI Driver Component. This can be </p>
+<p>located in data memory. </p>
+<p> </p>
+<p><b>SPI_CFG_RAM_UNSPECIFIED  (Y6): </b> This  section  consists  of  the  global </p>
+<p>RAM variables that are generated by SPI Driver Component Generation Tool. </p>
+<p>This can be located in data memory. </p>
+<p><b>Remark</b> </p>
+<p> </p>
+<p>• </p>
+<p>X1,  X2,  Y1,  Y2  and  Y3  pertain  to  only  SPI  Driver  Component  and  do  not  include  memory </p>
+<p>occupied by Spi_PBcfg.c or Spi_Lcfg.c file generated by SPI Driver Component Generation Tool. </p>
+<p> </p>
+<p>User must ensure that none of the memory areas overlap with each other. Even ‘debug’ information </p>
+<p>should not overlap.</p>
+<p><b>52 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information </b></p>
+<p><b>Chapter 13                                                                              </b></p>
+<p> </p>
+<p><b>Chapter 13 </b></p>
+<p><b>P1M Specific Information </b></p>
+<p> </p>
+<p>P1M supports following devices: </p>
+<p>•</p>
+<p> </p>
+<p>R7F701304</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701305</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701310</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701311</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701312 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701313</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701314</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701315</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701318</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701319</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701320</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701321</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701322</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701323</p>
+<p> </p>
+<p> </p>
+<p><b>13.1. Interaction Between The User And SPI Driver </b></p>
+<p><b>Component </b></p>
+<p> </p>
+<p>The details of the services supported by the SPI Driver Component to the </p>
+<p>upper layers users and the mapping of the channels to the hardware units is </p>
+<p>provided in the following sections: </p>
+<p> </p>
+<p><b>13.1.1. </b></p>
+<p><b>Translation Header File </b></p>
+<p> </p>
+<p>The translation header file supports following devices: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701304</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701305</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701310</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701311</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701312 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701313</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701314</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701315</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701318</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701319</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701320</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701321</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701322</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701323</p>
+<p> </p>
+<p> </p>
+<p><b>13.1.2. </b></p>
+<p><b>Parameter Definition File </b></p>
+<p>Parameter definition files support information for P1M </p>
+<p><b>Table 13-1  PDF information for P1M </b></p>
+<p> </p>
+<p><b>PDF Files</b></p>
+<p> </p>
+<p><b>Devices Supported</b></p>
+<p> </p>
+<p>R403_SPI_P1M_04_05_12_13_20_21.</p>
+<p>arxml </p>
+<p>701304,701305,701312,701313,701320,70</p>
+<p>1321</p>
+<p> </p>
+<p>53 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13  </b></p>
+<p><b>     P1M Specific Information </b></p>
+<p> </p>
+<p>R403_SPI_P1M_10_11_14_15_18_19</p>
+<p>_22_23.arxml </p>
+<p>701310,701311,701314,701315,701318,701</p>
+<p>319,701322,701323</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>13.1.3. </b></p>
+<p><b>ISR Function </b></p>
+<p> </p>
+<p>The table below provides the list of handler addresses corresponding to the </p>
+<p>hardware unit ISR(s) in SPI Driver Component. The user should configure the </p>
+<p>ISR functions mentioned below. </p>
+<p><b>Table 13-2  Interrupt Handler  </b></p>
+<p> </p>
+<p><b>Interrupt Source</b></p>
+<p> </p>
+<p><b>Name of the ISR Function</b></p>
+<p> </p>
+<p>INTCSIG0IRE</p>
+<p> </p>
+<p>SPI_CSIG0_TIRE_ISR</p>
+<p> </p>
+<p>SPI_CSIG0_TIRE_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIG0IR</p>
+<p> </p>
+<p>SPI_CSIG0_TIR_ISR</p>
+<p> </p>
+<p>SPI_CSIG0_TIR_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIG0IC</p>
+<p> </p>
+<p>SPI_CSIG0_TIC_ISR</p>
+<p> </p>
+<p>SPI_CSIG0_TIC_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH0IRE</p>
+<p> </p>
+<p>SPI_CSIH0_TIRE_ISR</p>
+<p> </p>
+<p>SPI_CSIH0_TIRE_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH0IR</p>
+<p> </p>
+<p>SPI_CSIH0_TIR_ISR</p>
+<p> </p>
+<p>SPI_CSIH0_TIR_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH0IC</p>
+<p> </p>
+<p>SPI_CSIH0_TIC_ISR</p>
+<p> </p>
+<p>SPI_CSIH0_TIC_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH0IJC</p>
+<p> </p>
+<p>SPI_CSIH0_TIJC_ISR</p>
+<p> </p>
+<p>SPI_CSIH0_TIJC_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH1IRE</p>
+<p> </p>
+<p>SPI_CSIH1_TIRE_ISR</p>
+<p> </p>
+<p>SPI_CSIH1_TIRE_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH1IR</p>
+<p> </p>
+<p>SPI_CSIH1_TIR_ISR</p>
+<p> </p>
+<p>SPI_CSIH1_TIR_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH1IC</p>
+<p> </p>
+<p>SPI_CSIH1_TIC_ISR</p>
+<p> </p>
+<p>SPI_CSIH1_TIC_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH1IJC</p>
+<p> </p>
+<p>SPI_CSIH1_TIJC_ISR</p>
+<p> </p>
+<p>SPI_CSIH1_TIJC_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH2IRE</p>
+<p> </p>
+<p>SPI_CSIH2_TIRE_ISR</p>
+<p> </p>
+<p>SPI_CSIH2_TIRE_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH2IR</p>
+<p> </p>
+<p>SPI_CSIH2_TIR_ISR</p>
+<p> </p>
+<p>SPI_CSIH2_TIR_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH2IC</p>
+<p> </p>
+<p>SPI_CSIH2_TIC_ISR</p>
+<p> </p>
+<p>SPI_CSIH2_TIC_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH2IJC</p>
+<p> </p>
+<p>SPI_CSIH2_TIJC_ISR</p>
+<p> </p>
+<p>SPI_CSIH2_TIJC_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH3IRE</p>
+<p> </p>
+<p>SPI_CSIH3_TIRE_ISR</p>
+<p> </p>
+<p>SPI_CSIH3_TIRE_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH3IR</p>
+<p> </p>
+<p>SPI_CSIH3_TIR_ISR</p>
+<p> </p>
+<p>54 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information </b></p>
+<p><b>Chapter 13                                                                              </b></p>
+<p> </p>
+<p><b>Interrupt Source</b></p>
+<p> </p>
+<p><b>Name of the ISR Function</b></p>
+<p> </p>
+<p>SPI_CSIH3_TIR_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH3IC</p>
+<p> </p>
+<p>SPI_CSIH3_TIC_ISR</p>
+<p> </p>
+<p>SPI_CSIH3_TIC_CAT2_ISR</p>
+<p> </p>
+<p>INTCSIH3IJC</p>
+<p> </p>
+<p>SPI_CSIH3_TIJC_ISR</p>
+<p> </p>
+<p>SPI_CSIH3_TIJC_CAT2_ISR</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Interrupt Source</b></p>
+<p> </p>
+<p><b>Name of the ISR Function</b></p>
+<p> </p>
+<p>INTDMA[0-7] </p>
+<p> </p>
+<p>SPI_DMA00_ISR </p>
+<p>SPI_DMA00_CAT2_ISR </p>
+<p>SPI_DMA01_ISR </p>
+<p>SPI_DMA01_CAT2_ISR </p>
+<p>SPI_DMA02_ISR </p>
+<p>SPI_DMA02_CAT2_ISR </p>
+<p>SPI_DMA03_ISR </p>
+<p>SPI_DMA03_CAT2_ISR </p>
+<p>SPI_DMA04_ISR </p>
+<p>SPI_DMA04_CAT2_ISR </p>
+<p>SPI_DMA05_ISR </p>
+<p>SPI_DMA05_CAT2_ISR </p>
+<p>SPI_DMA06_ISR </p>
+<p>SPI_DMA06_CAT2_ISR </p>
+<p>SPI_DMA07_ISR </p>
+<p>SPI_DMA07_CAT2_ISR  </p>
+<p> </p>
+<p> </p>
+<p><b>13.2. Sample Application </b></p>
+<p>The Sample Application is provided as reference to the user to understand the </p>
+<p>method in which the SPI APIs can be invoked from the application. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>RH850 Types </p>
+<p>Common SPI </p>
+<p>sample </p>
+<p>application </p>
+<p>P1x </p>
+<p> </p>
+<p>Sample </p>
+<p>application </p>
+<p>STUB </p>
+<p>DEM </p>
+<p>ST</p>
+<p> </p>
+<p>STUB Os </p>
+<p>STUB </p>
+<p>SchM </p>
+<p>STUB </p>
+<p>MCU </p>
+<p>Generic </p>
+<p>AUTOSAR </p>
+<p>55 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13  </b></p>
+<p><b>     P1M Specific Information </b></p>
+<p> </p>
+<p> </p>
+<p><b>Figure 13-1  Overview Of SPI Driver Sample Application </b></p>
+<p><b> </b></p>
+<p><b>13.3.1. </b></p>
+<p><b>Sample Application Structure </b></p>
+<p> </p>
+<p>The Sample Application of the P1M is available in the path </p>
+<p> </p>
+<p>The Sample Application consists of the following folder structure </p>
+<p>X1X\P1x\modules\spi\definition\&lt;AUTOSAR_version&gt;\  </p>
+<p>                                         &lt;SubVariant&gt;\R403_SPI_P1M_04_05_12_13_20_21.arxml                          </p>
+<p>                                                               \R403_SPI_P1M_10_11_14_15_18_19_22_23.arxml </p>
+<p>X1X\P1x\modules\spi\sample_application\&lt;SubVariant&gt;\&lt;AUTOSAR_version&gt; </p>
+<p>                                                                                      </p>
+<p>                                                                                      \src\Spi_Lcfg.c </p>
+<p> </p>
+<p>\src\Spi_PBcfg.c </p>
+<p> </p>
+<p>\inc\Spi_Cfg.h </p>
+<p> </p>
+<p>\inc\Spi_Cbk.h </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701304_Sample.one </p>
+<p>/config/App_SPI_P1M_701304_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701304_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701305_Sample.one </p>
+<p>/config/App_SPI_P1M_701305_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701305_Sample.html </p>
+<p> </p>
+<p>                                          /config/App_SPI_P1M_701310_Sample.one </p>
+<p>/config/App_SPI_P1M_701310_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701310_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701311_Sample.one </p>
+<p>/config/App_SPI_P1M_701311_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701311_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701312_Sample.one </p>
+<p>/config/App_SPI_P1M_701312_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701312_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701313_Sample.one </p>
+<p>/config/App_SPI_P1M_701313_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701313_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701314_Sample.one </p>
+<p>/config/App_SPI_P1M_701314_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701314_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701315_Sample.one </p>
+<p>/config/App_SPI_P1M_701315_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701315_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701318_Sample.one </p>
+<p>/config/App_SPI_P1M_701318_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701318_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701319_Sample.one </p>
+<p>/config/App_SPI_P1M_701319_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701319_Sample.html </p>
+<p>56 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information </b></p>
+<p><b>Chapter 13                                                                              </b></p>
+<p> </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701320_Sample.one </p>
+<p>/config/App_SPI_P1M_701320_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701320_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701321_Sample.one </p>
+<p>/config/App_SPI_P1M_701321_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701321_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701322_Sample.one </p>
+<p>/config/App_SPI_P1M_701322_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701322_Sample.html </p>
+<p> </p>
+<p>/config/App_SPI_P1M_701323_Sample.one </p>
+<p>/config/App_SPI_P1M_701323_Sample.arxml </p>
+<p>/config/App_SPI_P1M_701323_Sample.html </p>
+<p> </p>
+<p>In  the  Sample  Application  all  the  SPI  APIs  are  invoked  in  the  following    </p>
+<p>sequence: </p>
+<p> </p>
+<p>• </p>
+<p>The  API  Spi_Init  is  invoked  with  a  valid  database  address  for  the  proper </p>
+<p>initialization of the SPI Driver, all the SPI Driver control registers and RAM </p>
+<p>variables will get initialized after this API is called.</p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>The API Spi_GetVersionInfo is invoked to get the version of the SPI Driver </p>
+<p>module with a variable of Std_VersionInfoType, after the call of this API the </p>
+<p>passing parameter will get updated with the SPI Driver version details. </p>
+<p> </p>
+<p>• </p>
+<p>The  API  Spi_GetHWUnitStatus  will  return  the  status  of  the  specified  SPI </p>
+<p>Hardware microcontroller peripheral. </p>
+<p> </p>
+<p>• </p>
+<p>The </p>
+<p>API </p>
+<p>Spi_SyncTransmit </p>
+<p>will </p>
+<p>transmit </p>
+<p>data </p>
+<p>on </p>
+<p>the </p>
+<p>SPI </p>
+<p>bus </p>
+<p>synchronously. </p>
+<p> </p>
+<p>• </p>
+<p>This module will take the passing parameter and set the SPI Driver status </p>
+<p>to SPI_BUSY. Also it sets the sequence result to SPI_SEQ_PENDING and </p>
+<p>first job result to SPI_JOB_PENDING and performs the transmission. </p>
+<p> </p>
+<p>• </p>
+<p>The  API  Spi_SetAsyncMode  will  set  the  asynchronous mechanism mode </p>
+<p>for SPI busses handled asynchronously. </p>
+<p> </p>
+<p>• </p>
+<p>The API Spi_MainFunction_Driving is used for Asynchronous transmission </p>
+<p>of the sequences in polling mode. This service is should be invoked in a </p>
+<p>scheduler loop if the asynchronous transmission mode is selected as  </p>
+<p>                                                SPI_POLLING_MODE. </p>
+<p> </p>
+<p>• </p>
+<p>The </p>
+<p>API </p>
+<p>Spi_Cancel </p>
+<p>will </p>
+<p>cancel </p>
+<p>the </p>
+<p>specified </p>
+<p>on-going </p>
+<p>sequence   </p>
+<p>transmission  without  canceling  any  Job  transmission  and  the  SPI  Driver </p>
+<p>will set the sequence result to SPI_SEQ_CANCELLED. </p>
+<p> </p>
+<p>• </p>
+<p>The API Spi_DeInit is invoked for de-initialization of the all the controls  </p>
+<p>registers and RAM variables. </p>
+<p> </p>
+<p><b>13.3.2. </b></p>
+<p><b>Building Sample Application </b></p>
+<p> </p>
+<p><b>13.3.2.1. </b></p>
+<p><b>Configuration Example </b></p>
+<p> </p>
+<p>This section contains the typical configuration which is used for measuring </p>
+<p>RAM/ROM consumption, stack depth and throughput details </p>
+<p><b>Configuration Details</b>: App_SPI_P1M_701310_Sample.html </p>
+<p> </p>
+<p><b>13.3.2.2. </b></p>
+<p><b>Debugging The Sample Application </b></p>
+<p>57 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13  </b></p>
+<p><b>     P1M Specific Information </b></p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>GNU Make utility version 3.81 or above must be installed and available in the </p>
+<p>path as defined by the environment user variable “GNUMAKE” to complete the </p>
+<p>build process using the delivered sample files. </p>
+<p> </p>
+<p>• </p>
+<p>Open a Command window and change the current working directory to </p>
+<p>”make” directory present as mentioned in below path: </p>
+<p>  “X1X\P1x\common_family\make\&lt;Compiler&gt;” </p>
+<p>• </p>
+<p>Now execute the batch file SampleApp.bat with following parameters </p>
+<p> </p>
+<p>SampleApp.bat Spi 4.0.3 &lt;Device_name&gt;. </p>
+<p> </p>
+<p>• </p>
+<p>After this, the tool output files will be generated with the configuration as </p>
+<p>mentioned in App_SPI_P1M_701310_Sample.html file available in the </p>
+<p>path: </p>
+<p> </p>
+<p>“X1X\P1x\modules\spi\sample_application\&lt;SubVariant&gt;\&lt;AUTOSAR_ver</p>
+<p>sion&gt;\config\App_SPI_P1M_&lt;Device_Name&gt;_Sample.html” </p>
+<p> </p>
+<p>• </p>
+<p>After this, all the object files, map file and the executable file </p>
+<p>App_Spi_P1M_Sample.out will be available in the output folder: </p>
+<p>(“X1X\P1x\modules\spi\sample_application\&lt;SubVariant&gt; </p>
+<p>\obj\&lt;Compiler&gt;”) </p>
+<p> </p>
+<p>• </p>
+<p>The executable can be loaded into the debugger and the sample application </p>
+<p>can be executed. </p>
+<p><b> </b></p>
+<p><b>Remark </b></p>
+<p>Executable files with ‘*.out’ extension can be downloaded into the target </p>
+<p>hardware with the help of Green Hills debugger. </p>
+<p> </p>
+<p>• </p>
+<p>If any configuration changes (only post-build) are made to the ECU </p>
+<p>Configuration Description files </p>
+<p> </p>
+<p>“X1X\P1x\modules\spi\sample_application\&lt;SubVariant&gt; </p>
+<p>\&lt;AUTOSAR_version&gt;\config\App_SPI_P1M_&lt;Device_Name&gt;_Sample.arx</p>
+<p>ml” </p>
+<p> </p>
+<p>• </p>
+<p>The database alone can be generated by using the following commands. </p>
+<p>make –f App_SPI_P1M_Sample.mak generate_spi_config </p>
+<p>make –f App_SPI_P1M_Sample.mak App_SPI_P1M_Sample.s37 </p>
+<p>After this, a flash able Motorola S-Record file App_SPI_P1M_Sample.s37 is  </p>
+<p>available in the output folder. </p>
+<p> </p>
+<p><b>Note: </b>The &lt;Device_name&gt; indicates the device to be compiled, which can </p>
+<p>be 701304 or 701305 or 701310 or 701314 or 701315 or 701318 or 701319 </p>
+<p>or  701320 or 701321 or 701322 or 701323 </p>
+<p> </p>
+<p>58 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information </b></p>
+<p><b>Chapter 13                                                                              </b></p>
+<p> </p>
+<p><b>13.3. Memory And Throughput  </b></p>
+<p> </p>
+<p><b>13.4.1. </b></p>
+<p><b>ROM/RAM Usage </b></p>
+<p> </p>
+<p>The details of memory usage for the typical configuration, with DET </p>
+<p>disabled as provided in Section 13.3.2.1 <i>Configuration Example </i>are provided </p>
+<p>in this section. </p>
+<p><b>Table 13-7 </b></p>
+<p><b>ROM/RAM Details without DET </b></p>
+<p> </p>
+<p><b>Sl. No. </b></p>
+<p><b>ROM/RAM </b></p>
+<p><b>Segment Name </b></p>
+<p><b>Size in bytes for </b></p>
+<p><b>701310 </b></p>
+<p>1. </p>
+<p>ROM </p>
+<p>SPI_PUBLIC_CODE_ROM </p>
+<p>SPI_PRIVATE_CODE_ROM </p>
+<p>CONST_ROM_UNSPECIFIED </p>
+<p>SPI_CFG_DBTOC_UNSPECIFIED </p>
+<p>SPI_CFG_DATA_UNSPECIFIED </p>
+<p> </p>
+<p>SPI_FAST_CODE_ROM </p>
+<p>1412 </p>
+<p> </p>
+<p>4264 </p>
+<p> </p>
+<p>100 </p>
+<p> </p>
+<p>48 </p>
+<p> </p>
+<p>164 </p>
+<p> </p>
+<p>                992 </p>
+<p>2. </p>
+<p>RAM </p>
+<p>RAM_UNSPECIFIED </p>
+<p>NOINIT_RAM_1BIT </p>
+<p>NOINIT_RAM_8BIT </p>
+<p>NOINIT_RAM_16BIT </p>
+<p>NOINIT_RAM_UNSPECIFIED </p>
+<p>SPI_CFG_RAM_UNSPECIFIED </p>
+<p>4 </p>
+<p> </p>
+<p>5 </p>
+<p> </p>
+<p>5 </p>
+<p> </p>
+<p>10 </p>
+<p> </p>
+<p>90 </p>
+<p> </p>
+<p>0 </p>
+<p> </p>
+<p> </p>
+<p>The details of memory usage for the typical configuration, with DET </p>
+<p>enabled and all other configurations as provided in13.3.2.1<i>Configuration </i></p>
+<p><i>Example </i>are provided in this section. </p>
+<p> </p>
+<p><b>Table 13-8 </b></p>
+<p><b>ROM/RAM Details with DET </b></p>
+<p> </p>
+<p><b>Sl. No. </b></p>
+<p><b>ROM/RAM </b></p>
+<p><b>Segment Name </b></p>
+<p><b>Size in bytes for </b></p>
+<p><b>701310 </b></p>
+<p>1. </p>
+<p>ROM </p>
+<p>SPI_PUBLIC_CODE_ROM </p>
+<p>SPI_PRIVATE_CODE_ROM </p>
+<p>CONST_ROM_UNSPECIFIED </p>
+<p>SPI_CFG_DBTOC_UNSPECIFIED </p>
+<p>SPI_CFG_DATA_UNSPECIFIED </p>
+<p> </p>
+<p>SPI_FAST_CODE_ROM </p>
+<p>2432  </p>
+<p> </p>
+<p>4264  </p>
+<p> </p>
+<p>100 </p>
+<p> </p>
+<p>48 </p>
+<p> </p>
+<p>164 </p>
+<p> </p>
+<p>992 </p>
+<p>59 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13  </b></p>
+<p><b>     P1M Specific Information </b></p>
+<p> </p>
+<p>2. </p>
+<p>RAM </p>
+<p>RAM_UNSPECIFIED </p>
+<p>NOINIT_RAM_1BIT </p>
+<p>NOINIT_RAM_8BIT </p>
+<p>NOINIT_RAM_16BIT </p>
+<p>NOINIT_RAM_UNSPECIFIED </p>
+<p>SPI_CFG_RAM_UNSPECIFIED </p>
+<p>4 </p>
+<p> </p>
+<p>5 </p>
+<p> </p>
+<p>5 </p>
+<p> </p>
+<p>10 </p>
+<p> </p>
+<p>90 </p>
+<p> </p>
+<p>0 </p>
+<p><b>13.4.2. </b></p>
+<p><b>Stack Depth </b></p>
+<p> </p>
+<p>The worst-case stack depth for Driver Component is 216 bytes for the </p>
+<p>typical configuration provided in Section 13.3.2.1<i>Configuration Example</i>. </p>
+<p> </p>
+<p> </p>
+<p><b>13.4.3. </b></p>
+<p><b>Throughput Details </b></p>
+<p> </p>
+<p>The throughput details of the APIs for the configuration mentioned in </p>
+<p>the  Section13.3.2.1 <i>Configuration  Example</i>.  The  clock  frequency  used  to </p>
+<p>measure the throughput is 160 MHz for all APIs. </p>
+<p> </p>
+<p><b>Table 13-9 </b></p>
+<p><b>Throughput Details Of The APIs </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>Throughput in </b></p>
+<p><b>microseconds </b></p>
+<p><b>for 701310</b></p>
+<p> </p>
+<p> </p>
+<p><b>Remarks</b></p>
+<p> </p>
+<p>1. </p>
+<p>Spi_Init </p>
+<p>3.690 </p>
+<p> </p>
+<p>- </p>
+<p>2. </p>
+<p>Spi_DeInit </p>
+<p>1.710 </p>
+<p> </p>
+<p>- </p>
+<p>3. </p>
+<p>Spi_WriteIB </p>
+<p>0.810 </p>
+<p> </p>
+<p>- </p>
+<p>4. </p>
+<p>Spi_AsyncTransmit </p>
+<p>8.820 </p>
+<p> </p>
+<p>- </p>
+<p>5. </p>
+<p>Spi_ReadIB </p>
+<p>0.720 </p>
+<p> </p>
+<p>- </p>
+<p>6. </p>
+<p>Spi_SetupEB </p>
+<p>0.270 </p>
+<p> </p>
+<p>- </p>
+<p>7. </p>
+<p>Spi_GetStatus </p>
+<p>0.180 </p>
+<p>- </p>
+<p>8. </p>
+<p>Spi_GetJobResult </p>
+<p>0.360 </p>
+<p>- </p>
+<p>9. </p>
+<p>Spi_GetSequenceResult </p>
+<p>0.360 </p>
+<p>- </p>
+<p>10. </p>
+<p>Spi_GetVersionInfo </p>
+<p>0.360 </p>
+<p> </p>
+<p>- </p>
+<p>11. </p>
+<p>Spi_SyncTransmit </p>
+<p>0.360 </p>
+<p> </p>
+<p>- </p>
+<p>12. </p>
+<p>Spi_GetHWUnitStatus </p>
+<p>0.180 </p>
+<p>- </p>
+<p>13. </p>
+<p>Spi_Cancel </p>
+<p>0.810 </p>
+<p>- </p>
+<p>14. </p>
+<p>Spi_SetAsyncMode </p>
+<p>0.360 </p>
+<p>SPI_INTERRUPT</p>
+<p>_ MODE </p>
+<p>15. </p>
+<p>Spi_SetAsyncMode </p>
+<p>0.360 </p>
+<p>SPI_POLLING_</p>
+<p>MODE </p>
+<p>16. </p>
+<p>Spi_MainFunction_Handling </p>
+<p>1.170 </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>60 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Release Details </b></p>
+<p><b> </b></p>
+<p><b>      Chapter 14           </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 14 </b></p>
+<p><b>Release Details </b></p>
+<p> </p>
+<p><b>SPI Driver Software </b></p>
+<p> </p>
+<p>Version: 1.6.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>61 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 14                                                                                                                    Release Details </b></p>
+<p> </p>
+<p> </p>
+<p>62 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>Revision History </b></p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>25-Oct-2013</p>
+<p> </p>
+<p>2. </p>
+<p>Following changes are made. </p>
+<p>1. </p>
+<p>Chapter 2 is updated for referenced documents version. </p>
+<p>2. </p>
+<p>Section 13.1.1 is updated for adding the device names.  </p>
+<p>3. </p>
+<p>Section 13.2 is updated for assembler and linker details.  </p>
+<p>4. </p>
+<p>Section 13.3 is updated for naming convention change of </p>
+<p>parameter definition files.  </p>
+<p>5. </p>
+<p>Chapter 14 is updated for SPI driver component version </p>
+<p>information. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>1.0.1 </p>
+<p>28-Jan-2014 </p>
+<p>3. </p>
+<p>Following changes are made. </p>
+<p>1. </p>
+<p>In section 13.4.3,Throughput Details are updated. </p>
+<p>2. </p>
+<p>In Section 13.4.1,ROM/RAM Usage are updated. </p>
+<p>3. </p>
+<p>In Section13.3.1,Sample Application Structure API details are </p>
+<p>updated. </p>
+<p>4. </p>
+<p>In chapter 5, Architecture Details Spi API  are updated. </p>
+<p>5. </p>
+<p>In chapter 14, Release Details Spi software version is updated. </p>
+<p> </p>
+<p> </p>
+<p> 1.0.2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>02-May-2014 </p>
+<p>4. </p>
+<p>Following changes are made. </p>
+<p>1.Unwanted Device names are removed. </p>
+<p>2.In page no 47, header is updated. </p>
+<p> </p>
+<p>1.0.3 </p>
+<p>12-May-2014 </p>
+<p>5. </p>
+<p>Following changes are made. </p>
+<p>1. Chapter 4 is updated for CS logs and note is added </p>
+<p>regarding general limitation of the serial controllers. </p>
+<p>2. Note is added regarding the usage of the parameter </p>
+<p>‘SpiCsHoldTiming’ for synchronous transmission. </p>
+<p>3. Name of Table 4-4 and 4-5 is updated. </p>
+<p>4. Table 4-3, Table 4-4 and Table 4-5 are updated for </p>
+<p>Static configuration. </p>
+<p>5. Section 4.1, description of parameter ‘SpiTimeOut’ is updated. </p>
+<p>6. In Section 4.1 Note is added regarding extended data size </p>
+<p>supported by FIFO. </p>
+<p>7. Sections 13.4, ROM/RAM and Throughput Details are </p>
+<p>updated. </p>
+<p>8. Section 4.6 Deviation list is updated. </p>
+<p>9. Section 13.2.1, 13.2.2 and 13.2.3 are updated for compiler, linker </p>
+<p>and assembler details. </p>
+<p>10. Chapter 14, Release Details are updated. </p>
+<p>11. Section 11.2 is updated to delete error code </p>
+<p>‘SPI_E_SELF_TEST_FAILURE’ for Self-Test and  </p>
+<p>SPI_E_READBACK_FAILURE</p>
+<p> for readback. </p>
+<p>12. Chapter 12 Memory Organization is updated to correct section </p>
+<p>name SPI_START_SEC_CODE_FAST to </p>
+<p>SPI_FAST_CODE_ROM. </p>
+<p>13. Section 13 is updated for device names and  to add Parameter </p>
+<p>Definition files section. </p>
+<p>14. Chapter 8 is update to include rh850_types.h file </p>
+<p>15. In chapter 4 note is added regarding the DMA access for local RAM </p>
+<p>area. </p>
+<p> </p>
+<p>1.0.4 </p>
+<p>27-Oct-2014 </p>
+<p>63 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>6. </p>
+<p>Following changes are made. </p>
+<p> </p>
+<p>1. Section 4.1 is updated to correct the notes and spell checks. </p>
+<p>2. Revision history points are corrected  </p>
+<p>1.0.5 </p>
+<p>19-Nov-2014 </p>
+<p>7. </p>
+<p>Following changes are made: </p>
+<p> </p>
+<p>1.Updated Chapter 2 ‘Reference Documents’ to correct the name and </p>
+<p>version of device manual. </p>
+<p>2.Information regarding Interrupt vector table has been provided in </p>
+<p>section 4.1 ‘General’. </p>
+<p>3.In Chapter 13, ’P1M Specific Information’ P1M 4.0.3 supported </p>
+<p>devices are updated. </p>
+<p>4.Table 13-1 PDF information updated for P1M 4.0.3 supported devices.  </p>
+<p>5.Section 13.1.1 has been updated to include the translation header file </p>
+<p>for all P1M 4.0.3 supporting devices. </p>
+<p>6.Updated section 13.3.1 ‘Sample Application Structure’ to add all the </p>
+<p>supported devices for P1M 4.0.3. </p>
+<p>7.Updated section 13.3.2 ‘Building the Sample Application’ to add </p>
+<p>configuration details for the device 701310. </p>
+<p>8.Updated section 13.4  ‘Memory and Throughput’ for the device </p>
+<p>R7F701310. </p>
+<p>9.Updated chapter 14 ‘Release Details’ to correct the SPI driver version. </p>
+<p>10.Removed section ‘Compiler, Linker and Assembler’ from chapter 13. </p>
+<p>11.Updated table 6.1 in Chapter 6 ‘Registers Details’. </p>
+<p>1.0.6 </p>
+<p>29-April-2015 </p>
+<p> </p>
+<p> </p>
+<p><b>64 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR MCAL R4.0.3 User's Manual </b></p>
+<p><b>SPI Driver Component Ver.1.0.6 </b></p>
+<p><b>Embedded User’s Manual </b></p>
+<p> </p>
+<p>Publication Date: Rev.0.02, April 29, 2015 </p>
+<p> </p>
+<p>Published by: Renesas Electronics Corporation </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES </b></p>
+<p><b>OFFICES</b></p>
+<p> </p>
+<p>http://www.renesas.com</p>
+<p> </p>
+<p>Refer  to </p>
+<p>&quot;http://www.renesas.com/&quot; </p>
+<p>for the latest  and detailed </p>
+<p>information.</p>
+<p> </p>
+<p><b>Renesas Electronics  America Inc. </b></p>
+<p><b>2880 Scott Boulevard  Santa Clara, CA 95050-2554, U.S.A. Tel:  +1-408-588-6000, Fax: +1-408-588-6130 </b></p>
+<p><b>Renesas Electronics  Canada Limited </b></p>
+<p><b>1101 Nicholson  Road, Newmarket,  Ontario L3Y 9C3, Canada </b></p>
+<p><b>Tel: +1-905-898-5441, Fax: +1-905-898-3220 </b></p>
+<p><b>Renesas Electronics  Europe Limited </b></p>
+<p><b>Dukes Meadow, Millboard Road, Bourne End, Buckinghamshire, SL8 5FH, U.K Tel: +44-1628-585-100, Fax: +44-1628-585-900 </b></p>
+<p><b>Renesas Electronics  Europe GmbH Arcadiastrasse 10, 40472 Düsseldorf,  Germany Tel: +49-211-65030, Fax: +49-211-6503-1327 </b></p>
+<p><b>Renesas Electronics  (China) Co., Ltd. </b></p>
+<p><b>7th Floor, Quantum Plaza, No.27 ZhiChunLu  Haidian District, Beijing 100083, P.R.China </b></p>
+<p><b>Tel: +86-10-8235-1155, Fax: +86-10-8235-7679 </b></p>
+<p><b>Renesas Electronics  (Shanghai)  Co., Ltd. </b></p>
+<p><b>Unit 204, 205, AZIA Center, No.1233 Lujiazui Ring Rd., Pudong District, Shanghai 200120, China </b></p>
+<p><b>Tel: +86-21-5877-1818, Fax: +86-21-6887-7858 / -7898 </b></p>
+<p><b>Renesas Electronics  Hong Kong Limited </b></p>
+<p><b>Unit 1601-1613,  16/F., Tower 2, Grand Century Place, 193 Prince Edward Road West, Mongkok,  Kowloon, Hong Kong </b></p>
+<p><b>Tel: +852-2886-9318, Fax: +852 2886-9022/9044 </b></p>
+<p><b>Renesas Electronics  Taiwan Co., Ltd. </b></p>
+<p><b>7F, No. 363 Fu Shing North Road Taipei, Taiwan </b></p>
+<p><b>Tel: +886-2-8175-9600, Fax: +886 2-8175-9670 </b></p>
+<p><b>Renesas Electronics  Singapore  Pte. Ltd. </b></p>
+<p><b>1 harbourFront Avenue, #06-10, keppel Bay Tower, Singapore  098632 </b></p>
+<p><b>Tel: +65-6213-0200, Fax: +65-6278-8001 </b></p>
+<p><b>Renesas Electronics  Malaysia Sdn.Bhd. </b></p>
+<p><b>Unit 906, Block B, Menara Amcorp, Amcorp Trade Centre, No. 18, Jln Persiaran  Barat, 46050 Petaling Jaya, Selangor Darul Ehsan, Malaysia </b></p>
+<p><b>Tel: +60-3-7955-9390, Fax: +60-3-7955-9510 </b></p>
+<p><b>Renesas Electronics  Korea Co., Ltd. </b></p>
+<p><b>11F., Samik Lavied' or Bldg., 720-2 Yeoksam-Dong, Kangnam-Ku, Seoul 135-080, Korea </b></p>
+<p>Tel: </p>
+<p>+82-2-558-3737, </p>
+<p>Fax: </p>
+<p>+82-2-558-5141</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2015 Renesas Electronics Corporation. All rights reserved. </p>
+<p> Colophon 1.0 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3 </p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

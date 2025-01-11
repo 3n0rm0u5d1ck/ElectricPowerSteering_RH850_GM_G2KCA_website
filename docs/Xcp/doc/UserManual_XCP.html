@@ -1,0 +1,1365 @@
+---
+layout: default
+title: UserManual_XCP
+nav_order: 3
+parent: Universal Measurement and Calibration Protocol (XCP)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p>Vector Informatik GmbH, Ingerheimer Str. 24, 70499 Stuttgart </p>
+<p>Tel. 0711/80670-0, Fax 0711/80670-399, Email can@vector.com </p>
+<p>Internet http:\\www.vector.com </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>XCP - Universal </b></p>
+<p><b>Measurement and </b></p>
+<p><b>Calibration Protocol </b></p>
+<p>User Manual </p>
+<p>(Your First Steps) </p>
+<p> </p>
+<p> </p>
+<p>Version 1.0.2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>1 / 27</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors: </b></p>
+<p>Klaus Emmert </p>
+<p><b>Version: </b></p>
+<p>1.0.2 </p>
+<p><b>Status: </b></p>
+<p>Released</p>
+<p> (in preparation/completed/inspected/released)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>2 / 27</p>
+<p><b>Motivation For This Work </b></p>
+<p>The motivation for using the XCP Software Component is very simple. XCP is the </p>
+<p>component that helps you to look in the ECU, to display values or set them. And </p>
+<p>that is all working just via the underlying bus system as CAN, Ethernet, …you do </p>
+<p>not need any development environment. </p>
+<p>Together  with  CANape  you  have  a  great  choice  of  how  the  data  could  be </p>
+<p>displayed. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>WARNING </b></p>
+<p><b>All  application  code  in  any  of  the  Vector  User  Manuals  are  for  training </b></p>
+<p><b>purposes only. They are slightly tested and designed to understand the basic </b></p>
+<p><b>idea of using a certain component or a set of components. </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>3 / 27</p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Welcome to the XCP User Manual ............................................................... 6</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Beginners with XCP start here ? ..................................................... 6</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>For Advanced Users ....................................................................... 6</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Special topics.................................................................................. 6</p>
+<p> </p>
+<p>1.4</p>
+<p> </p>
+<p>Documents this one refers to…....................................................... 6</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>About This Document ................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>How This Documentation Is Set-Up ................................................ 7</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Legend and Explanation of Symbols............................................... 7</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>XCP Software Component – An Overall View............................................. 8</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>What Is XCP.................................................................................... 8</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>What Is the XCP Component .......................................................... 8</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Tools And Files – The Generation Tool .......................................... 8</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>What The Component Does............................................................ 9</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>XCP – A More Detailed View....................................................................... 11</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Basic Mechanism of the XCP........................................................ 11</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Measurement Modes .................................................................... 11</p>
+<p> </p>
+<p>4.2.1</p>
+<p> </p>
+<p>Using XCP In Polling Mode........................................................... 11</p>
+<p> </p>
+<p>4.2.2</p>
+<p> </p>
+<p>Using XCP For Data Acquisition / Event ....................................... 12</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>XCP IN 8 STEPS........................................................................................... 13</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>STEP 1  Installation Of The Tool................................................... 14</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>STEP 2  Extract CANbedded Software Components ................... 14</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>STEP 3  Configuration With The Generation Tool (GENy) ........... 15</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>STEP 4  Generate Files ................................................................ 16</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>STEP 5 Add CANbedded To Your Project.................................... 17</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>STEP 6 Adapt Your Application Files............................................ 18</p>
+<p> </p>
+<p>5.6.1</p>
+<p> </p>
+<p>Including, Initialization And Cyclic Calls ........................................ 18</p>
+<p> </p>
+<p>5.6.2</p>
+<p> </p>
+<p>Connect your application to the XCP ............................................ 18</p>
+<p> </p>
+<p>5.7</p>
+<p> </p>
+<p>STEP 7 Compile And Link Your Project........................................ 19</p>
+<p> </p>
+<p>5.8</p>
+<p> </p>
+<p>STEP 8 Test It Via CANape .......................................................... 20</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Further Information ..................................................................................... 22</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Settings For Using The Data Acquisition Mode / Events .............. 22</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>List Of Experiences..................................................................................... 25</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Topic 1 .......................................................................................... 25</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>4 / 27</p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Index ............................................................................................................... 1</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>5 / 27</p>
+<p><b>Illustrations </b></p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>CANbedded Software Components Together With The XCP </p>
+<p>Component................................................................................................... 8</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Generation Process For Vector CANbedded Software Components .......... 9</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Visualization Of Data Using CANape......................................................... 11</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p> </p>
+<p>XCP Polling Mode Using Two Messages................................................... 12</p>
+<p> </p>
+<p>Figure 4-3</p>
+<p> </p>
+<p>XCP Event Mode........................................................................................ 12</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>8 Steps to CANdesc................................................................................... 13</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>Configuration In The Generation Tool For Basic XCP Usage.................... 15</p>
+<p> </p>
+<p>Figure 5-3</p>
+<p> </p>
+<p>Set Driver Configuration In CANape .......................................................... 20</p>
+<p> </p>
+<p>Figure 5-4</p>
+<p> </p>
+<p>XCP Driver Settings ................................................................................... 20</p>
+<p> </p>
+<p>Figure 5-5</p>
+<p> </p>
+<p>Settings For XCP On CAN......................................................................... 21</p>
+<p> </p>
+<p>Figure 5-6</p>
+<p> </p>
+<p>ECU Is Online ............................................................................................ 21</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>Components / XCP .................................................................................... 22</p>
+<p> </p>
+<p>Figure 6-2</p>
+<p> </p>
+<p>Components / XCP .................................................................................... 22</p>
+<p> </p>
+<p>Figure 6-3</p>
+<p> </p>
+<p>Components / XCP .................................................................................... 23</p>
+<p> </p>
+<p>Figure 6-4</p>
+<p> </p>
+<p>Edit Measurement List In CANape............................................................. 24</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>6 / 27</p>
+<p>Chapter 2</p>
+<p>Chapter 2</p>
+<p>Chapter 3.1 </p>
+<p>Chapter <b>4 </b></p>
+<p>Chapter 5 </p>
+<p>Chapter 6.1 </p>
+<p><b>1 </b></p>
+<p><b>Welcome to the XCP User Manual </b></p>
+<p><b>1.1 </b></p>
+<p><b>Beginners with XCP start here ?  </b></p>
+<p>You need some information about this document?   </p>
+<p>What is XCP? </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.2 </b></p>
+<p><b>For Advanced Users  </b></p>
+<p>Start reading here. </p>
+<p>8 Steps for Flash Bootloader integration. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.3 </b></p>
+<p><b>Special topics  </b></p>
+<p>Working with Data Acquisition Lists (DAQ)  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.4 </b></p>
+<p><b>Documents this one refers to… </b></p>
+<p> CANape Manual </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>7 / 27</p>
+<p>These areas </p>
+<p>to the right of </p>
+<p>the text </p>
+<p>contain brief </p>
+<p>items of </p>
+<p>information </p>
+<p>that will </p>
+<p>facilitate your </p>
+<p>search for </p>
+<p>specific </p>
+<p>topics. </p>
+<p><b>2 </b></p>
+<p><b>About This Document </b></p>
+<p>This  document  gives  you  an  understanding  of  the  Universal  Measurement  And </p>
+<p>Calibration Protocol. You will receive general information, a step-by-step tutorial to </p>
+<p>get the XCP running and further information to use the amount of functionality that </p>
+<p>XCP offers. </p>
+<p><b>2.1 </b></p>
+<p><b>How This Documentation Is Set-Up </b></p>
+<p><b>Chapter </b></p>
+<p><b>Content </b></p>
+<p><b>Chapter 1 </b></p>
+<p>The welcome page is to navigate in the document. The main parts of the document </p>
+<p>can be accessed from here via hyperlinks </p>
+<p><b>Chapter 2 </b></p>
+<p>It contains some formal information about this document, an explanation of legends </p>
+<p>and symbols. </p>
+<p><b>Chapter 3 </b></p>
+<p>In this chapter you get a brief introduction into the XCP and the Software Component.</p>
+<p><b>Chapter 4 </b></p>
+<p>Here you find some more insight in the XCP Software Component. </p>
+<p><b>Chapter 5 </b></p>
+<p>Here are the 8 steps for you to integrate the XCP Software Component and how to </p>
+<p>connect these settings with your application. </p>
+<p><b>Chapter 6 </b></p>
+<p>This chapter provides you with some further information and a deeper insight in the </p>
+<p>XCP Software Component. </p>
+<p><b>Chapter 7 </b></p>
+<p>In this last chapter there is a list of experiences with XCP. </p>
+<p> </p>
+<p><b>2.2 </b></p>
+<p><b>Legend and Explanation of Symbols </b></p>
+<p>You find these symbols at the right side of the document. Use this helpful feature to </p>
+<p>find fast the topics, you need information about. </p>
+<p><b>Symbol </b></p>
+<p><b>Meaning </b></p>
+<p> </p>
+<p>Follow the eye and you will be led to an example. </p>
+<p> </p>
+<p>You will find key words and information in short sentences in the margin.  This will </p>
+<p>greatly simplify your search for topics. </p>
+<p> </p>
+<p>The footprints will lead you through the steps until you can use the XCP Software </p>
+<p>Component. </p>
+<p> </p>
+<p>Comments </p>
+<p>and </p>
+<p>explanation</p>
+<p>s </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>8 / 27</p>
+<p><b>3 </b></p>
+<p><b>XCP Software Component – An Overall View </b></p>
+<p><b>3.1 </b></p>
+<p><b>What Is XCP </b></p>
+<p>The XCP Calibration Protocol was standardized by the European ASAM working </p>
+<p>committee  for  standardization  of  interfaces  used  in  calibration  and  measurement </p>
+<p>data acquisition. XCP is a higher level protocol used for communication between a </p>
+<p>measurement and calibration system (e.g. CANape) and an ECU. </p>
+<p>CANape </p>
+<p>is </p>
+<p>a </p>
+<p>PC </p>
+<p>tool </p>
+<p>of </p>
+<p>Vector </p>
+<p>Informatik </p>
+<p>GmbH </p>
+<p>designed </p>
+<p>for </p>
+<p>measurement </p>
+<p>and </p>
+<p>calibration. To use CANape e.g. for CAN you need a PC card like CANcardXL to connect </p>
+<p>you ECU to your PC (CANape) via CAN. </p>
+<p>XCP is a further development of the established CCP (CAN Calibration Protocol) </p>
+<p>using different media like CAN, Ethernet (TCP/IP, UDP/IP), USB, SCI. The future </p>
+<p>trends will be FlexRay, TTCAN, Firewire. </p>
+<p><b>3.2 </b></p>
+<p><b>What Is the XCP Component </b></p>
+<p>XCP is a CANbedded Software Component delivered as source code (.c, .h) and </p>
+<p>can be parameterized via the Generation Tool.  </p>
+<p><b>Application</b></p>
+<p><i>os</i></p>
+<p>CAN</p>
+<p><b>CAN Bus</b></p>
+<p>Diagnostics                         </p>
+<p>Layer</p>
+<p>Network</p>
+<p>Manage</p>
+<p>ment</p>
+<p>CAN Controller</p>
+<p>Transceiver</p>
+<p>Transport Protocol</p>
+<p>Interaction Layer</p>
+<p>Communication</p>
+<p>Control </p>
+<p>Layer</p>
+<p>Universal</p>
+<p>Measure-</p>
+<p>ment</p>
+<p>And </p>
+<p>Calibration </p>
+<p>Protocol</p>
+<p>CAN Driver</p>
+<p><b>Generation Tool</b></p>
+<p></p>
+<p><b>Generation Tool</b></p>
+<p></p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>CANbedded Software Components Together With The XCP Component </p>
+<p><b>3.3 </b></p>
+<p><b>Tools And Files – The Generation Tool </b></p>
+<p>The  Generation  Tool  is  a  PC  Tool.  It  generates  configuration  files  and  signal </p>
+<p>interface  files  for  the  CANbedded  Software  Components.  The  Generation  Tool </p>
+<p>needs the DBC file to generate the files. </p>
+<p>CANape is a PC </p>
+<p>tool of Vector </p>
+<p>Informatik GmbH </p>
+<p>designed for </p>
+<p>measurement </p>
+<p>and calibration.  </p>
+<p>To use CANape </p>
+<p>for CAN you need </p>
+<p>a PC card like </p>
+<p>CANcardXL for </p>
+<p>the CAN </p>
+<p>connection </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>9 / 27</p>
+<p>The DBC file normally is designed by the vehicle manufacturer and distributed to all </p>
+<p>suppliers that develop an ECU.  </p>
+<p>In  connection  with  the  source  code  of  each  component  and  your  application, </p>
+<p>CANbedded can be compiled and linked (see Figure 3-2). </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>Generation Process For Vector CANbedded Software Components </p>
+<p><b>3.4 </b></p>
+<p><b>What The Component Does </b></p>
+<p><b>Basic Feature Of XCP </b></p>
+<p></p>
+<p> </p>
+<p>Automatic Detection of ASAM MC2 Description   </p>
+<p></p>
+<p> </p>
+<p>Automatic Detection of Device Parameters (Plug&amp;Play)   </p>
+<p></p>
+<p> </p>
+<p>Read/Write Access to Device Memory </p>
+<p></p>
+<p> </p>
+<p>Checksum Calculation of Memory Areas </p>
+<p></p>
+<p> </p>
+<p>Access Protection (Seed&amp;Key) </p>
+<p></p>
+<p> </p>
+<p>Emulation Memory Page Switching </p>
+<p></p>
+<p> </p>
+<p>Synchronous, Time-Triggered and Event-Triggered Measurement Data </p>
+<p>Acquisition </p>
+<p></p>
+<p> </p>
+<p>Flash and EEProm Programming </p>
+<p><b>Advanced Features Of XCP </b></p>
+<p></p>
+<p> </p>
+<p>Block Transfer Mode For Upload, Download And Flashing Similar To ISO-TP </p>
+<p></p>
+<p> </p>
+<p>Acquiring Measurement Data with Time Stamp and Time Synchronization </p>
+<p>The standard </p>
+<p>generation </p>
+<p>process for </p>
+<p>Vectors Software </p>
+<p>Components. </p>
+<p>CANdesc is a </p>
+<p>completely </p>
+<p>generated </p>
+<p>Software </p>
+<p>Component. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>10 / 27</p>
+<p></p>
+<p> </p>
+<p>Downloading Flash Programming Routines </p>
+<p></p>
+<p> </p>
+<p>Dynamic DAQ Lists  </p>
+<p></p>
+<p> </p>
+<p>Cold Start Measuring (Start Measurement at Power-On) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>11 / 27</p>
+<p><b>4 </b></p>
+<p><b>XCP – A More Detailed View </b></p>
+<p>You use XCP to “look” into an ECU, to read out any memory location you want to </p>
+<p>using  only  the  underlying  bus  system.  There  is  no  development  environment  or </p>
+<p>emulator  necessary.  Together  with  e.g.  CANape  you  can  visualize  this  data  in </p>
+<p>many ways. See some examples in the figure below. </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Visualization Of Data Using CANape </p>
+<p>To  get  this  benefit  you  need  to  include  the  XCP  Software  Component  in  your </p>
+<p>project.  As  you  see  in  the  Figure  3-1  you  only  need  a  Driver  (in  this  specific </p>
+<p>example it is the CAN Driver) to get XCP running.  </p>
+<p><b>4.1 </b></p>
+<p><b>Basic Mechanism of the XCP </b></p>
+<p>Basically  XCP  uses  only  two  messages,  a  Master  and  a  Slave  message.  The </p>
+<p>master  message  is  sent  from  CANape  to  the  ECU,  the  slave  message  from  the </p>
+<p>ECU  to  CANape.  Via  these  two  messages  all  communication  for  XCP  between </p>
+<p>CANape and the ECU is handled. </p>
+<p><b>4.2 </b></p>
+<p><b>Measurement Modes </b></p>
+<p>There are mainly two different measurement modes, the polling mode and an event </p>
+<p>triggered mode (also called Data Acquisition Mode). The main difference between </p>
+<p>both is the bus load. </p>
+<p><b>4.2.1  Using XCP In Polling Mode </b></p>
+<p>The Polling Mode is the easiest way to use the XCP Driver and needs no further </p>
+<p>adaptation  in  your  application  except  for  the  initialization  of  the  XCP  Software </p>
+<p>Component. </p>
+<p>The </p>
+<p>mechanism </p>
+<p>is </p>
+<p>very </p>
+<p>simple. </p>
+<p>CANape </p>
+<p>requests </p>
+<p>information </p>
+<p>via </p>
+<p>a </p>
+<p>request </p>
+<p>message (Master Id). The Precopy Function for this message (more about precopy </p>
+<p>mechanism </p>
+<p>see </p>
+<p>UserManual_CANDriver) </p>
+<p>calls </p>
+<p>the </p>
+<p>function </p>
+<p>XcpCommand </p>
+<p>to </p>
+<p>interpret the content of the XCP message. Then XCP initiates the transmission of </p>
+<p>the response message (Slave ID) containing the requested values. </p>
+<p> </p>
+<p>The XCP </p>
+<p>Software </p>
+<p>Component is </p>
+<p>independent of all </p>
+<p>other </p>
+<p>CANbedded </p>
+<p>Software </p>
+<p>Components </p>
+<p>except for the </p>
+<p>driver. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>12 / 27</p>
+<p><b>CANape</b></p>
+<p></p>
+<p>ECU</p>
+<p>Transmit Message </p>
+<p>(Slave Id)</p>
+<p>Receive Message </p>
+<p>(Master ID)</p>
+<p>XCP Polling Mode</p>
+<p> </p>
+<p>Figure 4-2 </p>
+<p>XCP Polling Mode Using Two Messages </p>
+<p>As you see there are two messages necessary to get the values updated. </p>
+<p><b>4.2.2  Using XCP For Data Acquisition / Event </b></p>
+<p>Another </p>
+<p>way </p>
+<p>to </p>
+<p>get</p>
+<p> </p>
+<p>information </p>
+<p>from </p>
+<p>the </p>
+<p>ECU </p>
+<p>is </p>
+<p>to </p>
+<p>let </p>
+<p>the </p>
+<p>ECU </p>
+<p>send </p>
+<p>this </p>
+<p>information on its own. This is the Data Acquisition mechanism (Event). </p>
+<p>In the Generation Tool you can set the different timings you want to get the data </p>
+<p>updated.  The  application  has  to  call  the  functions <b> XcpEvent(channel) </b> with  the </p>
+<p>same call cycle as you did the setting in the Generation Tool. </p>
+<p>More about setting the </p>
+<p>events…</p>
+<p> </p>
+<p>In CANape you can assign this call cycle to a set of signals. This signal list (DAQ </p>
+<p>list) is sent to the ECU and triggers the cyclic sending of all signals of the list.  </p>
+<p><b>CANape</b></p>
+<p></p>
+<p>ECU</p>
+<p>Transmit Message( List Values) </p>
+<p>(Slave ID)</p>
+<p>Receive Message ( Event List ) </p>
+<p>(Master ID)</p>
+<p>XCP Event Mode</p>
+<p> </p>
+<p>Figure 4-3 </p>
+<p>XCP Event Mode  </p>
+<p>In </p>
+<p>this </p>
+<p>case </p>
+<p>the </p>
+<p>Receive </p>
+<p>Message </p>
+<p>is </p>
+<p>only </p>
+<p>necessary </p>
+<p>to </p>
+<p>initiate </p>
+<p>the </p>
+<p>DAQ </p>
+<p>mechanism. Once initiated there is only one message necessary to get the values </p>
+<p>updated. </p>
+<p>The DAQ list in </p>
+<p>the ECU needs </p>
+<p>RAM memory.  </p>
+<p>You can define </p>
+<p>the amount of </p>
+<p>memory that </p>
+<p>should be </p>
+<p>reserved for this </p>
+<p>list in the </p>
+<p>Generation Tool. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>13 / 27</p>
+<p><b>5 </b></p>
+<p><b>XCP IN 8 STEPS </b></p>
+<p><b>STEP 1 :  </b></p>
+<p><b>INSTALLATION OF TOOL</b>  </p>
+<p>Install the PC Generation Tool by following the online instructions. </p>
+<p><b>STEP 2:  </b></p>
+<p><b>CANBEDDED SOFTWARE COMPONENTS  </b></p>
+<p>Extract the </p>
+<p>C and H files from your CANbedded Software Component delivery into your </p>
+<p>application software structure. </p>
+<p><b>STEP 3: </b></p>
+<p><b>CONFIGURATION WITH GENERATION TOOL  </b></p>
+<p>Do th</p>
+<p>e settings in the Generation Tool, especially the settings for XCP are described in </p>
+<p>detail. </p>
+<p><b>STEP 4:  </b></p>
+<p><b>GENERATE FILES </b></p>
+<p>Gene</p>
+<p>rate the files in the appropriate folders. </p>
+<p><b>STEP 5:  </b></p>
+<p><b>ADD CANBEDDED TO YOUR PROJECT </b></p>
+<p>Add the CANbedded C and H files to your project or makefile.  </p>
+<p><b>STEP 6:  </b></p>
+<p><b>ADAPT YOUR APPLICATION FILES </b></p>
+<p>Now </p>
+<p>your </p>
+<p>application </p>
+<p>files </p>
+<p>must </p>
+<p>be </p>
+<p>modified </p>
+<p>to </p>
+<p>use </p>
+<p>the </p>
+<p>CANbedded </p>
+<p>Software </p>
+<p>Components (includes, cyclic calls, initialization) and do the call back functions. </p>
+<p><b>STEP 7:  </b></p>
+<p><b>COMPILE AND LINK YOUR PROJECT </b></p>
+<p>Compil</p>
+<p>e  and  link  the  complete  project  and  download  it  to  your  test  hardware  or </p>
+<p>development environment. </p>
+<p><b>STEP 8:  </b></p>
+<p><b>TEST IT VIA CANAPE </b></p>
+<p>Via a a</p>
+<p>ppropriate Tester send diagnostic request messages and verify the response </p>
+<p>messages. </p>
+<p> </p>
+<p> </p>
+<p><b></b></p>
+<p>.h</p>
+<p><b></b></p>
+<p>.h</p>
+<p><b>DBC</b></p>
+<p><b>DBC</b></p>
+<p><b>ECU</b></p>
+<p><b>database </b></p>
+<p><b>Generation Tool</b></p>
+<p></p>
+<p><b>CANbedded Software Component </b></p>
+<p><b>Configuration</b></p>
+<p>Compile</p>
+<p>Link</p>
+<p>Generate</p>
+<p><b>Application Project </b></p>
+<p>Makefile / Development Environment</p>
+<p>Application Software</p>
+<p>CANbedded Software Components</p>
+<p><b></b></p>
+<p><b>.</b>C</p>
+<p><b></b></p>
+<p><b>.</b>C</p>
+<p><b></b></p>
+<p>.h</p>
+<p><b></b></p>
+<p>.h</p>
+<p><b></b></p>
+<p>.C</p>
+<p><b></b></p>
+<p>.C</p>
+<p><b></b></p>
+<p>.h</p>
+<p><b></b></p>
+<p>.h</p>
+<p><b></b></p>
+<p>.C</p>
+<p><b></b></p>
+<p>.C</p>
+<p><b></b></p>
+<p><b>.</b>exe</p>
+<p><b></b></p>
+<p><b>.</b>exe</p>
+<p>2</p>
+<p>6</p>
+<p>3</p>
+<p>7</p>
+<p>8</p>
+<p>4</p>
+<p>5</p>
+<p>1</p>
+<p><b>CANape</b></p>
+<p></p>
+<p> </p>
+<p>Figure 5-1 </p>
+<p>8 Steps to CANdesc </p>
+<p>See the steps </p>
+<p>again in a more </p>
+<p>visual way.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>14 / 27</p>
+<p><b>5.1 </b></p>
+<p><b>STEP 1  Installation Of The Tool  </b></p>
+<p>The </p>
+<p>Generation </p>
+<p>Tool </p>
+<p>is </p>
+<p>delivered </p>
+<p>together </p>
+<p>with </p>
+<p>the </p>
+<p>CANbedded </p>
+<p>Software </p>
+<p>Components.  </p>
+<p>Extract the files to an appropriate folder and follow the installation instructions. </p>
+<p>Generation Tool</p>
+<p><b>Included with CANbedded </b></p>
+<p><b>Software Component Delivery</b></p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Back to 8 Steps overview </p>
+<p> </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>STEP 2  Extract CANbedded Software Components </b></p>
+<p>The amount of CANbedded Com</p>
+<p>ponents in your delivery depends on your project. </p>
+<p>Copy all C and H files that are necessary for the components into your application </p>
+<p>project folder.  </p>
+<p>To use XCP it is only necessary to have a Driver. In this case we use CAN as bus protocol, </p>
+<p>so we need a CAN Driver. </p>
+<p><b>Refer to the corresponding UserManuals (e.g. CANDriver UserManual) to get </b></p>
+<p><b>further information about the files of the different Software Components. </b></p>
+<p> </p>
+<p> </p>
+<p>Back to 8 Steps overview </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Install the PC </p>
+<p>Tool. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>15 / 27</p>
+<p><b>5.3 </b></p>
+<p><b>STEP 3  Configuration With The Generation Tool (GENy) </b></p>
+<p>To  use  XCP  we  only  need  the  CAN  Driver  and  the  XCP  Software  Component. </p>
+<p>Switch these components on via Component Selection window. </p>
+<p>It is very easy to get XCP running and you only have to do a few settings in the </p>
+<p>Generation Tool.  </p>
+<p>The following settings only allow the <b>polling mode of the XCP</b>.  </p>
+<p>Select XCP in the components’ list.  </p>
+<p> </p>
+<p>Figure 5-2 </p>
+<p>Configuration In The Generation Tool For Basic XCP Usage </p>
+<p>Make sure that at least these three settings are done. The Transport Layer on CAN </p>
+<p>setting must be checked and the two Ids selected. Use the pull down menu to find </p>
+<p>the appropriate messages. </p>
+<p>Additionally make sure that the following settings are done correctly: </p>
+<p></p>
+<p> </p>
+<p>Baud rate </p>
+<p></p>
+<p> </p>
+<p>Acceptance filters </p>
+<p></p>
+<p> </p>
+<p>Register Settings for the CAN Controller </p>
+<p></p>
+<p> </p>
+<p>Path for the generated files </p>
+<p> </p>
+<p> </p>
+<p>Back to 8 Steps overview </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>16 / 27</p>
+<p><b>5.4 </b></p>
+<p><b>STEP 4  Generate Files </b></p>
+<p>If you have done the setting in the previous step, hit the <b>[Generate System] </b></p>
+<p> </p>
+<p>button. </p>
+<p>These are the fix files that form the xcp: </p>
+<p><b>XcpProf.c </b></p>
+<p><b>XcpProf.h </b></p>
+<p> </p>
+<p>The follwoing XCP files are generated: </p>
+<p><b>Xcp_cfg.h </b></p>
+<p><b>Xcp_par.h </b></p>
+<p><b>Xcp_par.c </b></p>
+<p> </p>
+<p>These  files  are  the  specific  adaptation  to  the  CAN  bus  and  must  therefore  only </p>
+<p>used if the protocol is CAN. </p>
+<p><b>Xcp_can.c </b></p>
+<p><b>Xcp_can.h </b></p>
+<p> </p>
+<p>In the window Generated Files you can check the file that the Generation Tool generates </p>
+<p>and the path where these files are generated in. </p>
+<p> </p>
+<p> </p>
+<p>Back to 8 Steps overview </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>17 / 27</p>
+<p><b>5.5 </b></p>
+<p><b>STEP 5 Add CANbedded To Your Project </b></p>
+<p>What to do in this step depends on your development environment. Perhaps you </p>
+<p>work with a makefile? </p>
+<p>Regardless this you have to add the files of CANbedded to your project. These are </p>
+<p>the files of chapter 5.2 and the generated ones to the previous step.  </p>
+<p>Always  make  sure  that the  path  you  generate  the  files in and  the  path  your  compiler  is </p>
+<p>working on are the same! </p>
+<p> </p>
+<p>At  this  point  in  time  you  are  not  able  to  compile  and  link  the  project.  The  files </p>
+<p>should  be  complete  but  there  are  several  adaptations  for  you  to  do  in  your </p>
+<p>application.  </p>
+<p> </p>
+<p>Go on with the next step. </p>
+<p> </p>
+<p> </p>
+<p>Back to 8 Steps overview. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>18 / 27</p>
+<p><b>5.6 </b></p>
+<p><b>STEP 6 Adapt Your Application Files </b></p>
+<p>Now  all  files  for  XCP  are  included  in  your  project  and  we  can  go  on  to  do  the </p>
+<p>necessary adaptations in your application files. </p>
+<p>These adaptations can be split in two categories:  </p>
+<p></p>
+<p> </p>
+<p>Include, initialize and do the cyclic calls for the CANbedded Software </p>
+<p>Components. </p>
+<p></p>
+<p> </p>
+<p>Connect XCP to your application. </p>
+<p><b>5.6.1  Including, Initialization And Cyclic Calls </b></p>
+<p>As for all other CANbedded Components the XCP mus</p>
+<p>t be included and initialized. </p>
+<p>To use XCP and its API you have to include the file XcpProf.h. </p>
+<p><b>Include</b></p>
+<p> </p>
+<p><b>XcpProf.h; </b></p>
+<p><b> </b></p>
+<p>To initialize XCP use this function call: </p>
+<p><b>XcpInit( ); /*Interrupts must be disabled*/ </b></p>
+<p> </p>
+<p>Make sure that XcpInit is called after the call of CanInitPowerOn.  </p>
+<p>Normally the components are initialized from bottom up according to the layer model (see </p>
+<p>Figure 3-1). Always do these initializations with disabled interrupts. </p>
+<p>This is the correct order of initialization if you use CAN Driver and XCP:  </p>
+<p><b>CanInitPowerOn(); </b></p>
+<p><b>XcpInit(); </b></p>
+<p> </p>
+<p><b>5.6.2  Connect your application to the XCP </b></p>
+<p>There is nothing more to do for the usage of XCP Software Component if you only</p>
+<p> </p>
+<p>want to use the polling mode (see 4.2.1).  </p>
+<p>For the Dat</p>
+<p>a Acquisition Mode (see 4.2.2) there are a few additional settings to be </p>
+<p>done. </p>
+<p>more…</p>
+<p> </p>
+<p>Include, initialize </p>
+<p>and call the </p>
+<p>components </p>
+<p>cyclically.  </p>
+<p> Then connect </p>
+<p>CANdesc with </p>
+<p>your application. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>19 / 27</p>
+<p><b>5.7 </b></p>
+<p><b>STEP 7 Compile And Link Your Project </b></p>
+<p>Now  we  have  all  includes,  all  initializations,  the  components  do  have  the  cyclic </p>
+<p>calls </p>
+<p>of </p>
+<p>their </p>
+<p>task </p>
+<p>functions </p>
+<p>and </p>
+<p>all </p>
+<p>call-back </p>
+<p>functions </p>
+<p>are </p>
+<p>provided </p>
+<p>and </p>
+<p>programmed. </p>
+<p>Start the compiler or makefile and get the project compiled and linked.  </p>
+<p>Is it ok? No errors?  </p>
+<p> </p>
+<p>Gratulations, that’s it.  </p>
+<p> </p>
+<p>Go on to the next step and do the testing. </p>
+<p> </p>
+<p>Back to 8 Steps overview. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>20 / 27</p>
+<p><b>5.8 </b></p>
+<p><b>STEP 8 Test It Via CANape </b></p>
+<p>You arrived at this step, so you are able to compile and link. Do you already have </p>
+<p>downloaded the code to your target platform? </p>
+<p>Working with XCP most of the time you will spend doing the settings in CANape.  </p>
+<p>Start CANape. </p>
+<p> </p>
+<p>Figure 5-3 </p>
+<p>Set Driver Configuration In CANape </p>
+<p>Via Tools/Driver configuration in CANape you get to the window below. </p>
+<p> </p>
+<p>2</p>
+<p>1</p>
+<p> </p>
+<p>Figure 5-4 </p>
+<p>XCP Driver Settings </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>21 / 27</p>
+<p>Before testing the connection you have to do the <b>[Configuration …] </b>for the CAN </p>
+<p>(</p>
+<p>n</p>
+<p>). There you have to set the two messages to communicate with the ECU.  </p>
+<p>CAN_ID_MASTER and CAN_ID_SLAVE as shown in the Figure 4-2. </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-5 </p>
+<p>Settings For XCP On CAN </p>
+<p>A very important setting is the baud rate. Use <b>[Change] </b>to adapt this value to your </p>
+<p>needs. </p>
+<p>Now it is the time to test the connection (</p>
+<p>o</p>
+<p>).  </p>
+<p> </p>
+<p>Figure 5-6 </p>
+<p>ECU Is Online </p>
+<p>The communication between CANape and your ECU is now working correctly. The </p>
+<p>next  step  would  be  to  select  the  variables  or  memory  locations  you  want  to  get </p>
+<p>shown  in  CANape.  How  to  do  this  is  explained  in  details  in  the  Manual  of  the </p>
+<p>CANape. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>22 / 27</p>
+<p><b>6 </b></p>
+<p><b>Further Information  </b></p>
+<p><b>6.1 </b></p>
+<p><b>Settings For Using The Data Acquisition Mode / Events </b></p>
+<p>As mentioned in 4.2 and 4.2.2 there is another mode besides the simple to handle </p>
+<p>polling  mode  –  the  Data  Acquisition  Mode  with  the  benefit  of  less  bus  load  as </p>
+<p>already described.  </p>
+<p>To realize this mode you have to do additional settings in the Generation Tool and </p>
+<p>in your application. This can be divided into 3 steps: </p>
+<p>n</p>
+<p> </p>
+<p>Switch  on  Synchronous  Data  Acquisition  and  DAQ  generation  info  and  the </p>
+<p>Event Info </p>
+<p> </p>
+<p>Figure 6-1 </p>
+<p>Components / XCP </p>
+<p></p>
+<p>   Define Events in the Generation Tool (Name, Cycle) </p>
+<p> </p>
+<p>Figure 6-2 </p>
+<p>Components / XCP </p>
+<p>The first event with the No. 0 is predefined. To add further events use the Allocate </p>
+<p>Items pull down menu and check the next Item.  </p>
+<p>Make  sure  that  you  check  the  next  unused  item.  E.g.  Item  1,  Item  3  and  Item  4  is <b> not</b> </p>
+<p><b>allowed</b>, because Item 2 is omitted. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>23 / 27</p>
+<p> </p>
+<p>Figure 6-3 </p>
+<p>Components / XCP </p>
+<p>For each Event (numbering starting with 0) you should define the Name and the </p>
+<p>Cycle [ms].  </p>
+<p>Try  to  make  this  name  expressive.  This  name  will  occur  in  the  CANape  list.  It  is  much </p>
+<p>easier for you if the name contains e.g. the cycle. </p>
+<p> </p>
+<p>Remember to generate the files before compiling again ! </p>
+<p> </p>
+<p></p>
+<p>   For each event call XcpEvent(x), x= 0, 1, …, n. </p>
+<p>Now open your application file and add the calls of the function XcpEvent(x). For </p>
+<p>each event you need one call of XcpEvent(x). The x is the No. of the event as it is </p>
+<p>defined in the Generation Tool.  </p>
+<p>Make sure that you call the XcpEvent(x) function in the correct cycle time. In the </p>
+<p>example we need 2 calls. XcpEvent(<b>0</b>) after any <b>10</b>ms and XcpEvent(<b>1</b>) after any </p>
+<p><b>20</b>ms. </p>
+<p>Now compile and link you project and transfer it to your target platform and start </p>
+<p>your application. </p>
+<p> </p>
+<p></p>
+<p>   Assemble your DAQ lists in CANape </p>
+<p>Open CANape and start it and stop it. We need this to transfer the DAQ information </p>
+<p>from the ECU to CANape.  </p>
+<p>Now  open  Edit  Measurement  List  via  this  button  on  the  right  side.  You  see  all </p>
+<p>selected  signals  in  this  window  (Figure  6-4).  In  the  pull  down  menu  of  the </p>
+<p>Measuring mode you now find the two events My10msEvent and My20msEvent.  </p>
+<p>Assign these Events to any signal you want. The signals will be added to the DAQ</p>
+<p> </p>
+<p>list  and  transferred  any  10ms  or  20ms  to  CANape  without  any  further  polling </p>
+<p>message. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>24 / 27</p>
+<p> </p>
+<p>Figure 6-4 </p>
+<p>Edit Measurement List In CANape </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>25 / 27</p>
+<p><b>7 </b></p>
+<p><b> List Of Experiences </b></p>
+<p>A list of experiences and problems encountered will be placed here soon, which </p>
+<p>will help you to conduct focused troubleshooting. </p>
+<p>  </p>
+<p><b>7.1 </b></p>
+<p><b>Topic 1 </b></p>
+<p> </p>
+<p><b>Q: </b></p>
+<p> </p>
+<p><b>A: </b></p>
+<p></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual  XCP - Universal Measurement and Calibration Protocol </p>
+<p> </p>
+<p>©</p>
+<p>2011, Vector Informatik GmbH </p>
+<p> </p>
+<p> </p>
+<p>Version: 1.0.2 </p>
+<p>1 / 27</p>
+<p><b>8 </b></p>
+<p><b>Index </b></p>
+<p>8 STEPS.................................................13 </p>
+<p>Advanced Features ..................................9 </p>
+<p>application ..............................................18 </p>
+<p>Basic Feature ...........................................9 </p>
+<p>CAN ..........................................................8 </p>
+<p>CANape........................................8, 11, 23 </p>
+<p>CanInitPowerOn .....................................18 </p>
+<p>CCP..........................................................8 </p>
+<p>compiler..................................................17 </p>
+<p>Data Acquisition......................................12 </p>
+<p>Data Acquisition Mode ...........................22 </p>
+<p>dbc-file......................................................9 </p>
+<p><b>DescInitPowerOn</b>..................................18 </p>
+<p>development environment......................17 </p>
+<p>Ethernet....................................................8 </p>
+<p>Event ................................................12, 22 </p>
+<p>Firewire.....................................................8 </p>
+<p>FlexRay ....................................................8 </p>
+<p>Further Information.................................22 </p>
+<p>Generation Tool........................................8 </p>
+<p>Including, Initialization And Cyclic Calls .18 </p>
+<p>Initialization ............................................ 18 </p>
+<p>makefile.................................................. 17 </p>
+<p>Measurement Modes ............................. 11 </p>
+<p>Motivation................................................. 2 </p>
+<p>Polling Mode .......................................... 11 </p>
+<p>SCI ........................................................... 8 </p>
+<p>STEP 1  Installation Of The Tool ........... 14 </p>
+<p>STEP 2  Extract CANbedded Software </p>
+<p>Components ...................................... 14 </p>
+<p>STEP 3  Configuration With Generation </p>
+<p>Tool (GENy)....................................... 15 </p>
+<p>STEP 4  Generate Files......................... 16 </p>
+<p>STEP 5 Add CANbedded To Your Project</p>
+<p>........................................................... 17 </p>
+<p>STEP 6 Adapt Your Application Files .... 18 </p>
+<p>STEP 7 Compile And Link Your Project</p>
+<p>19 </p>
+<p>STEP 8 Test It Via CANape................... 20 </p>
+<p>TTCAN ..................................................... 8 </p>
+<p>Universal Measurement And Calibration </p>
+<p>Protocol XCP ....................................... 7 </p>
+<p>USB.......................................................... 8 </p>
+<p>XCP.......................................................... 8 </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

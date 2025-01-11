@@ -1,0 +1,1314 @@
+---
+layout: default
+title: S-WdgIf_UserManual
+nav_order: 4
+parent: Watchdog Interface
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Schoenbrunner Str. 7, A-1040 Vienna, Austria, Tel. + 43 1 585 34 34-0, Fax +43 1 585 34 34-90, support@tttech-automotiv e.com</p>
+<p>The data in this document may  not be altered or amended without special notif ication f rom TTTech Automotiv e GmbH. TTTech Automotiv e GmbH</p>
+<p>undertakes no f urther obligation in relation to this document. The sof tware described in it can only  be used if  the customer is in possession of  a general</p>
+<p>license agreement or single license.</p>
+<p>Using and copy ing is only  allowed in concurrence with the specif ications stipulated in the contract. Under no circumstances may  any  part of  this</p>
+<p>document be copied, reproduced, transmitted, stored in a retriev al sy stem, or translated into another language without written permission of  TTTech</p>
+<p>Automotiv e GmbH.</p>
+<p>The names and designations used in this document are trademarks or brands belonging to the respectiv e owners.</p>
+<p>© 2011 - 2014 TTTech Automotiv e GmbH. All rights reserv ed.                                                                                 Subject to changes and</p>
+<p>corrections.</p>
+<p>TTTech Automotiv e GmbH Conf idential and Proprietary  Inf ormation</p>
+<p><b>TTTech Automotive GmbH</b></p>
+<p>1.9.4</p>
+<p>21.05.2014</p>
+<p>D-MSP-M-70-006</p>
+<p>Version:</p>
+<p>Date:</p>
+<p>Document number:</p>
+<p><b>Safe Watchdog Interface</b></p>
+<p>User Manual</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Safe Watchdog Interface</b></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p>Page</p>
+<p>2</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><b>Table of Contents</b></p>
+<p><b>1 Introduction</b></p>
+<p><b>3</b></p>
+<p><b>2 Safe Watchdog Interface</b></p>
+<p><b>3</b></p>
+<p><b>................................................................................................................................... 3</b></p>
+<p><b>2.1 Basic Functionality of the S-WdgIf</b></p>
+<p><b>................................................................................................................................... 4</b></p>
+<p><b>2.2 Extensions to the AUTOSAR Watchdog Interface</b></p>
+<p><b>................................................................................................................................... 5</b></p>
+<p><b>2.3 Deviations from the AUTOSAR Watchdog Interface</b></p>
+<p><b>................................................................................................................................... 5</b></p>
+<p><b>2.4 Integration with Fully AUTOSAR Compliant Drivers</b></p>
+<p><b>................................................................................................................................... 5</b></p>
+<p><b>2.5 Configuration Parameters for the S-WdgIf</b></p>
+<p><b>................................................................................................................................... 7</b></p>
+<p><b>2.6 Configuring the S-WdgIf in the ECU Description File</b></p>
+<p><b>................................................................................................................................... 8</b></p>
+<p><b>2.7 Preprocessor Options</b></p>
+<p><b>................................................................................................................................... 9</b></p>
+<p><b>2.8 File Structure</b></p>
+<p><b>3 API Description</b></p>
+<p><b>11</b></p>
+<p><b>................................................................................................................................... 11</b></p>
+<p><b>3.1 Type Definitions</b></p>
+<p><b>................................................................................................................................... 12</b></p>
+<p><b>3.2 S-WdgIf Functions</b></p>
+<p><b>................................................................................................................................... 15</b></p>
+<p><b>3.3 Expected Interfaces</b></p>
+<p><b>4 S-WdgIf Configuration</b></p>
+<p><b>16</b></p>
+<p><b>................................................................................................................................... 16</b></p>
+<p><b>4.1 Link Time Configuration</b></p>
+<p><b>................................................................................................................................... 16</b></p>
+<p><b>4.2 S-WdgIf Configuration Generator</b></p>
+<p><b>................................................................................................................................... 17</b></p>
+<p><b>4.3 Error Messages</b></p>
+<p><b>.......................................................................................................................................................... 17</b></p>
+<p><b>4.3.1    Basic Errors </b></p>
+<p><b>.......................................................................................................................................................... 17</b></p>
+<p><b>4.3.2    Semantic Errors </b></p>
+<p><b>5 Abbreviations</b></p>
+<p><b>19</b></p>
+<p><b>6 References</b></p>
+<p><b>20</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>3</p>
+<p>Page</p>
+<p><b>Introduction</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p>The <b>Safe Watchdog Interface (S-WdgIf) </b>is a part of the <b>Safe Watchdog  Manager</b></p>
+<p><b>Stack</b>.</p>
+<p><b>Note: </b>This is a user manual and does <i>not </i>cover safety-related topics. For safety-related</p>
+<p>projects  that  need  to  fulfill  ISO  26262  requirements,  refer  to  the  <i>Safe  Watchdog</i></p>
+<p><i>Interface Safety Manual </i>[5]</p>
+<p>.</p>
+<p><b>Note: </b>The </p>
+<p>&lt;infix&gt;</p>
+<p> placeholder used in this document stands for the <i>infix </i>part of the</p>
+<p>names of the Watchdog driver functions to which the S-WdgIf interfaces. Depending on</p>
+<p>the version of the used AUTOSAR environment, the S-WdgIf can consist of the</p>
+<p>following:</p>
+<p>In <b>AUTOSAR 4.0 </b>compatible environment, the S-WdgIf consists of the vendor ID and</p>
+<p>device name strings, where vendo ID is the ID of the vendor of the Watchdog driver</p>
+<p>and device name is the name of the configured Watchdog driver device .</p>
+<p>In <b>AUTOSAR 3.1 </b>compatible environment, the S-WdgIf consists of the device name</p>
+<p>string, where device name is the name of the configured Watchdog driver device </p>
+<p><b>2</b></p>
+<p><b>Safe Watchdog Interface</b></p>
+<p><b>2.1</b></p>
+<p><b>Basic Functionality of the S-WdgIf</b></p>
+<p>The <b>S-WdgIf </b>was developed according AUTOSAR version 4.0.1 [2]</p>
+<p> and adapted for</p>
+<p>the  AUTOSAR  3.1.4  environment</p>
+<p> [1]</p>
+<p>.</p>
+<p> The  S-WdgIf</p>
+<p> is  compatible  with  both</p>
+<p>AUTOSAR versions, but not fully compliant. For the deviations, see section <i>Deviations</i></p>
+<p><i>from the AUTOSAR Watchdog Interface</i></p>
+<p>.</p>
+<p>The S-WdgIf is designed to be integrated into an AUTOSAR 3.1.4 and 4.0.1 system.</p>
+<p>However, it is not restricted to this AUTOSAR version. The software module can also be</p>
+<p>integrated into other versions of AUTOSAR and other system software architectures if</p>
+<p>the  integration related  requirements  listed  in the  <b>Safe  Watchdog  Interface  Safety</b></p>
+<p><b>Manual </b>[5]</p>
+<p> are met.</p>
+<p>The S-WdgIf provides a standard interface to all the configured watchdog devices. The</p>
+<p>Safe Watchdog Manager (<b>S-WdgM</b>) accesses each configured watchdog through its</p>
+<p><b>Device Index</b>.</p>
+<p>The  <b>S-WdgIf  </b>is  hardware-independent  and  abstracts  one  or  more  Safe  Watchdog</p>
+<p>Driver modules for the <b>S-WdgM</b>. The S-WdgM calls the S-WdgIf with a  device  index</p>
+<p>parameter  (</p>
+<p>DeviceIndex</p>
+<p>).  It  is  translated  by  the  S-WdgIf  into  a  S-Wdg  driver</p>
+<p>instance. If necessary, additional driver parameters are provided.</p>
+<p>Figure 1 shows the layered structure of the <b>S-WdgM</b>. The attached watchdog devices</p>
+<p>can be internal, external, or both.</p>
+<p>20</p>
+<p>20</p>
+<p>20</p>
+<p>5</p>
+<p>20</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Safe Watchdog Interface</b></p>
+<p>Page</p>
+<p>4</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p> </p>
+<p>Internal </p>
+<p>Watchdog </p>
+<p>device </p>
+<p> </p>
+<p>Safe Watchdog </p>
+<p>Manager </p>
+<p>Safe Watchdog </p>
+<p>Interface </p>
+<p>External </p>
+<p>Watchdog </p>
+<p>device </p>
+<p>Hardware </p>
+<p>Software  </p>
+<p>Safe Watchdog  </p>
+<p>Manager user API </p>
+<p>Safe </p>
+<p>Watchdog </p>
+<p>Driver 2 </p>
+<p>Safe </p>
+<p>Watchdog </p>
+<p>Driver 1 </p>
+<p>Safe </p>
+<p>Watchdog </p>
+<p>Manager </p>
+<p>Stack </p>
+<p>Hardware </p>
+<p>dependent </p>
+<p>part </p>
+<p>BSW’s </p>
+<p>System </p>
+<p>API </p>
+<p>Applications </p>
+<p><i><b>Fig. 1: Layered structure of the Safe Watchdog M anager </b></i></p>
+<p><b>2.2</b></p>
+<p><b>Extensions to the AUTOSAR Watchdog Interface</b></p>
+<p>The S-WdgIf implements and extends the <b>AUTOSAR  Watchdog Interface </b>module. It</p>
+<p>implements the following two interfaces to the Watchdog Driver:</p>
+<p><b>AUTOSAR</b>-compatible interface</p>
+<p>o</p>
+<p>Wdg_&lt;infix&gt;_SetTriggerCondition()</p>
+<p>o</p>
+<p>Wdg_&lt;infix&gt;_SetMode()</p>
+<p><b>TTTech</b>-compatible interface</p>
+<p>o</p>
+<p>Wdg_&lt;infix&gt;_SetTriggerWindow()</p>
+<p>o</p>
+<p>Wdg_&lt;infix&gt;_SetMode()</p>
+<p>Switching between the two interfaces with the watchdog driver is done by setting  the</p>
+<p>parameter  </p>
+<p>WdgIfUseAutosarDrvApi</p>
+<p> in a  correspoding  way.  For  details,  see</p>
+<p>section Integration with Fully AUTOSAR  Compliant  Drivers</p>
+<p> and  the  description of</p>
+<p>parameter  </p>
+<p>WdgIfUseAutosarDrvApi</p>
+<p> in  section  Configuration  Parameters  for</p>
+<p>the S-WdgIf</p>
+<p>.</p>
+<p>Function  </p>
+<p>WdgIf_GetTickCounter()</p>
+<p> is  an  additional</p>
+<p> extension  to  AUTOSAR,</p>
+<p>providing</p>
+<p> access</p>
+<p> to</p>
+<p> the</p>
+<p> corresponding</p>
+<p> S-Wdg</p>
+<p> function</p>
+<p>Wdg_&lt;infix&gt;_GetTickCounter()</p>
+<p>,  if  supported  by  the  hardware  and  if</p>
+<p> the</p>
+<p>configuration  parameter</p>
+<p> </p>
+<p>WdgIfInternalTickCounterRef</p>
+<p> is</p>
+<p> set</p>
+<p> in</p>
+<p> a</p>
+<p>correspoding</p>
+<p> way.</p>
+<p> For</p>
+<p> details,</p>
+<p> see</p>
+<p> the</p>
+<p> description</p>
+<p> of</p>
+<p> parameter</p>
+<p>WdgIfInternalTickCounterRef</p>
+<p> in section Configuration Parameters for  the</p>
+<p>6</p>
+<p>5</p>
+<p>6</p>
+<p>5</p>
+<p>7</p>
+<p>7</p>
+<h1 style="page-break-before:always; "></h1>
+<p>5</p>
+<p>Page</p>
+<p><b>Safe Watchdog Interface</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p>S-WdgIf</p>
+<p>.</p>
+<p><b>2.3</b></p>
+<p><b>Deviations from the AUTOSAR Watchdog Interface</b></p>
+<p>For safety reasons, the S-WdgIf module should not depend on external modules. This is</p>
+<p>why  the  AUTOSAR  module  <b>Development  Error  Tracer  (DET)  </b>is  called  in  the</p>
+<p>presence</p>
+<p> of</p>
+<p> development</p>
+<p> errors</p>
+<p> only</p>
+<p> if</p>
+<p> the</p>
+<p> preprocessor</p>
+<p> switch</p>
+<p>WDGIF_DEV_ERROR_DETECT</p>
+<p>  is set to </p>
+<p>STD_ON</p>
+<p>.</p>
+<p>The  S-WdgIf</p>
+<p> calls  function  </p>
+<p>Appl_Det_ReportError()</p>
+<p> in  order</p>
+<p> to  report</p>
+<p>detected DET errors instead of calling function  </p>
+<p>Det_ReportError()</p>
+<p> specified in</p>
+<p>AUTOSAR. For details, see section Expected Interfaces</p>
+<p>.</p>
+<p><b>2.4</b></p>
+<p><b>Integration with Fully AUTOSAR Compliant Drivers</b></p>
+<p>In order to integrate the <b>S-WdgIf </b>with a fully AUTOSAR-compliant watchdog driver set</p>
+<p>the  configuration  parameter</p>
+<p> WdgIfUseAutosarDrvApi</p>
+<p> to  </p>
+<p>STD_ON</p>
+<p>.  This  will</p>
+<p>result in the following:</p>
+<p>The AUTOSAR </p>
+<p>Wdg_&lt;infix&gt;_SetMode()</p>
+<p> is called out of </p>
+<p>WdgIf_SetMode()</p>
+<p>.</p>
+<p>The</p>
+<p> </p>
+<p>Wdg_&lt;infix&gt;_SetTriggerCondition()</p>
+<p> is</p>
+<p> called</p>
+<p> out</p>
+<p> of</p>
+<p>WdgIf_SetTriggerCondition()</p>
+<p>.</p>
+<p>The</p>
+<p> </p>
+<p>Wdg_&lt;infix&gt;_SetTriggerCondition()</p>
+<p> is</p>
+<p> called</p>
+<p> out</p>
+<p> of</p>
+<p>WdgIf_SetTriggerWindow()</p>
+<p> as well,  however,  the  parameter  WindowStart  is</p>
+<p>not passed.</p>
+<p><b>Note:</b></p>
+<p> If</p>
+<p> the</p>
+<p> S-WdgM  is</p>
+<p> the</p>
+<p> caller</p>
+<p> of</p>
+<p> the</p>
+<p> S-WdgIf</p>
+<p> (i.e.,</p>
+<p> function</p>
+<p>WdgIf_SetTriggerWindow()</p>
+<p> is used  to  service  the  watchdog  device),  then the</p>
+<p>parameter </p>
+<p>WindowStart</p>
+<p> (</p>
+<p>WdgMTriggerWindowStart</p>
+<p>) has no effect, because it</p>
+<p>cannot be passed to an AUTOSAR-compliant driver. It is then good practice to set it to</p>
+<p><b>0</b>, because this would be the functional meaning of its absence.</p>
+<p>For more information about the configuration parameter </p>
+<p>WdgIfUseAutosarDrvApi</p>
+<p>, see section Configuration Parameters for the S-WdgIf</p>
+<p>.</p>
+<p><b>2.5</b></p>
+<p><b>Configuration Parameters for the S-WdgIf</b></p>
+<p><b>Parameter Name</b></p>
+<p>WdgIfDeviceIndex</p>
+<p><b>Path</b></p>
+<p>WdgIf/WdgIfDevice/WdgIfDeviceIndex</p>
+<p><b>Group</b></p>
+<p>Watchdog device</p>
+<p><b>Type</b></p>
+<p>Integer</p>
+<p><b>Range</b></p>
+<p>0...65535</p>
+<p><b>Compatibility</b></p>
+<p>AUTOSAR</p>
+<p><b>Description</b></p>
+<p>Represents  the  Watchdog  Device  ID  so  that  it  can  be</p>
+<p>referenced by the S-WdgM.</p>
+<p>5</p>
+<p>8</p>
+<p>15</p>
+<p>15</p>
+<p>15</p>
+<p>6</p>
+<p>6</p>
+<p>5</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Safe Watchdog Interface</b></p>
+<p>Page</p>
+<p>6</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>Parameter Name</b></p>
+<p>WdgIfDriverRef</p>
+<p><b>Path</b></p>
+<p>WdgIf/WdgIfDevice/WdgIfDriverRef</p>
+<p><b>Group</b></p>
+<p>Watchdog device</p>
+<p><b>Type</b></p>
+<p>Reference</p>
+<p><b>Range</b></p>
+<p>n.a.</p>
+<p><b>Compatibility</b></p>
+<p>AUTOSAR</p>
+<p><b>Description</b></p>
+<p>Reference to the Watchdog driver of this Watchdog Device.</p>
+<p><b>Parameter Name</b></p>
+<p>WdgIfDevErrorDetect</p>
+<p><b>Parameter Name</b></p>
+<p><b>(Embedded Code)</b></p>
+<p>WDGIF_DEV_ERROR_DETECT</p>
+<p><b>Path</b></p>
+<p>WdgIf/WdgIfGeneral/WdgIfDevErrorDetect</p>
+<p><b>Group</b></p>
+<p>Preprocessor</p>
+<p><b>Type</b></p>
+<p>Boolean</p>
+<p><b>Range</b></p>
+<p>false/true</p>
+<p><b>Compatibility</b></p>
+<p>AUTOSAR</p>
+<p><b>Description</b></p>
+<p>Pre-processor  switch  for  enabling  the  development  error</p>
+<p>reporting.</p>
+<p><b>Parameter Name</b></p>
+<p>WdgIfVersionInfoApi</p>
+<p><b>Parameter Name</b></p>
+<p><b>(Embedded Code)</b></p>
+<p>WDGIF_VERSION_INFO_API</p>
+<p><b>Path</b></p>
+<p>WdgIf/WdgIfGeneral/WdgIfVersionInfoApi</p>
+<p><b>Group</b></p>
+<p>Preprocessor</p>
+<p><b>Type</b></p>
+<p>Boolean</p>
+<p><b>Range</b></p>
+<p>false/true</p>
+<p><b>Compatibility</b></p>
+<p>AUTOSAR</p>
+<p><b>Description</b></p>
+<p>Pre-processor switch to enable/disable the service returning</p>
+<p>the version information.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>7</p>
+<p>Page</p>
+<p><b>Safe Watchdog Interface</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>Parameter Name</b></p>
+<p>WdgIfUseAutosarDrvApi</p>
+<p><b>Parameter Name</b></p>
+<p><b>(Embedded Code)</b></p>
+<p>WDGIF_USE_AUTOSAR_DRV_API</p>
+<p><b>Path</b></p>
+<p>WdgIf/WdgIfGeneral/WdgIfUseAutosarDrvApi</p>
+<p><b>Group</b></p>
+<p>Preprocessor</p>
+<p><b>Type</b></p>
+<p>Boolean</p>
+<p><b>Range</b></p>
+<p>false/true</p>
+<p><b>Compatibility</b></p>
+<p>TTTech</p>
+<p><b>Description</b></p>
+<p>Pre-processor  switch  to  enable/disable  the  use  of</p>
+<p> fully</p>
+<p>AUTOSAR-compliant driver API functions.</p>
+<p><b>Parameter Name</b></p>
+<p>WdgIfInternalTickCounterRef</p>
+<p><b>Parameter Name</b></p>
+<p><b>(Embedded Code)</b></p>
+<p>WDGIF_INTERNAL_TICK_COUNTER</p>
+<p><b>Path</b></p>
+<p>WdgIf/WdgIfGeneral/WdgIfInternalTickCounterRef</p>
+<p><b>Group</b></p>
+<p>Preprocessor</p>
+<p><b>Type</b></p>
+<p>Reference</p>
+<p><b>Range</b></p>
+<p>n.a.</p>
+<p><b>Compatibility</b></p>
+<p>TTTech</p>
+<p><b>Description</b></p>
+<p>If this parameter  references  a  driver  which implements  an</p>
+<p>internal</p>
+<p> tick</p>
+<p> counter</p>
+<p> then</p>
+<p> the</p>
+<p> function</p>
+<p> </p>
+<p>WdgIf_InternalTickCounter()</p>
+<p> is compiled and can</p>
+<p>be  used  by  the  S-WdgM.</p>
+<p> Otherwise  the  API</p>
+<p> is  not</p>
+<p>compiled. <b>Note: </b>If a driver is selected, then it must support</p>
+<p>the</p>
+<p> internal</p>
+<p> tick</p>
+<p> counter,</p>
+<p> and</p>
+<p> its</p>
+<p> parameter</p>
+<p>WdgInternalTickCounter</p>
+<p> must be set to </p>
+<p>TRUE</p>
+<p>.</p>
+<p><b>2.6</b></p>
+<p><b>Configuring the S-WdgIf in the ECU Description File</b></p>
+<p>Apart from the preprocessor options the user must add a </p>
+<p>WdgIfDevice</p>
+<p> container to</p>
+<p>the  S-WdgIf  module  in  the  ECU  description  file.  This  container  has  two  attributes:</p>
+<p>WdgIfDeviceIndex </p>
+<p>shall be set to zero, and </p>
+<p>WdgIfDriverRef</p>
+<p> points</p>
+<p> </p>
+<p>must</p>
+<p>be selected so that it points to the Watchdog driver being used.</p>
+<p>6</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Safe Watchdog Interface</b></p>
+<p>Page</p>
+<p>8</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>2.7</b></p>
+<p><b>Preprocessor Options</b></p>
+<p><b>Option</b></p>
+<p><b>Description</b></p>
+<p>WDGIF_DEV_ERROR_DETECT</p>
+<p>Enables  or  disables  calls  to  DET  in  case  of</p>
+<p>development</p>
+<p> errors.</p>
+<p> Corresponds</p>
+<p> to</p>
+<p> ECU</p>
+<p>description option </p>
+<p>WdgIfDevErrorDetect</p>
+<p>.</p>
+<p>STD_ON</p>
+<p>: Development errors are checked and</p>
+<p>reported to DET</p>
+<p>STD_OFF</p>
+<p>: Development errors are checked but</p>
+<p>not reported to DET</p>
+<p>WDGIF_VERSION_INFO_API</p>
+<p>Enables the version info API for compiling (can be</p>
+<p>disabled in order to save resources). Corresponds</p>
+<p>to</p>
+<p> ECU</p>
+<p> description</p>
+<p> option</p>
+<p> </p>
+<p>WdgIfVersionInfoApi</p>
+<p>.</p>
+<p>STD_ON</p>
+<p>: The S-WdgIf API for version information</p>
+<p>is provided.</p>
+<p>STD_OFF</p>
+<p>: The S-WdgIf API for version</p>
+<p>information is not provided.</p>
+<p>WDGIF_INTERNAL_TICK_COUNTER</p>
+<p>Enables  or  disables  the  usage  of  an internal  tick</p>
+<p>counter</p>
+<p> in  the  S-WdgIf.</p>
+<p> Corresponds  to  ECU</p>
+<p>description</p>
+<p> option</p>
+<p> </p>
+<p>WdgIfInternalTickCounterRef</p>
+<p>.</p>
+<p> If</p>
+<p> a</p>
+<p>driver  is  referenced  the  usage  of  an  internal  tick</p>
+<p>counter is enabled, otherwise disabled.</p>
+<p>WDGIF_USE_AUTOSAR_DRV_API</p>
+<p>Enables  or  disables  the  use  of  fully  AUTOSAR-</p>
+<p>compliant driver API functions.</p>
+<p>STD_ON</p>
+<p>:</p>
+<p> AUTOSAR-compliant</p>
+<p> driver</p>
+<p> API</p>
+<p>functions</p>
+<p> are</p>
+<p> used.</p>
+<p> <b>Note:</b></p>
+<p> The</p>
+<p> parameter</p>
+<p>WindowStart</p>
+<p>(</p>
+<p>WdgMTriggerWindowStart</p>
+<p>) of the S-WdgM</p>
+<p>configuration is then ignored. Therefore, it is good</p>
+<p>practice to set it to <b>0</b>.</p>
+<p>STD_OFF</p>
+<p>:  TTTech driver API functions are used.</p>
+<p>6</p>
+<p>8</p>
+<p>8</p>
+<h1 style="page-break-before:always; "></h1>
+<p>9</p>
+<p>Page</p>
+<p><b>Safe Watchdog Interface</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>2.8</b></p>
+<p><b>File Structure</b></p>
+<p>Figure 2 gives an overview of the file structure of the <b>S-WdgIf</b>.</p>
+<p> </p>
+<p><i><b>Fig. 2: File structure of the S-WdgIf</b></i></p>
+<p>The  implementation  of  the  S-WdgIf  module  is  in  the  file  </p>
+<p>WdgIf.c</p>
+<p>.  File  </p>
+<p>WdgIf.c</p>
+<p>provides an interface to the <b>upper layer</b>, the S-WdgM, and includes the header  file  </p>
+<p>WdgIf.h</p>
+<p>.  The  header  files  </p>
+<p>WdgIf_Types.h</p>
+<p> and  </p>
+<p>Std_Types.h</p>
+<p> are  included</p>
+<p>indirectly through the </p>
+<p>WdgIf.h</p>
+<p>.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Safe Watchdog Interface</b></p>
+<p>Page 10</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>File</b></p>
+<p><b>Description</b></p>
+<p>WdgIf_Types.h</p>
+<p>S-WdgIf  and  common  Safe  Watchdog  Stack  type</p>
+<p>definitions</p>
+<p>WdgIf_Cfg.h</p>
+<p>Pre-compile time definitions</p>
+<p>MemMap.h</p>
+<p>Is included directly in the module implementation files</p>
+<p>to organize code, data and constants in the memory.</p>
+<p>Appl_Det.h</p>
+<p>Appl_Det.h</p>
+<p> is included instead of </p>
+<p>Det.h</p>
+<p>, because</p>
+<p>the  reporting  of  development  errors  is  not  done  by</p>
+<p>directly calling the DET service </p>
+<p>Det_ReportError</p>
+<p>()</p>
+<p>,</p>
+<p> but</p>
+<p> by  calling  the  user-defined  service  </p>
+<p>Appl_Det_ReportError()</p>
+<p>.</p>
+<p><b>Note:  </b>This  service  could  just  be  a  direct  call  to  the</p>
+<p>external  module  DET,  but  could  also  perform  more</p>
+<p>complex operations such as switching the OS  context</p>
+<p>before calling DET.</p>
+<p>WdgIf_Lcfg.c</p>
+<p> and </p>
+<p>WdgIf_Lcfg.h</p>
+<p>These files contain the generated configuration.</p>
+<p>WdgIf_Cfg_Features.h</p>
+<p>Is generated and contains all preprocessor options for</p>
+<p>the S-WdgIf module.</p>
+<p>15</p>
+<p>15</p>
+<h1 style="page-break-before:always; "></h1>
+<p>11</p>
+<p>Page</p>
+<p><b>Safe Watchdog Interface</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>3</b></p>
+<p><b>API Description</b></p>
+<p>This section describes the types, functions and interfaces that are imported or provided</p>
+<p>by the S-WdgIf software layer.</p>
+<p><b>3.1</b></p>
+<p><b>Type Definitions</b></p>
+<p>This section describes the <b>types of the parameters </b>passed to the API functions of the</p>
+<p><b>S-WdgIf</b>.</p>
+<p><b>Name</b></p>
+<p>WdgIf_InterfaceFunctionsType</p>
+<p><b>Type</b></p>
+<p>Structure</p>
+<p><b>Elements</b></p>
+<p>Std_ReturnType (*</p>
+<p>Wdg_SetMode) (uint8,</p>
+<p>WdgIf_ModeType)</p>
+<p>Pointer to the platform-specific </p>
+<p>SetMode</p>
+<p>function</p>
+<p>void (*</p>
+<p>Wdg_SetTriggerWindow)</p>
+<p>(uint8, uint16, uint16)</p>
+<p>Pointer to the platform-specific </p>
+<p>SetTriggerWindow</p>
+<p> function</p>
+<p><b>Description</b></p>
+<p>Provides pointers to the platform-specific APIs</p>
+<p><b>Name</b></p>
+<p>WdgIf_InterfaceFunctionsPerWdgDeviceType</p>
+<p><b>Type</b></p>
+<p>Structure</p>
+<p><b>Elements</b></p>
+<p>const</p>
+<p>WdgIf_InterfaceFunctions</p>
+<p>Type* WdgFunctions</p>
+<p>Pointers to the platform-specific</p>
+<p>functions</p>
+<p>const uint8 WdgInstance</p>
+<p>Index of the physical watchdog instance</p>
+<p>within this platform</p>
+<p><b>Description</b></p>
+<p>Connects platform-dependent functions to a physical watchdog in</p>
+<p>order to allow several watchdogs of the same platform to work</p>
+<p>simultaneously (e.g., external watchdogs).</p>
+<p><b>Name</b></p>
+<p>WdgIf_InterfaceType</p>
+<p><b>Type</b></p>
+<p>Structure</p>
+<p><b>Elements</b></p>
+<p>const uint8 NumOfWdgs</p>
+<p>Number of watchdogs supported in the</p>
+<p>S-WdgIf</p>
+<p>const</p>
+<p>WdgIf_InterfaceFunctionsPerW</p>
+<p>dgDeviceType*</p>
+<p>WdgFunctionsPerDevice</p>
+<p>Reference to the functions and physical</p>
+<p>watchdog indices</p>
+<p>#if</p>
+<p>(WDGIF_INTERNAL_TICK_COUNTER</p>
+<p>Function pointer to the </p>
+<p>GetTickCounter</p>
+<p> driver function if the</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>API Description</b></p>
+<p>Page 12</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p>== STD_ON)</p>
+<p>uint32 (*Wdg_GetTickCounter)</p>
+<p>(void)</p>
+<p>#endif</p>
+<p>internal tick counter is switched on</p>
+<p><b>Description</b></p>
+<p>Main S-WdgIf configuration structure.</p>
+<p><b>Name</b></p>
+<p>WdgIf_ModeType</p>
+<p><b>Type</b></p>
+<p>Enumeration</p>
+<p><b>Range</b></p>
+<p>WDGIF_OFF_MODE:</p>
+<p> Watchdog disabled</p>
+<p>WDGIF_SLOW_MODE:</p>
+<p> Long timeout period (slow</p>
+<p>triggering)</p>
+<p>WDGIF_FAST_MODE:</p>
+<p> Short timeout period (fast</p>
+<p>triggering)</p>
+<p><b>Description</b></p>
+<p>Mode of the Watchdog</p>
+<p><b>3.2</b></p>
+<p><b>S-WdgIf Functions</b></p>
+<p><b>Syntax</b></p>
+<p>Std_ReturnType WdgIf_SetMode</p>
+<p>(uint8 DeviceIndex, WdgIf_ModeType Mode)</p>
+<p><b>Service ID</b></p>
+<p><b>[hex]</b></p>
+<p>0x01</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrant?</b></p>
+<p>No</p>
+<p><b>Parameters</b></p>
+<p><b>(in)</b></p>
+<p>DeviceIndex</p>
+<p>: Identifies the watchdog instance.</p>
+<p>Mode</p>
+<p>: One of the following statically configured modes:</p>
+<p>o</p>
+<p>WDGIF_OFF_MODE:</p>
+<p> Watchdog disabled</p>
+<p>o</p>
+<p>WDGIF_SLOW_MODE:</p>
+<p> Long timeout period (slow triggering)</p>
+<p>o</p>
+<p>WDGIF_FAST_MODE:</p>
+<p> Short timeout period (fast triggering)</p>
+<p><b>Parameters</b></p>
+<p><b>(in/out)</b></p>
+<p>none</p>
+<p><b>Parameters</b></p>
+<p><b>(out)</b></p>
+<p>none</p>
+<p><b>Return value </b></p>
+<p>E_OK</p>
+<p>: API finished successfully.</p>
+<p>E_NOT_OK</p>
+<p>: An error occurred during execution.</p>
+<p><b>Description</b></p>
+<p>This function maps the </p>
+<p>SetMode</p>
+<p> service to the corresponding</p>
+<p>physical watchdog implementation according to the parameter </p>
+<p>DeviceIndex</p>
+<p>.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>13</p>
+<p>Page</p>
+<p><b>API Description</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>Syntax</b></p>
+<p>Std_ReturnType WdgIf_SetTriggerCondition</p>
+<p>(uint8 DeviceIndex, uint16 Timeout)</p>
+<p><b>Service ID[hex]</b></p>
+<p>0x02</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrant?</b></p>
+<p>No</p>
+<p><b>Parameters (in)</b></p>
+<p>DeviceIndex:</p>
+<p> Identifies the watchdog instance.</p>
+<p>Timeout</p>
+<p>: Timeout value in milliseconds for setting the trigger</p>
+<p>counter.</p>
+<p><b>Parameters</b></p>
+<p><b>(in/out)</b></p>
+<p>none</p>
+<p><b>Parameters</b></p>
+<p><b>(out)</b></p>
+<p>none</p>
+<p><b>Return value </b></p>
+<p>E_OK</p>
+<p>: API finished successfully.</p>
+<p>E_NOT_OK</p>
+<p>: An error occurred during execution.</p>
+<p><b>Description</b></p>
+<p>This function maps the </p>
+<p>SetTriggerCondition</p>
+<p> service to</p>
+<p>the corresponding physical watchdog implementation according</p>
+<p>to the parameter </p>
+<p>DeviceIndex</p>
+<p>.</p>
+<p><b>Syntax</b></p>
+<p>Std_ReturnType WdgIf_SetTriggerWindow</p>
+<p>(uint8 DeviceIndex, uint16 WindowStart,</p>
+<p>uint16 Timeout)</p>
+<p><b>Service ID[hex]</b></p>
+<p>0x04</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrant?</b></p>
+<p>No</p>
+<p><b>Parameters (in)</b></p>
+<p>DeviceIndex</p>
+<p>: Identifies the watchdog instance.</p>
+<p>WindowStart</p>
+<p>: Minimum time until next watchdog service is</p>
+<p>allowed in milliseconds.</p>
+<p>Timeout</p>
+<p>: Timeout value in milliseconds for setting the trigger</p>
+<p>counter.</p>
+<p><b>Parameters</b></p>
+<p><b>(in/out)</b></p>
+<p>none</p>
+<p><b>Parameters</b></p>
+<p><b>(out)</b></p>
+<p>none</p>
+<p><b>Return value </b></p>
+<p>E_OK</p>
+<p>: API finished successfully.</p>
+<p>E_NOT_OK</p>
+<p>: An error occurred during execution.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>API Description</b></p>
+<p>Page 14</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>Description</b></p>
+<p>This function maps the </p>
+<p>SetTriggerWindow</p>
+<p> service to the</p>
+<p>corresponding physical watchdog implementation according to</p>
+<p>the parameter </p>
+<p>DeviceIndex</p>
+<p>.</p>
+<p><b>Syntax</b></p>
+<p>void WdgIf_GetVersionInfo</p>
+<p>(Std_VersionInfoType* VersionInfoPtr)</p>
+<p><b>Service ID[hex]</b></p>
+<p>0x03</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrant?</b></p>
+<p>No</p>
+<p><b>Parameters (in)</b></p>
+<p>VersionInfoPtr</p>
+<p>: Pointer to where to store the version</p>
+<p>information of this module.</p>
+<p><b>Parameters</b></p>
+<p><b>(in/out)</b></p>
+<p>none</p>
+<p><b>Parameters</b></p>
+<p><b>(out)</b></p>
+<p>none</p>
+<p><b>Return value </b></p>
+<p>void</p>
+<p><b>Description</b></p>
+<p>This function is implemented as a macro and returns the version</p>
+<p>information about this module.  This function is only enabled if the</p>
+<p>preprocessor switch </p>
+<p>WDGIF_VERSION_INFO_API</p>
+<p> is</p>
+<p>STD_ON</p>
+<p>.</p>
+<p><b>Syntax</b></p>
+<p>uint32 WdgIf_GetTickCounter (void)</p>
+<p><b>Service ID[hex]</b></p>
+<p>none</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrant?</b></p>
+<p>No</p>
+<p><b>Parameters (in)</b></p>
+<p>TickCounter:</p>
+<p> Pointer to where to store the tick counter</p>
+<p>value provided by the driver.</p>
+<p><b>Parameters</b></p>
+<p><b>(in/out)</b></p>
+<p>none</p>
+<p><b>Parameters</b></p>
+<p><b>(out)</b></p>
+<p>none</p>
+<p><b>Return value </b></p>
+<p>The current hardware tick counter of type </p>
+<p>uint32</p>
+<p>.</p>
+<p><b>Description</b></p>
+<p>This function returns the current hardware tick counter.</p>
+<p>8</p>
+<h1 style="page-break-before:always; "></h1>
+<p>15</p>
+<p>Page</p>
+<p><b>API Description</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>3.3</b></p>
+<p><b>Expected Interfaces</b></p>
+<p>This section describes the expected interfaces to external modules used by the S-WdgIf</p>
+<p>and their activation conditions.</p>
+<p><b>Function</b></p>
+<p><b>Description</b></p>
+<p>Appl_Det_ReportError()</p>
+<p>If the preprocessor option </p>
+<p>WDGIF_DEV_ERROR_DETECT</p>
+<p> is set to</p>
+<p>STD_ON</p>
+<p>, the S-WdgIf references the function </p>
+<p>Appl_Det_ReportError() </p>
+<p>of the <b>DET</b></p>
+<p><b>API</b>.</p>
+<p><b>Note: </b>If the pre-compiler option</p>
+<p>WDGIF_DEV_ERROR_DETECT</p>
+<p> is set to</p>
+<p>STD_OFF</p>
+<p>,  the S-WdgIf is self-contained and</p>
+<p>does not call any functions from external</p>
+<p>modules.</p>
+<p>8</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>API Description</b></p>
+<p>Page 16</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>4</b></p>
+<p><b>S-WdgIf Configuration</b></p>
+<p>This section describes the <b>configuration </b>of the <b>S-WdgIf</b>.</p>
+<p><b>4.1</b></p>
+<p><b>Link Time Configuration</b></p>
+<p>The link time configuration for the S-WdgIf is configured in the ECU description file, e.g.,</p>
+<p>by a tool such as <b>DaVinci Configurator Pro </b>. Basically, link time configuration</p>
+<p>contains all information needed for mapping each underlying watchdog driver to a</p>
+<p>device index. The configuration can be generated by the <b>S-WdgIf configuration</b></p>
+<p><b>generator</b>, described in section The S-WdgIf Configuration Generator</p>
+<p>.</p>
+<p><b>4.2</b></p>
+<p><b>S-WdgIf Configuration Generator</b></p>
+<p>The <b>S-WdgIf generator </b>is a Microsoft Windows console application that can be</p>
+<p>launched from a <b>command prompt </b>window by entering the command</p>
+<p>Wdg_If_Cfg_Gen.exe</p>
+<p>. The S-WdgIf generator <b>reads </b>the S-WdgIf <b>module</b></p>
+<p><b>information </b>from the AUTOSAR <b>ECU description file </b>(</p>
+<p>*.arxml</p>
+<p>) and generates</p>
+<p>configuration structures for the S-WdgIf. </p>
+<p><b>Note: </b>Alternatively, you can use the <b>DaVinci </b>Configurator from Vector Informatik</p>
+<p>GmbH.</p>
+<p>To  use  the  S-Wdg  generator,  enter  the  following  command  in    a  command  prompt</p>
+<p>window:</p>
+<p>Wdg_If_Cfg_Gen.exe [options] &lt;ECU-DESC-FILE&gt; &lt;OUTPUT-DIR&gt;</p>
+<p>&lt;BSWMD_DIR&gt;</p>
+<p>[options]</p>
+<p><b>Description</b></p>
+<p>--version</p>
+<p>Show the application version number and exits.</p>
+<p>-h/--help</p>
+<p>Shows this help message and exits.</p>
+<p><b>Parameter</b></p>
+<p><b>Description</b></p>
+<p>&lt;ECU-DESC-FILE&gt;</p>
+<p>The ECU description file (</p>
+<p>*.arxml</p>
+<p>). It is generated by</p>
+<p>a development tool (e.g.,from the <b>DaVinci </b>tool chain).</p>
+<p>&lt;OUTPUT-DIR&gt;</p>
+<p>The destination folder for the generated output. You</p>
+<p>must specify this parameter.</p>
+<p>&lt;BSWMD_DIR&gt;</p>
+<p>The directory in which the Configuration Generator</p>
+<p>recursively searches for the BSWMD file(s) that</p>
+<p>describe the used Watchdog drivers.</p>
+<p>The respective configuration for the S-WdgIf is exported to two files:</p>
+<p>WdgIf_Lcfg.c</p>
+<p>WdgIf_Lcfg.h</p>
+<p>16</p>
+<h1 style="page-break-before:always; "></h1>
+<p>17</p>
+<p>Page</p>
+<p><b>S-WdgIf Configuration</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>4.3</b></p>
+<p><b>Error Messages</b></p>
+<p>The generator will show an <b>error message </b>in the command prompt window and quit if</p>
+<p>something goes wrong during configuration generation. </p>
+<p><b>4.3.1</b></p>
+<p><b>Basic Errors</b></p>
+<p><b>Error</b></p>
+<p><b>No.</b></p>
+<p><b>Error Message</b></p>
+<p>1</p>
+<p>Bad call syntax.</p>
+<p>2</p>
+<p>Cannot open ECU description file `%s`.</p>
+<p>3</p>
+<p>Cannot convert float parameter `%s/%s` to an Watchdog ticks.</p>
+<p>4</p>
+<p>Cannot convert `%s` to a numerical value.</p>
+<p>5</p>
+<p>Fatal error.</p>
+<p>6</p>
+<p>Method `%s` must be implementd by subclass of `%s`.</p>
+<p>7</p>
+<p>Missing WdgM data.</p>
+<p><b>4.3.2</b></p>
+<p><b>Semantic Errors</b></p>
+<p><b>Error</b></p>
+<p><b>No.</b></p>
+<p><b>Error Message</b></p>
+<p>1007</p>
+<p>Missing non-zero value for `RTICLK_khz`.</p>
+<p>1008</p>
+<p>Non-supported platform `%s`.</p>
+<p>1009</p>
+<p>%s platform: Bad WDGIF_SLOW_MODE configuration: </p>
+<p>InitialTimeout_ms = %d &gt; %d = SlowModeMax_ms.</p>
+<p>1010</p>
+<p>%s platform: Bad WDGIF_SLOW_MODE configuration: </p>
+<p>InitialWindowStart_ms = %d &gt; %d = SlowModeMax_ms.</p>
+<p>1011</p>
+<p>%s platform: Bad WDGIF_FAST_MODE configuration: </p>
+<p>InitialTimeout_ms = %d &gt; %d = FastModeMax_ms.</p>
+<p>1012</p>
+<p>%s platform: Bad WDGIF_FAST_MODE configuration: </p>
+<p>InitialWindowStart_ms = %d &gt; %d = FastModeMax_ms.</p>
+<p>1013</p>
+<p>%s platform: Bad WDGIF_FAST_MODE configuration: </p>
+<p>InitialWindowStart_ms = %d &gt;= %d = InitialTimeout_ms.</p>
+<p>1014</p>
+<p>WDGIF_OFF_MODE not supported for %s.</p>
+<p>1022</p>
+<p>`Wdg/WdgSettingsConfig/WdgRtiKhz` must be a non-zero value.</p>
+<p>1023</p>
+<p>`Wdg/WdgSettingsConfig/WdgFpiKhz` must be a non-zero value.</p>
+<p>1024</p>
+<p>Missing or unsupported driver. (Also verify the ECU description </p>
+<p>file's AUTOSAR XML namespace).</p>
+<p>1030</p>
+<p>`/Wdg/WdgSettingsConfig/fSIRCkhz` must be a non-zero value.</p>
+<p>1032</p>
+<p>Cannot generate code for unknown driver `%s`. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>S-WdgIf Configuration</b></p>
+<p>Page 18</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p>Verify module having `DEFINITION-REF` ending with `.../Wdg`.</p>
+<p>1033</p>
+<p>Watchdog IF references unknown driver `%s`. </p>
+<p>Verify module reference having a `DEFINITION-REF` ending with </p>
+<p>`...WdgIf/WdgIfDevice/WdgIfDriverRef.</p>
+<p>1041</p>
+<p>No device found for Watchdog `%s`. Verify elements defined </p>
+<p>by `..WdgIf/WdgIfDevice`.</p>
+<p>1042</p>
+<p>Device for `%s` platform has no device index. </p>
+<p>Verify elements defined by `.../WdgIfDeviceIndex`.</p>
+<p>1046</p>
+<p>Error trying to identify the Watchdog's platform</p>
+<p>1047</p>
+<p>Error trying to generate Wdg_MemMap.h.</p>
+<p>1067</p>
+<p>No default `WdgDefaultMode` defined.</p>
+<p>1074</p>
+<p>The specified ticks per second value for the used WdgMmode</p>
+<p>(%d Hz) and the RTI clock frequency (%d Hz) must satisfy</p>
+<p>the following condition: 0 &lt; ticks_per_second &lt;= rti_hz / 2.</p>
+<p>1077</p>
+<p>The `MPC5643L_MC33904` platform requires `WdgInitialTimeout`</p>
+<p>= 12 [ms].</p>
+<p>1078</p>
+<p>The `MPC5643L_MC33904` platform requires `WdgWindowStart`</p>
+<p>= 6 [ms].</p>
+<p>1079</p>
+<p>One of the WdgMTrigger elements associated with WdgMWatchdog</p>
+<p>`%s` has a WdgMTriggerConditionValue value which does not </p>
+<p>match the WdgInitialTimeout (%d ms) defined for the `%s` driver.</p>
+<p>1080</p>
+<p>One of the WdgMTrigger elements associated with WdgMWatchdog</p>
+<p>`%s` has a WdgMTriggerWindowStart value which does not </p>
+<p>match the `WdgWindowStart` (%d ms) defined for the `%s` driver.</p>
+<p>1087</p>
+<p>There are more than 1 watchdogs with an internal tick counter</p>
+<p>(%s)</p>
+<p>1088</p>
+<p>`%s` has an active internal tick counter but the Watchdog</p>
+<p>Interface </p>
+<p>does not reference it via `WdgIfInternalTickCounterRef`.</p>
+<p>1089</p>
+<p>The driver (`%s`) referenced by the Watchdog Interface via </p>
+<p>`WdgIfInternalTickCounterRef` has no active internal tick</p>
+<p>counter.</p>
+<p>1117</p>
+<p>`/Wdg/WdgSettingsConfig/SysClkKhz` must be a non-zero value.</p>
+<p>1118</p>
+<p>MPC56xx: using an internal tick counter requires configuring</p>
+<p>`STMdebugModeControl`.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>19</p>
+<p>Page</p>
+<p><b>S-WdgIf Configuration</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>5</b></p>
+<p><b>Abbreviations</b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description</b></p>
+<p><b>API</b></p>
+<p>Application Programming Interface</p>
+<p><b>AUTOSAR</b></p>
+<p>AUTOSAR  (AUTomotive  Open  System  ARchitecture)</p>
+<p> is  a</p>
+<p>worldwide  development</p>
+<p> partnership  of</p>
+<p> car</p>
+<p> manufacturers,</p>
+<p>suppliers</p>
+<p> and</p>
+<p> other</p>
+<p> companies</p>
+<p> from  the</p>
+<p> electronics,</p>
+<p>semiconductor and software industry.</p>
+<p><b>DEM</b></p>
+<p>Diagnostic Event Manager</p>
+<p><b>DET</b></p>
+<p>Development Error Tracer </p>
+<p><b>ECU</b></p>
+<p>Electronic Control Unit</p>
+<p><b>MCU</b></p>
+<p>Microcontroller Unit </p>
+<p><b>S-Wdg</b></p>
+<p>Safe Watchdog Driver (implementation by TTTech)</p>
+<p><b>S-WdgIf</b></p>
+<p>Safe Watchdog Interface (implementation by TTTech)</p>
+<p><b>S-WdgM</b></p>
+<p>Safe Watchdog Manager (implementation by TTTech)</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Abbreviations</b></p>
+<p>Page 20</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>6</b></p>
+<p><b>References</b></p>
+<p>[1]</p>
+<p>AUTOSAR, <i>Specification of Watchdog Interface</i>. V. 2.2.2, Rel. 3.1, Rev. 1</p>
+<p>[2]</p>
+<p>AUTOSAR, <i>Specification of Watchdog Interface</i>. V. 2.3.0, Rel. 4.0, Rev. 1</p>
+<p>[3]</p>
+<p>TTTech Automotive GmbH, <i>Safe Watchdog Manager</i>, Safety Manual, V. 2.0.2</p>
+<p>[4]</p>
+<p>TTTech Automotive GmbH, <i>Safe Watchdog Manager</i>, User Manual, V. 1.8.0</p>
+<p>[5]</p>
+<p>TTTech Automotive GmbH, <i>Safe Watchdog Interface</i>, Safety Manual, V. 1.8.0</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Index</b></p>
+<p><b>Safe Watchdog Interface</b></p>
+<p>21</p>
+<p>Page</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2011 - 2014 TTTech Automotive GmbH</i></p>
+<p><i>Safe Watchdog Interface 1.9.4</i></p>
+<p><i>Document number: D-MSP-M-70-006</i></p>
+<p><b>Index</b></p>
+<p><b>- A -</b></p>
+<p>Abbreviations     19</p>
+<p>API Description     11</p>
+<p>Appl_Det.h     10</p>
+<p>Appl_Det_ReportError     10</p>
+<p>Appl_Det_ReportError()     15</p>
+<p><b>- B -</b></p>
+<p>Basic Functionality of the S-WdgIf     3</p>
+<p><b>- C -</b></p>
+<p>Configuration Parameters for the S-WdgIf     5</p>
+<p><b>- D -</b></p>
+<p>Det_ReportError     10</p>
+<p>Det_ReportError()     15</p>
+<p>Deviations from the AUTOSAR Watchdog Interface    </p>
+<p>5</p>
+<p><b>- E -</b></p>
+<p>ECU Description Configuration     7</p>
+<p>Error messages    </p>
+<p>basic errors     17</p>
+<p>semantic errors     17</p>
+<p>Expected Interfaces     15</p>
+<p><b>- F -</b></p>
+<p>File Structure     9</p>
+<p><b>- I -</b></p>
+<p>Introduction     3</p>
+<p><b>- L -</b></p>
+<p>Link Time Configuration     16</p>
+<p><b>- M -</b></p>
+<p>MemMap.h     10</p>
+<p><b>- P -</b></p>
+<p>Preprocessor Options     8</p>
+<p><b>- S -</b></p>
+<p>Safe Watchdog Interface     3</p>
+<p>Std_Types.h     9</p>
+<p>S-WdgIf Configuration     16</p>
+<p>S-WdgIf Configuration Generator     16</p>
+<p>S-WdgIf Functions     12</p>
+<p><b>- T -</b></p>
+<p>Type Definitions     11</p>
+<p><b>- W -</b></p>
+<p>WdgIf.c.     9</p>
+<p>WdgIf.h     9</p>
+<p>WdgIf_Cfg.h     10</p>
+<p>WdgIf_Cfg_Features.h     10, 11</p>
+<p>WDGIF_DEV_ERROR_DETECT     6, 8, 15</p>
+<p>WdgIf_GetTickCounter     5</p>
+<p>WdgIf_GetTickCounter()     14</p>
+<p>WdgIf_GetVersionInfo()     14</p>
+<p>WdgIf_InterfaceFunctionsPerWdgDeviceType     11</p>
+<p>WdgIf_InterfaceType     11</p>
+<p>WDGIF_INTERNAL_TICK_COUNTER     7, 8</p>
+<p>WdgIf_InternalTickCounter()     7</p>
+<p>WdgIf_Lcfg.c     10</p>
+<p>WdgIf_Lcfg.h     10</p>
+<p>WdgIf_ModeType     12</p>
+<p>WdgIf_SetMode()     12</p>
+<p>WdgIf_SetTriggerCondition()     13</p>
+<p>WdgIf_SetTriggerWindow()     13</p>
+<p>WdgIf_Types.h     10</p>
+<p>WDGIF_USE_AUTOSAR_DRV_API     7, 8</p>
+<p>WDGIF_VERSION_INFO_API     6, 8</p>
+<p>WdgIfDevErrorDetect     6, 8</p>
+<p>WdgIfDriverRef     6, 7</p>
+<p>WdgIfInternalTickCounterRef     7, 8</p>
+<p>WdgIfVersionInfoApi     6, 8</p>
+</body>
+</html>
+{% endraw %}

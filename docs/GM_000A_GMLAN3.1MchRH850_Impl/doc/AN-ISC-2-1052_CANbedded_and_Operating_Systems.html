@@ -1,0 +1,354 @@
+---
+layout: default
+title: AN-ISC-2-1052_CANbedded_and_Operating_Systems
+nav_order: 4
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b> </b></p>
+<p><b>CANbedded and Operating Systems </b></p>
+<p><b>Version 1.0 </b></p>
+<p><b>2007-01-18</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Application Note  AN-ISC-2-1052 </b></p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p>Author(s) </p>
+<p>Hartmut Hörner, Patrick Markl </p>
+<p>Restrictions </p>
+<p>Restricted Membership </p>
+<p>Abstract </p>
+<p>The Vector CANbedded software components have some requirements for the run-time </p>
+<p>environment. These requirements are described in this application note.  </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><i><b>Table of Contents </b></i></p>
+<p><i><b> </b></i></p>
+<p><b> 1  </b></p>
+<p><i>Copyright © 2007 - Vector Informatik GmbH </i></p>
+<p><b>Contact Information:   www.vector-informatik.com   or ++49-711-80 670-0 </b></p>
+<p>1.0</p>
+<p> </p>
+<p>Overview ..........................................................................................................................................................1</p>
+<p> </p>
+<p>2.0</p>
+<p> </p>
+<p>General Requirements.....................................................................................................................................1</p>
+<p> </p>
+<p>3.0</p>
+<p> </p>
+<p>Interrupt Handling ............................................................................................................................................2</p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Interrupt Service Routines (ISRs) .................................................................................................................2</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Access to interrupt control registers..............................................................................................................2</p>
+<p> </p>
+<p>4.0</p>
+<p> </p>
+<p>Data consistency..............................................................................................................................................3</p>
+<p> </p>
+<p>5.0</p>
+<p> </p>
+<p>Memory protection and virtual memory management .....................................................................................3</p>
+<p> </p>
+<p>6.0</p>
+<p> </p>
+<p>Privilege modes ...............................................................................................................................................4</p>
+<p> </p>
+<p>7.0</p>
+<p> </p>
+<p>Operating systems with stringent driver models..............................................................................................4</p>
+<p> </p>
+<p>8.0</p>
+<p> </p>
+<p>Startup Time ....................................................................................................................................................5</p>
+<p> </p>
+<p>9.0</p>
+<p> </p>
+<p>Contacts ...........................................................................................................................................................5</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.0 </b></p>
+<p><b>Overview </b></p>
+<p>The Vector CANbedded components have some requirements for the run-time environment. Some of these might </p>
+<p>impact the usage of the operating system elements as well as the real-time design. </p>
+<p>Two run-time environments are explicitly supported by CANbedded: </p>
+<p>•</p>
+<p> </p>
+<p>A system without operating system </p>
+<p>•</p>
+<p> </p>
+<p>An OSEK Operating System (version 2.1r1 onwards) such as Vector osCAN </p>
+<p> </p>
+<p>In the following chapters the requirements are listed and for some cases where no explicitly support exists </p>
+<p>workarounds are described. </p>
+<p><b>2.0 </b></p>
+<p><b>General Requirements </b></p>
+<p>Higher layer CANbedded components require an initialization function and one or more cyclic functions. </p>
+<p>CANbedded hardware drivers have an initialization function, ISRs in interrupt driven mode and cyclic functions in </p>
+<p>polling mode. The initialization function must be called before the cyclic function is called for the first time and </p>
+<p>before the first ISR occurs. </p>
+<p>The CANbedded stack requires a shared address space with the application since some functionalities such as </p>
+<p>signal and flag access are implemented by macros. </p>
+<p>There are no requirements for dynamic memory management. All not constant global variables are explicitly </p>
+<p>initialized in the initialization functions. There are no requirements for memory initialization in the start-up code </p>
+<p>unless constant data is located in RAM. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>CANbedded and Operating Systems</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>2 </b></p>
+<p><i>Application Note  AN-ISC-2-1052 </i></p>
+<p> </p>
+<p>Since the CANbedded components have to interface directly with the communication hardware adequate access </p>
+<p>privileges are required. </p>
+<p><b>3.0 </b></p>
+<p><b>Interrupt Handling </b></p>
+<p><b>3.1 </b></p>
+<p><b>Interrupt Service Routines (ISRs) </b></p>
+<p>If the CAN Driver is used in an interrupt driven mode one or more ISRs must be installed. </p>
+<p>Two categories of ISRs are supported: </p>
+<p>•</p>
+<p> </p>
+<p>ISR implemented with the related compiler pragma or qualifier. This is used in a system without operating </p>
+<p>system and for OSEK-OS ISRs of category 1. </p>
+<p>•</p>
+<p> </p>
+<p>OSEK-OS ISR category 2. </p>
+<p> </p>
+<p>If an operating system other than OSEK is used the following workaround is possible:  </p>
+<p>If OSEK-OS and OSEK-OS category 2 ISR support are selected in the generation tool the ISR has the following C </p>
+<p>syntax: </p>
+<p> </p>
+<p>ISR(CanInterrupt) </p>
+<p>{ </p>
+<p>  … </p>
+<p>} </p>
+<p> </p>
+<p>Supply a header file osek.h with the following macro, to make the ISR available in other modules as a void-void </p>
+<p>function. </p>
+<p> </p>
+<p>#define ISR(x) void x(void) </p>
+<p> </p>
+<p>Example for an operating system which provides a service OSRegisterISR to register an ISR: </p>
+<p> </p>
+<p>OSRegisterISR(CanInterrupt, 10);     /* second parameter is interrupt vector number */ </p>
+<p> </p>
+<p>If the prototype of the ISR required by the OS is not of the kind void x(void) an intermediate function must be used </p>
+<p>to circumvent type conflicts. </p>
+<p><b>3.2 </b></p>
+<p><b>Access to interrupt control registers </b></p>
+<p>To achieve its own data consistency and to export such services to the application the CANbedded components </p>
+<p>require access to the interrupt control registers of the communication controller and to interrupt control registers of </p>
+<p>the interrupt controller or the CPU which allow to disable interrupts globally or up to a certain level. </p>
+<p>If it is not desirable or possible that the CANbedded components access the global interrupt directly this </p>
+<p>functionality can be replaced by other mechanisms (“interrupt control by application”, supported in CAN driver RI </p>
+<p>version 1.4 onwards).  </p>
+<p>If a resource locking mechanism of the operating system is used it must support nested critical sections.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>CANbedded and Operating Systems</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>3 </b></p>
+<p><i>Application Note  AN-ISC-2-1052 </i></p>
+<p> </p>
+<p><b>4.0 </b></p>
+<p><b>Data consistency </b></p>
+<p>For efficiency reasons some services of the CANbedded components are implemented as macros with  </p>
+<p>unprotected critical sections. If these macros are used in multiple full-preemptive tasks or in multiple ISRs data </p>
+<p>consistency problems can be caused. One of the following solutions is possible: </p>
+<p>•</p>
+<p> </p>
+<p>Use these services only in non-preemptable tasks </p>
+<p>•</p>
+<p> </p>
+<p>Use these services only in one cooperative task group (OSEK: internal resource concept) </p>
+<p>•</p>
+<p> </p>
+<p>Supply critical section in the application code </p>
+<p> </p>
+<p>Some CANbedded components have specific requirements concerning processing priorities and reentrancy. These </p>
+<p>requirements are described in the technical reference of the individual component. </p>
+<p> </p>
+<p><b>5.0 </b></p>
+<p><b>Memory protection and virtual memory management </b></p>
+<p><i>This chapter is only applicable if the processor and the run-time environment support such mechanisms. </i></p>
+<p>Since some CANbedded services are implemented as macros which access to global variables the application part </p>
+<p>which uses the CANbedded services and the complete CANbedded stack must reside in one address space.  </p>
+<p>In addition all CANbedded tasks and ISRs must be able to access the peripheral address space of the </p>
+<p>communication hardware. </p>
+<p>The following figure shows a possible configuration with three different applications with an own address space. </p>
+<p>Two applications perform application tasks (drawn in green), one application is responsible for the communication </p>
+<p>(drawn in red). </p>
+<p>Application 1</p>
+<p>Application 2</p>
+<p>CANbedded stack</p>
+<p>Communication hardware</p>
+<p>Communication application</p>
+<p> </p>
+<p>Figure 1 Different applications with own address space </p>
+<p> </p>
+<p>To move data between the applications operating system services are required which have the capability to tunnel </p>
+<p>the address barrier (drawn with blue arrows).. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>CANbedded and Operating Systems</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>4 </b></p>
+<p><i>Application Note  AN-ISC-2-1052 </i></p>
+<p> </p>
+<p><b>6.0 </b></p>
+<p><b>Privilege modes  </b></p>
+<p>This chapter is only applicable if the processor and the run-time environment support such mechanisms. </p>
+<p>In some architectures different privilege modes such as user and supervisor mode are defined. If a task or ISR is </p>
+<p>running in user mode the access to peripheral hardware and global resources such as interrupt control registers </p>
+<p>may be restricted.  </p>
+<p>It must be possible to assign all tasks and ISRs which provide or use CANbedded services a sufficient privilege </p>
+<p>level to allow for: </p>
+<p>•</p>
+<p> </p>
+<p>Access to communication hardware </p>
+<p>•</p>
+<p> </p>
+<p>Access to communication related interrupt control </p>
+<p>•</p>
+<p> </p>
+<p>Access to global interrupt control registers including the capability to execute instructions related to global </p>
+<p>interrupt control registers unless interrupt control by application is used (s. chapter </p>
+<p>3.2). </p>
+<p> </p>
+<p>If such a privilege level is not possible for tasks but only for ISRs a cyclic timer ISR can be used to perform all </p>
+<p>required CANbedded cyclic processing. Note that such an ISR must have a lower interrupt level than the ISRs of </p>
+<p>the CANbedded drivers. </p>
+<p><b>7.0 </b></p>
+<p><b>Operating systems with stringent driver models </b></p>
+<p>This chapter is only applicable if the run-time environment supports such mechanisms. </p>
+<p>In some operating systems hardware access is only allowed for specific hardware drivers which have to follow a </p>
+<p>predefined implementation model. When a hardware driver is called in such a system the required privileges are </p>
+<p>assigned. To allow the usage of CANbedded a wrapper layer between application and CANbedded is required to </p>
+<p>implement the required driver interface. </p>
+<p>Such a design is illustrated in the figure below, the driver interface is drawn with blue arrows: </p>
+<p>Application 1</p>
+<p>Application 2</p>
+<p>CANbedded stack</p>
+<p>Wrapper layer</p>
+<p> </p>
+<p>Figure 2 With Wrapper Layer </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>CANbedded and Operating Systems</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>5 </b></p>
+<p><i>Application Note  AN-ISC-2-1052 </i></p>
+<p> </p>
+<p><b>8.0 </b></p>
+<p><b>Startup Time </b></p>
+<p>Some Operating systems (especially more sophisticated and larger ones) are running out of RAM, while the </p>
+<p>binaries are stored in non-volatile memories like Flash. This requires that the startup code transfers the OS image </p>
+<p>into RAM after power on reset. Depending on the size of the OS image this can take up to several hundreds of </p>
+<p>milliseconds. As a consequence the initialization of the CANbedded stack occurs after the kernel is loaded </p>
+<p>completely. Often this long startup times do not match the OEMs’ startup requirements. There are two possibilities </p>
+<p>to solve this issue. Either the OEM accepts the longer startup time or the operating system supports a mechanism </p>
+<p>that allows initialization of the CANbedded stack before the kernel is loaded completely. </p>
+<p>If the operating system supports some kind of a runtime environment before the kernel is loaded it could be also </p>
+<p>relevant to have a possibility to hand over the information received during the startup phase via CAN to the fully </p>
+<p>loaded kernel environment. </p>
+<p><b>9.0 </b></p>
+<p><b>Contacts </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Vector Informatik GmbH </b></p>
+<p>Ingersheimer Straße 24 </p>
+<p>70499 Stuttgart </p>
+<p>Germany </p>
+<p>Tel.: +49 711-80670-0 </p>
+<p>Fax: +49 711-80670-111 </p>
+<p>Email: info@vector-informatik.de </p>
+<p> </p>
+<p> </p>
+<p><b>Vector CANtech, Inc. </b></p>
+<p>39500 Orchard Hill Pl., Ste 550 </p>
+<p>Novi, MI  48375 </p>
+<p>USA </p>
+<p>Tel:  +1-248-449-9290 </p>
+<p>Fax: +1-248-449-9704 </p>
+<p>Email: info@vector-cantech.com </p>
+<p> </p>
+<p><b>VecScan AB </b></p>
+<p>Lindholmspiren 5 </p>
+<p>402 78 Göteborg  </p>
+<p>Sweden </p>
+<p>Tel:  +46 (0)31 764 76 00 </p>
+<p>Fax: +46 (0)31 764 76 19  </p>
+<p>Email: info@vecscan.com </p>
+<p><b>Vector France SAS </b></p>
+<p>168 Boulevard Camélinat </p>
+<p>92240 Malakoff  </p>
+<p>France </p>
+<p>Tel:  +33 (0)1 42 31 40 00 </p>
+<p>Fax: +33 (0)1 42 31 40 09 </p>
+<p>Email: information@vector-france.fr </p>
+<p> </p>
+<p><b>Vector Japan Co. Ltd. </b></p>
+<p>Seafort Square Center Bld. 18F </p>
+<p>2-3-12, Higashi-shinagawa, </p>
+<p>Shinagawa-ku </p>
+<p>J-140-0002 Tokyo </p>
+<p>Tel.: +81 3 5769 6970    </p>
+<p>Fax: +81 3 5769 6975 </p>
+<p>Email: info@vector-japan.co.jp </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,577 @@
+---
+layout: default
+title: S-WdgIf_SafetyCase
+nav_order: 2
+parent: Watchdog Interface
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>TTTech Automotive GmbH  </b></p>
+<p>Schoenbrunner Str. 7, A-1040 Vienna, Austria, Tel. + 43 1 585 34 34-0, Fax +43 1 585 34 34-90, office@tttech-automotive.com</p>
+<p> </p>
+<p>No part of the document may be reproduced or transmitted in any form or by any means, electronic or mechanical, for any purpose, without the written permission of TTTech </p>
+<p>Automotive. Company or product names mentioned in this document may be trademarks or registered trademarks of their respective companies. TTTech Automotive undertakes no </p>
+<p>further obligation in relation to this document. </p>
+<p>Copyright © 2010, TTTech Automotive GmbH. All rights reserved.                                                                                                                              Subject to changes and corrections </p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p> </p>
+<p><b>Safe Watchdog Interface</b></p>
+<p> </p>
+<p>Safety Case </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Author: </b></p>
+<p>TTTech </p>
+<p><b>Reviewer(s): </b></p>
+<p>PPU </p>
+<p><b>Reference: </b></p>
+<p>D-SAFEX-IN-70-002 </p>
+<p><b>Security: </b></p>
+<p>Confidential </p>
+<p><b>Version: </b></p>
+<p>1.2.0 </p>
+<p><b>Date: </b></p>
+<p>2014-11-20 </p>
+<p><b>Status: </b></p>
+<p>Released </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Document Name: Safety Case </p>
+<p>Ref.: D-SAFEX-IN-70-002 </p>
+<p>Page 2 </p>
+<p><b>Last Change: </b>2014-11-20 </p>
+<p><b>Author: </b>TTTech </p>
+<p><b>Version: 1.2.0 </b></p>
+<p><b>© TTTech Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>Revision Chart </b></p>
+<p>A revision is a new edition of the document and affects all sections of this document. </p>
+<p> </p>
+<p>Version  </p>
+<p>Date </p>
+<p>Responsible Person </p>
+<p>Modification </p>
+<p>0.1.0 </p>
+<p>2012-07-02 </p>
+<p>PPU </p>
+<p>Creation </p>
+<p>0.2.0 </p>
+<p>2012-07-19 </p>
+<p>PPU </p>
+<p>Corrected ISO/DIS -&gt; ISO </p>
+<p>0.3.0 </p>
+<p>2012-09-27 </p>
+<p>PPU </p>
+<p>Added S-WdgM Stack chapter </p>
+<p>0.4.0 </p>
+<p>2012-10-01 </p>
+<p>PPU </p>
+<p>Versions of artefacts updated </p>
+<p>1.0.0 </p>
+<p>2012-10-01 </p>
+<p>PPU </p>
+<p>Version of this document updated </p>
+<p>1.0.1 </p>
+<p>2012-10-03 </p>
+<p>PPU </p>
+<p>Document derived from common </p>
+<p>Safety Case document ver. 1.0.0. It contains </p>
+<p>now the S-WdgIf unit only. </p>
+<p>Content against 1.0.0 not changed. </p>
+<p>1.0.2 </p>
+<p>2012-10-04 </p>
+<p>PPU </p>
+<p>In the chapter 2 the RAD reference removed </p>
+<p>and the provided ISO lifecycles added. </p>
+<p>1.0.3 </p>
+<p>2012-11-16 </p>
+<p>PPU </p>
+<p>Update of the collected document versions. </p>
+<p>1.0.4 </p>
+<p>2012-11-19 </p>
+<p>PPU </p>
+<p>Update after issue50199. </p>
+<p>1.0.5 </p>
+<p>2013-01-11 </p>
+<p>PPU </p>
+<p>Update after second TÜV assessment </p>
+<p>1.1.0 </p>
+<p>2014-07-28 </p>
+<p>VLE </p>
+<p>Update of the collected document versions </p>
+<p>(issue65369) </p>
+<p>1.1.1 </p>
+<p>2014-08-13 </p>
+<p>VLE </p>
+<p>Update after PPU review. </p>
+<p>1.2.0 </p>
+<p>2014-11-20 </p>
+<p>VLE </p>
+<p>Update of the collected document versions </p>
+<p>(issue69469) </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Document Name: Safety Case </p>
+<p>Ref.: D-SAFEX-IN-70-002 </p>
+<p>Page 3 </p>
+<p><b>Last Change: </b>2014-11-20 </p>
+<p><b>Author: </b>TTTech </p>
+<p><b>Version: 1.2.0 </b></p>
+<p><b>© TTTech Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Purpose of this Document .................................................................................................... 4</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Software Safety Lifecycle Documentation........................................................................... 4</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Safe Watchdog Interface ................................................................................................. 5</p>
+<p> </p>
+<p>2.1.1</p>
+<p> </p>
+<p>Software Requirements Document (SRD) ................................................................... 5</p>
+<p> </p>
+<p>2.1.2</p>
+<p> </p>
+<p>Unit Design Document (UDD) ...................................................................................... 5</p>
+<p> </p>
+<p>2.1.3</p>
+<p> </p>
+<p>Source Code ................................................................................................................ 6</p>
+<p> </p>
+<p>2.1.4</p>
+<p> </p>
+<p>Unit Test Specification (UTS) ....................................................................................... 6</p>
+<p> </p>
+<p>2.1.5</p>
+<p> </p>
+<p>Unit Test Report (UTR) ................................................................................................ 6</p>
+<p> </p>
+<p>2.1.6</p>
+<p> </p>
+<p>Safety Manual (SM) ..................................................................................................... 7</p>
+<p> </p>
+<p>2.1.7</p>
+<p> </p>
+<p>Event Tree Analysis (ETA) ........................................................................................... 7</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Summary ................................................................................................................................ 7</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Abbreviations and Glossary ................................................................................................. 7</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>References ............................................................................................................................. 8</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Documents Available on Request .................................................................................... 8</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Other Documents ............................................................................................................ 8</p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Document Name: Safety Case </p>
+<p>Ref.: D-SAFEX-IN-70-002 </p>
+<p>Page 4 </p>
+<p><b>Last Change: </b>2014-11-20 </p>
+<p><b>Author: </b>TTTech </p>
+<p><b>Version: 1.2.0 </b></p>
+<p><b>© TTTech Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>1 </b></p>
+<p><b>Purpose of this Document </b></p>
+<p>This document represents the safety case for the Safe Watchdog Interface unit. The Safe </p>
+<p>Watchdog Interface is a part of the Safe Watchdog Manager Stack.  </p>
+<p> </p>
+<p>It references all relevant documents to provide evidence that the software units have been </p>
+<p>developed according to ISO26262 requirements for an ASIL D software unit [ISO]. </p>
+<p>  </p>
+<p><b>2 </b></p>
+<p><b>Software Safety Lifecycle Documentation </b></p>
+<p>The software units represent SEooC units according to ISO26262. The following software safety </p>
+<p>lifecycles were executed as part of the development process of the software units:  </p>
+<p> </p>
+<p>Concept phases: </p>
+<p></p>
+<p> </p>
+<p>3-7 Hazard analysis and risk assessment *) </p>
+<p></p>
+<p> </p>
+<p>3-8 Functional Safety Concept *) </p>
+<p> </p>
+<p>Product development at the system level: </p>
+<p></p>
+<p> </p>
+<p>4-6 Technical Safety Concept *) </p>
+<p></p>
+<p> </p>
+<p>4-7 System Design *) </p>
+<p> </p>
+<p>Product development at the software level: </p>
+<p></p>
+<p> </p>
+<p>6-5: Initiation of product development at the software level *) </p>
+<p></p>
+<p> </p>
+<p>6-8: Software unit design and implementation *) </p>
+<p></p>
+<p> </p>
+<p>6-9: Software unit testing *) </p>
+<p> </p>
+<p>Supporting processes: </p>
+<p></p>
+<p> </p>
+<p>8-7 Configuration management </p>
+<p></p>
+<p> </p>
+<p>8-8 Change management </p>
+<p></p>
+<p> </p>
+<p>8-9 Verification </p>
+<p></p>
+<p> </p>
+<p>8-10 Documentation </p>
+<p></p>
+<p> </p>
+<p>8-11 Confidence in the use of software tools </p>
+<p> </p>
+<p> </p>
+<p>*) As far as related to the S-WdgIf as SEooC </p>
+<p> </p>
+<p>Part 6-6 deals with safety requirements, which are always defined on system level. For the </p>
+<p>development of the SEooC, we have made assumptions on the safety requirements, which are </p>
+<p>described in the corresponding SEooC safety manuals. The system integrator must verify that the </p>
+<p>SEooC fits to the actual system safety requirements. </p>
+<p> </p>
+<p>The other software safety lifecycle phases described by ISO26262 have to be executed by the </p>
+<p>system integrator. </p>
+<p> </p>
+<p>The following subsections list the software safety lifecycle artifacts of the software units: </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Document Name: Safety Case </p>
+<p>Ref.: D-SAFEX-IN-70-002 </p>
+<p>Page 5 </p>
+<p><b>Last Change: </b>2014-11-20 </p>
+<p><b>Author: </b>TTTech </p>
+<p><b>Version: 1.2.0 </b></p>
+<p><b>© TTTech Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p></p>
+<p>  Safety manuals as .pdf files, </p>
+<p></p>
+<p>  Source code delivered to customer as pointer to the code location, </p>
+<p></p>
+<p>  Requirement, design documentation, and test specification as references to the respective </p>
+<p>documents in the MKS repository. They are identified by MKS document id and the document </p>
+<p>version number, </p>
+<p></p>
+<p>  Test results as .doc or .pdf files </p>
+<p> </p>
+<p>The customer delivery contains user manuals, safety manuals and source code. All other artifacts </p>
+<p>can be audited by the customer on request – either on-site in TTTech Vienna development </p>
+<p>location, or via teleconference (e.g. Webex). </p>
+<p> </p>
+<p>The verification and confirmation measures as required by ISO26262 has been executed as </p>
+<p>described in the Software Project Plan.  </p>
+<p> </p>
+<p>The evidence for the execution of all verification and confirmation measures as required by </p>
+<p>ISO26262 are version-controlled in the following directory: </p>
+<p>http://tttechsvn.vie.at.tttech.ttt/trunk/projects/certification/sqa/s-wdgm/evidence </p>
+<p> </p>
+<p>The conformity of the development processes of the S-WdgM Stack with ISO 26262 has </p>
+<p>been assessed in a process audit </p>
+<p>[AUDIT_S-WdgM]. </p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>Safe Watchdog Interface </b></p>
+<p><b>2.1.1 </b></p>
+<p><b>Software Requirements Document (SRD) </b></p>
+<p>This document describes the software requirements for Safe Watchdog Interface. The SRD </p>
+<p>represents the software unit high-level requirements as required by ISO 26262 – 6, clause 6. </p>
+<p> </p>
+<p>Document Title </p>
+<p>Safe Watchdog Interface - Software Requirements Document </p>
+<p>Document Version </p>
+<p>1.0.8 </p>
+<p>Document Number </p>
+<p>D-SAFEX-S-70-002 </p>
+<p>Location </p>
+<p>MKS 125936 </p>
+<p>Label </p>
+<p>Release_1_26_3 </p>
+<p> </p>
+<p><b>2.1.2 </b></p>
+<p><b>Unit Design Document (UDD) </b></p>
+<p>The UDD represents the software unit design specification as required by ISO 26262 – 6, clause 8.  </p>
+<p> </p>
+<p>Document Title </p>
+<p>Safe Watchdog Interface - Unit Design Document </p>
+<p>Document Version </p>
+<p>1.0.9 </p>
+<p>Document Number </p>
+<p>D-SAFEX-D-70-001 </p>
+<p>Location </p>
+<p>MKS ID 125939 </p>
+<p>Label </p>
+<p>Release_1_26_3 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Document Name: Safety Case </p>
+<p>Ref.: D-SAFEX-IN-70-002 </p>
+<p>Page 6 </p>
+<p><b>Last Change: </b>2014-11-20 </p>
+<p><b>Author: </b>TTTech </p>
+<p><b>Version: 1.2.0 </b></p>
+<p><b>© TTTech Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>2.1.3 </b></p>
+<p><b>Source Code </b></p>
+<p>The source code of the software unit is written in the C programming language. </p>
+<p>Title </p>
+<p>Safe Watchdog Interface - Source Code </p>
+<p>Version </p>
+<p>3.3.6 </p>
+<p>Location </p>
+<p>http://tttechsvn.vie.at.tttech.ttt/branches/For_SAFEEXE_SERIES_Release_1</p>
+<p>_26_3/SW/msp-watchdog-if </p>
+<p> </p>
+<p>The exact contents of the Source Code and configuration management tags are described in </p>
+<p>[RAD]. </p>
+<p> </p>
+<p>The HIS metrics and the MISRA rule check are performed with the tool QA-C. </p>
+<p>The HIS metrics report can be found in the folders </p>
+<p>http://tttechsvn.vie.at.tttech.ttt/trunk/projects/customers/SafeExe-ASIL/04_technical-</p>
+<p>documents/HIS_MISRA_checks/Release_1_26_3/S-WdgIf/ </p>
+<p>All HIS metrics violations are justified in the respective source files. </p>
+<p> </p>
+<p>The results of the MISRA-check can be found in the folders </p>
+<p>http://tttechsvn.vie.at.tttech.ttt/trunk/projects/customers/SafeExe-ASIL/04_technical-</p>
+<p>documents/HIS_MISRA_checks/Release_1_26_3/S-WdgIf/ </p>
+<p>All violations are justified. The justifications are provided as comments in the respective source </p>
+<p>files. </p>
+<p> </p>
+<p><b>2.1.4 </b></p>
+<p><b>Unit Test Specification (UTS) </b></p>
+<p>The UTS contains a detailed test specification of the software unit according to the requirements of </p>
+<p>ISO 26262 – 6, clause 9 . The UTS demonstrates 100% requirements coverage. </p>
+<p> </p>
+<p>Document Title </p>
+<p>Safe Watchdog Interface - Unit Test Specification </p>
+<p>Document Version </p>
+<p>1.0.11 </p>
+<p>Document Number </p>
+<p>D-SAFEX-V-70-002 </p>
+<p>Location </p>
+<p>MKS ID 125942 </p>
+<p>Label </p>
+<p>Release_1_26_3 </p>
+<p><b>2.1.5 </b></p>
+<p><b>Unit Test Report (UTR) </b></p>
+<p>The UTR contains a detailed unit test report according to the requirements of ISO 26262 – 6, </p>
+<p>clauses 8 and 9. The UTR shows that all tests and review procedures specified in the UTS passed </p>
+<p>and that 100% MC/DC coverage is achieved.  </p>
+<p> </p>
+<p>Document Title </p>
+<p>Safe Watchdog Interface - Unit Test Report </p>
+<p>Document Version </p>
+<p>1.0.5 </p>
+<p>Document Number </p>
+<p>D-SAFEX-V-70-006 </p>
+<p>Location </p>
+<p>\\fileserver.vie.at.tttech.ttt\projects\certification\tttech-</p>
+<p>automotive\release\S-WdgM\S-WdgIf\UTR\UTR_WdgIf_D-SAFEX-V-70-</p>
+<p>006_V_1_0_5\UTR_WdgIf_D-SAFEX-V-70-006_V_1_0_5.pdf </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Document Name: Safety Case </p>
+<p>Ref.: D-SAFEX-IN-70-002 </p>
+<p>Page 7 </p>
+<p><b>Last Change: </b>2014-11-20 </p>
+<p><b>Author: </b>TTTech </p>
+<p><b>Version: 1.2.0 </b></p>
+<p><b>© TTTech Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>2.1.6 </b></p>
+<p><b>Safety Manual (SM) </b></p>
+<p>The Safety Manual (SM) contains the requirements for the integrator of the software unit. All </p>
+<p>requirements described in this document must be followed. In specific, the SM describes for which </p>
+<p>configuration (configuration parameters, used hardware, compiler and linker settings) the software </p>
+<p>unit has been tested according to ISO 26262 requirements. Moreover, the SM describes which SW </p>
+<p>safety lifecycle requirements and recommendations of ISO 26262 were not executed during the </p>
+<p>development of the software unit. These requirements and recommendations have to be </p>
+<p>considered by the integrator of the software unit.  </p>
+<p> </p>
+<p>Document Title </p>
+<p>Safe Watchdog Interface - Safety Manual </p>
+<p>Document Version </p>
+<p>1.8.9 </p>
+<p>Document Number </p>
+<p>D-SAFEX-S-70-005 </p>
+<p>Locations </p>
+<p>MKS 232906 </p>
+<p>Label </p>
+<p>Release_1_26_3 </p>
+<p> </p>
+<p><b>2.1.7 </b></p>
+<p><b>Event Tree Analysis (ETA) </b></p>
+<p>The ETA is the event tree analysis that was performed as part of the Safe Watchdog Manager (S-</p>
+<p>WdgIf ) software development according to the requirements and recommendations of ISO 26262 </p>
+<p> </p>
+<p>Document Title </p>
+<p>Safe Watchdog Interface - Event Tree Analysis </p>
+<p>Document Version </p>
+<p>1.0.0 </p>
+<p>Document Number </p>
+<p>D-SAFEX-S-70-012</p>
+<p> </p>
+<p>Locations </p>
+<p>MKS ID 263814 </p>
+<p>Label </p>
+<p>Release_1_26_3 </p>
+<p> </p>
+<p> </p>
+<p><b>3 </b></p>
+<p><b>Summary </b></p>
+<p>The evidence in sections </p>
+<p></p>
+<p> </p>
+<p> “Software Safety Lifecycle Documentation” </p>
+<p>and the assessment reports [AUDIT_S-WdgM] shows that the S-WdgIf unit has been developed as </p>
+<p>a SEooC component according to ISO26262:2011 and can be used for up to ASIL D. </p>
+<p> </p>
+<p>It is safe to integrate the SW unit into safety-related systems developed according to ISO </p>
+<p>26262:2011, if the requirements that are described in the Safety Manual (SM) are fulfilled by the </p>
+<p>system integrator. </p>
+<p> </p>
+<p> </p>
+<p><b>4 </b></p>
+<p><b>Abbreviations and Glossary </b></p>
+<p><b>Acronym / Term </b></p>
+<p><b>Meaning </b></p>
+<p>API </p>
+<p>Application Programmer Interface </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Document Name: Safety Case </p>
+<p>Ref.: D-SAFEX-IN-70-002 </p>
+<p>Page 8 </p>
+<p><b>Last Change: </b>2014-11-20 </p>
+<p><b>Author: </b>TTTech </p>
+<p><b>Version: 1.2.0 </b></p>
+<p><b>© TTTech Automotive GmbH </b></p>
+<p><b>Ensuring Reliable Networks </b></p>
+<p><b>Acronym / Term </b></p>
+<p><b>Meaning </b></p>
+<p>ASIL </p>
+<p>Automotive Safety Integrity Level </p>
+<p>HIS </p>
+<p>Herstellerinitiative Software </p>
+<p>ISO </p>
+<p>International Standard </p>
+<p>MC/DC </p>
+<p>Modified Condition/Decision Coverage </p>
+<p>MISRA </p>
+<p>Motor Industry Software Reliability Association </p>
+<p>MKS </p>
+<p>MKS Integrity software tool made by MKS Software Inc. </p>
+<p>SEooC </p>
+<p>Safety Element out of Context according to ISO 26262-10 </p>
+<p>SW </p>
+<p>Software Specification </p>
+<p><b>5 </b></p>
+<p><b>References </b></p>
+<p><b>5.1 </b></p>
+<p><b>Documents Available on Request  </b></p>
+<p>The following documents are not part of the customer delivery. The documents can be made </p>
+<p>available in video conferences (e.g., WebEx) or in on-site audits at the development center of </p>
+<p>TTTech in Vienna. If necessary, please contact the TTTech Automotive Support at </p>
+<p>support@tttech-automotive.com. </p>
+<p> </p>
+<p>[AUDIT_S-WdgM] </p>
+<p> </p>
+<p> </p>
+<p>TÜV NORD – Institut für Fahrzeugtechnik &amp; Mobilität, </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>A/ </b></p>
+<p><b>Report on the Functional Safety Audit for TTTech’s Safe Watchdog </b></p>
+<p><b>Manager Stack (ISO 26262 / ASIL D) </b></p>
+<p>1. </p>
+<p>Report-No: 8109170322-B01, Version 1.0, 2012-07-18 </p>
+<p>2. </p>
+<p>Report-No: 8109170322-B02, Version 1.0  2012-12-20 </p>
+<p> </p>
+<p><b>B/ </b></p>
+<p><b>Functional Safety Assessment Report of “Safe Watchdog Manager </b></p>
+<p><b>Stack” conformity against ISO26262, ASIL D. </b></p>
+<p>3. </p>
+<p>Report-No: 8109170322-B04, Version 1.0 2013-02-25 </p>
+<p>[COMPL] </p>
+<p>TTTech Computertechnik AG, ISO_DIS_26262_Compliance.xls, D-INT-CL-</p>
+<p>70-001 </p>
+<p>[TT_ASDM_322] </p>
+<p> </p>
+<p>TTTech Automotive GmbH, Automotive Software Development Manual, </p>
+<p> </p>
+<p>V3.2.2, D-100-T-70-001</p>
+<p> </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>Other Documents </b></p>
+<p>[ISO] </p>
+<p>International Organization for Standardization, International Standard </p>
+<p>ISO26262 Road vehicles – Functional safety (all parts), 2011 </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

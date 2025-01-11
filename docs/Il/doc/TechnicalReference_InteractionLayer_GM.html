@@ -1,0 +1,2599 @@
+---
+layout: default
+title: TechnicalReference_InteractionLayer_GM
+nav_order: 4
+parent: Interaction Layer
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Interaction Layer for General Motors </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Il_Vector_Gm  with GENy </p>
+<p>Version 2.01.02 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Ralf Fritz, Gunnar Meiss, Heiko Hübler </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>2 / 48 </p>
+<p><b>1 </b></p>
+<p><b>Document Information </b></p>
+<p>This  document  may  be  revised  and  appear  in  several  versions.  The  document  will  be </p>
+<p>classified to permit identification of updates and versions. </p>
+<p>This user manual  is related to the source code version (Il_Vector_Gm)  1.01.00 or higher.   </p>
+<p><b>1.1 </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Ralf Fritz </p>
+<p>2003-08-05 </p>
+<p>1.00 </p>
+<p>creation </p>
+<p>Ralf Fritz </p>
+<p>2004-07-02 </p>
+<p>1.01 </p>
+<p>Changed description for ILSetTxMessageEnable </p>
+<p>Ralf Fritz </p>
+<p>2004-07-16 </p>
+<p>1.02 </p>
+<p>Sample corrected. Restriction added. </p>
+<p>Ralf Fritz </p>
+<p>2005-04-27 </p>
+<p>1.03 </p>
+<p>Timeout and Source Learning description extended. </p>
+<p>New Layout. </p>
+<p>Ralf Fritz </p>
+<p>2005-08-01 </p>
+<p>1.04 </p>
+<p>Adaptation of return values of several functions.  </p>
+<p>Ralf Fritz </p>
+<p>2007-03-29 </p>
+<p>1.05 </p>
+<p>Corrected chapter 3.1.2.2 </p>
+<p>and 3.1.2.3 </p>
+<p>Ralf Fritz </p>
+<p>2007-05-01 </p>
+<p>1.06 </p>
+<p>Switch to new documentation template. </p>
+<p>Gunnar Meiss </p>
+<p>2008-01-17 </p>
+<p>2.00 </p>
+<p>Added GENy Support </p>
+<p>Heiko Hübler </p>
+<p>2012-10-18 </p>
+<p>2.01.00 </p>
+<p>Added Robustness Changes </p>
+<p>Added Clearing Flags on Deactivate VN </p>
+<p>(ESCAN00061059) </p>
+<p>Heiko Hübler </p>
+<p>2012-10-26 </p>
+<p>2.01.01 </p>
+<p>Changed description of Clearing Flags on Deactivate </p>
+<p>VN </p>
+<p>Heiko Hübler </p>
+<p>2013-01-31 </p>
+<p>2.01.02 </p>
+<p>Updated GMLAN  version (ESCAN00064595) </p>
+<p>improved the description of Source Address Timeout </p>
+<p>Supervision (ESCAN00064519) </p>
+<p>Table 1-1  </p>
+<p>History of the Document </p>
+<p><b>1.2 </b></p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> </p>
+<p>Vector </p>
+<p>Technical Reference of Vector’s CAN driver </p>
+<p>(TechnicalReference_CANDriver.pdf). </p>
+<p>2.23.00 </p>
+<p>[2] </p>
+<p> </p>
+<p>Vector </p>
+<p>Vector Interaction Layer Technical Reference for GENy. </p>
+<p>(TechnicalReference_GENy_InteractionLayer.pdf). </p>
+<p>2.08.00 </p>
+<p>[3] </p>
+<p> </p>
+<p>Vector </p>
+<p>Technical Reference of Vector’s GMLAN  Network Management </p>
+<p>(TechnicalReference_GMLAN_NM.pdf). </p>
+<p>1.07.00 </p>
+<p>[4] </p>
+<p> </p>
+<p>OSEK/VDX </p>
+<p>OSEK/VDX Communication Specification 3.0.3. </p>
+<p>3.0.3 </p>
+<p>Table 1-2  </p>
+<p>Reference Documents </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>3 / 48 </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>We have configured the programs in accordance with your specifications in the  </p>
+<p> </p>
+<p> </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector’s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>4 / 48 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Document Information ...................................................................................................... 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>History .................................................................................................................... 2</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Reference Documents ........................................................................................... 2</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Component History ........................................................................................................... 8</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Il_Vector_Gm Version 1.00.00 ............................................................................... 8</p>
+<p> </p>
+<p>2.1.1</p>
+<p> </p>
+<p>What is new? ......................................................................................... 8</p>
+<p> </p>
+<p>2.1.2</p>
+<p> </p>
+<p>What has changed?............................................................................... 8</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Il_Vector_Gm Version 1.01.00 ............................................................................... 8</p>
+<p> </p>
+<p>2.2.1</p>
+<p> </p>
+<p>What is new? ......................................................................................... 8</p>
+<p> </p>
+<p>2.2.2</p>
+<p> </p>
+<p>What has changed?............................................................................... 8</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ..................................................................................................... 9</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Data Transmission.................................................................................................. 9</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Cyclic Transmission ............................................................................... 9</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Event Based Transmission .................................................................. 10</p>
+<p> </p>
+<p>3.1.3</p>
+<p> </p>
+<p>Mixed Transmission ............................................................................. 13</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Signal Access ....................................................................................................... 14</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Extended CAN Identifiers..................................................................................... 15</p>
+<p> </p>
+<p>3.3.1</p>
+<p> </p>
+<p>Source Learning .................................................................................. 15</p>
+<p> </p>
+<p>3.3.2</p>
+<p> </p>
+<p>Source Address Timeout Supervision ................................................. 16</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Application Controlled Message Filter ................................................................. 17</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Clearing Flags on Deactivate VN......................................................................... 17</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ........................................................................................................................ 18</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Include structure ................................................................................................... 18</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Initialization........................................................................................................... 18</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Cyclic function ...................................................................................................... 19</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Configuration ................................................................................................................... 21</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Database Attributes .............................................................................................. 21</p>
+<p> </p>
+<p>5.1.1</p>
+<p> </p>
+<p>Send Type ............................................................................................ 21</p>
+<p> </p>
+<p>5.1.2</p>
+<p> </p>
+<p>Default Values ...................................................................................... 21</p>
+<p> </p>
+<p>5.1.3</p>
+<p> </p>
+<p>Tx NCA Message ................................................................................. 22</p>
+<p> </p>
+<p>5.1.4</p>
+<p> </p>
+<p>Timeout Supervision ............................................................................ 23</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>API Description ................................................................................................................ 25</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Administrative functions ....................................................................................... 25</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>5 / 48 </p>
+<p>6.1.1.1</p>
+<p> </p>
+<p>IlInitPowerOn .................................................................... 25</p>
+<p> </p>
+<p>6.1.1.2</p>
+<p> </p>
+<p>IlInit.................................................................................... 25</p>
+<p> </p>
+<p>6.1.1.3</p>
+<p> </p>
+<p>IlRxTask............................................................................. 26</p>
+<p> </p>
+<p>6.1.1.4</p>
+<p> </p>
+<p>IlTxTask ............................................................................. 26</p>
+<p> </p>
+<p>6.1.1.5</p>
+<p> </p>
+<p>IlRxStateTask .................................................................... 27</p>
+<p> </p>
+<p>6.1.1.6</p>
+<p> </p>
+<p>IlTxStateTask..................................................................... 28</p>
+<p> </p>
+<p>6.1.1.7</p>
+<p> </p>
+<p>IlSetOwnNodeAddress ..................................................... 28</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Service functions .................................................................................................. 29</p>
+<p> </p>
+<p>6.2.1.1</p>
+<p> </p>
+<p>IlSetEvent.......................................................................... 29</p>
+<p> </p>
+<p>6.2.1.2</p>
+<p> </p>
+<p>IlGetNodeCommActiveState............................................. 29</p>
+<p> </p>
+<p>6.2.1.3</p>
+<p> </p>
+<p>IlSetRxMessageSourceAddress....................................... 30</p>
+<p> </p>
+<p>6.2.1.4</p>
+<p> </p>
+<p>IlGetRxMessageSourceAddress ...................................... 30</p>
+<p> </p>
+<p>6.2.1.5</p>
+<p> </p>
+<p>IlSetRxMessageEnable .................................................... 31</p>
+<p> </p>
+<p>6.2.1.6</p>
+<p> </p>
+<p>IlSetTxMessageEnable..................................................... 31</p>
+<p> </p>
+<p>6.2.1.7</p>
+<p> </p>
+<p>IlGetTransmitMessageStatus ........................................... 32</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Callback functions ................................................................................................ 32</p>
+<p> </p>
+<p>6.3.1</p>
+<p> </p>
+<p>ApplIlSourceAddressLearned.............................................................. 33</p>
+<p> </p>
+<p>6.3.2</p>
+<p> </p>
+<p>ApplIlRxMsgSrcAddressLearned ........................................................ 33</p>
+<p> </p>
+<p>6.3.3</p>
+<p> </p>
+<p>ApplIlNodeCommActiveRecovery ....................................................... 34</p>
+<p> </p>
+<p>6.3.4</p>
+<p> </p>
+<p>ApplIlNodeCommActiveFailed............................................................. 34</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Abbreviations................................................................................................................... 36</b></p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Appendix .......................................................................................................................... 37</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Nm_Gmlan_Gm Interface .................................................................................... 37</p>
+<p> </p>
+<p>8.1.1</p>
+<p> </p>
+<p>IlRxStart................................................................................................ 37</p>
+<p> </p>
+<p>8.1.2</p>
+<p> </p>
+<p>IlTxStart ................................................................................................ 37</p>
+<p> </p>
+<p>8.1.3</p>
+<p> </p>
+<p>IlRxStop................................................................................................ 38</p>
+<p> </p>
+<p>8.1.4</p>
+<p> </p>
+<p>IlTxStop ................................................................................................ 39</p>
+<p> </p>
+<p>8.1.5</p>
+<p> </p>
+<p>IlRxWait ................................................................................................ 39</p>
+<p> </p>
+<p>8.1.6</p>
+<p> </p>
+<p>IlTxWait ................................................................................................ 40</p>
+<p> </p>
+<p>8.1.7</p>
+<p> </p>
+<p>IlRxRelease.......................................................................................... 40</p>
+<p> </p>
+<p>8.1.8</p>
+<p> </p>
+<p>IlTxRelease .......................................................................................... 41</p>
+<p> </p>
+<p>8.1.9</p>
+<p> </p>
+<p>IlRxActivateVnMsg............................................................................... 41</p>
+<p> </p>
+<p>8.1.10</p>
+<p> </p>
+<p>IlRxDeactivateVnMsg .......................................................................... 42</p>
+<p> </p>
+<p>8.1.11</p>
+<p> </p>
+<p>IlTxActivateVnMsg ............................................................................... 43</p>
+<p> </p>
+<p>8.1.12</p>
+<p> </p>
+<p>IlTxDeactivateVnMsg........................................................................... 43</p>
+<p> </p>
+<p>8.1.13</p>
+<p> </p>
+<p>IlRxStartVnMsgSupervision ................................................................. 44</p>
+<p> </p>
+<p>8.1.14</p>
+<p> </p>
+<p>IlRxDeactivateVnMsgSupervision ....................................................... 45</p>
+<p> </p>
+<p>8.1.15</p>
+<p> </p>
+<p>IlResetRxTimeoutFlags ....................................................................... 45</p>
+<p> </p>
+<p>8.1.16</p>
+<p> </p>
+<p>IlRequeueTransmitMessages .............................................................. 46</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>6 / 48 </p>
+<p>8.2</p>
+<p> </p>
+<p>Interaction Layer Internal Interfaces .................................................................... 47</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Contact.............................................................................................................................. 48</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>7 / 48 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Sequence Diagram of Cyclic Transmission ................................................. 10</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Sequence Diagram of Event based Transmission ....................................... 11</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Sequence Diagram of Event based Transmission with Delay ..................... 12</p>
+<p> </p>
+<p>Figure 3-4</p>
+<p> </p>
+<p>Sequence Diagram of Cyclic and Event based Transmission in </p>
+<p>combination................................................................................................... 13</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Including Il_Vector_Gm ................................................................................ 18</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p> </p>
+<p>Call of the Il_Vector cyclic function............................................................... 20</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>History of the Document ................................................................................. 2</p>
+<p> </p>
+<p>Table 1-2 </p>
+<p> </p>
+<p>Reference Documents .................................................................................... 2</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Validity Bit Value Interpretation ..................................................................... 14</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>VDA Bit Value Interpretation ......................................................................... 15</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Extended CAN Identifier fields ..................................................................... 15</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>8 / 48 </p>
+<p><b>2 </b></p>
+<p><b>Component History </b></p>
+<p>This  chapter  describes  the </p>
+<p>implementation  of  the  Vector  Interaction  Layer  for  General </p>
+<p>Motors in GENy. </p>
+<p><b>2.1 </b></p>
+<p><b>Il_Vector_Gm Version 1.00.00 </b></p>
+<p><b>2.1.1 </b></p>
+<p><b>What is new? </b></p>
+<p><b>&gt; </b> The Interaction  Layer is configured with GENy. </p>
+<p><b>&gt; </b> API to handle  signal groups. </p>
+<p><b>&gt; </b> Mask bit support. </p>
+<p><b>2.1.2 </b></p>
+<p><b>What has changed? </b></p>
+<p><b>&gt; </b> The Validity bit API is the same API as for Mask bits or signal groups. </p>
+<p><b>&gt; </b> Reduction  of the code size. </p>
+<p><b>2.2 </b></p>
+<p><b>Il_Vector_Gm Version 1.01.00  </b></p>
+<p><b>2.2.1 </b></p>
+<p><b>What is new? </b></p>
+<p><b>&gt; </b> IlRxDeactivateVnMsg  clears now the flags of deactivated messages (see 3.5). </p>
+<p><b>2.2.2 </b></p>
+<p><b>What has changed? </b></p>
+<p><b>&gt; </b> The Rx timeout table(IlRxTimeoutTbl)  was moved to gmlcal.c and can now be calibrated </p>
+<p>(post build). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>9 / 48 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Data Transmission </b></p>
+<p>This chapter describes the data transmission concept of Il_Vector_Gm. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The data transmission differs to the Il_Vector data transmission described in [2]. </p>
+<p><b> </b></p>
+<p><b>3.1.1 </b></p>
+<p><b>Cyclic Transmission </b></p>
+<p>The </p>
+<p>cyclic </p>
+<p>transmission </p>
+<p>is </p>
+<p>configured </p>
+<p>in </p>
+<p>the </p>
+<p>network </p>
+<p>database </p>
+<p>with </p>
+<p>the </p>
+<p>attributes </p>
+<p>GenMsgSendType  and  GenSigSendType  (See  in  chapter  5.1.1  Send  Type).  If  either  the </p>
+<p>message  or  a  signal  of  the  message  is  configured  as  cyclic,  the  message is transmitted </p>
+<p>periodically. </p>
+<p>The </p>
+<p>period </p>
+<p>of </p>
+<p>the </p>
+<p>message </p>
+<p>is </p>
+<p>defined </p>
+<p>with </p>
+<p>the </p>
+<p>dbc </p>
+<p>attribute </p>
+<p>GenMsgCycleTime  (See in [2]). </p>
+<p>The  cyclic transmission of a message starts automatically, if the Il_Vector_Gm is initialized </p>
+<p>and the transition IlTxStart is performed for the channel and a VN is active which is related </p>
+<p>to a signal within  a message. </p>
+<p>The following  sequence diagram describes the cyclic transmission of a message. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>10 / 48 </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Sequence Diagram of Cyclic Transmission </p>
+<p><b>3.1.2 </b></p>
+<p><b>Event Based Transmission </b></p>
+<p>If </p>
+<p>the </p>
+<p>GenSigSendType </p>
+<p>OnAnyChange, </p>
+<p>OnChangeIfActive, </p>
+<p>OnDelta </p>
+<p>is </p>
+<p>defined </p>
+<p>in </p>
+<p>the </p>
+<p>network  database  for  signals,  the  application  has  to  take  care  of  the  transmission  event </p>
+<p>and triggers the transmission of signals. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>If the application does not trigger the transmission, data can get lost. </p>
+<p><b> </b></p>
+<p>To  implement  this functionality, the Il_Vector_Gm provides  to the application StateOn Flags </p>
+<p>per </p>
+<p>signal </p>
+<p>and </p>
+<p>the </p>
+<p>IlSetEvent  API </p>
+<p>(See </p>
+<p>in </p>
+<p>chapter </p>
+<p>6.2.1.1  IlSetEvent).  The  following </p>
+<p>sequence  diagram  shows  the  event  based  transmission  in  detail.  The  application  checks </p>
+<p>the VN activity of the signal and if a related VN is active, the application calls IlSetEvent to </p>
+<p>set  a  transmission  request.  The  transmission  takes  place  either  within  the  next call of the </p>
+<p>IlTxTask  (See Figure 3-2 </p>
+<p>Sequence </p>
+<p>Diagram </p>
+<p>of </p>
+<p>Event </p>
+<p>based </p>
+<p>Transmission), </p>
+<p>or </p>
+<p>the </p>
+<p>transmission </p>
+<p>is </p>
+<p>delayed, </p>
+<p>until </p>
+<p>the </p>
+<p>message </p>
+<p>delay </p>
+<p>time </p>
+<p>is </p>
+<p>elapsed </p>
+<p>(See </p>
+<p>Figure </p>
+<p>3-3</p>
+<p> </p>
+<p>Sequence  Diagram  of Event based Transmission with Delay and the description of the </p>
+<p>GenMsgDelayTime  in [2]). </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>The following code is an example of a event based transmission. </p>
+<p> </p>
+<p>/* Write the value to the data buffer for the signal </p>
+<p>“EngOilTemp” */ </p>
+<p>IlPutTxEngOilTemp(5); </p>
+<p>/* Check, that the signal is in an active VN */ </p>
+<p>if (IlGetTxEngOilTempStateOn()) </p>
+<p>{ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>11 / 48 </p>
+<p> /* Perform the transmission request and </p>
+<p> use the generated signal handle from il_par.h as parameter */ </p>
+<p> IlSetEvent(IlTxSigEngOilTemp); </p>
+<p>}</p>
+<p> </p>
+<p><b> </b></p>
+<p>The  message  transmission  results  of  the  implemented  signal  transmission  modes.  More </p>
+<p>than  one transmission type can be implemented in one message. </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>Sequence Diagram of Event based Transmission </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>12 / 48 </p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>Sequence Diagram of Event based Transmission w ith Delay </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>13 / 48 </p>
+<p><b>3.1.3 </b></p>
+<p><b>Mixed Transmission </b></p>
+<p>The  implementation  of  event based transmission modes for signals can be combined with </p>
+<p>cyclic </p>
+<p>transmission. </p>
+<p>The </p>
+<p>event </p>
+<p>based </p>
+<p>transmission </p>
+<p>does </p>
+<p>not </p>
+<p>influence </p>
+<p>the </p>
+<p>periodic </p>
+<p>transmission  event.  If  the  event  transmission  request  is  set  in  the  same  timeslot  as  the </p>
+<p>periodic transmission event,  the transmission request is merged. </p>
+<p>If  the  GenSigSendType  OnWrite,  OnAnyChange,  OnChangeIfActive,  OnDelta  is  defined  in </p>
+<p>the network database for signals, the application has to take care of the transmission event </p>
+<p>and triggers the transmission of signals. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>If the application does not trigger the transmission, data can get lost. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-4 </p>
+<p>Sequence Diagram of Cyclic and Event based Transmission in combination </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>14 / 48 </p>
+<p><b>3.2 </b></p>
+<p><b>Signal Access </b></p>
+<p>The  signal API  for  normal  signals  is  performed  as  described  in  [2].  If  GENy  detects,  that </p>
+<p>the </p>
+<p>message </p>
+<p>contains  a  signal  with  a  related  validity, </p>
+<p>mask  or  VDA  (Virtual  Device </p>
+<p>Availability)  bit,  the  signals  are  merged  into  a  new  created  signal  group,  to  access  the </p>
+<p>signals consistently. </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>The following code is an example for a Signal “EngOilTemp” with validity bit </p>
+<p>EngOilTempV which is grouped into the signal group EngOilTempGroup. A indication </p>
+<p>flag has been configured for the signal “EngOilTemp”. The shadow buffer for the signal </p>
+<p>group is provided by the Interaction Layer.  </p>
+<p> </p>
+<p>vuint8 data = 0; </p>
+<p>/* Check, that the signal is received */ </p>
+<p>if (IlGetRxEngOilTempIndication()) </p>
+<p>{ </p>
+<p> /* Clear the indication flag */ </p>
+<p> IlClrRxEngOilTempIndication(); </p>
+<p> /* Check, that the signal is in an active VN */ </p>
+<p> if (IlGetRxEngOilTempStateOn()) </p>
+<p> { </p>
+<p>  /* Read the complete signal group to a temporary buffer */ </p>
+<p>  IlGetRxEngOilTempStateOnGroup(); </p>
+<p>  /* Check the validity bit */ </p>
+<p>  if(IlGetRxEngOilTempV() == 0) </p>
+<p>  { </p>
+<p>    /* Read the signal value and continue data processing */ </p>
+<p>    data = IlGetRxEngOilTemp(); </p>
+<p>  } </p>
+<p> } </p>
+<p>} </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Validity Bit Value </b></p>
+<p><b>Description </b></p>
+<p>0 </p>
+<p>The signal value is valid. </p>
+<p>1 </p>
+<p>The signal value is NOT valid. </p>
+<p>Table 3-1  </p>
+<p>Validity Bit Value Interpretation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>15 / 48 </p>
+<p><b>VDA  Bit Value </b></p>
+<p><b>Description </b></p>
+<p>0 </p>
+<p>The virtual device is NOT available. </p>
+<p>1 </p>
+<p>The virtual device is available. </p>
+<p>Table 3-2  </p>
+<p>VDA Bit Value Interpretation </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Due to historical compatibility reasons, the interpretation of validity and VDA bit value is </p>
+<p>different. </p>
+<p><b> </b></p>
+<p><b>3.3 </b></p>
+<p><b>Extended CAN Identifiers </b></p>
+<p>GMLAN V3.1 is intended to be used with standard and extended  CAN identifiers. </p>
+<p>This  extended  CAN  Identifiers  are  introduced  to  provide  the  so  called  Source  Learning </p>
+<p>with  Supervision  mechanism.  This  is  an  extension  to  the  already  provided  timeout  and </p>
+<p>fault  recovery  functions. </p>
+<p><b>3.3.1 </b></p>
+<p><b>Source Learning </b></p>
+<p>The 29-bit header of an extended CAN Identifier  is separated into different fields: </p>
+<p><b>Priority Field </b></p>
+<p>Bit 28-26 </p>
+<p>3 bit field used to adjust a message's importance when the </p>
+<p>transmitter arbitrates for the bus. </p>
+<p>The value is specified in the network database and cannot </p>
+<p>be changed at runtime. </p>
+<p><b>Parameter Field </b></p>
+<p>Bit 25-13 </p>
+<p>13 bit field used to identify the parameter(s) contained </p>
+<p>within the data field of the message. The parameter(s) will </p>
+<p>be assigned as ID as they are added to the network </p>
+<p>database.  </p>
+<p>The value is specified in the network database and cannot </p>
+<p>be changed at runtime. </p>
+<p><b>Reserved </b></p>
+<p>Bit 12-8 </p>
+<p>All remaining bits within the 29 bit header shall be </p>
+<p>reserved for future use. All reserved bits are set to zero by </p>
+<p>the CAN Driver. </p>
+<p><b>Source Address Field </b></p>
+<p>Bit 7-0 </p>
+<p>8 bit field used to identify the module which transmitted the </p>
+<p>message. </p>
+<p>The source address of an ECU is set by the application in </p>
+<p>the startup code at runtime via the API </p>
+<p>IlSetOwnNodeAddress (See in chapter 6.1.1.7 </p>
+<p>IlSetOwnNodeAddress). </p>
+<p>Table 3-3  </p>
+<p>Extended CAN Identifier fields </p>
+<p>If  an  extended  CAN  Identifier  is  received  by  an ECU,  the priority and source address are </p>
+<p>filtered  by  the  use  of  masks  generated  by the generation tool. The filter for CAN identifier </p>
+<p>of the CAN controller ignores the parameter values and reserved bits when the message is </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>16 / 48 </p>
+<p>received. This enables the system to learn the source address for a specific message. I.e. </p>
+<p>the source address can be set dynamically.   </p>
+<p>The application is notified by the call of ApplIlSourceAddressLearned (See in chapter 6.3.1 </p>
+<p>ApplIlSourceAddressLearned),  if a new source address has been learned by the ECU. </p>
+<p>If  the  source  address  of  message  changes  or  the  message  is  received  the  first  time  the </p>
+<p>callback </p>
+<p>function </p>
+<p>ApplIlRxMsgSrcAddressLearned </p>
+<p>(See </p>
+<p>in </p>
+<p>chapter </p>
+<p>6.3.2 </p>
+<p>ApplIlRxMsgSrcAddressLearned)  is  called  additional  to  indicate  the  relationship  between </p>
+<p>the message and the current  ECU, which transmits the message. </p>
+<p>No  source  address  is  learned  at  the  first  ECU  start  up.  The  source  addresses  of  all  RX </p>
+<p>messages are set by default to either 254 or 255. A message with a source address of 254 </p>
+<p>is  not  mandatory.  Messages  with  a  source  address  of  255 will be mandatory. The source </p>
+<p>address  can  be  read  by  the  function </p>
+<p>IlGetRxMessageSourceAddress  (See  in  chapter </p>
+<p>6.2.1.4 IlGetRxMessageSourceAddress). </p>
+<p>If  the  application  needs  to  identify  the  current  communication  state  of  a  learned  node the </p>
+<p>function  IlGetNodeCommActiveState  (See  in  chapter  6.2.1.2  IlGetNodeCommActiveState) </p>
+<p>is provided by the Interaction  Layer. </p>
+<p>During  the  reception  of  messages  the  Interaction  Layer  learns  and  stores  the  source </p>
+<p>address of each received message. The application has to store the source addresses in a </p>
+<p>permanent  memory  location  to  avoid  a  new  learning phase of the system. If the system is </p>
+<p>powered </p>
+<p>up </p>
+<p>again, </p>
+<p>the </p>
+<p>application </p>
+<p>has </p>
+<p>to </p>
+<p>program </p>
+<p>the </p>
+<p>previously </p>
+<p>learned </p>
+<p>Source </p>
+<p>addresses </p>
+<p>via </p>
+<p>IlSetRxMessageSourceAddress </p>
+<p>(See </p>
+<p>in </p>
+<p>chapter </p>
+<p>6.2.1.3 </p>
+<p>IlSetRxMessageSourceAddress).  An  example  of  the  relearning  is  provided  in  chapter  4.2 </p>
+<p>Initialization. </p>
+<p><b>3.3.2 </b></p>
+<p><b>Source Address Timeout Supervision </b></p>
+<p>The Node Communication Active message (NCA message) is transmitted by each ECU in </p>
+<p>the network, if the communication is active for a VN (Except VN 0, this one is reserved for </p>
+<p>diagnosis). With this message it is possible to learn the source address of an ECU, even if </p>
+<p>no other extended  Identifier message is transmitted. </p>
+<p>The node timeout supervision starts with the reception of the first extened id message that </p>
+<p>is  no  NCA  message.  If  no  extended  Identifier  message  with  the  already  learned  source </p>
+<p>address is received, a timeout occurs. The timeout is notified to the application by the call </p>
+<p>of ApplIlNodeCommActiveFailed  (See  in  chapter  6.3.4 ApplIlNodeCommActiveFailed) with </p>
+<p>the  missing  source  address.  The  timeout  supervision  is  performed  even  for  messages, </p>
+<p>which </p>
+<p>are  not  learned  by  the  ECU.  If  mandatory  messages  are  missing,  the  source </p>
+<p>address 255 is passed and 254 for optional messages. If the timeout of a source address </p>
+<p>is  detected,  it  can  be  assumed,  that  all  signals  related  to  that  source  address  are  in </p>
+<p>timeout. </p>
+<p>Additional </p>
+<p>timeout </p>
+<p>notifications </p>
+<p>for </p>
+<p>extended </p>
+<p>Identifier </p>
+<p>messages </p>
+<p>(message </p>
+<p>timeout  function,  signal  timeout  flags  or  timeout  function)  are  called  or  set  and  timeout </p>
+<p>default  values are set if they  are configured. </p>
+<p>If  an  extended  Identifier  message  with  the  already  learned  source  address  is  received </p>
+<p>again </p>
+<p>(e.g. </p>
+<p>the </p>
+<p>NCA </p>
+<p>message), </p>
+<p>the </p>
+<p>application </p>
+<p>is </p>
+<p>notified </p>
+<p>with </p>
+<p>the </p>
+<p>call </p>
+<p>of </p>
+<p>ApplIlNodeCommActiveRecovery  (See in chapter 6.3.3 ApplIlNodeCommActiveRecovery). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>17 / 48 </p>
+<p><b>3.4 </b></p>
+<p><b>Application Controlled Message Filter </b></p>
+<p>The  application  can  enable  and  disable  the  transmission  and  the reception of messages, </p>
+<p>which </p>
+<p>affects </p>
+<p>all </p>
+<p>signals </p>
+<p>included </p>
+<p>in </p>
+<p>that </p>
+<p>messages. </p>
+<p>See </p>
+<p>in </p>
+<p>chapter </p>
+<p>6.2.1.5 </p>
+<p>IlSetRxMessageEnable  and chapter 6.2.1.6 IlSetTxMessageEnable. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>Here is an example implementation of the message filter that has been prepared for </p>
+<p>you. </p>
+<p>void ApplIlInit(void) </p>
+<p>{ </p>
+<p> /* Disable the reception of the message RPM_F */ </p>
+<p> vError = IlSetRxMessageEnable(IlRxMsgRPM_F, </p>
+<p>kIlMessageDisabled ); </p>
+<p> </p>
+<p> /* Disable the transmission of the message Vspeed */ </p>
+<p> vError = IlSetTxMessageEnable(IlTxMsgVSpeed, </p>
+<p>kIlMessageDisabled );  </p>
+<p>}</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>3.5 </b></p>
+<p><b>Clearing Flags on Deactivate VN </b></p>
+<p>The  switch  “Enable  Clearing  Flags  on  Deactivate  VN”, in the GENy GUI, enables clearing </p>
+<p>flags  if  the  function  IlRxDeactivateVnMsg  is  called.  This  function  is  called  by  the  NM  to </p>
+<p>deactivate a VN. </p>
+<p>These  flags  are  cleared:  first  value  flags,  timeout  flags,  node  timeout  flags  and indication </p>
+<p>flags. </p>
+<p>Only  flags of messages which have been deactivated in IlRxDeactivateVnMsg  are cleared. </p>
+<p>A message gets deactivated if all VNs a message is in are deactivated.   </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The flags for a signal are cleared when all VNs associated to any signal of the message </p>
+<p>are deactivated </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>If you have an old project and activate this feature you may have to adapt your </p>
+<p>application. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>18 / 48 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This </p>
+<p>chapter </p>
+<p>includes </p>
+<p>an </p>
+<p>example </p>
+<p>for </p>
+<p>the </p>
+<p>integration </p>
+<p>of </p>
+<p>the </p>
+<p>Interaction </p>
+<p>Layer. </p>
+<p>Most </p>
+<p>configurations  depend  on  the  customer’s  environment.  Therefore,  we  can  only  describe  a </p>
+<p>single simple configuration just to show how it could look like. We use pseudo code for our </p>
+<p>example. It  won’t be possible to compile this code. </p>
+<p><b>4.1 </b></p>
+<p><b>Include structure </b></p>
+<p>To use the Vector Interaction Layer for GMLAN, only the file il_inc.h  must be included in all </p>
+<p>application  components  that  want  to  use  Interaction  Layer  functionality.  The  file  can_inc.h </p>
+<p>(which </p>
+<p>provides </p>
+<p>the </p>
+<p>CAN </p>
+<p>Driver </p>
+<p>interface </p>
+<p>and </p>
+<p>data </p>
+<p>buffers) </p>
+<p>must </p>
+<p>not </p>
+<p>be </p>
+<p>included </p>
+<p>separately, it is automatically  included by il_inc.h. </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Including Il_Vector_Gm </p>
+<p><b>4.2 </b></p>
+<p><b>Initialization </b></p>
+<p>If </p>
+<p>the </p>
+<p>CCL </p>
+<p>is </p>
+<p>not </p>
+<p>used </p>
+<p>in </p>
+<p>the </p>
+<p>software </p>
+<p>stack, </p>
+<p>the </p>
+<p>application </p>
+<p>has </p>
+<p>to </p>
+<p>initialize </p>
+<p>the </p>
+<p>components. </p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>Here is an example, if the initialization has to be implemented by the application. </p>
+<p> </p>
+<p>/* Disable interrupts during the initialization of the </p>
+<p>Components */ </p>
+<p>DisableInterrupts(); </p>
+<p> </p>
+<p>/* Initialize all components */ </p>
+<p>CanInitPowerOn(); </p>
+<p>IlInitPowerOn(); </p>
+<p>TpInitPowerOn(); </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>19 / 48 </p>
+<p>DiagInit(); </p>
+<p> </p>
+<p>IlSetOwnNodeAddress(srcAddress); </p>
+<p>/* Enabling Interrupts is no longer critical, but not </p>
+<p>recommended. */ </p>
+<p> </p>
+<p>/* Relearn already learned source addresses from the EPROM </p>
+<p>*/ </p>
+<p>for (Hnd = 0 ; Hnd &lt; iNrOfEPROMElements ; Hnd++ ) </p>
+<p>{ </p>
+<p> IlSetRxMessageSourceAddress(ReadRxHandleFromEPROM(Hnd), </p>
+<p>                  ReadSrcAdressFromEPROM(Hnd)); </p>
+<p>} </p>
+<p> </p>
+<p>/* Enable interrupts */ </p>
+<p>EnableInterrupts();</p>
+<p> </p>
+<p> </p>
+<p><b>4.3 </b></p>
+<p><b>Cyclic function </b></p>
+<p>The </p>
+<p>IlRxTask </p>
+<p>and </p>
+<p>IlTxTask </p>
+<p>must </p>
+<p>be </p>
+<p>called </p>
+<p>cyclically </p>
+<p>as </p>
+<p>configured </p>
+<p>in </p>
+<p>GENy </p>
+<p>by </p>
+<p>the </p>
+<p>Application, OS or CCL. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>20 / 48 </p>
+<p> </p>
+<p>Figure 4-2 </p>
+<p>Call of the Il_Vector cyclic function </p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>Here is an example, if the task calls have to be implemented by the application. </p>
+<p> </p>
+<p>for(;;) </p>
+<p>{ </p>
+<p>  /* periodic call of IlRxTask() and IlTxTask() */ </p>
+<p>  if (flag_10ms) </p>
+<p>  { </p>
+<p>    IlRxTask(); </p>
+<p>    IlTxTask(); </p>
+<p>    flag_10ms = 0; /* clear flag which was set by a timer </p>
+<p>*/ </p>
+<p>  } </p>
+<p>}</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>21 / 48 </p>
+<p><b>5 </b></p>
+<p><b>Configuration </b></p>
+<p><b>5.1 </b></p>
+<p><b>Database Attributes </b></p>
+<p>This  chapter  describes  the  dbc  network  database  attributes,  which  can  be  used  with </p>
+<p>Il_Vector_Gm. </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The strings used for the enumerated database attributes are often OEM-specific and </p>
+<p>can differ here from general descriptions. Do not change the order of string values in </p>
+<p>enumerated database attributes. The code generator evaluates always the numerical </p>
+<p>indexe of the string list. </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Don’t mix up the order of enumeration values. Not the value of the attribute is </p>
+<p>interpreted, the position of the selected value.<b> </b></p>
+<p> </p>
+<p><b>5.1.1 </b></p>
+<p><b>Send Type </b></p>
+<p><b>Name </b></p>
+<p><b>GenMsgSendType </b></p>
+<p><b>Description </b></p>
+<p>Message related transmission mode. </p>
+<p><b>Type Of Object </b></p>
+<p>Message </p>
+<p><b>Value Type </b></p>
+<p>Enumeration </p>
+<p><b>Default </b></p>
+<p>CyclicX </p>
+<p><b>Values </b></p>
+<p>CyclicX, SpontanX, NotUsed, NotUsed, NotUsed, NotUsed, NotUsed, </p>
+<p>NotUsed, NoMsgSendType </p>
+<p> </p>
+<p><b>Name </b></p>
+<p><b>GenSigSendType </b></p>
+<p><b>Description </b></p>
+<p>Signal related transmission mode. </p>
+<p><b>Type Of Object </b></p>
+<p>Signal </p>
+<p><b>Value Type </b></p>
+<p>Enumeration </p>
+<p><b>Default </b></p>
+<p>NoSigSendType </p>
+<p><b>Values </b></p>
+<p>Periodic, NotUsed, NotUsed, NotUsed, NotUsed, NotUsed, NotUsed, </p>
+<p>NoSigSendType, NotUsed, NotUsed, OnAnyChange, OnChangeIfActive, </p>
+<p>OnDelta </p>
+<p> </p>
+<p><b>5.1.2 </b></p>
+<p><b>Default Values </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Please note, the attribute GenSigStartValue  sets the Default value at initialization time, </p>
+<p>not if IlRxStart or IlTxStart is called. Due to historical and compatibility reasons, this </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>22 / 48 </p>
+<p>confusing definition cannot be changed any more. </p>
+<p>     </p>
+<p><b>Name </b></p>
+<p><b>GenSigStartValue </b></p>
+<p><b>Description </b></p>
+<p>This value is the default value for the signal, if IlInitPowerOn is called. </p>
+<p>The string value type can represent hexadecimal and integer values. </p>
+<p><b>Type Of Object </b></p>
+<p>Signal </p>
+<p><b>Value Type </b></p>
+<p><b>String</b>, Integer*, Float* </p>
+<p><b>Default </b></p>
+<p>0x0 </p>
+<p><b>Minimum </b></p>
+<p>0x0 </p>
+<p><b>Maximum </b></p>
+<p>0xffffffffffffffff </p>
+<p> </p>
+<p><b>5.1.3 </b></p>
+<p><b>Tx NCA Message </b></p>
+<p><b>Name </b></p>
+<p><b>NodeStatusMsgID </b></p>
+<p><b>Description </b></p>
+<p>This value is the Extended CAN identifier  of the Tx “Node Communication </p>
+<p>Active” message. </p>
+<p><b>Type Of Object </b></p>
+<p>Network </p>
+<p><b>Value Type </b></p>
+<p><b>Hex </b></p>
+<p><b>Default </b></p>
+<p>0xFFF800 </p>
+<p><b>Minimum </b></p>
+<p>0x1FFFFFFF </p>
+<p><b>Maximum </b></p>
+<p>0xffffffffffffffff </p>
+<p> </p>
+<p><b>Name </b></p>
+<p><b>NodeStatusMsgCycleTime </b></p>
+<p><b>Description </b></p>
+<p>This value is the cycle time of the Tx “Node Communication Avtive” message. </p>
+<p>The message is transmitted, if a virtual network is active. </p>
+<p><b>Type Of Object </b></p>
+<p>Network </p>
+<p><b>Value Type </b></p>
+<p><b>Integer </b></p>
+<p><b>Default </b></p>
+<p>1200 </p>
+<p><b>Minimum </b></p>
+<p>0 </p>
+<p><b>Maximum </b></p>
+<p>65535 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>23 / 48 </p>
+<p><b>Name </b></p>
+<p><b>NodeStatusMsgTimeoutTime </b></p>
+<p><b>Description </b></p>
+<p>This value is the timeout time supervision of the Rx Node Communication </p>
+<p>Active message. </p>
+<p><b>Type Of Object </b></p>
+<p>Network </p>
+<p><b>Value Type </b></p>
+<p><b>Integer </b></p>
+<p><b>Default </b></p>
+<p>3000 </p>
+<p><b>Minimum </b></p>
+<p>0 </p>
+<p><b>Maximum </b></p>
+<p>65535 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>5.1.4 </b></p>
+<p><b>Timeout Supervision </b></p>
+<p><b>Name </b></p>
+<p><b>GenMsgMandatoryToSupervision </b></p>
+<p><b>Description </b></p>
+<p>This value represents the initial source address, which will be indicated to the </p>
+<p>application via ApplIlNodeCommActiveFailed,  if no other source address has </p>
+<p>been learned. If No is set, the source address is set to 254, else 255 is set. </p>
+<p><b>Type Of Object </b></p>
+<p>Message </p>
+<p><b>Value Type </b></p>
+<p><b>Enumeration </b></p>
+<p><b>Default </b></p>
+<p>No </p>
+<p><b>Values </b></p>
+<p>No, Yes </p>
+<p> </p>
+<p><b>Name </b></p>
+<p><b>GenSigSendOnInit </b></p>
+<p><b>Description </b></p>
+<p>If a signal of a message has this value set to Handler, the SendOnInit property </p>
+<p>of the message is activated and preconfigurated. </p>
+<p>The message is transmitted, if IlSendOnInitMsg()  or IlQueueVnMsg()  is called </p>
+<p>(Called if an initial active VN is activated) or the virtual network is activated (a </p>
+<p>VN can start locally or remotely if a VNMF message is received). </p>
+<p><b>Type Of Object </b></p>
+<p>Signal </p>
+<p><b>Value Type </b></p>
+<p>Enumeration </p>
+<p><b>Default </b></p>
+<p>NotInitialized </p>
+<p><b>Values </b></p>
+<p>NotInitialized, Application, Handler </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>24 / 48 </p>
+<p><b>Name </b></p>
+<p><b>GenSigSuprvResp </b></p>
+<p><b>Description </b></p>
+<p>This value preconfigurates the timeout flag and timeout default value. </p>
+<p>0 : Preconfigure nothing </p>
+<p>1 : A timeout flag is configured for the signal </p>
+<p>2 : A timeout default value is configured for the signal </p>
+<p>3 : A timeout flag and timeout default value is configured for the signal </p>
+<p><b>Type Of Object </b></p>
+<p>Node – Mapped Rx Signal </p>
+<p><b>Value Type </b></p>
+<p>Enumeration </p>
+<p><b>Default </b></p>
+<p>None </p>
+<p><b>Values </b></p>
+<p>None, Notify, Substitute, NotifySubstitute </p>
+<p> </p>
+<p> </p>
+<p><b>Name </b></p>
+<p><b>GenSigSuprvRespSubValue </b></p>
+<p><b>Description </b></p>
+<p>This Value is the timeout default value for the signal, if a timeout occurs. </p>
+<p>The integer value allows the definition of timeout values for signals with a </p>
+<p>maximum Length of 4 Bytes. </p>
+<p><b>Type Of Object </b></p>
+<p>Node – Mapped Rx Signal </p>
+<p><b>Value Type </b></p>
+<p>Integer </p>
+<p><b>Default </b></p>
+<p>0x0 </p>
+<p><b>Minimum </b></p>
+<p>0x0 </p>
+<p><b>Maximum </b></p>
+<p>4294967296 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>25 / 48 </p>
+<p><b>6 </b></p>
+<p><b>API Description </b></p>
+<p>The </p>
+<p>following </p>
+<p>chapter </p>
+<p>extends </p>
+<p>or </p>
+<p>replaces  API </p>
+<p>function </p>
+<p>descriptions </p>
+<p>provided </p>
+<p>in </p>
+<p>the </p>
+<p>Technical  Reference of the Interaction  Layer [2]. </p>
+<p><b>6.1 </b></p>
+<p><b>Administrative  functions </b></p>
+<p><b>6.1.1.1 </b></p>
+<p><b>IlInitPowerOn </b></p>
+<p><b>IlInitPowerOn </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>IlInitPowerOn </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method initializes the Il_Vector  on all channels. </p>
+<p>IlInit is called for every  channel. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or Ccl (Communication  Control Layer). </p>
+<p>Call context </p>
+<p>The  function must be called with disabled  interrupts. </p>
+<p>The  function must not interrupt  IlRxTask, IlRxStateTask,  IlTxTask, IlTxStateTask,  IlInit, IlRxStart, IlTxStart, </p>
+<p>IlRxStop, IlTxStop. </p>
+<p> </p>
+<p><b>6.1.1.2 </b></p>
+<p><b>IlInit </b></p>
+<p><b>IlInit </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlInit </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlInit </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>26 / 48 </p>
+<p><b>Functional Description </b></p>
+<p>This method initializes the Il_Vector  on a channel. </p>
+<p>Rx and Tx data buffers  and flags are set to the initial state. If no default  value  for a message is defined,  the </p>
+<p>data buffer  is set to 0x00. IlNwmInit  of Nm_Gmlan_Gm  is called if the initialization is performed.  </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application, Ccl (Communication  Control  Layer) or IlInitPowerOn. </p>
+<p>Call context </p>
+<p>The  function must be called with disabled  interrupts. </p>
+<p>The  function must not interrupt  IlRxTask, IlRxStateTask,  IlTxTask, IlTxStateTask,  IlInitPowerOn,  IlRxStart, </p>
+<p>IlTxStart, IlRxStop, IlTxStop. </p>
+<p> </p>
+<p><b>6.1.1.3 </b></p>
+<p><b>IlRxTask </b></p>
+<p><b>IlRxTask </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlRxTask </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlRxTask </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method must be called periodically in the Rx task cycle time configured  in the generation  tool. The </p>
+<p>IlRxTimerTask  and IlRxStateTask are called by this method. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or Ccl (Communication  Control Layer). </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p>The  function must not interrupt  IlRxStateTask, IlTxTask, IlTxStateTask,  IlInitPowerOn,  IlInit, IlRxStart, </p>
+<p>IlTxStart, IlRxStop, IlTxStop </p>
+<p><b> </b></p>
+<p><b>6.1.1.4 </b></p>
+<p><b>IlTxTask </b></p>
+<p><b>IlTxTask </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlTxTask </b>(void) </p>
+<p>Multi Channel </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>27 / 48 </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlTxTask </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method must be called periodically in the Tx task cycle time configured  in the generation  tool. The </p>
+<p>IlTxTimerTask  and IlTxStateTask  are called by this method. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or Ccl (Communication  Control Layer). </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p>The  function must not interrupt  IlRxStateTask, IlTxTask, IlTxStateTask,  IlInitPowerOn,  IlInit, IlRxStart, </p>
+<p>IlTxStart, IlRxStop, IlTxStop </p>
+<p> </p>
+<p><b>6.1.1.5 </b></p>
+<p><b>IlRxStateTask </b></p>
+<p><b>IlRxStateTask </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlRxStateTask </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlRxStateTask </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method is called periodically by the IlRxTask. The  function can be called in a faster rate than the </p>
+<p>IlRxTask to check additionally  for polled  indication events. The  usage of the IlRxTask shall be preferred. </p>
+<p>- The  source addresses  queued  for the source address learning  are learned. </p>
+<p>- The  timeout counter for  the source address is started, if the source address  is not already  known.  </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or IlRxTask. </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p>The  function must not interrupt  IlRxStateTask, IlTxTask, IlTxStateTask,  IlInitPowerOn,  IlInit, IlRxStart, </p>
+<p>IlTxStart, IlRxStop, IlTxStop </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>28 / 48 </p>
+<p><b>6.1.1.6 </b></p>
+<p><b>IlTxStateTask </b></p>
+<p><b>IlTxStateTask </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlTxStateTask </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlTxStateTask </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method is called periodically by the IlTxTask.  The function  can be called in a faster rate, than the </p>
+<p>IlTxTask, to check additionally for polled  confirmation  events. The  usage of the IlTxTask  shall be preferred.  </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or IlTxTask. </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p>The  function must not interrupt  IlRxStateTask, IlTxTask, IlTxStateTask,  IlInitPowerOn,  IlInit, IlRxStart, </p>
+<p>IlTxStart, IlRxStop, IlTxStop </p>
+<p> </p>
+<p><b>6.1.1.7 </b></p>
+<p><b>IlSetOwnNodeAddress </b></p>
+<p><b>IlSetOwnNodeAddress </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>Il_Status <b>IlSetOwnNodeAddress </b>(vuint8 srcAddress) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>Il_Status <b>IlSetOwnNodeAddress </b>(CanChannelHandle </p>
+<p>channel, vuint8 srcAddress) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>srcAddress </p>
+<p>Source address of this ECU, which will be added to the low byte of each </p>
+<p>extended  ID transmitted by the CAN driver. </p>
+<p><b>Return code </b></p>
+<p>Il_Status </p>
+<p>IL_OK  : the node  address has been set. </p>
+<p>IL_ERROR  : the node is not configured  for the usage of GMLAN  extended </p>
+<p>identifiers  and the source address is not accepted. </p>
+<p><b>Functional Description </b></p>
+<p>This method sets the source address for  this ECU. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>29 / 48 </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Call context </p>
+<p>The  function must be called on task level  after CanInitPowerOn  is called AND before  interrupts are </p>
+<p>activated. </p>
+<p> </p>
+<p><b>6.2 </b></p>
+<p><b>Service functions </b></p>
+<p><b>6.2.1.1 </b></p>
+<p><b>IlSetEvent </b></p>
+<p><b>IlSetEvent </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>IlSetEvent </b>(IlTransmitHandle ilTxHnd) </p>
+<p><b>Parameter </b></p>
+<p>ilTxHnd </p>
+<p>Handle  of the Tx message. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method serves  to set a transmission request for  a message. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or by IlPutTx method. </p>
+<p>Call context </p>
+<p>The  function can be called on task and interrupt  level. </p>
+<p> </p>
+<p><b>6.2.1.2 </b></p>
+<p><b>IlGetNodeCommActiveState </b></p>
+<p><b>IlGetNodeCommActiveState </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>vuint8 <b>IlGetNodeCommActiveState </b>(vuint8 srcAddress) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>vuint8 <b>IlGetNodeCommActiveState </b>(CanChannelHandle </p>
+<p>channel, vuint8 srcAddress) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>srcAddress </p>
+<p>Source address of an ECU. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>30 / 48 </p>
+<p><b>Return code </b></p>
+<p>vuint8 </p>
+<p>kIlNodeUnknown </p>
+<p>: The given  node address  has not been learnt. </p>
+<p>kIlNodeFailed  : This node  is in timeout state. </p>
+<p>kIlNodeActive  : Node is sending messages (at least one NCA). </p>
+<p>kIlNodeIdle  : Node address  is in the list, but is currently inactive. </p>
+<p><b>Functional Description </b></p>
+<p>This method returns the state of an ECU in the network. The  Il searches for  the srcAddress and returns  the </p>
+<p>status. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p> </p>
+<p><b>6.2.1.3 </b></p>
+<p><b>IlSetRxMessageSourceAddress </b></p>
+<p><b>IlSetRxMessageSourceAddress </b></p>
+<p><b>Prototype </b></p>
+<p>Il_Status <b>IlSetRxMessageSourceAddress </b>(IlReceiveHandle ilRxHnd, vuint8 </p>
+<p>srcAddress) </p>
+<p><b>Parameter </b></p>
+<p>ilRxHnd </p>
+<p>Handle  of the Rx message. </p>
+<p>srcAddress </p>
+<p>Source address of an ECU for  this message. </p>
+<p><b>Return code </b></p>
+<p>Il_Status </p>
+<p>IL_OK  : the source address is now  configured  for the Rx message </p>
+<p>IL_ERROR  : ilRxHnd is invalid  or ilRxExtIdHnd is inconsistent or channel is </p>
+<p>inconsistent </p>
+<p><b>Functional Description </b></p>
+<p>This method sets the source address as learned  for  a Rx message. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is only available  if Extended-Identifiers </p>
+<p>are used. </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p> </p>
+<p><b>6.2.1.4 </b></p>
+<p><b>IlGetRxMessageSourceAddress </b></p>
+<p><b>IlGetRxMessageSourceAddress </b></p>
+<p><b>Prototype </b></p>
+<p>Il_Status <b>IlGetRxMessageSourceAddress </b>(IlReceiveHandle ilRxHnd, vuint8 </p>
+<p>*pSrcAddress) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>31 / 48 </p>
+<p><b>Parameter </b></p>
+<p>ilRxHnd </p>
+<p>Handle  of the Rx message. </p>
+<p>pSrcAddress </p>
+<p>Pointer to where  the source address of a message has to be stored. </p>
+<p><b>Return code </b></p>
+<p>Il_Status </p>
+<p>IL_OK  : the source address is now  returned  for the Rx message </p>
+<p>IL_ERROR  : ilRxHnd is invalid  or ilRxExtIdHnd is inconsistent or channel is </p>
+<p>inconsistent </p>
+<p><b>Functional Description </b></p>
+<p>This method returns the source address a Rx message learnt  in the last session. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is only available  if Extended-Identifiers </p>
+<p>are used. </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p> </p>
+<p><b>6.2.1.5 </b></p>
+<p><b>IlSetRxMessageEnable </b></p>
+<p><b>IlSetRxMessageEnable </b></p>
+<p><b>Prototype </b></p>
+<p>Il_Status <b>IlSetRxMessageEnable </b>(IlReceiveHandle ilRxHnd, vuint8 type) </p>
+<p><b>Parameter </b></p>
+<p>ilRxHnd </p>
+<p>Handle  of the Rx message. Use the message handle  generated  in il_par.h! </p>
+<p>type </p>
+<p>kIlMsgEnabled  or kIlMsgDisabled </p>
+<p><b>Return code </b></p>
+<p>Il_Status </p>
+<p>IL_OK  : the Rx messages handle has been activated  or deactivated </p>
+<p>IL_ERROR  : the Rx messages handle is out of range </p>
+<p><b>Functional Description </b></p>
+<p>This method activates or deactivates  the reception  of a message. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Only messages which are handled  by the Interaction  Layer can be enabled  or disabled. TP and NM </p>
+<p>messages are not affected  (NCA, HLVW, VNMF, USDT and UUDT  messages). </p>
+<p>Call context </p>
+<p>The  function must be called in the context of ApllIlInit(). </p>
+<p> </p>
+<p><b>6.2.1.6 </b></p>
+<p><b>IlSetTxMessageEnable </b></p>
+<p><b>IlSetTxMessageEnable </b></p>
+<p><b>Prototype </b></p>
+<p>Il_Status <b>IlSetTxMessageEnable </b>(IlTransmitHandle ilTxHnd, vuint8 type) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>32 / 48 </p>
+<p><b>Parameter </b></p>
+<p>ilTxHnd </p>
+<p>Handle  of the Tx message. Use the message handle  generated  in il_par.h! </p>
+<p>type </p>
+<p>kIlMsgEnabled  or kIlMsgDisabled </p>
+<p><b>Return code </b></p>
+<p>Il_Status </p>
+<p>IL_OK  : the Tx messages handle  has been activated  or deactivated </p>
+<p>IL_ERROR  : the Tx messages handle  is out of range </p>
+<p><b>Functional Description </b></p>
+<p>This method activates or deactivates  the transmission of a message. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Only messages which are handled  by the Interaction  Layer can be enabled  or disabled. TP and NM </p>
+<p>messages are not affected  (NCA, HLVW, VNMF, USDT and UUDT  messages). </p>
+<p>Call context </p>
+<p>The  function must be called in the context of ApllIlInit(). </p>
+<p> </p>
+<p><b>6.2.1.7 </b></p>
+<p><b>IlGetTransmitMessageStatus </b></p>
+<p><b>IlGetTransmitMessageStatus </b></p>
+<p><b>Prototype </b></p>
+<p>vuint8 <b>IlGetTransmitMessageStatus </b>(IlTransmitHandle ilTxHnd) </p>
+<p><b>Parameter </b></p>
+<p>ilTxHnd </p>
+<p>Handle  of the Tx message. Do not use the generated  signal handles for the </p>
+<p>message indirection! </p>
+<p><b>Return code </b></p>
+<p>vuint8 </p>
+<p>(vuint8)  0 : the message is idle and no transmission is expected from the Il </p>
+<p>kIlTxMsgQueued  : the transmission is requested  to the CAN Driver  and wait </p>
+<p>for confirmation </p>
+<p>kIlTxMsgPending  : the message is pending  for queuing  in the Il. </p>
+<p><b>Functional Description </b></p>
+<p>The  function provides  the status of the message. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application. </p>
+<p>Call context </p>
+<p>The  function can be called on task and interrupt  level. </p>
+<p> </p>
+<p><b>6.3 </b></p>
+<p><b>Callback functions </b></p>
+<p>The  following  functions  have  to  be  implemented  by  the  application  if  the  configuration  in </p>
+<p>GENy activates the callback function. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>33 / 48 </p>
+<p><b>6.3.1 </b></p>
+<p><b>ApplIlSourceAddressLearned </b></p>
+<p><b>ApplIlSourceAddressLearned </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>ApplIlSourceAddressLearned </b>(vuint8 srcAddress) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>ApplIlSourceAddressLearned </b>(CanChannelHandle </p>
+<p>channel, vuint8 srcAddress) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>srcAddress </p>
+<p>Source address that has been  learned. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method is called to indicate, that a new source address had been  detected and learned  from a node </p>
+<p>on the network. This method can be influenced  by the call of IlSetRxMessageSourceAddress.  If  a node </p>
+<p>transmits the NCA message and other extended  Ids are not used, ApplIlRxMsgSrcAddressLearned  will </p>
+<p>never  be called, but this one will be called. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is only available  if Extended-Identifiers </p>
+<p>are used. </p>
+<p>Call context </p>
+<p>The  function is called in the context the IlRxStateTask  or IlSetRxMessageSourceAddress. </p>
+<p> </p>
+<p><b>6.3.2 </b></p>
+<p><b>ApplIlRxMsgSrcAddressLearned </b></p>
+<p><b>ApplIlRxMsgSrcAddressLearned </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>ApplIlRxMsgSrcAddressLearned </b>(IlReceiveHandle </p>
+<p>ilRxHnd, vuint8 srcAddress) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>ApplIlRxMsgSrcAddressLearned </b>(CanChannelHandle </p>
+<p>channel, IlReceiveHandle ilRxHnd, vuint8 srcAddress) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>ilRxHnd </p>
+<p>Handle  of the Il Rx message, where  the source address has been  learnt from. </p>
+<p>srcAddress </p>
+<p>Source address that has been  learned. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>34 / 48 </p>
+<p><b>Functional Description </b></p>
+<p>This method is called to indicate, that a new source address had been  detected and learned  from a node </p>
+<p>on the network from  a specific message. This method is not influenced  by the call of </p>
+<p>IlSetRxMessageSourceAddress.  The  function  shall be used, to store the learned  value  and reset it during </p>
+<p>start-up via  IlSetRxMessageSourceAddress  where  the ilRxHnd is needed. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is only available  if Extended-Identifiers </p>
+<p>are used. </p>
+<p>Call context </p>
+<p>The  function is called by the IlRxStateTask. </p>
+<p> </p>
+<p><b>6.3.3 </b></p>
+<p><b>ApplIlNodeCommActiveRecovery </b></p>
+<p><b>ApplIlNodeCommActiveRecovery </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>ApplIlNodeCommActiveRecovery </b>(vuint8 </p>
+<p>srcAddress) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>ApplIlNodeCommActiveRecovery </b>(CanChannelHandle </p>
+<p>channel, vuint8 srcAddress) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>srcAddress </p>
+<p>Source address of an ECU. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method is called to indicate, that an extended Identifier  from  the source address has been received </p>
+<p>again after  a communication failure  had been detected. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is only available  if Extended-Identifiers </p>
+<p>are used. </p>
+<p>Call context </p>
+<p>The  function is called in the context the IlRxStateTask  or IlSetRxMessageSourceAddress. </p>
+<p> </p>
+<p><b>6.3.4 </b></p>
+<p><b>ApplIlNodeCommActiveFailed </b></p>
+<p><b>ApplIlNodeCommActiveFailed </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>ApplIlNodeCommActiveFailed </b>(vuint8 srcAddress) </p>
+<p>Multi Channel </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>35 / 48 </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>ApplIlNodeCommActiveFailed </b>(CanChannelHandle </p>
+<p>channel, vuint8 srcAddress) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>srcAddress </p>
+<p>Source address of an ECU. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method is called to indicate, that timeout supervision  of the Node Communication  Active message of a </p>
+<p>source address has been  failed. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is only available  if Extended-Identifiers </p>
+<p>are used. </p>
+<p>Call context </p>
+<p>The  function is called by the IlRxTimerTask. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>36 / 48 </p>
+<p><b>7 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p>CAN </p>
+<p>Controller Area Network </p>
+<p>CCL </p>
+<p>Communication Control Layer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HLVW </p>
+<p>High Voltage Wake Up </p>
+<p>MRC </p>
+<p>Multiple  Receive Channel </p>
+<p>NCA </p>
+<p>Node Communication Active </p>
+<p>NM </p>
+<p>Network Management </p>
+<p>OS </p>
+<p>Operating System </p>
+<p>USDT </p>
+<p>Unacknowledged and Segmented Data Transfer </p>
+<p>UUDT </p>
+<p>Unacknowledged and Unsegmented Data Transfer </p>
+<p>VDA </p>
+<p>Virtual Device Availability </p>
+<p>VN </p>
+<p>Virtual Network </p>
+<p>VNMF </p>
+<p>Virtual Network Management Frame </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>37 / 48 </p>
+<p><b>8 </b></p>
+<p><b>Appendix </b></p>
+<p><b>8.1 </b></p>
+<p><b>Nm_Gmlan_Gm Interface </b></p>
+<p>The  following  methods  are  interface  functions  provided  by  the  Interaction  Layer  for  the </p>
+<p>Gmlan  Network Management. </p>
+<p> </p>
+<p><b>Caution</b> </p>
+<p>Do not use this functions from within the application unless not explicitly required. </p>
+<p> </p>
+<p><b>8.1.1 </b></p>
+<p><b>IlRxStart </b></p>
+<p><b>IlRxStart </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlRxStart </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlRxStart </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method enables  the reception of messages. The  transition &quot;start&quot; of the Rx state machine is </p>
+<p>performed. </p>
+<p>- The  flags used to indicate virtual  network activity are cleared. </p>
+<p>- Suspend  the timeout counter for  source address  255 and 254. </p>
+<p>- Suspend  the timeout counter for  learned  source addresses by clearing the number  of active  Rx messages </p>
+<p>per source address. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or NM (Network  Management). </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p>The  function must not interrupt  IlRxTask, IlRxStateTask,  IlTxTask, IlTxStateTask,  IlInitPowerOn,  IlInit, </p>
+<p>IlTxStart, IlRxStop, IlTxStop. </p>
+<p> </p>
+<p><b>8.1.2 </b></p>
+<p><b>IlTxStart </b></p>
+<p><b>IlTxStart </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>38 / 48 </p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlTxStart </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlTxStart </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method enables  the transmission of messages and starts the transmission of periodic  messages. The </p>
+<p>transition &quot;start&quot; of the Tx state machine is performed. </p>
+<p>- The  flags used to indicate virtual  network activity are cleared. </p>
+<p>- Requests are queued  to be transmitted by the call of IlSendOnInitMsg. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or NM (Network  Management). </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p>The  function must not interrupt  IlRxTask, IlRxStateTask,  IlTxTask, IlTxStateTask,  IlInitPowerOn,  IlInit, </p>
+<p>IlTxStart, IlRxStop, IlTxStop. </p>
+<p> </p>
+<p><b>8.1.3 </b></p>
+<p><b>IlRxStop </b></p>
+<p><b>IlRxStop </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlRxStop </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlRxStop </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method disables the reception  of messages. The  transition &quot;stop&quot; of the Rx state machine is </p>
+<p>performed.  The  method is used for example to enter the Sleep Mode of an ECU. </p>
+<p>- The  timeout flags for the application  are cleared. </p>
+<p>- All Rx virtual  networks must be deactivated  to call IlRxStop(). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>39 / 48 </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or NM (Network  Management). </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p>The  function must not interrupt  IlRxTask, IlRxStateTask,  IlTxTask, IlTxStateTask,  IlInitPowerOn,  IlInit, </p>
+<p>IlTxStart, IlRxStop, IlTxStop. </p>
+<p> </p>
+<p><b>8.1.4 </b></p>
+<p><b>IlTxStop </b></p>
+<p><b>IlTxStop </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlTxStop </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlTxStop </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method disables the transmission of messages (Sleep Mode). The  transition &quot;stop&quot; of the Tx state </p>
+<p>machine is performed.  The  method is used for  example to enter the Sleep Mode of an ECU. </p>
+<p>- All Tx virtual  networks must be deactivated  to call IlTxStop. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or NM (Network  Management). </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p>The  function must not interrupt  IlInitPowerOn,  IlInit, IlRxTask, IlRxStateTask, IlRxTimerTask,  IlTxTask , </p>
+<p>IlTxStateTask,  IlTxTimerTask,  IlRxStart, IlTxStart,  IlRxStop </p>
+<p> </p>
+<p><b>8.1.5 </b></p>
+<p><b>IlRxWait </b></p>
+<p><b>IlRxWait </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlRxWait </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlRxWait </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>40 / 48 </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method halts the reception  of messages. The  transition &quot;wait&quot; of the Rx state machine  is performed. </p>
+<p>The  method is used for example when  the bus-off  mode of an ECU was entered. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or NM (Network  Management). </p>
+<p>Call context </p>
+<p>The  function can be called on task and interrupt  level. </p>
+<p> </p>
+<p><b>8.1.6 </b></p>
+<p><b>IlTxWait </b></p>
+<p><b>IlTxWait </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlTxWait </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlTxWait </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method halts the transmission of messages. The  transition &quot;wait&quot; of the Tx state machine is </p>
+<p>performed.  The  method is used for example when  the bus-off  mode of an ECU was entered. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or NM (Network  Management). </p>
+<p>Call context </p>
+<p>The  function can be called on task and interrupt  level. </p>
+<p> </p>
+<p><b>8.1.7 </b></p>
+<p><b>IlRxRelease </b></p>
+<p><b>IlRxRelease </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlRxRelease </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlRxRelease </b>(CanChannelHandle channel) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>41 / 48 </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method restarts the reception  of messages from the &quot;Waiting&quot; state. The transition &quot;release&quot; of the Rx </p>
+<p>state machine  is performed. </p>
+<p>- The  timeout counters for all source addresses are restarted. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or NM (Network  Management). </p>
+<p>Call context </p>
+<p>The  function can be called on task and interrupt  level. </p>
+<p> </p>
+<p><b>8.1.8 </b></p>
+<p><b>IlTxRelease </b></p>
+<p><b>IlTxRelease </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlTxRelease </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlTxRelease </b>(CanChannelHandle channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method resumes the transmission of messages from  the &quot;Waiting&quot; state. The  transition &quot;release&quot; of the </p>
+<p>Tx state machine is performed. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application or NM (Network  Management). </p>
+<p>Call context </p>
+<p>The  function can be called on task and interrupt  level. </p>
+<p> </p>
+<p> </p>
+<p><b>8.1.9 </b></p>
+<p><b>IlRxActivateVnMsg  </b></p>
+<p><b>IlRxActivateVnMsg </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>42 / 48 </p>
+<p>Single Receive  Channel </p>
+<p>Il_Status <b>IlRxActivateVnMsg </b>(vuint8 ilVnHnd) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>Il_Status <b>IlRxActivateVnMsg </b>(CanChannelHandle </p>
+<p>channel, vuint8 ilVnHnd) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>ilVnHnd </p>
+<p>Il_Vector_Gm  internal VN handle. </p>
+<p><b>Return code </b></p>
+<p>Il_Status </p>
+<p>IL_ERROR  : a parameter  check has failed  OR the Rx state machine of the </p>
+<p>channel is not in the running  state </p>
+<p>IL_VN_ALREADY_ACTIVE  : an already activated  VN has been requested  for </p>
+<p>activation </p>
+<p>IL_VN_ACTIVATED </p>
+<p>: the VN is now activated </p>
+<p><b>Functional Description </b></p>
+<p>This method starts all Rx messages of a VN. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by Nm_Gmlan_Gm. </p>
+<p>Call context </p>
+<p>The  function must be called on task level  and if the Rx state machine of the dependent  channel is in the </p>
+<p>running  state. </p>
+<p> </p>
+<p><b>8.1.10 </b></p>
+<p><b>IlRxDeactivateVnMsg </b></p>
+<p><b>IlRxDeactivateVnMsg </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>Il_Status <b>IlRxDeactivateVnMsg </b>(vuint8 ilVnHnd) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>Il_Status <b>IlRxDeactivateVnMsg </b>(CanChannelHandle </p>
+<p>channel, vuint8 ilVnHnd) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>ilVnHnd </p>
+<p>Il_Vector_Gm  internal VN handle. </p>
+<p><b>Return code </b></p>
+<p>Il_Status </p>
+<p>IL_ERROR  : a parameter  check has failed  OR the Rx state machine of the </p>
+<p>channel is not in the running  state </p>
+<p>an already deactivated  VN has been  requested  for deactivation </p>
+<p>IL_VN_DEACTIVATED </p>
+<p>: the VN is now deactivated. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>43 / 48 </p>
+<p><b>Functional Description </b></p>
+<p>This method stops all Rx messages of a VN. If enabled,  the flags of the deactivated  messages are cleared </p>
+<p>(see 3.5).  </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by Nm_Gmlan_Gm. </p>
+<p>Call context </p>
+<p>The  function must be called on task level  and if the Rx state machine of the dependent  channel is in the </p>
+<p>running  state. </p>
+<p> </p>
+<p><b>8.1.11 </b></p>
+<p><b>IlTxActivateVnMsg </b></p>
+<p><b>IlTxActivateVnMsg </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>Il_Status <b>IlTxActivateVnMsg </b>(vuint8 ilVnHnd) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>Il_Status <b>IlTxActivateVnMsg </b>(CanChannelHandle </p>
+<p>channel, vuint8 ilVnHnd) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>ilVnHnd </p>
+<p>Il_Vector_Gm  internal VN handle. </p>
+<p><b>Return code </b></p>
+<p>Il_Status </p>
+<p>IL_ERROR  : a parameter  check has failed  OR the Tx state machine of the </p>
+<p>channel is not in the running  state </p>
+<p>IL_VN_ALREADY_ACTIVE  : an already activated  VN has been requested  for </p>
+<p>activation </p>
+<p>IL_VN_ACTIVATED </p>
+<p>: the VN is now activated </p>
+<p><b>Functional Description </b></p>
+<p>This method starts all Tx messages of a VN. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by Nm_Gmlan_Gm. </p>
+<p>Call context </p>
+<p>The  function must be called on task level  and if the Tx state machine of the dependent  channel is in the </p>
+<p>running  state. </p>
+<p> </p>
+<p><b>8.1.12 </b></p>
+<p><b>IlTxDeactivateVnMsg </b></p>
+<p><b>IlTxDeactivateVnMsg </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>Il_Status <b>IlTxDeactivateVnMsg </b>(vuint8 ilVnHnd) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>44 / 48 </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>Il_Status <b>IlTxDeactivateVnMsg </b>(CanChannelHandle </p>
+<p>channel, vuint8 ilVnHnd) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>ilVnHnd </p>
+<p>Il_Vector_Gm  internal VN handle. </p>
+<p><b>Return code </b></p>
+<p>Il_Status </p>
+<p>IL_ERROR  : a parameter  check has failed  OR the Tx state machine of the </p>
+<p>channel is not in the running  state OR an already  deactivated  VN has been </p>
+<p>requested  for deactivation </p>
+<p>IL_VN_DEACTIVATED </p>
+<p>: the VN is now deactivated. </p>
+<p><b>Functional Description </b></p>
+<p>This method stops all Tx messages of a VN. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by Nm_Gmlan_Gm. </p>
+<p>Call context </p>
+<p>The  function must be called on task level  and if the Tx state machine of the dependent  channel is in the </p>
+<p>running  state. </p>
+<p> </p>
+<p><b>8.1.13 </b></p>
+<p><b>IlRxStartVnMsgSupervision </b></p>
+<p><b>IlRxStartVnMsgSupervision </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlRxStartVnMsgSupervision </b>(vuint8 ilVnHnd) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlRxStartVnMsgSupervision </b>(CanChannelHandle </p>
+<p>channel, vuint8 ilVnHnd) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>ilVnHnd </p>
+<p>Il_Vector_Gm  internal VN handle. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method starts the Rx extended  id timeout supervision  for all Rx messages of a VN, if </p>
+<p>- The  arguments are valid. </p>
+<p>- The  Rx state machine is in the running  state. </p>
+<p>- The  Rx VN is active. </p>
+<p>- The  Rx extended id timeout supervision  is not already started. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>45 / 48 </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by Nm_Gmlan_Gm. </p>
+<p>Call context </p>
+<p>The  function must be called on task level  and if the Rx state machine of the dependent  channel is in the </p>
+<p>running  state. </p>
+<p> </p>
+<p><b>8.1.14 </b></p>
+<p><b>IlRxDeactivateVnMsgSupervision </b></p>
+<p><b>IlRxDeactivateVnMsgSupervision </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>Il_Status <b>IlRxDeactivateVnMsgSupervision </b>(vuint8 </p>
+<p>ilVnHnd) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>Il_Status <b>IlRxDeactivateVnMsgSupervision </b></p>
+<p>(CanChannelHandle channel, vuint8 ilVnHnd) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p>ilVnHnd </p>
+<p>Il_Vector_Gm  internal VN handle. </p>
+<p><b>Return code </b></p>
+<p>Il_Status </p>
+<p>IL_ERROR  : a parameter  check has failed  OR the Rx VN is not running  OR </p>
+<p>the Rx state machine of the channel is not in the running  state an already </p>
+<p>supervision  deactivated  VN has been requested  for deactivation </p>
+<p>IL_VN_DEACTIVATED </p>
+<p>: the timeout supervision  of the VN is now deactivated. </p>
+<p><b>Functional Description </b></p>
+<p>This method stops the Rx timeout supervision  for  all Rx messages of a VN. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by Nm_Gmlan_Gm. </p>
+<p>Call context </p>
+<p>The  function must be called on task level  and if the Rx state machine of the dependent  channel is in the </p>
+<p>running  state. </p>
+<p> </p>
+<p><b>8.1.15 </b></p>
+<p><b>IlResetRxTimeoutFlags </b></p>
+<p><b>IlResetRxTimeoutFlags </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlResetRxTimeoutFlags </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlResetRxTimeoutFlags </b>(CanChannelHandle </p>
+<p>channel) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>46 / 48 </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method clears Rx timeout flags of the Application and internal ilNodeCommActiveTimeoutFlags.  </p>
+<p>- The  flags used internal  to indicate NCA timeout are cleared. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by the Application. </p>
+<p> </p>
+<p><b>Caution</b> </p>
+<p>Do not call this Il internal API from the application! </p>
+<p>Call context </p>
+<p>The  function can be called on task and interrupt  level. </p>
+<p> </p>
+<p><b>8.1.16 </b></p>
+<p><b>IlRequeueTransmitMessages </b></p>
+<p><b>IlRequeueTransmitMessages </b></p>
+<p><b>Prototype </b></p>
+<p>Single Channel </p>
+<p>Single Receive  Channel </p>
+<p>void <b>IlRequeueTransmitMessages </b>(void) </p>
+<p>Multi Channel </p>
+<p>Indexed  (MRC) </p>
+<p>void <b>IlRequeueTransmitMessages </b>(CanChannelHandle </p>
+<p>channel) </p>
+<p><b>Parameter </b></p>
+<p>channel (Indexed) </p>
+<p>Handle  of the logical CAN Driver  channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This method queues  again all pending  Tx messages and set a transmission request for  these Tx </p>
+<p>messages. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The  function is called by Nm_Gmlan_Gm  during  a Busoff to queue  again all Tx messages that are pended </p>
+<p>for transmission to the CAN Driver.  The  transmit queue is cleared of the CAN Driver  id cleared during  a </p>
+<p>bus-off.  Therefore  all issued messages must be retransmitted  by the Il. </p>
+<p>Call context </p>
+<p>The  function must be called on task level. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>47 / 48 </p>
+<p><b>8.2 </b></p>
+<p><b>Interaction Layer Internal Interfaces </b></p>
+<p>APIs  which  are  not  explicitly  described  in  this  or  any  other  documentation  for  the  usage </p>
+<p>shall not be called from the application. </p>
+<p> </p>
+<p><b>Caution</b> </p>
+<p>Do not use internal functions from within the application unless not explicitly required. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Interaction Layer for General Motors  </p>
+<p> </p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 2.01.02 </p>
+<p>based on template version 3.6 </p>
+<p>48 / 48 </p>
+<p><b>9 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training  data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector-informatik.com </b></p>
+</body>
+</html>
+{% endraw %}

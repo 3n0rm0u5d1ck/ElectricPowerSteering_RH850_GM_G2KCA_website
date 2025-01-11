@@ -1,0 +1,4840 @@
+---
+layout: default
+title: TechnicalReference_MICROSAROS_RH850
+nav_order: 6
+parent: OS
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR OS RH850 </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Senol Cendere, Yohan Humbert </p>
+<p>Version </p>
+<p>1.09 </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>S. Cendere </p>
+<p>2014-01-21 </p>
+<p>1.00 </p>
+<p>Creation </p>
+<p>S. Cendere </p>
+<p>2014-02-03 </p>
+<p>1.01 </p>
+<p>Release for RH850 SafeContext </p>
+<p>S. Cendere </p>
+<p>2014-04-24 </p>
+<p>1.02 </p>
+<p>Release for RH850 P1M </p>
+<p>S. Cendere </p>
+<p>2014-09-30 </p>
+<p>1.03 </p>
+<p>Added error numbers for interrupt consistency checks </p>
+<p>Y. Humbert </p>
+<p>2014-10-14 </p>
+<p>1.04 </p>
+<p>Update </p>
+<p>Y. Humbert </p>
+<p>2015-01-29 </p>
+<p>1.05 </p>
+<p>Added ASID support </p>
+<p>Y. Humbert </p>
+<p>2015-02-26 </p>
+<p>1.06 </p>
+<p>Added D1M, E1L, E1M and F1M </p>
+<p>Y. Humbert </p>
+<p>2015-06-10 </p>
+<p>1.07 </p>
+<p>Added Multicore chapter </p>
+<p>S. Cendere </p>
+<p>2015-06-29 </p>
+<p>1.08 </p>
+<p>Added Timing Protection chapter </p>
+<p>S. Cendere </p>
+<p>2015-08-20 </p>
+<p>1.09 </p>
+<p>Removed core exception attributes </p>
+<p><b> </b></p>
+<p><b>Reference Documents </b></p>
+<p><b>Ref. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR Operating System Specification </p>
+<p>(downloadable from www.Autosar.org) </p>
+<p>3.0.x </p>
+<p>4.0.x </p>
+<p>4.1.x </p>
+<p>[2] </p>
+<p>OSEK </p>
+<p>OSEK/VDX Operating System Specification </p>
+<p>(downloadable from www.osek-vdx.org) </p>
+<p>2.2.3 </p>
+<p>[3] </p>
+<p>Vector Informatik GmbH </p>
+<p>Technical Reference MICROSAR OS </p>
+<p>8.00 </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>Scope of the Document </b></p>
+<p>This  technical  reference  describes  the  specific  use  of  the  MICROSAR  OS  for  Renesas </p>
+<p>RH850. It supplements the general technical reference for MICROSAR OS [3]. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Overview </b></p>
+<p>This  document  describes  the  implementation  specific  part  of  the  AUTOSAR  operating </p>
+<p>system for the Renesas RH850 microcontroller family. In this document a processor of the </p>
+<p>family may be referred as RH850. </p>
+<p>The common part of all MICROSAR OS implementations is described in document [3]. </p>
+<p>The implementation is based on the OSEK-OS-specification 2.2.3 and on AUTOSAR OS </p>
+<p>specifications 3.0.x/4.0.x/4.1.x. This document assumes that the reader is familiar with the </p>
+<p>OSEK and AUTOSAR OS specifications. </p>
+<p>OSEK/VDX </p>
+<p>is </p>
+<p>a </p>
+<p>registered </p>
+<p>trademark </p>
+<p>of </p>
+<p>Continental  Automotive </p>
+<p>GmbH </p>
+<p>(until </p>
+<p>2007: </p>
+<p>Siemens AG). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Overview of MICROSAR OS ......................................................................................... 8</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Overview of Properties ....................................................................................... 8</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Installation ..................................................................................................................... 9</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>OIL-Configurator ................................................................................................ 9</p>
+<p> </p>
+<p>2.1.1</p>
+<p> </p>
+<p>OIL-Implementation Files ................................................................... 9</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 10</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>XML Configuration ........................................................................................... 10</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>OIL Configuration ............................................................................................. 10</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>OS Attributes .................................................................................................... 11</p>
+<p> </p>
+<p>3.3.1</p>
+<p> </p>
+<p>MpuRegion Sub-Attributes (SC3 and SC4) ...................................... 13</p>
+<p> </p>
+<p>3.3.2</p>
+<p> </p>
+<p>PeripheralRegion Sub-Attributes (SC3 and SC4) ............................. 14</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Counter Attributes ............................................................................................ 15</p>
+<p> </p>
+<p>3.4.1</p>
+<p> </p>
+<p>OSTM Sub-Attributes ....................................................................... 15</p>
+<p> </p>
+<p>3.4.2</p>
+<p> </p>
+<p>OSTM_HIRES Sub-Attributes .......................................................... 15</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>ISR Attributes ................................................................................................... 16</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>ExceptionType Sub-Attributes .......................................................... 16</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Application Attributes ....................................................................................... 17</p>
+<p> </p>
+<p>3.6.1</p>
+<p> </p>
+<p>Attribute MpuRegion ........................................................................ 17</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Event Attributes ................................................................................................ 18</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>Linker Include Files (SC3 and SC4) ................................................................. 18</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>System Generation ..................................................................................................... 19</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Code Generator ............................................................................................... 20</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Stack Handling ............................................................................................................ 21</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Task Stacks ...................................................................................................... 21</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>ISR Stacks ....................................................................................................... 21</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>System Stack ................................................................................................... 21</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Startup Stack .................................................................................................... 21</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Stack Usage Size ............................................................................................. 21</p>
+<p> </p>
+<p>5.5.1</p>
+<p> </p>
+<p>Task Stack Usage ............................................................................ 22</p>
+<p> </p>
+<p>5.5.2</p>
+<p> </p>
+<p>System Stack Usage ........................................................................ 22</p>
+<p> </p>
+<p>5.5.3</p>
+<p> </p>
+<p>ISR Stack Usage .............................................................................. 22</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Interrupt Handling ....................................................................................................... 23</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Interrupt Vectors .............................................................................................. 23</p>
+<p> </p>
+<p>6.1.1</p>
+<p> </p>
+<p>Reset Vector .................................................................................... 23</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>5 </b>/ <b>57 </b></p>
+<p> </p>
+<p>6.1.2</p>
+<p> </p>
+<p>Level Initialization ............................................................................. 23</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Interrupt Level and Category ............................................................................ 24</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Interrupt Category 1 ......................................................................................... 24</p>
+<p> </p>
+<p>6.3.1</p>
+<p> </p>
+<p>Interrupt Processing in C .................................................................. 24</p>
+<p> </p>
+<p>6.3.2</p>
+<p> </p>
+<p>Unhandled Exception Determination ................................................ 24</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>Interrupt Category 2 ......................................................................................... 25</p>
+<p> </p>
+<p>6.4.1</p>
+<p> </p>
+<p>Interrupt Entry .................................................................................. 25</p>
+<p> </p>
+<p>6.4.2</p>
+<p> </p>
+<p>Interrupt Exit .................................................................................... 25</p>
+<p> </p>
+<p>6.4.3</p>
+<p> </p>
+<p>CAT2 ISR Function .......................................................................... 25</p>
+<p> </p>
+<p>6.5</p>
+<p> </p>
+<p>Disabling Interrupts .......................................................................................... 25</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>MPU Handling (SC3 and SC4) .................................................................................... 26</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>MPU Region Usage ......................................................................................... 26</p>
+<p> </p>
+<p>7.1.1</p>
+<p> </p>
+<p>MPU Region 0 .................................................................................. 26</p>
+<p> </p>
+<p>7.1.2</p>
+<p> </p>
+<p>Static MPU Regions ......................................................................... 26</p>
+<p> </p>
+<p>7.1.3</p>
+<p> </p>
+<p>Dynamic MPU Regions .................................................................... 27</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>RH850 Peripherals ...................................................................................................... 28</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Supported System Timer .................................................................................. 28</p>
+<p> </p>
+<p>8.2</p>
+<p> </p>
+<p>Supported Time Monitoring Timer .................................................................... 28</p>
+<p> </p>
+<p>8.3</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 28</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Implementation Specifics ........................................................................................... 29</b></p>
+<p> </p>
+<p>9.1</p>
+<p> </p>
+<p>API Functions .................................................................................................. 29</p>
+<p> </p>
+<p>9.1.1</p>
+<p> </p>
+<p>DisableAllInterrupts .......................................................................... 29</p>
+<p> </p>
+<p>9.1.2</p>
+<p> </p>
+<p>EnableAllInterrupts ........................................................................... 29</p>
+<p> </p>
+<p>9.1.3</p>
+<p> </p>
+<p>SuspendAllInterrupts ........................................................................ 29</p>
+<p> </p>
+<p>9.1.4</p>
+<p> </p>
+<p>ResumeAllInterrupts ......................................................................... 29</p>
+<p> </p>
+<p>9.1.5</p>
+<p> </p>
+<p>SuspendOSInterrupts ....................................................................... 29</p>
+<p> </p>
+<p>9.1.6</p>
+<p> </p>
+<p>ResumeOSInterrupts ....................................................................... 29</p>
+<p> </p>
+<p>9.1.7</p>
+<p> </p>
+<p>GetResource .................................................................................... 30</p>
+<p> </p>
+<p>9.1.8</p>
+<p> </p>
+<p>ReleaseResource ............................................................................ 30</p>
+<p> </p>
+<p>9.1.9</p>
+<p> </p>
+<p>GetAlarmBase .................................................................................. 30</p>
+<p> </p>
+<p>9.1.10</p>
+<p> </p>
+<p>osInitialize ........................................................................................ 30</p>
+<p> </p>
+<p>9.1.11</p>
+<p> </p>
+<p>osInitINTC ........................................................................................ 30</p>
+<p> </p>
+<p>9.2</p>
+<p> </p>
+<p>Peripheral Region API ...................................................................................... 31</p>
+<p> </p>
+<p>9.2.1.1</p>
+<p> </p>
+<p>Read Functions .............................................................. 31</p>
+<p> </p>
+<p>9.2.1.2</p>
+<p> </p>
+<p>Write Functions .............................................................. 32</p>
+<p> </p>
+<p>9.2.1.3</p>
+<p> </p>
+<p>Modify Functions ............................................................ 33</p>
+<p> </p>
+<p>9.3</p>
+<p> </p>
+<p>Peripheral Interrupt API Functions (SC3 and SC4) ........................................... 34</p>
+<p> </p>
+<p>9.3.1</p>
+<p> </p>
+<p>Write to Interrupt Control Register .................................................... 35</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>6 </b>/ <b>57 </b></p>
+<p> </p>
+<p>9.3.2</p>
+<p> </p>
+<p>Set or Clear Mask Flag .................................................................... 37</p>
+<p> </p>
+<p>9.3.3</p>
+<p> </p>
+<p>Set or Clear ICR Request Flag ......................................................... 38</p>
+<p> </p>
+<p>9.3.4</p>
+<p> </p>
+<p>Read, Set or Clear Mask Bit in Registers IMRm ............................... 39</p>
+<p> </p>
+<p>9.3.5</p>
+<p> </p>
+<p>Write to Registers IMRm .................................................................. 40</p>
+<p> </p>
+<p>9.4</p>
+<p> </p>
+<p>Hook Routines ................................................................................................. 41</p>
+<p> </p>
+<p>9.4.1</p>
+<p> </p>
+<p>ErrorHook ........................................................................................ 41</p>
+<p> </p>
+<p>9.4.2</p>
+<p> </p>
+<p>StartupHook ..................................................................................... 41</p>
+<p> </p>
+<p>9.4.3</p>
+<p> </p>
+<p>ShutdownHook ................................................................................. 41</p>
+<p> </p>
+<p>9.4.4</p>
+<p> </p>
+<p>PreTaskHook.................................................................................... 41</p>
+<p> </p>
+<p>9.4.5</p>
+<p> </p>
+<p>PostTaskHook .................................................................................. 41</p>
+<p> </p>
+<p>9.4.6</p>
+<p> </p>
+<p>PreAlarmHook (SC1 only) ................................................................ 41</p>
+<p> </p>
+<p>9.4.7</p>
+<p> </p>
+<p>ISRHooks (SC1 only) ....................................................................... 42</p>
+<p> </p>
+<p>9.4.8</p>
+<p> </p>
+<p>Callbacks (SC1 only) ........................................................................ 42</p>
+<p> </p>
+<p>9.4.9</p>
+<p> </p>
+<p>ProtectionHook (SC3 and SC4) ....................................................... 42</p>
+<p> </p>
+<p>9.5</p>
+<p> </p>
+<p>Functions for MPU functionality checks ............................................................ 43</p>
+<p> </p>
+<p>9.5.1</p>
+<p> </p>
+<p>Function osCheckMPUAccess ......................................................... 43</p>
+<p> </p>
+<p>9.5.2</p>
+<p> </p>
+<p>Function osCheckAndRefreshMPU .................................................. 44</p>
+<p> </p>
+<p><b>10</b></p>
+<p> </p>
+<p><b>Non-Trusted Functions (SC3 and SC4) ..................................................................... 45</b></p>
+<p> </p>
+<p>10.1</p>
+<p> </p>
+<p>Functionality ..................................................................................................... 45</p>
+<p> </p>
+<p>10.2</p>
+<p> </p>
+<p>API ................................................................................................................... 46</p>
+<p> </p>
+<p>10.3</p>
+<p> </p>
+<p>Call Context ..................................................................................................... 47</p>
+<p> </p>
+<p>10.3.1</p>
+<p> </p>
+<p>Example ........................................................................................... 48</p>
+<p> </p>
+<p><b>11</b></p>
+<p> </p>
+<p><b>Multicore ..................................................................................................................... 49</b></p>
+<p> </p>
+<p>11.1</p>
+<p> </p>
+<p>Configuration ................................................................................................... 49</p>
+<p> </p>
+<p>11.1.1</p>
+<p> </p>
+<p>Core IDs ........................................................................................... 49</p>
+<p> </p>
+<p>11.2</p>
+<p> </p>
+<p>Multi-Core start-up ........................................................................................... 49</p>
+<p> </p>
+<p>11.2.1</p>
+<p> </p>
+<p>Both PEs controlled by OS ............................................................... 50</p>
+<p> </p>
+<p>11.2.2</p>
+<p> </p>
+<p>Only PE1 controlled by OS ............................................................... 50</p>
+<p> </p>
+<p>11.2.3</p>
+<p> </p>
+<p>Only PE2 controlled by OS ............................................................... 51</p>
+<p> </p>
+<p><b>12</b></p>
+<p> </p>
+<p><b>Timing Protection (SC4) ............................................................................................. 52</b></p>
+<p> </p>
+<p>12.1</p>
+<p> </p>
+<p>Configuration Attributes .................................................................................... 52</p>
+<p> </p>
+<p>12.2</p>
+<p> </p>
+<p>Restrictions for SC4 Configurations ................................................................. 52</p>
+<p> </p>
+<p><b>13</b></p>
+<p> </p>
+<p><b>Error Handling ............................................................................................................ 53</b></p>
+<p> </p>
+<p>13.1</p>
+<p> </p>
+<p>MICROSAR OS RH850 Error Numbers ........................................................... 53</p>
+<p> </p>
+<p>13.1.1</p>
+<p> </p>
+<p>RH850 specific Error Numbers ......................................................... 53</p>
+<p> </p>
+<p><b>14</b></p>
+<p> </p>
+<p><b>Modules ....................................................................................................................... 55</b></p>
+<p> </p>
+<p>14.1</p>
+<p> </p>
+<p>Source Files ..................................................................................................... 55</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>7 </b>/ <b>57 </b></p>
+<p> </p>
+<p>14.2</p>
+<p> </p>
+<p>Header Files .................................................................................................... 56</p>
+<p> </p>
+<p><b>15</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 57</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>8 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>1 </b></p>
+<p><b>Overview of MICROSAR OS </b></p>
+<p><b>1.1 </b></p>
+<p><b>Overview of Properties </b></p>
+<p><b>Property Class </b></p>
+<p><b>Version / Range / Support </b></p>
+<p>AUTOSAR OS specification </p>
+<p>3.0.x, 4.0.x, 4.1.x </p>
+<p>Scalability Classes supported </p>
+<p>SC1 </p>
+<p>SC3 (SafeContext) </p>
+<p>SC4 (SafeContext) </p>
+<p>Conformance Classes supported </p>
+<p>SC1: BCC1, BCC2, ECC1, ECC2 </p>
+<p>SC3 and SC4: ECC2 </p>
+<p>Scheduling policy </p>
+<p>SC1: full-, non- and mixed-preemptive </p>
+<p>SC3 and SC4: full- and mixed-preemptive </p>
+<p>Scheduling points </p>
+<p>depending on scheduling policy </p>
+<p>Maximum number of tasks </p>
+<p>65535 </p>
+<p>Maximum number of events per task </p>
+<p>32 </p>
+<p>Maximum number of activations per task </p>
+<p>255 </p>
+<p>Maximum number of priorities </p>
+<p>8192 </p>
+<p>Maximum number of counters </p>
+<p>256 </p>
+<p>Maximum number of alarms </p>
+<p>32767 </p>
+<p>Maximum number of resources </p>
+<p>8192 </p>
+<p>Maximum number of resources locked </p>
+<p>simultaneously </p>
+<p>255 </p>
+<p>Maximum number of schedule tables </p>
+<p>65535 </p>
+<p>Maximum number of expiry points </p>
+<p>65535 (cyclical expiry points counted by their </p>
+<p>multiplicity) </p>
+<p>Maximum number of ISRs </p>
+<p>depending on derivative </p>
+<p>Status Levels </p>
+<p>SC1: STANDARD and EXTENDED </p>
+<p>SC3: EXTENDED </p>
+<p>SC4: EXTENDED </p>
+<p>Nested Interrupts </p>
+<p>supported </p>
+<p>Interrupt level resource handling </p>
+<p>SC1: supported </p>
+<p>SC3: not supported </p>
+<p>SC4: not supported </p>
+<p>ORTI support </p>
+<p>SC1: 2.1 Standard and 2.1 Additional </p>
+<p>         2.2 Standard and 2.2 Additional </p>
+<p>SC3: 2.2 Additional </p>
+<p>SC4: 2.2 Additional </p>
+<p>Library Version </p>
+<p>not supported </p>
+<p>FPU support </p>
+<p>supported (if provided by derivative) </p>
+<p>Table 1  </p>
+<p>OS Properties </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>9 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>2 </b></p>
+<p><b>Installation  </b></p>
+<p>The general installation is described in the common document [3]. </p>
+<p>The RH850 specific files are described below. </p>
+<p><b>2.1 </b></p>
+<p><b>OIL-Configurator </b></p>
+<p>The  OIL-configurator  is  a  general  tool  for  different  AUTOSAR  implementations.  The </p>
+<p>implementation specific parts are the code generator and the OIL-implementation files for </p>
+<p>the code generator. </p>
+<p></p>
+<p>  OIL-Configurator </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>root\OILTOOL </p>
+<p></p>
+<p>  OIL-Implementation files </p>
+<p> </p>
+<p>root\OILTOOL\GEN </p>
+<p></p>
+<p>  Code Generator  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>root\OILTOOL\GEN </p>
+<p> </p>
+<p><b>2.1.1 </b></p>
+<p><b>OIL-Implementation Files </b></p>
+<p>The implementation specific files will be copied onto the local hard disk. The OIL-tool has </p>
+<p>knowledge  about  these  files  through  the  file  OILGEN.INI  (the  correct  path  is  set  by  the </p>
+<p>installation program). </p>
+<p><b>CPU </b></p>
+<p><b>Implementation file </b></p>
+<p><b>Standard object file </b></p>
+<p><b>Description </b></p>
+<p>D1L </p>
+<p>RH850_D1L.i41 </p>
+<p>RH850_D1L.s41 </p>
+<p>Source code version </p>
+<p>D1M </p>
+<p>RH850_D1M.i41 </p>
+<p>RH850_D1M.s41 </p>
+<p>Source code version </p>
+<p>E1L </p>
+<p>RH850_E1L.i41 </p>
+<p>RH850_E1L.s41 </p>
+<p>Source code version </p>
+<p>E1M </p>
+<p>RH850_E1M.i41 </p>
+<p>RH850_E1M.s41 </p>
+<p>Source code version </p>
+<p>F1H </p>
+<p>RH850_F1H.i41 </p>
+<p>RH850_F1H.s41 </p>
+<p>Source code version </p>
+<p>F1L </p>
+<p>RH850_F1L.i41 </p>
+<p>RH850_F1L.s41 </p>
+<p>Source code version </p>
+<p>F1M </p>
+<p>RH850_F1M.i41 </p>
+<p>RH850_F1M.s41 </p>
+<p>Source code version </p>
+<p>P1M </p>
+<p>RH850_P1M.i41 </p>
+<p>RH850_P1M.s41 </p>
+<p>Source code version </p>
+<p>Table 2  </p>
+<p>OIL implementation Files </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>3 </b></p>
+<p><b>Configuration </b></p>
+<p>Before an application can be compiled all static MICROSAR OS objects have to be defined </p>
+<p>in </p>
+<p>a </p>
+<p>configuration </p>
+<p>file. </p>
+<p>The </p>
+<p>OS </p>
+<p>generator </p>
+<p>generates </p>
+<p>code </p>
+<p>in </p>
+<p>accordance </p>
+<p>to </p>
+<p>this </p>
+<p>configuration file. </p>
+<p>The  configuration  can  be  done  either  in  XML  language  (AUTOSAR  ECU  configuration </p>
+<p>format) or in OIL (OSEK implementation language). </p>
+<p>Chapter 4 shows the program flow of a configuration / generation / compilation process in </p>
+<p>detail. </p>
+<p>There </p>
+<p>are </p>
+<p>configuration </p>
+<p>attributes </p>
+<p>which </p>
+<p>are </p>
+<p>standard </p>
+<p>for </p>
+<p>all </p>
+<p>MICROSAR </p>
+<p>OS </p>
+<p>implementations. These are described in [3]. </p>
+<p>Platform  specific  attributes  (which  only  apply  to  this  implementation  of  MICROSAR  OS) </p>
+<p>are described hereafter. </p>
+<p><b>3.1 </b></p>
+<p><b>XML Configuration </b></p>
+<p>An XML configuration of the OS must conform to the AUTOSAR XML schema. To edit such </p>
+<p>a configuration the DaVinci configurator of Vector Informatik GmbH can be used. </p>
+<p><b>3.2 </b></p>
+<p><b>OIL Configuration </b></p>
+<p>MICROSAR OS systems for RH850 can also be described using OIL. The OIL configurator </p>
+<p>tool is capable of reading and writing OIL files. The finished OIL file is passed to the code </p>
+<p>generator which generates the configuration files of the OS. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>11 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>3.3 </b></p>
+<p><b>OS Attributes </b></p>
+<p>The OS object controls general aspects of the operating system. The following attributes </p>
+<p>are provided for scalability class SC1, SC3 and SC4: </p>
+<p>Attribute Name </p>
+<p>Values </p>
+<p>Default  value  is </p>
+<p>written in bold </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>Compiler </p>
+<p>OsOSCompiler </p>
+<p><b>GHS </b></p>
+<p>Selects the supported compiler. </p>
+<p>SystemStackSize </p>
+<p>OsOSSystemStackSize </p>
+<p>0 … 0xFFFC </p>
+<p>Size of the system stack in bytes. </p>
+<p>EnumeratedUnhandl</p>
+<p>edISRs </p>
+<p>OsOSEnumeratedUnhandl</p>
+<p>edISRs </p>
+<p>TRUE </p>
+<p><b>FALSE </b></p>
+<p>This attribute determines handling </p>
+<p>of unused interrupt sources. </p>
+<p>If set TRUE then variable </p>
+<p>ossUnhandledExceptionDetail is </p>
+<p>set to the exception number before </p>
+<p>calling osUnhandledException. </p>
+<p>ORTIDebugSupport </p>
+<p>OsOSORTIDebugSupport </p>
+<p>TRUE </p>
+<p><b>FALSE </b></p>
+<p>The RH850 implementation </p>
+<p>supports ORTI debug information if </p>
+<p>this attribute is selected. </p>
+<p>ORTIDebugLevel </p>
+<p>OsOSORTIDebugLevel </p>
+<p><b>ORTI_22_Ad</b></p>
+<p><b>ditional </b></p>
+<p>Support ORTI 2.2 with additional </p>
+<p>features which require some </p>
+<p>additional runtime and memory. </p>
+<p>UserConfigurationVe</p>
+<p>rsion </p>
+<p>OsOSUserConfigurationVer</p>
+<p>sion </p>
+<p>0 ... 0xFFFF </p>
+<p>This value specifies the current </p>
+<p>user specific version of the OS </p>
+<p>configuration. It can be read back </p>
+<p>by the user for validation. </p>
+<p>SupportFPU </p>
+<p>OsOSSupportFPU </p>
+<p>TRUE </p>
+<p><b>FALSE </b></p>
+<p>Switches on the support for FPU. </p>
+<p>(if provided by derivative)</p>
+<p> </p>
+<p>TimingProtectionTim</p>
+<p>erClock </p>
+<p>OsOSTimingProtectionTime</p>
+<p>rClock </p>
+<p>0 … 999999 </p>
+<p><b>No default </b></p>
+<p>Only SC4: peripheral clock of timer </p>
+<p>unit TAUJ0 specified in [kHz] </p>
+<p>Table 1: RH850 specific attributes of OS </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>12 </b>/ <b>57 </b></p>
+<p> </p>
+<p>For scalability class SC3 and SC4 the following additional attributes are provided: </p>
+<p>Attribute Name </p>
+<p>Values </p>
+<p>Default </p>
+<p>value </p>
+<p>is </p>
+<p>written </p>
+<p>in </p>
+<p>bold </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>CheckIntAPIStatus </p>
+<p>OsOSCheckIntAPIStatus </p>
+<p><b>TRUE </b></p>
+<p>FALSE </p>
+<p>If set to </p>
+<p>TRUE</p>
+<p> then the OS API functions </p>
+<p>CallTrustedFunction</p>
+<p> and </p>
+<p>CallNonTrustedFunction</p>
+<p> do not </p>
+<p>check the interrupt status. </p>
+<p>PeripheralRegion </p>
+<p>OsOSPeripheralRegion </p>
+<p><b>No default </b></p>
+<p>List of peripheral regions. </p>
+<p>A peripheral region defines an address </p>
+<p>range where access is allowed for </p>
+<p>selected applications (trusted or non-</p>
+<p>trusted). </p>
+<p>The access is granted by means of the </p>
+<p>API functions. </p>
+<p>MemoryProtection </p>
+<p>OsOSMemoryProtection </p>
+<p>TRUE </p>
+<p><b>FALSE </b></p>
+<p>Enables memory protection via MPU. </p>
+<p>Mandatory for SC3 and SC4. </p>
+<p>MpuRegion </p>
+<p>OsOSMpuRegion </p>
+<p><b>Enable </b></p>
+<p>Configures static MPU regions </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>13 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>3.3.1 </b></p>
+<p><b>MpuRegion Sub-Attributes (SC3 and SC4) </b></p>
+<p>If a static MPU region is enabled then the memory area is specified by the following sub-</p>
+<p>attributes: </p>
+<p>Sub-Attribute Name </p>
+<p>Values </p>
+<p>(default value is </p>
+<p>written in bold) </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>StartAddr </p>
+<p>OsOSStartAddr </p>
+<p>string </p>
+<p><b>No default </b></p>
+<p>Start address of static MPU region </p>
+<p>hexadecimal value: </p>
+<p>StartAddr = 0x… </p>
+<p>or </p>
+<p>memory area specific linker symbol: </p>
+<p>StartAddr = &lt;linker_start_symbol&gt; </p>
+<p>EndAddr </p>
+<p>OsOSEndAddr </p>
+<p>string </p>
+<p><b>No default </b></p>
+<p>End address of static MPU region </p>
+<p>hexadecimal value: </p>
+<p>EndAddr = 0x… </p>
+<p>or </p>
+<p>memory area specific linker symbol: </p>
+<p>EndAddr = &lt;linker_end_symbol&gt; </p>
+<p>AccessRights </p>
+<p>OsOSAccessRights </p>
+<p>uint32 </p>
+<p><b>No default </b></p>
+<p>MPU region access configuration </p>
+<p>ASID </p>
+<p>OsOSASID </p>
+<p>TRUE </p>
+<p><b>FALSE </b></p>
+<p>Specifies, whether ASID matching is enabled </p>
+<p>for this MPU region. </p>
+<p>Identifier </p>
+<p>OsOSIdentifier </p>
+<p>0 ... 0x3FE </p>
+<p><b>0x3FF </b></p>
+<p>ASID value to be used as area match </p>
+<p>condition. The maximum value 0x3FF is used </p>
+<p>as default value. </p>
+<p> </p>
+<p>Value of StartAddr must always point to the first valid Byte in the specified memory area. </p>
+<p>Value of EndAddr must always point to the last valid Byte in the specified memory area. </p>
+<p>Up to 11 static MPU regions can be configured: </p>
+<p>MpuRegion = Enable </p>
+<p>{ </p>
+<p> </p>
+<p>StartAddr  = 0x... ; </p>
+<p> </p>
+<p>EndAddr </p>
+<p>= 0x… ; </p>
+<p> </p>
+<p>AccessRights = 0x…; </p>
+<p> </p>
+<p>ASID = TRUE; </p>
+<p> </p>
+<p>Identifier = 0x01; </p>
+<p>}; </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>14 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>3.3.2 </b></p>
+<p><b>PeripheralRegion Sub-Attributes (SC3 and SC4) </b></p>
+<p>Sub-Attribute Name </p>
+<p>Values </p>
+<p>(default value </p>
+<p>is written in </p>
+<p>bold) </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>StartAddress </p>
+<p>OsOSStartAddress </p>
+<p>uint32 </p>
+<p><b>No default </b></p>
+<p>Numeric value. </p>
+<p>Specifies the start address of the peripheral region </p>
+<p>which shall be configured. </p>
+<p>Any 32 bit value can be used. </p>
+<p>EndAddress </p>
+<p>OsOSEndAddress </p>
+<p>uint32 </p>
+<p><b>No default </b></p>
+<p>Numeric value. </p>
+<p>Specifies the end address of the peripheral region </p>
+<p>which shall be configured. </p>
+<p>Any 32 bit value can be used. </p>
+<p>Identifier </p>
+<p>OsOSIdentifier </p>
+<p>string </p>
+<p><b>No default </b></p>
+<p>C-String </p>
+<p>Must be a unique C Identifier which can be used in </p>
+<p>an application or BSW module to access the </p>
+<p>peripheral region. </p>
+<p>ACCESSING_</p>
+<p>APPLICATION </p>
+<p>OsOSAccessing </p>
+<p>Application </p>
+<p>Application </p>
+<p>Type </p>
+<p>Application reference. </p>
+<p>Defines access rights of an application for this </p>
+<p>PeripheralRegion. </p>
+<p>This attribute can be defined multiple times, so that </p>
+<p>different applications might have access right to the </p>
+<p>same PeripheralRegion. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The application is allowed to access memory addresses in the interval of StartAddress </p>
+<p>&lt;= memory to be accessed &lt;= EndAddress </p>
+<p>The “EndAddress” value is included! All bytes of a peripheral access must fit into the </p>
+<p>peripheral region. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>15 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>3.4 </b></p>
+<p><b>Counter Attributes </b></p>
+<p>Platform specific attributes are located within the container “DRIVER”. </p>
+<p>Sub-Attribute Name </p>
+<p>Values </p>
+<p>(default value is </p>
+<p>written in bold) </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>Timer </p>
+<p>OsCounterTimer </p>
+<p>OSTM </p>
+<p>OSTM_HIRES </p>
+<p><b>No default </b></p>
+<p>Selects the timer hardware which drives the </p>
+<p>hardware counter. </p>
+<p>OSTM: OSTM timer is used and generates cyclic </p>
+<p>interrupts. </p>
+<p>OSTM_HIRES: OSTM timer is used and runs in </p>
+<p>high resolution timer mode. </p>
+<p>Which interrupt channel is used for a specific </p>
+<p>derivative can be found in chapter 8.1. </p>
+<p> </p>
+<p><b>3.4.1 </b></p>
+<p><b>OSTM Sub-Attributes </b></p>
+<p>Sub-Attribute Name </p>
+<p>Values </p>
+<p>(default value is </p>
+<p>written in bold) </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>EnableNesting </p>
+<p>OsCounterEnabl</p>
+<p>eNesting </p>
+<p>TRUE </p>
+<p>FALSE </p>
+<p><b>No default </b></p>
+<p>Specifies whether the timer interrupt which drives </p>
+<p>the hardware counter can be interrupted by </p>
+<p>higher priority interrupts. </p>
+<p>InterruptPriority </p>
+<p>OsCounterInterr</p>
+<p>uptPriority </p>
+<p>0 ... <b>15 </b></p>
+<p>0 ... <b>7 </b>(F1L) </p>
+<p>The priority of the timer ISR which drives the </p>
+<p>hardware counter. </p>
+<p>StackSize </p>
+<p>OsCounterStack</p>
+<p>Size </p>
+<p>0 … 0xFFFC </p>
+<p>Stack size of the timer ISR which drives the </p>
+<p>hardware counter. </p>
+<p> </p>
+<p><b>3.4.2 </b></p>
+<p><b>OSTM_HIRES Sub-Attributes </b></p>
+<p>Sub-Attribute Name </p>
+<p>Values </p>
+<p>(default value is </p>
+<p>written in bold) </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>EnableNesting </p>
+<p>OsCounterEnabl</p>
+<p>eNesting </p>
+<p>TRUE </p>
+<p>FALSE </p>
+<p><b>No default </b></p>
+<p>Specifies whether the timer interrupt which drives </p>
+<p>the hardware counter can be interrupted by </p>
+<p>higher priority interrupts. </p>
+<p>InterruptPriority </p>
+<p>OsCounterInterr</p>
+<p>uptPriority </p>
+<p>0 ... <b>15 </b></p>
+<p>0 ... <b>7 </b>(F1L) </p>
+<p>The priority of the timer ISR which drives the </p>
+<p>hardware counter. </p>
+<p>StackSize </p>
+<p>OsCounterStack</p>
+<p>Size </p>
+<p>0 … 0xFFFC </p>
+<p>Stack size of the timer ISR which drives the </p>
+<p>hardware counter. </p>
+<p>MinTimeBetween</p>
+<p>TimerIrqs </p>
+<p>OsCounterMinTi</p>
+<p>meBetweenTim</p>
+<p>erIrqs </p>
+<p>uint32 </p>
+<p><b>0 </b></p>
+<p>Defines the number of timer ticks which at least </p>
+<p>must be between two timer interrupts (shortest </p>
+<p>possible time between two timer interrupts). </p>
+<p> </p>
+<p>Detailed description how to configure software and hardware counter can be found in [3]. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>16 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>3.5 </b></p>
+<p><b>ISR Attributes </b></p>
+<p>Attribute Name </p>
+<p>Values </p>
+<p>Default value is written in bold </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>ExceptionType </p>
+<p>OsOSExceptionType </p>
+<p>GENERAL_EXCEPTION </p>
+<p><b>EIINT </b></p>
+<p>Select EIINT for EI level interrupts. </p>
+<p>Select GENERAL_EXCEPTION for </p>
+<p>core exceptions. </p>
+<p>EnableNesting </p>
+<p>OsOSEnableNesting </p>
+<p>TRUE </p>
+<p>FALSE </p>
+<p>Must be set FALSE if the  </p>
+<p>configured CAT2 ISR shall not be </p>
+<p>interrupted by CAT1 or CAT2 ISRs </p>
+<p>with higher priority level. This </p>
+<p>attribute is ignored for CAT1 ISRs. </p>
+<p>UseSpecialFunc</p>
+<p>tionName </p>
+<p>OsOSUseSpecialFun</p>
+<p>ctionName </p>
+<p>TRUE </p>
+<p><b>FALSE </b></p>
+<p>This is a feature for mapping </p>
+<p>different interrupt / exception </p>
+<p>sources to one interrupt handler. </p>
+<p>This feature is supported as </p>
+<p>described in [3]. </p>
+<p>Table 2: RH850 specific ISR attributes </p>
+<p> </p>
+<p><b>3.5.1 </b></p>
+<p><b>ExceptionType Sub-Attributes </b></p>
+<p><b> </b></p>
+<p><b>ExceptionType = GENERAL_EXCEPTION </b></p>
+<p>Attribute Name </p>
+<p>Values </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>ExceptionAddress </p>
+<p>OsOSExceptionAddress </p>
+<p><b>No default </b></p>
+<p>Interrupt vector address offset. </p>
+<p>Table 3: Sub-attributes of ExceptionType=GENERAL_EXCEPTION </p>
+<p><b> </b></p>
+<p><b>ExceptionType = EIINT </b></p>
+<p>Attribute Name </p>
+<p>Values </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>IntChannel </p>
+<p>OsOSIntChannel </p>
+<p>0 … 511  </p>
+<p><b>No default </b></p>
+<p>Channel index of EI level </p>
+<p>interrupt. </p>
+<p>Max channel number depends </p>
+<p>on used CPU derivative. </p>
+<p>InterruptPriority </p>
+<p>OsOSInterruptPriority </p>
+<p>SC1 and SC3: 0…15  </p>
+<p>SC4: 1…15 </p>
+<p><b>No default </b></p>
+<p>Defines the interrupt priority  </p>
+<p>level of the ISR. Lower value </p>
+<p>means higher priority. </p>
+<p>InterruptStackSize </p>
+<p>OsOSInterruptStackSize </p>
+<p>0 … 0xFFFC </p>
+<p><b>No default </b></p>
+<p>Size of the ISR stack </p>
+<p>Table 4: Sub-attributes of ExceptionType=EIINT </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>17 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>3.6 </b></p>
+<p><b>Application Attributes </b></p>
+<p>The following specific attributes are provided for SC3 and SC4: </p>
+<p>Attribute Name </p>
+<p>Values </p>
+<p>Default  value  is </p>
+<p>written in bold </p>
+<p>Description </p>
+<p>OIL </p>
+<p>XML </p>
+<p>ASID </p>
+<p>OsApplicationASID </p>
+<p>0 … 0x3FE </p>
+<p><b>0x3FF </b></p>
+<p>Value to be written to ASID register </p>
+<p>on application switch. The </p>
+<p>maximum value 0x3FF is used as </p>
+<p>default value. </p>
+<p>MpuRegion </p>
+<p>OsApplicationMpuRegion </p>
+<p>Enable </p>
+<p>Configures application specific </p>
+<p>dynamic MPU region </p>
+<p>Table 5: RH850: Application specific attributes </p>
+<p><b>3.6.1 </b></p>
+<p><b>Attribute MpuRegion </b></p>
+<p>Attribute  MpuRegion  must  be  configured  for  non-trusted  applications  which  need  write </p>
+<p>access to application specific memory areas. If dynamic MPU region is enabled then the </p>
+<p>memory area is specified by following sub-attributes: </p>
+<p><b>Sub-Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>(default value </p>
+<p>is written in </p>
+<p>bold) </p>
+<p><b>Description </b></p>
+<p>OIL </p>
+<p>XML </p>
+<p>StartAddr </p>
+<p>OsApplication</p>
+<p>StartAddr </p>
+<p>string </p>
+<p><b>No default </b></p>
+<p>Start address of application specific MPU region </p>
+<p>hexadecimal value: </p>
+<p>StartAddr = 0x… </p>
+<p>or application specific linker symbol: </p>
+<p>StartAddr = &lt;appl_linker_start_symbol&gt; </p>
+<p>EndAddr </p>
+<p>OsApplication</p>
+<p>EndAddr </p>
+<p>string </p>
+<p><b>No default </b></p>
+<p>End address of application specific MPU region </p>
+<p>hexadecimal value: </p>
+<p>EndAddr = 0x… </p>
+<p>or application specific linker symbol: </p>
+<p>EndAddr = &lt;appl_linker_end_symbol&gt; </p>
+<p>Value of StartAddr must always point to the first valid Byte in the specified memory area. </p>
+<p>Value of EndAddr must always point to the last valid Byte in the specified memory area. </p>
+<p>MpuRegion = Enable </p>
+<p>{ </p>
+<p> </p>
+<p>StartAddr  = 0x... ; </p>
+<p> </p>
+<p>EndAddr </p>
+<p>= 0x... ; </p>
+<p>}; </p>
+<p> </p>
+<p>The total number of used dynamic MPU regions depends on the application which has the </p>
+<p>most number of dynamic regions.  </p>
+<p>Example:  if  an  application  has  3  dynamic  regions  and  other  application  has  5  dynamic </p>
+<p>regions then the total number of used dynamic MPU regions is 5. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>18 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>3.7 </b></p>
+<p><b>Event Attributes </b></p>
+<p>Events in the MICROSAR OS operating system are always implemented as bits in bit </p>
+<p>fields. The user could use bit masks like ‘0x00000001’ but to achieve portability between </p>
+<p>different MICROSAR OS implementation he should use event names which are mapped </p>
+<p>by the code generator to the defined bits. The MICROSAR OS RH850 implementation </p>
+<p>allows up to 32 events per task. The required size of the event masks is calculated </p>
+<p>automatically by the code generator. Possible event mask sizes are 8, 16 and 32 Bits. </p>
+<p><b>3.8 </b></p>
+<p><b>Linker Include Files (SC3 and SC4) </b></p>
+<p>The  generated  linker  include  files  osdata.dld,  osrom.dld,  ossdata.dld,  osstacks.dld  and </p>
+<p>ostdata.dld are example files which can be used for mapping the OS and application data. </p>
+<p><b>osdata.dld </b></p>
+<p>Include file osdata.dld contains mapping for application and OS data. It should be included </p>
+<p>immediately after the default .data section. </p>
+<p><b>osrom.dld </b></p>
+<p>Include osrom.dld contains the mapping of initialized data which is copied by the start-up </p>
+<p>code from ROM to RAM area. It should be included at end of ROM section. </p>
+<p><b>ossdata.dld </b></p>
+<p>Include file ossdata.dld contains the mapping of application and OS data in SDA section. </p>
+<p>Due to limited number of MPU protection areas the SDA section of non-trusted application </p>
+<p>contain SDA and non-SDA data. This affects also the global shared data sections. This file </p>
+<p>must be included after the .sdata section. </p>
+<p><b>osstacks.dld </b></p>
+<p>Include file osstacks.dld contains the mapping of system stack, all task and all ISR stacks. </p>
+<p>This file should be included before application specific data sections. </p>
+<p><b>ostdata.dld </b></p>
+<p>Include  file  ostdata.dld  contains  mapping  for  application  data  in  TDA  section.  This  file </p>
+<p>should be included after the .zdata section. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>19 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>4 </b></p>
+<p><b>System Generation </b></p>
+<p>The system generation process is described in the document [3] which is common to all </p>
+<p>implementation. The following section describes the RH850 specific parts of the generating </p>
+<p>process.  </p>
+<p> </p>
+<p>OIL</p>
+<p>executable</p>
+<p>+</p>
+<p>AUTOSAR XML</p>
+<p>Configuration Tool</p>
+<p>XML</p>
+<p>OIL</p>
+<p>Configurator</p>
+<p>Code</p>
+<p>generator</p>
+<p>Configuration</p>
+<p>Files *.c, *.h</p>
+<p>OS source Files *.c, *.h</p>
+<p>Application</p>
+<p>Files *.c, *.h</p>
+<p>Compile   and</p>
+<p>link</p>
+<p>alternative</p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>System Generation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>20 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>4.1 </b></p>
+<p><b>Code Generator </b></p>
+<p>The following files are generated by the code generator genRH850SCTX.exe </p>
+<p></p>
+<p> </p>
+<p>config.xml </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>configuration information in XML-format </p>
+<p></p>
+<p> </p>
+<p>intvect_c0.c </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>interrupt vector tables </p>
+<p></p>
+<p> </p>
+<p>tcb.c </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>applications and OS configuration </p>
+<p></p>
+<p> </p>
+<p>tcb.h </p>
+<p></p>
+<p> </p>
+<p>tcbpost.h </p>
+<p></p>
+<p> </p>
+<p>trustfct.h   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>trustfct.c </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>trusted function stubs </p>
+<p></p>
+<p> </p>
+<p>osConfigBlock.c   </p>
+<p>contains the configuration block </p>
+<p></p>
+<p> </p>
+<p>osStacks.h </p>
+<p></p>
+<p> </p>
+<p>osStacks.c   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>stack definitions </p>
+<p></p>
+<p> </p>
+<p>Os_MemMap.h  </p>
+<p> </p>
+<p>contains definitions for MemMap usage </p>
+<p></p>
+<p> </p>
+<p>OILFileName.ort </p>
+<p></p>
+<p> </p>
+<p>OILFileName.htm </p>
+<p> </p>
+<p>For SC3 and SC4 the following additional files are generated: </p>
+<p></p>
+<p> </p>
+<p>osdata.dld            </p>
+<p>example linker include file for application data </p>
+<p></p>
+<p> </p>
+<p>osrom.dld  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>example linker include file for application data initialization </p>
+<p></p>
+<p> </p>
+<p>ossdata.dld  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>example linker include file for application data in SDA </p>
+<p></p>
+<p> </p>
+<p>osstacks.dld   </p>
+<p> </p>
+<p> </p>
+<p>example linker include file for stacks </p>
+<p></p>
+<p> </p>
+<p>ostdata.dld  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>example linker include file for application data in TDA </p>
+<p></p>
+<p> </p>
+<p>nontrustfct.h   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>For multicore systems the following additional files are generated: </p>
+<p></p>
+<p> ioc.h  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Header for IOC related functions </p>
+<p></p>
+<p> ioc.c   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>IOC related functions </p>
+<p></p>
+<p> ccb.h  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Header for multicore related attributes </p>
+<p></p>
+<p> ccb.c  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Multicore related attributes </p>
+<p></p>
+<p> intvect_c1.c   </p>
+<p>Interrupt vector tables for second core </p>
+<p> </p>
+<p>The files tcb.c, tcb.h, trustfct.c, trustfct.h and nontrustfct.h are described in document [3]. </p>
+<p>The module intvect_c0.c contains the interrupt vector tables for the Green Hills compiler.  </p>
+<p>The module <i>OILFileNam</i>e.ort is only generated if the configuration attribute </p>
+<p>O<i>RTIDebugSupport </i>is selected. </p>
+<p><i>OILFileNam</i>e.htm is containing information about the configuration settings. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>21 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>5 </b></p>
+<p><b>Stack Handling </b></p>
+<p><b>5.1 </b></p>
+<p><b>Task Stacks </b></p>
+<p>Each task runs on an own separate task stack. Tasks might share a stack as described in </p>
+<p>[3]. The PreTaskHook function always uses the system stack. The PostTaskHook function </p>
+<p>uses the system stack or in case of a task termination, it uses the task stack of the task </p>
+<p>that is terminated. Note that all task stacks must provide sufficient size for the maximum </p>
+<p>nesting  level  of  ISR  category  1.  Therefore  it  is  recommended  to  use  ISR  category  2  if </p>
+<p>possible. </p>
+<p>The size of each task stack is determined by the configuration attribute StackSize of the </p>
+<p>configuration object TASK. </p>
+<p><b>5.2 </b></p>
+<p><b>ISR Stacks </b></p>
+<p>An interrupt stack is defined for each interrupt priority level which is assigned to a CAT2 </p>
+<p>ISR. Each CAT2 ISR runs on the interrupt stack which is assigned to its priority level. </p>
+<p><b>5.3 </b></p>
+<p><b>System Stack </b></p>
+<p>The system stack is used by the dispatcher and by the hook wrappers. </p>
+<p><b>5.4 </b></p>
+<p><b>Startup Stack </b></p>
+<p>In function osStartOSasm the stack pointer is initialized to point to the system stack. </p>
+<p>The system stack can be used as start-up stack. </p>
+<p>The following linker symbol is provided to use the system stack as start-up stack: </p>
+<p>_osSystemStack_EndAddr </p>
+<p><b>5.5 </b></p>
+<p><b>Stack Usage Size </b></p>
+<p>The OS offers the possibility to determine the maximum stack usage of the OS stacks. </p>
+<p>Please be aware, that the function stack usage determination for system stacks depends </p>
+<p>heavily on the positions in the code, where an ISR is interrupted by another ISR. </p>
+<p>In the single stack model, the measured value for the system stack usage also depends </p>
+<p>heavily on the position in the code, where a basic task is preempted by another task. For </p>
+<p>this reason, it is extremely difficult, to find a conclusion for the worst case system stack </p>
+<p>usage from the measured stack usage. </p>
+<p>NOTE: The API functions for determination of the stack usage are only available with the </p>
+<p>following configuration settings: </p>
+<p>STACKMONITORING = TRUE </p>
+<p>StackUsageMeasurement = TRUE </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>22 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>5.5.1 </b></p>
+<p><b>Task Stack Usage </b></p>
+<p>API function <i>osGetStackUsage </i>is described in [3]. </p>
+<p> </p>
+<p><b>5.5.2 </b></p>
+<p><b>System Stack Usage </b></p>
+<p>The usage of the system stack since the start of the OS can be determined by using the </p>
+<p>function <i>osGetSystemStackUsage</i>. </p>
+<p>Prototype: </p>
+<p><b>typedef osuint16 osStackUsageType; </b></p>
+<p><b> </b></p>
+<p><b>osStackUsageType osGetSystemStackUsage(void); </b></p>
+<p> </p>
+<p>Argument: </p>
+<p> none </p>
+<p>Return value:  Maximum stack usage (bytes) of the system stack since StartOS(). </p>
+<p> </p>
+<p><b>5.5.3 </b></p>
+<p><b>ISR Stack Usage </b></p>
+<p>The  usage  of  the  ISR  stacks  since  the  start  of  the  OS  can  be determined  by  using  the </p>
+<p>function <i>osGetISRStackUsage</i>. </p>
+<p>Prototype: </p>
+<p><b>typedef osuint16 osStackUsageType; </b></p>
+<p><b> </b></p>
+<p><b>osStackUsageType osGetISRStackUsage(ISRType IsrIndex); </b></p>
+<p> </p>
+<p>Argument: </p>
+<p>  </p>
+<p>Index of the ISR  </p>
+<p>Return value:   </p>
+<p>Maximum stack usage (bytes) of the ISR stack since StartOS(). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>23 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>6 </b></p>
+<p><b>Interrupt Handling </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This implementation supports interrupt handling according to the RH850 “expanded </p>
+<p>specifications” with a separate vector table for EIINT interrupts. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>6.1 </b></p>
+<p><b>Interrupt Vectors </b></p>
+<p>The code generator generates the interrupt vector tables. Therefore, all interrupt-service-</p>
+<p>routines have to be defined in the configuration. The interrupt vector tables are generated </p>
+<p>into the file intvect_c&lt;X&gt;.c for the Green Hills compiler, where X is the corresponding core </p>
+<p>ID. </p>
+<p>The interrupt vector tables are generated into three sections: </p>
+<p></p>
+<p> </p>
+<p><b>&quot;.</b></p>
+<p> </p>
+<p><b>osExceptionVectorTable_c&lt;X&gt;&quot; </b></p>
+<p>contains the core exception vector table </p>
+<p><b> </b></p>
+<p></p>
+<p> </p>
+<p><b>&quot;.</b></p>
+<p> </p>
+<p><b>osEIINTVectorTable_c&lt;X&gt;&quot; </b></p>
+<p>contains the EIINT exceptions vector table </p>
+<p><b> </b></p>
+<p></p>
+<p> </p>
+<p><b>&quot;.os_text&quot; </b></p>
+<p>Contains the ISR prologue for CAT2 ISR wrappers </p>
+<p> </p>
+<p>The length of the mentioned vector tables depends on the concrete derivative.</p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>6.1.1 </b></p>
+<p><b>Reset Vector </b></p>
+<p>The user can specify an own reset vector. For this the user must configure a category 1 </p>
+<p>ISR which has the vector address 0x0, i.e. attribute ExceptionAddress=0x0. </p>
+<p>If a category 1 ISR is configured for vector 0x0, this vector is generated as a jump to the </p>
+<p>specified address. </p>
+<p>If this vector is not configured in the configuration, the vector 0x0 is generated as a jump to </p>
+<p>the startup code, delivered with the compiler.  </p>
+<p>Please note that all examples use the start-up module which is delivered with the compiler. </p>
+<p>For the Green Hills compiler this module is crt0.o </p>
+<p><b>6.1.2 </b></p>
+<p><b>Level Initialization </b></p>
+<p>The user has to configure an interrupt priority level for all ISRs. MICROSAR OS initializes </p>
+<p>the  appropriate  interrupt  control  register  with  the  level,  configured  by  the  user.  The </p>
+<p>application is not allowed to change the interrupt priority level after StartOS is called. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>24 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>6.2 </b></p>
+<p><b>Interrupt Level and Category </b></p>
+<p>The  RH850  controllers  support  interrupt  levels.  ISRs  with  lower  level  have  priority  over </p>
+<p>those with higher level. ISRs of lower level might therefore be nested into ISRs of higher </p>
+<p>level. Interrupt levels cannot be chosen independently from the category. </p>
+<p>Because ISRs of category 2 can activate tasks, the exit code of a non-nested category 2 </p>
+<p>ISR has to check, if a task has been activated by the ISR itself or by any nested ISRs. If </p>
+<p>so, a task switch has to be set off. As category 1 ISRs have no such exit code, they must </p>
+<p>not be interrupted by category 2 ISRs. For this reason, MICROSAR OS checks, that all </p>
+<p>category 1 ISRs have lower or equal level value than the category 2 ISR with lowest level. </p>
+<p><b>Note: </b>Scalability class SC4 does not allow use of category 2 ISRs with priority level 0 </p>
+<p><b>6.3 </b></p>
+<p><b>Interrupt Category 1 </b></p>
+<p>For interrupts of category 1 no MICROSAR OS API functions can be used. Note that the </p>
+<p>category 1 ISR with highest priority value must have lower or equal priority value than the </p>
+<p>category 2 ISR with lowest priority value. </p>
+<p>Example: if category 2 ISRs have priority levels 8, 10, 11 and 12 then category 1 cannot </p>
+<p>use priority levels 8 ... 15. Category 1 ISRs must then use priority levels 0 ... 7 </p>
+<p><b>Note: </b>Scalability class SC4 does not allow use of category 1 ISRs for EIINT exceptions </p>
+<p><b>6.3.1 </b></p>
+<p><b>Interrupt Processing in C </b></p>
+<p>Using  the  Green  Hills  compiler,  category  1  interrupt  functions  written  in  C  must  be  </p>
+<p>implemented as described in the compiler manual: </p>
+<p><i>You can use either of the following methods to declare a function as an interrupt routine: </i></p>
+<p></p>
+<p> </p>
+<p><i>Place #pragma ghs interrupt immediately before the function. </i></p>
+<p></p>
+<p> </p>
+<p><i>Prepend the __interrupt keyword to the function definition. </i></p>
+<p>Independently from the compiler, the user should not provide the interrupt vector number </p>
+<p>to the compiler, as the compiler would generate an interrupt vector in this case. Interrupt </p>
+<p>vector generation is always done by the operating system. </p>
+<p><b>6.3.2 </b></p>
+<p><b>Unhandled Exception Determination </b></p>
+<p>If an unexpected interrupt occurs which is caused by an unused interrupts source then the </p>
+<p>ErrorHook and ShutdownHook are called and the system shutdown is requested. </p>
+<p>The error type is reported to the application via error code E_OS_SYS_ABORT. </p>
+<p>If  an  unhandled    core  exception  has  occurred  then  the  error  reason  is  reported  to  the </p>
+<p>application </p>
+<p>via </p>
+<p>error </p>
+<p>number </p>
+<p>osdErrUEUnhandledCoreException. </p>
+<p>The </p>
+<p>global </p>
+<p>variable </p>
+<p>ossUnhandledCoreExceptionDetail  contains  the  content  of  register  FEIC  and  the  global </p>
+<p>variable ossUnhandledExceptionDetail contains the offset of the core exception. </p>
+<p>If an  unhandled    EIINT  exception has  occurred  then  the error reason  is  reported  to  the </p>
+<p>application  via  error  number  osdErrUEUnhandledEIINTException.  The  global  variable </p>
+<p>ossUnhandledEIINTDetail  contains  the  content  of  register  EIIC  and  the  global  variable </p>
+<p>ossUnhandledExceptionDetail contains the index of the EIINT exception. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>25 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>6.4 </b></p>
+<p><b>Interrupt Category 2 </b></p>
+<p><b>6.4.1 </b></p>
+<p><b>Interrupt Entry </b></p>
+<p>The  entry  code  of  category  2  ISRs  is  automatically  generated  by  MICROSAR  OS. This </p>
+<p>code stores the GPR registers onto stack and calls the CAT2 ISR wrapper.  </p>
+<p><b>SC1  and  SC3: </b> The  CAT2  ISR  wrapper  clears  the  global  interrupt  disable  flag  if  the </p>
+<p>attribute <i>EnableNesting </i>is set for this ISR before calling the corresponding ISR function. If </p>
+<p>this  attribute  is  not  set  then  the  CAT2  ISR  wrapper  does  not  clear  the  global  interrupt </p>
+<p>disable flag. </p>
+<p><b>SC4: </b> The  CAT2  ISR  wrapper  sets  register  PMR  to  system  level  and  clears  the  global </p>
+<p>interrupt  disable  flag  if  the  attribute <i> EnableNesting </i> is  set  for  this  ISR  before  calling  the </p>
+<p>corresponding  ISR  function.  If  this  attribute  is  not  set  then  the  CAT2  ISR  wrapper  sets </p>
+<p>register PMR to task level and then clears the global interrupt disable. </p>
+<p> </p>
+<p><b>6.4.2 </b></p>
+<p><b>Interrupt Exit </b></p>
+<p>The necessary return from exception is implemented in the CAT2 ISR wrapper exit code. </p>
+<p>The application is not allowed to issue a return from exception instruction.  </p>
+<p> </p>
+<p><b>6.4.3 </b></p>
+<p><b>CAT2 ISR Function </b></p>
+<p>For category 2 ISRs, the user has to use the ISR-macro provided by MICROSAR OS. The </p>
+<p>name which is given to this macro must be identical to the name in the configuration. </p>
+<p><b>ISR( myISR ) </b></p>
+<p><b>{ </b></p>
+<p><b>   … /* ISR function body */ </b></p>
+<p><b>} </b></p>
+<p><b>6.5 </b></p>
+<p><b>Disabling Interrupts </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>It is not allowed to disable interrupts longer than the tick time </p>
+<p>SECONDSPERTICK</p>
+<p> of the </p>
+<p>hardware counter (timer). If interrupts are disabled longer than the tick time the alarm </p>
+<p>management  could  be  handled  wrong.  This  error  is <i> not </i> detected  by  the  operating </p>
+<p>system. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Only  when  compiling  the  operating  system  with  the  extended  status  additional  error </p>
+<p>checking is performed. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>26 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>7 </b></p>
+<p><b>MPU Handling (SC3 and SC4) </b></p>
+<p><b>7.1 </b></p>
+<p><b>MPU Region Usage </b></p>
+<p>MPU  region  0  is  used  for  stack  area  protection  and  all  other  MPU  regions  can  be </p>
+<p>configured by the user to be static or dynamic (reprogrammed). </p>
+<p>The total number of available MPU regions depends on the derivative group: </p>
+<p><b>Derivative group </b></p>
+<p><b>Number of MPU regions </b></p>
+<p>D1L and D1M </p>
+<p>12 </p>
+<p>E1L and E1M </p>
+<p>12 </p>
+<p>F1H and F1M </p>
+<p>16 </p>
+<p>F1L </p>
+<p>4 </p>
+<p>P1M </p>
+<p>12 </p>
+<p> </p>
+<p> </p>
+<p><b>7.1.1 </b></p>
+<p><b>MPU Region 0 </b></p>
+<p>MPU region 0 is used for stack area protection and cannot be configured by the user. It is </p>
+<p>always reprogrammed by the OS when the context is switched. Therefore trusted and non-</p>
+<p>trusted  applications  can  only  write  to  the  task  and  ISR  stacks  which  belong  to  the </p>
+<p>application. </p>
+<p> </p>
+<p><b>7.1.2 </b></p>
+<p><b>Static MPU Regions </b></p>
+<p>If a MPU region shall be static, i.e. it is only initialized in StartOS and not reprogrammed </p>
+<p>when  context  is  switched  then  it  has  to  be  configured  in  the  OS  specific  section.  The </p>
+<p>region  number  is  not  required.  The  OS  generator  assigns  a  region  number  for  each </p>
+<p>configured static MPU region. </p>
+<p>The  user  must  specify  start  address,  end  address  and  region  attributes  of  the  memory </p>
+<p>area. </p>
+<p>If a MPU region is configured to be static then it is initialized in StartOS with settings from </p>
+<p>the configuration block. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>27 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>7.1.3 </b></p>
+<p><b>Dynamic MPU Regions </b></p>
+<p>If a MPU region shall be dynamic, i.e. it is always reprogrammed when context is switched </p>
+<p>then  it  has  to  be  configured  in  each  corresponding  non-trusted  application  section. The </p>
+<p>region  number  is  not  required.  The  OS  generator  assigns  a  region  number  for  each </p>
+<p>configured  dynamic  MPU  region.  Trusted  applications  cannot  be  configured  with  MPU </p>
+<p>regions.  </p>
+<p>The user must specify start and end address of the memory area. The region attributes are </p>
+<p>configured by the OS.  </p>
+<p>If a MPU region is configured to be dynamic then it is initialized in StartOS to be unused. </p>
+<p>After  StartOS  it  is  always  reprogrammed  when  a  non-trusted  application  is  started  or </p>
+<p>terminated. </p>
+<p>Non-trusted applications can have different number of MPU regions. The total number of </p>
+<p>reprogrammed  MPU  regions  depends  on  the  application  which  has  the  most  dynamic </p>
+<p>regions. Example: If a system has 2 non-trusted applications, one application configured </p>
+<p>with 2 MPU regions and the other application configured with 3 MPU regions, then the total </p>
+<p>number  of  dynamic  MPU  regions  is  3.  During  runtime  when  context  is  switched  then </p>
+<p>always 3 MPU regions are reprogrammed.  </p>
+<p>Non-trusted application Appl1: </p>
+<p></p>
+<p> MPU region 1 used </p>
+<p></p>
+<p> MPU region 2 used </p>
+<p>Non-trusted application Appl2: </p>
+<p></p>
+<p> MPU region 1 used </p>
+<p></p>
+<p> MPU region 2 used </p>
+<p></p>
+<p> MPU region 3 used </p>
+<p>When  application  Appl1  is  started  then  MPU  regions  1  and  2  are  reprogrammed  with </p>
+<p>application specific settings and MPU region 3 is set to unused. </p>
+<p>When application Appl2 is started then MPU regions 1, 2 and 3 are reprogrammed with </p>
+<p>application specific settings. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>28 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>8 </b></p>
+<p><b>RH850 Peripherals </b></p>
+<p><b>8.1 </b></p>
+<p><b>Supported System Timer </b></p>
+<p>MICROSAR  OS  RH850  uses  the  timer  unit  OSTM  as  driver  for  a  configured  hardware </p>
+<p>counter (see 3.4). The corresponding interrupt channel depends on the derivative group: </p>
+<p>Derivative </p>
+<p>group </p>
+<p>Used Interrupt Channel </p>
+<p>Used Hardware Unit </p>
+<p>D1L / D1M </p>
+<p>125 </p>
+<p>OSTM0 </p>
+<p>E1L / E1M </p>
+<p>25 </p>
+<p>OSTM0 </p>
+<p>F1H / F1M </p>
+<p>84 </p>
+<p> </p>
+<p>OSTM0 </p>
+<p>OSTM5 for second core in multicore system </p>
+<p>F1L </p>
+<p>76 </p>
+<p>OSTM0 </p>
+<p>P1M </p>
+<p>74 </p>
+<p>OSTM0 </p>
+<p>Table 3  </p>
+<p>RH850 driver for hardware counter </p>
+<p><b>8.2 </b></p>
+<p><b>Supported Time Monitoring Timer </b></p>
+<p>MICROSAR OS RH850 uses the timer unit TAUJ0 for SC4 timing protection: </p>
+<p>Derivative </p>
+<p>group </p>
+<p>Used Interrupt Channels </p>
+<p>Used Hardware Unit </p>
+<p>D1L / D1M </p>
+<p>121, 122, 123 </p>
+<p>TAUJ0 </p>
+<p>E1L / E1M </p>
+<p>Timing Protection not supported </p>
+<p>- </p>
+<p>F1H / F1M </p>
+<p>80, 81, 82 </p>
+<p>TAUJ0 </p>
+<p>F1L </p>
+<p>72, 73, 74 </p>
+<p>TAUJ0 </p>
+<p>P1M </p>
+<p>133, 134, 135 </p>
+<p>TAUJ0 </p>
+<p>Table 4  </p>
+<p>RH850 timer units for timing protection </p>
+<p><b>8.3 </b></p>
+<p><b>Initialization </b></p>
+<p>The OS initializes the interrupt controller INTC before the StartupHook is called.  </p>
+<p>Register SCBASE and SCCFG are initialized to use the OS syscall table (SC3 and SC4). </p>
+<p>The OS initializes the timer OSTM after the StartupHook is called. </p>
+<p>In  case  of  SC3  and  SC4,  the  OS  initializes the  memory  protection  unit  MPU  before  the </p>
+<p>StartupHook is called. </p>
+<p>In case of SC4, the OS initializes the timer unit TAUJ0 before the StartupHook is called. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>29 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9 </b></p>
+<p><b>Implementation Specifics  </b></p>
+<p><b>9.1 </b></p>
+<p><b>API Functions </b></p>
+<p><b>9.1.1 </b></p>
+<p><b>DisableAllInterrupts </b></p>
+<p><b>SC1 and SC3: </b>The function <i>DisableAllInterrupts </i>disables all interrupts. This is achieved by </p>
+<p>setting the ID-Bit in register PSW. The old value of the ID-Bit is stored for later restore.  </p>
+<p><b>SC4: </b>The function <i>DisableAllInterrupts </i>disables interrupts up to priority level 1. Interrupts </p>
+<p>with priority level 0 stay enabled. This is performed by setting bits 1…15 in register PMR. </p>
+<p>The  old  value  of  the  register is stored for later restore.  Interrupts of  priority  level 0  stay </p>
+<p>enabled so that timing protection exceptions can still occur. </p>
+<p><b>Remark</b>: Nested calls are <b>not </b>possible. </p>
+<p><b>9.1.2 </b></p>
+<p><b>EnableAllInterrupts </b></p>
+<p><b>SC1 and SC3: </b>The function <i>EnableAllInterrupts </i>restores the content of the ID-Bit which </p>
+<p>was stored by <i>DisableAllInterrupts</i>.  </p>
+<p><b>SC4: </b> The  function <i> EnableAllInterrupts </i> restores  the  content  of  register  PMR  which  was </p>
+<p>stored by <i>DisableAllInterrupts</i>.  </p>
+<p><b>Remark</b>: Nested calls are <b>not </b>possible. </p>
+<p><b>9.1.3 </b></p>
+<p><b>SuspendAllInterrupts </b></p>
+<p><b>SC1 and SC3: </b>The function <i>SuspendAllInterrupts </i>disables all interrupts. This is achieved </p>
+<p>by setting the ID-Bit in register PSW. The old value of the ID-Bit is stored for later restore.  </p>
+<p><b>SC4: </b>The function <i>SuspendAllInterrupts </i>disables interrupts up to priority level 1. Interrupts </p>
+<p>with priority level 0 stay enabled. This is performed by setting bits 1…15 in register PMR. </p>
+<p>The  old  value  of  the  register is stored for later restore.  Interrupts of  priority  level 0  stay </p>
+<p>enabled so that timing protection exceptions can still occur. </p>
+<p><b>Remark</b>: Nested calls are possible. </p>
+<p><b>9.1.4 </b></p>
+<p><b>ResumeAllInterrupts </b></p>
+<p><b>SC1 and SC3: </b>The function <i>ResumeAllInterrupts </i>restores the content of the ID-Bit which </p>
+<p>was stored by <i>SuspendAllInterrupts</i>. </p>
+<p><b>SC4: </b>The function <i> ResumeAllInterrupts </i> restores  the  content  of  register PMR  which  was </p>
+<p>stored by <i>SuspendAllInterrupts</i>.  </p>
+<p><b>Remark</b>: Nested calls are possible. </p>
+<p><b>9.1.5 </b></p>
+<p><b>SuspendOSInterrupts </b></p>
+<p>The function <i>SuspendOSInterrupts </i>disables all category 2 interrupts. This is achieved by </p>
+<p>setting  the  PMR  register  to  system  level  (highest  interrupt  priority  of  all  category  2 </p>
+<p>interrupts). The old value of the PMR register is stored for later restore.  </p>
+<p><b>Remark</b>: Nested calls are possible. </p>
+<p><b>9.1.6 </b></p>
+<p><b>ResumeOSInterrupts </b></p>
+<p>The function <i>ResumeOSInterrupts </i>restores the content of register PMR which was stored </p>
+<p>by <i>SuspendOSInterrupts</i>. </p>
+<p><b>Remark</b>: Nested calls are possible. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>30 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.1.7 </b></p>
+<p><b>GetResource </b></p>
+<p>MICROSAR OS RH850 SC3/SC4 does not support the extension of the resource concept </p>
+<p>for interrupt levels. </p>
+<p><b>9.1.8 </b></p>
+<p><b>ReleaseResource </b></p>
+<p>MICROSAR OS RH850 SC3/SC4 does not support the extension of the resource concept </p>
+<p>for interrupt levels. </p>
+<p><b>9.1.9 </b></p>
+<p><b>GetAlarmBase </b></p>
+<p>MICROSAR OS RH850 SC3/SC4 does not support API function GetAlarmBase. </p>
+<p><b>9.1.10 </b></p>
+<p><b>osInitialize </b></p>
+<p>Function </p>
+<p>osInitialize </p>
+<p>is </p>
+<p>used </p>
+<p>for </p>
+<p>initializing </p>
+<p>OS </p>
+<p>global </p>
+<p>variables </p>
+<p>which </p>
+<p>are </p>
+<p>used </p>
+<p>by </p>
+<p>osDispatcher and interrupt handling API. It is called by the OS in StartOS.  </p>
+<p>Prototype: void osInitialize(void) </p>
+<p><b>9.1.11 </b></p>
+<p><b>osInitINTC </b></p>
+<p>Function osInitINTC initializes the interrupt controller INTC and some core registers: </p>
+<p></p>
+<p> </p>
+<p>EBASE = &amp;osExceptionVectorTable </p>
+<p></p>
+<p> </p>
+<p>INTBP = &amp;osEIINTVectorTable </p>
+<p></p>
+<p> </p>
+<p>INTCFG = 0 </p>
+<p></p>
+<p> </p>
+<p>SCBP = &amp;osSysCallTable (SC3 and SC4) </p>
+<p></p>
+<p> </p>
+<p>SCCFG = osdNumberOfSysCallFunctions (SC3 and SC4) </p>
+<p></p>
+<p> </p>
+<p>set table mode and priority level for each configured EIINT interrupt source </p>
+<p>osInitINTC is called by the OS in StartOS.  </p>
+<p>Prototype: void osInitINTC(void) </p>
+<p><b>Remark: </b> If  OS  API  functions  are  used  before  StartOS  then  osInitialize  and  osInitINTC </p>
+<p>must be called before any OS API function is called. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>31 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.2 </b></p>
+<p><b>Peripheral Region API </b></p>
+<p>In  a  safety  application  there  is  the  need  to  access  peripheral  components  from  QM </p>
+<p>software (non-trusted). </p>
+<p>For  QM  software,  which  runs  in  restricted mode  (e.g.  user mode) the  peripheral  access </p>
+<p>must be granted by the MPU. Sometimes there are peripheral registers which cannot be </p>
+<p>written at all in restricted mode. </p>
+<p>Therefore the OS offers the concept of the peripheral region API. </p>
+<p>The peripheral regions are defined in the configuration. Access rights are also configured </p>
+<p>on application level. </p>
+<p>With an API any Software (also non trusted) is capable to write to peripheral registers even </p>
+<p>if the access is not granted by the MPU. </p>
+<p><b>9.2.1.1 </b></p>
+<p><b>Read Functions </b></p>
+<p>There are three reading functions. </p>
+<p><b>Prototype </b></p>
+<p>osuint8  osReadPeripheral8 ( osuint16 area, osuint32 address ) </p>
+<p>osuint16 osReadPeripheral16( osuint16 area, osuint32 address ) </p>
+<p>osuint32 osReadPeripheral32( osuint16 area, osuint32 address ) </p>
+<p><b>Parameter </b></p>
+<p>area </p>
+<p>Identifier of peripheral regions to the read from </p>
+<p>address </p>
+<p>Address to be read from </p>
+<p><b>Return code </b></p>
+<p> </p>
+<p>The content of “address” interpreted as 8 bit, 16 bit or 32 bit value </p>
+<p><b>Functional Description </b></p>
+<p><b>&gt; </b></p>
+<p>reads either an 8 bit, or a 16 bit or a 32 bit value from “address” </p>
+<p><b>&gt; </b></p>
+<p>The function performs accessing checks (whether the caller has accessing rights to the </p>
+<p>peripheral region and whether the address to be read from is within the configured range of </p>
+<p>the peripheral region) </p>
+<p><b>&gt; </b></p>
+<p>The error hook is raised in case of an error </p>
+<p><b>&gt; </b></p>
+<p>A shutdown is not issued in case of an error </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>These functions may not be called from OS hooks </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>These functions may be called from Task context </p>
+<p><b>&gt; </b></p>
+<p>These functions may be called from category 2 ISR context </p>
+<p><b>&gt; </b></p>
+<p>These functions can be called with interrupts enabled or with interrupts disabled </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>32 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.2.1.2 </b></p>
+<p><b>Write Functions </b></p>
+<p>There are three writing functions. </p>
+<p><b>Prototype </b></p>
+<p>void osWritePeripheral8 ( osuint16 area, osuint32 address, osuint8 value) </p>
+<p>void osWritePeripheral16( osuint16 area, osuint32 address, osuint16 value) </p>
+<p>void osWritePeripheral32( osuint16 area, osuint32 address, osuint32 value) </p>
+<p><b>Parameter </b></p>
+<p>area </p>
+<p>Identifier of peripheral regions to the read from </p>
+<p>address </p>
+<p>Address to write to </p>
+<p>value </p>
+<p>Value to be written </p>
+<p><b>Return code </b></p>
+<p>None </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p><b>&gt; </b></p>
+<p>Writes to either an 8 bit, or a 16 bit or a 32 bit value </p>
+<p><b>&gt; </b></p>
+<p>The function performs accessing checks (whether the caller has accessing rights to the </p>
+<p>peripheral region and whether the address to be read from is within the configured range of </p>
+<p>the peripheral region) </p>
+<p><b>&gt; </b></p>
+<p>The error hook is raised in case of an error </p>
+<p><b>&gt; </b></p>
+<p>A shutdown is not issued in case of an error </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>These functions may not be called from OS hooks </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>These functions may be called from Task context </p>
+<p><b>&gt; </b></p>
+<p>These functions may be called from category 2 ISR context </p>
+<p><b>&gt; </b></p>
+<p>These functions can be called with interrupts enabled or with interrupts disabled </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>33 </b>/ <b>57 </b></p>
+<p> </p>
+<p> </p>
+<p><b>9.2.1.3 </b></p>
+<p><b>Modify Functions </b></p>
+<p>There are three modifying functions. </p>
+<p><b>Prototype </b></p>
+<p>void osModifyPeripheral8 ( osuint16 area, osuint32 address, osuint8 clearmask, </p>
+<p>osuint8 setmask) </p>
+<p>void osModifyPeripheral16( osuint16 area, osuint32 address, osuint16 clearmask, </p>
+<p>osuint16 setmask) </p>
+<p>void osModifyPeripheral32( osuint16 area, osuint32 address, osuint32 clearmask, </p>
+<p>osuint32 setmask) </p>
+<p><b>Parameter </b></p>
+<p>area </p>
+<p>Identifier of peripheral regions to the read from </p>
+<p>address </p>
+<p>Address to be modified </p>
+<p>clearmask </p>
+<p>Bitmask which is bitwise “ANDed” to “address” </p>
+<p>setmask </p>
+<p>Bitmask which is bitwise “ORed” to “address” </p>
+<p><b>Return code </b></p>
+<p>None </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p><b>&gt; </b></p>
+<p>The function performs accessing checks (whether the caller has accessing rights to the </p>
+<p>peripheral region and whether the address to be read from is within the configured range of </p>
+<p>the peripheral region) </p>
+<p><b>&gt; </b></p>
+<p>The error hook is raised in case of an error </p>
+<p><b>&gt; </b></p>
+<p>A shutdown is not issued in case of an error </p>
+<p><b>&gt; </b></p>
+<p>After the access checks has passed first the “clearmask” is ANDed to “address” and </p>
+<p>afterwards the “setmask” is ORed to it. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>These functions may not be called from OS hooks </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>These functions may be called from Task context </p>
+<p><b>&gt; </b></p>
+<p>These functions may be called from category 2 ISR context </p>
+<p><b>&gt; </b></p>
+<p>These functions can be called with interrupts enabled or with interrupts disabled </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>34 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.3 </b></p>
+<p><b>Peripheral Interrupt API Functions (SC3 and SC4) </b></p>
+<p>The  OS  provides  functions  which  can  be  used  to  perform  write  access  to  the  interrupt </p>
+<p>controller INTC control registers in user mode. </p>
+<p>If read access to SFR registers is enabled in user mode then the following macros can be </p>
+<p>used to read from interrupt controller INTC registers. </p>
+<p><b>#define osReadICR8(addr)   (*((osuint8*)(addr))) </b></p>
+<p><b>#define osReadICR16(addr)  (*((osuint16*)(addr))) </b></p>
+<p><b> </b></p>
+<p>This chapter describes API functions which can be used to access the interrupt control </p>
+<p>registers within the corresponding address range: </p>
+<p> </p>
+<p><b>Derivative group </b></p>
+<p><b>Address range </b></p>
+<p><b>D1L/D1M </b></p>
+<p><b>FFFE EA00 - FFFE EA3E (EIC0 to EIC31) </b></p>
+<p><b>FFFF B040 - FFFF B1FE (EIC32 to EIC255) </b></p>
+<p><b>E1L/E1M </b></p>
+<p><b>FFFE EA00 - FFFE EA3E (EIC0 to EIC31) </b></p>
+<p><b>FFFF B040 - FFFF B3FE (EIC32 to EIC511) </b></p>
+<p><b>F1H </b></p>
+<p><b>FFFE EA00 - FFFE EA3E (EIC0 to EIC31) </b></p>
+<p><b>FFFF B040 - FFFF B2BC (EIC32 to EIC350) </b></p>
+<p><b>F1L </b></p>
+<p><b>FFFF 9000 - FFFF 903E (EIC0- EIC31) </b></p>
+<p><b>FFFF A040 - FFFF A232 (EIC32- EIC281) </b></p>
+<p><b>F1M </b></p>
+<p><b>FFFE EA00 - FFFE EA3E (EIC0 to EIC31) </b></p>
+<p><b>FFFF B040 - FFFF B25C (EIC32 to EIC297) </b></p>
+<p><b>P1M </b></p>
+<p><b>FFFE EA00 - FFFE EA3E (EIC0 to EIC31) </b></p>
+<p><b>FFFF B040 - FFFF B2FE (EIC32 to EIC383) </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>35 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.3.1 </b></p>
+<p><b>Write to Interrupt Control Register </b></p>
+<p>Writing 1 or 2 Byte to the interrupt controller INTC control register is achieved by </p>
+<p>osWriteICR8/osWriteICR16 and osWriteICRxLo/ osWriteICRxHi/ osWriteICRx16: </p>
+<p> </p>
+<p> </p>
+<p><b>osWriteICR8 </b></p>
+<p>This function writes 1 Byte at specified destination address. Before writing the address </p>
+<p>parameter is checked to be in valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osWriteICR8(uint32 addr, uint8 val); </b></p>
+<p><b>Parameter </b></p>
+<p><b>addr </b></p>
+<p><b>val </b></p>
+<p>destination address </p>
+<p>value to be written at destination address </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint8*)addr = (uint8)val;</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>osWriteICR16 </b></p>
+<p>This function writes 2 Bytes at specified destination address. Before writing the address </p>
+<p>parameter is checked to be in valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osWriteICR16(uint32 addr, uint16 val); </b></p>
+<p><b>Parameter </b></p>
+<p><b>addr </b></p>
+<p><b>val </b></p>
+<p>destination address </p>
+<p>value to be written at destination address </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint16*)addr = (uint16)val;</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>36 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>osWriteICRxLo </b></p>
+<p>This function writes the lower Byte of the control register of the specified interrupt number. </p>
+<p>Before writing the index is checked to be in valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osWriteICRxLo(uint32 index, uint8 val); </b></p>
+<p><b>Parameter </b></p>
+<p><b>index </b></p>
+<p><b>val </b></p>
+<p>interrupt number </p>
+<p>value to be written to control register </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint8*)addr = (uint8)val;</b></p>
+<p> </p>
+<p><b>osWriteICRxHi </b></p>
+<p>This function writes the upper Byte of the control register of the specified interrupt number. </p>
+<p>Before writing the index is checked to be in valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osWriteICRxHi(uint32 index, uint8 val); </b></p>
+<p><b>Parameter </b></p>
+<p><b>index </b></p>
+<p><b>val </b></p>
+<p>interrupt number </p>
+<p>value to be written to control register </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint8*)addr = (uint8)val;</b></p>
+<p> </p>
+<p><b>osWriteICRx16 </b></p>
+<p>This function writes both Bytes of the control register of the specified interrupt number. </p>
+<p>Before writing the index is checked to be in valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osWriteICRx16(uint32 index, uint16 val); </b></p>
+<p><b>Parameter </b></p>
+<p><b>index </b></p>
+<p><b>val </b></p>
+<p>interrupt number </p>
+<p>value to be written to control register </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint8*)addr = (uint8)val;</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>37 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.3.2 </b></p>
+<p><b>Set or Clear Mask Flag </b></p>
+<p>The mask flag of the interrupt control register can be set or cleared by osSetICRMask and </p>
+<p>osClearICRMask. </p>
+<p><b>osSetICRMask </b></p>
+<p>This function sets the mask flag at specified destination address which must be even. </p>
+<p>Before writing the address parameter is checked to be in valid range. The address </p>
+<p>parameter is not checked to be even. The user must take care about it. </p>
+<p><b>Prototype </b></p>
+<p><b>void osSetICRMask(uint32 addr); </b></p>
+<p><b>Parameter </b></p>
+<p><b>addr </b></p>
+<p>destination address </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint8*)addr |= (uint8)0x80;</b></p>
+<p> </p>
+<p><b>osClearICRMask </b></p>
+<p>This function clears the mask flag at specified destination address which must be even. </p>
+<p>Before writing the address parameter is checked to be in valid range. The address </p>
+<p>parameter is not checked to be even. The user must take care about it. </p>
+<p><b>Prototype </b></p>
+<p><b>void osClearICRMask(uint32 addr); </b></p>
+<p><b>Parameter </b></p>
+<p><b>addr </b></p>
+<p>destination address </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint8*)addr &amp;= (uint8)0x7F;</b></p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>38 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.3.3 </b></p>
+<p><b>Set or Clear ICR Request Flag </b></p>
+<p>The request flag of the interrupt control register can be set and cleared by calling the </p>
+<p>functions osSetICRReq and osClearICRReq:  </p>
+<p><b> </b></p>
+<p><b>osSetICRReq </b></p>
+<p>This function sets the interrupt request flag at specified destination address. Before writing </p>
+<p>the address parameter is checked to be in valid range. The destination address is </p>
+<p>automatically made an odd address by the function. </p>
+<p><b>Prototype </b></p>
+<p><b>void osSetICRReq(uint32 addr); </b></p>
+<p><b>Parameter </b></p>
+<p><b>addr </b></p>
+<p>destination address </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint8*)(addr | 0x01) |= (uint8)0x10;</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>osClearICRReq </b></p>
+<p>This function clears the interrupt request flag at specified destination address. Before </p>
+<p>writing the address parameter is checked to be in valid range. The destination address is </p>
+<p>automatically made an odd address by the function. </p>
+<p><b>Prototype </b></p>
+<p><b>void osClearICRReq(uint32 addr); </b></p>
+<p><b>Parameter </b></p>
+<p><b>addr </b></p>
+<p>destination address</p>
+<p><b> </b></p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint8*)(addr | 0x01) &amp;= (uint8)0xEF;</b></p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>39 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.3.4 </b></p>
+<p><b>Read, Set or Clear Mask Bit in Registers IMRm </b></p>
+<p>The mask bits in IMRm registers can be read, set and cleared by calling functions </p>
+<p>osGetIMRmEI, osSetIMRmEI and osClearIMRmEI. </p>
+<p><b>osGetIMRmEI </b></p>
+<p>This function returns the current value of the mask bit specified by index (interrupt </p>
+<p>number). Before read access the index parameter is checked to be in the valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osGetIMRmEI(uint16 index); </b></p>
+<p><b>Parameter </b></p>
+<p><b>index </b></p>
+<p>mask register index </p>
+<p><b>Return Code </b></p>
+<p><b>uint8 </b></p>
+<p>return mask flag IMRmEIMK&lt;index&gt; </p>
+<p><b>Functional Description </b></p>
+<p><b>return (uint8)(IMRmEIMK&lt;index&gt;);</b></p>
+<p> </p>
+<p><b>osSetIMRmEI </b></p>
+<p>This function sets the mask bit specified by index (interrupt numer).  Before write access </p>
+<p>the index parameter is checked to be in the valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osSetIMRmEI(uint16 index); </b></p>
+<p><b>Parameter </b></p>
+<p><b>index </b></p>
+<p>mask register index </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>IMRmEIMK&lt;index&gt; = 1;</b></p>
+<p> </p>
+<p><b>osClearIMRmEI </b></p>
+<p>This function clears the mask bit specified by index (interrupt number). Before write access </p>
+<p>the index parameter is checked to be in the valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osClearIMRmEI(uint16 index); </b></p>
+<p><b>Parameter </b></p>
+<p><b>index </b></p>
+<p>mask register index </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>IMRmEIMK&lt;index&gt; = 0;</b></p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>40 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.3.5 </b></p>
+<p><b>Write to Registers IMRm </b></p>
+<p>The registers IMRm can be written with 1 Byte, 2 Byte and 4 Byte value by calling functions </p>
+<p>osWriteIMR8, osWriteIMR16 and osWriteIMR32. </p>
+<p><b>osWriteIMR8 </b></p>
+<p>Function osWriteIMR8 writes 1 Byte to register IMRm specified by address. Before write access </p>
+<p>the address parameter is checked to be in the valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osWriteIMR8(uint32 addr, uint8 val); </b></p>
+<p><b>Parameter </b></p>
+<p><b>addr </b></p>
+<p><b>val </b></p>
+<p>destination address </p>
+<p>value to be written at destination address </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint8*)addr = (uint8)val; </b></p>
+<p><b>osWriteIMR16 </b></p>
+<p>This function writes 2 Bytes to register IMRm specified by address. Before write access the </p>
+<p>address parameter is checked to be in the valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osWriteIMR16(uint32 addr, uint16 val); </b></p>
+<p><b>Parameter </b></p>
+<p><b>addr </b></p>
+<p><b>val </b></p>
+<p>destination address </p>
+<p>value to be written at destination address </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint16*)addr = (uint16)val; </b></p>
+<p><b>osWriteIMR32 </b></p>
+<p>This function writes 4 Bytes to register IMRm specified by address. Before write access the </p>
+<p>address parameter is checked to be in the valid range. </p>
+<p><b>Prototype </b></p>
+<p><b>void osWriteIMR32(uint32 addr, uint32 val); </b></p>
+<p><b>Parameter </b></p>
+<p><b>addr </b></p>
+<p><b>val </b></p>
+<p>destination address </p>
+<p>value to be written at destination address </p>
+<p><b>Return Code </b></p>
+<p><b>void </b></p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p><b>*(uint32*)addr = (uint32)val; </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>41 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.4 </b></p>
+<p><b>Hook Routines </b></p>
+<p>The MICROSAR OS specification [3] allows implementation specific additional parameters </p>
+<p>in hook routines. The prototypes of the hook routines are described in [1]. </p>
+<p>The </p>
+<p>contexts </p>
+<p>where </p>
+<p>hook </p>
+<p>routines </p>
+<p>are </p>
+<p>called </p>
+<p>are </p>
+<p>implementation </p>
+<p>specific </p>
+<p>and </p>
+<p>are </p>
+<p>described below. All hook routines are called with disabled interrupts. </p>
+<p><b>9.4.1 </b></p>
+<p><b>ErrorHook </b></p>
+<p>The ErrorHook is called if an error is detected in an API-function and if a system error is </p>
+<p>detected. The ErrorHook runs on the task or ISR stack if an API error is reported and it </p>
+<p>runs  on  the  system  stack  if  an  unrecoverable  system  error  is  reported.  Interrupts  are </p>
+<p>disabled and CPU runs in supervisor mode. </p>
+<p><b>9.4.2 </b></p>
+<p><b>StartupHook </b></p>
+<p>The StartupHook runs always on the system stack. Interrupts are disabled and CPU runs </p>
+<p>in supervisor mode. </p>
+<p><b>9.4.3 </b></p>
+<p><b>ShutdownHook </b></p>
+<p>SC1: </p>
+<p>The </p>
+<p>ShutdownHook </p>
+<p>runs </p>
+<p>on </p>
+<p>the </p>
+<p>stack </p>
+<p>of </p>
+<p>the </p>
+<p>task </p>
+<p>or </p>
+<p>ISR </p>
+<p>which </p>
+<p>has </p>
+<p>called </p>
+<p>ShutdownOS(). EI level interrupts are disabled. </p>
+<p>SC3 and SC4: The ShutdownHook runs always on the system stack. EI level interrupts are </p>
+<p>disabled and the CPU runs in supervisor mode. </p>
+<p><b>9.4.4 </b></p>
+<p><b>PreTaskHook </b></p>
+<p>The PreTaskHook runs always on the system stack. Interrupts are disabled and CPU runs </p>
+<p>in supervisor mode. </p>
+<p><b>9.4.5 </b></p>
+<p><b>PostTaskHook </b></p>
+<p>The PostTaskHook runs on the task stack or on the system stack. Interrupts are disabled </p>
+<p>and CPU runs in supervisor mode. </p>
+<p><b>9.4.6 </b></p>
+<p><b>PreAlarmHook (SC1 only) </b></p>
+<p>When entering the ISR <i>“osTimerInterrupt” </i>there is a call of the PreAlarmHook when the </p>
+<p>corresponding configuration switch is set. The user has to take care for the implementation </p>
+<p>of this routine. Please implement this hook routine as follows: </p>
+<p><i>void PreAlarmHook(void) </i></p>
+<p><i>{ </i></p>
+<p><i>   /* user specific code */ </i></p>
+<p><i>} </i></p>
+<p>The Hook Routine is called before incrementing the system counter and before handling </p>
+<p>all alarms! The Hook Routine runs on system stack. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>42 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.4.7 </b></p>
+<p><b>ISRHooks (SC1 only) </b></p>
+<p>The  ISRHooks  –  UserPreISRHook  and  UserPostISRHook  –  run  on  the  system  stack.  If </p>
+<p>EnableNesting  is  set  to  TRUE  for  the  respective  ISR,  these  hooks  run  with  interrupts </p>
+<p>enabled;  otherwise  they  run  with  interrupts disabled..  For a more  detailed  description of </p>
+<p>these hooks see [3]. </p>
+<p> </p>
+<p><b>9.4.8 </b></p>
+<p><b>Callbacks (SC1 only) </b></p>
+<p>Callbacks run on the stack of the entity that led to their activation. E.g. if an alarm callback </p>
+<p>is activated through a call to IncrementCounter() by a task, it runs on this tasks stack. If  </p>
+<p>IncrementCounter()    was    called    by    an    interrupt    (for    example    the    system    timer </p>
+<p>interrupt), the Callback runs onthe corresponding ISR stack. </p>
+<p><b>9.4.9 </b></p>
+<p><b>ProtectionHook (SC3 and SC4) </b></p>
+<p>The ProtectionHook is called if a memory protection or privileged instruction violation was </p>
+<p>detected.  It  runs  always  on  the  system  stack.  Interrupts  are  disabled  and  CPU  runs  in </p>
+<p>supervisor mode. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>43 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.5 Functions for MPU functionality checks </b></p>
+<p>The OS provides 2 functions which can be called to check the functionality of the MPU. </p>
+<p> </p>
+<p><b>9.5.1 </b></p>
+<p><b>Function osCheckMPUAccess </b></p>
+<p>Function osCheckMPUAccess can be called to check the current MPU protection settings. </p>
+<p><b>Prototype </b></p>
+<p><b>uint8 osCheckMPUAccess(const uint8* addr) </b></p>
+<p><b>Parameter </b></p>
+<p><b>addr </b></p>
+<p>The address to be checked for read and write access </p>
+<p><b>Return Type </b></p>
+<p><b>uint8 </b></p>
+<p>0 = E_OK: read and write access to given address is possible </p>
+<p>1 = E_OS_ACCESS: access to given address has caused memory protection violation </p>
+<p><b>Functional Description </b></p>
+<p></p>
+<p> </p>
+<p>disable interrupts </p>
+<p></p>
+<p> </p>
+<p>call internal function osAsmCheckMPU to check read and write access to destination address  </p>
+<p></p>
+<p> </p>
+<p>store the return value of internal function osAsmCheckMPU into local variable </p>
+<p></p>
+<p> </p>
+<p>restore previous interrupt state </p>
+<p></p>
+<p> </p>
+<p>return with given return value </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The internal function osAsmCheckMPU first reads 1 byte from the destination address and then writes </p>
+<p>this value back to the destination address. If read and write access is possible the value on the given </p>
+<p>destination address is not changed. If read or write access is not possible then an access violation is </p>
+<p>detected by the MPU and a protection exception occurs. The protection exception handler returns to </p>
+<p>internal function osAsmCheckMPU with return value = 1. This return value is returned to the caller of </p>
+<p>function osCheckMPUAccess to signal the access violation. </p>
+<p><b>Call Context</b> </p>
+<p>Not allowed before call of StartOS() </p>
+<p>Table 5: Function osCheckMPUAccess </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>44 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>9.5.2 </b></p>
+<p><b>Function osCheckAndRefreshMPU </b></p>
+<p>Function </p>
+<p>osCheckAndRefreshMPU </p>
+<p>can </p>
+<p>be </p>
+<p>called </p>
+<p>to </p>
+<p>check </p>
+<p>and </p>
+<p>re-initialize </p>
+<p>all </p>
+<p>MPU </p>
+<p>registers which are not reprogrammed during runtime. </p>
+<p><b>Prototype </b></p>
+<p><b>StatusType osCheckAndRefreshMPU(void) </b></p>
+<p><b>Parameter </b></p>
+<p><b>-</b></p>
+<p><b> </b></p>
+<p><b>- </b></p>
+<p><b>Return Type </b></p>
+<p><b>StatusType  </b></p>
+<p>E_OK:                                   all MPU registers have expected content  </p>
+<p>E_OS_SYS_API_ERROR:   invalid content was detected in MPU registers </p>
+<p><b>Functional Description </b></p>
+<p></p>
+<p> </p>
+<p>checks all MPU registers which are not reprogrammed </p>
+<p></p>
+<p> </p>
+<p>re-initialize all MPU registers which are not reprogrammed </p>
+<p></p>
+<p> </p>
+<p>returns E_OK if all MPU registers have expected content </p>
+<p></p>
+<p> </p>
+<p>returns E_OS_SYS_API_ERROR if invalid content was detected in MPU registers </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Call Context</b> </p>
+<p></p>
+<p> </p>
+<p>Call is only allowed after StartOS() </p>
+<p></p>
+<p> </p>
+<p>Call is only allowed by trusted applications </p>
+<p>Table 6: Function osCheckAndRefreshMPU </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>45 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>10  Non-Trusted Functions (SC3 and SC4) </b></p>
+<p>Non-trusted functions are a VECTOR extension to the AUTOSAR OS specification. This concept </p>
+<p>allows non-trusted applications to provide interface functions which might be called by trusted or </p>
+<p>non-trusted tasks and ISRs. </p>
+<p><b>10.1 </b></p>
+<p><b>Functionality </b></p>
+<p>Non-trusted functions can be used to provide service functions by non-trusted applications. Non-</p>
+<p>trusted functions are called with memory access rights and service protection rights of the owner </p>
+<p>application, independent from the access rights of the caller. These functions can access local data </p>
+<p>of the owner application without the possibility to overwrite data of other applications. </p>
+<p>The  caller  might  be  a  task  of  a  trusted  application  with  global  memory  access,  developed </p>
+<p>according to high safety standards. The called non-trusted function might be developed according </p>
+<p>to lower standards but is not able to access any other memory than limited accessible memory of </p>
+<p>the  non-trusted  owner  application.  During  the  call,  the  non-trusted  function  is  executed  on  a </p>
+<p>separate stack, isolated from the caller stack by the MPU. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>46 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>10.2 </b></p>
+<p><b>API </b></p>
+<p><b>Prototype </b></p>
+<p>StatusType osCallNonTrustedFunction(NonTrustedFunctionIndexType FunctionIndex, </p>
+<p>NonTrustedFunctionParameterRefType FunctionParams); </p>
+<p><b>Parameter </b></p>
+<p>FunctionIndex </p>
+<p>Index of the function to be called. </p>
+<p>FunctionParams </p>
+<p>Pointer to the parameters for the function to be called. If no parameters are provided, </p>
+<p>a NULL pointer has to be passed. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>No error </p>
+<p>E_OS_SERVICEID </p>
+<p>No function defined for this index </p>
+<p><b>Functional Description </b></p>
+<p>Executes the non-trusted function referenced by FunctionIndex and passes argument FunctionParams. </p>
+<p>The non-trusted function must conform to the following C prototype: </p>
+<p>void NONTRUSTED_&lt;name of the non-trusted function(NonTrustedFunctionIndexType, </p>
+<p>NonTrustedFunctionParameterRefType); </p>
+<p>The arguments are the same as the arguments of CallNonTrustedFunction. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>The non-trusted function is called in user mode with memory protection enabled </p>
+<p><b>&gt; </b></p>
+<p>The function has memory access rights of the owner application </p>
+<p><b>&gt; </b></p>
+<p>The function has the service protection rights of the owner application</p>
+<p> </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>Task, CAT2 ISR, trusted function, non-trusted function </p>
+<p>Table 7 API CallNonTrustedFunction </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Vector MICROSAR OS implementations offer the possibility of stub function generation </p>
+<p>for trusted functions. This mechanism is <b>not </b>available for non-trusted functions. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>47 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>10.3 </b></p>
+<p><b>Call Context </b></p>
+<p>The following table shows the API functions callable from non-trusted functions. </p>
+<p><b>API Functions </b></p>
+<p><b>Call allowed </b></p>
+<p><b>API Functions </b></p>
+<p><b>Call allowed </b></p>
+<p>ActivateTask </p>
+<p>X </p>
+<p>GetTaskID </p>
+<p>X</p>
+<p> </p>
+<p>TerminateTask </p>
+<p>DC</p>
+<p> </p>
+<p>GetTaskState </p>
+<p>X</p>
+<p> </p>
+<p>ChainTask </p>
+<p>DC</p>
+<p> </p>
+<p>StartOS </p>
+<p>- </p>
+<p>Schedule </p>
+<p>DC</p>
+<p> </p>
+<p>ShutdownOS </p>
+<p>- </p>
+<p>DisableAllInterrupts </p>
+<p>P</p>
+<p> </p>
+<p>GetApplicationID </p>
+<p>X </p>
+<p>EnableAllInterrupts </p>
+<p>P</p>
+<p> </p>
+<p>GetActiveApplicationMode </p>
+<p>X</p>
+<p> </p>
+<p>SuspendAllInterrupts </p>
+<p>P</p>
+<p> </p>
+<p>GetISRID </p>
+<p>X</p>
+<p> </p>
+<p>ResumeAllInterrupts </p>
+<p>P</p>
+<p> </p>
+<p>CallTrustedFunction </p>
+<p>X</p>
+<p> </p>
+<p>SuspendOSInterrupts </p>
+<p>P</p>
+<p> </p>
+<p>CallNonTrustedFunction </p>
+<p>X</p>
+<p> </p>
+<p>ResumeOSInterrupts </p>
+<p>P</p>
+<p> </p>
+<p>CheckObjectAccess </p>
+<p>X</p>
+<p> </p>
+<p>GetResource </p>
+<p>X</p>
+<p> </p>
+<p>CheckObjectOwnership </p>
+<p>X</p>
+<p> </p>
+<p>ReleaseResource </p>
+<p>X</p>
+<p> </p>
+<p>StartScheduleTableRel </p>
+<p>X</p>
+<p> </p>
+<p>SetEvent </p>
+<p>X</p>
+<p> </p>
+<p>StartScheduleTableAbs </p>
+<p>X</p>
+<p> </p>
+<p>ClearEvent </p>
+<p>DC</p>
+<p> </p>
+<p>StopScheduleTable </p>
+<p>X</p>
+<p> </p>
+<p>GetEvent </p>
+<p>X</p>
+<p> </p>
+<p>NextScheduleTable </p>
+<p>X</p>
+<p> </p>
+<p>WaitEvent </p>
+<p>DC</p>
+<p> </p>
+<p>StartScheduleTableSynchron </p>
+<p>X</p>
+<p> </p>
+<p>GetAlarm </p>
+<p>X</p>
+<p> </p>
+<p>SyncScheduleTable </p>
+<p>X</p>
+<p> </p>
+<p>SetRelAlarm </p>
+<p>X</p>
+<p> </p>
+<p>GetScheduleTableStatus </p>
+<p>X</p>
+<p> </p>
+<p>SetAbsAlarm </p>
+<p>X</p>
+<p> </p>
+<p>SetScheduleTableAsync </p>
+<p>X</p>
+<p> </p>
+<p>CancelAlarm </p>
+<p>X</p>
+<p> </p>
+<p>IncrementCounter </p>
+<p>X</p>
+<p> </p>
+<p> </p>
+<p>Abbreviations: </p>
+<p> </p>
+<p>X: </p>
+<p>Allowed </p>
+<p> </p>
+<p>DC: </p>
+<p>Dependent on caller. Allowed if called from task, not allowed from ISR </p>
+<p> </p>
+<p>P: </p>
+<p>Pairwise, </p>
+<p>when </p>
+<p>interrupts </p>
+<p>are </p>
+<p>disabled </p>
+<p>within </p>
+<p>the </p>
+<p>(trusted/non-trusted) </p>
+<p>function, </p>
+<p>they need to be re-enabled within the same function</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>48 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>10.3.1 </b></p>
+<p><b>Example </b></p>
+<p>Non-trusted functions have to be defined and called as followed: </p>
+<p> </p>
+<p>Example for calling a non-trusted function (configured function name = MyNTF used as index </p>
+<p>number): </p>
+<p> </p>
+<p><b>TASK(Task1) </b></p>
+<p><b>{   </b></p>
+<p><b>   MyNTFParametersStruct callArg; </b></p>
+<p><b>   callArg.a = 2; </b></p>
+<p><b>   CallNonTrustedFunction( MyNTF, (NonTrustedFunctionParameterRefType) </b></p>
+<p><b>(&amp;callArg)); </b></p>
+<p><b>} </b></p>
+<p> </p>
+<p>Definition and prototype of the non-trusted function must have the prefix <b>NONTRUSTED_ </b>: </p>
+<p> </p>
+<p><b>void NONTRUSTED_MyNTF (NonTrustedFunctionIndexType idx, </b></p>
+<p><b>NonTrustedFunctionParameterRefType  param) </b></p>
+<p><b>{ </b></p>
+<p><b>    if( ((MyNTFParametersStruct *) param)-&gt;a == 2) </b></p>
+<p><b>    { </b></p>
+<p><b>         /* do something */ </b></p>
+<p><b>    }  </b></p>
+<p><b>} </b></p>
+<p> </p>
+<p> </p>
+<p>The non-trusted function parameters must be declared via typedef struct: </p>
+<p> </p>
+<p><b>typedef struct </b></p>
+<p><b>{ </b></p>
+<p><b>     unsigned char a; </b></p>
+<p><b>} MyNTFParametersStruct; </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>49 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>11  Multicore </b></p>
+<p>This OS implements the Autosar OS Multi Core feature according to Autosar specification </p>
+<p>4.0.3. </p>
+<p><b>11.1 </b></p>
+<p><b>Configuration </b></p>
+<p>Each application has to be assigned to a core. This is done with the application attribute </p>
+<p>“CORE”. </p>
+<p>Since each configuration object has to be assigned to an application the core assignment </p>
+<p>of the object is implicitly done with the application assignment. </p>
+<p> </p>
+<p><b>11.1.1 </b></p>
+<p><b>Core IDs </b></p>
+<p>The  physical  core  ID  which  is  provided  in  hardware  register  HTCFG0  differs  from  the </p>
+<p>logical core ID used by the OS internally, which is returned by </p>
+<p>GetCoreID().</p>
+<p> </p>
+<p><b> </b></p>
+<p>CPU1 (PE1) </p>
+<p>CPU2 (PE2) </p>
+<p>Physical core ID </p>
+<p>1 </p>
+<p>2 </p>
+<p>Logical core ID </p>
+<p>0 </p>
+<p>1 </p>
+<p>Table 8: Mapping of physical and logical core ID </p>
+<p> </p>
+<p><b>11.2 </b></p>
+<p><b>Multi-Core start-up </b></p>
+<p>As immediately after reset both cores begin execution, the master-slave startup behavior is </p>
+<p>emulated  in  software.  Therefore,  a  handshake  synchronization  is  performed  by  calling </p>
+<p>osInitMultiCoreOS()</p>
+<p>  on  PE1  and  calling </p>
+<p>osInitSlaveCore()</p>
+<p>  on  PE2.  It  is  not </p>
+<p>allowed to use any other API function before this initial synchronization step is done. </p>
+<p>By calling </p>
+<p>osInitMultiCoreOS()</p>
+<p> PE1 initializes the multi-core OS related variables and </p>
+<p>synchronizes with PE2. By calling </p>
+<p>osInitSlaveCore()</p>
+<p> PE2 synchronizes with PE1 and </p>
+<p>resides </p>
+<p>in </p>
+<p>a </p>
+<p>busy </p>
+<p>waiting </p>
+<p>state, </p>
+<p>until </p>
+<p>it </p>
+<p>is </p>
+<p>started </p>
+<p>by </p>
+<p>StartCore()</p>
+<p> </p>
+<p>or </p>
+<p>StartNonAutosarCore()</p>
+<p>. If only PE2 should be controlled by the OS, then PE2 has to </p>
+<p>call </p>
+<p>osInitMultiCoreOS() </p>
+<p>after </p>
+<p>osInitSlaveCore()</p>
+<p>. </p>
+<p> The following chapters provide code examples for the multi-core startup. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The hardware register </p>
+<p><b>OSTM0_CMP</b></p>
+<p>  is used for synchronization purpose. </p>
+<p>Therefore,</p>
+<p><b> OSTM0_CMP</b></p>
+<p> must not be modified before initial synchronization. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>50 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>11.2.1 </b></p>
+<p><b>Both PEs controlled by OS </b></p>
+<p><b>void </b>main() </p>
+<p>{ </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p><b>switch</b>(GetCoreID()) </p>
+<p> </p>
+<p>{ </p>
+<p> </p>
+<p> </p>
+<p><b>case </b>OS_CORE_ID_0: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>osInitMultiCoreOS(); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>StartCore(OS_CORE_ID_1); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>StartOS(OSDEFAULTAPPMODE); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>break</b>; </p>
+<p> </p>
+<p> </p>
+<p><b>case </b>OS_CORE_ID_1: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>osInitSlaveCore(); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>StartOS(OSDEFAULTAPPMODE); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>break</b>; </p>
+<p> </p>
+<p> </p>
+<p><b>default</b>: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>break</b>; </p>
+<p> </p>
+<p>} </p>
+<p> </p>
+<p>[…] </p>
+<p>} </p>
+<p> </p>
+<p><b>11.2.2 </b></p>
+<p><b>Only PE1 controlled by OS </b></p>
+<p><b>void </b>main() </p>
+<p>{ </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p><b>switch</b>(GetCoreID()) </p>
+<p> </p>
+<p>{ </p>
+<p> </p>
+<p> </p>
+<p><b>case </b>OS_CORE_ID_0: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>osInitMultiCoreOS(); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>StartNonAutosarCore(OS_CORE_ID_1);   /* may be called later */ </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>StartOS(OSDEFAULTAPPMODE); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>break</b>; </p>
+<p> </p>
+<p> </p>
+<p><b>case </b>OS_CORE_ID_1: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>osInitSlaveCore(); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>break</b>; </p>
+<p> </p>
+<p> </p>
+<p><b>default</b>: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>break</b>; </p>
+<p> </p>
+<p>} </p>
+<p> </p>
+<p>[…] </p>
+<p>} </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>51 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>11.2.3 </b></p>
+<p><b>Only PE2 controlled by OS </b></p>
+<p><b>void </b>main() </p>
+<p>{ </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p><b>switch</b>(GetCoreID()) </p>
+<p> </p>
+<p>{ </p>
+<p> </p>
+<p> </p>
+<p><b>case </b>OS_CORE_ID_0: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>osInitMultiCoreOS(); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>StartCore(OS_CORE_ID_1); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>break</b>; </p>
+<p> </p>
+<p> </p>
+<p><b>case </b>OS_CORE_ID_1: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>osInitSlaveCore(); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>osInitMultiCoreOS(); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>StartNonAutosarCore(OS_CORE_ID_0);   /* adjusts the state of PE1*/ </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>StartOS(OSDEFAULTAPPMODE); </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>break</b>; </p>
+<p> </p>
+<p> </p>
+<p><b>default</b>: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>[…] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>break</b>; </p>
+<p> </p>
+<p>} </p>
+<p> </p>
+<p>[…] </p>
+<p>} </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>52 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>12  Timing Protection (SC4) </b></p>
+<p>MICROSAR OS RH850 SC4 provides timing protection by using timer unit TAUJ0: </p>
+<p>TAUJ0  timer channel 0 is used for inter arrival time monitoring. </p>
+<p>TAUJ0 timer channel 1 is used for execution time monitoring. </p>
+<p>TAUJ0 timer channel 2 is used for blocking time monitoring. </p>
+<p>TAUJ0 timer channel 3 is not used and therefore disabled. </p>
+<p>TAUJ0 timer channels 0, 1 and 2 are initialized with interrupt priority level 0. </p>
+<p> </p>
+<p><b>12.1 </b></p>
+<p><b>Configuration Attributes </b></p>
+<p>The common SC4 attributes are described in the general MICROSAR OS manual. </p>
+<p><b>RH850 specific SC4 attributes </b></p>
+<p>OS attribute <i>TimingProtectionTimerClock </i>must be specified in [kHz] by user:  </p>
+<p>Example: If the peripheral clock of TAUJ0 is 20 MHz then set </p>
+<p><i>TimingProtectionTimerClock = 20000 </i></p>
+<p> </p>
+<p><b>12.2 </b></p>
+<p><b>Restrictions for SC4 Configurations </b></p>
+<p>MICROSAR OS RH850 has the following restrictions for SC configurations: </p>
+<p></p>
+<p> </p>
+<p>It is not allowed to use category 1 ISRs </p>
+<p></p>
+<p> </p>
+<p>It is not allowed to configure category 2 ISRs with priority level 0 </p>
+<p></p>
+<p> </p>
+<p>It is not allowed to modify any register of unit TAUJ0 after calling StartOS </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>53 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>13  Error Handling </b></p>
+<p><b>13.1 </b></p>
+<p><b>MICROSAR OS RH850 Error Numbers </b></p>
+<p>In  addition  to  the  AUTOSAR  OS  error  numbers  all  MICROSAR  OS  implementations </p>
+<p>provide unique error numbers for an exact error description. All error numbers are defined </p>
+<p>as  a  16  bit  value.  The  error  numbers  are  defined  in  the  header  file  osekerr.h  and  are </p>
+<p>defined according to the following syntax: </p>
+<p><b>0xgfee </b></p>
+<p><b>  ||+--- consecutive error number </b></p>
+<p><b>  |+---- number of function in the function group </b></p>
+<p><b>  +----- number of function group  </b></p>
+<p> </p>
+<p>Error numbers common for all MICROSAR OS implementations are described in [3].  </p>
+<p> </p>
+<p><b>13.1.1 </b></p>
+<p><b>RH850 specific Error Numbers </b></p>
+<p>The RH850 implementation specific error numbers have a function group number starting </p>
+<p>at 0xA101 and are described in the following table:</p>
+<p> </p>
+<p><b>Name </b></p>
+<p><b>Error </b></p>
+<p><b>Type </b></p>
+<p><b>Reason </b></p>
+<p>osdErrYOSystemStackOverflow </p>
+<p>0xA101 </p>
+<p>SysCheck </p>
+<p>system stack overflow is detected </p>
+<p>osdErrYOTaskStackOverflow </p>
+<p>0xA102 </p>
+<p>SysCheck </p>
+<p>task stack overflow is detected </p>
+<p>osdErrYOISRStackOverflow </p>
+<p>0xA103 </p>
+<p>SysCheck </p>
+<p>ISR stack overflow is detected </p>
+<p>osdErrSCWrongSysCallParameter </p>
+<p>0xA201 </p>
+<p>SysCheck </p>
+<p>invalid syscall parameter is  used </p>
+<p>osdErrDPStartValidContext    </p>
+<p>0xA401 </p>
+<p>SysCheck </p>
+<p>new task is started with valid </p>
+<p>context </p>
+<p>osdErrDPResumeInvalidContext </p>
+<p>0xA402 </p>
+<p>SysCheck </p>
+<p>preempted task is resumed with </p>
+<p>invalid context </p>
+<p>osdErrDPInvalidTaskIndex </p>
+<p>0xA403 </p>
+<p>SysCheck </p>
+<p>invalid active task index </p>
+<p>osdErrDPInvalidApplicationID </p>
+<p>0xA404 </p>
+<p>SysCheck </p>
+<p>invalid active application ID </p>
+<p>osdErrEXMemoryViolation         </p>
+<p>0xA501 </p>
+<p>SysCheck </p>
+<p>memory protection violation  </p>
+<p>osdErrEXPrivilegedInstruction                </p>
+<p>0xA502 </p>
+<p>SysCheck </p>
+<p>privileged instruction violation </p>
+<p>osdErrSUInvalidTaskIndex </p>
+<p>0xA601 </p>
+<p>SysCheck </p>
+<p>invalid task index used in </p>
+<p>osGetStackUsage </p>
+<p>osdErrSUInvalidIsrIndex </p>
+<p>0xA602 </p>
+<p>SysCheck </p>
+<p>invalid ISR index used in </p>
+<p>osGetISRStackUsage </p>
+<p>osdErrSUInvalidIsrPrioLevel </p>
+<p>0xA603 </p>
+<p>SysCheck </p>
+<p>invalid ISR priority level used in </p>
+<p>osGetISRStackUsage </p>
+<p>osdErrCIInvalidIsrIndex </p>
+<p>0xA701 </p>
+<p>SysCheck </p>
+<p>CAT2 ISR wrapper called with </p>
+<p>invalid ISR ID </p>
+<p>osdErrCIInvalidIsrPrioLevel </p>
+<p>0xA702 </p>
+<p>SysCheck </p>
+<p>invalid ISR priority level used in </p>
+<p>CAT2 ISR wrapper </p>
+<p>osdErrCIInvalidApplicationID </p>
+<p>0xA703 </p>
+<p>SysCheck </p>
+<p>invalid application ID used in </p>
+<p>CAT2 ISR wrapper </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>54 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>Name </b></p>
+<p><b>Error </b></p>
+<p><b>Type </b></p>
+<p><b>Reason </b></p>
+<p>osdErrCIMissingIntRequest </p>
+<p>0xA704 </p>
+<p>SysCheck </p>
+<p>Missing interrupt request </p>
+<p>osdErrCIInterruptIsMasked </p>
+<p>0xA705 </p>
+<p>SysCheck </p>
+<p>Interrupt is masked </p>
+<p>osdErrCIWrongIntPriority </p>
+<p>0xA706 </p>
+<p>SysCheck </p>
+<p>Wrong interrupt priority </p>
+<p>osdErrPIGetIMRInvalidIndex </p>
+<p>0xA801 </p>
+<p>SysCheck </p>
+<p>invalid IMR index used in </p>
+<p>osGetIMR </p>
+<p>osdErrPISetIMRInvalidIndex   </p>
+<p>0xA802 </p>
+<p>SysCheck </p>
+<p>invalid IMR index used in </p>
+<p>osSetIMR </p>
+<p>osdErrPIClearIMRInvalidIndex </p>
+<p>0xA803 </p>
+<p>SysCheck </p>
+<p>invalid IMR index used in </p>
+<p>osClearIMR </p>
+<p>osdErrPIWriteIMR8InvalidAddr    </p>
+<p> </p>
+<p>0xA804 </p>
+<p>SysCheck </p>
+<p>invalid IMR address used in </p>
+<p>osWriteIMR8 </p>
+<p>osdErrPIWriteIMR16InvalidAddr   </p>
+<p> </p>
+<p>0xA805 </p>
+<p>SysCheck </p>
+<p>invalid IMR address used in </p>
+<p>osWriteIMR16 </p>
+<p>osdErrPIWriteIMR32InvalidAddr </p>
+<p>0xA806 </p>
+<p>SysCheck </p>
+<p>invalid IMR address used in </p>
+<p>osWriteIMR32 </p>
+<p>osdErrPISetICRMaskInvalidAddr </p>
+<p>0xA807 </p>
+<p>SysCheck </p>
+<p>invalid ICR address used in </p>
+<p>osSetICRMask </p>
+<p>osdErrPIClearICRMaskInvalidAddr </p>
+<p>0xA808 </p>
+<p>SysCheck </p>
+<p>invalid ICR address used in </p>
+<p>osClearICRMask </p>
+<p>osdErrPISetICRReqInvalidAddr </p>
+<p>0xA809 </p>
+<p>SysCheck </p>
+<p>invalid ICR address used in </p>
+<p>osSetICRReq </p>
+<p>osdErrPIClearICRReqInvalidAddr </p>
+<p>0xA80A </p>
+<p>SysCheck </p>
+<p>invalid ICR address used in </p>
+<p>osClearICRReq </p>
+<p>osdErrPIWriteICR8InvalidAddr </p>
+<p>0xA80B </p>
+<p>SysCheck </p>
+<p>invalid ICR address used in </p>
+<p>osWriteICR8 </p>
+<p>osdErrPIWriteICR16InvalidAddr   </p>
+<p>0xA80C </p>
+<p>SysCheck </p>
+<p>invalid ICR address used in </p>
+<p>osWriteICR16 </p>
+<p>osdErrPIWriteICRxLoInvalidIndex </p>
+<p>0xA80D </p>
+<p>SysCheck </p>
+<p>invalid ICR index used in </p>
+<p>osWriteICRxLo </p>
+<p>osdErrPIWriteICRxHiInvalidIndex </p>
+<p>0xA80E </p>
+<p>SysCheck </p>
+<p>invalid ICR index used in </p>
+<p>osWriteICRxHi </p>
+<p>osdErrPIWriteICRx16InvalidIndex </p>
+<p>0xA80F </p>
+<p>SysCheck </p>
+<p>invalid ICR index used in </p>
+<p>osWriteICRx16 </p>
+<p>osdErrCRInvalidSettingOSTM </p>
+<p>0xA901 </p>
+<p>SysCheck </p>
+<p>invalid register content found in </p>
+<p>osCheckAndRefreshTimer </p>
+<p>osdErrCRInvalidSettingMPU </p>
+<p>0xA902 </p>
+<p>SysCheck </p>
+<p>invalid register content found in </p>
+<p>osCheckAndRefreshMPU </p>
+<p>osdErrUEUnhandledCoreException </p>
+<p>0xAA01 </p>
+<p>SysCheck </p>
+<p>unhandled core exception </p>
+<p>occurred </p>
+<p>osdErrUEUnhandledDirectBranch </p>
+<p>0xAA02 </p>
+<p>SysCheck </p>
+<p>unhandled direct branch </p>
+<p>exception occurred </p>
+<p>Table 9  </p>
+<p>RH850 specific Error Numbers </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>55 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>14  Modules </b></p>
+<p>MICROSAR OS RH850 source and header files depend on the scalability class:  </p>
+<p><b>14.1 </b></p>
+<p><b>Source Files </b></p>
+<p><b>Module Name </b></p>
+<p><b>Description </b></p>
+<p><b>SC1 </b></p>
+<p><b>SC3 </b></p>
+<p><b>SC4 </b></p>
+<p>atosappl.c </p>
+<p>Memory protection related functions </p>
+<p> </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>atostime.c </p>
+<p>Schedule table related functions </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>atosTProt.c </p>
+<p>Timing protection related functions </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>● </b></p>
+<p>osek.c </p>
+<p>System initialisation, scheduler, interrupt control </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekalrm.c </p>
+<p>Alarm related functions </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekasm.c </p>
+<p>Compiler specific assembler functions and syscalls </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekerr.c </p>
+<p>Error handling </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekevnt.c </p>
+<p>Event handling </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekrsrc.c </p>
+<p>Resource handling </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>oseksched.c </p>
+<p>Schedule table related functions </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekstart.c </p>
+<p>OS start-up related functions </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osektask.c </p>
+<p>Task management </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osektime.c </p>
+<p>Timer interrupt routine and alarm management </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osSysCall.c </p>
+<p>Compiler specific syscall table </p>
+<p> </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osOstmHiRes.c </p>
+<p>Timer specific functions </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osMultiCore.c </p>
+<p>Multicore related functions </p>
+<p><b>MC </b></p>
+<p><b>1</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Table 10  </p>
+<p>List of source files </p>
+<p>                                            </p>
+<p>1</p>
+<p> Only for multi core systems </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>56 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>14.2 </b></p>
+<p><b>Header Files </b></p>
+<p><b>Module Name </b></p>
+<p><b>Description </b></p>
+<p><b>SC1 </b></p>
+<p><b>SC3 </b></p>
+<p><b>SC4 </b></p>
+<p>Os.h </p>
+<p>This header has to be included by the application </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>Os_Cfg.h </p>
+<p>Included by Os.h, includes the Autosar Header files if </p>
+<p>selected by the attribute TypeHeaderInclude </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osek.h </p>
+<p>Included by Os_cfg.h, basic OS header </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekasm.h </p>
+<p>Compiler specific header for assembler code </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekasrt.h </p>
+<p>Included by osek.h, macro-definitions for assertion-</p>
+<p>handling </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekcov.h </p>
+<p>Coverage macros </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekerr.h </p>
+<p>Included by osek.h, definitions of all error-numbers </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osekext.h </p>
+<p>Header file for OS internal functions </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>oseksched.h </p>
+<p>Header for schedule table related functions </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>emptymac.h </p>
+<p>Empty API hook macros </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>testmac1.h </p>
+<p>User API hook macros (contains macros for ORTI </p>
+<p>debug support) </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>testmac3.h </p>
+<p>User API hook macros (contains macros for ORTI </p>
+<p>debug support) </p>
+<p> </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>testmac4.h </p>
+<p>User API hook macros (contains macros for ORTI </p>
+<p>debug support) </p>
+<p> </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>vrm.h </p>
+<p>Included by all headers and system modules, Vector </p>
+<p>release management </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osSysCallTable.dld </p>
+<p>Linker specific symbols for the syscall table. This file </p>
+<p>must be included into the global project linker file. </p>
+<p> </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osDerivatives.h </p>
+<p>File for including the necessary derivative dependent </p>
+<p>header. </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osRH850_D1L.h </p>
+<p>RH850 D1L specific header file. </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osRH850_D1M.h </p>
+<p>RH850 D1M specific header file. </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osRH850_E1L.h </p>
+<p>RH850 E1L specific header file. </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b> </b></p>
+<p>osRH850_E1M.h </p>
+<p>RH850 E1M specific header file. </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b> </b></p>
+<p>osRH850_F1H.h </p>
+<p>RH850 F1H specific header file. </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osRH850_F1L.h </p>
+<p>RH850 F1L specific header file. </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osRH850_F1M.h </p>
+<p>RH850 F1M specific header file. </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osRH850_P1M.h </p>
+<p>RH850 P1M specific header file. </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osINTC2.h </p>
+<p>Contains specific code for the interrupt controller. </p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p><b>● </b></p>
+<p>osMultiCore.h </p>
+<p>Header for multicore related functions </p>
+<p><b>MC </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Table 11  </p>
+<p>List of header files </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR OS RH850 </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.09 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>57 </b>/ <b>57 </b></p>
+<p> </p>
+<p><b>15  Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p></p>
+<p>  News </p>
+<p></p>
+<p>  Products </p>
+<p></p>
+<p>  Demo software </p>
+<p></p>
+<p>  Support </p>
+<p></p>
+<p>  Training data </p>
+<p></p>
+<p>  Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p>In case of OSEK / MICROSAR OS related problems you may write an email to </p>
+<p>osek-support@vector.com </p>
+</body>
+</html>
+{% endraw %}

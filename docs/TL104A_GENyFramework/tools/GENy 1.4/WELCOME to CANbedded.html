@@ -1,0 +1,798 @@
+---
+layout: default
+title: WELCOME to CANbedded
+nav_order: 2
+parent: GENyFramework (TL104A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>1</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>V2.0</p>
+<p>2006-09-13</p>
+<p>Welcome to CANbedded</p>
+<p>Implement Vector’s Delivery.</p>
+<p>Within few steps from </p>
+<p>&lt;delivery&gt;.exe to &lt;application&gt;.hex </p>
+<p>These  slide  show  you  how  to  use  a  CANbedded software  component  delivery  beginning  with  the </p>
+<p>installation until a first successful test run. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>2</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>2</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Agenda</p>
+<p>Summary</p>
+<p>Step by Step</p>
+<p>Delivery</p>
+<p>Components and Project Folders</p>
+<p><b>Introduction</b></p>
+<p><b>&gt;</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>3</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>3</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Application</p>
+<p>Introduction</p>
+<p>CAN Controller</p>
+<p>Transceiver</p>
+<p><b>CAN Bus</b></p>
+<p>Network</p>
+<p>Management</p>
+<p>Transport Protocol</p>
+<p>Communication</p>
+<p>Control</p>
+<p>Layer</p>
+<p>Universal</p>
+<p>Measure-</p>
+<p>ment</p>
+<p>And </p>
+<p>Calibration</p>
+<p>Protocol</p>
+<p>CAN Driver</p>
+<p>Interaction </p>
+<p>Layer</p>
+<p>Diagnostics</p>
+<p>Layer</p>
+<p>Configuration </p>
+<p>Tool</p>
+<p></p>
+<p>CANbedded Software Components</p>
+<p>GENy, CANgen</p>
+<p>CAN Controller</p>
+<p>Transceiver</p>
+<p>Your Application</p>
+<p>The  illustration  shows  the  layer  model  of  the  CANbedded components,  their  basic  functions  and </p>
+<p>connections. </p>
+<p><b>CANbedded</b> consists </p>
+<p>of </p>
+<p>a </p>
+<p>set </p>
+<p>of </p>
+<p>source </p>
+<p>code </p>
+<p>components </p>
+<p>(CANbedded Software </p>
+<p>Components) you have to include in your application. The sort of components depends on your <b>delivery</b>.</p>
+<p>The <b>Configuration Tool</b></p>
+<p>is the connection between the components and your project specific needs. It </p>
+<p>generates files you also have to include in your application.</p>
+<p><b>Configuration Tool</b></p>
+<p>for parameters and configuration of all components</p>
+<p>more see Online Help</p>
+<p><b>Communication Control Layer</b></p>
+<p>Software component integration and hardware abstraction. </p>
+<p><b>CAN Driver</b></p>
+<p>Hardware specific CAN controller characteristics and provision of a standardized application interface</p>
+<p><b>Interaction Layer</b></p>
+<p>with signal interface</p>
+<p><b>Network Management</b></p>
+<p>to control the CAN ECU</p>
+<p><b>Transport Protocol</b></p>
+<p>for data exchange of more than 8 data bytes</p>
+<p><b>Universal Measeurement and Calibration Protocol</b></p>
+<p>Measurement and calibration of the ECU via different bus systems. </p>
+<p><b>Diagnostics Layer</b></p>
+<p>according to Keyword Protocol 2000 / UDS</p>
+<h1 style="page-break-before:always; "></h1>
+<p>4</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>4</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Application</p>
+<p>Introduction</p>
+<p>CAN Controller</p>
+<p>Transceiver</p>
+<p><b>CAN Bus</b></p>
+<p>Configuration </p>
+<p>Tool</p>
+<p></p>
+<p>CANbedded Software Components</p>
+<p>GENy, CANgen</p>
+<p>CAN Controller</p>
+<p>Transceiver</p>
+<p>Your Application</p>
+<p>BMW</p>
+<p>VW/AUDI</p>
+<p>DC</p>
+<p>GM</p>
+<p>Renault</p>
+<p>Porsche</p>
+<p>...and others</p>
+<p>OEM? </p>
+<p>Controller?</p>
+<p>Derivative?</p>
+<p>Compiler? </p>
+<p>Dependent on the OEM the delivery and its content can differ. </p>
+<p>Some  components  do  a  similar  job  but  have  a  different  name  and  a different  API,  e.g.  the  Interaction </p>
+<p>Layer is different for DaimlerChrysler, BMW and other OEMs. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>5</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>5</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Introduction</p>
+<p>OEM X</p>
+<p>This Delivery is:</p>
+<p>Tailored for:</p>
+<p></p>
+<p>Controller</p>
+<p></p>
+<p>Derivative</p>
+<p></p>
+<p>Compiler</p>
+<p>Can be used for*:</p>
+<p></p>
+<p>Projects for one vehicle manufacturer</p>
+<p></p>
+<p>Can be used for multiple projects or car lines for this vehicle </p>
+<p>manufacturer</p>
+<p>*right of usage can differ, for specific information refer to the quotation</p>
+<p>The delivery is tailored according the questionnaire you filled-out. So the delivery contains all components </p>
+<p>you need tested for you controller/derivative/compiler. </p>
+<p>You can use the delivery not only for one project but for all other projects for this vehicle manufacturer  for </p>
+<p>different car lines. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>6</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>6</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Introduction</p>
+<p><b>Basic concept is almost the same for all OEM</b></p>
+<p></p>
+<p>C code CANbedded Components</p>
+<p></p>
+<p>Configuration Tool</p>
+<p>OEM-specific differences in</p>
+<p></p>
+<p>Component combinations</p>
+<p></p>
+<p>Components</p>
+<p></p>
+<p>API</p>
+<p>CANbedded component </p>
+<p>are </p>
+<p>source </p>
+<p>code </p>
+<p>components </p>
+<p>in </p>
+<p>C. </p>
+<p>You </p>
+<p>can </p>
+<p>tailor </p>
+<p>the </p>
+<p>huge </p>
+<p>amount </p>
+<p>of </p>
+<p>functionality of each component by using the configuration tool.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>7</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>7</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Agenda</p>
+<p>Summary</p>
+<p>Step by Step</p>
+<p>Delivery</p>
+<p><b>Components and Project Folders</b></p>
+<p><b>&gt;</b></p>
+<p>Introduction</p>
+<h1 style="page-break-before:always; "></h1>
+<p>8</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>8</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Components and Project Folders</p>
+<p>Component</p>
+<p>API</p>
+<p></p>
+<p>Initialization</p>
+<p></p>
+<p>Service Functions</p>
+<p></p>
+<p>Callback Functions</p>
+<p>C/H Files</p>
+<p></p>
+<p>Component Files</p>
+<p></p>
+<p>Configuration Files</p>
+<p></p>
+<p>Parameter Files</p>
+<p>Generated by</p>
+<p></p>
+<p>CANgen</p>
+<p></p>
+<p>GENy</p>
+<p>Delivered files (generated for </p>
+<p>CANdesc)</p>
+<p>Configuration- and component-</p>
+<p>dependent functions (API)</p>
+<p>Component, API and files</p>
+<p>The delivered CANbedded C code components consist of:</p>
+<p><b>Component files:</b></p>
+<p>Files that form the component (C, H), that contain the code of the component and its functionalities. </p>
+<p>These files can be found in the delivery (except for the files for the CANdesc component. Those are </p>
+<p>generated completely).</p>
+<p><b>Configuration and parameter files:</b></p>
+<p>These are files that are generated by the configuration too and that tailor the component to provide </p>
+<p>functionality as you have selected. As these files are generated, do not change them manually. Any </p>
+<p>change is lost after the next generation process. </p>
+<p>On the other hand each component provides a large application interface. Despite this the usage of a </p>
+<p>component can be seen very simple: </p>
+<p><b>Initialization:</b> there is a function to initialize the component (xxxInitPowerOn).</p>
+<p><b>Service function:</b> There are all functions so use the component (e.g. CanTransmit to send a CAN </p>
+<p>message).</p>
+<p><b>Callback functions:</b> at predefined states of the component it calls back to the application to get </p>
+<p>information how to continue. The components do not work without any interaction with the application. </p>
+<p>This is a very powerful means for the application to control the work flow of the CANbedded software </p>
+<p>components. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>9</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>9</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Components and Project Folders</p>
+<p>Folders for delivered and </p>
+<p>generated Vector files</p>
+<p>Customer application files</p>
+<p>On the developer side the project could look like this: </p>
+<p>There is a project folder containing a large amount of application files. And depending on your strategy </p>
+<p>there  could  be  a  folder  containing  all  files  delivered  from  Vector  and  that  are  generated  by  the </p>
+<p>configuration tool. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>10</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>10</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Agenda</p>
+<p>Summary</p>
+<p>Step by Step</p>
+<p><b>Delivery</b></p>
+<p><b>&gt;</b></p>
+<p>Components and Project Folders</p>
+<p>Introduction</p>
+<h1 style="page-break-before:always; "></h1>
+<p>11</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>11</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Delivery</p>
+<p><b>Delivery Setup.exe</b></p>
+<p>A delivery by CD starts automatically when inserting the CD and looks similar like shown above. </p>
+<p>Click the link to save the install shield executable on your hard disc. For security reasons the browser </p>
+<p>normally does not allow to start an executable (.exe) file. </p>
+<p>This install shield executable has the name of the delivery followed by _Setup.exe.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>12</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>12</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Agenda</p>
+<p>Summary</p>
+<p><b>Step by Step</b></p>
+<p><b>&gt;</b></p>
+<p>Delivery</p>
+<p>Components and Project Folders</p>
+<p>Introduction</p>
+<h1 style="page-break-before:always; "></h1>
+<p>13</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>13</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Step by Step</p>
+<p>Components</p>
+<p>API</p>
+<p></p>
+<p>Initialization</p>
+<p></p>
+<p>Service Functions</p>
+<p></p>
+<p>Callback functions</p>
+<p>Files</p>
+<p></p>
+<p>Component Files</p>
+<p><b>...Setup.exe</b></p>
+<p>GENy</p>
+<p>CANgen</p>
+<p><b>install</b></p>
+<p>X</p>
+<p>1. Install tool and component files</p>
+<p>e.g.</p>
+<p>can_drv.c</p>
+<p>can_def.h</p>
+<p>il.c</p>
+<p>il_def.h</p>
+<p><b>1. STEP – Install tool and component files</b></p>
+<p>Start the install shield executable and follow the instructions coming up. Make sure to enter the correct </p>
+<p>path where files should be installed to. There will be installed the component files and the configuration </p>
+<p>tool. </p>
+<p>In the project folder view the configuration tool will be installed below the folder _gentool. </p>
+<p></p>
+<p>If you use CANgen this will be installed directly below _gentool and the folder is called CANgen. </p>
+<p></p>
+<p>if you use GENy there will be installed two folders, one for the framework (GENy) and one for the </p>
+<p>component DLLs (Components).</p>
+<p>The component files are installed as shown above. there is a _common folder for common files and a </p>
+<p>_doc folder for all the delivery documentations. The component files are stored in a folder with the name </p>
+<p>of  the  component  (e.g.  diag for  diagnostics  components,  drv for  the  CAN  Driver,  nm  for  Network </p>
+<p>Management, etc.).</p>
+<h1 style="page-break-before:always; "></h1>
+<p>14</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>14</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Step by Step</p>
+<p>Components</p>
+<p>API</p>
+<p></p>
+<p>Initialization</p>
+<p></p>
+<p>Service Functions</p>
+<p></p>
+<p>Callback functions</p>
+<p>Files</p>
+<p></p>
+<p>Component Files</p>
+<p>DBC</p>
+<p><b>...Setup.exe</b></p>
+<p>GENy</p>
+<p>CANgen</p>
+<p><b>install</b></p>
+<p>X</p>
+<p>2. Configure components</p>
+<p>Y</p>
+<p>configure</p>
+<p><b>2. STEP – Configure components</b></p>
+<p>Now start the configuration tool (CANgen or GENy – for more information about how to use the tools refer </p>
+<p>to the Online Help). Configure the components, switch on or of necessary functionality, callback functions, </p>
+<p>etc.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>15</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>15</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Step by Step</p>
+<p>Components</p>
+<p>API</p>
+<p></p>
+<p>Initialization</p>
+<p></p>
+<p>Service Functions</p>
+<p></p>
+<p>Callback functions</p>
+<p>Files</p>
+<p></p>
+<p>Component Files</p>
+<p></p>
+<p>Configuration Files</p>
+<p></p>
+<p>Parameter Files</p>
+<p>DBC</p>
+<p><b>...Setup.exe</b></p>
+<p>GENy</p>
+<p>CANgen</p>
+<p><b>install</b></p>
+<p>X</p>
+<p>Y</p>
+<p>3. Generate configuration and parameter files</p>
+<p>configure</p>
+<p><b>generate</b></p>
+<p>Z</p>
+<p>e.g.</p>
+<p>il_par.c</p>
+<p>il_par.h</p>
+<p>il_cfg.h</p>
+<p><b>3. STEP – Generate configuration and parameter files</b></p>
+<p>After you have configured the components start the generation process by clicking the flash button of the </p>
+<p>configuration tool. Make sure you have adjusted the path correctly where the tool generated the files in. </p>
+<p>The easiest way would be to use a folder like above, called gendata where all generated data is stored. </p>
+<p>Then you know that all data in this folder must not be changed by hand. </p>
+<p>The files that are generated for configuration and parameters are named like shown above. </p>
+<p>*_par – parameter files</p>
+<p>*_cfg – configuration files</p>
+<h1 style="page-break-before:always; "></h1>
+<p>16</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>16</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Step by Step</p>
+<p>Components</p>
+<p>API</p>
+<p></p>
+<p>Initialization</p>
+<p></p>
+<p>Service Functions</p>
+<p></p>
+<p>Callback functions</p>
+<p>Files</p>
+<p></p>
+<p>Component Files</p>
+<p></p>
+<p>Configuration Files</p>
+<p></p>
+<p>Parameter Files</p>
+<p>DBC</p>
+<p><b>...Setup.exe</b></p>
+<p>Application files </p>
+<p><b>//Include components</b></p>
+<p>#include ...</p>
+<p><b>//Initialize components</b></p>
+<p>CompInitPowerOn();</p>
+<p><b>//Service functions</b></p>
+<p><b>//Cyclic Component Tasks</b></p>
+<p>TaskXms()</p>
+<p>{</p>
+<p>CompTask();</p>
+<p>}</p>
+<p><b>//Callback functions</b></p>
+<p>GENy</p>
+<p>CANgen</p>
+<p><b>install</b></p>
+<p>X</p>
+<p>Y</p>
+<p><b>generate</b></p>
+<p><b>adapt</b></p>
+<p>[</p>
+<p>4. Adapt application files</p>
+<p>configure</p>
+<p>Z</p>
+<p><b>4. STEP – Adapt application files</b></p>
+<p>After  the  files  are  generated  you  have  to  modify  your  application  to  use  the  functionality  of  the </p>
+<p>CANbedded software components. </p>
+<p>There are the C typical points to be regarded when using functionality of a component.</p>
+<p><b>Include:</b></p>
+<p>Your software must know where to find the functions you want to use. Therefore you have to include the </p>
+<p>necessary header files of the components to be used. </p>
+<p><b>Initialization:</b></p>
+<p>Before you can use a component it must be initialized. </p>
+<p><b>Service functions: </b></p>
+<p>To use the actual functionality of the component call service functions like e.g. CanTransmit.</p>
+<p><b>Cyclic component tasks</b></p>
+<p>A very special sort of  service  functions  are  the  cyclic  component  tasks.  Only  the  CAN  Driver  is  event </p>
+<p>triggered  (when  not  used  in  polling  mode).  All  other  components  need  a  task  function  to  be  called </p>
+<p>cyclically within a predefined time. This call cycle is the base time for internal time dependent functionality </p>
+<p>like e.g. timeout monitoring. </p>
+<p><b>Callback functions:</b></p>
+<p>interact with the component to control component’s activities. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>17</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>17</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Step by Step</p>
+<p>Application files </p>
+<p><b>//Access to components</b></p>
+<p>#include fileA</p>
+<p>#include fileB</p>
+<p><b>//Initialize components, interrupts disabled</b></p>
+<p>CanInitPowerOn();</p>
+<p>NmInitPowerOn();</p>
+<p>..</p>
+<p>enable Interrupts</p>
+<p><b>//Service functions</b></p>
+<p>IlRxStart(); </p>
+<p>IlTxStart();</p>
+<p><b>//Cyclic Component Tasks</b></p>
+<p>TaskXms()</p>
+<p>{</p>
+<p>CompATask();</p>
+<p>}</p>
+<p>TaskYms()</p>
+<p>{</p>
+<p>CompBTask();</p>
+<p>}</p>
+<p>CclInitPowerOn(); //only one </p>
+<p>initialization function when using CCL</p>
+<p>#include ccl_inc.h //only one initialization </p>
+<p>function when using CCL</p>
+<p>CclScheduleTask(); //one function call</p>
+<p>for all component task functions</p>
+<p><b>//Callback functions</b></p>
+<p>ApplCanMessageReceived()</p>
+<p>{</p>
+<p>//application code</p>
+<p>}</p>
+<p>4. Adapt application files</p>
+<p>Some examples for </p>
+<p>include, initialization, cyclic</p>
+<p>cyclic component task and </p>
+<p>service and callback functions</p>
+<p><b>4. STEP – Adapt application files</b></p>
+<p><b>Include:</b></p>
+<p>There is an order that has to be kept when including the files for CANbedded software components. If you </p>
+<p>use the CCL component there is only one include left, the one of ccl_inc.h. </p>
+<p><b>Initialize components with disabled interrupts:</b></p>
+<p>The CanInitPowerOn() must be the first initialization followed by the higher layer components like Network </p>
+<p>Management  or  Transport  Protocol,  etc.  If  you  use  the  CCL  component,  there  is  only  one  call  of </p>
+<p>CclinitPowerOn() necessary. </p>
+<p><b>Cyclic component tasks:</b></p>
+<p>In  the  configuration  tool  you  have  to  enter  the  cycle  time  (normally  in  ms)  in  which  you  call  the </p>
+<p>component’s  task  functions  (CompATask(  ),  CompBTask(  ),  etc.).  This  information  is  the  basis  for  the </p>
+<p>component to calculate its internal timing. So you have to call the function in the given cycle time. This </p>
+<p>can  be  done  form  a  operating  system  task  or  a  timer.  If  you  use  the  CCL  component  just  call </p>
+<p>CclScheduleTask() within a suitable cycle time and the single calls will be performed by the CCL (CCL </p>
+<p>provides another method for the cyclic calls, refer to the documentation of the CCL component for more </p>
+<p>information).</p>
+<p><b>Service functions:</b></p>
+<p>Service  functions  are  e.g.  CanTransmit</p>
+<p>to  transmit  a  CAN  message,  IlRxStart</p>
+<p>to  start  the  transmitting </p>
+<p>path of the Interaction Layer, etc. These are functions to use the components. </p>
+<p><b>Callback functions:</b></p>
+<p>e.g. ApplCanMessageReceived. Callback functions are always marked with Appl... in the beginning of the </p>
+<p>name. The activity of the component is halted and the application is asked to  meet  a  decision  how  to </p>
+<p>continue. Often the return code of the function is used for this decision, but now always. In some cases </p>
+<p>the application has to do some other action. </p>
+<p>Tip: for the beginning provide all necessary callback functions but leave them empty just to prevent linker </p>
+<p>errors. Then start to fill them with code one after the other. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>18</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>18</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Step by Step</p>
+<p>Components</p>
+<p>API</p>
+<p></p>
+<p>Initialization</p>
+<p></p>
+<p>Service Functions</p>
+<p></p>
+<p>Callback functions</p>
+<p>Files</p>
+<p></p>
+<p>Component Files</p>
+<p></p>
+<p>Configuration Files</p>
+<p></p>
+<p>Parameter Files</p>
+<p>DBC</p>
+<p>Application files </p>
+<p><b>...Setup.exe</b></p>
+<p>//Include components</p>
+<p>#include ...</p>
+<p>//Initialize components</p>
+<p>CompInitPowerOn();</p>
+<p>//Service functions</p>
+<p>//Cyclic Component Tasks</p>
+<p>TaskXms()</p>
+<p>{</p>
+<p>CompTask();</p>
+<p>}</p>
+<p>//Callback functions</p>
+<p>GENy</p>
+<p>CANgen</p>
+<p><b>install</b></p>
+<p>X</p>
+<p>Y</p>
+<p><b>generate</b></p>
+<p><b>adapt</b></p>
+<p>[</p>
+<p>5. Files in Project or makefile</p>
+<p>configure</p>
+<p>Z</p>
+<p>\</p>
+<p><b>5. STEP – Add files in your project or makefile</b></p>
+<p>Now  the  component  files  are  configured  (generated  files)  and  your  application  is  adapted  to  use  the </p>
+<p>components and their functionality. What is left is to add the new files (component files and generated </p>
+<p>files) to your compiler or makefile. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>19</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>19</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Step by Step</p>
+<p>Components</p>
+<p>API</p>
+<p></p>
+<p>Initialization</p>
+<p></p>
+<p>Service Functions</p>
+<p></p>
+<p>Callback functions</p>
+<p>Files</p>
+<p></p>
+<p>Component Files</p>
+<p></p>
+<p>Configuration Files</p>
+<p></p>
+<p>Parameter Files</p>
+<p>DBC</p>
+<p>Application files </p>
+<p><b>...Setup.exe</b></p>
+<p>//Include components</p>
+<p>#include ...</p>
+<p>//Initialize components</p>
+<p>CompInitPowerOn();</p>
+<p>//Service functions</p>
+<p>//Cyclic Component Tasks</p>
+<p>TaskXms()</p>
+<p>{</p>
+<p>CompTask();</p>
+<p>}</p>
+<p>//Callback functions</p>
+<p>GENy</p>
+<p>CANgen</p>
+<p><b>install</b></p>
+<p>X</p>
+<p>Y</p>
+<p><b>generate</b></p>
+<p><b>adapt</b></p>
+<p>[</p>
+<p>HW platform</p>
+<p><b>compile/link</b></p>
+<p><b>download </b></p>
+<p>]</p>
+<p>^</p>
+<p>6/7. Compile, link and download</p>
+<p>configure</p>
+<p>Z</p>
+<p>\</p>
+<p><b>6. STEP – Compile and link your project with CANbedded software components</b></p>
+<p>Now start the compiler for a first compile and link process. Make sure you have provided all necessary </p>
+<p>callback functions. </p>
+<p><b>7. STEP – Download the executable to your hardware and test</b></p>
+<p>The first target should be a basically working CAN  communication.  Upon  this  you  can  build  all  further </p>
+<p>development. So download your executable and watch the bus for communication. Use perhaps CANoe</p>
+<p>or CANalyzer (products of Vector Informatik GmbH). If you see the CAN messages on the bus and no </p>
+<p>error frames, the first target is reached.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>20</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>20</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Agenda</p>
+<p><b>Summary</b></p>
+<p><b>&gt;</b></p>
+<p>Step by Step</p>
+<p>Delivery</p>
+<p>Components and Project Folders</p>
+<p>Introduction</p>
+<h1 style="page-break-before:always; "></h1>
+<p>21</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>21</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Summary</p>
+<p>X</p>
+<p>.exe</p>
+<p>Setup.exe –</p>
+<p>Install</p>
+<p>Configuration Tool (CANgen or GENy) and </p>
+<p>CANbedded Components</p>
+<p>Y</p>
+<p>.gny</p>
+<p>.ccf</p>
+<p>Configure </p>
+<p>Components with Configuration Tool and data base file</p>
+<p>Z</p>
+<p>_par.h</p>
+<p>_cfg.h</p>
+<p>Generate</p>
+<p>Parameter and Configuration Files</p>
+<p>[</p>
+<p>appl.c</p>
+<p>Adapt</p>
+<p>your application to utilize CANbedded Components</p>
+<p>\</p>
+<p>.mak</p>
+<p>Add</p>
+<p>CANbedded to your Project or makefile</p>
+<p>]</p>
+<p>.hex</p>
+<p>Compile</p>
+<p>and </p>
+<p>Link</p>
+<p>the  Project (application with CANbedded)</p>
+<p>^</p>
+<p>.hex</p>
+<p>Download</p>
+<p>to target and test</p>
+<p>Step by Step</p>
+<p>Use the list above as a short recipe for using the CANbedded software components out of the delivery. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>22</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>22</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Summary</p>
+<p>Document Types</p>
+<p>Documentation</p>
+<p></p>
+<p>Beginners of CANbedded components should read the </p>
+<p>UserManual_Startup_&lt;OEM&gt;_CANbedded first (if available). </p>
+<p></p>
+<p>If not part of the delivery read the component specific user manuals       </p>
+<p>UserManual_&lt;Component&gt;. And if you use the CCL read the CCL user manual first.</p>
+<p></p>
+<p>There is a set of user manuals and references for every component as you see </p>
+<p>below.</p>
+<p>User Manual</p>
+<p>First steps to get an example </p>
+<p>executable running for each </p>
+<p>component or the complete </p>
+<p>delivery (if available for OEM).</p>
+<p>UserManual_CCL, </p>
+<p>UserManual_Startup_&lt;OEM&gt;_</p>
+<p>CANbedded, ...</p>
+<p>Technical Reference(SW)</p>
+<p>More detailed information about </p>
+<p>the component, API...</p>
+<p>TechnicalReference_candrv, ...</p>
+<p>Technical Reference(HW)</p>
+<p>Hardware specific information of the </p>
+<p>component if available.</p>
+<p>TechnicalReference_CAN_HC12, ...</p>
+<h1 style="page-break-before:always; "></h1>
+<p>23</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>23</p>
+<p>© 2006. Vector Informatik GmbH. All rights reserved. Any distribution or copying is subject to prior written approval by Vector.</p>
+<p>Slide: </p>
+<p>Thank you for your attention. </p>
+<p>For detailed information about Vector</p>
+<p>and our products please have a look at: </p>
+<p>www.vector-informatik.com</p>
+<p>Author:</p>
+<p>Klaus Emmert</p>
+<p>Vector Informatik GmbH</p>
+<p>Ingersheimer Str. 24</p>
+<p>70499 Stuttgart</p>
+</body>
+</html>
+{% endraw %}

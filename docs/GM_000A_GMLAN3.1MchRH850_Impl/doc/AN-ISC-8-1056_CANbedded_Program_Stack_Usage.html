@@ -1,0 +1,454 @@
+---
+layout: default
+title: AN-ISC-8-1056_CANbedded_Program_Stack_Usage
+nav_order: 5
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b> </b></p>
+<p><b>CANbedded Program-Stack usage </b></p>
+<p><b>Version 1.0 </b></p>
+<p><b>2007/01/08</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Application Note  AN-ISC-8-1056 </b></p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p>Author(s) </p>
+<p>Andreas Raisch </p>
+<p>Restrictions </p>
+<p>Customer confidential - subject to prior approval by PSC </p>
+<p>Abstract </p>
+<p>This application note provides basic information on the (program-) stack consumption of </p>
+<p>Vector's CANbedded communication components. </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><i><b>Table of Contents </b></i></p>
+<p><i><b> </b></i></p>
+<p><b> 1  </b></p>
+<p><i>Copyright © 2007 - Vector Informatik GmbH </i></p>
+<p><b>Contact Information:   www.vector-informatik.com   or ++49-711-80 670-0 </b></p>
+<p>1.0</p>
+<p> </p>
+<p>Overview ..........................................................................................................................................................1</p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Definition “The Stack”....................................................................................................................................1</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Embedded System Stack Handling...............................................................................................................2</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Stack-Usage Approach in CANbedded.........................................................................................................3</p>
+<p> </p>
+<p>1.3.1</p>
+<p> </p>
+<p>Example ......................................................................................................................................................3</p>
+<p> </p>
+<p>1.3.2</p>
+<p> </p>
+<p>Configuration Aspects.................................................................................................................................5</p>
+<p> </p>
+<p>1.4</p>
+<p> </p>
+<p>Calculating and Measuring Stack Need........................................................................................................5</p>
+<p> </p>
+<p>2.0</p>
+<p> </p>
+<p>Summary..........................................................................................................................................................5</p>
+<p> </p>
+<p>3.0</p>
+<p> </p>
+<p>Contacts ...........................................................................................................................................................6</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.0 </b></p>
+<p><b>Overview </b></p>
+<p>This application note provides basic information on the (program-) stack consumption of Vector’s CANbedded </p>
+<p>communication components. </p>
+<p><b>1.1 </b></p>
+<p><b>Definition “The Stack” </b></p>
+<p>In computer science, a call stack is a special stack, which stores information about the active subroutines of a </p>
+<p>computer program. (The active subroutines are those, which have been called but have not yet completed </p>
+<p>execution by returning.) This kind of stack is also known as a program stack, execution stack, control stack, </p>
+<p>function stack or run-time stack and is often abbreviated to just &quot;the stack&quot;. </p>
+<p> </p>
+<p>The actual details of the stack in a programming language depend upon the compiler, operating system, and the </p>
+<p>available instruction set. </p>
+<p> </p>
+<p>As noted above, the primary purpose of the stack is: </p>
+<p>•</p>
+<p> </p>
+<p><b>Storing  the  return  address </b> –  When  a  subroutine  is  called,  the  location  of  the  instruction  to  return  to </p>
+<p>needs to be saved somewhere.  </p>
+<p> </p>
+<p>A stack may serve additional functions, depending on the language, operating system and machine environment. </p>
+<p>Among them can be: </p>
+<p>•</p>
+<p> </p>
+<p><b>Local  data  storage </b> –  A  subroutine  frequently  needs  memory  space  for  storing  the  values  of  local </p>
+<p>variables, the variables that are known only within the active subroutine and do not retain values after it </p>
+<p>returns.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>CANbedded Program-Stack usage</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>2 </b></p>
+<p><i>Application Note  AN-ISC-8-1056 </i></p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p><b>Parameter passing </b>– Subroutines often require that values for parameters must be supplied to them by </p>
+<p>the code which calls them and it is not uncommon that space for these parameters may be laid out in the </p>
+<p>stack.  Generally  if  there  are  only  a  few  small  parameters,  processor  registers  will  be  used  to  pass  the </p>
+<p>values. The stack works well as a place for these parameters, especially since each call to a subroutine, </p>
+<p>which will have differing values for parameters, will be given separate space on the stack for those values. </p>
+<p>•</p>
+<p> </p>
+<p><b>Other return state </b>– Besides the return address, in some environments there may be other machine or </p>
+<p>software  states  that  need  to  be  restored  when  a  subroutine  returns.  This  might  include  things  like </p>
+<p>processor registers, privilege level, exception handling information, arithmetic modes and so on. If needed, </p>
+<p>this may be stored on the stack just as the return address is. </p>
+<p> </p>
+<p>The typical stack is used for the return address, locals, and parameters (known as a call frame). In some </p>
+<p>environments there may be more or fewer functions assigned to the stack.  </p>
+<p>A stack is composed of stack frames (sometimes called activation records). Each stack frame corresponds to a call </p>
+<p>to a subroutine, which has not yet terminated with a return. For example, if a subroutine named DrawLine is </p>
+<p>currently running, having just been called by a subroutine DrawSquare, the top part of the stack might be laid out </p>
+<p>like this: </p>
+<p> </p>
+<p>The stack frame at the top of the stack is for the currently executing routine. In the most common approach the </p>
+<p>stack frame includes space for the local variables of the routine, the return address back to the routine's caller, and </p>
+<p>the parameter values passed into the routine. The memory locations within a frame are often accessed via a </p>
+<p>register called the stack pointer, which also serves to indicate the current top of the stack. Alternatively, memory </p>
+<p>within the frame may be accessed via a separate register, often termed the frame pointer, which typically points to </p>
+<p>some fixed point in the frame structure, such as the location for the return address. </p>
+<p>Stack frames are not all of the same size. Different subroutines have differing numbers of parameters, so that part </p>
+<p>of the stack frame will be different for different subroutines, although usually fixed across all activations of a </p>
+<p>particular subroutine. Similarly, the amount of space needed for local variables will be different for different </p>
+<p>subroutines.  </p>
+<p>[Source: Wikipedia] </p>
+<p> </p>
+<p><b>1.2 </b></p>
+<p><b>Embedded System Stack Handling </b></p>
+<p>The bandwidth of embedded system architectures and also the used µC (and compilers) results in a huge variety </p>
+<p>of stack handling approaches. </p>
+<p>The simplest approach is often valid, when no operating system (OS) is used. In such a case the stack is simply a </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>CANbedded Program-Stack usage</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>3 </b></p>
+<p><i>Application Note  AN-ISC-8-1056 </i></p>
+<p> </p>
+<p>reserved RAM area used by the whole system. </p>
+<p>If an OSEK/OS or AUTOSAR OS is used, the stack handling depends on the available features in the OS and the </p>
+<p>underlying µC. Each OS task has usually its own stack but can share this stack if some preconditions are kept with </p>
+<p>other tasks. Providing one or more own stacks for interrupts can reduce the stack need of the OS tasks, too.  </p>
+<p>The stack need of an embedded system depends also on the specific handling for interrupts: </p>
+<p>•</p>
+<p> </p>
+<p>Storing of CPU registers on the stack or simply switching to a different stack bank </p>
+<p>•</p>
+<p> </p>
+<p>Supporting/using nested interrupts; i.e. interrupts can cause multiple store actions to the stack </p>
+<p>•</p>
+<p> </p>
+<p>Configuring  own  stack(s)  for  interrupts  or  using  the  stack  of  the  currently  running  OS  task  (or  other </p>
+<p>interrupt) </p>
+<p>Please note that for most implementations the stack pointer starts at a high address and grows to lower addresses. </p>
+<p><b>1.3 </b></p>
+<p><b>Stack-Usage Approach in CANbedded </b></p>
+<p>The CANbedded architecture is optimized for so-called deeply embedded systems with limited RAM and runtime in </p>
+<p>real-time systems. As a result of this, the architecture is gained to be a good compromise between  </p>
+<p>•</p>
+<p> </p>
+<p>ROM usage (multiple implementation of same behavior vs. in-lining or calling functions) </p>
+<p>•</p>
+<p> </p>
+<p>RAM  usage  (static  parameters  vs.  local  parameters  on  the  stack;  calling  a  function  vs.  implementing </p>
+<p>something short twice, …) </p>
+<p>•</p>
+<p> </p>
+<p>Runtime consumption (calling a function needs more time than local handling) </p>
+<p> </p>
+<p>A CANbedded function shall therefore  </p>
+<p>•</p>
+<p> </p>
+<p>have only few arguments (none, 1 or 2, very very rarely more than 2 parameters) </p>
+<p>•</p>
+<p> </p>
+<p>be implemented in a way that local data stored on the stack is minimized </p>
+<p>•</p>
+<p> </p>
+<p>call no other functions unless it is necessary due to layered architecture </p>
+<p> </p>
+<p>Most CANbedded API functions are implemented in a way that only flags are set which are evaluated on a cyclic </p>
+<p>function to prevent too deep function call trees (and with this an increased stack need). </p>
+<p>An additional task of the CANbedded communication components is the separation of the interrupt driven </p>
+<p>hardware handling and the task-level view of the application. To be able to react on communication events </p>
+<p>correctly, parts of the handler implementation are executed on interrupt level and parts are executed on task level. </p>
+<p>Which stack and how much stacks are used for the task and the interrupt context depends on the underlying </p>
+<p>system (see chapter </p>
+<p>1.2 for details). </p>
+<p><b>1.3.1 </b></p>
+<p><b>Example </b></p>
+<p>A typical example for such a CANbedded implementation is a transport protocol, where the reaction on incoming </p>
+<p>events has to be fast whereas the timeout and state handling can be slower. The implementation will therefore be </p>
+<p>split in a function called within the CAN RX interrupt for fast actions and a cyclic called function for the slower ones. </p>
+<p>The same is true for the next upper layer, the diagnostic layer. See </p>
+<p>Figure 2 for details how the diagnostic layer </p>
+<p>handles the separation of RX event notification in CAN ISR context and further handling on task context. </p>
+<p>As a result, the call tree of the RX event handling in ISR context stops latest on diagnostic layer level. All further </p>
+<p>handling (including application calls) is processed a few milliseconds later from task level with only very few </p>
+<p>function calls on the stack. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>CANbedded Program-Stack usage</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>4 </b></p>
+<p><i>Application Note  AN-ISC-8-1056 </i></p>
+<p> </p>
+<p><i>os</i></p>
+<p>CAN</p>
+<p>Network</p>
+<p>Management</p>
+<p>Transport Protocol</p>
+<p>Communication</p>
+<p>Control</p>
+<p>Layer</p>
+<p>Universal</p>
+<p>Measure-</p>
+<p>ment</p>
+<p>And </p>
+<p>Calibration</p>
+<p>Protocol</p>
+<p><b>CAN Bus</b></p>
+<p>Interaction </p>
+<p>Layer</p>
+<p>Diagnostics</p>
+<p>Layer</p>
+<p>Application</p>
+<p>CAN Controller</p>
+<p>Transceiver</p>
+<p>CAN Controller</p>
+<p>Transceiver</p>
+<p>CAN Driver</p>
+<p> </p>
+<p>Figure 1 Example CANbedded Stack with CAN Driver, TP and Diagnostic Layer as the largest call-tree </p>
+<p> </p>
+<p>Further handling</p>
+<p>unknown to std. SW</p>
+<p>CAN </p>
+<p>Driver</p>
+<p>CAN </p>
+<p>Driver</p>
+<p>Transport</p>
+<p>Protocol</p>
+<p>Transport</p>
+<p>Protocol</p>
+<p>Diagnostics                         </p>
+<p>Layer</p>
+<p>Diagnostics                         </p>
+<p>Layer</p>
+<p>Application</p>
+<p>Application</p>
+<p>RX of TP frame</p>
+<p>RX of TP frame</p>
+<p>Optional call to application</p>
+<p>Copy RX data</p>
+<p>Copy RX data</p>
+<p>Further handling</p>
+<p>unknown to std. SW</p>
+<p>RX of last TP frame</p>
+<p>RX of last TP frame</p>
+<p>Optional call to application</p>
+<p>Copy RX data</p>
+<p>Copy RX data</p>
+<p>Indicate RX data ready</p>
+<p>Data </p>
+<p>ready </p>
+<p>flag</p>
+<p>Data </p>
+<p>ready </p>
+<p>flag</p>
+<p>Event </p>
+<p>handler</p>
+<p>Event </p>
+<p>handler</p>
+<p>Cyclic </p>
+<p>handler</p>
+<p>Cyclic </p>
+<p>handler</p>
+<p>Check RX</p>
+<p>data ready</p>
+<p>Further handling</p>
+<p>unknown to std. SW</p>
+<p>Further handling</p>
+<p>unknown to std. SW</p>
+<p>Check RX</p>
+<p>data ready</p>
+<p>ISR/Event context</p>
+<p>Task context</p>
+<p>PreHandler</p>
+<p>MainHandler</p>
+<p> </p>
+<p>Figure 2 Example call-tree for diagnostic data reception </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>CANbedded Program-Stack usage</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>5 </b></p>
+<p><i>Application Note  AN-ISC-8-1056 </i></p>
+<p> </p>
+<p><b>1.3.2 </b></p>
+<p><b>Configuration Aspects </b></p>
+<p>The configurations of the CANbedded components have a large impact on the stack needs. There is a customer </p>
+<p>specific, static setup of CANbedded components which interact together to fulfill the OEM requirements. I.e. the </p>
+<p>CAN driver always informs e.g. the transport layer if a specific CAN frame is received and the transport layer </p>
+<p>informs the diagnostic layer if the full message is received. This call sequence is preconfigured by Vector, </p>
+<p>nevertheless, the software supports multiple points (callbacks) where customer specific hooks can be included. </p>
+<p>This customer hooks have additional influence to the stack needs. </p>
+<p>Another very important configuration parameter is the decision if the RX/TX handling shall be processed in </p>
+<p>interrupt or on task context. If it is processed on task context, the stack need can be calculated easier than when </p>
+<p>the handling is performed with interrupts. </p>
+<p>In an ECU with one CAN bus, an interaction layer (IL), a network management (NM), a transport layer (TP) and a </p>
+<p>diagnostic component, the RX path of incoming diagnostic CAN messages has usually the largest call tree form </p>
+<p>communication point of view and therefore the highest stack need. </p>
+<p><b>1.4 </b></p>
+<p><b>Calculating and Measuring Stack Need </b></p>
+<p>Exactly calculating the stack needs is a difficult and error-prone task. Therefore the stack size is often estimated </p>
+<p>based on the environmental conditions described in chapter </p>
+<p>1.2 and a safety value of 10% to 20%, sometimes </p>
+<p>100%, is added to the result. </p>
+<p>If an operating system is used, this system usually provides means to measure stack usage and test stack </p>
+<p>consistency. OSEK/OS and AUTOSAR OS for instance provides such means to check the stack with each OS </p>
+<p>action and also to initialize the stack with patterns so the worst case usage for a given scenario can be found. </p>
+<p>When using such a method, it is important to analyze upfront the worst case call trees and make sure they have </p>
+<p>happened during test execution, too. This implies also “special” scenarios like “ECU in diagnostics”, “ECU with high </p>
+<p>I/O interrupt load”, occurrence of OSEK category 1 and 2 interrupts at the same time, … </p>
+<p><b>2.0 </b></p>
+<p><b>Summary </b></p>
+<p>As a result of all this effects, no detailed figure for the concrete stack usage of the CANbedded communication </p>
+<p>components can be given upfront of the real usage in an ECU project. </p>
+<p>Vector offers different levels of support to customers, starting from telephone hotline for the more simple questions, </p>
+<p>integrating the CANbedded communication components and other software up to analyzing your ECU setup as a </p>
+<p>separate project work. </p>
+<p> </p>
+<p>Note:  </p>
+<p>Please be aware that due to all the points mentioned in this application note Vector can not finally </p>
+<p>list the stack needs of the CANbedded communication components in your project. The concrete </p>
+<p>layout and dimension of the stack(s) in an ECU project is the task of the system integrator.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>CANbedded Program-Stack usage</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>6 </b></p>
+<p><i>Application Note  AN-ISC-8-1056 </i></p>
+<p> </p>
+<p><b>3.0 </b></p>
+<p><b>Contacts </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Vector Informatik GmbH </b></p>
+<p>Ingersheimer Straße 24 </p>
+<p>70499 Stuttgart </p>
+<p>Germany </p>
+<p>Tel.: +49 711-80670-0 </p>
+<p>Fax: +49 711-80670-111 </p>
+<p>Email: info@vector-informatik.de </p>
+<p> </p>
+<p> </p>
+<p><b>Vector CANtech, Inc. </b></p>
+<p>39500 Orchard Hill Pl., Ste 550 </p>
+<p>Novi, MI  48375 </p>
+<p>USA </p>
+<p>Tel:  +1-248-449-9290 </p>
+<p>Fax: +1-248-449-9704 </p>
+<p>Email: info@vector-cantech.com </p>
+<p> </p>
+<p><b>VecScan AB </b></p>
+<p>Lindholmspiren 5 </p>
+<p>402 78 Göteborg  </p>
+<p>Sweden </p>
+<p>Tel:  +46 (0)31 764 76 00 </p>
+<p>Fax: +46 (0)31 764 76 19  </p>
+<p>Email: info@vecscan.com </p>
+<p><b>Vector France SAS </b></p>
+<p>168 Boulevard Camélinat </p>
+<p>92240 Malakoff  </p>
+<p>France </p>
+<p>Tel:  +33 (0)1 42 31 40 00 </p>
+<p>Fax: +33 (0)1 42 31 40 09 </p>
+<p>Email: information@vector-france.fr </p>
+<p> </p>
+<p><b>Vector Japan Co. Ltd. </b></p>
+<p>Seafort Square Center Bld. 18F </p>
+<p>2-3-12, Higashi-shinagawa, </p>
+<p>Shinagawa-ku </p>
+<p>J-140-0002 Tokyo </p>
+<p>Tel.: +81 3 5769 6970    </p>
+<p>Fax: +81 3 5769 6975 </p>
+<p>Email: info@vector-japan.co.jp </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

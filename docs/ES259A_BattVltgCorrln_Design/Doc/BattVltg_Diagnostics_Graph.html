@@ -1,0 +1,211 @@
+---
+layout: default
+title: BattVltg_Diagnostics_Graph
+nav_order: 1
+parent: Component Design
+---
+{% raw %}
+<!DOCTYPE html>
+
+<html>
+<head>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+	<meta name="author" content="Windows User"/>
+	<meta name="created" content="2015-08-04T22:11:30"/>
+	<meta name="changedby" content="Windows User"/>
+	<meta name="changed" content="2016-05-02T20:03:29"/>
+	<meta name="AppVersion" content="14.0300"/>
+	<meta name="Company" content="Nexteer"/>
+	
+	<style type="text/css">
+		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:x-small }
+		a.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } 
+		a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } 
+		comment { display:none;  } 
+	</style>
+	
+</head>
+
+<body>
+<table cellspacing="0" border="0">
+	<colgroup span="17" width="64"></colgroup>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+	<tr>
+		<td colspan=5 rowspan=9 height="180" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br><img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=224 height=23 hspace=50 vspace=82>
+		</font></td>
+		<td colspan=14 rowspan=28 align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br><img src="BattVltg_Diagnostics_Graph_html_dc907f98.png" width=585 height=136 hspace=98 vspace=78>
+		</font></td>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+	<tr>
+		<td height="20" align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"><font color="#000000"><br></font></td>
+	</tr>
+</table>
+<img src="BattVltg_Diagnostics_Graph_html_86aa0456.png" width=585 height=8 hspace=98 vspace=79>
+<img src="BattVltg_Diagnostics_Graph_html_3615f7c2.png" width=585 height=44 hspace=98 vspace=156>
+<img src="BattVltg_Diagnostics_Graph_html_1f6da382.png" width=9 height=382 hspace=92 vspace=40>
+<img src="BattVltg_Diagnostics_Graph_html_af6eee09.png" width=619 height=9 hspace=81 vspace=215>
+<img src="BattVltg_Diagnostics_Graph_html_53204956.png" width=591 height=1 hspace=95 vspace=177>
+<img src="BattVltg_Diagnostics_Graph_html_53204956.png" width=591 height=1 hspace=95 vspace=156>
+<img src="BattVltg_Diagnostics_Graph_html_53204956.png" width=591 height=1 hspace=95 vspace=83>
+<img src="BattVltg_Diagnostics_Graph_html_5bad320c.png" width=591 height=1 hspace=95 vspace=83>
+<img src="BattVltg_Diagnostics_Graph_html_5bad320c.png" width=591 height=1 hspace=95 vspace=146>
+<img src="BattVltg_Diagnostics_Graph_html_5bad320c.png" width=591 height=1 hspace=95 vspace=167>
+<img src="BattVltg_Diagnostics_Graph_html_31c70e26.png" width=585 height=75 hspace=98 vspace=46>
+<img src="BattVltg_Diagnostics_Graph_html_b5cce9f9.png" width=585 height=75 hspace=98 vspace=182>
+<img src="BattVltg_Diagnostics_Graph_html_1bf53b60.png" width=585 height=8 hspace=98 vspace=142>
+<img src="BattVltg_Diagnostics_Graph_html_f75320bb.png" width=585 height=8 hspace=98 vspace=174>
+<img src="BattVltg_Diagnostics_Graph_html_f3412b06.png" width=28 height=19 hspace=246 vspace=231>
+<img src="BattVltg_Diagnostics_Graph_html_dbc15b7b.png" width=169 height=24 hspace=143 vspace=229>
+<img src="BattVltg_Diagnostics_Graph_html_51f475aa.png" width=140 height=24 hspace=288 vspace=229>
+<img src="BattVltg_Diagnostics_Graph_html_393fa6a0.png" width=28 height=19 hspace=246 vspace=252>
+<img src="BattVltg_Diagnostics_Graph_html_1e0c8151.png" width=28 height=19 hspace=246 vspace=284>
+<img src="BattVltg_Diagnostics_Graph_html_1ebcddb0.png" width=31 height=16 hspace=114 vspace=233>
+<img src="BattVltg_Diagnostics_Graph_html_139fd905.png" width=29 height=19 hspace=115 vspace=252>
+<img src="BattVltg_Diagnostics_Graph_html_9068d8d3.png" width=28 height=17 hspace=116 vspace=274>
+<img src="BattVltg_Diagnostics_Graph_html_1e3d85d3.png" width=28 height=19 hspace=246 vspace=273>
+<img src="BattVltg_Diagnostics_Graph_html_b56b49d7.png" width=187 height=24 hspace=264 vspace=250>
+<img src="BattVltg_Diagnostics_Graph_html_8bc08190.png" width=139 height=24 hspace=288 vspace=271>
+<img src="BattVltg_Diagnostics_Graph_html_15871698.png" width=169 height=24 hspace=273 vspace=281>
+<img src="BattVltg_Diagnostics_Graph_html_c807521.png" width=170 height=24 hspace=142 vspace=250>
+<img src="BattVltg_Diagnostics_Graph_html_91f04570.png" width=170 height=24 hspace=143 vspace=271>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=147 height=23 hspace=24 vspace=72>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=157 height=23 hspace=18 vspace=145>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=218 height=23 hspace=53 vspace=135>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=233 height=23 hspace=46 vspace=156>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=155 height=23 hspace=52 vspace=177>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=174 height=23 hspace=402 vspace=114>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=175 height=23 hspace=401 vspace=82>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=175 height=23 hspace=401 vspace=61>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=175 height=23 hspace=401 vspace=145>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=175 height=23 hspace=401 vspace=156>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=175 height=23 hspace=401 vspace=166>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=175 height=23 hspace=401 vspace=187>
+<img src="BattVltg_Diagnostics_Graph_html_7373a83a.png" width=68 height=23 hspace=63 vspace=9>
+<!-- ************************************************************************** -->
+</body>
+
+</html>
+
+{% endraw %}

@@ -1,0 +1,4497 @@
+---
+layout: default
+title: SafetyGuide_Rte
+nav_order: 2
+parent: RTE
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR RTE </b></p>
+<p>Safety Guide </p>
+<p> </p>
+<p>  </p>
+<p>Version 4.8.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Sascha Sommer, Bernd Sigle </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>2 / 76 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>4.1.0 </p>
+<p>2013-04-15 </p>
+<p>Sascha </p>
+<p>Sommer </p>
+<p>Initial Creation for RTE 4.1 (AUTOSAR 4) </p>
+<p>4.2.0 </p>
+<p>2013-10-29 </p>
+<p>Sascha </p>
+<p>Sommer </p>
+<p>Bernd Sigle </p>
+<p>Updated for RTE 4.2 </p>
+<p>Explained MICROSAR OS interrupt locking </p>
+<p>APIs. </p>
+<p>Corrected review findings especially the </p>
+<p>used abbreviations. </p>
+<p>4.3.0 </p>
+<p>2014-02-05 </p>
+<p>Sascha </p>
+<p>Sommer </p>
+<p>Updated for RTE 4.3 </p>
+<p>Clarified Assumptions about VFB Trace </p>
+<p>Hooks </p>
+<p>Described Inter-ECU sender/receiver from </p>
+<p>the ASIL partition </p>
+<p>Support for mapped client/server calls </p>
+<p>between partitions </p>
+<p>Multicore Support </p>
+<p>SuspendAllInterrupts is no longer used </p>
+<p>4.4.0 </p>
+<p>2014-06-11 </p>
+<p>Sascha </p>
+<p>Sommer </p>
+<p>Updated for RTE 4.4 </p>
+<p>4.5.0 </p>
+<p>2014-10-15 </p>
+<p>Bernd Sigle </p>
+<p>Updated for RTE 4.5 </p>
+<p>Rte_DRead added  </p>
+<p>4.6.0 </p>
+<p>2014-12-10 </p>
+<p>Sascha </p>
+<p>Sommer </p>
+<p>Updated for RTE 4.6 </p>
+<p>4.7.0 </p>
+<p>2015-03-18 </p>
+<p>Sascha </p>
+<p>Sommer </p>
+<p>Updated for RTE 4.7 </p>
+<p>4.8.0 </p>
+<p>2015-07-15 </p>
+<p>Sascha </p>
+<p>Sommer </p>
+<p>Updated for RTE 4.8 </p>
+<p>Described APIs/scheduling of ASIL BSW </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_RTE.pdf </p>
+<p> </p>
+<p>3.2.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_OS.pdf </p>
+<p> </p>
+<p>5.0.0 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_StandardTypes.pdf </p>
+<p> </p>
+<p>1.3.0 </p>
+<p>[4] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_PlatformTypes.pdf </p>
+<p> </p>
+<p>2.5.0 </p>
+<p>[5] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_CompilerAbstraction.pdf </p>
+<p> </p>
+<p>3.2.0 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>3 / 76 </p>
+<p>[6] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_MemoryMapping.pdf </p>
+<p> </p>
+<p> </p>
+<p>[7] </p>
+<p> Vector </p>
+<p>Technical Reference MICROSAR RTE </p>
+<p>4.8.0 </p>
+<p>[8] </p>
+<p> ISO </p>
+<p>ISO/DIS 26262 </p>
+<p>2009 </p>
+<p> </p>
+<p>Scope of the Document  </p>
+<p>This document describes the use of the MICROSAR RTE with regards to functional safety. </p>
+<p>All  general  aspects  of  the  MICROSAR  RTE  are  described  in  a  separate  document  [7], </p>
+<p>which is also part of the delivery. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>4 / 76 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Purpose........................................................................................................................... 8</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Assumptions on the scope of the MICROSAR RTE ..................................................... 9</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>MICROSAR RTE overview .............................................................................. 9</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Standards and Legal requirements ................................................................ 10</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Functions of the MICROSAR RTE ................................................................. 10</p>
+<p> </p>
+<p>2.4</p>
+<p> </p>
+<p>Operating conditions ..................................................................................... 15</p>
+<p> </p>
+<p>2.5</p>
+<p> </p>
+<p>Assumptions ................................................................................................. 16</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Assumptions on the safety goals of the MICROSAR RTE ......................................... 20</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Safety concept of the MICROSAR RTE ....................................................................... 21</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Functional concept ........................................................................................ 21</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Safe state and degradation concept .............................................................. 22</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Fault tolerance and diagnostics concept........................................................ 22</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Integration of the MICROSAR RTE in a new particular context ................................ 23</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Assumptions ................................................................................................. 23</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>RTE Configuration ......................................................................................... 27</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>RTE Generation ............................................................................................ 30</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Qualification of generated RTE Code ......................................................................... 31</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Introduction ................................................................................................... 31</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Compiler and Memory Abstraction ................................................................. 32</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>DataTypes ..................................................................................................... 33</p>
+<p> </p>
+<p>6.3.1</p>
+<p> </p>
+<p>Imported Types ............................................................................................. 33</p>
+<p> </p>
+<p>6.3.2</p>
+<p> </p>
+<p>Application Types Generated by the RTE ...................................................... 34</p>
+<p> </p>
+<p>6.3.3</p>
+<p> </p>
+<p>Handling of Array and String Data Types ....................................................... 34</p>
+<p> </p>
+<p>6.3.4</p>
+<p> </p>
+<p>Datatype specific handling of Interrupt Locks and Spinlocks ......................... 34</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>SWC Implementation .................................................................................... 37</p>
+<p> </p>
+<p>6.5</p>
+<p> </p>
+<p>BSW Implementation ..................................................................................... 39</p>
+<p> </p>
+<p>6.6</p>
+<p> </p>
+<p>SWC specific RTE APIs................................................................................. 40</p>
+<p> </p>
+<p>6.6.1</p>
+<p> </p>
+<p>Rte_Write ...................................................................................................... 40</p>
+<p> </p>
+<p>6.6.1.1</p>
+<p> </p>
+<p>Configuration Variant Intra-ECU Without IsUpdated ...................................... 40</p>
+<p> </p>
+<p>6.6.1.2</p>
+<p> </p>
+<p>Generated Code Intra-ECU Without IsUpdated ............................................. 40</p>
+<p> </p>
+<p>6.6.1.3</p>
+<p> </p>
+<p>Configuration Variant Intra-ECU With IsUpdated ........................................... 42</p>
+<p> </p>
+<p>6.6.1.4</p>
+<p> </p>
+<p>Generated Code Intra-ECU With IsUpdated .................................................. 43</p>
+<p> </p>
+<p>6.6.1.5</p>
+<p> </p>
+<p>Configuration Variant Inter-ECU .................................................................... 45</p>
+<p> </p>
+<p>6.6.1.6</p>
+<p> </p>
+<p>Generated Code Inter-ECU ........................................................................... 45</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>5 / 76 </p>
+<p>6.6.2</p>
+<p> </p>
+<p>Rte_Read ...................................................................................................... 47</p>
+<p> </p>
+<p>6.6.2.1</p>
+<p> </p>
+<p>Configuration Variant Without IsUpdated ....................................................... 47</p>
+<p> </p>
+<p>6.6.2.2</p>
+<p> </p>
+<p>Generated Code Without IsUpdated .............................................................. 48</p>
+<p> </p>
+<p>6.6.2.3</p>
+<p> </p>
+<p>Configuration Variant With IsUpdated ............................................................ 50</p>
+<p> </p>
+<p>6.6.2.4</p>
+<p> </p>
+<p>Generated Code With IsUpdated................................................................... 50</p>
+<p> </p>
+<p>6.6.3</p>
+<p> </p>
+<p>Rte_IsUpdated .............................................................................................. 53</p>
+<p> </p>
+<p>6.6.3.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 53</p>
+<p> </p>
+<p>6.6.3.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 53</p>
+<p> </p>
+<p>6.6.4</p>
+<p> </p>
+<p>Rte_IrvWrite .................................................................................................. 55</p>
+<p> </p>
+<p>6.6.4.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 55</p>
+<p> </p>
+<p>6.6.4.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 55</p>
+<p> </p>
+<p>6.6.5</p>
+<p> </p>
+<p>Rte_IrvRead .................................................................................................. 57</p>
+<p> </p>
+<p>6.6.5.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 57</p>
+<p> </p>
+<p>6.6.5.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 57</p>
+<p> </p>
+<p>6.6.6</p>
+<p> </p>
+<p>Rte_Pim ........................................................................................................ 59</p>
+<p> </p>
+<p>6.6.6.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 59</p>
+<p> </p>
+<p>6.6.6.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 59</p>
+<p> </p>
+<p>6.6.7</p>
+<p> </p>
+<p>Rte_CData .................................................................................................... 60</p>
+<p> </p>
+<p>6.6.7.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 60</p>
+<p> </p>
+<p>6.6.7.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 60</p>
+<p> </p>
+<p>6.6.8</p>
+<p> </p>
+<p>Rte_Prm ........................................................................................................ 61</p>
+<p> </p>
+<p>6.6.8.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 61</p>
+<p> </p>
+<p>6.6.8.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 61</p>
+<p> </p>
+<p>6.6.9</p>
+<p> </p>
+<p>Rte_Mode ..................................................................................................... 63</p>
+<p> </p>
+<p>6.6.9.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 63</p>
+<p> </p>
+<p>6.6.9.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 63</p>
+<p> </p>
+<p>6.6.10</p>
+<p> </p>
+<p>Rte_Call ........................................................................................................ 65</p>
+<p> </p>
+<p>6.6.10.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 65</p>
+<p> </p>
+<p>6.6.10.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 65</p>
+<p> </p>
+<p>6.6.11</p>
+<p> </p>
+<p>Rte_Enter ...................................................................................................... 67</p>
+<p> </p>
+<p>6.6.11.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 67</p>
+<p> </p>
+<p>6.6.11.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 67</p>
+<p> </p>
+<p>6.6.12</p>
+<p> </p>
+<p>Rte_Exit ........................................................................................................ 68</p>
+<p> </p>
+<p>6.6.12.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 68</p>
+<p> </p>
+<p>6.6.12.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 68</p>
+<p> </p>
+<p>6.7</p>
+<p> </p>
+<p>BSW specifc RTE APIs ................................................................................. 69</p>
+<p> </p>
+<p>6.7.1</p>
+<p> </p>
+<p>SchM_Enter .................................................................................................. 69</p>
+<p> </p>
+<p>6.7.1.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 69</p>
+<p> </p>
+<p>6.7.1.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 69</p>
+<p> </p>
+<p>6.7.2</p>
+<p> </p>
+<p>SchM_Exit ..................................................................................................... 69</p>
+<p> </p>
+<p>6.7.2.1</p>
+<p> </p>
+<p>Configuration Variant ..................................................................................... 69</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>6 / 76 </p>
+<p>6.7.2.2</p>
+<p> </p>
+<p>Generated Code ............................................................................................ 69</p>
+<p> </p>
+<p>6.8</p>
+<p> </p>
+<p>RTE Lifecycle APIs ........................................................................................ 71</p>
+<p> </p>
+<p>6.8.1</p>
+<p> </p>
+<p>Rte_Start ....................................................................................................... 71</p>
+<p> </p>
+<p>6.8.2</p>
+<p> </p>
+<p>Rte_Stop ....................................................................................................... 71</p>
+<p> </p>
+<p>6.8.3</p>
+<p> </p>
+<p>Rte_InitMemory ............................................................................................. 71</p>
+<p> </p>
+<p>6.9</p>
+<p> </p>
+<p>RTE Internal Functions .................................................................................. 71</p>
+<p> </p>
+<p>6.9.1</p>
+<p> </p>
+<p>Rte_MemCpy ................................................................................................ 71</p>
+<p> </p>
+<p>6.9.2</p>
+<p> </p>
+<p>Rte_MemClr .................................................................................................. 71</p>
+<p> </p>
+<p>6.10</p>
+<p> </p>
+<p>RTE Tasks ..................................................................................................... 72</p>
+<p> </p>
+<p>6.11</p>
+<p> </p>
+<p>Verification of OS Configuration .................................................................... 72</p>
+<p> </p>
+<p>6.12</p>
+<p> </p>
+<p>Verification of Memory Mapping Configuration .............................................. 73</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Safety Lifecycle Tailoring ............................................................................................ 74</b></p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ........................................................................................ 75</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Glossary ........................................................................................................ 75</p>
+<p> </p>
+<p>8.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................ 75</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Contact.......................................................................................................................... 76</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>7 / 76 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>MICROSAR Safe Architecture .................................................................. 15</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>ASIL Decomposition ................................................................................. 15</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>SWC to OsApplication Mapping ................................................................ 27</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 2-1 </p>
+<p> </p>
+<p>Hazards .................................................................................................... 10</p>
+<p> </p>
+<p>Table 2-2 </p>
+<p> </p>
+<p>RTE features for ASIL and QM SWCs....................................................... 14</p>
+<p> </p>
+<p>Table 2-3 </p>
+<p> </p>
+<p>Assumptions regarding the system architecture and environment ............ 19</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Safety Goals ............................................................................................. 20</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Safe States ............................................................................................... 20</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Safety Requirements ................................................................................ 21</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Assumptions that need to be verified during the integration ...................... 27</p>
+<p> </p>
+<p>Table 8-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 75</p>
+<p> </p>
+<p>Table 8-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 75</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>8 / 76 </p>
+<p><b>1 </b></p>
+<p><b>Purpose  </b></p>
+<p>The SEooC  is developed based on assumptions on the intended functionality, use and </p>
+<p>context, including external interfaces.  To  have  a  complete  safety  case,  the  validity  of  </p>
+<p>these  assumptions  has to be  checked  in  the context of the actual item after integration </p>
+<p>of the SEooC. </p>
+<p>The application conditions for SEooC provide the assumptions made on the requirements </p>
+<p>(including safety requirements) that are placed on the SEooC by higher levels of design </p>
+<p>and also on the design external to the SEooC and the assumed safety requirements and </p>
+<p>assumptions related to the design of the SEooC. </p>
+<p>The  ASIL  capability  of  this  SEooC  designates  the  capability  of  the  SEooC  to  </p>
+<p>comply  with  assumed  safety requirements assigned with the given ASIL. </p>
+<p>Information given by this document helps to check  if  the  SEooC  does  fulfil  the  item  </p>
+<p>requirements,  or if a  change  to  the  SEooC  will be necessary in accordance with the </p>
+<p>requirements of ISO 26262. </p>
+<p> </p>
+<p>The following document describes the SEooC MICROSAR RTE in the version 4.8. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>9 / 76 </p>
+<p><b>2 </b></p>
+<p><b>Assumptions on the scope of the MICROSAR RTE  </b></p>
+<p><b>2.1 </b></p>
+<p><b>MICROSAR RTE overview </b></p>
+<p>The MICROSAR RTE implements the AUTOSAR Standard of a Runtime Environment for </p>
+<p>AUTOSAR Software Components (SWCs) and Basic Software Modules (BSW). This </p>
+<p>means that the RTE is responsible for triggering the execution of SWC and BSW specific </p>
+<p>code in the form of runnable and schedulable entities. Moreover, the RTE provides APIs, </p>
+<p>for example for inter-ECU and intra-ECU communication and for exclusive area accesses. </p>
+<p>These APIs can be used by the runnable entities and BSW modules. </p>
+<p>The MICROSAR RTE is a generic software component that is not tied to a specific item. </p>
+<p>Item specific functionality will be provided by the SWCs. The SWCs therefore also </p>
+<p>determine the ASIL that is required for the RTE. Consequently, the MICROSAR RTE can </p>
+<p>be seen as Safety Element out of Context (SEooC) according to ISO26262-10. This </p>
+<p>document provides the assumptions regarding the software safety requirements and the </p>
+<p>architectural design specification that were used for the development of the MICROSAR </p>
+<p>RTE. These assumptions have to be confirmed during item development. </p>
+<p>The MICROSAR RTE is completely generated by the MICROSAR RTE Generator that is </p>
+<p>developed according to the established SPICE certified process (further referred to as </p>
+<p>QM). </p>
+<p>If the generated code shall be used in an ASIL context, it has to be qualified according to </p>
+<p>the requirements of ISO 26262-6. </p>
+<p>This document describes how the RTE configuration needs to look like so that it is in line </p>
+<p>with the safety assumptions and so that the complexity of the generated RTE code for </p>
+<p>ASIL SWCs is kept low enough to be reviewable for qualification. Review hints are </p>
+<p>provided in chapter 6. </p>
+<p>The final integration of the RTE into a safety related item then needs to be done by a </p>
+<p>functional safety expert. </p>
+<p> </p>
+<p>Please note that this document is an extension to the Technical Reference of the </p>
+<p>MICROSAR RTE with focus on safety related issues. Refer to the Technical Reference [7] </p>
+<p>for general topics like the RTE configuration, integration of the RTE into an ECU and a </p>
+<p>description of the RTE APIs. </p>
+<p>An overall description of the RTE and AUTOSAR in general can be found in the AUTOSAR </p>
+<p>specifications. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The MICROSAR RTE Generator was not developed according to ISO26262. This </p>
+<p>document gives hints on what needs to be done in order to use the generated code </p>
+<p>within an item that is developed according to ISO26262. </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>10 / 76 </p>
+<p>Safety goals identified for the development result from the following hazard and risk list </p>
+<p><b>ID </b></p>
+<p><b>Description of hazards that could occur </b></p>
+<p><b>H&amp;R_RTE_1 </b></p>
+<p> </p>
+<p><b>H&amp;R_RTE_2 </b></p>
+<p> </p>
+<p><b>H&amp;R_RTE_3 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Table 2-1  </p>
+<p>Hazards </p>
+<p>According to ISO26262, the hazard analysis and risk assessment shall be based on the </p>
+<p>item definition. As the  development started with the unit design, the hazards have to be </p>
+<p>identified by the integrator for the specific item in which the RTE shall be integrated. </p>
+<p> </p>
+<p><b>2.2 </b></p>
+<p><b>Standards and Legal requirements </b></p>
+<p>The </p>
+<p>MICROSAR </p>
+<p>RTE </p>
+<p>Generator </p>
+<p>was </p>
+<p>developed </p>
+<p>according </p>
+<p>to </p>
+<p>the  AUTOSAR </p>
+<p>RTE </p>
+<p>specification. The generated code can be qualified so that it can be used within an item </p>
+<p>that is developed according to ISO26262. </p>
+<p><b>2.3 </b></p>
+<p><b>Functions of the MICROSAR RTE </b></p>
+<p>The MICROSAR RTE  provides the following functionality: </p>
+<p><b>&gt; </b> AUTOSAR Runtime Environment according to [1] for QM SWCs and BSW: </p>
+<p><b>&gt; </b> communication between different runnables within the same SWC (explicit and </p>
+<p>implicit inter-runnable variables) </p>
+<p><b>&gt; </b> communication between different SWCs on the same ECU (queued and non-</p>
+<p>queued explicit and implicit sender/receiver communication, client/server </p>
+<p>communication, mode communication) </p>
+<p><b>&gt; </b> communication between SWCs and BSW modules located on the same ECU </p>
+<p>(queued and non-queued explicit and implicit sender/receiver communication, </p>
+<p>client/server communication, mode communication) </p>
+<p><b>&gt; </b> communication between SWCs on different ECUs (queued and non-queued </p>
+<p>explicit and implicit sender/receiver communication) </p>
+<p><b>&gt; </b> Calibration Parameters </p>
+<p><b>&gt; </b> Per-Instance Memories </p>
+<p><b>&gt; </b> Exclusive Areas </p>
+<p>Please see the RTE Technical Reference [7] for a full list of supported features. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>11 / 76 </p>
+<p><b>&gt; </b> AUTOSAR Runtime Environment for ASIL SWCs and BSW when the generated RTE </p>
+<p>code is qualified according to the requirements of ISO26262 (Code description and </p>
+<p>configuration limitations described in this document): </p>
+<p><b>&gt; </b> Possibility to assign SWCs with different  safety levels to distinct  OS </p>
+<p>applications, so that a MPU can be used to provide freedom from interference </p>
+<p>with regards to memory </p>
+<p><b>&gt; </b> Support for Basic Tasks </p>
+<p><b>&gt; </b> Cyclic triggering of runnable entities </p>
+<p><b>&gt; </b> Cyclic triggering of schedulable entities </p>
+<p><b>&gt; </b> Per-Instance Memories </p>
+<p><b>&gt; </b> Explicit Inter-Runnable Variables </p>
+<p><b>&gt; </b> Explicit intra-ECU Sender/Receiver Communication with last-is best behaviour </p>
+<p>between SWCs with the same and different safety levels </p>
+<p><b>&gt; </b> Explicit inter-ECU Sender/Receiver Communication with last-is best behaviour </p>
+<p><b>&gt; </b> Direct Synchronous Client/Server calls inside the same OS application </p>
+<p><b>&gt; </b> Calibration Parameters </p>
+<p><b>&gt; </b> Explicit Exclusive Areas </p>
+<p> </p>
+<p><b>&gt; </b> AUTOSAR Runtime Environment for ASIL SWCs when the generated RTE code is </p>
+<p>qualified according to the requirements of ISO26262 (Not handled in this document due </p>
+<p>to the many possible code variants): </p>
+<p><b>&gt; </b> Support for Extended Tasks </p>
+<p><b>&gt; </b> Init, Background, DataReceived, DataReceptionError, DataSendCompleted </p>
+<p>Triggers </p>
+<p><b>&gt; </b> Implicit Sender/Receiver communication </p>
+<p><b>&gt; </b> Queued Sender/Receiver communication </p>
+<p><b>&gt; </b> Synchronous and Asynchronous Client/Server calls to mapped server runnables </p>
+<p>in different OS applications </p>
+<p> </p>
+<p>Table 2-2 summarizes the RTE features that are available for ASIL and QM SWCs. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>12 / 76 </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Feature </b></p>
+<p>QM SWCs in the BSW partition </p>
+<p>SWCs separated from the BSW </p>
+<p>1</p>
+<p> </p>
+<p>ASIL SWCs/BSW </p>
+<p>Multicore Support </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Runnable Triggers  </p>
+<p>TimingEvent </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>InitEvent </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>BackgroundEvent </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>DataReceivedEvent</p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>DataReceivedErrorEvent</p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>DataSendCompletedEvent </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>OperationInvokedEvent</p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>AsynchronousServerCallReturnEvent</p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>ModeSwitchEvent</p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ModeSwitchAckEvent </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SWC Settings </p>
+<p>Source Code </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Object Code </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Multiple Instantiation </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Indirect API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Runnable Settings </p>
+<p>Minimum Start Interval </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Task Settings </p>
+<p>Basic Tasks </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Extended Tasks </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Calibration Support </p>
+<p>Rte_CData API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Rte_Prm API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Online Calibration </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Per-Instance Memories </p>
+<p>Rte_Pim API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Inter-Runnable Variables </p>
+<p>Rte_IrvWrite API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Rte_IrvRead API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Rte_IrvIWrite API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_IrvIRead API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Sender/Receiver Communication </p>
+<p>Rte_Write API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Rte_Invalidate API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_Read API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>                                            </p>
+<p>1</p>
+<p> </p>
+<p>SWCs can either be assigned to the same partition as the BSW (recommended for QM SWCs, see column 1), or one </p>
+<p>or more separate partitions can be created. In this case, no features that require special handling when the RTE is </p>
+<p>initialized by the BSW and no features that require direct access to the BSW can be used. The marked features can be </p>
+<p>used for QM and ASIL SWCs but only the APIs marked in the column “ASIL SWCs” are described in this document.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>13 / 76 </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Feature </b></p>
+<p>QM SWCs in the BSW partition </p>
+<p>SWCs separated from the BSW </p>
+<p>1</p>
+<p> </p>
+<p>ASIL SWCs/BSW </p>
+<p>Rte_DRead API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_IWrite API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_IWriteRef API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_IInvalidate API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_IRead API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_IStatus API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_Feedback API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_IsUpdated API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Rte_NeverReceived API</p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_Send API</p>
+<p>2</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_Receive API</p>
+<p>2</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>inter-ECU communication </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>intra-ECU communication </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Unconnected Ports </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>transmission acknowledgement </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>alive timeout </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>rx filters</p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Client/Server Communication </p>
+<p>Rte_Call API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Rte_Result API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>synchronous calls to unmapped runnables</p>
+<p>3</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>synchronous calls to mapped runnables on same task </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>synchronous calls to runnables on different tasks</p>
+<p>2</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>asynchronous calls </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Mode communication </p>
+<p>Rte_Switch API </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Rte_Mode API</p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Enhanced Rte_Mode API</p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Rte_SwitchAck  API </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>                                            </p>
+<p>2</p>
+<p>  Only  supported  when  all  senders/callers  are  within  the  same  partition.  The  servers/receivers  can  be  in  a  different </p>
+<p>partition. </p>
+<p>3</p>
+<p> </p>
+<p>Please note that this might not be possible when the server runnable is located in a different  OS Application as the </p>
+<p>server is executed with the access rights of the caller. Also no additional protection measures are applied when the </p>
+<p>communication is between SWCs with different safety level.</p>
+<p> </p>
+<p>4</p>
+<p> </p>
+<p>Please note that this feature is not possible for QM SWCs when the sender is an ASIL SWC</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>14 / 76 </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Feature </b></p>
+<p>QM SWCs in the BSW partition </p>
+<p>SWCs separated from the BSW </p>
+<p>1</p>
+<p> </p>
+<p>ASIL SWCs/BSW </p>
+<p>mode switch acknowledgement </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>mode disablings</p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Exclusive Areas </p>
+<p>implicit exclusive areas </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>explicit exclusive areas </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Rte_Enter API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Rte_Exit API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Implementation Method All InterruptBlocking </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Implementation Method OS InterruptBlocking </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Implementation Method OsResources </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Implementation Method CooperativeRunnablePlacement </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>BSW Module Support (SchM) </p>
+<p>TimingEvent </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Background Event </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>explicit exclusive areas </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>SchM_Enter API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>SchM_Exit API </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>EA Implementation Method All InterruptBlocking </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>EA Implementation Method OS InterruptBlocking </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Table 2-2  </p>
+<p>RTE features for ASIL and QM SWCs </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>15 / 76 </p>
+<p><b>2.4 </b></p>
+<p><b>Operating conditions </b></p>
+<p>The MICROSAR RTE is part of the MICROSAR Safe Architecture (Figure 2-1). </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>MICROSAR Safe Architecture </p>
+<p>This architecture  is  based  on  the  MICROSAR AUTOSAR  stack  developed  with  Vector’s </p>
+<p>ISO9001 and SPICE based standard quality management. </p>
+<p>The Add-On MICROSAR Safe Context extends this stack with an Operating System with </p>
+<p>memory protection in order to use the MICROSAR BSW with application software with a </p>
+<p>safety integrity level up to ASIL D. </p>
+<p>ASIL Decomposition in the MICROSAR Safe Architecture is implemented through software </p>
+<p>partitioning as described in ISO 26262 (Figure 2-2).  </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>ASIL Decomposition </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>16 / 76 </p>
+<p>This means MICROSAR Safe Context provides freedom from interference with regards to </p>
+<p>memory  so  that  the  QM  parts  of  the  software  cannot  overwrite  memory  from  the ASIL </p>
+<p>application. An additional Safe Watchdog module provides freedom from interference with </p>
+<p>regards to CPU runtime. </p>
+<p>For  Safe  Communication  between  different  ECUs,  the  AUTOSAR  E2E  Library  can  be </p>
+<p>used. </p>
+<p> </p>
+<p>The  MICROSAR  RTE  extends  the  MICROSAR  Safe  Context  concept  to  the  software </p>
+<p>component level. SWCs inherit the ASIL from the safety requirements that are allocated to </p>
+<p>them. With the MICROSAR RTE, it is possible to use SWCs with different ASIL as well as </p>
+<p>QM  SWCs  and  BSW within  the  same  ECU. The  MICROSAR  RTE furthermore  provides </p>
+<p>communication mechanisms that can be used to implement communication between ASIL </p>
+<p>and QM SWCs. </p>
+<p> </p>
+<p>A list of assumptions regarding the overall system architecture and development process </p>
+<p>is given in the next chapter. </p>
+<p> </p>
+<p><b>2.5 </b></p>
+<p><b>Assumptions </b></p>
+<p><b>ID </b></p>
+<p><b>Description of assumption on the scope of the MICROSAR RTE </b></p>
+<p><b>ASS_RTE_1 </b></p>
+<p>The OS provides freedom from interference for different OS Applications </p>
+<p>with regards to memory. This means that code in one OS Application </p>
+<p>cannot destroy memory in another OS Application. </p>
+<p><b>ASS_RTE_2 </b></p>
+<p>The AUTOSAR Memory Abstraction for the target platform and the OS </p>
+<p>make it possible to assign RTE/BSW variables to specific OS Applications </p>
+<p>so that they can only be written by code that is executed within this OS </p>
+<p>Application. </p>
+<p>Moreover in case of Multicore, the RTE variables are mapped to </p>
+<p>noncacheable RAM so that they can be accessed by all cores. </p>
+<p><b>ASS_RTE_3 </b></p>
+<p>The tool chain initializes global variables or the API Rte_InitMemory is </p>
+<p>called before the OS is started. Rte_InitMemory initializes variables from </p>
+<p>different OS Applications. Therefore it needs to be started without </p>
+<p>memory protection. </p>
+<p><b>ASS_RTE_4 </b></p>
+<p>The OS allows non protected reads to RTE/BSW variables within the </p>
+<p>same and foreign OS Applications. </p>
+<p><b>ASS_RTE_5 </b></p>
+<p>Freedom from interference with regards to CPU runtime is provided </p>
+<p>through external means, for example with the help of a control flow </p>
+<p>monitor. The mechanisms for it are either implemented in a way that the </p>
+<p>RTE cannot deactivate them or a review is performed that checks that the </p>
+<p>RTE does not impact their operation. </p>
+<p><b>ASS_RTE_6 </b></p>
+<p>The OS APIs that are used by the RTE in ASIL parts of the code can be </p>
+<p>called from different contexts without interference: </p>
+<p><b>&gt; </b> TerminateTask </p>
+<p><b>&gt; </b> SuspendOSInterrupts </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>17 / 76 </p>
+<p><b>&gt; </b> osDisableLevelUM (MICROSAR OS) </p>
+<p><b>&gt; </b> osDisableLevelKM (MICROSAR OS) </p>
+<p><b>&gt; </b> osDisableLevelAM (MICROSAR OS) </p>
+<p><b>&gt; </b> osDisableGlobalUM (MICROSAR OS) </p>
+<p><b>&gt; </b> osDisableGlobalKM (MICROSAR OS) </p>
+<p><b>&gt; </b> osDisableGlobalAM (MICROSAR OS) </p>
+<p><b>&gt; </b> ResumeOSInterrupts </p>
+<p><b>&gt; </b> osRteEnableLevelUM (MICROSAR OS) </p>
+<p><b>&gt; </b> osRteEnableLevelKM (MICROSAR OS) </p>
+<p><b>&gt; </b> osRteEnableLevelAM (MICROSAR OS) </p>
+<p><b>&gt; </b> osRteEnableGlobalUM (MICROSAR OS) </p>
+<p><b>&gt; </b> osRteEnableGlobalKM (MICROSAR OS) </p>
+<p><b>&gt; </b> osRteEnableGlobalAM (MICROSAR OS) </p>
+<p><b>&gt; </b> GetSpinlock (Multicore Systems) </p>
+<p><b>&gt; </b> ReleaseSpinlock (Multicore Systems) </p>
+<p><b>ASS_RTE_7 </b></p>
+<p>The OS provides at least the APIs  </p>
+<p><b>&gt; </b></p>
+<p>SuspendOSInterrupts </p>
+<p><b>&gt; </b></p>
+<p>osDisableLevelUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableLevelKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableLevelAM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableGlobalUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableGlobalKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableGlobalAM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>ResumeOSInterrupts </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableLevelUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableLevelKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableLevelAM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableGlobalUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableGlobalKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableGlobalAM (MICROSAR OS)</p>
+<p> </p>
+<p>with the same or higher ASIL than the SWCs </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>18 / 76 </p>
+<p>In Multicore Systems, the OS also needs to provide the APIs </p>
+<p><b>&gt; </b></p>
+<p>GetSpinlock </p>
+<p><b>&gt; </b></p>
+<p>ReleaseSpinlock</p>
+<p> </p>
+<p>with the same or higher ASIL than the SWCs </p>
+<p><b>ASS_RTE_8 </b></p>
+<p>The RTE configuration is chosen in such a way that the  </p>
+<p>OS/System mechanisms for freedom from interference (memory and </p>
+<p>runtime) can also be used to implement freedom from interference for </p>
+<p>SWCs with different ASIL. This makes it necessary to map SWCs with </p>
+<p>different ASIL to different OS Applications. All OS Applications with SWCs </p>
+<p>that do not have the highest ASIL need to be nontrusted. This includes </p>
+<p>the OS Application of the BSW. See also chapter 5.2. </p>
+<p><b>ASS_RTE_9 </b></p>
+<p>The RTE configuration is chosen in such a way that no OS APIs need to </p>
+<p>be called in the RTE APIs or the TASK bodies that violate the safety </p>
+<p>requirements of the ASIL SWCs.  </p>
+<p>The RTE code calls the following OS APIs: </p>
+<p><b>&gt; </b></p>
+<p>SetRelAlarm   </p>
+<p><b>&gt; </b></p>
+<p>CancelAlarm  </p>
+<p><b>&gt; </b></p>
+<p>SetEvent </p>
+<p><b>&gt; </b></p>
+<p>GetEvent </p>
+<p><b>&gt; </b></p>
+<p>ClearEvent </p>
+<p><b>&gt; </b></p>
+<p>WaitEvent </p>
+<p><b>&gt; </b></p>
+<p>GetTaskID </p>
+<p><b>&gt; </b></p>
+<p>ActivateTask </p>
+<p><b>&gt; </b></p>
+<p>TerminateTask </p>
+<p><b>&gt; </b></p>
+<p>Schedule </p>
+<p><b>&gt; </b></p>
+<p>ChainTask </p>
+<p><b>&gt; </b></p>
+<p>GetResource </p>
+<p><b>&gt; </b></p>
+<p>ReleaseResource</p>
+<p> </p>
+<p>In case of multicore systems also the API </p>
+<p><b>&gt; </b></p>
+<p>GetCoreID </p>
+<p>is called.</p>
+<p> </p>
+<p><b>ASS_RTE_10 </b></p>
+<p>The RTE configuration is chosen in such a way that no SWC needs to </p>
+<p>directly call methods in (Service-) SWCs with lower ASIL and no (Service-</p>
+<p>) SWCs with lower ASIL needs to call methods in ASIL SWCs except for </p>
+<p>the case when the SWCs explicitly allow this kind of usage. If necessary, </p>
+<p>this work is delegated to wrapper SWCs in the same OS Application as </p>
+<p>the called/calling SWC. Direct calls can moreover be avoided when the </p>
+<p>server runnables are mapped to tasks. See also chapter 5.2. </p>
+<p><b>ASS_RTE_11 </b></p>
+<p>The RTE configuration is chosen in such a way that the RTE APIs or </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>19 / 76 </p>
+<p>TASKS for a SWC do not contain calls to BSW modules with lower ASIL </p>
+<p>than the SWC itself that might cause interference. If necessary, this work </p>
+<p>is delegated to wrapper SWCs in the same OS Application as the BSW </p>
+<p>modules. For external communication, the RTE proxies the calls to the </p>
+<p>Com module.  See also chapter 5.2. </p>
+<p><b>ASS_RTE_12 </b></p>
+<p>The RTE does not need to provide freedom from interference for </p>
+<p>communication. In an AUTOSAR system, the E2ELibrary that is directly </p>
+<p>called by the SWCs is responsible for Safe communication. Nevertheless, </p>
+<p>the RTE provides APIs that can be called by the E2ELibrary. </p>
+<p><b>ASS_RTE_13 </b></p>
+<p>The Generated RTE code for ASIL SWCs is qualified according to the </p>
+<p>requirements of ISO26262 by the integrator so that it reaches the same </p>
+<p>ASIL as the SWCs themselves. This is necessary because the RTE </p>
+<p>Generator was only developed with Vectors standard quality </p>
+<p>management (QM). </p>
+<p><b>ASS_RTE_14 </b></p>
+<p>The hardware is suited for safety relevant software according to the </p>
+<p>requirements of ISO26262. The hardware requirements are mostly </p>
+<p>determined by the SWCs that shall be supported by the RTE. The </p>
+<p>MICROSAR RTE does not impose other hardware safety requirements </p>
+<p>as those that are already required by the SWCs and the OS. </p>
+<p><b>ASS_RTE_15 </b></p>
+<p>The development tool chain (for example editors, compilers, linkers, </p>
+<p>make environment, flash utilities) is suited for the development of safety </p>
+<p>relevant software according to the requirements of ISO26262. All tools </p>
+<p>need to reach the appropriate Tool Qualification Level (TCL). </p>
+<p>Table 2-3  </p>
+<p>Assumptions regarding the system architecture and environment </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>20 / 76 </p>
+<p><b>3 </b></p>
+<p><b>Assumptions on the safety goals of the MICROSAR RTE </b></p>
+<p><b>ID </b></p>
+<p><b>ASIL </b></p>
+<p><b>Description of hazards </b></p>
+<p><b>that could occur </b></p>
+<p><b>Ref assumption </b></p>
+<p><b>Ref H &amp; R </b></p>
+<p><b>SG_RTE_1 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SG_RTE_2 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Table 3-1  </p>
+<p>Safety Goals<i> </i></p>
+<p>According to ISO26262, safety goals are determined for each hazardous event evaluated </p>
+<p>in  the  hazard  analysis. As  the  hazard  analysis  could  not  be  done  due  to  the  unknown </p>
+<p>target  item,  the  safety  goals  have  to  be  identified  by  the  integrator  once  the  hazard </p>
+<p>analysis is done.  </p>
+<p> </p>
+<p><b>ID </b></p>
+<p><b>Description of safe state </b></p>
+<p><b>Ref safety goal </b></p>
+<p><b>SS_RTE_1 </b></p>
+<p> </p>
+<p> </p>
+<p><b>SS_RTE_2 </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>Table 3-2  </p>
+<p>Safe States </p>
+<p>Due  to  the  missing  safety  goals,  no  safe  states  could  be  identified  that  can  be  used  to </p>
+<p>achieve  a  safety  goal.  The  safe  states  have  to  be  identified  by  the  integrator  once  the </p>
+<p>safety goals are known. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>21 / 76 </p>
+<p><b>4 </b></p>
+<p><b>Safety concept of the MICROSAR RTE </b></p>
+<p><b>4.1 </b></p>
+<p><b>Functional concept </b></p>
+<p>The MICROSAR RTE was developed with the following assumptions regarding the safety </p>
+<p>requirements. No references to safety goals and target ASIL are listed for the requirements </p>
+<p>as these depend on the particular context into which the RTE is integrated. </p>
+<p> </p>
+<p><b>ID </b></p>
+<p><b>Description of safety requirement </b></p>
+<p><b>ASIL </b></p>
+<p><b>Ref SG, ASS </b></p>
+<p><b>SR_RTE_1 </b></p>
+<p>The RTE (with the help of a MPU and an appropriate </p>
+<p>OS) shall provide freedom from interference with </p>
+<p>regards to memory for ASIL SWCs. This means that </p>
+<p>the RTE shall protect ASIL SWCs from BSW with </p>
+<p>lower ASIL. Additionally, the RTE shall also protect </p>
+<p>ASIL SWCs also from other SWCs with lower ASIL. </p>
+<p>The protection shall include the inter-runnable </p>
+<p>variables, per instance memories, sender buffers and </p>
+<p>stacks of the SWCs. Moreover, the protection shall be </p>
+<p>transparent to the SWCs, e.g. it shall be possible to </p>
+<p>access the protected inter-runnable variables and </p>
+<p>per-instance memories with the default AUTOSAR </p>
+<p>RTE APIs Rte_IrvWrite, Rte_IrvRead and Rte_Pim. </p>
+<p> </p>
+<p> </p>
+<p><b>SR_RTE_2 </b></p>
+<p>The RTE shall provide intra-ECU communication </p>
+<p>mechanism for SWCs with the same and different </p>
+<p>ASIL. The communication shall be possible through </p>
+<p>the AUTOSAR RTE APIs Rte_Read and Rte_Write </p>
+<p>that are used for non-queued sender/receiver </p>
+<p>communication. </p>
+<p> </p>
+<p> </p>
+<p><b>SR_RTE_3 </b></p>
+<p>The RTE shall provide mechanisms for data </p>
+<p>consistency that can be used by the ASIL SWCs to </p>
+<p>prevent concurrent accesses to shared ressources. </p>
+<p>(explicit exclusive areas). The realization of the </p>
+<p>exclusive areas shall be possible through the </p>
+<p>AUTOSAR RTE APIs Rte_Enter and Rte_Exit. </p>
+<p> </p>
+<p> </p>
+<p><b>SR_RTE_4 </b></p>
+<p>The RTE shall provide access to calibration </p>
+<p>parameters for the ASIL SWCs. It shall be possible to </p>
+<p>access the calibration parameters with the default </p>
+<p>AUTOSAR RTE APIs Rte_Prm and Rte_CData. </p>
+<p> </p>
+<p> </p>
+<p>Table 4-1  </p>
+<p>Safety Requirements </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>22 / 76 </p>
+<p><b>4.2 </b></p>
+<p><b>Safe state and degradation concept </b></p>
+<p>The MICROSAR RTE does not support degradation to the safe state as the safe state </p>
+<p>depends on the functionality of the item. Safe state degradation therefore also has to be </p>
+<p>implemented by the application or by the OS. Memory protection faults are supposed to be </p>
+<p>handled by the OS. </p>
+<p><b>4.3 </b></p>
+<p><b>Fault tolerance and diagnostics concept </b></p>
+<p>The </p>
+<p>fault </p>
+<p>tolerance </p>
+<p>and </p>
+<p>diagnostics </p>
+<p>concept </p>
+<p>depends </p>
+<p>on </p>
+<p>the </p>
+<p>requirements </p>
+<p>of </p>
+<p>the </p>
+<p>Application SWCs. It has to be implemented within the application SWCs. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>23 / 76 </p>
+<p><b>5 </b></p>
+<p><b>Integration of the MICROSAR RTE in a new particular context </b></p>
+<p><b>5.1 </b></p>
+<p><b>Assumptions </b></p>
+<p><b>ID </b></p>
+<p><b>ASIL </b></p>
+<p><b>Description of assumptions, safety goals, safety </b></p>
+<p><b>requirements </b></p>
+<p><b>Validity check </b></p>
+<p><b>ASS_RTE_1 </b></p>
+<p> </p>
+<p>The OS provides freedom from interference for </p>
+<p>different OS Applications with regards to memory. </p>
+<p>This means that code in one OS Application cannot </p>
+<p>destroy memory in another OS Application. </p>
+<p> </p>
+<p><b>ASS_RTE_2 </b></p>
+<p> </p>
+<p>The AUTOSAR Memory Abstraction for the target </p>
+<p>platform and the OS make it possible to assign </p>
+<p>RTE/BSW variables to specific OS Applications so </p>
+<p>that they can only be written by code that is executed </p>
+<p>within this OS Application. </p>
+<p>Moreover in case of Multicore, the RTE variables are </p>
+<p>mapped to noncacheable RAM so that they can be </p>
+<p>accessed by all cores. </p>
+<p> </p>
+<p><b>ASS_RTE_3 </b></p>
+<p> </p>
+<p>The tool chain initializes global variables or the API </p>
+<p>Rte_InitMemory is called before the OS is started. </p>
+<p>Rte_InitMemory initializes variables from different OS </p>
+<p>Applications. Therefore it needs to be started without </p>
+<p>memory protection. </p>
+<p> </p>
+<p><b>ASS_RTE_4 </b></p>
+<p> </p>
+<p>The OS allows non protected reads to RTE/BSW </p>
+<p>variables within the same and foreign OS </p>
+<p>Applications. </p>
+<p> </p>
+<p><b>ASS_RTE_5 </b></p>
+<p> </p>
+<p>Freedom from interference with regards to CPU </p>
+<p>runtime is provided through external means, for </p>
+<p>example with the help of a control flow monitor. The </p>
+<p>mechanisms for it are either implemented in a way </p>
+<p>that the RTE cannot deactivate them or a review is </p>
+<p>performed that checks that the RTE does not impact </p>
+<p>their operation. </p>
+<p> </p>
+<p><b>ASS_RTE_6 </b></p>
+<p> </p>
+<p>The OS APIs that are used by the RTE in ASIL parts </p>
+<p>of the code can be called from different contexts </p>
+<p>without interference: </p>
+<p><b>&gt; </b></p>
+<p>TerminateTask </p>
+<p><b>&gt; </b></p>
+<p>SuspendOSInterrupts </p>
+<p><b>&gt; </b></p>
+<p>osDisableLevelUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableLevelKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableLevelAM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableGlobalUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableGlobalKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableGlobalAM (MICROSAR OS) </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>24 / 76 </p>
+<p><b>&gt; </b></p>
+<p>ResumeOSInterrupts </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableLevelUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableLevelKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableLevelAM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableGlobalUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableGlobalKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableGlobalAM (MICROSAR OS)</p>
+<p> </p>
+<p><b>&gt; </b> GetSpinlock (Multicore Systems) </p>
+<p><b>&gt; </b> ReleaseSpinlock (Multicore Systems)</p>
+<p> </p>
+<p><b>ASS_RTE_7 </b></p>
+<p> </p>
+<p>The OS provides at least the APIs  </p>
+<p><b>&gt; </b></p>
+<p>SuspendOSInterrupts </p>
+<p><b>&gt; </b></p>
+<p>osDisableLevelUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableLevelKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableLevelAM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableGlobalUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableGlobalKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osDisableGlobalAM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>ResumeOSInterrupts </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableLevelUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableLevelKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableLevelAM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableGlobalUM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableGlobalKM (MICROSAR OS) </p>
+<p><b>&gt; </b></p>
+<p>osRteEnableGlobalAM (MICROSAR OS)</p>
+<p> </p>
+<p>with the same or higher ASIL than the SWCs </p>
+<p>In Multicore Systems, the OS also needs to provide </p>
+<p>the APIs </p>
+<p><b>&gt; </b></p>
+<p>GetSpinlock </p>
+<p><b>&gt; </b></p>
+<p>ReleaseSpinlock</p>
+<p> </p>
+<p>with the same or higher ASIL than the SWCs </p>
+<p> </p>
+<p><b>ASS_RTE_8 </b></p>
+<p> </p>
+<p>The RTE configuration is chosen in such a way that </p>
+<p>the  </p>
+<p>OS/System mechanisms for freedom from </p>
+<p>interference (memory and runtime) can also be used </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>25 / 76 </p>
+<p>to implement freedom from interference for SWCs </p>
+<p>with different ASIL. This makes it necessary to map </p>
+<p>SWCs with different ASIL to different OS Applications. </p>
+<p>All OS Applications with SWCs that do not have the </p>
+<p>highest ASIL need to be nontrusted. This includes the </p>
+<p>OS Application of the BSW. See also chapter 5.2. </p>
+<p><b>ASS_RTE_9 </b></p>
+<p> </p>
+<p>The RTE configuration is chosen in such a way that </p>
+<p>no OS APIs need to be called in the RTE APIs or the </p>
+<p>TASK bodies that violate the safety requirements of </p>
+<p>the ASIL SWCs.  </p>
+<p>The RTE codes calls the following APIs: </p>
+<p><b>&gt; </b></p>
+<p>SetRelAlarm   </p>
+<p><b>&gt; </b></p>
+<p>CancelAlarm  </p>
+<p><b>&gt; </b></p>
+<p>SetEvent </p>
+<p><b>&gt; </b></p>
+<p>GetEvent </p>
+<p><b>&gt; </b></p>
+<p>ClearEvent </p>
+<p><b>&gt; </b></p>
+<p>WaitEvent </p>
+<p><b>&gt; </b></p>
+<p>GetTaskID </p>
+<p><b>&gt; </b></p>
+<p>ActivateTask </p>
+<p><b>&gt; </b></p>
+<p>TerminateTask </p>
+<p><b>&gt; </b></p>
+<p>Schedule </p>
+<p><b>&gt; </b></p>
+<p>ChainTask </p>
+<p><b>&gt; </b></p>
+<p>GetResource </p>
+<p><b>&gt; </b></p>
+<p>ReleaseResource </p>
+<p>In case of multicore systems also the API </p>
+<p><b>&gt; </b></p>
+<p>GetCoreID </p>
+<p>is called. </p>
+<p> </p>
+<p><b>ASS_RTE_10 </b></p>
+<p> </p>
+<p>The RTE configuration is chosen in such a way that </p>
+<p>no SWC needs to directly call methods in (Service-) </p>
+<p>SWCs with lower ASIL and no (Service-) SWCs with </p>
+<p>lower ASIL needs to call methods in ASIL SWCs </p>
+<p>except for the case when the SWCs explicitly allow </p>
+<p>this kind of usage. If necessary, this work is delegated </p>
+<p>to wrapper SWCs in the same OS Application as the </p>
+<p>called/calling SWC. Direct calls can moreover be </p>
+<p>avoided when the server runnables are mapped to </p>
+<p>tasks. See also chapter 5.2. </p>
+<p> </p>
+<p><b>ASS_RTE_11 </b></p>
+<p> </p>
+<p>The RTE configuration is chosen in such a way that </p>
+<p>the RTE APIs or TASKS for a SWC do not contain </p>
+<p>calls to BSW modules with lower ASIL than the SWC </p>
+<p>itself that might cause interference. If necessary, this </p>
+<p>work is delegated to wrapper SWCs in the same OS </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>26 / 76 </p>
+<p>Application as the BSW modules. For external </p>
+<p>communication, the RTE proxies the calls to the Com </p>
+<p>module.  See also chapter 5.2. </p>
+<p><b>ASS_RTE_12 </b></p>
+<p> </p>
+<p>The RTE does not need to provide freedom from </p>
+<p>interference for communication. In an AUTOSAR </p>
+<p>system, the E2ELibrary that is directly called by the </p>
+<p>SWCs is responsible for Safe communication. </p>
+<p>Nevertheless, the RTE provides APIs that can be </p>
+<p>called by the E2ELibrary. </p>
+<p> </p>
+<p><b>ASS_RTE_13 </b></p>
+<p> </p>
+<p>The Generated RTE code for ASIL SWCs is qualified </p>
+<p>according to the requirements of ISO26262 by the </p>
+<p>integrator so that it reaches the same ASIL as the </p>
+<p>SWCs themselves. This is necessary because the </p>
+<p>RTE Generator was only developed with Vectors </p>
+<p>standard quality management (QM). </p>
+<p> </p>
+<p><b>ASS_RTE_14 </b></p>
+<p> </p>
+<p>The hardware is suited for safety relevant software </p>
+<p>according to the requirements of ISO26262. The </p>
+<p>hardware requirements are mostly determined by the </p>
+<p>SWCs that shall be supported by the RTE. The </p>
+<p>MICROSAR RTE does not impose other hardware </p>
+<p>safety requirements as those that are already </p>
+<p>required by the SWCs and the OS. </p>
+<p> </p>
+<p><b>ASS_RTE_15 </b></p>
+<p> </p>
+<p>The development tool chain (for example editors, </p>
+<p>compilers, linkers, make environment, flash utilities) is </p>
+<p>suited for the development of safety relevant software </p>
+<p>according to the requirements of ISO26262. All tools </p>
+<p>need to reach the appropriate Tool Qualification Level </p>
+<p>(TCL). </p>
+<p> </p>
+<p><b>SR_RTE_1 </b></p>
+<p> </p>
+<p>The RTE (with the help of a MPU and an appropriate </p>
+<p>OS) shall provide freedom from interference with </p>
+<p>regards to memory for ASIL SWCs. This means that </p>
+<p>the RTE shall protect ASIL SWCs from BSW with </p>
+<p>lower ASIL. Additionally, the RTE shall also protect </p>
+<p>ASIL SWCs also from other SWCs with lower ASIL. </p>
+<p>The protection shall include the inter-runnable </p>
+<p>variables, per instance memories, sender buffers and </p>
+<p>stacks of the SWCs. Moreover, the protection shall be </p>
+<p>transparent to the SWCs, e.g. it shall be possible to </p>
+<p>access the protected inter-runnable variables and </p>
+<p>per-instance memories with the default AUTOSAR </p>
+<p>RTE APIs Rte_IrvWrite, Rte_IrvRead and Rte_Pim. </p>
+<p> </p>
+<p><b>SR_RTE_2 </b></p>
+<p> </p>
+<p>The RTE shall provide intra-ECU communication </p>
+<p>mechanism for SWCs with the same and different </p>
+<p>ASIL. The communication shall be possible through </p>
+<p>the AUTOSAR RTE APIs Rte_Read and Rte_Write </p>
+<p>that are used for non-queued sender/receiver </p>
+<p>communication. </p>
+<p> </p>
+<p><b>SR_RTE_3 </b></p>
+<p> </p>
+<p>The RTE shall provide mechanisms for data </p>
+<p>consistency that can be used by the ASIL SWCs to </p>
+<p>prevent concurrent accesses to shared ressources. </p>
+<p>(explicit exclusive areas). The realization of the </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>27 / 76 </p>
+<p>exclusive areas shall be possible through the </p>
+<p>AUTOSAR RTE APIs Rte_Enter and Rte_Exit </p>
+<p><b>SR_RTE_4 </b></p>
+<p> </p>
+<p>The </p>
+<p>RTE </p>
+<p>shall </p>
+<p>provide </p>
+<p>access </p>
+<p>to </p>
+<p>calibration </p>
+<p>parameters for the ASIL SWCs. It shall be possible to </p>
+<p>access  the  calibration  parameters  with  the  default </p>
+<p>AUTOSAR RTE APIs Rte_Prm and Rte_CData. </p>
+<p> </p>
+<p>Table 5-1  </p>
+<p>Assumptions that need to be verified during the integration </p>
+<p> </p>
+<p>The  MICROSAR  RTE  Generator  does  not  produce  ASIL  code.  However,  the  following </p>
+<p>chapter tries to explain how an RTE configuration needs to look like so that it is both, in </p>
+<p>line with the assumptions given in the previous table, and that it can be reviewed to reach </p>
+<p>compliance with a certain ASIL level. </p>
+<p><b>5.2 </b></p>
+<p><b>RTE Configuration </b></p>
+<p>During the software design, it has to be decided if the SWCs need to be developed with a </p>
+<p>certain ASIL. In the MICROSAR RTE, OS Applications are used to partition the SWCs of </p>
+<p>an  ECU  according  to  their  ASIL.  Therefore,  for  every  used  ASIL, </p>
+<p>at  least  one  OS </p>
+<p>Application has to be created. Furthermore an OS Application for the QM BSW needs to </p>
+<p>be created. It can also be used for the QM SWCs. All OS Applications apart from the OS </p>
+<p>Applications with the highest ASIL need to be nontrusted. An example is given in Figure </p>
+<p>5-1. </p>
+<p> </p>
+<p>Figure 5-1 </p>
+<p>SWC to OsApplication Mapping </p>
+<p>The assignment of the SWCs to the OS Applications happens through the task mapping. </p>
+<p>OsApplication3</p>
+<p>(ASIL A)</p>
+<p>OsApplication2</p>
+<p>(ASIL D)</p>
+<p>OsApplication1 (QM)</p>
+<p>Software</p>
+<p>Component</p>
+<p>Software</p>
+<p>Component</p>
+<p>Software</p>
+<p>Component</p>
+<p>Software</p>
+<p>Component</p>
+<p>OsApplication4</p>
+<p>(ASIL D)</p>
+<p>Software</p>
+<p>Component</p>
+<p>MICROSAR RTE</p>
+<p>OsApplication1 </p>
+<p>(QM)</p>
+<p>BSW</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>28 / 76 </p>
+<p>That means the RTE tasks need to be assigned to the OS Applications. Every SWC then </p>
+<p>needs to be mapped to the appropriate OS Application by mapping its runnables to tasks </p>
+<p>of that OS Application. </p>
+<p>As the BSW OS Application is nontrusted, the following memory protection limitations from </p>
+<p>the RTE Technical Reference apply for all SWCs: </p>
+<p><b>&gt; </b> All schedulable entities of QM BSW Modules need to be assigned to the BSW OS </p>
+<p>Application </p>
+<p><b>&gt; </b> All SWCs with mode provide ports need to be assigned to the BSW OS Application. </p>
+<p><b>&gt; </b> All SWCs that contain runnables with mode disabling dependencies or mode triggers </p>
+<p>need to be assigned to the BSW OS Application. </p>
+<p><b>&gt; </b> Direct client/server calls between OS Applications are not allowed. Exceptions are </p>
+<p>possible when the servers explicitly allow that they are run within the contexts of the </p>
+<p>client OS Applications. The RTE generator issues a warning when it detects direct </p>
+<p>client/server calls between OS Applications.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>When a client directly calls a server in another OS Application, the server runnable will </p>
+<p>run within the OS Application of the client. This means it can access resources e.g. </p>
+<p>memory that are normally only supposed to be accessed by runnables in the client OS </p>
+<p>Application. Moreover the server is not able to access resources that can only be </p>
+<p>accessed by his own OS Application. </p>
+<p>This might violate the safety requirements of the SWCs. </p>
+<p><b> </b></p>
+<p> </p>
+<p>It  is  assumed  that  the  MICROSAR  RTE  is  used  together  with  MICROSAR  OS  Safe </p>
+<p>Context. While  most APIs  of  MICROSAR  OS  Safe  Context  can  be  called  from  arbitrary </p>
+<p>contexts  without  causing  interference,  only  certain APIs  are  implemented  in  a  way  that </p>
+<p>ASIL code can rely on them. Therefore, the following RTE features that rely on ASIL OS </p>
+<p>functionality cannot be used in ASIL SWCs: </p>
+<p><b>&gt; </b> Extended Tasks </p>
+<p><b>&gt; </b> Minimum Start Interval </p>
+<p><b>&gt; </b> Exclusive Areas with implementation methods other than Interrupt Blocking </p>
+<p><b>&gt; </b> Alive timeout </p>
+<p><b>&gt; </b> Triggering of runnables in other SWCs e.g. by OnDataReception, </p>
+<p>OnDataReceptionError, OnDataSendCompletion triggers of a sender/receiver port </p>
+<p> </p>
+<p>The following general RTE feature cannot be used when ASIL SWCs are present because </p>
+<p>it requires calls to non ASIL BSW modules: </p>
+<p><b>&gt; </b> Measurement with XcpEvents </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>29 / 76 </p>
+<p>To simplify the review, it is also recommended to only use a subset of the RTE features in </p>
+<p>the ASIL SWCs. The review chapter in this document only describe the RTE APIs for the </p>
+<p>case when the following features are not used: </p>
+<p><b>&gt; </b> VFB Trace Hooks </p>
+<p><b>&gt; </b> Invalidation </p>
+<p><b>&gt; </b> Rx Filters </p>
+<p><b>&gt; </b> Implicit Exclusive Areas </p>
+<p><b>&gt; </b> Implicit Inter-Runnable Variables </p>
+<p><b>&gt; </b> Multiple Instantiation </p>
+<p><b>&gt; </b> Object Code SWCs </p>
+<p><b>&gt; </b> Unconnected ports </p>
+<p><b>&gt; </b> Implicit sender/receiver communication </p>
+<p><b>&gt; </b> Online calibration </p>
+<p><b>&gt; </b> Transmission acknowledgement </p>
+<p><b>&gt; </b> Never Received API </p>
+<p><b>&gt; </b> Enhanced Rte_Mode API </p>
+<p><b>&gt; </b> Development Error Tracer (DET) </p>
+<p><b>&gt; </b> Data Prototype Mappings </p>
+<p> </p>
+<p>Summarized, ASIL SWCs may use the following RTE features without violating the RTE </p>
+<p>safety assumptions and with the goal in mind to have easy to review code: </p>
+<p><b>&gt; </b> Runnables with cyclic triggers </p>
+<p><b>&gt; </b> Runnables with OperationInvokedTriggers </p>
+<p><b>&gt; </b> Basic tasks. (This means all runnables on an ASIL task need to share the same cycle </p>
+<p>time and offset.) </p>
+<p><b>&gt; </b> Explicit Intra-ECU Sender/Receiver communication (Last-Is-Best) </p>
+<p><b>&gt; </b> Explicit Inter-ECU Sender/Receiver communication (Last-Is-Best) </p>
+<p><b>&gt; </b> Rte_IsUpdated API </p>
+<p><b>&gt; </b> Synchronous Client/Server calls to unmapped runnables or runnables with </p>
+<p>CanBeInvokedConcurrently set to true. The client and server need to be mapped to the </p>
+<p>same OS Application. Exceptions are possible when the servers explicitly allow such </p>
+<p>usage. </p>
+<p><b>&gt; </b> Explicit Inter-Runnable variables </p>
+<p><b>&gt; </b> Mode require ports without mode triggers and mode disabling dependencies </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>30 / 76 </p>
+<p><b>&gt; </b> Explicit exclusive areas </p>
+<p><b>&gt; </b> Per-instance memories </p>
+<p><b>&gt; </b> SWC local Calibration parameters </p>
+<p><b>&gt; </b> Calibration ports </p>
+<p> </p>
+<p>Please note that the names of the objects in the RTE configuration are used in identifiers </p>
+<p>in the generated RTE and OS C code. The names have to be chosen in such a way that </p>
+<p>the identifiers do not exceed the limits of the target compiler and that they do not conflict </p>
+<p>with other identifiers from other modules. </p>
+<p>Also  the  filenames  of  the  generated  files  are  created  from  object  names  in  the  RTE </p>
+<p>configuration. It also needs to be checked that the file names do not exceed the limits of </p>
+<p>the target compiler. </p>
+<p><b>5.3 </b></p>
+<p><b>RTE Generation </b></p>
+<p>Once the RTE is configured it can be generated with the MICROSAR RTE Generator. </p>
+<p>The MICROSAR RTE Generator will run some checks prior to the generation. </p>
+<p>Errors in the Configuration are reported with an [Error] prefix. The generator will abort the </p>
+<p>generation  in  this case. Warnings  are  reported  with  [Warning].  Every  warning  has  to  be </p>
+<p>checked and it needs to be assured that the warnings do not cause any harm. </p>
+<p>Moreover after the generation, it has to be checked that the output directory contains no </p>
+<p>old  files  from  previous  generations.  The  RTE  Generator  provides  a  magic  number  pre-</p>
+<p>processor check at the end of the files that will issue a compile error when it detects an old </p>
+<p>file.  Please  note  that  selective  file  generation  needs  to  be  disabled  in  order  to  use  the </p>
+<p>magic number check. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>31 / 76 </p>
+<p><b>6 </b></p>
+<p><b>Qualification of generated RTE Code </b></p>
+<p>The following section gives some hints on what needs to be verified when the RTE shall </p>
+<p>be used for ASIL SWCs. The API descriptions show how the RTE code is supposed to look </p>
+<p>like according to the generator design when the configuration is based on the description </p>
+<p>in chapter 5.2. If the generated code diverges from the code descriptions, the integrator </p>
+<p>has to verify that the differences do not cause any harm. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The MICROSAR RTE generator does not generate ASIL code. If the RTE code shall be </p>
+<p>used for ASIL SWCs, the generated code has to be qualified. ISO26262 lists various </p>
+<p>methods that can or have to be applied to reach a certain ASIL. The integrator has to </p>
+<p>decide which methods are suited for his project and take the required actions. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>6.1 </b></p>
+<p><b>Introduction </b></p>
+<p>As the generated RTE code heavily depends on the names of the objects from the RTE </p>
+<p>configuration, the API descriptions use the following placeholders: </p>
+<p> </p>
+<p>&lt;oa&gt; OS Application </p>
+<p>&lt;soa&gt; sender OS Application </p>
+<p>&lt;roa&gt; receiver OS Application </p>
+<p>&lt;bswoa&gt; BSW OS Application </p>
+<p> </p>
+<p>&lt;c&gt; component type name </p>
+<p>&lt;bsw&gt; BSW module name </p>
+<p>&lt;sc&gt; sender component type name </p>
+<p>&lt;rc&gt; receiver component type name </p>
+<p> </p>
+<p>&lt;ci&gt; component instance name </p>
+<p>&lt;sci&gt; sender component instance name </p>
+<p>&lt;rci&gt; sender component instance name </p>
+<p> </p>
+<p>&lt;p&gt; port prototype </p>
+<p>&lt;sp&gt; sender port prototype </p>
+<p>&lt;rp&gt; receiver port prototype </p>
+<p> </p>
+<p>&lt;d&gt; data element prototype </p>
+<p>&lt;sd&gt; sender data element prototype </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>32 / 76 </p>
+<p>&lt;rd&gt; sender data element prototype </p>
+<p> </p>
+<p>&lt;o&gt; operation prototype </p>
+<p>&lt;re&gt; runnable entity name </p>
+<p>&lt;res&gt; runnable/schedulable entity symbol </p>
+<p>&lt;sre&gt; server runnable entity name </p>
+<p>&lt;sres&gt; server runnable entity symbol </p>
+<p>&lt;signalid&gt; identifier for signal specific buffers </p>
+<p>&lt;nocache&gt; _NOCACHE extension for variables that are accessed from multiple cores  </p>
+<p> </p>
+<p>&lt;t&gt; data type </p>
+<p>&lt;tp&gt; pointer to data type </p>
+<p> </p>
+<p>&lt;name&gt;  per-instance  memory,  calibration  parameter,  exclusive  area  or  inter-runnable </p>
+<p>variable name </p>
+<p>&lt;Lock&gt; Interrupt Locking / Spinlock function as described in chapter 6.3.4 </p>
+<p>&lt;UnLock&gt; Interrupt Unlocking / Spinlock function as described in chapter 6.3.4 </p>
+<p>&lt;Rte_MemCpy&gt; Memory Copy function as described in chapter 6.9.1 </p>
+<p> </p>
+<p>Placeholders written in upper case, for example &lt;P&gt;, mean that the replacement string is </p>
+<p>written in upper case. </p>
+<p><b>6.2 </b></p>
+<p><b>Compiler and Memory Abstraction </b></p>
+<p>The  RTE  code  uses  the  AUTOSAR  compiler  and  memory  abstraction  for  functions, </p>
+<p>function prototypes and variable declarations. </p>
+<p>#define RTE_START_SEC_&lt;secname&gt; </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>&lt;Object0&gt; </p>
+<p>[&lt;Object1&gt;] </p>
+<p>[&lt;ObjectN&gt;] </p>
+<p> </p>
+<p>#define RTE_STOP_SEC_&lt;secname&gt; </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>The memory abstraction is used to assign RTE variables to OS Applications. &lt;secname&gt; </p>
+<p>is the used memory section, for example CODE, VAR, CONST. </p>
+<p>All variables are assigned to the OS Application in which they are written. </p>
+<p>Section defines contain the name of the OS Application with the exception of the section </p>
+<p>defines for the OS Application that contains the BSW. It directly uses the section defines of </p>
+<p>the RTE.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>33 / 76 </p>
+<p>In </p>
+<p>case </p>
+<p>of </p>
+<p>multicore </p>
+<p>systems, </p>
+<p>the </p>
+<p>memory </p>
+<p>abstraction </p>
+<p>defines </p>
+<p>use </p>
+<p>an </p>
+<p>additional </p>
+<p>_NOCACHE  extension  when  variables  are  accessed  from  multiple  cores.  It  has  to  be </p>
+<p>assured that variables with this extension are mapped to noncacheable RAM and that all </p>
+<p>variables that are accessed from multiple cores are mapped with this extension. </p>
+<p>The RTE includes the file MemMap.h that has to issue the  correct compiler pragmas for </p>
+<p>the  platform  so  that  variables  within  the  memory  abstraction  are  mapped  to  the  correct </p>
+<p>protected memory  sections.  See  the Technical  Reference  of  the  OS  of  how  this  can  be </p>
+<p>accomplished.  During  integration  it  has  to  be  assured  that  the  mapping  mechanisms </p>
+<p>function properly. The RTE section and compiler abstraction defines are described in the </p>
+<p>RTE Technical Reference. </p>
+<p>Besides </p>
+<p>these, </p>
+<p>the </p>
+<p>MICROSAR </p>
+<p>RTE </p>
+<p>uses </p>
+<p>the </p>
+<p>following </p>
+<p>macros </p>
+<p>from </p>
+<p>the </p>
+<p>compiler </p>
+<p>abstraction: </p>
+<p></p>
+<p> </p>
+<p>FUNC </p>
+<p></p>
+<p> </p>
+<p>AUTOMATIC </p>
+<p></p>
+<p> </p>
+<p>STATIC </p>
+<p></p>
+<p> </p>
+<p>NULL_PTR </p>
+<p></p>
+<p> </p>
+<p>FUNC_P2CONST </p>
+<p></p>
+<p> </p>
+<p>P2VAR </p>
+<p></p>
+<p> </p>
+<p>P2CONST </p>
+<p></p>
+<p> </p>
+<p>CONST </p>
+<p></p>
+<p> </p>
+<p>CONSTP2CONST </p>
+<p></p>
+<p> </p>
+<p>P2FUNC </p>
+<p></p>
+<p> </p>
+<p>VAR </p>
+<p>Their functionality needs to be verified for correctness on the target platform. </p>
+<p><b>6.3 </b></p>
+<p><b>DataTypes </b></p>
+<p><b>6.3.1 </b></p>
+<p><b>Imported Types </b></p>
+<p>The </p>
+<p>MICROSAR </p>
+<p>RTE </p>
+<p>imports </p>
+<p>the </p>
+<p>following </p>
+<p>types </p>
+<p>from </p>
+<p>Std_Types.h </p>
+<p>and </p>
+<p>the </p>
+<p>Platform_Types.h header that is included by Std_Types.h. It needs to be assured that they </p>
+<p>are mapped to the correct platform specific types: </p>
+<p></p>
+<p> </p>
+<p>boolean </p>
+<p></p>
+<p> </p>
+<p>uint8 </p>
+<p></p>
+<p> </p>
+<p>uint16 </p>
+<p></p>
+<p> </p>
+<p>uint32 </p>
+<p></p>
+<p> </p>
+<p>uint64 </p>
+<p></p>
+<p> </p>
+<p>sint8 </p>
+<p></p>
+<p> </p>
+<p>sint16 </p>
+<p></p>
+<p> </p>
+<p>sint32 </p>
+<p></p>
+<p> </p>
+<p>sint64 </p>
+<p></p>
+<p> </p>
+<p>float32 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>34 / 76 </p>
+<p></p>
+<p> </p>
+<p>float64 </p>
+<p></p>
+<p> </p>
+<p>uint8_least </p>
+<p></p>
+<p> </p>
+<p>uint16_least </p>
+<p></p>
+<p> </p>
+<p>uint32_least </p>
+<p></p>
+<p> </p>
+<p>sint8_least </p>
+<p></p>
+<p> </p>
+<p>sint16_least </p>
+<p></p>
+<p> </p>
+<p>sint32_least </p>
+<p></p>
+<p> </p>
+<p>Std_ReturnType </p>
+<p>Furthermore the following imported defines need to be correct: </p>
+<p></p>
+<p> </p>
+<p>STD_ON </p>
+<p></p>
+<p> </p>
+<p>STD_OFF </p>
+<p><b>6.3.2 </b></p>
+<p><b>Application Types Generated by the RTE </b></p>
+<p>The  RTE  Generator  generates  the  data  types  from  the  configuration  to  the  header </p>
+<p>Rte_Type.h. It has to be checked that Rte_Type.h contains all configured data types and </p>
+<p>that  the  datatypes  are  in  line  with  the  configuration.  The  RTE  generator only  generates </p>
+<p>implementation data types. </p>
+<p>Besides the name of the generated data type, also its properties have to be checked. For </p>
+<p>primitive types, this means that the upper and lower limit defines are identical to the ones </p>
+<p>that are specified in the configuration and that the base type that is used for the data type </p>
+<p>covers its full range. Upper and lower Limits are only generated to the file Rte_&lt;c&gt;_Type.h </p>
+<p>when a components uses the application data type that defines the limits. </p>
+<p>For complex array types, it has to be checked that the base type is the same as the one </p>
+<p>that  is configured  in  the  configuration.  Furthermore,  the  length  of  the array  needs  to  be </p>
+<p>identical to the one from the configuration for array types. </p>
+<p>For complex record types, the types, names and order of the contained elements needs to </p>
+<p>be the same as specified in the configuration. </p>
+<p>For enumerations, all generated enumeration literals also need to be defined to the values </p>
+<p>that  are  specified  in  the  configuration.  It  has  to  be  checked  that  the  list  of  literals  is </p>
+<p>complete  and  that  no  literal  conflicts  with  other  identifiers.  The  literals  are  generated  to  </p>
+<p>Rte_&lt;c&gt;_Type.h when a component uses a datatype that references a compu method with </p>
+<p>a texttable. </p>
+<p> </p>
+<p><b>6.3.3 </b></p>
+<p><b>Handling of Array and String Data Types </b></p>
+<p>In the RTE APIs, arrays are passed as pointer to the array base type. </p>
+<p>For  simplicity,  the  code  descriptions  in  the  following  chapters  only  show  examples  with </p>
+<p>primitive integer types. </p>
+<p> </p>
+<p><b>6.3.4 </b></p>
+<p><b>Datatype specific handling of Interrupt Locks and Spinlocks </b></p>
+<p>The RTE implements data consistency mechanisms in some of its APIs. Data consistency </p>
+<p>is provided with the SuspendOSInterrupts and ResumeOSInterrupts OS APIs on a single </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>35 / 76 </p>
+<p>core. As the calls to these OS APIs significantly increase the runtime of the RTE APIs, the </p>
+<p>RTE tries to optimize them away when they are not needed. </p>
+<p>The APIs are optimized away when the variables can be written atomically by the ECU. </p>
+<p>The behaviour is controlled by the setting of the parameter AtomicVariableAccess in the </p>
+<p>configuration of the EcuC module in the ECUC configuration file. </p>
+<p> </p>
+<p>For simplicity, the code descriptions in the following chapters only show APIs in which the </p>
+<p>interrupt locks are not optimized away. When the RTE code for the ASIL SWCs is verified, </p>
+<p>it needs to be checked that the optimization is correct, e.g. that  a variable can really be </p>
+<p>accessed atomically by the ECU. </p>
+<p> </p>
+<p>Some versions of MICROSAR OS provide optimized interrupt locking APIs. The RTE will </p>
+<p>use these APIs when they are available. </p>
+<p>For nontrusted OS Applications the RTE may call </p>
+<p><b>&gt; </b> osDisableLevelUM </p>
+<p><b>&gt; </b> osDisableLevelAM </p>
+<p><b>&gt; </b> osDisableGlobalUM </p>
+<p><b>&gt; </b> osDisableGlobalAM </p>
+<p>to disable the interrupts and </p>
+<p><b>&gt; </b> osEnableLevelUM </p>
+<p><b>&gt; </b> osEnableLevelAM </p>
+<p><b>&gt; </b> osEnableGlobalUM </p>
+<p><b>&gt; </b> osEnableGlobalAM </p>
+<p>to reenable the interrupts. </p>
+<p> </p>
+<p>For trusted OS Applications the RTE may call </p>
+<p><b>&gt; </b> osDisableLevelKM </p>
+<p><b>&gt; </b> osDisableLevelAM </p>
+<p><b>&gt; </b> osDisableGlobalKM </p>
+<p><b>&gt; </b> osDisableGlobalAM </p>
+<p>to disable the interrupts and </p>
+<p><b>&gt; </b> osEnableLevelKM </p>
+<p><b>&gt; </b> osEnableLevelAM </p>
+<p><b>&gt; </b> osEnableGlobalKM </p>
+<p><b>&gt; </b> osEnableGlobalAM </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>36 / 76 </p>
+<p>to reenable the interrupts. </p>
+<p> </p>
+<p>The optimized APIs are mapped to the macros </p>
+<p>Rte_DisableOSInterrupts/Rte_DisableAllInterrupts and </p>
+<p>Rte_EnableOSInterrupts/Rte_EnableAllInterrupts. </p>
+<p> </p>
+<p>In </p>
+<p>the </p>
+<p>following </p>
+<p>code </p>
+<p>examples, </p>
+<p>&lt;Lock&gt; </p>
+<p>resolves </p>
+<p>to </p>
+<p>SuspendOSInterrupts, </p>
+<p>or </p>
+<p>Rte_DisableOSInterrupts/Rte_DisableAllInterrupts. </p>
+<p>&lt;UnLock&gt; </p>
+<p>resolves </p>
+<p>to </p>
+<p>ResumeOSInterrupts </p>
+<p>or </p>
+<p>Rte_EnableOSInterrupts/Rte_EnableAllInterrupts. </p>
+<p>The </p>
+<p>RTE </p>
+<p>generator tries to use the “Disable” variant whenever possible as it is usually faster. It has </p>
+<p>to be assured that this variant is only used, when there are no nested calls to the locking </p>
+<p>APIs.  They  cannot  be  used  when  the  runnable  is  configured  to  enter  or  to  run  in  an </p>
+<p>exclusive area. For every locking operation the matching unlocking operation needs to be </p>
+<p>called. </p>
+<p>It needs to be assured that no included header breaks these operation (e.g. by redefining </p>
+<p>them). </p>
+<p> </p>
+<p>On multicore systems, locking the interrupts will only provide data consistency on the core </p>
+<p>for which the RTE API is called. In order to provide data consistency also when variables </p>
+<p>are  accessed  from  different  cores,  the  &lt;Lock&gt;  and  &lt;UnLock&gt;  operations  are  extended </p>
+<p>with additional GetSpinlock and ReleaseSpinlock calls. </p>
+<p> </p>
+<p> </p>
+<p>Example: </p>
+<p>SuspendOSInterrupts(); </p>
+<p>(void)GetSpinlock(&lt;SpinlockId&gt;); </p>
+<p> </p>
+<p>Access data structures. </p>
+<p> </p>
+<p>(void)ReleaseSpinlock(&lt;SpinlockId&gt;); </p>
+<p>ResumeOSInterrupts(); </p>
+<p> </p>
+<p>All places where the protected data structures are accessed need to be protected by the </p>
+<p>same Spinlock (same &lt;SpinlockId&gt;) </p>
+<p>The interrupt lock APIs can be omitted when the spinlock cannot be accessed by multiple </p>
+<p>tasks on the same core. </p>
+<p>Instead </p>
+<p>of </p>
+<p>SuspendOSInterrupts </p>
+<p>and </p>
+<p>ResumeOSInterrupts </p>
+<p>also </p>
+<p>Rte_DisableOSInterrupts/Rte_DisableAllInterrupts </p>
+<p>and </p>
+<p>Rte_EnableOSInterrupts/Rte_EnableAllInterrupts can be used, the distinction is the same </p>
+<p>as explained above. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>37 / 76 </p>
+<p> </p>
+<p><b>6.4 </b></p>
+<p><b>SWC Implementation </b></p>
+<p>The RTE is the module that glues the SWCs to the AUTOSAR stack. For this, the RTE </p>
+<p>generator generates a list of files that provide the datatypes and APIs for the SWCs and </p>
+<p>that call the runnable entities of the SWCs. A description of all generated files can be found </p>
+<p>in the RTE Technical Reference. </p>
+<p>From  the  generated  files,  the  SWCs  shall  only  include  the  appropriate  RTE  header </p>
+<p>Rte_&lt;c&gt;.h directly. It provides the SWC specific functionality. </p>
+<p>The SWC implementation shall at least contain all configured runnable entities. </p>
+<p>The signature of the runnable entities is </p>
+<p>FUNC(void, &lt;c&gt;_CODE) &lt;res&gt;(&lt;parglist&gt;&lt;arglist&gt;) </p>
+<p>or </p>
+<p>FUNC(Std_ReturnType, &lt;c&gt;_CODE) &lt;res&gt;(&lt;parglist&gt;&lt;arglist&gt;) </p>
+<p> </p>
+<p>for server runnables with return type. </p>
+<p>&lt;arglist&gt;  is  “void”  for  non-server  runnables,  otherwise  it  contains  the  arguments  of  the </p>
+<p>server operation. </p>
+<p>&lt;parglist&gt; is empty for runnables without port defined arguments, otherwise it contains the </p>
+<p>port defined arguments. </p>
+<p># define &lt;c&gt;_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(void, &lt;c&gt;_CODE) &lt;res&gt;(&lt;parglist&gt;&lt;arglist&gt;) </p>
+<p>{ </p>
+<p> </p>
+<p>} </p>
+<p> </p>
+<p># define &lt;c&gt;_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>Runnable entity implementations shall be surrounded by &lt;c&gt;_CODE memory abstraction </p>
+<p>defines as shown above. </p>
+<p>Every runnable entity shall have a prototype in Rte_&lt;c&gt;.h that is also surrounded by the </p>
+<p>same memory abstraction defines. </p>
+<p>Server runnables with return value shall return a value in all return paths. </p>
+<p>The </p>
+<p>value </p>
+<p>shall </p>
+<p>be </p>
+<p>RTE_E_OK </p>
+<p>or </p>
+<p>one </p>
+<p>of </p>
+<p>the </p>
+<p>application </p>
+<p>return </p>
+<p>codes </p>
+<p>from </p>
+<p>the </p>
+<p>configuration. The  application  return  code  defines  are  contained  in  the file  Rte_&lt;c&gt;.h.  It </p>
+<p>needs to be checked that the return defines provide the same value as described in the </p>
+<p>configuration. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>38 / 76 </p>
+<p> </p>
+<p> </p>
+<p>Runnable entities in ASIL SWC should only contain calls to the following RTE APIs: </p>
+<p><b>&gt; </b> Std_ReturnType Rte_Write_&lt;p&gt;_&lt;d&gt;(&lt;data&gt;) </p>
+<p><b>&gt; </b> Std_ReturnType Rte_Read_&lt;p&gt;_&lt;d&gt;(&lt;data&gt;) </p>
+<p><b>&gt; </b> boolean Rte_IsUpdated_&lt;p&gt;_&lt;d&gt;() </p>
+<p><b>&gt; </b> Std_ReturnType Rte_Call_&lt;p&gt;_&lt;o&gt;(&lt;data_1&gt;, &lt;data_n&gt;) </p>
+<p><b>&gt; </b> &lt;type&gt; Rte_Pim_&lt;name&gt;() </p>
+<p><b>&gt; </b> &lt;return&gt; Rte_CData_&lt;name&gt;() </p>
+<p><b>&gt; </b> &lt;return&gt; Rte_Prm_&lt;p&gt;_&lt;name&gt;() </p>
+<p><b>&gt; </b> &lt;return&gt; Rte_IrvRead_&lt;re&gt;_&lt;name&gt;() </p>
+<p><b>&gt; </b> void Rte_IrvWrite_&lt;re&gt;_&lt;name&gt;(&lt;data&gt;) </p>
+<p><b>&gt; </b> void Rte_Enter_&lt;name&gt;() </p>
+<p><b>&gt; </b> void Rte_Exit_&lt;name&gt;() </p>
+<p><b>&gt; </b> Rte_ModeType_&lt;m&gt; Rte_Mode_&lt;p&gt;_&lt;d&gt;() </p>
+<p> </p>
+<p>The </p>
+<p>Rte_Write, </p>
+<p>Rte_Read, </p>
+<p>Rte_IsUpdated, </p>
+<p>Rte_Call, </p>
+<p>Rte_IrvRead, </p>
+<p>Rte_IrvWrite, </p>
+<p>Rte_Enter, Rte_Exit APIs are only allowed to be called from a runnable when the runnable </p>
+<p>is </p>
+<p>configured </p>
+<p>to </p>
+<p>access </p>
+<p>the </p>
+<p>port </p>
+<p>data </p>
+<p>element/port </p>
+<p>operation/inter-runnable </p>
+<p>variable/exclusive area for which the API is generated. </p>
+<p>The  Rte_CData  and  Rte_Pim APIs  are  only  allowed  to  be  called  from  runnables  in  the </p>
+<p>SWCs in which they are configured. </p>
+<p>The Rte_Prm API is only allowed to be called from runnables in the SWC that contains the </p>
+<p>matching calibration receiver port. </p>
+<p>For every API that is called by the SWC implementation, it needs to be checked, that the </p>
+<p>called API is configured for the SWC and that Rte_&lt;c&gt;.h declares the API. </p>
+<p>Furthermore,  it  needs  to  be  assured  that  RTE  and  OS  variables  are  only  modified  with </p>
+<p>afore mentioned RTE API calls. The variables are not allowed to be modified directly within </p>
+<p>the runnable code. </p>
+<p>It also has to be assured that the RTE APIs with parameters are called with the correct </p>
+<p>parameters with regards to type and access rights. When pointers are passed to the RTE </p>
+<p>APIs, it has to be assured that the pointers stay valid during the whole runtime of the RTE </p>
+<p>API  and  that  the  underlying  objects  are  not  modified  outside  the  RTE  API  during  the </p>
+<p>runtime of the RTE API. </p>
+<p> </p>
+<p>All  RTE APIs  for  a  SWC  are  declared  in  the  header  Rte_&lt;c&gt;.h. APIs  are  implemented </p>
+<p>either  as  macro  or  as  function.  When  the  APIs  are  implemented  as  functions,  the </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>39 / 76 </p>
+<p>implementation is contained in the file Rte_&lt;oa&gt;.c of the OS Application to which the SWC </p>
+<p>is mapped. </p>
+<p>It needs to be assured that all functions that are called from within RTE code are imported </p>
+<p>from the correct versions of the AUTOSAR, Com and OS source and header files.  </p>
+<p>The inclusion of files from these and other modules shall not re-define any identifier that is </p>
+<p>defined in the generated RTE code, e.g. through #define macros. Exceptions are the RTE </p>
+<p>memory  section  defines  that  can  be  redeclared  in  MemMap.  However,  it  needs  to  be </p>
+<p>checked that the mapping of the variables to the code sections works as expected. </p>
+<p> </p>
+<p><b>6.5 </b></p>
+<p><b>BSW Implementation </b></p>
+<p> </p>
+<p>The  RTE  is  the  module  that  glues  the  BSW  to  the AUTOSAR  stack.  For  this,  the  RTE </p>
+<p>generator generates a list of files that provide the datatypes and APIs for the BSW and that </p>
+<p>call the schedulable entities of the BSW. A description of all generated files can be found in </p>
+<p>the RTE Technical Reference. </p>
+<p>From  the </p>
+<p>generated  files,  the  BSW  shall  only  include  the  appropriate  RTE  header </p>
+<p>SchM_&lt;bsw&gt;.h directly. It provides the BSW specific functionality. </p>
+<p>The BSW implementation shall at least contain all configured schedulable entities. </p>
+<p>The signature of the schedulable entities is </p>
+<p>FUNC(void, &lt;BSW&gt;_CODE ) &lt;res&gt;() </p>
+<p> </p>
+<p> </p>
+<p>Schedulable </p>
+<p>entity </p>
+<p>implementations </p>
+<p>shall </p>
+<p>be </p>
+<p>surrounded </p>
+<p>by </p>
+<p>&lt;BSW&gt;_CODE </p>
+<p>memory </p>
+<p>abstraction defines. </p>
+<p>Every schedulable entity shall have a prototype in SchM_&lt;bsw&gt;.h that is also surrounded </p>
+<p>by the same memory abstraction defines. </p>
+<p> </p>
+<p>Schedulable entities in ASIL BSW should only contain calls to the following RTE APIs: </p>
+<p><b>&gt; </b> void SchM_Enter_&lt;bsw&gt;_&lt;name&gt;() </p>
+<p><b>&gt; </b> void SchM_Exit_&lt;bsw&gt;_&lt;name&gt;() </p>
+<p> </p>
+<p> </p>
+<p>All  RTE APIs  for  a  BSW  module  are  declared  in  the  header  SchM_&lt;bsw&gt;.h. APIs  are </p>
+<p>implemented either as macro or as function. When the APIs are implemented as functions, </p>
+<p>the implementation is contained in the file Rte_&lt;oa&gt;.c of the OS Application to which the </p>
+<p>BSW is mapped. </p>
+<p>It needs to be assured that all functions that are called from within RTE code are imported </p>
+<p>from the correct versions of the AUTOSAR, Com and OS source and header files.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>40 / 76 </p>
+<p>The inclusion of files from these and other modules shall not re-define any identifier that is </p>
+<p>defined in the generated RTE code, e.g. through #define macros. Exceptions are the RTE </p>
+<p>memory  section  defines  that  can  be  redeclared  in  MemMap.  However,  it  needs  to  be </p>
+<p>checked that the mapping of the variables to the code sections works as expected. </p>
+<p> </p>
+<p><b>6.6 </b></p>
+<p><b>SWC specific RTE APIs </b></p>
+<p><b>6.6.1 </b></p>
+<p><b>Rte_Write </b></p>
+<p><b>6.6.1.1 </b></p>
+<p><b>Configuration Variant Intra-ECU Without IsUpdated </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> no indirect API </p>
+<p><b>&gt; </b> intra-ECU communication </p>
+<p><b>&gt; </b> receiver is connected </p>
+<p><b>&gt; </b> no receiver triggered on data reception </p>
+<p><b>&gt; </b> no receiver triggered on data reception error </p>
+<p><b>&gt; </b> no transmission acknowledgement </p>
+<p><b>&gt; </b> no rx filtering </p>
+<p><b>&gt; </b> no data prototype mapping </p>
+<p><b>&gt; </b> no invalidation </p>
+<p><b>&gt; </b> is updated is not configured for the receivers </p>
+<p><b>&gt; </b> never received is not configured for the receiver </p>
+<p><b>6.6.1.2 </b></p>
+<p><b>Generated Code Intra-ECU Without IsUpdated </b></p>
+<p>Rte_&lt;c&gt;.h defines Rte_Write as follows: </p>
+<p>#define Rte_Write_&lt;p&gt;_&lt;d&gt; Rte_Write_&lt;c&gt;_&lt;p&gt;_&lt;d&gt; </p>
+<p> </p>
+<p>When the attribute “EnableTakeAddress” is not set for the port and when the data element </p>
+<p>can  be  accessed  atomically  by  the  ECU  and  when  the  data  element  is  not  an  array  or </p>
+<p>string  type,  Rte_Write_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;  is  declared  as  macro  that  writes  to  a  global  RTE </p>
+<p>variable. </p>
+<p> </p>
+<p># define RTE_START_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>41 / 76 </p>
+<p> </p>
+<p>extern VAR(&lt;t&gt;, RTE_VAR_INIT&lt;nocache&gt;) Rte_&lt;ci&gt;_&lt;p&gt;_&lt;d&gt;; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p># define Rte_Write_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(data) (Rte_&lt;ci&gt;_&lt;p&gt;_&lt;d&gt; = (data), </p>
+<p>((Std_ReturnType)RTE_E_OK)) </p>
+<p> </p>
+<p>Otherwise, the API is implemented in Rte_&lt;oa&gt;.c </p>
+<p>#define RTE_START_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, RTE_CODE) Rte_Write_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(&lt;t&gt; data) </p>
+<p>{ </p>
+<p>Std_ReturnType ret = RTE_E_OK; </p>
+<p> </p>
+<p>  Rte_WriteHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Start(data); </p>
+<p>  &lt;Lock&gt;(); </p>
+<p>  Rte_&lt;ci&gt;_&lt;p&gt;_&lt;d&gt; = *(&amp;data); </p>
+<p>&lt;UnLock&gt;(); </p>
+<p>Rte_WriteHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Return(data); </p>
+<p>  return ret;  </p>
+<p>} </p>
+<p> </p>
+<p>#define RTE_STOP_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>and Rte_&lt;c&gt;.h only contains the prototype: </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, RTE_CODE) Rte_Write_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(&lt;t&gt; data); </p>
+<p> </p>
+<p># define RTE_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>In both cases the global variable in Rte_&lt;oa&gt;.c is declared as </p>
+<p>#define RTE_START_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>VAR(&lt;dt&gt;, RTE_VAR_INIT&lt;nocache&gt;) Rte_&lt;ci&gt;_&lt;p&gt;_&lt;d&gt; = &lt;initializer&gt;; </p>
+<p>#define RTE_STOP_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>42 / 76 </p>
+<p> </p>
+<p>where &lt;initializer&gt; is the C representation of the init value that is configured for the port </p>
+<p>data element. </p>
+<p> </p>
+<p>For systems where the compiler does not initialize global variables, the API </p>
+<p>Rte_InitMemory needs to do the initialization: </p>
+<p>Rte_&lt;ci&gt;_&lt;p&gt;_&lt;d&gt; = &lt;initializer&gt;; </p>
+<p> </p>
+<p>If the data element is of a string or array type, no direct assignments are used. Instead, the </p>
+<p>assignment is replaced by a memcpy </p>
+<p> </p>
+<p>&lt;Rte_MemCpy&gt;(Rte_&lt;ci&gt;_&lt;p&gt;_&lt;d&gt;, *(data), sizeof(&lt;t&gt;)); </p>
+<p> </p>
+<p> </p>
+<p>If the datatype can be read and written atomically, the &lt;Lock&gt;() and &lt;UnLock&gt;() calls are </p>
+<p>omitted from the Rte_Write API. </p>
+<p> </p>
+<p>When Rte_Write is not a macro, it needs to be assured that the macros </p>
+<p>Rte_WriteHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Start(data) and </p>
+<p>Rte_WriteHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Return(data) do not have any side effects. </p>
+<p> </p>
+<p> </p>
+<p><b>6.6.1.3 </b></p>
+<p><b>Configuration Variant Intra-ECU With IsUpdated </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> no indirect API </p>
+<p><b>&gt; </b> intra-ECU communication </p>
+<p><b>&gt; </b> receiver is connected </p>
+<p><b>&gt; </b> no receiver triggered on data reception </p>
+<p><b>&gt; </b> no receiver triggered on data reception error </p>
+<p><b>&gt; </b> no transmission acknowledgement </p>
+<p><b>&gt; </b> no rx filtering </p>
+<p><b>&gt; </b> no data prototype mapping </p>
+<p><b>&gt; </b> no invalidation </p>
+<p><b>&gt; </b> is updated is configured for one receiver </p>
+<p><b>&gt; </b> never received is not configured for the receiver </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>43 / 76 </p>
+<p> </p>
+<p><b>6.6.1.4 </b></p>
+<p><b>Generated Code Intra-ECU With IsUpdated </b></p>
+<p>Rte_Write with configured IsUpdated is similar to the variant without IsUpdated. However, </p>
+<p>in the IsUpdated case, Rte_Write is always implemented as function in Rte_&lt;oa&gt;.c. </p>
+<p> </p>
+<p>/****************************************************************************** </p>
+<p> * Update Flags for each Receiver with enableUpdate != 0 </p>
+<p> *****************************************************************************/ </p>
+<p># define RTE_START_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>VAR(Rte_&lt;oa&gt;_RxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;oa&gt;_RxUpdateFlags = { </p>
+<p>  0 </p>
+<p>}; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p># define Rte_&lt;oa&gt;_RxUpdateFlagsInit() (Rte_MemClr(&amp;Rte_&lt;oa&gt;_RxUpdateFlags, </p>
+<p>sizeof(Rte_&lt;oa&gt;_RxUpdateFlagsType))) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>#define RTE_START_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, RTE_CODE) Rte_Write_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(&lt;t&gt; data) </p>
+<p>{ </p>
+<p>  Std_ReturnType ret = RTE_E_OK; </p>
+<p> </p>
+<p>  Rte_WriteHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Start(data); </p>
+<p>  &lt;Lock&gt;(); </p>
+<p>Rte_&lt;ci&gt;_&lt;p&gt;_&lt;d&gt; = *(&amp;data); </p>
+<p>  Rte_&lt;oa&gt;_RxUpdateFlags.Rte_RxUpdate_&lt;rci&gt;_&lt;rp&gt;_&lt;rd&gt;_Sender = </p>
+<p>!Rte_&lt;roa&gt;_RxUpdateFlags.Rte_RxUpdate_&lt;rci&gt;_&lt;rp&gt;_&lt;rd&gt;; </p>
+<p>  &lt;UnLock&gt;(); </p>
+<p>  Rte_WriteHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Return(data); </p>
+<p>  return ret;  </p>
+<p>} </p>
+<p> </p>
+<p>#define RTE_STOP_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>44 / 76 </p>
+<p>Rte_&lt;roa&gt;.c declares the variable Rte_&lt;roa&gt;_RxUpdateFlags as follows: </p>
+<p> </p>
+<p># define RTE_START_SEC_VAR_&lt;roa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>VAR(Rte_&lt;roa&gt;_RxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;roa&gt;_RxUpdateFlags = { </p>
+<p>  0 </p>
+<p>}; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;roa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p># define Rte_&lt;roa&gt;_RxUpdateFlagsInit() (Rte_MemClr(&amp;Rte_&lt;roa&gt;_RxUpdateFlags, </p>
+<p>sizeof(Rte_&lt;roa&gt;_RxUpdateFlagsType))) </p>
+<p> </p>
+<p>The extern declaration for Rte_&lt;roa&gt;_RxUpdateFlags is declared in Rte_Type.h: </p>
+<p># define RTE_START_SEC_VAR_&lt;roa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern VAR(Rte_&lt;roa&gt;_RxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;roa&gt;_RxUpdateFlags; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;roa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>For systems where the compiler does not initialize global variables, the API </p>
+<p>Rte_InitMemory needs to call Rte_&lt;oa&gt;_RxUpdateFlagsInit() and </p>
+<p>Rte_&lt;roa&gt;_RxUpdateFlagsInit(). </p>
+<p> </p>
+<p> </p>
+<p>The Update flag types are declared in Rte_Type.h </p>
+<p>typedef struct </p>
+<p>{ </p>
+<p>  Rte_BitType Rte_RxUpdate_&lt;rci&gt;_&lt;rp&gt;_&lt;rd&gt;_Sender : 1; </p>
+<p>} Rte_&lt;oa&gt;_RxUpdateFlagsType; </p>
+<p> </p>
+<p> </p>
+<p>typedef struct </p>
+<p>{ </p>
+<p>  Rte_BitType Rte_RxUpdate_&lt;rci&gt;_&lt;rp&gt;_&lt;rd&gt; : 1; </p>
+<p>} Rte_&lt;roa&gt;_RxUpdateFlagsType; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>45 / 76 </p>
+<p><b>6.6.1.5 </b></p>
+<p><b>Configuration Variant Inter-ECU </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> no indirect API </p>
+<p><b>&gt; </b> pure inter-ECU communication </p>
+<p><b>&gt; </b> no transmission acknowledgement </p>
+<p><b>&gt; </b> no invalidation </p>
+<p><b>&gt; </b> no data prototype mapping </p>
+<p><b>6.6.1.6 </b></p>
+<p><b>Generated Code Inter-ECU </b></p>
+<p>Rte_&lt;c&gt;.h defines Rte_Write as follows: </p>
+<p>#define Rte_Write_&lt;p&gt;_&lt;d&gt; Rte_Write_&lt;c&gt;_&lt;p&gt;_&lt;d&gt; </p>
+<p> </p>
+<p>The API is implemented in Rte_&lt;oa&gt;.c </p>
+<p># define RTE_START_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>VAR(Rte_&lt;oa&gt;_TxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;oa&gt;_TxUpdateFlags = { </p>
+<p>  0, </p>
+<p>  0, </p>
+<p>}; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p># define Rte_&lt;oa&gt;_TxUpdateFlagsInit() (Rte_MemClr(&amp;Rte_&lt;oa&gt;_TxUpdateFlags, </p>
+<p>sizeof(Rte_&lt;oa&gt;_TxUpdateFlagsType))) </p>
+<p> </p>
+<p>#define RTE_START_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, RTE_CODE) Rte_Write_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(&lt;t&gt; data) </p>
+<p>{ </p>
+<p>Std_ReturnType ret = RTE_E_OK; </p>
+<p> </p>
+<p>  Rte_WriteHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Start(data); </p>
+<p>  &lt;Lock&gt;(); </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>46 / 76 </p>
+<p>  Rte_&lt;signalid&gt; = *(&amp;data); </p>
+<p> Rte_&lt;oa&gt;_TxUpdateFlags.Rte_TxUpdate_&lt;c&gt;_&lt;p&gt;_&lt;d&gt; </p>
+<p>= </p>
+<p>RTE_COM_SENDSIGNALPROXY_SEND; </p>
+<p>  Rte_&lt;oa&gt;_TxUpdateFlags.Rte_TxUpdateProxy_&lt;c&gt;_&lt;p&gt;_&lt;d&gt; = </p>
+<p>!Rte_&lt;bswoa&gt;_TxUpdateFlags.Rte_TxUpdateProxy__&lt;c&gt;_&lt;p&gt;_&lt;d&gt;; </p>
+<p>&lt;UnLock&gt;(); </p>
+<p>Rte_WriteHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Return(data); </p>
+<p>  return ret;  </p>
+<p>} </p>
+<p> </p>
+<p>#define RTE_STOP_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>and Rte_&lt;c&gt;.h only contains the prototype: </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, RTE_CODE) Rte_Write_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(&lt;t&gt; data); </p>
+<p> </p>
+<p># define RTE_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>The extern declaration for Rte_&lt;oa&gt;_TxUpdateFlags is declared in Rte_Type.h: </p>
+<p> </p>
+<p>typedef struct </p>
+<p>{ </p>
+<p>  Rte_BitType Rte_TxUpdate_&lt;c&gt;_&lt;p&gt;_&lt;e&gt; : 2; </p>
+<p>  Rte_BitType Rte_TxUpdateProxy_&lt;c&gt;_&lt;p&gt;_&lt;e&gt; : 1; </p>
+<p>} Rte_&lt;oa&gt;_TxUpdateFlagsType; </p>
+<p> </p>
+<p># define RTE_START_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern VAR(Rte_&lt;oa&gt;_TxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;oa&gt;_TxUpdateFlags; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>For systems where the compiler does not initialize global variables, the API </p>
+<p>Rte_InitMemory needs to call Rte_&lt;oa&gt;_TxUpdateFlagsInit(). </p>
+<p> </p>
+<p>In both cases the global variable in Rte_&lt;oa&gt;.c is declared as </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>47 / 76 </p>
+<p>#define RTE_START_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>VAR(&lt;dt&gt;, RTE_VAR_INIT&lt;nocache&gt;) Rte_&lt;signalid&gt; = &lt;initializer&gt;; </p>
+<p>#define RTE_STOP_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>where &lt;initializer&gt; is the C representation of the init value that is configured for the port </p>
+<p>data element. </p>
+<p> </p>
+<p>For systems where the compiler does not initialize global variables, the API </p>
+<p>Rte_InitMemory needs to do the initialization: </p>
+<p>Rte_&lt;signalid&gt; = &lt;initializer&gt;; </p>
+<p> </p>
+<p>If the data element is of a string or array type, no direct assignments are used. Instead, </p>
+<p>the assignment is replaced by a memcpy </p>
+<p>&lt;Rte_MemCpy&gt;(Rte_&lt;signalid&gt;, *(data), sizeof(&lt;t&gt;)); </p>
+<p> </p>
+<p>If the datatype can be read and written atomically, the &lt;Lock&gt;() and &lt;UnLock&gt;() calls are </p>
+<p>omitted from the Rte_Write API. </p>
+<p> </p>
+<p>When Rte_Write is not a macro, it needs to be assured that the macros </p>
+<p>Rte_WriteHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Start(data) and </p>
+<p>Rte_WriteHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Return(data) do not have any side effects. </p>
+<p> </p>
+<p> </p>
+<p><b>6.6.2 </b></p>
+<p><b>Rte_Read </b></p>
+<p><b>6.6.2.1 </b></p>
+<p><b>Configuration Variant Without IsUpdated </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> no indirect API </p>
+<p><b>&gt; </b> alive timeout is not configured </p>
+<p><b>&gt; </b> invalidation is not configured </p>
+<p><b>&gt; </b> is updated is not configured </p>
+<p><b>&gt; </b> never received is not configured </p>
+<p><b>&gt; </b> no data prototype mapping </p>
+<p><b>&gt; </b> sender is connected </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>48 / 76 </p>
+<p><b>&gt; </b> intra-ECU or inter-ECU communication </p>
+<p><b>6.6.2.2 </b></p>
+<p><b>Generated Code Without IsUpdated </b></p>
+<p>Rte_&lt;c&gt;.h defines Rte_Read as follows: </p>
+<p>#define Rte_Read_&lt;p&gt;_&lt;d&gt; Rte_Read_&lt;c&gt;_&lt;p&gt;_&lt;d&gt; </p>
+<p> </p>
+<p>When the attribute “EnableTakeAddress” is not set for the port and when the data element </p>
+<p>can be accessed atomically by the ECU, Rte_Read_&lt;c&gt;_&lt;p&gt;_&lt;d&gt; is declared as macro </p>
+<p>that reads from a global RTE variable. </p>
+<p> </p>
+<p> </p>
+<p># define RTE_START_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern VAR(&lt;t&gt;, RTE_VAR_INIT&lt;nocache&gt;) Rte_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt; ; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#  define Rte_Read_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(data) (*(data) = Rte_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt; ,  </p>
+<p>((Std_ReturnType)RTE_E_OK)) </p>
+<p> </p>
+<p>Otherwise, the API is implemented in Rte_&lt;oa&gt;.c </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, RTE_CODE) Rte_Read_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(&lt;tp&gt; data) </p>
+<p>{ </p>
+<p>  Std_ReturnType ret = RTE_E_OK; </p>
+<p> </p>
+<p>  Rte_ReadHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Start(data); </p>
+<p>  &lt;Lock&gt;(); </p>
+<p>  *(data) = Rte_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt; ; </p>
+<p>  &lt;UnLock&gt;(); </p>
+<p>  Rte_ReadHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Return(data); </p>
+<p> </p>
+<p>  return ret; </p>
+<p>} </p>
+<p> </p>
+<p>#define RTE_STOP_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>49 / 76 </p>
+<p>and Rte_&lt;c&gt;.h only contains the prototype: </p>
+<p> </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, RTE_CODE) Rte_Read_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(&lt;tp&gt; data); </p>
+<p> </p>
+<p># define RTE_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>In both cases the global variable in Rte_&lt;soa&gt;.c is declared as </p>
+<p>#define RTE_START_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>VAR(&lt;dt&gt;, RTE_VAR_INIT&lt;nocache&gt;) Rte_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt;  = &lt;initializer&gt;; </p>
+<p>#define RTE_STOP_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>where &lt;initializer&gt; is the C representation of the init value that is configured for the sender </p>
+<p>port data element. </p>
+<p> </p>
+<p>For systems where the compiler does not initialize global variables, the API </p>
+<p>Rte_InitMemory needs to do the initialization: </p>
+<p> </p>
+<p>Rte_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt;  = &lt;initializer&gt;; </p>
+<p> </p>
+<p>If the data element is a of a string or array type, no direct assignments are used. Instead, </p>
+<p>the assignment is replaced by a memcpy </p>
+<p>&lt;Rte_MemCpy&gt;(*(data), Rte_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt; , sizeof(&lt;t&gt;)); </p>
+<p> </p>
+<p>The extern declaration for the global variable is contained in Rte_Type.h: </p>
+<p>#define RTE_START_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>extern VAR(&lt;dt&gt;, RTE_VAR_INIT&lt;nocache&gt;) Rte_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt;; </p>
+<p>#define RTE_STOP_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>If the datatype can be read and written atomically, the &lt;Lock&gt;() and &lt;UnLock&gt;()  calls are </p>
+<p>omitted from the Rte_Read API. </p>
+<p> </p>
+<p>When Rte_Read is not a macro, it needs to be assured that the macros </p>
+<p>Rte_ReadHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Start(data) and </p>
+<p>Rte_ReadHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Return(data) do not have any side effects. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>50 / 76 </p>
+<p> </p>
+<p> </p>
+<p>When Rte_Read reads data from a component or BSW with lower safety level, sanity </p>
+<p>checks have to be applied to the input data. </p>
+<p> </p>
+<p> </p>
+<p><b>6.6.2.3 </b></p>
+<p><b>Configuration Variant With IsUpdated </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> no indirect API </p>
+<p><b>&gt; </b> alive timeout is not configured </p>
+<p><b>&gt; </b> invalidation is not configured </p>
+<p><b>&gt; </b> no data prototype mapping </p>
+<p><b>&gt; </b> is updated is configured </p>
+<p><b>&gt; </b> never received is not configured </p>
+<p><b>&gt; </b> sender is connected </p>
+<p><b>&gt; </b> intra-ECU or inter-ECU communication </p>
+<p><b>6.6.2.4 </b></p>
+<p><b>Generated Code With IsUpdated </b></p>
+<p>Rte_Read with configured IsUpdated is similar to the variant without IsUpdated. However, </p>
+<p>in the IsUpdated case, Rte_Read is always implemented as function in Rte_&lt;oa&gt;.c. </p>
+<p> </p>
+<p> </p>
+<p>/****************************************************************************** </p>
+<p> * Update Flags for each Receiver with enableUpdate != 0 </p>
+<p> *****************************************************************************/ </p>
+<p># define RTE_START_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>VAR(Rte_&lt;oa&gt;_RxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;oa&gt;_RxUpdateFlags = { </p>
+<p>  0 </p>
+<p>}; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p># define Rte_&lt;oa&gt;_RxUpdateFlagsInit() (Rte_MemClr(&amp;Rte_&lt;oa&gt;_RxUpdateFlags, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>51 / 76 </p>
+<p>sizeof(Rte_&lt;oa&gt;_RxUpdateFlagsType))) </p>
+<p> </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, RTE_CODE) Rte_Read_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(&lt;tp&gt; data) </p>
+<p>{ </p>
+<p>  Std_ReturnType ret = RTE_E_OK; </p>
+<p> </p>
+<p>  Rte_ReadHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Start(data); </p>
+<p>  &lt;Lock&gt;(); </p>
+<p>*(data) = Rte_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt; ; </p>
+<p>  Rte_&lt;oa&gt;_RxUpdateFlags.Rte_RxUpdate_&lt;ci&gt;_&lt;p&gt;_&lt;d&gt; = </p>
+<p>Rte_&lt;soa&gt;_RxUpdateFlags.Rte_RxUpdate_&lt;ci&gt;_&lt;p&gt;_&lt;d&gt;_Sender; </p>
+<p>  &lt;UnLock&gt;(); </p>
+<p>  Rte_ReadHook_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;_Return(data); </p>
+<p> </p>
+<p>  return ret; </p>
+<p>} </p>
+<p> </p>
+<p>#define RTE_STOP_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>The variable Rte_&lt;soa&gt;_RxUpdateFlags is declared in Rte_&lt;soa&gt;.c as: </p>
+<p> </p>
+<p># define RTE_START_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>VAR(Rte_&lt;soa&gt;_RxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;soa&gt;_RxUpdateFlags = { </p>
+<p>  0 </p>
+<p>}; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p># define Rte_&lt;soa&gt;_RxUpdateFlagsInit() (Rte_MemClr(&amp;Rte_&lt;soa&gt;_RxUpdateFlags, </p>
+<p>sizeof(Rte_&lt;soa&gt;_RxUpdateFlagsType))) </p>
+<p> </p>
+<p>For systems where the compiler does not initialize global variables, the API </p>
+<p>Rte_InitMemory needs to call Rte_&lt;oa&gt;_RxUpdateFlagsInit() and </p>
+<p>Rte_&lt;soa&gt;_RxUpdateFlagsInit(). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>52 / 76 </p>
+<p> </p>
+<p>The Update flags are declared in Rte_Type.h </p>
+<p>typedef struct </p>
+<p>{ </p>
+<p>  Rte_BitType Rte_RxUpdate_&lt;rci&gt;_&lt;rp&gt;_&lt;rd&gt; : 1; </p>
+<p>} Rte_&lt;oa&gt;_RxUpdateFlagsType; </p>
+<p> </p>
+<p>typedef struct </p>
+<p>{ </p>
+<p>  Rte_BitType Rte_RxUpdate_&lt;rci&gt;_&lt;rp&gt;_&lt;rd&gt;_Sender : 1; </p>
+<p>} Rte_&lt;soa&gt;_RxUpdateFlagsType; </p>
+<p> </p>
+<p> </p>
+<p># define RTE_START_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern VAR(Rte_&lt;soa&gt;_RxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;soa&gt;_RxUpdateFlags; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p> </p>
+<p># define RTE_START_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern VAR(Rte_&lt;oa&gt;_RxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;oa&gt;_RxUpdateFlags; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>Please note that in case of inter-ECU sender/receiver communication &lt;soa&gt; is the BSW </p>
+<p>OS Application. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>53 / 76 </p>
+<p><b>6.6.3 </b></p>
+<p><b>Rte_IsUpdated </b></p>
+<p><b>6.6.3.1 </b></p>
+<p><b>Configuration Variant </b></p>
+<p> </p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> no indirect API </p>
+<p><b>&gt; </b> alive timeout is not configured </p>
+<p><b>&gt; </b> invalidation is not configured </p>
+<p><b>&gt; </b> is updated is configured </p>
+<p><b>&gt; </b> never received is not configured </p>
+<p><b>&gt; </b> sender is connected </p>
+<p><b>&gt; </b> intra-ECU or inter-ECU communication </p>
+<p><b>6.6.3.2 </b></p>
+<p><b>Generated Code </b></p>
+<p> </p>
+<p>Rte_&lt;c&gt;.h defines Rte_IsUpdated as follows: </p>
+<p>#  define Rte_IsUpdated_&lt;p&gt;_&lt;d&gt; Rte_IsUpdated_&lt;c&gt;_&lt;p&gt;_&lt;d&gt; </p>
+<p>#  define Rte_IsUpdated_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;() </p>
+<p>((Rte_&lt;oa&gt;_RxUpdateFlags.Rte_RxUpdate_&lt;rci&gt;_&lt;rc&gt;_&lt;rd&gt; == </p>
+<p>Rte_&lt;soa&gt;_RxUpdateFlags.Rte_RxUpdate_&lt;rci&gt;_&lt;rp&gt;_&lt;rd&gt;_Sender) ? FALSE : TRUE) </p>
+<p> </p>
+<p>The Update flags are declared in Rte_Type.h </p>
+<p> </p>
+<p>/****************************************************************************** </p>
+<p> *  LOCAL DATA TYPES AND STRUCTURES </p>
+<p> *****************************************************************************/ </p>
+<p> </p>
+<p>typedef unsigned int Rte_BitType; </p>
+<p> </p>
+<p>typedef struct </p>
+<p>{ </p>
+<p>  Rte_BitType Rte_RxUpdate_&lt;rci&gt;_&lt;rp&gt;_&lt;rd&gt; : 1; </p>
+<p>} Rte_&lt;oa&gt;_RxUpdateFlagsType; </p>
+<p> </p>
+<p>typedef struct </p>
+<p>{ </p>
+<p>  Rte_BitType Rte_RxUpdate_&lt;rci&gt;_&lt;rp&gt;_&lt;rd&gt;_Sender :1;  </p>
+<p>} Rte_&lt;soa&gt;_RxUpdateFlagsType; </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>54 / 76 </p>
+<p> </p>
+<p> </p>
+<p>#  define RTE_START_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p>#  include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern VAR(Rte_&lt;oa&gt;_RxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;oa&gt;_RxUpdateFlags; </p>
+<p> </p>
+<p>#  define RTE_STOP_SEC_VAR_&lt;oa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p>#  include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#  define RTE_START_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p>#  include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern VAR(Rte_&lt;soa&gt;_RxUpdateFlagsType, RTE_VAR_ZERO_INIT&lt;nocache&gt;) </p>
+<p>Rte_&lt;soa&gt;_RxUpdateFlags; </p>
+<p> </p>
+<p>#  define RTE_STOP_SEC_VAR_&lt;soa&gt;&lt;nocache&gt;_ZERO_INIT_UNSPECIFIED </p>
+<p>#  include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p> </p>
+<p>Variable initialization happens in Rte.c as described for the Rte_Read and Rte_Write APIs </p>
+<p>(see 6.6.1.4 and 6.6.2.4). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>55 / 76 </p>
+<p><b>6.6.4 </b></p>
+<p><b>Rte_IrvWrite </b></p>
+<p><b>6.6.4.1 </b></p>
+<p><b>Configuration Variant </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>6.6.4.2 </b></p>
+<p><b>Generated Code </b></p>
+<p>When </p>
+<p>the </p>
+<p>inter </p>
+<p>runnables </p>
+<p>variable </p>
+<p>can </p>
+<p>be </p>
+<p>accessed </p>
+<p>atomically </p>
+<p>by </p>
+<p>the </p>
+<p>ECU </p>
+<p>Rte_IrvWrite_&lt;re&gt;_&lt;name&gt; is declared as macro that writes to a global RTE variable. </p>
+<p># define RTE_START_SEC_VAR_&lt;oa&gt;_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern VAR(&lt;t&gt;, RTE_VAR_INIT) Rte_Irv_&lt;ci&gt;_&lt;name&gt;; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;oa&gt;_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p># define Rte_IrvWrite_&lt;re&gt;_&lt;name&gt;(data) (Rte_Irv_&lt;ci&gt;_&lt;name&gt; = (data)) </p>
+<p> </p>
+<p>Otherwise, the API is implemented in Rte_&lt;oa&gt;.c </p>
+<p>#define RTE_START_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(void, RTE_CODE) Rte_IrvWrite_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;(&lt;t&gt; data) </p>
+<p>{ </p>
+<p>  Rte_IrvWriteHook_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;_Start(data); </p>
+<p>  &lt;Lock&gt;(); </p>
+<p>  Rte_Irv_&lt;ci&gt;_&lt;name&gt; = data; </p>
+<p>&lt;UnLock&gt;(); </p>
+<p>Rte_IrvWriteHook_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;_Return(data); </p>
+<p>} </p>
+<p> </p>
+<p>#define RTE_STOP_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>and Rte_&lt;c&gt;.h only contains a define to the function: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>56 / 76 </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(void, RTE_CODE) Rte_IrvWrite_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;(&lt;t&gt; data); </p>
+<p> </p>
+<p># define RTE_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#define Rte_IrvWrite_&lt;re&gt;_&lt;name&gt; Rte_IrvWrite_&lt;c&gt;_&lt;re&gt;_&lt;name&gt; </p>
+<p> </p>
+<p>In both cases the global variable in Rte_&lt;oa&gt;.c is declared as </p>
+<p>#define RTE_START_SEC_VAR_&lt;oa&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>VAR(&lt;dt&gt;, RTE_VAR_INIT) Rte_Irv_&lt;ci&gt;_&lt;name&gt; = &lt;initializer&gt;; </p>
+<p>#define RTE_STOP_SEC_VAR_&lt;oa&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>where &lt;initializer&gt; is the C representation of the init value that is configured for the inter-</p>
+<p>runnable variable. </p>
+<p> </p>
+<p>For systems where the compiler does not initialize global variables, the API </p>
+<p>Rte_InitMemory needs to do the initialization: </p>
+<p>Rte_Irv_&lt;ci&gt;_&lt;name&gt; = &lt;initializer&gt;; </p>
+<p> </p>
+<p>If the datatype can be read and written atomically, the &lt;LockInterupts&gt;() and &lt;UnLock&gt;() </p>
+<p>calls are omitted from the Rte_IrvWrite API. </p>
+<p> </p>
+<p>When Rte_IrvWrite is not a macro, it needs to be assured that the macros </p>
+<p>Rte_IrvWriteHook_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;_Start(data) and </p>
+<p>Rte_IrvWriteHook_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;_Return(data) do not have any side effects. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>57 / 76 </p>
+<p><b>6.6.5 </b></p>
+<p><b>Rte_IrvRead </b></p>
+<p><b>6.6.5.1 </b></p>
+<p><b>Configuration Variant </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>6.6.5.2 </b></p>
+<p><b>Generated Code </b></p>
+<p>When </p>
+<p>the </p>
+<p>inter </p>
+<p>runnables </p>
+<p>variable </p>
+<p>can </p>
+<p>be </p>
+<p>accessed </p>
+<p>atomically </p>
+<p>by </p>
+<p>the </p>
+<p>ECU </p>
+<p>Rte_IrvRead_&lt;re&gt;_&lt;name&gt; is declared as macro that reads a global RTE variable. </p>
+<p># define RTE_START_SEC_VAR_&lt;oa&gt;_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern VAR(&lt;t&gt;, RTE_VAR_INIT) Rte_Irv_&lt;ci&gt;_&lt;name&gt;; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_&lt;oa&gt;_INIT_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p># define Rte_IrvRead_&lt;re&gt;_&lt;name&gt;(data) Rte_Irv_&lt;ci&gt;_&lt;name&gt; </p>
+<p> </p>
+<p>Otherwise, the API is implemented in Rte_&lt;oa&gt;.c </p>
+<p>#define RTE_START_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(&lt;t&gt;, RTE_CODE) Rte_IrvRead_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;(void) </p>
+<p>{ </p>
+<p>&lt;t&gt; irvValue; </p>
+<p> </p>
+<p>Rte_IrvReadHook_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;_Start(); </p>
+<p> </p>
+<p>  &lt;Lock&gt;(); </p>
+<p>  irvValue = Rte_Irv_&lt;ci&gt;_&lt;name&gt;; </p>
+<p>&lt;UnLock&gt;(); </p>
+<p> </p>
+<p>Rte_IrvReadHook_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;_Return(); </p>
+<p> </p>
+<p>return irvValue; </p>
+<p>} </p>
+<p> </p>
+<p>#define RTE_STOP_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>58 / 76 </p>
+<p> </p>
+<p>and Rte_&lt;c&gt;.h only contains a define to  the function: </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(&lt;t&gt;, RTE_CODE) Rte_IrvRead_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;(void); </p>
+<p> </p>
+<p># define RTE_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#define Rte_IrvRead_&lt;re&gt;_&lt;name&gt; Rte_IrvRead_&lt;c&gt;_&lt;re&gt;_&lt;name&gt; </p>
+<p> </p>
+<p>In both cases the global variable in Rte_&lt;oa&gt;.c is declared as </p>
+<p>#define RTE_START_SEC_VAR_&lt;oa&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>VAR(&lt;dt&gt;, RTE_VAR_INIT) Rte_Irv_&lt;ci&gt;_&lt;name&gt; = &lt;initializer&gt;; </p>
+<p>#define RTE_STOP_SEC_VAR_&lt;oa&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>where &lt;initializer&gt; is the C representation of the init value that is configured for the inter-</p>
+<p>runnable variable. </p>
+<p> </p>
+<p> </p>
+<p>For systems where the compiler does not initialize global variables, the API </p>
+<p>Rte_InitMemory needs to do the initialization: </p>
+<p>Rte_Irv_&lt;ci&gt;_&lt;name&gt; = &lt;initializer&gt;; </p>
+<p> </p>
+<p>If the datatype can be read and written atomically, the &lt;Lock&gt;() and &lt;UnLock&gt;() calls are </p>
+<p>omitted from the Rte_IrvRead API. </p>
+<p> </p>
+<p>When Rte_IrvRead is not a macro, it needs to be assured that the macros </p>
+<p>Rte_IrvReadHook_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;_Start() and </p>
+<p>Rte_IrvReadHook_&lt;c&gt;_&lt;re&gt;_&lt;name&gt;_Return() do not have any side effects. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>59 / 76 </p>
+<p><b>6.6.6 </b></p>
+<p><b>Rte_Pim </b></p>
+<p><b>6.6.6.1 </b></p>
+<p><b>Configuration Variant </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>6.6.6.2 </b></p>
+<p><b>Generated Code </b></p>
+<p>The API Rte_Pim is declared as access to a global RTE variable in Rte_&lt;c&gt;.h </p>
+<p> </p>
+<p> </p>
+<p>#   define RTE_START_SEC_VAR_DEFAULT_RTE_&lt;oa&gt;_PIM_GROUP_UNSPECIFIED </p>
+<p>#   include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern VAR(&lt;t&gt;, RTE_VAR_DEFAULT_RTE_&lt;oa&gt;_PIM_GROUP) Rte_&lt;ci&gt;_&lt;name&gt;; </p>
+<p> </p>
+<p>#   define RTE_STOP_SEC_VAR_DEFAULT_RTE_&lt;oa&gt;_PIM_GROUP_UNSPECIFIED </p>
+<p>#   include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p> </p>
+<p>#  define Rte_Pim_&lt;name&gt;() \\ </p>
+<p>(&amp;Rte_&lt;ci&gt;_&lt;name&gt;) </p>
+<p> </p>
+<p> </p>
+<p>Depending on the configuration of the memory section (see RTE Technical Reference) the </p>
+<p>DEFAULT_RTE_&lt;oa&gt;_PIM_GROUP string is replaced by the configured group name. </p>
+<p> </p>
+<p>The Rte_&lt;c&gt;_&lt;name&gt; variable is declared in Rte_&lt;oa&gt;.c: </p>
+<p> </p>
+<p># define RTE_START_SEC_VAR_DEFAULT_RTE_&lt;oa&gt;_PIM_GROUP_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>VAR(&lt;t&gt;, RTE_VAR_DEFAULT_RTE_&lt;d&gt;_PIM_GROUP) Rte_&lt;ci&gt;_&lt;name&gt;; </p>
+<p> </p>
+<p># define RTE_STOP_SEC_VAR_DEFAULT_RTE_&lt;oa&gt;_PIM_GROUP_UNSPECIFIED </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>60 / 76 </p>
+<p><b>6.6.7 </b></p>
+<p><b>Rte_CData </b></p>
+<p><b>6.6.7.1 </b></p>
+<p><b>Configuration Variant </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> no online calibration </p>
+<p><b>6.6.7.2 </b></p>
+<p><b>Generated Code </b></p>
+<p>The API Rte_CData is declared as access to a global RTE variable in Rte_&lt;c&gt;.h </p>
+<p>#   define RTE_START_SEC_CONST_DEFAULT_RTE_CDATA_GROUP_UNSPECIFIED </p>
+<p>#   include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern CONST(&lt;t&gt;, RTE_CONST_DEFAULT_RTE_CDATA_GROUP) Rte_&lt;c&gt;_&lt;name&gt;; </p>
+<p> </p>
+<p>#   define RTE_STOP_SEC_CONST_DEFAULT_RTE_CDATA_GROUP_UNSPECIFIED </p>
+<p>#   include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#  define Rte_CData_&lt;name&gt;() (Rte_&lt;c&gt;_&lt;name&gt;) </p>
+<p> </p>
+<p>Depending on the configuration of the memory section (see RTE Technical Reference) the </p>
+<p>DEFAULT_RTE_CDATA_GROUP string is replaced by the configured group name. </p>
+<p>The Rte_&lt;c&gt;_&lt;name&gt; variable is declared in Rte_&lt;oa&gt;.c: </p>
+<p> </p>
+<p>#define RTE_START_SEC_CONST_DEFAULT_RTE_CDATA_GROUP_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>CONST(&lt;t&gt;, RTE_CONST_DEFAULT_RTE_CDATA_GROUP) Rte_&lt;c&gt;_&lt;name&gt; = &lt;initializer&gt;; </p>
+<p> </p>
+<p>#define RTE_STOP_SEC_CONST_DEFAULT_RTE_CDATA_GROUP_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>where &lt;initializer&gt; is the C representation of the init value that is configured for the </p>
+<p>calibration parameter = &lt;initializer&gt; is omitted when the calibration parameter does not </p>
+<p>have an init value. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>61 / 76 </p>
+<p><b>6.6.8 </b></p>
+<p><b>Rte_Prm </b></p>
+<p><b>6.6.8.1 </b></p>
+<p><b>Configuration Variant </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> no indirect API </p>
+<p><b>&gt; </b> no online calibration </p>
+<p><b>&gt; </b> calibration port is connected </p>
+<p><b>6.6.8.2 </b></p>
+<p><b>Generated Code </b></p>
+<p>When  the  attribute  “EnableTakeAddress”  is  not  set  for  the  calibration  port,  the  API </p>
+<p>Rte_Prm is declared as access to a global RTE variable in Rte_&lt;c&gt;.h </p>
+<p>#   define RTE_START_SEC_CONST_DEFAULT_RTE_CALPRM_GROUP_UNSPECIFIED </p>
+<p>#   include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>extern CONST(&lt;t&gt;, RTE_CONST_DEFAULT_RTE_CALPRM_GROUP) Rte_&lt;sc&gt;_&lt;sp&gt;_&lt;sd&gt;; </p>
+<p> </p>
+<p>#   define RTE_STOP_SEC_CONST_DEFAULT_RTE_CALPRM_GROUP_UNSPECIFIED </p>
+<p>#   include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#  define Rte_Prm_&lt;p&gt;_&lt;d&gt;() (Rte_&lt;sc&gt;_&lt;sp&gt;_&lt;sd&gt; ) </p>
+<p> </p>
+<p>Depending on the configuration of the memory section (see RTE Technical Reference) the </p>
+<p>DEFAULT_RTE_CALPRM_GROUP string is replaced by the configured group name. </p>
+<p> </p>
+<p>When “EnableTakeAddress” is set for the calibration port Rte_&lt;c&gt;.h maps the API to a </p>
+<p>function in Rte_&lt;oa&gt;.c </p>
+<p> </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(&lt;t&gt;, RTE_CODE) Rte_Prm_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(void); </p>
+<p> </p>
+<p># define RTE_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#  define Rte_Prm_&lt;p&gt;_&lt;d&gt; Rte_Prm_&lt;c&gt;_&lt;p&gt;_&lt;d&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>62 / 76 </p>
+<p>Rte_&lt;oa&gt;.c then contains: </p>
+<p> </p>
+<p>FUNC(&lt;t&gt;, RTE_CODE) Rte_Prm_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(void) </p>
+<p>{ </p>
+<p>   return Rte_&lt;sc&gt;_&lt;sp&gt;_&lt;sd&gt;; </p>
+<p>} </p>
+<p> </p>
+<p>In both cases the Rte_&lt;sc&gt;_&lt;sp&gt;_&lt;sd&gt; variable is declared in Rte.c: </p>
+<p> </p>
+<p>#define RTE_START_SEC_CONST_DEFAULT_RTE_CALPRM_GROUP_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>CONST(&lt;t&gt;, RTE_CONST_DEFAULT_RTE_CALPRM_GROUP) Rte_&lt;sc&gt;_&lt;sp&gt;_&lt;sd&gt;  = </p>
+<p>&lt;initializer&gt;; </p>
+<p> </p>
+<p>#define RTE_STOP_SEC_CONST_DEFAULT_RTE_CALPRM_GROUP_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>where &lt;initializer&gt; is the C representation of the init value that is configured for the </p>
+<p>calibration parameter. No initializer is used when the calibration parameter does not have </p>
+<p>an init value. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>63 / 76 </p>
+<p><b>6.6.9 </b></p>
+<p><b>Rte_Mode </b></p>
+<p><b>6.6.9.1 </b></p>
+<p><b>Configuration Variant </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> no indirect API </p>
+<p><b>&gt; </b> mode port is connected </p>
+<p><b>6.6.9.2 </b></p>
+<p><b>Generated Code </b></p>
+<p>The API Rte_Mode is declared as access to a global RTE variable in Rte_&lt;c&gt;.h </p>
+<p> </p>
+<p>When </p>
+<p>the </p>
+<p>attribute </p>
+<p>“EnableTakeAddress” </p>
+<p>is </p>
+<p>not </p>
+<p>set </p>
+<p>for </p>
+<p>the </p>
+<p>mode </p>
+<p>port, </p>
+<p>the  API </p>
+<p>is </p>
+<p>implemented as macro. </p>
+<p> </p>
+<p>#  define RTE_START_SEC_VAR&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#  include &quot;MemMap.h&quot; </p>
+<p>extern VAR(&lt;t&gt;, RTE_VAR_INIT&lt;nocache&gt;) Rte_ModeMachine_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt;;  </p>
+<p>#  define RTE_STOP_SEC_VAR&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#  include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#  define Rte_Mode_&lt;p&gt;_&lt;d&gt;() Rte_ModeMachine_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt;    </p>
+<p> </p>
+<p>Otherwise the API is defined to a function  </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p>FUNC(&lt;t&gt;, RTE_CODE) Rte_Mode_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(void);  </p>
+<p># define RTE_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#  define Rte_Mode_&lt;p&gt;_&lt;d&gt; Rte_Mode_&lt;c&gt;_&lt;p&gt;_&lt;d&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>that is implemented in Rte_&lt;oa&gt;.c </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>64 / 76 </p>
+<p> </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(&lt;t&gt;, RTE_CODE) Rte_Mode_&lt;c&gt;_&lt;p&gt;_&lt;d&gt;(void)  </p>
+<p>{ </p>
+<p>  return Rte_ModeMachine_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt;;  </p>
+<p>} </p>
+<p> </p>
+<p># define RTE_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>In both cases the global variable in Rte_&lt;soa&gt;.c is declared as </p>
+<p> </p>
+<p>#define RTE_START_SEC_VAR&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>VAR(&lt;t&gt;, RTE_VAR_INIT&lt;nocache&gt;) Rte_ModeMachine_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt; = &lt;mode&gt;; </p>
+<p>#define RTE_STOP_SEC_VAR&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>where &lt;mode&gt; is the mode mode define for the configured init mode. </p>
+<p> </p>
+<p>The extern declaration is contained in Rte_Type.h: </p>
+<p>#define RTE_START_SEC_VAR&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p>extern VAR(&lt;t&gt;, RTE_VAR_INIT&lt;nocache&gt;) Rte_ModeMachine_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt;; </p>
+<p>#define RTE_STOP_SEC_VAR&lt;nocache&gt;_INIT_UNSPECIFIED </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>For systems where the compiler does not initialize global variables, the API </p>
+<p>Rte_InitMemory needs to do the initialization: </p>
+<p> </p>
+<p>Rte_ModeMachine_&lt;sci&gt;_&lt;sp&gt;_&lt;sd&gt; = &lt;mode&gt;; </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>65 / 76 </p>
+<p><b>6.6.10 Rte_Call </b></p>
+<p><b>6.6.10.1 Configuration Variant </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> no indirect API </p>
+<p><b>&gt; </b> Synchronous call </p>
+<p><b>&gt; </b> Direct call: </p>
+<p><b>&gt; </b> server runnable is not mapped </p>
+<p><b>&gt; </b> server runnable is mapped to the same task </p>
+<p><b>&gt; </b> server runnable has CanBeInvokedConcurrently set to true </p>
+<p><b>6.6.10.2 Generated Code </b></p>
+<p>When  the  server  runnable  has  a  return  code  and  no  port  defined  arguments,  the  API </p>
+<p>Rte_Call is declared in Rte_&lt;c&gt;.h as macro: </p>
+<p> </p>
+<p>#  define &lt;c&gt;_START_SEC_CODE </p>
+<p>#  include &quot;MemMap.h&quot; </p>
+<p>FUNC(Std_ReturnType, &lt;c&gt;_CODE) &lt;sres&gt;(&lt;arglist&gt;); </p>
+<p>#  define &lt;c&gt;_STOP_SEC_CODE </p>
+<p>#  include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#  define Rte_Call_&lt;p&gt;_&lt;o&gt; &lt;sres&gt; </p>
+<p> </p>
+<p>When  the  server  runnable  does  not  have  a  return  code  or  if  there  are  port  defined </p>
+<p>arguments and “EnableTakeAddress” is not set Rte_Call is declared as: </p>
+<p>#  define &lt;c&gt;_START_SEC_CODE </p>
+<p>#  include &quot;MemMap.h&quot; </p>
+<p>FUNC(void, &lt;c&gt;_CODE) &lt;sres&gt;(&lt;parglist&gt;&lt;arglist&gt;); </p>
+<p>#  define &lt;c&gt;_STOP_SEC_CODE </p>
+<p>#  include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>#  define Rte_Call_&lt;p&gt;_&lt;o&gt;(&lt;arglist&gt;) (&lt;sres&gt;(&lt;parglist&gt;&lt;arglist), </p>
+<p>((Std_ReturnType)RTE_E_OK)) </p>
+<p> </p>
+<p>When  the  server  runnable  does  not  have  a  return  code  or  if  there  are  port  defined </p>
+<p>arguments and “EnableTakeAddress” is set, Rte_Call is declared as: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>66 / 76 </p>
+<p> </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, RTE_CODE) Rte_Call_&lt;c&gt;_&lt;p&gt;_&lt;o&gt;(&lt;parglist&gt;&lt;arglist&gt;); </p>
+<p> </p>
+<p># define RTE_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p># define Rte_Call_&lt;p&gt;_&lt;o&gt; Rte_Call_&lt;c&gt;_&lt;p&gt;_&lt;o&gt; </p>
+<p> </p>
+<p>and Rte_&lt;oa&gt;.c contains the code </p>
+<p> </p>
+<p># define RTE_START_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, RTE_CODE) Rte_Call_&lt;c&gt;_&lt;p&gt;_&lt;o&gt;(&lt;parglist&gt;&lt;arglist&gt;) </p>
+<p>{ </p>
+<p>  Std_ReturnType ret = RTE_E_OK;  </p>
+<p>  Rte_CallHook_&lt;c&gt;_&lt;p&gt;_&lt;o&gt;_Start(&lt;parglist&gt;&lt;arglist&gt;); </p>
+<p> </p>
+<p>  Rte_Runnable_&lt;sc&gt;_&lt;sre&gt;_Start(&lt;parglist&gt;&lt;arglist&gt;);   </p>
+<p>  &lt;sres&gt;(&lt;arglist&gt;); </p>
+<p>  Rte_Runnable_&lt;sc&gt;_&lt;sre&gt;_Return(&lt;parglist&gt;&lt;arglist&gt;);  </p>
+<p> </p>
+<p>  Rte_CallHook_&lt;c&gt;_&lt;p&gt;_&lt;o&gt;_Return(&lt;parglist&gt;&lt;arglist&gt;); </p>
+<p>  return ret; </p>
+<p>} </p>
+<p> </p>
+<p># define RTE_STOP_SEC_CODE </p>
+<p># include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>The return value of the Rte_Call API needs to be evaluated when the server operation has </p>
+<p>configured application return codes. </p>
+<p>When Rte_Call is not a macro, it needs to be assured that the Rte_CallHook_ and </p>
+<p>Rte_Runnable_ macros do not have any side effects. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>67 / 76 </p>
+<p><b>6.6.11 Rte_Enter </b></p>
+<p><b>6.6.11.1 Configuration Variant </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> Implementation method is set to OS interrupt blocking </p>
+<p><b>6.6.11.2 Generated Code </b></p>
+<p>The API Rte_Enter is declared in Rte_&lt;c&gt;.h as </p>
+<p> </p>
+<p>#  define Rte_Enter_&lt;name&gt;() \ </p>
+<p>  { \ </p>
+<p>    Rte_EnterHook_&lt;c&gt;_&lt;name&gt;_Start(); \ </p>
+<p>    SuspendOSInterrupts(); \ </p>
+<p>    Rte_EnterHook_&lt;c&gt;_&lt;name&gt;_Return(); \ </p>
+<p>} </p>
+<p> </p>
+<p>It needs to be assured that the macros Rte_EnterHook_&lt;c&gt;_&lt;name&gt;_Start() and </p>
+<p>Rte_EnterHook_&lt;c&gt;_&lt;name&gt;_Return() do not have any side effects. </p>
+<p> </p>
+<p>It  has  to  be  assured  that  no  included  non-OS  header  or  SWC  code  redefines  the </p>
+<p>SuspendOSInterrupts() and ResumeOSInterrupts() calls. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>68 / 76 </p>
+<p><b>6.6.12 Rte_Exit </b></p>
+<p><b>6.6.12.1 </b></p>
+<p><b>Configuration Variant </b></p>
+<p><b>&gt; </b> source code SWC </p>
+<p><b>&gt; </b> no support for multiple instantiation </p>
+<p><b>&gt; </b> Implementation method is set to OS interrupt blocking </p>
+<p><b>6.6.12.2 Generated Code </b></p>
+<p>The API Rte_Exit is declared in Rte_&lt;c&gt;.h as </p>
+<p> </p>
+<p>#  define Rte_Exit_&lt;name&gt;() \ </p>
+<p>  { \ </p>
+<p>    Rte_ExitHook_&lt;c&gt;_&lt;name&gt;_Start(); \ </p>
+<p>    ResumeOSInterrupts(); \ </p>
+<p>    Rte_ExitHook_&lt;c&gt;_&lt;name&gt;_Return(); \ </p>
+<p>} </p>
+<p> </p>
+<p>It  has  to  be  assured  that  no  included  non-OS  header  or  SWC  code  redefines  the </p>
+<p>SuspendOSInterrupts() and ResumeOSInterrupts() calls. </p>
+<p> </p>
+<p>It needs to be assured that the macros Rte_ExitHook_&lt;c&gt;_&lt;name&gt;_Start() and </p>
+<p>Rte_ExitHook_&lt;c&gt;_&lt;name&gt;_Return() are do not have any side effects. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>69 / 76 </p>
+<p><b>6.7 </b></p>
+<p><b>BSW specifc RTE APIs </b></p>
+<p><b>6.7.1 </b></p>
+<p><b>SchM_Enter </b></p>
+<p><b>6.7.1.1 </b></p>
+<p><b>Configuration Variant </b></p>
+<p><b>&gt; </b> source code BSW </p>
+<p><b>&gt; </b> Implementation method is set to All or OS interrupt blocking </p>
+<p><b>6.7.1.2 </b></p>
+<p><b>Generated Code </b></p>
+<p>The API SchM_Enter is declared in SchM_&lt;bsw&gt;.h as </p>
+<p> </p>
+<p>#  define SchM_Enter_&lt;bsw&gt;_&lt;name&gt;() \ </p>
+<p>  { \ </p>
+<p>    SuspendAllInterrupts(); \ </p>
+<p>} </p>
+<p> </p>
+<p>for  ImplementationMethod  All  Interrupt  Blocking. </p>
+<p>Otherwise </p>
+<p>SuspendOSInterrupts()  is </p>
+<p>called. </p>
+<p>It  has  to  be  assured  that  no  included  non-OS  header  or  BSW  code  redefines  the </p>
+<p>SuspendAllInterrupts()/SuspendOSInterrupts() </p>
+<p>and </p>
+<p>ResumeAllInterrupts()/ResumeOSInterupts() calls. </p>
+<p><b>6.7.2 </b></p>
+<p><b>SchM_Exit </b></p>
+<p><b>6.7.2.1 </b></p>
+<p><b>Configuration Variant </b></p>
+<p><b>&gt; </b> source code BSW </p>
+<p><b>&gt; </b> Implementation method is set to All or OS interrupt blocking </p>
+<p><b>6.7.2.2 </b></p>
+<p><b>Generated Code </b></p>
+<p>The API SchM_Exit is declared in SchM_&lt;bsw&gt;.h as </p>
+<p> </p>
+<p>#  define SchM_Exit_&lt;bsw&gt;_&lt;name&gt;() \ </p>
+<p>  { \ </p>
+<p>    ResumeAllInterrupts(); \ </p>
+<p>} </p>
+<p> </p>
+<p>for </p>
+<p>ImplementationMethod  All </p>
+<p>Interrupt </p>
+<p>Blocking. </p>
+<p>Otherwise </p>
+<p>ResumeOSInterrupts() </p>
+<p>is </p>
+<p>called. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>70 / 76 </p>
+<p>It  has  to  be  assured  that  no  included  non-OS  header  or  BSW  code  redefines  the </p>
+<p>SuspendAllInterrupts()/SuspendOSInterrupts() </p>
+<p>and </p>
+<p>ResumeAllInterrupts()/ResumeOSInterupts() calls. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>71 / 76 </p>
+<p><b>6.8 </b></p>
+<p><b>RTE Lifecycle APIs </b></p>
+<p><b>6.8.1 </b></p>
+<p><b>Rte_Start </b></p>
+<p>Rte_Start is not called from the ASIL context. </p>
+<p><b>6.8.2 </b></p>
+<p><b>Rte_Stop </b></p>
+<p>Rte_Stop is not called from the ASIL context. </p>
+<p><b>6.8.3 </b></p>
+<p><b>Rte_InitMemory </b></p>
+<p>Rte_InitMemory needs to be called before the OS sets up the memory protection when the </p>
+<p>compiler does not initialize global variables. The method itself and the method it calls need </p>
+<p>to do all initialization for the APIs that are listed in chapter 6.6. </p>
+<p><b>6.9 </b></p>
+<p><b>RTE Internal Functions </b></p>
+<p><b>6.9.1 </b></p>
+<p><b>Rte_MemCpy </b></p>
+<p>Rte_MemCpy is called by RTE code that is called from the ASIL SWCs in order to copy </p>
+<p>data from the memory location “source” to the memory location „destination“. When </p>
+<p>Rte_MemCpy is called from the ASIL SWCs it needs to be checked that the parameter </p>
+<p>num which specifies the number of bytes that shall be copied is of type uint16 and that the </p>
+<p>memory regions “destination” and “source” contain num bytes. Moreover destination needs </p>
+<p>to be writable. For larger data sizes, the generator uses a method Rte_MemCpy32 that </p>
+<p>copies in blocks of 4 byte when source and destination are aligned accordingly. </p>
+<p> </p>
+<p> </p>
+<p>FUNC(void, RTE_CODE) Rte_MemCpy(P2VAR(void, AUTOMATIC, RTE_APPL_VAR) </p>
+<p>destination, P2CONST(void, AUTOMATIC, RTE_APPL_DATA) source, uint16_least num) </p>
+<p> </p>
+<p>FUNC(void, RTE_CODE) Rte_MemCpy32(P2VAR(void, AUTOMATIC, RTE_APPL_VAR) </p>
+<p>destination, P2CONST(void, AUTOMATIC, RTE_APPL_DATA) source, uint16_least num) </p>
+<p> </p>
+<p>The functionality of Rte_MemCpy and Rte_MemCpy32 needs to be checked. </p>
+<p>Rte_MemCpy and Rte_MemCpy32 must not read and write outside the specified memory </p>
+<p>regions and the alignment requirements of the target platform need to be fulfilled. </p>
+<p><b>6.9.2 </b></p>
+<p><b>Rte_MemClr </b></p>
+<p>Rte_MemClr  is  not  called  from  the ASIL  SWCs.  It  is  used  for  the  initialization  of  global </p>
+<p>variables with zeros within Rte.c and Rte_&lt;oa&gt;.c.  </p>
+<p>STATIC  FUNC(void,  RTE_CODE)  Rte_MemClr(P2VAR(void,  AUTOMATIC,  RTE_VAR_NOINIT) </p>
+<p>ptr, uint16_least num); </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>72 / 76 </p>
+<p>It has to be checked, that the first parameter is a pointer to a writable variable and that the </p>
+<p>second parameter is the length of the variable. Rte_MemClr is not allowed to write outside </p>
+<p>the specified memory region. </p>
+<p><b>6.10 </b></p>
+<p><b>RTE Tasks </b></p>
+<p>It needs to be checked that Rte_&lt;oa&gt;.c contains the implementation of all RTE tasks that </p>
+<p>are assigned to ASIL OS Applications: </p>
+<p> </p>
+<p>TASK(&lt;name&gt;) </p>
+<p>{ </p>
+<p>  Rte_Task_Dispatch(&lt;name&gt;); </p>
+<p> </p>
+<p>  /* call runnable */ </p>
+<p>  Rte_Runnable_&lt;c&gt;_&lt;re&gt;_Start(); </p>
+<p>  &lt;res&gt;(); </p>
+<p>  Rte_Runnable_&lt;c&gt;_&lt;re&gt;_Return(); </p>
+<p> </p>
+<p>  (void)TerminateTask(); </p>
+<p>} </p>
+<p> </p>
+<p>It needs to be checked that the trace hooks </p>
+<p><b>&gt; </b> Rte_Task_Dispatch </p>
+<p><b>&gt; </b> Rte_Runnable_&lt;c&gt;_&lt;re&gt;_Start </p>
+<p><b>&gt; </b> Rte_Runnable_&lt;c&gt;_&lt;re&gt;_Return </p>
+<p>do not have any side effects. </p>
+<p>The task body is only allowed to contain calls to runnables and schedulable entities that </p>
+<p>are  mapped  to  the  task  in  the  configuration  and  calls  to  TerminateTask.  The  call  to </p>
+<p>TerminateTask needs to be the last operation in the task and it always needs to be done. </p>
+<p>It has to be assured that no included non-OS header or RTE code redefines the TASK() </p>
+<p>and TerminateTask() calls. </p>
+<p>The name within the TASK call needs to be the name of the configured OS task. </p>
+<p>For schedulable entities, the calls to the hooks are omitted by default. </p>
+<p><b>6.11 </b></p>
+<p><b>Verification of OS Configuration </b></p>
+<p>The integrator is responsible for correctly configuring the OS. </p>
+<p>It needs to be checked that the OS contains no trusted OS Applications that do not have </p>
+<p>the highest ASIL. </p>
+<p>It needs to be checked that the OS contains no tasks that are assigned to an ASIL  OS </p>
+<p>Application and that are not implemented with the given ASIL. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>73 / 76 </p>
+<p><b>6.12 </b></p>
+<p><b>Verification of Memory Mapping Configuration </b></p>
+<p>It needs to be verified that all variables Rte_&lt;sci&gt;_&lt;p&gt;_&lt;d&gt; of sender port data elements, </p>
+<p>Rte_&lt;oa&gt;_RxUpdateFlags, </p>
+<p>Rte_Irv_&lt;ci&gt;_&lt;name&gt; </p>
+<p>of </p>
+<p>inter-runnable </p>
+<p>variables </p>
+<p>and </p>
+<p>Rte_&lt;ci&gt;_&lt;name&gt;  of  per-instance  memories  from  ASIL  SWCs  are  mapped  to  memory </p>
+<p>sections of the SWC’s OS Application so that they are protected from writes outside this </p>
+<p>OS Application. </p>
+<p>When  the  variables  are  assigned  to  different  sections  or  when  other  RTE  variables  are </p>
+<p>assigned to the section, memory protection faults might occur. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>74 / 76 </p>
+<p><b>7 </b></p>
+<p><b>Safety Lifecycle Tailoring  </b></p>
+<p>The development of the MICROSAR RTE started as Safety Element out of context at the </p>
+<p>software unit level. </p>
+<p>The unit design is based on the requirements of the AUTOSAR RTE specification [1]. </p>
+<p>Based </p>
+<p>on </p>
+<p>the </p>
+<p>requirements </p>
+<p>and </p>
+<p>the </p>
+<p>RTE </p>
+<p>design </p>
+<p>a </p>
+<p>set </p>
+<p>of </p>
+<p>test </p>
+<p>cases </p>
+<p>with </p>
+<p>typical </p>
+<p>configurations were derived. The RTE was generated for the test cases and compiled with </p>
+<p>SWC stubs. Finally, the code was runtime tested on different target platforms and a MISRA </p>
+<p>analysis was performed. </p>
+<p>During the development of the MICROSAR RTE, assumptions regarding the architecture </p>
+<p>and  the  safety  requirements  were  made.  The  integrator  is  responsible  for  creating  a </p>
+<p>complete architecture design and for specifying the software safety requirements. He then </p>
+<p>needs to verify the assumptions that are listed within this document. </p>
+<p>As  the  generated  RTE  code  heavily  depends  on  the  input  configuration,  it  is  also  the </p>
+<p>responsibility of the integrator to integrate and test the generated RTE code. </p>
+<p>Furthermore, it needs to be verified that the generated code fulfils the safety requirements </p>
+<p>of the target system. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>75 / 76 </p>
+<p><b>8 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>8.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>DaVinci DEV </p>
+<p>DaVinci Developer: The SWC and RTE Configuration Editor. </p>
+<p>DaVinci CFG </p>
+<p>DaVinci Configurator: The BSW and RTE Configuration Editor. </p>
+<p>E2E PW </p>
+<p>E2E Protection Wrapper: Wrapper Functions to access the E2E Library </p>
+<p>Table 8-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p><b>8.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>ASIL </p>
+<p>Automotive Safety Integrity Level </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>E2E </p>
+<p>AUTOSAR End-to-End Communication Protection Library </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>H&amp;R </p>
+<p>Hazard and Risk Analysis </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISO </p>
+<p>International Organization for Standardization </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>MPU </p>
+<p>Memory Protection Unit (realized in hardware by the processor) </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SEooC </p>
+<p>Safety Element out of Context: a safety-related element which is not </p>
+<p>developed for a specific item </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>OS </p>
+<p>Operating System </p>
+<p>OS Application </p>
+<p>An OS Application is a set of tasks and ISRs with a partial common MPU </p>
+<p>setting </p>
+<p>TCL </p>
+<p>Tool Qualification Level </p>
+<p>QM </p>
+<p>Quality Management (used for software parts developed following only a </p>
+<p>standard quality management process) </p>
+<p>Table 8-2  </p>
+<p>Abbreviations </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Safety Guide MICROSAR RTE </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 4.8 </p>
+<p>based on template version 4.8.0 </p>
+<p>76 / 76 </p>
+<p><b>9 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b> News </p>
+<p><b>&gt; </b> Products </p>
+<p><b>&gt; </b> Demo software </p>
+<p><b>&gt; </b> Support </p>
+<p><b>&gt; </b> Training data </p>
+<p><b>&gt; </b> Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}
